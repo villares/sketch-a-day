@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s304"  # 20181029
+SKETCH_NAME = "s306"  # 20181031
 OUTPUT = ".png"
 GRID_SIZE = 24
 
@@ -15,18 +15,18 @@ def setup():
     init_grid(GRID_SIZE)
     
 def draw():
-    background(0)
-    stroke(255)
+    background(200)
+    stroke(0)
     for c in Cell.cells:
         c.plot()
     
-    for p in Node.nodes:
-        if rule(p.ix, p.iy):
-            if dist(p.x, p.y, mouseX, mouseY) < 5:
-                stroke(255, 0, 0)
-            else:
-                stroke(255)        
-            ellipse(p.x, p.y, 10, 10)    
+    # for p in Node.nodes:
+    #     if rule(p.ix, p.iy):
+    #         if dist(p.x, p.y, mouseX, mouseY) < 5:
+    #             stroke(255, 0, 0)
+    #         else:
+    #             stroke(255)        
+    #         ellipse(p.x, p.y, 10, 10)    
     
 
 def init_grid(grid_size):
@@ -60,8 +60,11 @@ class Node():
         self.px = Cell.border + Cell.spacing + x * Cell.spacing 
         self.py = Cell.border + Cell.spacing + y * Cell.spacing 
         if rule(x, y):
-           self.px += random(-10, 10)
-           self.py += random(-10, 10)
+           mx, my = width/2, height/2
+           qx = 1.5 * (self.px - mx) / (abs(self.px - mx) + 0.001)
+           qy = 1.5 * (self.py - my) / (abs(self.py - my) + 0.001)
+           self.px += sqrt(dist(mx, my, self.px, self.py)) * qx
+           self.py += sqrt(dist(mx, my, self.px, self.py)) * qy
         self.x = self.px
         self.y = self.py
         self.v = PVector(self.x, self.y)
@@ -104,9 +107,9 @@ class Cell():
         self.lines = []
         n = self.num_hatches
         r = self.type_hatches
-        if r > 5:                        
+        if r > 2:                        
             self.lines.extend(par_hatch(self.vers, n, 0))
-        if r < 6:
+        if r < 8:
             self.lines.extend(par_hatch(self.vers, n, 1))
         
 def keyPressed():
