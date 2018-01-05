@@ -1,6 +1,8 @@
 /*
-
- */
+s180105 Tetrahedrons
+(c)2018 Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+*/
 
 
 var tetrah_list = [];
@@ -67,8 +69,6 @@ function Tetrahedron(x, y, z, radius, showFaces) {
       this.vert[3].x, this.vert[3].y, this.vert[3].z); // vertex 4
     line(this.vert[2].x, this.vert[2].y, this.vert[2].z, // vertex 3
       this.vert[3].x, this.vert[3].y, this.vert[3].z); // vertex 4
-
-
     pop();
   }
 }

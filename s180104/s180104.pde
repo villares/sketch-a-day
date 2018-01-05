@@ -1,3 +1,9 @@
+/*
+s180104 Tetrahedrons
+(c)2018 Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+*/
+
 Tetrahedron[] thList;
 float rot_x = 0;
 float rot_y = 0;

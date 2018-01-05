@@ -1,4 +1,8 @@
-""" Tetrahedrons """
+"""
+s180103 Tetrahedrons
+(c)2018 Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+"""
 
 T_LIST, ROT_X, ROT_Y = [], 0, 0
 Z_MIN, Z_MAX = -800, 0

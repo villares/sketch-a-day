@@ -1,6 +1,8 @@
-# Many Stars 3D
-#(c)2018 Alexandre B A Villares
-# https://abav.lugaralgum.com
+"""
+s180102 Many Stars 3D
+(c)2018 Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+"""
 
 add_library('peasycam') # Para fazer o orbit!
 STAR_LIST, Z_INICIAL, Z_MAX = [], (-4000, -400), 1500

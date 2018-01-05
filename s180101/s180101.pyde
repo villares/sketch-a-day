@@ -1,7 +1,7 @@
 """
- * Many Stars
+ * s180101 Many Stars
  * (c)2018 Alexandre B A Villares
- * https://abav.lugaralgum.com
+ * https://abav.lugaralgum.com/sketch-a-day
 """
 
 STAR_LIST = []
