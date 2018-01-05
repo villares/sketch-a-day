@@ -4,7 +4,6 @@ s180105 Tetrahedrons
 https://abav.lugaralgum.com/sketch-a-day
 */
 
-
 var tetrah_list = [];
 var rot_x = 0;
 var rot_y = 0;
@@ -33,13 +32,12 @@ function draw() {
   }
 }
 
-function Tetrahedron(x, y, z, radius, showFaces) {
+function Tetrahedron(x, y, z, radius) {
   this.x = x;
   this.y = y;
   this.z = z;
   this.vert = [];
-  this.radius = radius;
-  var a = this.radius*2/3;
+  var a = radius*2/3;
   this.vert[0] = new p5.Vector( a, a, a ); // vertex 1
   this.vert[1] = new p5.Vector(-a, -a, a ); // vertex 2
   this.vert[2] = new p5.Vector(-a, a, -a ); // vertex 3
@@ -48,11 +46,11 @@ function Tetrahedron(x, y, z, radius, showFaces) {
   this.plot = function(rx, ry) {
     push();
     var tz = this.z
-      if (dist(mouseX-width/2, mouseY-height/2, this.x, this.y)<50) {
+      if (dist(mouseX, mouseY, this.x+width/2, this.y+height/2)<50) {
       tz = tz * 10;
-      stroke(0, 100, 200);
+      stroke(0, 100, 200); // azul
     } else {
-      stroke(200, 100, 0);
+      stroke(200, 100, 0); // laranja
     }
     translate(this.x, this.y, tz);
     rotateX(rot_y);
