@@ -17,8 +17,8 @@ function setup() {
       var x = i*40;
       var y = j*40;
       var z = random(-20, 20);
-      var t = new Tetrahedron(x, y, z, 35, true); // instancia um tetrah
-      tetrah_list.push(t);  // acrescenta na lista    }
+      var t = new Tetrahedron(x, y, z, 35); //  cria um tetraedro
+      tetrah_list.push(t);  // acrescenta no array/lista    }
     }
   }
 }
