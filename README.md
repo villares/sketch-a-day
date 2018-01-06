@@ -4,8 +4,8 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
- <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
- <script language="javascript" type="text/javascript" src="s180105.js"></script>
+ <script language="javascript" type="text/javascript" src="s180105/libraries/p5.js"></script>
+ <script language="javascript" type="text/javascript" src="s180105/s180105.js"></script>
  <div id="sketch-holder"> interactive p5js canvas
  </div>
 
