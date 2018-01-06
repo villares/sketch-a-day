@@ -10,6 +10,7 @@ var rot_y = 0;
 
 function setup() {
   canvas = createCanvas(500, 500, WEBGL);
+  canvas.parent('sketch-holder');
   setAttributes('antialias', true);
 
   for (var i = -5; i < 5; i++) {
