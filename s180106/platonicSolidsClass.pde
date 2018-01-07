@@ -8,9 +8,6 @@ class Icosahedron extends PlatonicSolid {
   // icosahedron
   float x, y, z;
   float radius;
-  float vertexRadius;
-  boolean showFaces;
-  int currentColor;
   PVector topPoint;
   PVector[] topPent = new PVector[5];
   PVector bottomPoint;
@@ -21,9 +18,9 @@ class Icosahedron extends PlatonicSolid {
   float a, b, c;
 
   // constructor
-  Icosahedron(float radius, boolean showFaces) {
+  Icosahedron(float radius) {
     this.radius = radius;
-    this.showFaces = showFaces;
+
     c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius, sin(radians(72))*radius);
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
@@ -45,11 +42,7 @@ class Icosahedron extends PlatonicSolid {
 
   // draws icosahedron 
   void create() {
-    if (!showFaces)
-    {
-      noFill();
-    }
-    pushStyle();
+
     for (int i=0; i<topPent.length; i++) {
       // icosahedron top
       beginShape();
@@ -118,7 +111,6 @@ class Icosahedron extends PlatonicSolid {
         endShape(CLOSE);
       }
     }
-    popStyle();
   }
 }
 
@@ -128,17 +120,17 @@ class Tetrahedron extends PlatonicSolid {
   // Tetrahedron
   float x, y, z;
   float radius;
-  float vertexRadius;
-  boolean showFaces;
-  int currentColor;
+
+
+
   float a;
   PVector[] vert = new PVector[4];
   int[][] faces;
 
   // constructor
-  Tetrahedron(float radius, boolean showFaces) {
+  Tetrahedron(float radius) {
     this.radius = radius;
-    this.showFaces = showFaces;
+
     a = radius*0.6666;
     vert[0] = new PVector( a, a, a );  // vertex 1
     vert[1] = new PVector(-a, -a, a );    // vertex 2
@@ -148,11 +140,6 @@ class Tetrahedron extends PlatonicSolid {
 
   // draws tetrahedron 
   void create() {
-    pushStyle();
-    if (!showFaces)
-    {
-      noFill();
-    }
     beginShape(TRIANGLE_STRIP);
     vertex(vert[0].x, vert[0].y, vert[0].z);  // vertex 1
     vertex(vert[1].x, vert[1].y, vert[1].z);    // vertex 2
@@ -164,7 +151,6 @@ class Tetrahedron extends PlatonicSolid {
     vertex(vert[2].x, vert[2].y, vert[2].z);  // vertex 3
     vertex(vert[1].x, vert[1].y, vert[1].z);    // vertex 2
     endShape(CLOSE);
-    popStyle();
   }
 }
 
@@ -173,17 +159,17 @@ class Hexahedron extends PlatonicSolid {
   // Tetrahedron
   float x, y, z;
   float radius;
-  float vertexRadius;
-  boolean showFaces;
-  int currentColor;
+
+
+
   float a;
   PVector[] vert = new PVector[8];
   int[][] faces;
 
   // constructor
-  Hexahedron(float radius, boolean showFaces) {
+  Hexahedron(float radius) {
     this.radius = radius;
-    this.showFaces = showFaces;
+
     a = radius/1.1414;
     faces = new int[6][4];
     vert[0] = new PVector(  a, a, a );
@@ -205,12 +191,6 @@ class Hexahedron extends PlatonicSolid {
 
   // draws hexahedron 
   void create() { 
-    // vertexes
-    pushStyle();
-    if (!showFaces)
-    {
-      noFill();
-    }
     for (int i=0; i<6; i++)
     {
       beginShape();
@@ -220,7 +200,6 @@ class Hexahedron extends PlatonicSolid {
       }
       endShape();
     }
-    popStyle();
   }
 }
 
@@ -229,18 +208,16 @@ class Octahedron extends PlatonicSolid {
   // Octahedron
   float x, y, z;
   float radius;
-  float vertexRadius;
-  boolean showFaces;
-  int currentColor;
+
   float a;
   PVector[] vert = new PVector[6];
   int[][] faces;
 
   // constructor
-  Octahedron(float radius, boolean showFaces) {
+  Octahedron(float radius) {
     this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = showFaces;
+
+
     a = radius;
     vert[0] = new PVector( a, 0, 0 ); 
     vert[1] = new PVector( 0, a, 0 );
@@ -252,12 +229,7 @@ class Octahedron extends PlatonicSolid {
 
   // draws octahedron 
   void create() {
-    // vertexes
-    pushStyle();
-    if (!showFaces)
-    {
-      noFill();
-    }
+    
     beginShape(TRIANGLE_FAN); 
     vertex(vert[4].x, vert[4].y, vert[4].z);
     vertex(vert[0].x, vert[0].y, vert[0].z);
@@ -275,7 +247,6 @@ class Octahedron extends PlatonicSolid {
     vertex(vert[5].x, vert[5].y, vert[5].z);
     vertex(vert[0].x, vert[0].y, vert[0].z);
     endShape();
-    popStyle();
   }
 }
 
@@ -284,18 +255,15 @@ class Dodecahedron extends PlatonicSolid {
   // Dodecahedron
   float x, y, z;
   float radius;
-  float vertexRadius;
-  boolean showFaces;
-  int currentColor;
+
   float a, b, c;
   PVector[] vert;
   int[][] faces;
 
   // constructor
-  Dodecahedron(float radius, boolean showFaces) {
+  Dodecahedron(float radius) {
     this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = showFaces;
+
     a = radius/1.618033989;
     b = radius;
     c = 0.618033989*a;
@@ -338,11 +306,6 @@ class Dodecahedron extends PlatonicSolid {
 
   // draws dodecahedron 
   void create() {
-    pushStyle();
-    if (!showFaces)
-    {
-      noFill();
-    }
     for (int i=0; i<12; i++)
     {
       beginShape();
@@ -352,6 +315,5 @@ class Dodecahedron extends PlatonicSolid {
       }
       endShape();
     }
-    popStyle();
   }
 }
