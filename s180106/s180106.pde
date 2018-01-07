@@ -1,4 +1,9 @@
-// PlatonicSolid ico, tet, oct, dod, hex, p;
+/*
+s180106 Platonic Solids
+(c)2018 Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+*/
+
 PlatonicSolid[] solids;
 float r_x = 0;
 float r_y = 0;
@@ -11,27 +16,22 @@ void setup() {
   for (int i = 0; i<100; i++) {
     switch((int)random(5)) {
     case 0:  
-      solids[i] = new Tetrahedron(18, 0, false); 
+      solids[i] = new Tetrahedron(18, false); 
       break;
     case 1:  
-      solids[i] = new Hexahedron(14, 0, false);
+      solids[i] = new Hexahedron(14, false);
       break;
     case 2:  
-      solids[i] = new Octahedron(22, 0, false);    
+      solids[i] = new Octahedron(22, false);    
       break;
     case 3:  
-      solids[i] = new Dodecahedron(18.0, 0, false);    
+      solids[i] = new Dodecahedron(18, false);    
       break;
     case 4:  
-      solids[i] = new Icosahedron(18, 0, false);    
+      solids[i] = new Icosahedron(18, false);    
       break;
     }
   }
-  //tet = new Tetrahedron(30, 0, false);
-  //hex = new Hexahedron(23, 0, false);
-  //oct = new Octahedron(37, 0, false);
-  //dod = new Dodecahedron(30, 0, false);
-  //ico = new Icosahedron(30, 0, false);
 }
 
 void draw() {
@@ -62,44 +62,7 @@ void draw() {
     popMatrix();
     popMatrix();
   }
-
-
-  //pushMatrix();
-  //translate(100, height*.25, 0);
-  //rotateX(r_y);
-  //rotateY(r_x);
-  //p.create();
-  //popMatrix();
-
-  //pushMatrix();
-  //translate(200, height*.25, 0);
-  //rotateX(r_y);
-  //rotateY(r_x);
-  //hex.create();
-  //popMatrix();
-
-  //pushMatrix();
-  //translate(300, height*.25, 0);
-  //rotateX(r_y);
-  //rotateY(r_x);
-  //oct.create();
-  //popMatrix();
-
-  //pushMatrix();
-  //translate(400, height*.25, 0);
-  //rotateX(r_y);
-  //rotateY(r_x);
-  //dod.create();
-  //popMatrix();
-
-  //pushMatrix();
-  //translate(500, height*.25, 0);
-  //rotateX(r_y);
-  //rotateY(r_x);
-  //ico.create();
-  //popMatrix();
 }
-
 
 int x_from_i(int idx, int max_x, int max_y) {
   int x =  idx % max_x;

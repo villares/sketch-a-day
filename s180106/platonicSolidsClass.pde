@@ -1,15 +1,6 @@
-void vertexSphere(float x, float y, float z, float r)
-{
-  pushMatrix();
-  translate(x, y, z);
-  box(r);
-  //sphere(r);
-  popMatrix();
-}
-
 class PlatonicSolid {
-  void create(){
-   //implemented by each solid 
+  void create() {
+    //implemented by each solid
   }
 }
 
@@ -30,29 +21,9 @@ class Icosahedron extends PlatonicSolid {
   float a, b, c;
 
   // constructor
-  Icosahedron(float radius, float vertexRadius, boolean showFaces) {
+  Icosahedron(float radius, boolean showFaces) {
     this.radius = radius;
-    this.vertexRadius = vertexRadius;
     this.showFaces = showFaces;
-    init();
-  }
-
-  Icosahedron(float radius, float vertexRadius) {
-    this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = true;
-    init();
-  }
-
-  Icosahedron(float radius) {
-    this.radius = radius;
-    this.vertexRadius = 0;
-    this.showFaces = true;
-    init();
-  }
-
-  // calculate geometry
-  void init() {
     c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius, sin(radians(72))*radius);
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
@@ -74,18 +45,6 @@ class Icosahedron extends PlatonicSolid {
 
   // draws icosahedron 
   void create() {
-    // vertexes
-    if (vertexRadius > 0)
-    {
-      for (int i=0; i<5; i++)
-      {
-        vertexSphere(topPent[i].x, topPent[i].y, topPent[i].z, vertexRadius);
-        vertexSphere(bottomPent[i].x, bottomPent[i].y, bottomPent[i].z, vertexRadius);
-      }
-      vertexSphere(topPoint.x, topPoint.y, topPoint.z, vertexRadius);
-      vertexSphere(bottomPoint.x, bottomPoint.y, bottomPoint.z, vertexRadius);
-    }
-
     if (!showFaces)
     {
       noFill();
@@ -177,29 +136,9 @@ class Tetrahedron extends PlatonicSolid {
   int[][] faces;
 
   // constructor
-  Tetrahedron(float radius, float vertexRadius, boolean showFaces) {
+  Tetrahedron(float radius, boolean showFaces) {
     this.radius = radius;
-    this.vertexRadius = vertexRadius;
     this.showFaces = showFaces;
-    init();
-  }
-
-  Tetrahedron(float radius, float vertexRadius) {
-    this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = true;
-    init();
-  }
-
-  Tetrahedron(float radius) {
-    this.radius = radius;
-    this.vertexRadius = 0;
-    this.showFaces = true;
-    init();
-  }
-
-  // calculate geometry
-  void init() {
     a = radius*0.6666;
     vert[0] = new PVector( a, a, a );  // vertex 1
     vert[1] = new PVector(-a, -a, a );    // vertex 2
@@ -209,12 +148,6 @@ class Tetrahedron extends PlatonicSolid {
 
   // draws tetrahedron 
   void create() {
-    // vertexes
-    if (vertexRadius > 0)
-    {
-      for (int i=0; i<4; i++)
-        vertexSphere(vert[i].x, vert[i].y, vert[i].z, vertexRadius);
-    }
     pushStyle();
     if (!showFaces)
     {
@@ -248,29 +181,9 @@ class Hexahedron extends PlatonicSolid {
   int[][] faces;
 
   // constructor
-  Hexahedron(float radius, float vertexRadius, boolean showFaces) {
+  Hexahedron(float radius, boolean showFaces) {
     this.radius = radius;
-    this.vertexRadius = vertexRadius;
     this.showFaces = showFaces;
-    init();
-  }
-
-  Hexahedron(float radius, float vertexRadius) {
-    this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = true;
-    init();
-  }
-
-  Hexahedron(float radius) {
-    this.radius = radius;
-    this.vertexRadius = 0;
-    this.showFaces = true;
-    init();
-  }
-
-  // calculate geometry
-  void init() {
     a = radius/1.1414;
     faces = new int[6][4];
     vert[0] = new PVector(  a, a, a );
@@ -293,11 +206,6 @@ class Hexahedron extends PlatonicSolid {
   // draws hexahedron 
   void create() { 
     // vertexes
-    if (vertexRadius > 0)
-    {
-      for (int i=0; i<8; i++)
-        vertexSphere(vert[i].x, vert[i].y, vert[i].z, vertexRadius);
-    }
     pushStyle();
     if (!showFaces)
     {
@@ -329,29 +237,10 @@ class Octahedron extends PlatonicSolid {
   int[][] faces;
 
   // constructor
-  Octahedron(float radius, float vertexRadius, boolean showFaces) {
+  Octahedron(float radius, boolean showFaces) {
     this.radius = radius;
     this.vertexRadius = vertexRadius;
     this.showFaces = showFaces;
-    init();
-  }
-
-  Octahedron(float radius, float vertexRadius) {
-    this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = true;
-    init();
-  }
-
-  Octahedron(float radius) {
-    this.radius = radius;
-    this.vertexRadius = 0;
-    this.showFaces = true;
-    init();
-  }
-
-  // calculate geometry
-  void init() {
     a = radius;
     vert[0] = new PVector( a, 0, 0 ); 
     vert[1] = new PVector( 0, a, 0 );
@@ -364,11 +253,6 @@ class Octahedron extends PlatonicSolid {
   // draws octahedron 
   void create() {
     // vertexes
-    if (vertexRadius > 0)
-    {
-      for (int i=0; i<6; i++)
-        vertexSphere(vert[i].x, vert[i].y, vert[i].z, vertexRadius);
-    }
     pushStyle();
     if (!showFaces)
     {
@@ -408,29 +292,10 @@ class Dodecahedron extends PlatonicSolid {
   int[][] faces;
 
   // constructor
-  Dodecahedron(float radius, float vertexRadius, boolean showFaces) {
+  Dodecahedron(float radius, boolean showFaces) {
     this.radius = radius;
     this.vertexRadius = vertexRadius;
     this.showFaces = showFaces;
-    init();
-  }
-
-  Dodecahedron(float radius, float vertexRadius) {
-    this.radius = radius;
-    this.vertexRadius = vertexRadius;
-    this.showFaces = true;
-    init();
-  }
-
-  Dodecahedron(float radius) {
-    this.radius = radius;
-    this.vertexRadius = 0;
-    this.showFaces = true;
-    init();
-  }
-
-  // calculate geometry
-  void init() {
     a = radius/1.618033989;
     b = radius;
     c = 0.618033989*a;
@@ -473,12 +338,6 @@ class Dodecahedron extends PlatonicSolid {
 
   // draws dodecahedron 
   void create() {
-    // vertexes
-    if (vertexRadius > 0)
-    {
-      for (int i=0; i<20; i++)
-        vertexSphere(vert[i].x, vert[i].y, vert[i].z, vertexRadius);
-    }
     pushStyle();
     if (!showFaces)
     {
