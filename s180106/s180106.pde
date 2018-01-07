@@ -64,6 +64,7 @@ void draw() {
     }
     popMatrix();
   }
+  //if (frameCount < 300){ saveFrame("###.tga");}
 }
 
 int x_from_i(int idx, int max_x) { 
