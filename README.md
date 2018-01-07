@@ -4,7 +4,9 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-#### 006: [s180106](https://github.com/villares/sketch-a-day/tree/master/s180106) [[Processing Java](https://www.processing.org)]  Platonic Solif grid in Java Mode  
+![s180106](s180106/s180106.png)
+
+#### 006: [s180106](https://github.com/villares/sketch-a-day/tree/master/s180106) [[Processing Java](https://www.processing.org)]  Grid of Platonic Solids in Java Mode  
 
 005: [s180105](https://github.com/villares/sketch-a-day/tree/master/s180105) [[p5js](https://www.p5js.org)] Line Tetrahedrons in p5*js - [interactive](https://villares.github.io/sketch-a-day/s180105/s180105) 
 
