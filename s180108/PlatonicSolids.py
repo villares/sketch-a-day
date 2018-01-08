@@ -1,3 +1,6 @@
+
+
+
 class Icosahedron():
 
     def __init__(self, radius):
