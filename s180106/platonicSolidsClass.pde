@@ -42,78 +42,76 @@ class Icosahedron extends PlatonicSolid {
 
   // draws icosahedron 
   void create() {
-
-    for (int i=0; i<topPent.length; i++) {
+    for (int i=0; i<5; i++) {
       // icosahedron top
       beginShape();
-      if (i<topPent.length-1) {
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
-        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
+      if (i<4) {
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPoint.x, topPoint.y, topPoint.z);
+        vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
       } else {
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
-        vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPoint.x, topPoint.y, topPoint.z);
+        vertex(topPent[0].x, topPent[0].y, topPent[0].z);
       }
       endShape(CLOSE);
 
       // icosahedron bottom
       beginShape();
-      if (i<bottomPent.length-1) {
-        vertex(x+bottomPent[i].x, y+bottomPent[i].y, z+bottomPent[i].z);
-        vertex(x+bottomPoint.x, y+bottomPoint.y, z+bottomPoint.z);
-        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
+      if (i<4) {
+        vertex(bottomPent[i].x, bottomPent[i].y, bottomPent[i].z);
+        vertex(bottomPoint.x, bottomPoint.y, bottomPoint.z);
+        vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
       } else {
-        vertex(x+bottomPent[i].x, y+bottomPent[i].y, z+bottomPent[i].z);
-        vertex(x+bottomPoint.x, y+bottomPoint.y, z+bottomPoint.z);
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
+        vertex(bottomPent[i].x, bottomPent[i].y, bottomPent[i].z);
+        vertex(bottomPoint.x, bottomPoint.y, bottomPoint.z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
       }
       endShape(CLOSE);
     }
 
     // icosahedron body
-    for (int i=0; i<topPent.length; i++) {
-      if (i<topPent.length-2) {
+    for (int i=0; i<5; i++) {
+      if (i<3) {
         beginShape();
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
-        vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
+        vertex(bottomPent[i+2].x, bottomPent[i+2].y, bottomPent[i+2].z);
         endShape(CLOSE);
 
         beginShape();
-        vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
+        vertex(bottomPent[i+2].x, bottomPent[i+2].y, bottomPent[i+2].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
         endShape(CLOSE);
-      } else if (i==topPent.length-2) {
+      } else if (i==3) {
         beginShape();
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
-        endShape(CLOSE);
-
-        beginShape();
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
-        endShape(CLOSE);
-      } else if (i==topPent.length-1) {
-        beginShape();
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
-        vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
         endShape(CLOSE);
 
         beginShape();
-        vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
+        endShape(CLOSE);
+      } else if (i==4) {
+        beginShape();
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
+        vertex(bottomPent[1].x, bottomPent[1].y, bottomPent[1].z);
+        endShape(CLOSE);
+
+        beginShape();
+        vertex(bottomPent[1].x, bottomPent[1].y, bottomPent[1].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPent[0].x, topPent[0].y, topPent[0].z);
         endShape(CLOSE);
       }
     }
   }
 }
-
 
 class Tetrahedron extends PlatonicSolid {
 

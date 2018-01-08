@@ -47,13 +47,13 @@ class Icosahedron extends PlatonicSolid {
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
     triHt = (float)(Math.sqrt((c*c)-((c/2)*(c/2))));
-    for (int i=0; i<topPent.length; i++) {
+    for (int i=0; i<5; i++) {
       topPent[i] = new PVector(cos(angle)*radius, sin(angle)*radius, triHt/2.0f);
       angle+=radians(72);
     }
     topPoint = new PVector(0, 0, triHt/2.0f+a);
     angle = 72.0f/2.0f;
-    for (int i=0; i<topPent.length; i++) {
+    for (int i=0; i<5; i++) {
       bottomPent[i] = new PVector(cos(angle)*radius, sin(angle)*radius, -triHt/2.0f);
       angle+=radians(72);
     }
@@ -63,10 +63,10 @@ class Icosahedron extends PlatonicSolid {
   // draws icosahedron 
   void create() {
     super.create();
-    for (int i=0; i<topPent.length; i++) {
+    for (int i=0; i<5; i++) {
       // icosahedron top
       beginShape();
-      if (i<topPent.length-1) {
+      if (i<4) {
         vertex(topPent[i].x, topPent[i].y, topPent[i].z);
         vertex(topPoint.x, topPoint.y, topPoint.z);
         vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
@@ -79,7 +79,7 @@ class Icosahedron extends PlatonicSolid {
 
       // icosahedron bottom
       beginShape();
-      if (i<bottomPent.length-1) {
+      if (i<4) {
         vertex(bottomPent[i].x, bottomPent[i].y, bottomPent[i].z);
         vertex(bottomPoint.x, bottomPoint.y, bottomPoint.z);
         vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
@@ -92,8 +92,8 @@ class Icosahedron extends PlatonicSolid {
     }
 
     // icosahedron body
-    for (int i=0; i<topPent.length; i++) {
-      if (i<topPent.length-2) {
+    for (int i=0; i<5; i++) {
+      if (i<3) {
         beginShape();
         vertex(topPent[i].x, topPent[i].y, topPent[i].z);
         vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
@@ -105,7 +105,7 @@ class Icosahedron extends PlatonicSolid {
         vertex(topPent[i].x, topPent[i].y, topPent[i].z);
         vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
         endShape(CLOSE);
-      } else if (i==topPent.length-2) {
+      } else if (i==3) {
         beginShape();
         vertex(topPent[i].x, topPent[i].y, topPent[i].z);
         vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
@@ -117,7 +117,7 @@ class Icosahedron extends PlatonicSolid {
         vertex(topPent[i].x, topPent[i].y, topPent[i].z);
         vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
         endShape(CLOSE);
-      } else if (i==topPent.length-1) {
+      } else if (i==4) {
         beginShape();
         vertex(topPent[i].x, topPent[i].y, topPent[i].z);
         vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
