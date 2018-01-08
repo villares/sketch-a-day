@@ -4,9 +4,11 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-![s180107](s180107/s180107.gif)
+![s180108](s180108/s180108.gif)
 
-#### 007: [s180107](https://github.com/villares/sketch-a-day/tree/master/s180107) [[Processing Java](https://www.processing.org)]  Colorful grid of Platonic Solids in Java Mode [GIF](s180107/s180107.gif)
+#### 008: [s180108](https://github.com/villares/sketch-a-day/tree/master/s180108)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]   Grid of Platonic Solids in Python Mode [GIF](s180108/s180108.gif)
+
+007: [s180107](https://github.com/villares/sketch-a-day/tree/master/s180107) [[Processing Java](https://www.processing.org)]  Another grid of Platonic Solids in Java Mode [GIF](s180107/s180107.gif)
 
 006: [s180106](https://github.com/villares/sketch-a-day/tree/master/s180106) [[Processing Java](https://www.processing.org)]  Grid of Platonic Solids in Java Mode  [GIF](s180106/s180106.gif)
 

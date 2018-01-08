@@ -14,9 +14,10 @@ def setup():
     noFill()
     colorMode(HSB)
     for i in range(NUM_CELLS):
-        s = Icosahedron(CELL_SIZE / 2.5)
+        s = PlatonicFactory(int(random(5)))
         c = color(random(256), 200, 200, 128)  # random HSB translucent colors
-        solids.append((s, c))  # (solid, color)
+        s.c = c # tasca uma cor no sólido! mas ele mesmo não sabe usar
+        solids.append(s)
 
 def draw():
     global r_x, r_y
@@ -34,9 +35,10 @@ def draw():
             if d < 80:
                 rotateX(r_y)
                 rotateY(r_x)
-            stroke(solids[i][1])
-            solids[i][0].create()
-    # if (frameCouNUM_CELLS < 200): saveFrame("###.tga")
+            # cuidado, só nos sólidos criados pela Factory
+            solids[i].platonic_stroke()
+            solids[i].create()
+    if (frameCount < 200): saveFrame("###.tga")
 
 def x_y_from_i(i, max_x, max_y):
     return i % max_x, (i / max_x) % max_y
