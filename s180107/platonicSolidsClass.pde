@@ -30,7 +30,6 @@ PlatonicSolid PlatonicFactory(int type, color c) {
 }
 class Icosahedron extends PlatonicSolid {
   // icosahedron
-  float x, y, z;
   float radius;
   PVector topPoint;
   PVector[] topPent = new PVector[5];
@@ -44,13 +43,10 @@ class Icosahedron extends PlatonicSolid {
   // constructor
   Icosahedron(float radius) {
     this.radius = radius;
-
     c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius, sin(radians(72))*radius);
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
-
     triHt = (float)(Math.sqrt((c*c)-((c/2)*(c/2))));
-
     for (int i=0; i<topPent.length; i++) {
       topPent[i] = new PVector(cos(angle)*radius, sin(angle)*radius, triHt/2.0f);
       angle+=radians(72);
@@ -71,26 +67,26 @@ class Icosahedron extends PlatonicSolid {
       // icosahedron top
       beginShape();
       if (i<topPent.length-1) {
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
-        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPoint.x, topPoint.y, topPoint.z);
+        vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
       } else {
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
-        vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPoint.x, topPoint.y, topPoint.z);
+        vertex(topPent[0].x, topPent[0].y, topPent[0].z);
       }
       endShape(CLOSE);
 
       // icosahedron bottom
       beginShape();
       if (i<bottomPent.length-1) {
-        vertex(x+bottomPent[i].x, y+bottomPent[i].y, z+bottomPent[i].z);
-        vertex(x+bottomPoint.x, y+bottomPoint.y, z+bottomPoint.z);
-        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
+        vertex(bottomPent[i].x, bottomPent[i].y, bottomPent[i].z);
+        vertex(bottomPoint.x, bottomPoint.y, bottomPoint.z);
+        vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
       } else {
-        vertex(x+bottomPent[i].x, y+bottomPent[i].y, z+bottomPent[i].z);
-        vertex(x+bottomPoint.x, y+bottomPoint.y, z+bottomPoint.z);
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
+        vertex(bottomPent[i].x, bottomPent[i].y, bottomPent[i].z);
+        vertex(bottomPoint.x, bottomPoint.y, bottomPoint.z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
       }
       endShape(CLOSE);
     }
@@ -99,39 +95,39 @@ class Icosahedron extends PlatonicSolid {
     for (int i=0; i<topPent.length; i++) {
       if (i<topPent.length-2) {
         beginShape();
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
-        vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
+        vertex(bottomPent[i+2].x, bottomPent[i+2].y, bottomPent[i+2].z);
         endShape(CLOSE);
 
         beginShape();
-        vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
+        vertex(bottomPent[i+2].x, bottomPent[i+2].y, bottomPent[i+2].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
         endShape(CLOSE);
       } else if (i==topPent.length-2) {
         beginShape();
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(bottomPent[i+1].x, bottomPent[i+1].y, bottomPent[i+1].z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
         endShape(CLOSE);
 
         beginShape();
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPent[i+1].x, topPent[i+1].y, topPent[i+1].z);
         endShape(CLOSE);
       } else if (i==topPent.length-1) {
         beginShape();
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
-        vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(bottomPent[0].x, bottomPent[0].y, bottomPent[0].z);
+        vertex(bottomPent[1].x, bottomPent[1].y, bottomPent[1].z);
         endShape(CLOSE);
 
         beginShape();
-        vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
-        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);
+        vertex(bottomPent[1].x, bottomPent[1].y, bottomPent[1].z);
+        vertex(topPent[i].x, topPent[i].y, topPent[i].z);
+        vertex(topPent[0].x, topPent[0].y, topPent[0].z);
         endShape(CLOSE);
       }
     }
@@ -142,7 +138,6 @@ class Icosahedron extends PlatonicSolid {
 class Tetrahedron extends PlatonicSolid {
 
   // Tetrahedron
-  float x, y, z;
   float radius;
   float a;
   PVector[] vert = new PVector[4];
@@ -268,11 +263,8 @@ class Octahedron extends PlatonicSolid {
 }
 
 class Dodecahedron extends PlatonicSolid {
-
   // Dodecahedron
-  float x, y, z;
   float radius;
-
   float a, b, c;
   PVector[] vert;
   int[][] faces;
@@ -280,7 +272,6 @@ class Dodecahedron extends PlatonicSolid {
   // constructor
   Dodecahedron(float radius) {
     this.radius = radius;
-
     a = radius/1.618033989;
     b = radius;
     c = 0.618033989*a;
