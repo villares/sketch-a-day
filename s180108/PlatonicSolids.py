@@ -1,5 +1,5 @@
 
-def PlatonicFactory(type=0, size_=None):
+def PlatonicFactory(type_=0, size_=None):
     classes = {0: Tetrahedron,
                1: Hexahedron,
                2: Octahedron,
@@ -10,9 +10,9 @@ def PlatonicFactory(type=0, size_=None):
     if size_:
         solid_size = size_
     else:
-        solid_size = default_sizes[type]
+        solid_size = default_sizes[type_]
 
-    return classes[type](solid_size)
+    return classes[type_](solid_size)
 
 class Tetrahedron():
 
