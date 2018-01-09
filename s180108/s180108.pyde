@@ -14,9 +14,9 @@ def setup():
     noFill()
     colorMode(HSB)
     for i in range(NUM_CELLS):
-        s = PlatonicFactory(int(random(5)))
+        s = PlatonicFactory(int(random(5)))    # Instancia aleatoriamente um dos sólidos 
         c = color(random(256), 200, 200, 128)  # random HSB translucent colors
-        s.c = c # tasca uma cor no sólido! mas ele mesmo não sabe usar
+        s.c = c # Tasca cor no sólido! Só os gerados na Factory tem o método p/ usar
         solids.append(s)
 
 def draw():
@@ -25,7 +25,7 @@ def draw():
     r_x += 0.02  # x rotation speed
     r_y += 0.01  # y rotation speed
     background(255)  # clear frame with white
-    # lights() # use this with filled faces
+    # lights() # use this if you use filled faces
     for i in range(NUM_CELLS):
         x, y = x_y_from_i(i, NUM_COLS, NUM_ROWS)
         cx, cy = CELL_SIZE / 2 + x * CELL_SIZE, CELL_SIZE / 2 + y * CELL_SIZE
@@ -35,7 +35,9 @@ def draw():
             if d < 80:
                 rotateX(r_y)
                 rotateY(r_x)
-            # cuidado, só nos sólidos criados pela Factory
+            # cuidado, só os sólidos criados pela PlatonicFactory tem .platonic_stroke()
+            # tava aprendendo a fazer isso de acrescentar métodos
+            # podia ter sido resolvido com stroke(solids[i].c)
             solids[i].platonic_stroke()
             solids[i].create()
     if (frameCount < 200): saveFrame("###.tga")
