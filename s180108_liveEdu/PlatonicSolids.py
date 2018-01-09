@@ -1,21 +1,17 @@
-from functools import partial
+def PlatonicFactory(type_=0, size_=None):
+    classes = {0: Tetrahedron,
+               1: Hexahedron,
+               2: Octahedron,
+               3: Dodecahedron,
+               4: Icosahedron,
+               }
+    default_sizes = {0: 36, 1: 28, 2: 44, 3: 36, 4: 36}
+    if size_:
+        solid_size = size_
+    else:
+        solid_size = default_sizes[type_]
 
-def PlatonicFactory(type):
-    s = Tetrahedron(18*2)
-    if type == 1:
-        s = Hexahedron(14*2)
-    elif type == 2:
-        s = Octahedron(22*2)
-    elif type == 3:
-        s = Dodecahedron(18*2)
-    elif type == 4:
-        s = Icosahedron(18*2)
-
-    def platotonic_s(self):
-        stroke(self.c)
-    s.platonic_stroke = partial(platotonic_s, s)
-
-    return s
+    return classes[type_](solid_size)
 
 class Tetrahedron():
         
