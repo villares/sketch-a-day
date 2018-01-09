@@ -1,5 +1,0 @@
-#!/bin/bash
-CONTENTS="$( cd "$( dirname "$0" )/.." && pwd )"
-JAVA="$(find $CONTENTS/PlugIns -maxdepth 1 -type d -name '*jdk')/Contents/Home/jre/bin/java"
-APPDIR="$CONTENTS/Processing"
-$JAVA -Djna.nosys=true -Djava.library.path="$APPDIR:$APPDIR/lib:$APPDIR/lib/jycessing" -ea -cp "$APPDIR/lib/jycessing/core.jar:$APPDIR/lib/jycessing/gluegen-rt-natives-macosx-universal.jar:$APPDIR/lib/jycessing/gluegen-rt.jar:$APPDIR/lib/jycessing/guava-17.0.jar:$APPDIR/lib/jycessing/jogl-all-natives-macosx-universal.jar:$APPDIR/lib/jycessing/jogl-all.jar:$APPDIR/lib/jycessing/jython.jar:$APPDIR/lib/jycessing/PythonMode.jar" -Xdock:icon="$CONTENTS/Resources/sketch.icns" -Xdock:name="liveEdu" jycessing.Runner --noredirect --exported fullScreen BGCOLOR=#666666 --stop-color=#cccccc "$APPDIR/source/liveEdu.pyde"
