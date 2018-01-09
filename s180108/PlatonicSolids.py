@@ -1,64 +1,61 @@
-from functools import partial
 
-def PlatonicFactory(type):
-    s = Tetrahedron(18*2)
-    if type == 1:
-        s = Hexahedron(14*2)
-    elif type == 2:
-        s = Octahedron(22*2)
-    elif type == 3:
-        s = Dodecahedron(18*2)
-    elif type == 4:
-        s = Icosahedron(18*2)
+def PlatonicFactory(type=0, size_=None):
+    classes = {0: Tetrahedron,
+               1: Hexahedron,
+               2: Octahedron,
+               3: Dodecahedron,
+               4: Icosahedron,
+               }
+    default_sizes = {0: 36, 1: 28, 2: 44, 3: 36, 4: 36}
+    if size_:
+        solid_size = size_
+    else:
+        solid_size = default_sizes[type]
 
-    def platotonic_s(self):
-        stroke(self.c)
-    s.platonic_stroke = partial(platotonic_s, s)
-
-    return s
+    return classes[type](solid_size)
 
 class Tetrahedron():
-        
+
     def __init__(self, radius):
         self.vert = [0] * 4
         self.radius = radius
         a = radius * 0.6666
-        self.vert[0] = PVector(a, a, a)    
-        self.vert[1] = PVector(-a, -a, a)        
-        self.vert[2] = PVector(-a, a, -a)    
-        self.vert[3] = PVector(a, -a, -a)     
-    
+        self.vert[0] = PVector(a, a, a)
+        self.vert[1] = PVector(-a, -a, a)
+        self.vert[2] = PVector(-a, a, -a)
+        self.vert[3] = PVector(a, -a, -a)
+
     # draws tetrahedron
     def create(self):
         vert = self.vert
         beginShape(TRIANGLE_STRIP)
-        vertex(vert[0].x, vert[0].y, vert[0].z)    
-        vertex(vert[1].x, vert[1].y, vert[1].z)        
-        vertex(vert[2].x, vert[2].y, vert[2].z)    
-        vertex(vert[3].x, vert[3].y, vert[3].z)     
-        vertex(vert[0].x, vert[0].y, vert[0].z)    
-        vertex(vert[1].x, vert[1].y, vert[1].z)        
-        vertex(vert[3].x, vert[3].y, vert[3].z)     
-        vertex(vert[2].x, vert[2].y, vert[2].z)    
-        vertex(vert[1].x, vert[1].y, vert[1].z)        
+        vertex(vert[0].x, vert[0].y, vert[0].z)
+        vertex(vert[1].x, vert[1].y, vert[1].z)
+        vertex(vert[2].x, vert[2].y, vert[2].z)
+        vertex(vert[3].x, vert[3].y, vert[3].z)
+        vertex(vert[0].x, vert[0].y, vert[0].z)
+        vertex(vert[1].x, vert[1].y, vert[1].z)
+        vertex(vert[3].x, vert[3].y, vert[3].z)
+        vertex(vert[2].x, vert[2].y, vert[2].z)
+        vertex(vert[1].x, vert[1].y, vert[1].z)
         endShape(CLOSE)
-    
+
 
 class Hexahedron():
 
-    def __init__(self, radius) :
+    def __init__(self, radius):
         self.radius = radius
-        a = radius/1.1414
+        a = radius / 1.1414
         faces = [0] * 6
         vert = [0] * 8
-        vert[0] = PVector(  a, a, a )
-        vert[1] = PVector(  a, a, -a )
-        vert[2] = PVector(  a, -a, -a )
-        vert[3] = PVector(  a, -a, a )
-        vert[4] = PVector( -a, -a, a )
-        vert[5] = PVector( -a, a, a )
-        vert[6] = PVector( -a, a, -a )
-        vert[7] = PVector( -a, -a, -a )
+        vert[0] = PVector(a, a, a)
+        vert[1] = PVector(a, a, -a)
+        vert[2] = PVector(a, -a, -a)
+        vert[3] = PVector(a, -a, a)
+        vert[4] = PVector(-a, -a, a)
+        vert[5] = PVector(-a, a, a)
+        vert[6] = PVector(-a, a, -a)
+        vert[7] = PVector(-a, -a, -a)
 
         faces[0] = (0, 1, 2, 3)
         faces[1] = (4, 5, 6, 7)
@@ -66,11 +63,11 @@ class Hexahedron():
         faces[3] = (1, 2, 7, 6)
         faces[4] = (2, 3, 4, 7)
         faces[5] = (0, 5, 6, 1)
-         
+
         self.vert, self.faces = vert, faces
 
-    # draws hexahedron 
-    def create(self): 
+    # draws hexahedron
+    def create(self):
         for i in range(6):
             beginShape()
             for j in range(4):
@@ -78,28 +75,26 @@ class Hexahedron():
                        self.vert[self.faces[i][j]].y,
                        self.vert[self.faces[i][j]].z)
             endShape()
-        
-    
 
 
 class Octahedron():
 
-    def __init__(self, radius) :
+    def __init__(self, radius):
         self.radius = radius
         a = radius
         vert = [0] * 6
-        vert[0] = PVector( a, 0, 0 ) 
-        vert[1] = PVector( 0, a, 0 )
-        vert[2] = PVector( 0, 0, a ) 
-        vert[3] = PVector( -a, 0, 0 ) 
-        vert[4] = PVector( 0, -a, 0 ) 
-        vert[5] = PVector( 0, 0, -a )
+        vert[0] = PVector(a, 0, 0)
+        vert[1] = PVector(0, a, 0)
+        vert[2] = PVector(0, 0, a)
+        vert[3] = PVector(-a, 0, 0)
+        vert[4] = PVector(0, -a, 0)
+        vert[5] = PVector(0, 0, -a)
         self.vert = vert
 
-    # draws octahedron 
+    # draws octahedron
     def create(self):
         vert = self.vert
-        beginShape(TRIANGLE_FAN) 
+        beginShape(TRIANGLE_FAN)
         vertex(vert[4].x, vert[4].y, vert[4].z)
         vertex(vert[0].x, vert[0].y, vert[0].z)
         vertex(vert[2].x, vert[2].y, vert[2].z)
@@ -108,7 +103,7 @@ class Octahedron():
         vertex(vert[0].x, vert[0].y, vert[0].z)
         endShape()
 
-        beginShape(TRIANGLE_FAN)        
+        beginShape(TRIANGLE_FAN)
         vertex(vert[1].x, vert[1].y, vert[1].z)
         vertex(vert[0].x, vert[0].y, vert[0].z)
         vertex(vert[2].x, vert[2].y, vert[2].z)
@@ -225,6 +220,7 @@ class Icosahedron():
                 endShape(CLOSE)
 
 class Dodecahedron():
+
     def __init__(self, radius):
         self.radius = radius
         a = radius / 1.618033989
