@@ -2,9 +2,10 @@
 s180109 Balls for Manoloid!
 (c)2018 Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
-This is directly inspired by 
-Manuel Gamboa Naon's skech (twitter.com/manoloidee)
+This is directly inspired by & derived from 
+Manuel Gamboa Naon's sketch 
 https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0
+posted at twitter.com/manoloidee
 """
 
 mm = 0

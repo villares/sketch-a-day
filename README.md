@@ -4,9 +4,11 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-![s180108](s180108/s180108.gif)
+![s180109](s180109/s180109.gif)
 
-#### 008: [s180108](https://github.com/villares/sketch-a-day/tree/master/s180108)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]   Grid of Platonic Solids in Python Mode [GIF](s180108/s180108.gif)
+#### 009: [s180108](https://github.com/villares/sketch-a-day/tree/master/s180109)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  Balls for Manoloide  [GIF](s180109/s180109.gif) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloidee))
+
+008: [s180108](https://github.com/villares/sketch-a-day/tree/master/s180108)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]   Grid of Platonic Solids in Python Mode [GIF](s180108/s180108.gif)
 
 007: [s180107](https://github.com/villares/sketch-a-day/tree/master/s180107) [[Processing Java](https://www.processing.org)]  Another grid of Platonic Solids in Java Mode [GIF](s180107/s180107.gif)
 
