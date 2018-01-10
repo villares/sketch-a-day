@@ -27,11 +27,11 @@ def draw():
 
     translate(width / 2, height / 2)
 
-    for r in ellipses:
+    for r in circles:
         r.update()
         r.showShadow()
 
-    for r in ellipses:
+    for r in circles:
         r.show()
 
     # if (frameCount < 200): saveFrame("###.tga") # para salvar frames
@@ -49,19 +49,19 @@ def mouseMoved():
     sub()
 
 def sub():
-    for r in ellipses:
+    for r in circles:
         if r.isOn(mx, my):
             r.sub()
             break
 
 
 def generate():
-    global ellipses
-    ellipses = []
-    ellipses.append(Rect(-300, -300, 600, color(random(256), 200, 200)))
+    global circles
+    circles = []
+    circles.append(Circle(-300, -300, 600, color(random(256), 200, 200)))
 
 
-class Rect:
+class Circle:
 
     def __init__(self, x, y, s, c):
         self.x = x
@@ -110,22 +110,22 @@ class Rect:
     def sub(self):
         ms = self.s * 0.5
 
-        r = Rect(self.ix, self.iy + ms, ms, self.col)
-        ellipses.append(r)
+        r = Circle(self.ix, self.iy + ms, ms, self.col)
+        circles.append(r)
 
-        r = Rect(self.ix, self.iy, ms, self.col)
+        r = Circle(self.ix, self.iy, ms, self.col)
         r.x += self.x - self.ix
         r.y += self.y - self.iy
-        ellipses.append(r)
+        circles.append(r)
 
-        r = Rect(self.ix + ms, self.iy, ms, self.col)
+        r = Circle(self.ix + ms, self.iy, ms, self.col)
         r.x += self.x - self.ix
         r.y += self.y - self.iy
-        ellipses.append(r)
+        circles.append(r)
 
-        r = Rect(self.ix + ms, self.iy + ms, ms, self.col)
+        r = Circle(self.ix + ms, self.iy + ms, ms, self.col)
         r.x += self.x - self.ix
         r.y += self.y - self.iy
-        ellipses.append(r)
+        circles.append(r)
 
-        ellipses.remove(self)
+        circles.remove(self)
