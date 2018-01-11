@@ -1,11 +1,10 @@
 """
-s180110 Balls for Manoloid!
-(r)2018 Alexandre B A Villares
+s180111 Graphs!
+(c)2018 Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
-This is directly inspired by & derived from 
-Manuel Gamboa Naon's sketch 
+Acceleration code by Manuel Gamboa Naon's sketch 
 https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0
-posted at twittec.com/manoloidee
+posted at twitter.com/manoloidee
 """
 
 mm = 0
@@ -64,12 +63,13 @@ def generate():
 class Circle:
 
     def __init__(self, x, y, s, c):
+        self.edges = []
         self.x = x
         self.y = y
         self.ix = x
         self.iy = y
         self.s = s
-        self.b = 10
+        self.b = 12
         self.ncol = color(random(256), 200, 200)
         self.col = c
 
@@ -92,14 +92,24 @@ class Circle:
         self.col = lerpColor(self.col, self.ncol, 0.05)
 
         self.mouseMovement()
+        self.showShadow()
+        self.edges()
+        self.show()
+
+
 
     def showShadow(self):
         noStroke()
         fill(0, 20)
         ellipse(self.x , self.y, self.s, self.s)
 
+    def edges(self):
+        strokeWeight(3)
+        stroke(255)
+        for e in self.edges:
+            line(self.x, self.y, e.x, e.y)
+
     def show(self):
-        stroke(255, 2)
         fill(self.col)
         ellipse(self.x, self.y, self.b, self.b)
 
@@ -110,22 +120,26 @@ class Circle:
     def sub(self):
         ms = self.s * 0.5
         mms = ms/2
-        c = Circle(self.ix-mms, self.iy+mms, ms, self.col)
-        circles.append(c)
+        new_origin = Circle(self.ix-mms, self.iy+mms, ms, self.col)
+        new_origin.edges = self.edges
+        circles.append(new_origin)
 
         c = Circle(self.ix-mms, self.iy-mms, ms, self.col)
         c.x += self.x - self.ix
         c.y += self.y - self.iy
+        c.edges.append(new_origin)
         circles.append(c)
 
         c = Circle(self.ix+mms , self.iy-mms, ms, self.col)
         c.x += self.x - self.ix
         c.y += self.y - self.iy
+        c.edges.append(new_origin)
         circles.append(c)
 
         c = Circle(self.ix+mms , self.iy+mms , ms, self.col)
         c.x += self.x - self.ix
         c.y += self.y - self.iy
+        c.edges.append(new_origin)
         circles.append(c)
 
         circles.remove(self)
