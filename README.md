@@ -4,9 +4,9 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-![s180110](s180110/s180110.gif)
+![s180110](s180110/s180110.png)
 
-#### 010: [s180110](https://github.com/villares/sketch-a-day/tree/master/s180110)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  More Manoloide inspired balls [GIF](s180110/s180110.gif) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloide.com))
+#### 010: [s180110](https://github.com/villares/sketch-a-day/tree/master/s180110)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  More Manoloide inspired balls [PNG](s180110/s180110.png) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloide.com))
 
 009: [s180109](https://github.com/villares/sketch-a-day/tree/master/s180109)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  Balls for Manoloide  [GIF](s180109/s180109.gif) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloide.com))
 
