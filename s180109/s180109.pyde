@@ -27,12 +27,12 @@ def draw():
 
     translate(width / 2, height / 2)
 
-    for r in circles:
-        r.update()
-        r.showShadow()
+    for c in circles:
+        c.update()
+        c.showShadow()
 
-    for r in circles:
-        r.show()
+    for c in circles:
+        c.show()
 
     # if (frameCount < 200): saveFrame("###.tga") # para salvar frames
 
@@ -49,9 +49,9 @@ def mouseMoved():
     sub()
 
 def sub():
-    for r in circles:
-        if r.isOn(mx, my):
-            r.sub()
+    for c in circles:
+        if c.isOn(mx, my):
+            c.sub()
             break
 
 
@@ -63,15 +63,15 @@ def generate():
 
 class Circle:
 
-    def __init__(self, x, y, s, c):
+    def __init__(self, x, y, size_, color_):
         self.x = x
         self.y = y
         self.ix = x
         self.iy = y
-        self.s = s
+        self.s = size_
         self.b = 10
         self.ncol = color(random(256), 200, 200)
-        self.col = c
+        self.col = color_
 
     def mouseMovement(self):
         cx = self.x + self.s * 0.5
@@ -110,22 +110,22 @@ class Circle:
     def sub(self):
         ms = self.s * 0.5
 
-        r = Circle(self.ix, self.iy + ms, ms, self.col)
-        circles.append(r)
+        c = Circle(self.ix, self.iy + ms, ms, self.col)
+        circles.append(c)
 
-        r = Circle(self.ix, self.iy, ms, self.col)
-        r.x += self.x - self.ix
-        r.y += self.y - self.iy
-        circles.append(r)
+        c = Circle(self.ix, self.iy, ms, self.col)
+        c.x += self.x - self.ix
+        c.y += self.y - self.iy
+        circles.append(c)
 
-        r = Circle(self.ix + ms, self.iy, ms, self.col)
-        r.x += self.x - self.ix
-        r.y += self.y - self.iy
-        circles.append(r)
+        c = Circle(self.ix + ms, self.iy, ms, self.col)
+        c.x += self.x - self.ix
+        c.y += self.y - self.iy
+        circles.append(c)
 
-        r = Circle(self.ix + ms, self.iy + ms, ms, self.col)
-        r.x += self.x - self.ix
-        r.y += self.y - self.iy
-        circles.append(r)
+        c = Circle(self.ix + ms, self.iy + ms, ms, self.col)
+        c.x += self.x - self.ix
+        c.y += self.y - self.iy
+        circles.append(c)
 
         circles.remove(self)
