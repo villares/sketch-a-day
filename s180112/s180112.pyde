@@ -1,5 +1,5 @@
 """
-s180111 Graphs!
+s180112 Graphs!
 (c)2018 Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 Acceleration code by Manuel Gamboa Naon's sketch 
@@ -65,7 +65,7 @@ def generate():
 class Circle:
 
     def __init__(self, x, y, s, c):
-        self.edges = []
+        self.edges = set()
         self.x = x
         self.y = y
         self.ix = x
@@ -102,7 +102,7 @@ class Circle:
 
     def showEdges(self):
         strokeWeight(3)
-        stroke(255)
+        stroke(0)
         for e in self.edges:
             line(self.x, self.y, e.x, e.y)
 
@@ -111,32 +111,36 @@ class Circle:
         ellipse(self.x, self.y, self.b, self.b)
 
     def isOn(self, mx, my):
-        return (self.x + self.s > mx >= self.x and
-                self.y + self.s > my >= self.y)
+        return dist(self.x, self.y, mx, my) < self.s/2
 
     def sub(self):
         ms = self.s * 0.5
         mms = ms/2
-        new_origin = Circle(self.ix-mms, self.iy+mms, ms, self.col)
-        new_origin.edges = self.edges
-        circles.append(new_origin)
+        c0 = Circle(self.ix-mms, self.iy+mms, ms, self.col)
+        c0.edges = self.edges
+        #replace egges from any child
+        for c in circles:
+            if self in c.edges:
+                c.edges.remove(self)
+                c.edges.add(c0)            
+        circles.append(c0)
 
-        c = Circle(self.ix-mms, self.iy-mms, ms, self.col)
-        c.x += self.x - self.ix
-        c.y += self.y - self.iy
-        c.edges.append(new_origin)
-        circles.append(c)
+        c1 = Circle(self.ix-mms, self.iy-mms, ms, self.col)
+        c1.x += self.x - self.ix
+        c1.y += self.y - self.iy
+        c1.edges.add(c0)
+        circles.append(c1)
 
-        c = Circle(self.ix+mms , self.iy-mms, ms, self.col)
-        c.x += self.x - self.ix
-        c.y += self.y - self.iy
-        c.edges.append(new_origin)
-        circles.append(c)
+        c2 = Circle(self.ix+mms , self.iy-mms, ms, self.col)
+        c2.x += self.x - self.ix
+        c2.y += self.y - self.iy
+        c2.edges.add(c0)
+        circles.append(c2)
 
-        c = Circle(self.ix+mms , self.iy+mms , ms, self.col)
-        c.x += self.x - self.ix
-        c.y += self.y - self.iy
-        c.edges.append(new_origin)
-        circles.append(c)
+        c3 = Circle(self.ix+mms , self.iy+mms , ms, self.col)
+        c3.x += self.x - self.ix
+        c3.y += self.y - self.iy
+        c3.edges.add(c0)
+        circles.append(c3)
 
         circles.remove(self)
