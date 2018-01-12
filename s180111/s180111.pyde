@@ -93,7 +93,7 @@ class Circle:
 
         self.mouseMovement()
         self.showShadow()
-        self.edges()
+        self.showEdges()
         self.show()
 
 
@@ -103,7 +103,7 @@ class Circle:
         fill(0, 20)
         ellipse(self.x , self.y, self.s, self.s)
 
-    def edges(self):
+    def showEdges(self):
         strokeWeight(3)
         stroke(255)
         for e in self.edges:
