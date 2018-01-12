@@ -4,23 +4,39 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-011: [s180111](https://github.com/villares/sketch-a-day/tree/master/s180111)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Graph Play
+012: [s180112](https://github.com/villares/sketch-a-day/tree/master/s180112)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Better graph take
+
+![s180111](s180110/s180111.png)
+
+011: [s180111](https://github.com/villares/sketch-a-day/tree/master/s180111)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Graph take
 
 ![s180110](s180110/s180110.png)
 
-#### 010: [s180110](https://github.com/villares/sketch-a-day/tree/master/s180110)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  More Manoloide inspired balls [PNG](s180110/s180110.png) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloide.com))
+010: [s180110](https://github.com/villares/sketch-a-day/tree/master/s180110)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  More Manoloide inspired balls [PNG](s180110/s180110.png) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloide.com))
+
+![GIF](s180109/s180109.gif)
 
 009: [s180109](https://github.com/villares/sketch-a-day/tree/master/s180109)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  Balls for Manoloide  [GIF](s180109/s180109.gif) (derived from a [sketch](https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0) by [Manuel Gamboa Naon](http://manoloide.com))
 
+![GIF](s180108/s180108.gif)
+
 008: [s180108](https://github.com/villares/sketch-a-day/tree/master/s180108)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]   Grid of Platonic Solids in Python Mode [GIF](s180108/s180108.gif)
 
+![GIF](s180107/s180107.gif)
+
 007: [s180107](https://github.com/villares/sketch-a-day/tree/master/s180107) [[Processing Java](https://www.processing.org)]  Another grid of Platonic Solids in Java Mode [GIF](s180107/s180107.gif)
+
+![GIF](s180106/s180106.gif)
 
 006: [s180106](https://github.com/villares/sketch-a-day/tree/master/s180106) [[Processing Java](https://www.processing.org)]  Grid of Platonic Solids in Java Mode  [GIF](s180106/s180106.gif)
 
 005: [s180105](https://github.com/villares/sketch-a-day/tree/master/s180105) [[p5js](https://www.p5js.org)] Line Tetrahedrons in p5*js - [interactive](https://villares.github.io/sketch-a-day/s180105/s180105) 
 
+![GIF](s180104/s180104.gif)
+
 004: [s180104](https://github.com/villares/sketch-a-day/tree/master/s180104) [[Processing Java](https://www.processing.org)] Tetrahedrons in Java Mode- [GIF](https://github.com/villares/sketch-a-day/tree/master/s180104/s180104.gif)
+
+![GIF](s180103/s180103.gif)
 
 003: [s180103](https://github.com/villares/sketch-a-day/tree/master/s180103) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Tetrahedrons  Python Mode- [GIF](https://github.com/villares/sketch-a-day/tree/master/s180103/s180103.gif)
 
