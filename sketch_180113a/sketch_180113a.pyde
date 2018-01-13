@@ -10,7 +10,7 @@ mm = 0
 Z_INC = 20
 
 def setup():
-    size(720, 720, P3D)
+    size(600, 600, P3D)
     cam = PeasyCam(this, 500)
     generate()
     #ellipseMode(CORNER)
