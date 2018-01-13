@@ -1,16 +1,17 @@
 """
-s180112 Graphs!
+s180113 3D Graphs!
 (c)2018 Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
-Acceleration code by Manuel Gamboa Naon's sketch 
-https://gist.github.com/manoloide/16ea9e1d68c6ba1700fcb008fd38aab0
-posted at twitter.com/manoloidee
 """
 
+add_library('peasycam')
+
 mm = 0
+Z_INC = 20
 
 def setup():
-    size(720, 720, P2D)
+    size(720, 720, P3D)
+    cam = PeasyCam(this, 500)
     generate()
     #ellipseMode(CORNER)
     colorMode(HSB)
@@ -24,7 +25,7 @@ def draw():
     time = millis() * 0.001
     background(190)
 
-    translate(width / 2, height / 2)
+    #translate(width / 2, height / 2)
 
     for c in circles:
         c.update()
@@ -41,8 +42,8 @@ def draw():
 def keyPressed():
     generate()
 
-def mouseClicked():
-    sub()
+# def mouseClicked():
+#     sub()
 
 def mouseMoved():
     global mm
@@ -59,7 +60,7 @@ def sub():
 def generate():
     global circles
     circles = []
-    circles.append(Circle(0, 0 , 600, color(random(256), 200, 200)))
+    circles.append(Circle(-50, -50 , 600, color(random(256), 200, 200)))
 
 
 class Circle:
@@ -74,11 +75,12 @@ class Circle:
         self.b = 12
         self.ncol = color(random(256), 200, 200)
         self.col = c
+        self.z = 0
 
     def mouseMovement(self):
         cx = self.x 
         cy = self.y 
-        maxDist = 100
+        maxDist = 50
         dis = dist(cx, cy, mx, my)
         ang = atan2(cy - my, cx - mx)
         if (dis < maxDist):
@@ -102,13 +104,17 @@ class Circle:
 
     def showEdges(self):
         strokeWeight(3)
-        stroke(0)
+        stroke(self.col)
         for e in self.edges:
-            line(self.x, self.y, e.x, e.y)
+            line(self.x, self.y, self.z, e.x, e.y, e.z)
 
     def show(self):
+        stroke(self.col)
         fill(self.col)
+        pushMatrix()
+        translate(0,0,self.z)
         ellipse(self.x, self.y, self.b, self.b)
+        popMatrix()
 
     def isOn(self, mx, my):
         return dist(self.x, self.y, mx, my) < self.s/2
@@ -118,6 +124,7 @@ class Circle:
         mms = ms/2
         c0 = Circle(self.ix-mms, self.iy+mms, ms, self.col)
         c0.edges = self.edges
+        c0.z = self.z+Z_INC
         #replace egges from any child
         for c in circles:
             if self in c.edges:
@@ -128,18 +135,21 @@ class Circle:
         c1 = Circle(self.ix-mms, self.iy-mms, ms, self.col)
         c1.x += self.x - self.ix
         c1.y += self.y - self.iy
+        c1.z = self.z+Z_INC
         c1.edges.add(c0)
         circles.append(c1)
 
         c2 = Circle(self.ix+mms , self.iy-mms, ms, self.col)
         c2.x += self.x - self.ix
         c2.y += self.y - self.iy
+        c2.z = self.z+Z_INC
         c2.edges.add(c0)
         circles.append(c2)
 
         c3 = Circle(self.ix+mms , self.iy+mms , ms, self.col)
         c3.x += self.x - self.ix
         c3.y += self.y - self.iy
+        c3.z = self.z+Z_INC
         c3.edges.add(c0)
         circles.append(c3)
 
