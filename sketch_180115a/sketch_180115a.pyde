@@ -1,5 +1,9 @@
 """
-Converting some of Maeda's Design by Number code
+s18015 - Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+
+Converting some of Maeda's Design by Number
+dbnletters.dbn code -> Processing
 """
 
 dbn_command = {} # Dict of functions
