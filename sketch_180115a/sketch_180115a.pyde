@@ -2,7 +2,7 @@
 Converting some of Maeda's Design by Number code
 """
 
-dbn_func = {} # Dict of functions
+dbn_command = {} # Dict of functions
 
 dbn_A = """
 line h v h (v+7)
@@ -30,21 +30,22 @@ line (h+1) (v+10) (h+9) (v+10)
 """.split("\n")
 
 def setup():
-    size(400, 400)
+    size(200, 200)
+    strokeCap(SQUARE)
+    noSmooth()
     parse_dbn(dbn_A, "A")
     parse_dbn(dbn_B, "B")
     parse_dbn(dbn_C, "C")
 
 def draw():
-    scale(4, -4)
+    scale(2, -2)
     translate(0, -100)
-    print(height - mouseY * 2)
-    dbn_func["A"](10, 10)
-    dbn_func["B"](25, 10)
-    dbn_func["C"](40, 10)
+    dbn_command["A"](10, 10)
+    dbn_command["B"](25, 10)
+    dbn_letterC(40, 10)
 
 
-def parse_dbn(dbn_block, func_name):
+def parse_dbn(dbn_block, func_key):
     p_block = []
     for dbn_line in dbn_block:
         if dbn_line:
@@ -55,4 +56,5 @@ def parse_dbn(dbn_block, func_name):
     def func(h, v):
         for l in p_block: eval(l)
         
-    dbn_func[func_name] = func
+    dbn_command[func_key] = func
+    globals()["dbn_letter"+func_key]= func
