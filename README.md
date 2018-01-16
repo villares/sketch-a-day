@@ -4,9 +4,13 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-![s180115](sketch_180115a/sketch_180115.png)
+![s180116a](sketch_180116a/sketch_180116a.png)
 
-015: [sketch_180115a](https://github.com/villares/sketch-a-day/tree/master/sketch_180115a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Converting some Typography code from Design by Numbers to Processing Python Mode
+016: [sketch_180116a](https://github.com/villares/sketch-a-day/tree/master/sketch_180116a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Converting some Typography code from Design by Numbers, almost there!
+
+![s180115a](sketch_180115a/sketch_180115a.png)
+
+015: [sketch_180115a](https://github.com/villares/sketch-a-day/tree/master/sketch_180115a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Converting some Typography code from Design by Numbers, first trials
 
 ![s180114](sketch_180114a/sketch_180114a.png)
 
