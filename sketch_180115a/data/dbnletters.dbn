@@ -1,0 +1,340 @@
+// dbnletters
+command letterA h v
+{
+  line h v h (v+7)
+  line (h) (v+7) (h+3) (v+10)
+  line (h+3) (v+10) (h+10) (v+3)
+  line (h+10) (v+3) (h+10) v
+  line h (v+3) (h+10) (v+3)
+}
+command letterB h v
+{
+  line h v h (v+10)
+  line h (v+10) (h+5) (v+10)
+  line (h+5) (v+10) (h+8) (v+7)
+  line h (v+6) (h+7) (v+6)
+  line (h+7) (v+6) (h+10) (v+3)
+  line (h+10) (v+3) (h+10) (v+1)
+  line h v (h+9) v
+}
+command letterC h v
+{
+  line (h+4) v (h+10) v
+  line (h+4) v h (v+4)
+  line h (v+4) h (v+9)
+  line (h+1) (v+10) (h+9) (v+10)
+}
+command letterD h v
+{
+  line h v h (v+10)
+  line h v (h+8) v
+  line (h+8) v (h+10) (v+2)
+  line (h+10) (v+2) (h+10) (v+6)
+  line (h+10) (v+6) (h+6) (v+10)
+  line (h+6) (v+10) h (v+10)
+}
+command letterE h v
+{
+  line h (v+3) h (v+10)
+  line h (v+3) (h+3) v
+  line (h+3) v (h+10) v
+  line h (v+6) (h+9) (v+6)
+  line h (v+10) (h+9) (v+10)
+}
+command letterF h v
+{
+  line h v h (v+10)
+  line h (v+6) (h+8) (v+6)
+  line h (v+10) (h+10) (v+10)
+}
+command letterG h v
+{
+  line (h+4) v (h+9) v
+  line (h+4) v h (v+4)
+  line h (v+4) h (v+9)
+  line (h+1) (v+10) (h+9) (v+10)
+  line (h+10) (v+1) (h+10) (v+5)
+  line (h+10) (v+5) (h+6) (v+5)
+}
+command letterH h v
+{
+  line h v h (v+10)
+  line h (v+4) (h+10) (v+4)
+  line (h+10) v (h+10) (v+10)
+}
+command letterI h v
+{
+  line h v (h+10) v
+  line (h+5) v (h+5) (v+10)
+  line h (v+10) (h+9) (v+10)
+}
+command letterJ h v
+{
+  line h (v+3) (h+3) v
+  line (h+3) v (h+9) v
+  line (h+10) (v+1) (h+10) (v+10)
+}
+command letterK h v
+{
+  line h v h (v+10)
+  line h (v+1) (h+9) (v+10)
+  line (h+5) (v+5) (h+10) v
+}
+command letterL h v
+{
+  line h v h (v+10)
+  line h v (h+10) v
+}
+command letterM h v
+{
+  line h v h (v+10)
+  //line h (v+10) (h+2) (v+10)
+  line (h+1) (v+10) (h+5) (v+6)
+  line (h+5) (v+6) (h+9) (v+10)
+  line (h+10) (v+10) (h+10) v
+}
+command letterN h v
+{
+  line h v h (v+10)
+  line h (v+10) (h+3) (v+10)
+  line (h+3) (v+10) (h+10) (v+3)
+  line (h+10) (v+10) (h+10) v
+}
+command letterO h v
+{
+  line (h+4) v (h+9) v
+  line (h+4) v h (v+4)
+  line h (v+4) h (v+9)
+  line (h+1) (v+10) (h+7) (v+10)
+  line (h+7) (v+10) (h+10) (v+7)
+  line (h+10) (v+7) (h+10) (v+1)
+}
+command letterP h v
+{
+  line h v h (v+10)
+  line h (v+10) (h+7) (v+10)
+  line (h+7) (v+10) (h+10) (v+7)
+  line (h+10) (v+6) (h+8) (v+4)
+  line h (v+4) (h+8) (v+4)
+}
+command letterQ h v
+{
+  line (h+4) v (h+8) v
+  line (h+4) v h (v+4)
+  line h (v+4) h (v+9)
+  line (h+1) (v+10) (h+7) (v+10)
+  line (h+7) (v+10) (h+10) (v+7)
+  line (h+10) (v+7) (h+10) (v+2)
+  line (h+6) (v+4) (h+10) v
+}
+command letterR h v
+{
+  line h v h (v+10)
+  line h (v+10) (h+7) (v+10)
+  line (h+7) (v+10) (h+10) (v+7)
+  line (h+10) (v+6) (h+8) (v+4)
+  line h (v+4) (h+8) (v+4)
+  line (h+6) (v+4) (h+10) v
+}
+command letterS h v
+{
+  line h (v+2) (h+2) v
+  line (h+2) v (h+9) v
+  line (h+10) (v+1) (h+10) (v+4)
+  line (h+9) (v+5) (h+2) (v+5)
+  line (h+2) (v+5) h (v+7)
+  line h (v+7) h (v+9)
+  line (h+1) (v+10) (h+9) (v+10)
+  line (h+9) (v+10) (h+10) (v+9)
+}
+command letterT h v
+{
+  line h (v+10) (h+10) (v+10)
+  line (h+5) (v+10) (h+5) v
+}
+command letterU h v
+{
+  line h (v+10) h (v+3)
+  line h (v+3) (h+3) v
+  line (h+3) v (h+9) v
+  line (h+10) (v+1) (h+10) (v+10)
+}
+command letterV h v
+{
+  line h (v+10) h (v+5)
+  line h (v+5) (h+5) v
+  line (h+5) v (h+10) (v+5)
+  line (h+10) (v+5) (h+10) (v+10)
+}
+command letterW h v
+{
+  line h (v+10) h (v+3)
+  line h (v+3) (h+3) v
+  line (h+3) v (h+6) (v+3)
+  line (h+6) (v+3) (h+9) v
+  line (h+10) (v+1) (h+10) (v+10)
+}
+command letterX h v
+{
+  line h (v+10) h (v+9)
+  line h (v+9) (h+4) (v+5)
+  line (h+4) (v+5) (h+6) (v+5)
+  line (h+6) (v+5) (h+10) (v+9)
+  line (h+10) (v+9) (h+10) (v+10)
+  line h v h (v+1)
+  line h (v+1) (h+4) (v+5)
+  line (h+6) (v+5) (h+10) (v+1)
+  line (h+10) (v+1) (h+10) v
+}
+command letterX2 h v
+{
+  line h v (h+10) (v+10)
+  line h (v+10) (h+10) v
+}
+command letterY h v
+{
+  line h (v+10) h (v+7)
+  line h (v+7) (h+3) (v+4)
+  line (h+3) (v+4) (h+10) (v+4)
+  line (h+10) (v+10) (h+10) (v+1)
+  line (h+9) v (h+2) v
+  line (h+2) v h (v+2)
+}
+command letterZ h v
+{
+  line h (v+10) (h+10) (v+10)
+  line (h+10) (v+10) h v
+  line h v (h+10) v
+}
+command letter l h v
+{
+  same? l 1
+  {
+    letterA h v
+  }
+  same? l 2
+  {
+    letterB h v
+  }
+  same? l 3
+  {
+    letterC h v
+  }
+  same? l 4
+  {
+    letterD h v
+  }
+  same? l 5
+  {
+    letterE h v
+  }
+  same? l 6
+  {
+    letterF h v
+  }
+  same? l 7
+  {
+    letterG h v
+  }
+  same? l 8
+  {
+    letterH h v
+  }
+  same? l 9
+  {
+    letterI h v
+  }
+  same? l 10
+  {
+    letterJ h v
+  }
+  same? l 11
+  {
+    letterK h v
+  }
+  same? l 12
+  {
+    letterL h v
+  }
+  same? l 13
+  {
+    letterM h v
+  }
+  same? l 14
+  {
+    letterN h v
+  }
+  same? l 15
+  {
+    letterO h v
+  }
+  same? l 16
+  {
+    letterP h v
+  }
+  same? l 17
+  {
+    letterQ h v
+  }
+  same? l 18
+  {
+    letterR h v
+  }
+  same? l 19
+  {
+    letterS h v
+  }
+  same? l 20
+  {
+    letterT h v
+  }
+  same? l 21
+  {
+    letterU h v
+  }
+  same? l 22
+  {
+    letterV h v
+  }
+  same? l 23
+  {
+    letterW h v
+  }
+  same? l 24
+  {
+    letterX h v
+  }
+  same? l 25
+  {
+    letterY h v
+  }
+  same? l 26
+  {
+    letterZ h v
+  }
+}
+command testdbnletters
+{
+  paper 0
+  pen 100
+  set x 17
+  set y 73
+  set dx 12
+  set dy 12
+  set n 0
+  repeat a 1 25
+  {
+    letter a x y
+    set x (x+dx)
+    set n (n+1)
+    same? n 5
+    {
+      set x 17
+      set y (y-dy)
+      set n 0
+    }
+  }
+  set x (x+dx*5)
+  letter 26 x y
+}
+
