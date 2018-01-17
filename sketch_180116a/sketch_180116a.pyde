@@ -24,21 +24,16 @@ def draw():
 def parse_dbn_source(file_path):
     with open(file_path, "r") as f:
         dbn_source = f.readlines()
-
     inside_block = False
     command_name = ""
     command_block = []
-    for i, ln in enumerate(dbn_source):
-        # print i, ln,
-        if i >= 208:
-            break
+    for ln in dbn_source:
         if ln.count("command"):
             command_name = ln[14:15]
         elif ln.count("{"):
             inside_block = True
         elif ln.count("}"):
             if command_name in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-                # print inside_block
                 def_dbn_letter(command_block, command_name)
             command_block = []  # empty block
             inside_block = False
@@ -53,17 +48,15 @@ def def_dbn_letter(dbn_block, func_key):
             p_block.append(dbn_line
                            .replace("line ", "line(")
                            .replace(" ", ",")
-                           .replace("//", "")
+                           .replace("//", "#")
                            + ")")
-
-    println("def dbn_letter" + func_key)
-
+    # println("def dbn_letter" + func_key)
     def func(h, v):
         with pushMatrix():
             scale(1, -1)
-            for l in p_block:
-                if not l.count("#"):
-                    eval(l)
+            for ln in p_block:
+                if ln[0] != "#":
+                    eval(ln)
 
     dbn_letter[func_key] = func
     dbn_letter[ord(func_key) - 64] = func
