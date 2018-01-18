@@ -1,6 +1,6 @@
 add_library('pdf')
 """
-s18016 - Alexandre B A Villares
+s18018 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 
 Converting some of Maeda's Design by Number
@@ -18,6 +18,7 @@ def setup():
     noLoop()
 
 def draw():
+    global time
     time = "execution"
     beginRecord(PDF, "DBN_Letters.pdf")
     """
@@ -47,7 +48,7 @@ def dbn_test():
         for x in range(1, 6):
             dbn_letter[x + y * 5](x * 12, -20 - y * 12)
     dbn_letterZ(x * 12 + 12, -32 - y * 12)
-    print time
+    println("test " + time)
 
 def parse_dbn_source(file_path):
     with open(file_path, "r") as f:
@@ -87,7 +88,7 @@ def def_dbn_letter(dbn_block, func_key):
                 stroke(random(256), 200, 200)
                 if ln[0] != "#":
                     eval(ln)
-                    print "eval", time
+                    println("def eval " + time)
 
     dbn_letter[func_key] = func
     dbn_letter[ord(func_key) - 64] = func

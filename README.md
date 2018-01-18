@@ -4,9 +4,9 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-![s180118a](sketch_180117a/sketch_180118a.png)
+![s180118a](sketch_180118a/sketch_180118a.png)
 
-018: [sketch_180116a](https://github.com/villares/sketch-a-day/tree/master/sketch_180118a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+018: [sketch_180116a](https://github.com/villares/sketch-a-day/tree/master/sketch_180118a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Color font? Nah… 
 
 ![s180117a](sketch_180117a/sketch_180117a.png)
 
