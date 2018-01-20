@@ -10,12 +10,12 @@ dbnletters.dbn code -> Processing
 from dbn_polys import *
 
 def setup():
-    size(400, 400)
+    size(300, 300)
     noLoop()
 
 def draw():
     strokeCap(PROJECT)
-    scale(4, 4)
+    scale(3, 3)
     dbn_test()
 
 def dbn_test():

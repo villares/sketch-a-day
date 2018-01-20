@@ -4,13 +4,17 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
+![s180119a](sketch_180119a/sketch_180119a.png)
+
+019: [sketch_180119a](https://github.com/villares/sketch-a-day/tree/master/sketch_180119a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Letters: Now working on a new approach, generating vertex/Shape code, not there yet...
+
 ![s180118a](sketch_180118a/sketch_180118a.png)
 
-018: [sketch_180116a](https://github.com/villares/sketch-a-day/tree/master/sketch_180118a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Color font? Nah… 
+018: [sketch_180118a](https://github.com/villares/sketch-a-day/tree/master/sketch_180118a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Color font? Nah… 
 
 ![s180117a](sketch_180117a/sketch_180117a.png)
 
-017: [sketch_180116a](https://github.com/villares/sketch-a-day/tree/master/sketch_180117a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] John Maeda's `dbnletters.dbn` code from Design by Numbers on Processing Python Mode
+017: [sketch_180117a](https://github.com/villares/sketch-a-day/tree/master/sketch_180117a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] John Maeda's `dbnletters.dbn` code from Design by Numbers on Processing Python Mode
 
 ![s180116a](sketch_180116a/sketch_180116a.png)
 
