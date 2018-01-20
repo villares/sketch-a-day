@@ -4,6 +4,11 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
+![s180120b](sketch_180120b/sketch_180120b.gif)
+
+020: [sketch_180120b](https://github.com/villares/sketch-a-day/tree/master/sketch_180120b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+20a (still working on DBN conversion) didn't generate a nice visual output, so this is 20b...
+
 ![s180119a](sketch_180119a/sketch_180119a.png)
 
 019: [sketch_180119a](https://github.com/villares/sketch-a-day/tree/master/sketch_180119a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Letters: Now working on a new approach, generating vertex/Shape code, not there yet...

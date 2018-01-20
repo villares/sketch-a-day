@@ -47,7 +47,7 @@ def def_dbn_letter(dbn_block, key_):
 
     for dbn_line in dbn_block:
         if dbn_line:
-            p_block.append("    " + dbn_line
+            p_lines =("    " + dbn_line
                            .replace("line ", "vertex(")
                            .replace(" ", ",", 1)
                            .replace(" ", "$", 1)
@@ -56,14 +56,19 @@ def def_dbn_letter(dbn_block, key_):
                            .replace("//", "#")
                            .strip()
                            + ")")
+            p_block.append(p_lines.split("\n")[0])
+            p_block.append(p_lines.split("\n")[1])
+            
     with open("dbn_polys.py", 'a') as out:
         out.write("# " + key_ + "\n")
         out.write("def dbn_letter" + key_ + "(h, v):\n")
         out.write("    pushMatrix()\n")
         out.write("    scale(1, -1)\n")
         out.write("    beginShape()\n")
-        for py_processing_line in p_block:
-            out.write(py_processing_line + "\n")
+        out.write(p_block[0] + "\n")
+        for i, line_ in enumerate(p_block[1:]):
+            if line_ != p_block[i-1]:
+                out.write(line_ + "\n")
         out.write("    endShape()\n")
         out.write("    popMatrix()\n")
         out.write("dbn_letter['" + key_ + "'] = dbn_letter" + key_ + "\n")
