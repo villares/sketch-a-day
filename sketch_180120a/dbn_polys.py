@@ -8,10 +8,10 @@ dbnletters.dbn code -> Processing
 dbn_letter = {}  # Dict of functions
 
 # A
-def dbn_letterA(h, v):
+def dbn_letterA(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+7)
@@ -22,7 +22,7 @@ def dbn_letterA(h, v):
     # vertex(h+10,v+3)
     vertex(h+10,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+3)
     vertex(h+10,v+3)
@@ -31,10 +31,10 @@ def dbn_letterA(h, v):
 dbn_letter['A'] = dbn_letterA
 dbn_letter[1] = dbn_letterA
 # B
-def dbn_letterB(h, v):
+def dbn_letterB(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
@@ -43,7 +43,7 @@ def dbn_letterB(h, v):
     # vertex(h+5,v+10)
     vertex(h+8,v+7)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+6)
     vertex(h+7,v+6)
@@ -52,7 +52,7 @@ def dbn_letterB(h, v):
     # vertex(h+10,v+3)
     vertex(h+10,v+1)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h+9,v)
@@ -61,22 +61,22 @@ def dbn_letterB(h, v):
 dbn_letter['B'] = dbn_letterB
 dbn_letter[2] = dbn_letterB
 # C
-def dbn_letterC(h, v):
+def dbn_letterC(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h+10,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h,v+4)
     # vertex(h,v+4)
     vertex(h,v+9)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+1,v+10)
     vertex(h+9,v+10)
@@ -85,15 +85,15 @@ def dbn_letterC(h, v):
 dbn_letter['C'] = dbn_letterC
 dbn_letter[3] = dbn_letterC
 # D
-def dbn_letterD(h, v):
+def dbn_letterD(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h+8,v)
@@ -110,27 +110,27 @@ def dbn_letterD(h, v):
 dbn_letter['D'] = dbn_letterD
 dbn_letter[4] = dbn_letterD
 # E
-def dbn_letterE(h, v):
+def dbn_letterE(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+3)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+3)
     vertex(h+3,v)
     # vertex(h+3,v)
     vertex(h+10,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+6)
     vertex(h+9,v+6)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h+9,v+10)
@@ -139,20 +139,20 @@ def dbn_letterE(h, v):
 dbn_letter['E'] = dbn_letterE
 dbn_letter[5] = dbn_letterE
 # F
-def dbn_letterF(h, v):
+def dbn_letterF(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+6)
     vertex(h+8,v+6)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h+10,v+10)
@@ -161,27 +161,27 @@ def dbn_letterF(h, v):
 dbn_letter['F'] = dbn_letterF
 dbn_letter[6] = dbn_letterF
 # G
-def dbn_letterG(h, v):
+def dbn_letterG(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h+9,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h,v+4)
     # vertex(h,v+4)
     vertex(h,v+9)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+1,v+10)
     vertex(h+9,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+1)
     vertex(h+10,v+5)
@@ -192,20 +192,20 @@ def dbn_letterG(h, v):
 dbn_letter['G'] = dbn_letterG
 dbn_letter[7] = dbn_letterG
 # H
-def dbn_letterH(h, v):
+def dbn_letterH(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+4)
     vertex(h+10,v+4)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v)
     vertex(h+10,v+10)
@@ -214,20 +214,20 @@ def dbn_letterH(h, v):
 dbn_letter['H'] = dbn_letterH
 dbn_letter[8] = dbn_letterH
 # I
-def dbn_letterI(h, v):
+def dbn_letterI(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h+10,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+5,v)
     vertex(h+5,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h+9,v+10)
@@ -236,17 +236,17 @@ def dbn_letterI(h, v):
 dbn_letter['I'] = dbn_letterI
 dbn_letter[9] = dbn_letterI
 # J
-def dbn_letterJ(h, v):
+def dbn_letterJ(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+3)
     vertex(h+3,v)
     # vertex(h+3,v)
     vertex(h+9,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+1)
     vertex(h+10,v+10)
@@ -255,20 +255,20 @@ def dbn_letterJ(h, v):
 dbn_letter['J'] = dbn_letterJ
 dbn_letter[10] = dbn_letterJ
 # K
-def dbn_letterK(h, v):
+def dbn_letterK(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+1)
     vertex(h+9,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+5,v+5)
     vertex(h+10,v)
@@ -277,15 +277,15 @@ def dbn_letterK(h, v):
 dbn_letter['K'] = dbn_letterK
 dbn_letter[11] = dbn_letterK
 # L
-def dbn_letterL(h, v):
+def dbn_letterL(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h+10,v)
@@ -294,27 +294,27 @@ def dbn_letterL(h, v):
 dbn_letter['L'] = dbn_letterL
 dbn_letter[12] = dbn_letterL
 # M
-def dbn_letterM(h, v):
+def dbn_letterM(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     #vertex(h,v+10)
     vertex(h+2,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+1,v+10)
     vertex(h+5,v+6)
     # vertex(h+5,v+6)
     vertex(h+9,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+10)
     vertex(h+10,v)
@@ -323,10 +323,10 @@ def dbn_letterM(h, v):
 dbn_letter['M'] = dbn_letterM
 dbn_letter[13] = dbn_letterM
 # N
-def dbn_letterN(h, v):
+def dbn_letterN(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
@@ -335,7 +335,7 @@ def dbn_letterN(h, v):
     # vertex(h+3,v+10)
     vertex(h+10,v+3)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+10)
     vertex(h+10,v)
@@ -344,22 +344,22 @@ def dbn_letterN(h, v):
 dbn_letter['N'] = dbn_letterN
 dbn_letter[14] = dbn_letterN
 # O
-def dbn_letterO(h, v):
+def dbn_letterO(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h+9,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h,v+4)
     # vertex(h,v+4)
     vertex(h,v+9)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+1,v+10)
     vertex(h+7,v+10)
@@ -372,10 +372,10 @@ def dbn_letterO(h, v):
 dbn_letter['O'] = dbn_letterO
 dbn_letter[15] = dbn_letterO
 # P
-def dbn_letterP(h, v):
+def dbn_letterP(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
@@ -384,12 +384,12 @@ def dbn_letterP(h, v):
     # vertex(h+7,v+10)
     vertex(h+10,v+7)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+6)
     vertex(h+8,v+4)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+4)
     vertex(h+8,v+4)
@@ -398,22 +398,22 @@ def dbn_letterP(h, v):
 dbn_letter['P'] = dbn_letterP
 dbn_letter[16] = dbn_letterP
 # Q
-def dbn_letterQ(h, v):
+def dbn_letterQ(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h+8,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+4,v)
     vertex(h,v+4)
     # vertex(h,v+4)
     vertex(h,v+9)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+1,v+10)
     vertex(h+7,v+10)
@@ -422,7 +422,7 @@ def dbn_letterQ(h, v):
     # vertex(h+10,v+7)
     vertex(h+10,v+2)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+6,v+4)
     vertex(h+10,v)
@@ -431,10 +431,10 @@ def dbn_letterQ(h, v):
 dbn_letter['Q'] = dbn_letterQ
 dbn_letter[17] = dbn_letterQ
 # R
-def dbn_letterR(h, v):
+def dbn_letterR(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+10)
@@ -443,17 +443,17 @@ def dbn_letterR(h, v):
     # vertex(h+7,v+10)
     vertex(h+10,v+7)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+6)
     vertex(h+8,v+4)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+4)
     vertex(h+8,v+4)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+6,v+4)
     vertex(h+10,v)
@@ -462,22 +462,22 @@ def dbn_letterR(h, v):
 dbn_letter['R'] = dbn_letterR
 dbn_letter[18] = dbn_letterR
 # S
-def dbn_letterS(h, v):
+def dbn_letterS(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+2)
     vertex(h+2,v)
     # vertex(h+2,v)
     vertex(h+9,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+1)
     vertex(h+10,v+4)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+9,v+5)
     vertex(h+2,v+5)
@@ -486,7 +486,7 @@ def dbn_letterS(h, v):
     # vertex(h,v+7)
     vertex(h,v+9)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+1,v+10)
     vertex(h+9,v+10)
@@ -497,15 +497,15 @@ def dbn_letterS(h, v):
 dbn_letter['S'] = dbn_letterS
 dbn_letter[19] = dbn_letterS
 # T
-def dbn_letterT(h, v):
+def dbn_letterT(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h+10,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+5,v+10)
     vertex(h+5,v)
@@ -514,10 +514,10 @@ def dbn_letterT(h, v):
 dbn_letter['T'] = dbn_letterT
 dbn_letter[20] = dbn_letterT
 # U
-def dbn_letterU(h, v):
+def dbn_letterU(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h,v+3)
@@ -526,7 +526,7 @@ def dbn_letterU(h, v):
     # vertex(h+3,v)
     vertex(h+9,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+1)
     vertex(h+10,v+10)
@@ -535,10 +535,10 @@ def dbn_letterU(h, v):
 dbn_letter['U'] = dbn_letterU
 dbn_letter[21] = dbn_letterU
 # V
-def dbn_letterV(h, v):
+def dbn_letterV(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h,v+5)
@@ -553,10 +553,10 @@ def dbn_letterV(h, v):
 dbn_letter['V'] = dbn_letterV
 dbn_letter[22] = dbn_letterV
 # W
-def dbn_letterW(h, v):
+def dbn_letterW(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h,v+3)
@@ -567,7 +567,7 @@ def dbn_letterW(h, v):
     # vertex(h+6,v+3)
     vertex(h+9,v)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+1)
     vertex(h+10,v+10)
@@ -576,10 +576,10 @@ def dbn_letterW(h, v):
 dbn_letter['W'] = dbn_letterW
 dbn_letter[23] = dbn_letterW
 # X
-def dbn_letterX(h, v):
+def dbn_letterX(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h,v+9)
@@ -592,14 +592,14 @@ def dbn_letterX(h, v):
     # vertex(h+10,v+9)
     vertex(h+10,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h,v+1)
     # vertex(h,v+1)
     vertex(h+4,v+5)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+6,v+5)
     vertex(h+10,v+1)
@@ -610,15 +610,15 @@ def dbn_letterX(h, v):
 dbn_letter['X'] = dbn_letterX
 dbn_letter[24] = dbn_letterX
 # X
-def dbn_letterX(h, v):
+def dbn_letterX(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v)
     vertex(h+10,v+10)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h+10,v)
@@ -627,10 +627,10 @@ def dbn_letterX(h, v):
 dbn_letter['X'] = dbn_letterX
 dbn_letter[24] = dbn_letterX
 # Y
-def dbn_letterY(h, v):
+def dbn_letterY(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h,v+7)
@@ -639,12 +639,12 @@ def dbn_letterY(h, v):
     # vertex(h+3,v+4)
     vertex(h+10,v+4)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+10,v+10)
     vertex(h+10,v+1)
     endShape()
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h+9,v)
     vertex(h+2,v)
@@ -655,10 +655,10 @@ def dbn_letterY(h, v):
 dbn_letter['Y'] = dbn_letterY
 dbn_letter[25] = dbn_letterY
 # Z
-def dbn_letterZ(h, v):
+def dbn_letterZ(h, v, debug_poly=False):
     pushMatrix()
     scale(1, -1)
-    if keyPressed: stroke(random(256),200, 200)
+    if debug_poly: stroke(random(256),200, 200)
     beginShape()
     vertex(h,v+10)
     vertex(h+10,v+10)

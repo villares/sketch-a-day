@@ -7,12 +7,7 @@ This script generates code on console for dbn_letters.py
 Converting some of Maeda's Design by Number
 dbnletters.dbn code -> Processing
 """
-
-
-def setup():
-    colorMode(HSB)
-    noLoop()
-    convert_dbn_source("data/dbnletters.dbn")
+    
 
 def convert_dbn_source(file_path):
     with open("dbn_polys.py", 'w') as out:
@@ -66,14 +61,14 @@ def def_dbn_letter(dbn_block, key_):
             
     with open("dbn_polys.py", 'a') as out:
         out.write("# " + key_ + "\n")
-        out.write("def dbn_letter" + key_ + "(h, v):\n")
+        out.write("def dbn_letter" + key_ + "(h, v, debug_poly=False):\n")
         out.write("    pushMatrix()\n")
         out.write("    scale(1, -1)\n")
-        out.write("    if keyPressed: stroke(random(256),200, 200)\n") # for debug
+        out.write("    if debug_poly: stroke(random(256),200, 200)\n") # for debug
         out.write("    beginShape()\n")
         v_count = 0
         for i, line_ in enumerate(p_block):
-            if line_ != p_block[i-1]:         # if previous line repeated
+            if line_ != p_block[i-1]: # and line_ != p_block[i-2]: # if repeated
                 out.write(line_ + "\n")
                 v_count += 1
             else: out.write("    # " + line_.lstrip() + "\n")
@@ -81,7 +76,7 @@ def def_dbn_letter(dbn_block, key_):
                 if line_ != p_block[i+1]:
                     #out.write("    #---\n")
                     out.write("    endShape()\n")
-                    out.write("    if keyPressed: stroke(random(256),200, 200)\n") # for debug
+                    out.write("    if debug_poly: stroke(random(256),200, 200)\n") # for debug
                     out.write("    beginShape()\n")                        
         out.write("    endShape()\n")
         out.write("    popMatrix()\n")

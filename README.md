@@ -6,8 +6,13 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 ![s180120b](sketch_180120b/sketch_180120b.gif)
 
-020: [sketch_180120b](https://github.com/villares/sketch-a-day/tree/master/sketch_180120b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
-20a (still working on DBN conversion) didn't generate a nice visual output, so this is 20b...
+020b: [sketch_180120b](https://github.com/villares/sketch-a-day/tree/master/sketch_180120b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+I was stuck on my DBN conversion sketch 20a, so this HSB shape play is 20b...
+
+![s180120a](sketch_180120a/sketch_180120a.png)
+
+020a: [sketch_180120a](https://github.com/villares/sketch-a-day/tree/master/sketch_180120a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+Refactored the code generation, removed most of the repeated vertices... C D E G O Q not nice yet…
 
 ![s180119a](sketch_180119a/sketch_180119a.png)
 
