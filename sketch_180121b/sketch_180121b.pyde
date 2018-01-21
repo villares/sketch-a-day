@@ -16,7 +16,7 @@ def setup():
 def draw():
     background(0)
     translate(width / 2, height / 2)
-    npoints, r1, r2 = 3, mouseX, mouseY
+    npoints, r1, r2 = 12, mouseX, mouseY
     angle = TWO_PI / npoints
     beginShape()
     #vertex(0, 0)
@@ -24,13 +24,14 @@ def draw():
     while a <= TWO_PI:
         sx = cos(a) * r2
         sy = sin(a) * r2
-        cor = map(a, 0, TWO_PI, 0, 255)
-        fill(cor, 255, 255)
+        # cor = map(a, 0, TWO_PI, 0, 255)
+        fill(0)
         vertex(sx, sy)
         sx = cos(a + angle / 2) * r1
         sy = sin(a + angle / 2) * r1
+        fill(255)
         vertex(sx, sy)
         a += angle
-    endShape(CLOSE)
+    endShape()
     if not frameCount % 10 and frameCount < 500:
         saveFrame("###.tga")

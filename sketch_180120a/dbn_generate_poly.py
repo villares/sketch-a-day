@@ -1,5 +1,5 @@
 """
-s18020 - Alexandre B A Villares
+s18020a - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 
 This script generates code on console for dbn_letters.py
@@ -10,6 +10,7 @@ dbnletters.dbn code -> Processing
 
 
 def setup():
+    colorMode(HSB)
     noLoop()
     convert_dbn_source("data/dbnletters.dbn")
 
@@ -47,28 +48,41 @@ def def_dbn_letter(dbn_block, key_):
 
     for dbn_line in dbn_block:
         if dbn_line:
-            p_lines =("    " + dbn_line
+            p_lines =("    " + dbn_line       # all this to convert lines() to shapes
+                           .replace("(", "") 
+                           .replace(")", "")
                            .replace("line ", "vertex(")
                            .replace(" ", ",", 1)
-                           .replace(" ", "$", 1)
+                           .replace(" ", "$", 1)  # token to split line into 2 vertices
                            .replace(" ", ",")
                            .replace("$", ")\n    vertex(", 1)
                            .replace("//", "#")
                            .strip()
                            + ")")
-            p_block.append(p_lines.split("\n")[0])
+            p_block.append(p_lines.split("\n")[0]) 
             p_block.append(p_lines.split("\n")[1])
+    # for ln in p_block:
+    #     print ln.replace(" ","-")
             
     with open("dbn_polys.py", 'a') as out:
         out.write("# " + key_ + "\n")
         out.write("def dbn_letter" + key_ + "(h, v):\n")
         out.write("    pushMatrix()\n")
         out.write("    scale(1, -1)\n")
+        out.write("    if keyPressed: stroke(random(256),200, 200)\n") # for debug
         out.write("    beginShape()\n")
-        out.write(p_block[0] + "\n")
-        for i, line_ in enumerate(p_block[1:]):
-            if line_ != p_block[i-1]:
+        v_count = 0
+        for i, line_ in enumerate(p_block):
+            if line_ != p_block[i-1]:         # if previous line repeated
                 out.write(line_ + "\n")
+                v_count += 1
+            else: out.write("    # " + line_.lstrip() + "\n")
+            if i % 2 and i < len(p_block)-2:  # if on odd lines, next doesn't repeat
+                if line_ != p_block[i+1]:
+                    #out.write("    #---\n")
+                    out.write("    endShape()\n")
+                    out.write("    if keyPressed: stroke(random(256),200, 200)\n") # for debug
+                    out.write("    beginShape()\n")                        
         out.write("    endShape()\n")
         out.write("    popMatrix()\n")
         out.write("dbn_letter['" + key_ + "'] = dbn_letter" + key_ + "\n")
