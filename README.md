@@ -4,6 +4,11 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
+![s180121b](sketch_180120b/sketch_180121b.gif)
+
+021b: [sketch_180121b](https://github.com/villares/sketch-a-day/tree/master/sketch_180121b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+Playing with Peter "[Hacking Math Class](http://twitter.com/hackingmath)" Farrel's Sliders!
+
 ![s180120b](sketch_180120b/sketch_180120b.gif)
 
 020b: [sketch_180120b](https://github.com/villares/sketch-a-day/tree/master/sketch_180120b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
