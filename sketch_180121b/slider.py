@@ -1,8 +1,11 @@
 """
 Slider code by Peter Farell 
-https://twitter.com/hackingmath
+htts://twitter.com/hackingmath
 http://farrellpolymath.com/
-"""    
+
+[ with very minor tweeks by Alexandre Villares
+  http://abav.lugaralgum.com ]
+"""
 # USAGE:
 #>from slider import Slider
 #
@@ -11,8 +14,8 @@ http://farrellpolymath.com/
 #>slider1 = Slider(0,20,6)
 #
 # You have to tell it the range of the slider (in this case 0 to 20)
-# and the default value, when the program first runs (in this case, 6). 
-#       
+# and the default value, when the program first runs (in this case, 6).
+#
 # Inside the setup function you give it a position on the screen:
 #
 #>slider1.position(20,20)
@@ -44,18 +47,17 @@ class Slider:
     def value(self):
         '''updates the slider and returns value'''
         pushStyle()
-        colorMode(RGB)
         rectMode(CENTER)
         # black translucid rect behind slider
         fill(0, 100)
         stroke(0)
         rect(self.x + 60, self.y, 130, 20)
-        #gray line behind slider
+        # gray line behind slider
         strokeWeight(4)
         stroke(200)
-        line(self.x,self.y,self.x + 120,self.y)
+        line(self.x, self.y, self.x + 120, self.y)
         # press mouse to move slider
-        if dist(mouseX, mouseY, self.rectx+5, self.recty+10) < 20:
+        if dist(mouseX, mouseY, self.rectx + 5, self.recty + 10) < 20:
             fill(200)
             textSize(10)
             text(int(self.val), self.rectx, self.recty + 35)
