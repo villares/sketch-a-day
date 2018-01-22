@@ -3,8 +3,8 @@ Slider code by Peter Farell
 htts://twitter.com/hackingmath
 http://farrellpolymath.com/
 
-[ with very minor tweeks by Alexandre Villares
-  http://abav.lugaralgum.com ]
+Get the most recent version here:
+https://github.com/hackingmath/python-sliders 
 """
 # USAGE:
 #>from slider import Slider

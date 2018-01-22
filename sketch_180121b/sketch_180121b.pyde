@@ -2,7 +2,8 @@
 s18020b - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 
-Slider code by Peter Farell (slight style mod by me)
+Slider code by Peter Farell (older version tweeked by me)
+https://github.com/hackingmath/python-sliders
 """
 from __future__ import division
 from slider import Slider
