@@ -21,12 +21,10 @@ def setup():
     np.position(20, 100)
 
 
-
-
 def draw():
     background(0)
     colorMode(HSB)
-    npoints, rad1, rad2 = np.val, r1.val, r2.val
+    npoints, rad1, rad2 = np.val, r1.val, r2.val  # I wanted to draw the star before the sliders
     with pushMatrix():
         translate(width / 2, height / 2)
         angle = TWO_PI / npoints
@@ -46,6 +44,6 @@ def draw():
             vertex(sx, sy)
             a += angle
         endShape(CLOSE)
-    npoints, rad1, rad2 = np.value(), r1.value(), r2.value()
+    npoints, rad1, rad2 = np.value(), r1.value(), r2.value()  # this is the usual way to get values & draw the sliders
     if not frameCount % 10 and frameCount < 500:
         saveFrame("###.tga")
