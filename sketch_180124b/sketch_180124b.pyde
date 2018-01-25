@@ -1,15 +1,16 @@
 """
-s18020b - Alexandre B A Villares
+s18024b - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 
 Slider code by Peter Farell (older version tweeked by me)
 https://github.com/hackingmath/python-sliders
 """
-#from slider import Slider
+from slider import Slider
+import random as rnd  # para não conflitar com o random do Processing
 
-# r1 = Slider(-50, 50, 0)
-# r2 = Slider(-50, 50, 0)
-# np = Slider(3, 50, 10)
+r1 = Slider(-50, 50, 0)
+r2 = Slider(-50, 50, 0)
+np = Slider(3, 50, 10)
 
 CEL_SIZE = 50
 HALF_CEL = CEL_SIZE / 2
@@ -34,16 +35,12 @@ def setup():
             pontos.add(Ponto(x, y))  # acrescenta um Ponto
 
 
-
-import random as rnd  # para não conflitar com o random do Processing
-
-
 def draw():
     background(128)        # limpa a tela
     # para cada ponto
     for ponto in pontos:
         ponto.desenha()  # desenha
-        ponto.move()    # atualiza posição
+        #ponto.move()    # atualiza posição
     # para cada aresta
     for aresta in arestas:  # checa se há Arestas com Pontos já removidos
         if (aresta.p1 not in pontos) or (aresta.p2 not in pontos):
