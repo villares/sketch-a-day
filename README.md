@@ -4,11 +4,16 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
-![s180124b](sketch_180124b/sketch_180124b.png)
+![25](sketch_180125c/sketch_180125c.png)
 
-024b: [sketch_180124b](https://github.com/villares/sketch-a-day/tree/master/sketch_180124b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  Tomorrow I'll try adding some sliders & movement to this graph 
+025c: [sketch_180124b](https://github.com/villares/sketch-a-day/tree/master/sketch_180124c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+Mouse speed changing strokeWeight()
 
-![s180123b](sketch_180123b/sketch_180123b.gif)
+![24](sketch_180124b/sketch_180124b.png)
+
+024b: [sketch_180124b](https://github.com/villares/sketch-a-day/tree/master/sketch_180124b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  Maybe tomorrow I'll try adding some sliders & movement to this graph ? [nah...]
+
+![23](sketch_180123b/sketch_180123b.gif)
 
 023b: [sketch_180123b](https://github.com/villares/sketch-a-day/tree/master/sketch_180123b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]  Farrel's Sliders adding random displacement
 
