@@ -4,9 +4,14 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
+![26](sketch_180126c/sketch_180126c.png)
+
+026c: [sketch_180126b](https://github.com/villares/sketch-a-day/tree/master/sketch_180126c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+Mouse speed changing color &  strokeWeight()
+
 ![25](sketch_180125c/sketch_180125c.png)
 
-025c: [sketch_180124b](https://github.com/villares/sketch-a-day/tree/master/sketch_180124c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+025c: [sketch_180125b](https://github.com/villares/sketch-a-day/tree/master/sketch_180125c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
 Mouse speed changing strokeWeight()
 
 ![24](sketch_180124b/sketch_180124b.png)
