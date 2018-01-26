@@ -15,8 +15,10 @@ def setup():
 def draw():
     global pspeed
     x, y, px, py = mouseX, mouseY, pmouseX, pmouseY
-    speed = (dist(x, y, px, py))**0.5 # squareroot of dist to previous mouse pos
-    w = ((10 - speed) + (10 - pspeed))/2 # mean of 10 minus speed & previous
+    # speed is the square root of distance to previous mouse position
+    speed = (dist(x, y, px, py))**0.5 
+    # w is the mean of 10 minus speed & 10 minus previous speed
+    w = ((10 - speed) + (10 - pspeed))/2 
     strokeWeight(abs(w))
     if mousePressed:
         line(x, y, px, py)
