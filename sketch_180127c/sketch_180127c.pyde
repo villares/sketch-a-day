@@ -5,7 +5,6 @@ https://abav.lugaralgum.com/sketch-a-day
 Drag the mouse over the canvas to draw
 the 'brush' varies with mouse speed.
 """
-
 speed = [0, 0]
 LIST = []
 
@@ -24,9 +23,11 @@ def draw():
     x, y, px, py = mouseX, mouseY, pmouseX, pmouseY
     speed[0] = (dist(x, y, px, py))**0.5 # squareroot of dist to previous mouse pos
     w = ((10 - speed[0]) + (10 - speed[1]))/2 # mean of 10 minus speed & previous
+    speed[1] = speed[0] # updates previous speed
     if mousePressed:
         LIST.append((w, x, y, px, py))
-    speed[1] = speed[0] # updates previous speed
-
+    # if frameCount < 500 and not frameCount % 5:
+    #     saveFrame("###.tga")
+    
 def keyPressed():
     LIST[:] = []
