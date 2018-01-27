@@ -4,10 +4,17 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day.
 
+  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+
+![27](sketch_180127c/sketch_180127c.png)
+
+027c: [sketch_180127c](https://github.com/villares/sketch-a-day/tree/master/sketch_180127c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] [YouTube](https://www.youtube.com/watch?v=A-rqkru79Dw)
+Saving a list of points to animate colour... Mouse speed changes recorded colour &  strokeWeight()
+
 ![26](sketch_180126c/sketch_180126c.png)
 
-026c: [sketch_180126b](https://github.com/villares/sketch-a-day/tree/master/sketch_180126c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
-Mouse speed changing color &  strokeWeight()
+026c: [sketch_180126c](https://github.com/villares/sketch-a-day/tree/master/sketch_180126c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+Mouse speed changing colour &  strokeWeight()
 
 ![25](sketch_180125c/sketch_180125c.png)
 
@@ -37,7 +44,7 @@ I was stuck on my DBN conversion sketch 20a, so this HSB shape play is 20b...
 ![s180120a](sketch_180120a/sketch_180120a.png)
 
 020a: [sketch_180120a](https://github.com/villares/sketch-a-day/tree/master/sketch_180120a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
-Refactored the code generation, removed most of the repeated vertices... C D E G O Q not nice yet…
+Refactored the code generation, removed most of the repeated vertices... C D E G O R not nice yet…
 
 ![s180119a](sketch_180119a/sketch_180119a.png)
 
