@@ -15,7 +15,7 @@ def setup():
 
 def draw():
     background(100)
-    for i, (w, x, y, px, py) in enumerate(LIST):
+    for w, x, y, px, py in LIST:
         c = map(w, 0, 10, 0, 255) # maps 1 to 10 to 0 to 255 scale
         stroke(abs(255 - (c + frameCount) % 511)) # circle colors
         strokeWeight(abs(w))
