@@ -8,6 +8,13 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![28c](sketch_180128c/sketch_180128c.png)
+
+028: [sketch_180128c](https://github.com/villares/sketch-a-day/tree/master/sketch_180128c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+Like 27 but on grayscale
+
+----
+
 ![27c](sketch_180127c/sketch_180127c.png)
 
 027: [sketch_180127c](https://github.com/villares/sketch-a-day/tree/master/sketch_180127c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)][YouTube](https://www.youtube.com/watch?v=A-rqkru79Dw)
