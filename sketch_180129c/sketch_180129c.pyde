@@ -15,6 +15,7 @@ def setup():
     noFill()
 
 def draw():
+    global SAVE_FRAME, FRAME_COUNT
     background(100)
     for w, x, y, px, py in LIST:
         c = map(w, 0, 10, 0, 255)  # maps 1 to 10 to 0 to 255 scale
@@ -33,8 +34,11 @@ def draw():
         LIST.append((w, x, y, px, py))
         
     if SAVE_FRAME and FRAME_COUNT < 256:
-        saveFrame("###.tga")
+        saveFrame("####.tga")
         FRAME_COUNT += 1
+    else:
+        SAVE_FRAME = False
+        print "Stopped Recording"
 
 def keyPressed():
     global SAVE_FRAME, FRAME_COUNT
@@ -42,3 +46,4 @@ def keyPressed():
         LIST[:] = []
     if key == 's':
         SAVE_FRAME, FRAME_COUNT = True, 0
+        print "Recording"
