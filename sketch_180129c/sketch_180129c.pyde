@@ -36,14 +36,14 @@ def draw():
     if SAVE_FRAME and FRAME_COUNT < 256:
         saveFrame("####.tga")
         FRAME_COUNT += 1
-    else:
+    elif SAVE_FRAME:
         SAVE_FRAME = False
-        print "Stopped Recording"
+        print "Recording finished."
 
 def keyPressed():
     global SAVE_FRAME, FRAME_COUNT
     if key == ' ':
         LIST[:] = []
-    if key == 's':
+    if key == 's' and not SAVE_FRAME:
         SAVE_FRAME, FRAME_COUNT = True, 0
-        print "Recording"
+        print "Recording started."
