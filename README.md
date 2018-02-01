@@ -5,6 +5,12 @@
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. I'm working with [Processing Java Mode](https://processing.org), [Processing Python Mode](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN), [P5JS (JavaScript)](p5js.org) and sometimes other stuff.
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
+----
+
+![31c](sketch_180130c/sketch_180131c.gif)
+
+031: [sketch_180130c](https://github.com/villares/sketch-a-day/tree/master/sketch_180131c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+Like 29 but with moving points after the gesture is done
 
 ----
 
