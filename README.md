@@ -8,6 +8,13 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![034](sketch_180203c/sketch_180203c.gif)
+
+034: [sketch_180203c](https://github.com/villares/sketch-a-day/tree/master/sketch_180203c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+Like 33 but again with "w squared" circles 
+
+----
+
 ![033](sketch_180202c/sketch_180202c.png)
 
 033: [sketch_180202c](https://github.com/villares/sketch-a-day/tree/master/sketch_180202c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
