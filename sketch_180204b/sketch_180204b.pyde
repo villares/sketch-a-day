@@ -23,11 +23,11 @@ def draw():
     background(0)
 
     for position, rot1, rot2, color_ in CONFETI:
-        with pushMatrix():  # contexto do sistema de coordenadas mudado
-            x, y = position  # umpack da lista position
+        with pushMatrix():  # contexto para preservar e mudar sistema de coordenadas
+            x, y = position  # unpack da lista position
             translate(x, y)  # translada sistema de coordenadas
             rotate(rot1 + float(frameCount / 7))
-            s = sin(rot2 + float(frameCount / 11))
+            s = sin(rot2 + float(frameCount / 11)) # para altura da elipse e sorteio descida
             fill(color_)
             ellipse(0, 0, SIZE, SIZE * s)
             position[1] += 1 + random(0, 2) * s  # update y (position[1])
