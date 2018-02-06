@@ -1,14 +1,19 @@
+"""
+sketch 36 180205b - Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+"""
+
 from __future__ import division, unicode_literals
 
 CONFETI = []
 SIZE = 15
-TEXTO = """CARNAHACKING VEM AÍ"""
+TEXTO = """CARNAHACKING VEM AÍ""" # ainda não usei este texto...
 
-def settings():
-    #global fundo
+def settings():    
+    #global fundo    
     #fundo = loadImage("p.jpg")
     #size(fundo.width, fundo.height)
-    size(500, 500)
+    size(500, 500)   # comment out se for usar com fundo
 
 def setup():
     noStroke()
@@ -22,10 +27,9 @@ def setup():
 
 def draw():
     #background(fundo)
-    background(0)
+    background(0) # comment out se for usar o fundo
 
     for pos, rot1, rot2, color_ in CONFETI:
-        #print (pos, r1, r2, c)
         with pushMatrix():
             x, y = pos
             translate(x, y)
@@ -41,6 +45,6 @@ def draw():
                   pos[0] += random(-5, 5)
                   
                 
-    if frameCount<300 and not frameCount % 3: saveFrame("###.tga")
+    # if frameCount<300 and not frameCount % 3: saveFrame("###.tga")
 
     
