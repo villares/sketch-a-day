@@ -8,16 +8,23 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![040](sketch_180209a/sketch_180209a.png)
+
+040: [sketch_180209a](https://github.com/villares/sketch-a-day/tree/master/sketch_180209a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+More recursion
+
+----
+
 ![039](sketch_180208e/sketch_180208e.png)
 
-039: [sketch_180208e](https://github.com/villares/sketch-a-day/tree/master/sketch_180206e)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+039: [sketch_180208e](https://github.com/villares/sketch-a-day/tree/master/sketch_180208e)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Manoloide  inspired recursion
 
 ----
 
 ![038](sketch_180208d/sketch_180208d.png)
 
-038: [sketch_180208d](https://github.com/villares/sketch-a-day/tree/master/sketch_180206d)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+038: [sketch_180208d](https://github.com/villares/sketch-a-day/tree/master/sketch_180208d)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Saskia Freeke inspired grid
 
 ----
