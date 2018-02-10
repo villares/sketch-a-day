@@ -1,5 +1,6 @@
 """
-
+sketch 38 180208d - Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
 """
 
 maxFrameCount = 200.0  # needs to be a float

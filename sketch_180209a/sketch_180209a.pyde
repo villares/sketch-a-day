@@ -1,3 +1,8 @@
+"""
+sketch 37 40180209A - Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+"""
+
 LIST = []
 
 def setup():
