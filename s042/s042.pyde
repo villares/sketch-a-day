@@ -1,5 +1,5 @@
 """
-sketch 41 180211a - Alexandre B A Villares
+sketch 42 180211a - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
 
