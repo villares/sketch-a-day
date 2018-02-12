@@ -8,6 +8,13 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s043](s043/s043.png)
+
+043: [code](https://github.com/villares/sketch-a-day/tree/master/s043)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+More graphs
+
+----
+
 ![s042](s042/s042.gif)
 
 042: [code](https://github.com/villares/sketch-a-day/tree/master/s042)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
@@ -17,12 +24,14 @@ Yet another interactive recursive thingy, the image on the right is shown with a
 
 ![s041](s041/s041.png)
 
+
 041: [code](https://github.com/villares/sketch-a-day/tree/master/s041)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
 Yet another interactive recursive thingy, the image on the right is shown with a key pressed
 
 ----
 
 ![040](sketch_180209a/sketch_180209a.png)
+![040](sketch_180209a/sketch_180209a_2.png)
 
 040: [sketch_180209a](https://github.com/villares/sketch-a-day/tree/master/sketch_180209a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 More recursion
