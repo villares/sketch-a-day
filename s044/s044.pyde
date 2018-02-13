@@ -40,7 +40,7 @@ class Cell():
         self.LIST = []
         self.x, self.y = x, y
         self.gen = gen
-        self.color = color(random(0, 200), 200, 200, 255)
+        self.color = color(random(0, 200), 200, 200, 200)
 
     def s(self):  # size
         return SIZE * (SRINK ** self.gen)
