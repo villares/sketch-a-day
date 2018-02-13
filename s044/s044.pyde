@@ -15,7 +15,6 @@ def setup():
     rectMode(CENTER)
     colorMode(HSB)
     strokeWeight(2)
-    # x, y, size
     LIST.append(Cell())
 
 def draw():
@@ -40,21 +39,23 @@ class Cell():
         self.LIST = []
         self.x, self.y = x, y
         self.gen = gen
-        self.color = color(random(0, 200), 200, 200, 255)
+        self.color = color(random(0, 200), 200, 200, 200)
 
     def s(self):  # size
         return SIZE * (SRINK ** self.gen)
 
     def update(self):
-        self.draw()
-        if not self.LIST:  # para listas vazias (células sem sub-células)
-            if mousePressed and self.on_mouse():
-                self.divide()
-        else:  # senão update as sub-células!
-            for cell in self.LIST:
-                cell.update()
+        self.draw() # draws itself
+        if not self.LIST:
+            # if no sub-cells, its a leaf-cell (células sem sub-células)
+            if mousePressed and self.on_mouse(): # and if  mouse is pressed inside it
+                self.divide() # will create new sub-cells
+        else:
+            # otherwise will recursively update sub-cells and draw a line to them
+            for sub_cell in self.LIST:
+                sub_cell.update()
                 stroke(0)
-                line(self.x, self.y, cell.x, cell.y)
+                line(self.x, self.y, sub_cell.x, sub_cell.y)
 
     def draw(self):
         noStroke()
