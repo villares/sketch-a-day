@@ -51,14 +51,11 @@ class Cell():
 
     def update(self):
         self.draw()  # draws itself
-        if keyPressed:
-                self.divide()  # will create new sub-cells
         if not self.LIST:
             # if no sub-cells, its a lead (para células sem sub-células)
             # and if  mouse is pressed inside it
             if mousePressed and self.on_mouse():
                 self.divide()  # will create new sub-cells
-            pass
         # otherwise will recursively update sub-cells and draw a line to them
         else:
             for sub_cell in self.LIST:
@@ -72,11 +69,10 @@ class Cell():
         DRAW_F(self.x, self.y, self.s(), self.s())
         fill(0)
         DRAW_F(self.x, self.y, 4, 4)
- 
         #text(str(self.gen), self.x, self.y)
 
     def divide(self):
-        if self.gen < 6 and not keyPressed:
+        if self.gen < 6:
             x, y = self.x, self.y
             new_gen = self.gen + 1
             o = self.s() * OFFSET * new_gen
@@ -92,14 +88,6 @@ class Cell():
         if (x - r < mouseX < x + r and
                 y - r < mouseY < y + r):
             return True
-
-def mouseDragged():
-    global SRINK, OFFSET
-    if keyPressed and keyCode == SHIFT:
-        if mouseX < 100:
-            SRINK = map(mouseY, 0, height, 0, 1)            
-        if mouseY < 100:
-            OFFSET = map(mouseX, 0, width, 0, 1)
     
 def mouseReleased():
     global SAVE_FRAME
@@ -110,14 +98,4 @@ def save_frame():
     if SAVE_FRAME:
         SAVE_FRAME = False
         saveFrame("s46-######.tga")
-        
-def seta(x1, y1, x2, y2, encurta=0, head=5):
-    d = dist(x1, y1, x2, y2)
-    with pushMatrix():
-        translate(x2, y2)
-        angle = atan2(x1 - x2, y2 - y1)
-        rotate(angle)
-        offset = -encurta * .6
-        line(0, offset, 0, -d - offset)
-        line(0, offset, -head / 2, -head + offset)
-        line(0, offset, head / 2, -head + offset)
+    
