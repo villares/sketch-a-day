@@ -11,7 +11,7 @@ SIZE = 236  # base size
 SAVE_FRAME = False
 NODE_DRAW = [rect,
              ellipse,
-             lambda x, y, w, h: rect(x, y, w, h, 20),
+             lambda x, y, w, h: rect(x, y, w, h, w/4),
              lambda x, y, w, h: triangle(x-w/2,y-w/2,x+w/2,y-w/2,x+w/2,y+w/2)
              ]
 
@@ -52,14 +52,15 @@ class Cell():
         return SIZE * (SRINK ** self.gen)
 
     def update(self):
+        global SAVE_FRAME
         self.draw()  # draws itself
         if not self.LIST:
-            if random(100) < 7 / (self.gen + 1):
-                self.divide()
-                global SAVE_FRAME
+            # if random(100) < 7 / (self.gen + 1):
+            #     self.divide()
+            #     SAVE_FRAME = True
+            if mousePressed and self.on_mouse():
+                self.divide()  # will create new sub-cells
                 SAVE_FRAME = True
-            # if mousePressed and self.on_mouse():
-            # self.divide()  # will create new sub-cells
         # otherwise will recursively update sub-cells and draw a line to them
         else:
             for sub_cell in self.LIST:
@@ -98,5 +99,5 @@ def save_frame():
     global SAVE_FRAME
     if SAVE_FRAME:
         SAVE_FRAME = False
-        if frameCount < 600 and not frameCount % 3:
-            saveFrame("47-######.tga")
+        #if frameCount < 600: #and not frameCount % 3:
+        saveFrame("48-######.tga")
