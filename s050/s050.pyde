@@ -1,4 +1,7 @@
-add_library('pdf')
+"""
+sketch 50 180219 - Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+"""
 import random as rnd
 
 LISTA = []
@@ -16,16 +19,15 @@ def nova_lista():
         LISTA.append((
             random(MARGIN, width - MARGIN),  # x
             random(MARGIN, height - MARGIN),  # y
-            rnd.choice([10, 20, 30]),  # size
+            rnd.choice([10, 20, 30]),  # circle size
             rnd.choice([2, 4, 6]),  # strokeWeight
-            rnd.choice([True, False]),  # arrow
-            list()  # other nodes
+            rnd.choice([True, False]),  # is arrow
+            list()  # sub_list of nodes
         ))
     for node in LISTA:
         random_node = rnd.choice(LISTA)
         if random_node != node:
-            node[-1].append(random_node)
-
+            node[-1].append(random_node)  # adds random node to the sub_list
 
 def seta(x1, y1, x2, y2, shorter=12, head=12):
     """ draws an arrow """
@@ -41,17 +43,20 @@ def seta(x1, y1, x2, y2, shorter=12, head=12):
 
 def draw():
     background(200)
-    for x, y, s, w, arrow, sub_lista in LISTA:
-        strokeWeight(w)
-        for n in sub_lista:
+    # x, y, s: circle size, w: strokeWeightm, arrow T/F, points to...
+    for x1, y1, d1, sw, arrow, points_to in LISTA:
+        strokeWeight(sw)
+        for other in points_to:
+            x2, y2 = other[0], other[1]
             if arrow:
                 stroke(0)
-                seta(x, y, n[0], n[1], s, w * 5)
+                # x1, y1, x2, y2, circle offset, arrow head size
+                seta(x1, y1, x2, y2, d1, sw * 5)
             else:
                 stroke(255)
-                line(x, y, n[0], n[1])
-        ellipse(x, y, s, s)
-        
+                line(x1, y1, x2, y2)
+        ellipse(x1, y1, d1, d1)
+
 def keyPressed():
     if key == 's':
         saveFrame("####.png")
