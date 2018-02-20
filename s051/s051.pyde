@@ -7,20 +7,20 @@ import random as rnd
 CEL_SIZE = 64
 HALF_CEL = CEL_SIZE / 2
 MARGIN = 100
-GRADE_PONTOS = []  # lista de tuplas (x, y)
-NUM_NODES = 30  # número de elementos do desenho
-DESENHO = []  # lista de tuplas dos elementos do desenho
-              # (x, y, diâmetro, espessura, se é seta, pra quem aponta
+GRADE_PONTOS = []  # lista de tuplas (x, y) / list of tuples
+NUM_NODES = 30  # número de elementos do desenho / number of nodes
+DESENHO = []  # lista de tuplas dos elementos/'nós' do desenho
+              # (x, y, diâmetro, espessura, se é seta, pra quem aponta)
 
 def setup():
     size(712, 712)
     noFill()
-    # calcula uma região do canvas dentro das margens
+    # calcula uma região do canvas dentro das margens / canvas - margin
     h, w = height - 2 * MARGIN, width - 2 * MARGIN
     # calcula número de filas e colunas de 'células' de uma grade
     n_rows, n_cols = int(h / CEL_SIZE), int(w / CEL_SIZE)
-    # popula uma lista com a grade de pontos que seriam os centros das
-    # 'células'
+    # populalista com grade de pontos dos centros das 'células'
+    # populates a list of points in a grid according to CEL_SIZE
     for r in range(n_rows):
         for c in range(n_cols):
             x, y = HALF_CEL + c * CEL_SIZE,\
@@ -31,12 +31,13 @@ def setup():
     println("'s' to save, and 'n' for a new drawing")
 
 def novo_desenho():
-    # esvazia a lista de setas e linhas, se tiver um desenho anterior
+    # esvazia a lista elementos (setas e linhas) de desenho anterior
+    # clears the list of nodes (drawing elements: arrows & lines)
     DESENHO[:] = []
     for _ in range(NUM_NODES):
         # sorteia um ponto da grade (unpack x, y)
         x, y = rnd.choice(GRADE_PONTOS)
-        DESENHO.append((  # acrescenta na lista de elementos uma tupla com:
+        DESENHO.append((  # acrescenta elemento/"nó" uma tupla com:
             x,  # x
             y,  # y
             # circle size (sorteia um tamanho de círculo)
@@ -77,8 +78,9 @@ def draw():
     # para cada elemento do desenho, pegue as coordenandas e atributos
     for x1, y1, d1, sw, arrow, points_to in DESENHO:
         strokeWeight(sw)
-        for other in points_to: # se estiver apontando para alguém
-            x2, y2 = other[0], other[1] # pega as coordenadas do outro elemento
+        for other in points_to:  # se estiver apontando para alguém
+            # pega as coordenadas do outro elemento
+            x2, y2 = other[0], other[1]
             if arrow:   # se for arrow == True, desenhe seta preta apontando
                 stroke(0)
                 # x1, y1, x2, y2, circle offset, arrow head size
