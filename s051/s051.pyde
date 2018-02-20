@@ -4,32 +4,35 @@ https://abav.lugaralgum.com/sketch-a-day
 """
 import random as rnd
 
-
 CEL_SIZE = 64
 HALF_CEL = CEL_SIZE / 2
 MARGIN = 100
-GRADE_PONTOS = [] # lista de tuplas (x, y)
-DESENHO = []  # lista de elementos 
-
+GRADE_PONTOS = []  # lista de tuplas (x, y)
+NUM_NODES = 30 # número de elementos do desenho
+DESENHO = []  # lista de tuplas dos elementos do desenho
+              # (x, y, diâmetro, espessura, se é seta, pra quem aponta
 
 def setup():
     size(712, 712)
-    h, w = height - 2 * MARGIN, width - 2 * MARGIN
     noFill()
+    # calcula uma região do canvas dentro das margens
+    h, w = height - 2 * MARGIN, width - 2 * MARGIN
+    # calcula número de filas e colunas de 'células' de uma grade
     n_rows, n_cols = int(h / CEL_SIZE), int(w / CEL_SIZE)
+    # popula uma lista com a grade de pontos que seriam os centros das 'células'
     for r in range(n_rows):
         for c in range(n_cols):
             x, y = HALF_CEL + c * CEL_SIZE,\
                 HALF_CEL + r * CEL_SIZE
             GRADE_PONTOS.append((x + MARGIN, y + MARGIN))  # acrescenta ponto
-
+    # chama o procedimento que gera um desenho
     novo_desenho()
     println("'s' to save, and 'n' for a new drawing")
 
 
 def novo_desenho():
-    DESENHO[:] = []  # esvazia a lista de setas e linhas
-    for _ in range(30):
+    DESENHO[:] = []  # esvazia a lista de setas e linhas, se tiver um desenho anterior
+    for _ in range(NUM_NODES):
         x, y = rnd.choice(GRADE_PONTOS)
         DESENHO.append((
             x,  # x
@@ -39,11 +42,11 @@ def novo_desenho():
             rnd.choice([True, False]),  # arrow (se é seta)
             list()  # other nodes (para onde aponta)
         ))
-    for node in DESENHO: # para cada elemento do desenho
-        rnd_node = rnd.choice(DESENHO) # sorteia outro elemento
+    for node in DESENHO:  # para cada elemento do desenho
+        rnd_node = rnd.choice(DESENHO)  # sorteia outro elemento
         x1, y1, x2, y2 = node[0], node[1], rnd_node[0], rnd_node[1]
         if (x1, y1) != (x2, y2):  # se não for no mesmo ponto
-            node[-1].append(rnd_node) # "aponta" para este elemento
+            node[-1].append(rnd_node)  # "aponta" para este elemento
             # pode acontecer de um elemento não apontar para ninguém
 
 def seta(x1, y1, x2, y2, shorter=12, head=12):
@@ -73,10 +76,10 @@ def draw():
                 stroke(0)
                 # x1, y1, x2, y2, circle offset, arrow head size
                 seta(x1, y1, x2, y2, d1, sw * 5)
-            else:   # senhão desenhe linha branca e círculo branco
+            else:   # senão desenhe linha branca 
                 stroke(255)
                 line(x1, y1, x2, y2)
-        ellipse(x1, y1, d1, d1)
+        ellipse(x1, y1, d1, d1) # desenha o círculo
 
 def keyPressed():
     if key == 's':
