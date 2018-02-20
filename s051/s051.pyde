@@ -4,11 +4,13 @@ https://abav.lugaralgum.com/sketch-a-day
 """
 import random as rnd
 
-LISTA = []
-MARGIN = 100
-CEL_SIZE = 100
+
+CEL_SIZE = 64
 HALF_CEL = CEL_SIZE / 2
-pontos = []
+MARGIN = 100
+GRADE_PONTOS = [] # lista de tuplas (x, y)
+DESENHO = []  # lista de elementos 
+
 
 def setup():
     size(712, 712)
@@ -19,33 +21,37 @@ def setup():
         for c in range(n_cols):
             x, y = HALF_CEL + c * CEL_SIZE,\
                 HALF_CEL + r * CEL_SIZE
-            pontos.append((x + MARGIN, y + MARGIN))  # acrescenta um Ponto
+            GRADE_PONTOS.append((x + MARGIN, y + MARGIN))  # acrescenta ponto
 
-    nova_lista()
+    novo_desenho()
     println("'s' to save, and 'n' for a new drawing")
 
 
-def nova_lista():
-    LISTA[:] = []
+def novo_desenho():
+    DESENHO[:] = []  # esvazia a lista de setas e linhas
     for _ in range(30):
-        x, y = rnd.choice(pontos)
-        LISTA.append((
+        x, y = rnd.choice(GRADE_PONTOS)
+        DESENHO.append((
             x,  # x
             y,  # y
             rnd.choice([10, 20, 30]),  # size
             rnd.choice([2, 4, 6]),  # strokeWeight
-            rnd.choice([True, False]),  # arrow
-            list()  # other nodes
+            rnd.choice([True, False]),  # arrow (se é seta)
+            list()  # other nodes (para onde aponta)
         ))
-    for node in LISTA:
-        rnd_node = rnd.choice(LISTA)
+    for node in DESENHO: # para cada elemento do desenho
+        rnd_node = rnd.choice(DESENHO) # sorteia outro elemento
         x1, y1, x2, y2 = node[0], node[1], rnd_node[0], rnd_node[1]
-        if (x1, y1) != (x2, y2):
-            node[-1].append(rnd_node)
-
+        if (x1, y1) != (x2, y2):  # se não for no mesmo ponto
+            node[-1].append(rnd_node) # "aponta" para este elemento
+            # pode acontecer de um elemento não apontar para ninguém
 
 def seta(x1, y1, x2, y2, shorter=12, head=12):
-    """ draws an arrow """
+    """
+    O código para fazer as setas, dois pares (x, y),
+    um parâmetro de encurtamento: shorter
+    e para o tamanho da cabeça da seta: head
+    """
     L = dist(x1, y1, x2, y2)
     with pushMatrix():
         translate(x2, y2)
@@ -58,26 +64,22 @@ def seta(x1, y1, x2, y2, shorter=12, head=12):
 
 def draw():
     background(200)
-
-    for x, y, s, w, arrow, sub_lista in LISTA:
-        strokeWeight(w)
-        for n in sub_lista:
-            if not arrow:
-                stroke(255)  # (200,50,50)
-                line(x, y, n[0], n[1])
-                ellipse(x, y, s, s)
-
-    for x, y, s, w, arrow, sub_lista in LISTA:
-        strokeWeight(w)
-        for n in sub_lista:
-            if arrow:
+    # para cada elemento do desenho, pegue as coordenandas e atributos
+    for x1, y1, d1, sw, arrow, points_to in DESENHO:
+        strokeWeight(sw)
+        for other in points_to:
+            x2, y2 = other[0], other[1]
+            if arrow:   # se for arrow == True, desenhe seta preta
                 stroke(0)
-                seta(x, y, n[0], n[1], s, w * 5)
-                ellipse(x, y, s, s)
-
+                # x1, y1, x2, y2, circle offset, arrow head size
+                seta(x1, y1, x2, y2, d1, sw * 5)
+            else:   # senhão desenhe linha branca e círculo branco
+                stroke(255)
+                line(x1, y1, x2, y2)
+        ellipse(x1, y1, d1, d1)
 
 def keyPressed():
     if key == 's':
         saveFrame("####.png")
     if key == 'n':
-        nova_lista()
+        novo_desenho()
