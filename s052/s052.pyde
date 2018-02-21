@@ -33,14 +33,14 @@ def setup():
     println("'s' to save, and 'n' for a new drawing")
 
 def novo_desenho():
-    # esvazia a lista elementos (setas e linhas) de desenho anterior
+    # esvazia a lista elementos (setas e linhas) do desenho anterior
     # clears the list of nodes (drawing elements: arrows & lines)
     DESENHO[:] = []
     # create a a new drawing (DESENHO, a list of drawing elements)
     for _ in range(NUM_NODES):
-        # sorteia um ponto da grade (unpack x, y from a random grid point)
+        # sorteia um ponto da grade (unpacks x, y from a random point from the grid-list)
         x, y = rnd.choice(GRADE_PONTOS)
-        DESENHO.append((Node(  # acrescenta elemento/"nó" uma tupla com:
+        DESENHO.append((Node(  # acrescenta elemento/"nó" uma namedtuple com:
             x,  # x
             y,  # y
             rnd.choice([10, 20, 30]),  # t_size (tail/circle size)
