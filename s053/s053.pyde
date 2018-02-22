@@ -42,10 +42,10 @@ def novo_desenho():
         if (node.x, node.y) != (random_node.x, random_node.y):
             # 'aponta' para este elemento, acrescenta na sub_lista
             node.points_to.append(random_node)
-            # pode acontecer de um elemento não apontar para ninguém
+    # the previous process might generate non-point nodes / podem haver nós que não apontam
     lonely_nodes = [n for n in DESENHO if not n.points_to]
-    if not lonely_nodes:
-        DESENHO.append(new_node())
+    if not lonely_nodes:            # check if there at least one non-pointing nodes
+        DESENHO.append(new_node())  # I want at least one (non-pointing nodes will be red)
 
 def seta(x1, y1, x2, y2, shorter=12, head=12):
     """
