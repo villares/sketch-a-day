@@ -8,6 +8,15 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s053](s053/s053.png)
+
+053: [code](https://github.com/villares/sketch-a-day/tree/master/s053)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+
+Big invisible refactor (no more point-grid to select from, now a list of possible X and Y positons to choose).
+On the visible side, fewer elements, and non-pointing elements redrawn in red on top.
+
+----
+
 ![s052](s052/s052.png)
 
 052: [code](https://github.com/villares/sketch-a-day/tree/master/s052)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
