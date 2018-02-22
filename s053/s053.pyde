@@ -1,5 +1,5 @@
 """
-sketch 52 180221 - Alexandre B A Villares
+sketch 53 180222 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
 from collections import namedtuple
