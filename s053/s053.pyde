@@ -42,16 +42,17 @@ def novo_desenho():
         if (node.x, node.y) != (random_node.x, random_node.y):
             # 'aponta' para este elemento, acrescenta na sub_lista
             node.points_to.append(random_node)
-    # the previous process might generate non-point nodes / podem haver nós que não apontam
-    lonely_nodes = [n for n in DESENHO if not n.points_to]
-    if not lonely_nodes:            # check if there at least one non-pointing nodes
+    # previous process might generate non-point_to nodes / podem rolar nós que não 'apontam'
+    lonely_nodes = [n for n in DESENHO if not n.points_to]  # points with no points_to
+    if not lonely_nodes:            # check if there is at least one non-pointing node
         DESENHO.append(new_node())  # I want at least one (non-pointing nodes will be red)
 
 def seta(x1, y1, x2, y2, shorter=12, head=12):
     """
-    O código para fazer as setas, dois pares (x, y),
+    O código horrível para fazer as setas, dois pares (x, y),
     um parâmetro de encurtamento: shorter
     e para o tamanho da cabeça da seta: head
+    breve no sketch #54 em diante uma versão melhor...
     """
     L = dist(x1, y1, x2, y2)
     with pushMatrix():
