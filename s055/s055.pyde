@@ -21,8 +21,9 @@ def draw():
                           HALF_CEL + r * CEL_SIZE)
                 rotate(ANG*c*r/10)    
                 stroke(ANG*100 % 255, r * 15 % 255, c * 17 % 255)
-                arrow(0, 0, 50 * sin(ANG/5), 50* cos(ANG/5),
+                arrow(0, 0, 0, 50,
                       tail_func=ellipse, tail_size=20 )
+                print 50 * sin(ANG/5), 50* cos(ANG/5)
                 ANG += 0.0001
                 
 def arrow(x1, y1, x2, y2, shorter=0, head=None,

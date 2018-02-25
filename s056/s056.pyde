@@ -25,8 +25,9 @@ def draw():
                 angle = ANG*(c+1)*(r+1)/10
                 rotate(angle)    
                 stroke(degrees(angle) % 360, 255, 255)
-                arrow(0, 0, 50 * sin(ANG/5), 50* cos(ANG/5),
-                      shorter=10, tail_func=ellipse, tail_size=10 )
+                arrow(0, 0, 0, 50,
+                      shorter=10, tail_func=ellipse,
+                      tail_size=10 )
             ANG += 0.00001
                 
 def arrow(x1, y1, x2, y2, shorter=0, head=None,
