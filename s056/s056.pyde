@@ -1,3 +1,9 @@
+"""
+sketch 56 180225 - Alexandre B A Villares
+https://abav.lugaralgum.com/sketch-a-day
+"""
+
+
 CEL_SIZE = 25
 HALF_CEL = CEL_SIZE / 2
 MARGIN = 100

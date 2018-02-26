@@ -8,11 +8,19 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s057](s057/s057.gif)
+
+057: [code](https://github.com/villares/sketch-a-day/tree/master/s057)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Revisited 54 and now I'm re-selecting random points_to nodes...
+
+----
+
 ![s056](s056/s056.gif)
 
-055: [code](https://github.com/villares/sketch-a-day/tree/master/s056)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+056: [code](https://github.com/villares/sketch-a-day/tree/master/s056)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
 
-arrow grid moving in HSB colour space
+Arrow grid moving in HSB colour space
 
 ----
 
@@ -20,7 +28,7 @@ arrow grid moving in HSB colour space
 
 055: [code](https://github.com/villares/sketch-a-day/tree/master/s055)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
 
-grid revisited
+Grid revisited
 
 ----
 
