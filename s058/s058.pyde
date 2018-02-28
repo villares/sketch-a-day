@@ -6,15 +6,14 @@ https://abav.lugaralgum.com/sketch-a-day
 from collections import namedtuple
 import random as rnd
 import copy as cp
-X_LIST = set()
 
 SPACING, MARGIN = 120, 120
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
-# lista dos elementos, 'nodes', do desenho
 DESENHO, OTHER_DESENHO, INTER = [], [], []
 NUM_NODES = 8  # número de elementos do desenho / number of nodes
 Node = namedtuple(
     'Node', 'x y t_size s_weight is_arrow points_to')
+SAVE_FRAMES = False
 
 def setup():
     size(600, 600)
@@ -27,8 +26,10 @@ def setup():
     println("'s' to save, and 'n' for a new drawing")
 
 def keyPressed():
+    global SAVE_FRAMES
     if key == 's':
-        saveFrame("####.png")
+        SAVE_FRAMES = not SAVE_FRAMES
+        print "Saving "+repr(SAVE_FRAMES)
     if key == 'r':
         make_nodes_point(DESENHO)
     if key == 'n':
@@ -69,13 +70,13 @@ def make_nodes_point(desenho):
 def draw():
     global DESENHO, OTHER_DESENHO
     background(200)
-    fc = frameCount % 1100 - 100
+    fc = frameCount % 300 - 150
     if fc < 0:
         desenho = DESENHO
-    elif 0 <= fc < 999:
-        make_inter_nodes(map(fc, 0, 1000, 0, 1))
+    elif 0 <= fc < 149:
+        make_inter_nodes(map(fc, 0, 150, 0, 1))
         desenho = INTER
-    elif fc == 999:
+    elif fc == 149:
         DESENHO, OTHER_DESENHO = OTHER_DESENHO, DESENHO
         desenho = DESENHO
         make_nodes_point(OTHER_DESENHO)
@@ -104,6 +105,8 @@ def draw():
             seta(node.x, node.y, other.x, other.y,
                  node.t_size, node.s_weight * 5,
                  rect, node.t_size)
+    if SAVE_FRAMES and fc % 2:
+        saveFrame("####.tga")
 
 def seta(x1, y1, x2, y2, shorter=0, head=None,
          tail_func=None, tail_size=None):

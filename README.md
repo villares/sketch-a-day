@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s058](s058/s058.gif)
+
+058: [code](https://github.com/villares/sketch-a-day/tree/master/s058)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now with some deepcopy of changeable imutable namedtuples (containing mutable lists), and some lerp()
+
+----
+
 ![s057](s057/s057.gif)
 
 057: [code](https://github.com/villares/sketch-a-day/tree/master/s057)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
