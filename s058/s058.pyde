@@ -6,6 +6,7 @@ https://abav.lugaralgum.com/sketch-a-day
 from collections import namedtuple
 import random as rnd
 import copy as cp
+X_LIST = set()
 
 SPACING, MARGIN = 120, 120
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
@@ -13,7 +14,7 @@ X_LIST, Y_LIST = [], []  # listas de posições para elementos
 DESENHO, OTHER_DESENHO, INTER = [], [], []
 NUM_NODES = 8  # número de elementos do desenho / number of nodes
 Node = namedtuple(
-    'Node', ['x', 'y', 't_size', 's_weight', 'is_arrow', 'points_to'])
+    'Node', 'x y t_size s_weight is_arrow points_to')
 
 def setup():
     size(600, 600)
@@ -66,15 +67,19 @@ def make_nodes_point(desenho):
             node.points_to.append(random_node)
 
 def draw():
+    global DESENHO, OTHER_DESENHO
     background(200)
-    if keyPressed and key == "1":
-        desenho = INTER
-    elif keyPressed and key == "2":
-        desenho = OTHER_DESENHO
-    else:
+    fc = frameCount % 1100 - 100
+    if fc < 0:
         desenho = DESENHO
-    make_inter_nodes(map(mouseX, 0, width, 0, 1))
-
+    elif 0 <= fc < 999:
+        make_inter_nodes(map(fc, 0, 1000, 0, 1))
+        desenho = INTER
+    elif fc == 999:
+        DESENHO, OTHER_DESENHO = OTHER_DESENHO, DESENHO
+        desenho = DESENHO
+        make_nodes_point(OTHER_DESENHO)
+    
     # draws white 'lines', non-arrows, first.
     for node in (n for n in desenho if not n.is_arrow):
         for other in node.points_to:  # se estiver apontando para alguém
