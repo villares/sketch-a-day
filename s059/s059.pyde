@@ -72,25 +72,24 @@ def draw():
     global CURRENT_DRW, TARGET_DRW
     background(200)
     fc = frameCount % 300 - 150
-    
     if fc < 0:
         draw_now = CURRENT_DRW
     elif 0 <= fc < 149:
         make_inter_nodes(map(fc, 0, 150, 0, 1), CURRENT_DRW, TARGET_DRW)
         draw_now = INTER
-    elif fc == 149 and frameCount < 900:
+    elif fc == 149 and frameCount < 1050:
         CURRENT_DRW, TARGET_DRW = TARGET_DRW, CURRENT_DRW
         draw_now = CURRENT_DRW
         randomize_points_to(TARGET_DRW)
     else:
         if TARGET_DRW == INI_DRW:
-            println('end of last cicle - exit')
-            noLoop() # stop draw at the end of this frame
-        else:
-            CURRENT_DRW, TARGET_DRW = TARGET_DRW, INI_DRW
+            println('end of last cicle')
+            noLoop()  # stop draw at the end of this frame
+        else:            
             println('start of last cicle')
+        CURRENT_DRW, TARGET_DRW = TARGET_DRW, INI_DRW
         draw_now = CURRENT_DRW
-        
+
     # draws white 'lines', non-arrows, INI_DRW.
     for node in (n for n in draw_now if not n.is_arrow):
         for other in node.points_to:  # se estiver apontando para alguém

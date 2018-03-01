@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s059](s059/s059.gif)
+
+059: [code](https://github.com/villares/sketch-a-day/tree/master/s059)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Back to a list of points, now every point of the grid has a node. Limited points_to random each.
+
+----
+
 ![s058](s058/s058.gif)
 
 058: [code](https://github.com/villares/sketch-a-day/tree/master/s058)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
