@@ -1,5 +1,5 @@
 """
-sketch 58 180226 - Alexandre B A Villares
+sketch 59 180228 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
 
@@ -9,7 +9,7 @@ import copy as cp
 
 SPACING, MARGIN = 50, 75
 POSITIONS = []  # listas de posições para elementos
-INI_DRW, CURRENT_DRW, TARGET_DRW, INTER = [], [], [], []
+INI_DRW, CURRENT_DRW, TARGET_DRW, INTER_DRW = [], [], [], []
 Node = namedtuple(
     'Node', 'x y t_size s_weight is_arrow points_to')
 SAVE_FRAMES = False
@@ -21,7 +21,7 @@ def setup():
     for x in range(MARGIN, 1 + width - MARGIN, SPACING):
         for y in range(MARGIN, 1 + height - MARGIN, SPACING):
             POSITIONS.append((x, y))
-    novo_desenho(CURRENT_DRW)
+    create_drawing(CURRENT_DRW)
     println("'s' to save, and 'n' for a new drawing")
 
 def keyPressed():
@@ -32,38 +32,32 @@ def keyPressed():
     if key == 'r':
         randomize_points_to(CURRENT_DRW)
     if key == 'n':
-        novo_desenho(CURRENT_DRW)
+        create_drawing(CURRENT_DRW)
 
-def novo_desenho(desenho):
+def create_drawing(drawing):
     """
-    esvazia a lista elementos (setas e linhas) do desenho anterior
     clears the list of nodes and creates a a new drawing appending CURRENT_DRW,
     a list of nodes/drawing elements: arrows, connecting lines and lonely nodes
     """
-    desenho[:] = []
+    drawing[:] = []
     for x, y in POSITIONS:
-        desenho.append(new_node(x, y))
-    randomize_points_to(desenho)
-    INI_DRW[:] = cp.deepcopy(desenho)
-    TARGET_DRW[:] = cp.deepcopy(desenho)
-    randomize_points_to(TARGET_DRW)
+        drawing.append(Node(x, y,
+                            rnd.choice([5, 10, 15]),    # t_size
+                            rnd.choice([1, 2, 3]),      # s_weight
+                            rnd.choice([True, False]),  # is_arrow?
+                            []  # points_to... (lista com ref. a outro elem.))
+                            ))
+    randomize_points_to(drawing)
+    INI_DRW[:] = cp.deepcopy(drawing)  # saves a copy to INItial DRaWing
+    TARGET_DRW[:] = cp.deepcopy(drawing)  # creates another drawing
+    randomize_points_to(TARGET_DRW)       # randomizes nodes pointed
 
-def new_node(x, y):
-    return Node(                   # elemento/"nó" uma namedtuple com:
-        x,        # x
-        y,        # y
-        rnd.choice([5, 10, 15]),  # t_size (tail/circle size)
-        rnd.choice([1, 2, 3]),     # s_weight (espessura da linha)
-        rnd.choice([True, False]),  # is_arrow? (se é seta ou 'linha')
-        []  # points_to... (lista com ref. a outro elem.))
-    )
-
-def randomize_points_to(desenho):
-    for node in desenho:  # para cada elemento do desenho
+def randomize_points_to(drawing):
+    for node in drawing:  # para cada elemento do drawing
         node.points_to[:] = []
-        random_node = rnd.choice(desenho)  # sorteia outro elemento
+        random_node = rnd.choice(drawing)  # sorteia outro elemento
         while dist(node.x, node.y, random_node.x, random_node.y) > 2.88 * SPACING:
-            random_node = rnd.choice(desenho)
+            random_node = rnd.choice(drawing)
         if (node.x, node.y) != (random_node.x, random_node.y):
             # 'aponta' para este elemento, acrescenta na sub_lista
             node.points_to.append(random_node)
@@ -71,13 +65,13 @@ def randomize_points_to(desenho):
 def draw():
     global CURRENT_DRW, TARGET_DRW
     background(200)
-    fc = frameCount % 300 - 150
+    fc = frameCount % 301 - 150
     if fc < 0:
         draw_now = CURRENT_DRW
-    elif 0 <= fc < 149:
+    elif 0 <= fc < 150:
         make_inter_nodes(map(fc, 0, 150, 0, 1), CURRENT_DRW, TARGET_DRW)
-        draw_now = INTER
-    elif fc == 149 and frameCount < 1050:
+        draw_now = INTER_DRW
+    elif fc == 150 and frameCount < 1050:
         CURRENT_DRW, TARGET_DRW = TARGET_DRW, CURRENT_DRW
         draw_now = CURRENT_DRW
         randomize_points_to(TARGET_DRW)
@@ -85,7 +79,7 @@ def draw():
         if TARGET_DRW == INI_DRW:
             println('end of last cicle')
             noLoop()  # stop draw at the end of this frame
-        else:            
+        else:
             println('start of last cicle')
         CURRENT_DRW, TARGET_DRW = TARGET_DRW, INI_DRW
         draw_now = CURRENT_DRW
@@ -141,9 +135,8 @@ def seta(x1, y1, x2, y2, shorter=0, head=None,
         if tail_func and tail_size:
             tail_func(0, 0, tail_size, tail_size)
 
-
 def make_inter_nodes(amt, origin, target):
-    INTER[:] = []
+    INTER_DRW[:] = []
     for n1, n2 in zip(origin, target):
         if n1.points_to:
             p1x, p1y = n1.points_to[0].x, n1.points_to[0].y
@@ -153,12 +146,12 @@ def make_inter_nodes(amt, origin, target):
             p2x, p2y = n2.points_to[0].x, n2.points_to[0].y
         else:
             p2x, p2y = n2.x, n2.y
-        INTER.append(Node(                   # elemento/"nó" uma namedtuple com:
-            n1.x,        # x
-            n1.y,        # y
-            n1.t_size,  # t_size (tail/circle size)
+        INTER_DRW.append(Node(  # elemento/"nó" uma namedtuple com:
+            n1.x,              # x
+            n1.y,              # y
+            n1.t_size,       # t_size (tail/circle size)
             n1.s_weight,     # s_weight (espessura da linha)
-            n1.is_arrow,  # is_arrow? (se é seta ou 'linha')
+            n1.is_arrow,     # is_arrow? (se é seta ou 'linha')
             # cp.deepcopy(n1.points_to)
             [PVector(lerp(p1x, p2x, amt), lerp(p1y, p2y, amt))]
         ))
