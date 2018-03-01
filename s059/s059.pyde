@@ -9,8 +9,7 @@ import copy as cp
 
 SPACING, MARGIN = 50, 75
 POSITIONS = []  # listas de posições para elementos
-DESENHO, OTHER_DESENHO, INTER = [], [], []
-# NUM_NODES = 100  # número de elementos do desenho / number of nodes
+INI_DRW, CURRENT_DRW, TARGET_DRW, INTER = [], [], [], []
 Node = namedtuple(
     'Node', 'x y t_size s_weight is_arrow points_to')
 SAVE_FRAMES = False
@@ -22,8 +21,7 @@ def setup():
     for x in range(MARGIN, 1 + width - MARGIN, SPACING):
         for y in range(MARGIN, 1 + height - MARGIN, SPACING):
             POSITIONS.append((x, y))
-    novo_desenho(DESENHO)
-
+    novo_desenho(CURRENT_DRW)
     println("'s' to save, and 'n' for a new drawing")
 
 def keyPressed():
@@ -32,23 +30,23 @@ def keyPressed():
         SAVE_FRAMES = not SAVE_FRAMES
         print "Saving " + repr(SAVE_FRAMES)
     if key == 'r':
-        make_nodes_point(DESENHO)
+        randomize_points_to(CURRENT_DRW)
     if key == 'n':
-        novo_desenho(DESENHO)
+        novo_desenho(CURRENT_DRW)
 
 def novo_desenho(desenho):
     """
     esvazia a lista elementos (setas e linhas) do desenho anterior
-    clears the list of nodes and creates a a new drawing appending DESENHO,
+    clears the list of nodes and creates a a new drawing appending CURRENT_DRW,
     a list of nodes/drawing elements: arrows, connecting lines and lonely nodes
     """
     desenho[:] = []
-    for x, y in POSITIONS: #range(NUM_NODES):
+    for x, y in POSITIONS:
         desenho.append(new_node(x, y))
-    make_nodes_point(desenho)
-    OTHER_DESENHO[:] = cp.deepcopy(desenho)
-    make_nodes_point(OTHER_DESENHO)
-
+    randomize_points_to(desenho)
+    INI_DRW[:] = cp.deepcopy(desenho)
+    TARGET_DRW[:] = cp.deepcopy(desenho)
+    randomize_points_to(TARGET_DRW)
 
 def new_node(x, y):
     return Node(                   # elemento/"nó" uma namedtuple com:
@@ -60,7 +58,7 @@ def new_node(x, y):
         []  # points_to... (lista com ref. a outro elem.))
     )
 
-def make_nodes_point(desenho):
+def randomize_points_to(desenho):
     for node in desenho:  # para cada elemento do desenho
         node.points_to[:] = []
         random_node = rnd.choice(desenho)  # sorteia outro elemento
@@ -71,21 +69,30 @@ def make_nodes_point(desenho):
             node.points_to.append(random_node)
 
 def draw():
-    global DESENHO, OTHER_DESENHO
+    global CURRENT_DRW, TARGET_DRW
     background(200)
     fc = frameCount % 300 - 150
+    
     if fc < 0:
-        desenho = DESENHO
+        draw_now = CURRENT_DRW
     elif 0 <= fc < 149:
-        make_inter_nodes(map(fc, 0, 150, 0, 1))
-        desenho = INTER
-    elif fc == 149:
-        DESENHO, OTHER_DESENHO = OTHER_DESENHO, DESENHO
-        desenho = DESENHO
-        make_nodes_point(OTHER_DESENHO)
-
-    # draws white 'lines', non-arrows, first.
-    for node in (n for n in desenho if not n.is_arrow):
+        make_inter_nodes(map(fc, 0, 150, 0, 1), CURRENT_DRW, TARGET_DRW)
+        draw_now = INTER
+    elif fc == 149 and frameCount < 900:
+        CURRENT_DRW, TARGET_DRW = TARGET_DRW, CURRENT_DRW
+        draw_now = CURRENT_DRW
+        randomize_points_to(TARGET_DRW)
+    else:
+        if TARGET_DRW == INI_DRW:
+            println('end of last cicle - exit')
+            noLoop() # stop draw at the end of this frame
+        else:
+            CURRENT_DRW, TARGET_DRW = TARGET_DRW, INI_DRW
+            println('start of last cicle')
+        draw_now = CURRENT_DRW
+        
+    # draws white 'lines', non-arrows, INI_DRW.
+    for node in (n for n in draw_now if not n.is_arrow):
         for other in node.points_to:  # se estiver apontando para alguém
             strokeWeight(node.s_weight)
             stroke(255)
@@ -93,7 +100,7 @@ def draw():
             # desenha o círculo (repare que só em nós que 'apontam')
             ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws 'lonely nodes' in red (nodes that do not point anywhere)
-    for node in (n for n in desenho if not n.points_to):
+    for node in (n for n in draw_now if not n.points_to):
         strokeWeight(node.s_weight)
         stroke(255, 0, 0)  # red stroke for lonely nodes
         if node.is_arrow:
@@ -101,7 +108,7 @@ def draw():
         else:
             ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws black arrows
-    for node in (n for n in desenho if n.is_arrow):
+    for node in (n for n in draw_now if n.is_arrow):
         for other in node.points_to:  # se estiver apontando para alguém
             strokeWeight(node.s_weight)
             stroke(0)
@@ -136,9 +143,9 @@ def seta(x1, y1, x2, y2, shorter=0, head=None,
             tail_func(0, 0, tail_size, tail_size)
 
 
-def make_inter_nodes(amt):
+def make_inter_nodes(amt, origin, target):
     INTER[:] = []
-    for n1, n2 in zip(DESENHO, OTHER_DESENHO):
+    for n1, n2 in zip(origin, target):
         if n1.points_to:
             p1x, p1y = n1.points_to[0].x, n1.points_to[0].y
         else:
