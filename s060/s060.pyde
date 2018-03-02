@@ -36,12 +36,12 @@ def create_drawing(drawing):
 
 def draw():
     background(200)
-    fc = frameCount % 301 - 150
+    fc = frameCount % 300 - 150
     if fc < 0:
         fase = 0
-    elif 0 <= fc < 150:
-        fase = map(fc, 0, 150, 0, 1)
-    elif fc == 150 and frameCount < 1050:  # add/remove 300 for longer/shorter
+    elif 0 <= fc < 149:
+        fase = map(fc, 0, 149, 0, 1)
+    elif fc == 149 and frameCount < 1050:  # add/remove 300 for longer/shorter
         fase = 0
         for node in DRAWING:
             node.copy_target(1, 0)
@@ -131,9 +131,7 @@ class D_node(object):
 def seta(x1, y1, x2, y2, shorter=0, head=None,
          tail_func=None, tail_size=None):
     """
-    O código para fazer as setas, dois pares (x, y),
-    um parâmetro de encurtamento: shorter
-    e para o tamanho da cabeça da seta: head
+    Seta means arrow in Portuguese
     """
     L = dist(x1, y1, x2, y2)
     if not head:
