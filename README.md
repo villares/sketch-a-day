@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s061](s061/s061.gif)
+
+061: [code](https://github.com/villares/sketch-a-day/tree/master/s061)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Sometimes we have multiple arrows now out of each node...But I reduced the range (distance) they can point to.
+
+----
+
 ![s060](s060/s060.gif)
 
 060: [code](https://github.com/villares/sketch-a-day/tree/master/s060)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

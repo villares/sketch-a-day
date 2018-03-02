@@ -16,9 +16,9 @@ def setup():
     noFill()
     create_drawing(DRAWING)
 
-# def keyPressed():
-#     if key == 'n':
-#         create_drawing(DRAWING)
+def keyPressed():
+    if key == 'n':
+        create_drawing(DRAWING)
 
 def create_drawing(drawing):
     """
@@ -63,7 +63,6 @@ def draw():
     if SAVE_FRAMES and not fc % 10:
         saveFrame("####.tga")
 
-
 class D_node(object):
 
     """ Drawing elements,  arrows or circles that might point to another element """
@@ -78,27 +77,34 @@ class D_node(object):
         self.drawing = drawing
 
     def plot(self, amt, other=None):
-        if self.points_now(amt):
-            other = self.points_now(amt)[0]
         strokeWeight(self.s_weight)
         stroke(self.s_color(amt))
-        if self.is_arrow:
-            if not other:
-                other = self
-            seta(self.x, self.y, other.x, other.y,
-                 self.t_size, self.s_weight * 5,
-                 rect, self.t_size)
-        else:
-            if other:
-                line(self.x, self.y, other.x, other.y)
-            ellipse(self.x, self.y, self.t_size, self.t_size)
+        for other in self.points_now(amt):
 
-    def randomize_target(self, index=0, rnd_node=PVector(-1000, 1000)):
+            if self.is_arrow:
+                seta(self.x, self.y, other.x, other.y,
+                     self.t_size, self.s_weight * 5,
+                     rect, self.t_size)
+            else:
+                line(self.x, self.y, other.x, other.y)
+                ellipse(self.x, self.y, self.t_size, self.t_size)
+        if not other:
+            if self.is_arrow:
+                other = self
+                seta(self.x, self.y, other.x, other.y,
+                     self.t_size, self.s_weight * 5,
+                     rect, self.t_size)
+            else:
+                ellipse(self.x, self.y, self.t_size, self.t_size)
+
+    def randomize_target(self, index=0):
         self.points_to[index][:] = []
-        while dist(self.x, self.y, rnd_node.x, rnd_node.y) > 2.88 * SPACING:
+        for _ in range(3):
             rnd_node = rnd.choice(self.drawing)
-        if (self.x, self.y) != (rnd_node.x, rnd_node.y):
-            self.points_to[index] = [PVector(rnd_node.x, rnd_node.y)]
+            while dist(self.x, self.y, rnd_node.x, rnd_node.y) > 2 * SPACING:
+                rnd_node = rnd.choice(self.drawing)
+            if (self.x, self.y) != (rnd_node.x, rnd_node.y) and random(10)<5:
+                self.points_to[index].append(PVector(rnd_node.x, rnd_node.y))
 
     def copy_target(self, origin, destination):
         self.points_to[destination] = cp.deepcopy(self.points_to[origin])
@@ -110,18 +116,20 @@ class D_node(object):
             return points
 
     def points_now(self, amt=0):
+        points = []
         if amt == 0 or amt == 1:
             return self.points_to[int(amt)]
         else:
-            p0 = self.never_empty(self.points_to[0])[0]
-            p1 = self.never_empty(self.points_to[1])[0]
-            return [PVector(lerp(p0.x, p1.x, amt),
-                            lerp(p0.y, p1.y, amt))]
+            for p0 in self.never_empty(self.points_to[0]):
+               for p1 in self.never_empty(self.points_to[1]): 
+                   points.append(PVector(lerp(p0.x, p1.x, amt),
+                            lerp(p0.y, p1.y, amt)))
+        return points
 
     def s_color(self, amt):
         if amt == 0 or amt == 1:
             if not self.points_to[int(amt)]:
-                return color(255, 0, 0)
+                return color(0, 0, 255)
             elif self.is_arrow:
                 return color(0)
             else:
