@@ -6,8 +6,6 @@ from collections import namedtuple
 import random as rnd
 import copy as cp
 
-# from drawing_classes import D_node
-
 SPACING, MARGIN = 50, 75
 POSITIONS = []  # listas de posições para elementos
 Point = namedtuple('Point', 'x y')
@@ -153,20 +151,16 @@ class D_node(object):
     def points_now(self, amt=0):
         p0 = self.never_empty(self.points_to[0])[0]
         p1 = self.never_empty(self.points_to[1])[0]
-        if amt == 0:
-            return self.points_to[0]
-        elif amt == 1:
-            return self.points_to[1]
+        if amt == 0 or amt == 1:
+            return self.points_to[int(amt)]
         else:
             return [Point(lerp(p0.x, p1.x, amt),
                           lerp(p0.y, p1.y, amt))]
-    def color_def(node, index):
-        if not node.points_to[index]: return color(255, 0, 0)
             
-    def s_color(self, fase):
-        if fase == 0:
-            if not self.points_to[int(fase)]: return color(255, 0, 0)
+    def s_color(self, amt):
+        if amt == 0 or amt == 1:
+            if not self.points_to[int(amt)]: return color(255, 0, 0)
             elif self.is_arrow:
-                return 0
-            else: return 255
-        else: return color(0, 0, 255)
+                return color(0)
+            else: return color(255)
+        else: return lerpColor(self.s_color(0), self.s_color(1), amt)

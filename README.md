@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s060](s060/s060.gif)
+
+060: [code](https://github.com/villares/sketch-a-day/tree/master/s060)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Complete Object Oriented refactor...
+
+----
+
 ![s059](s059/s059.gif)
 
 059: [code](https://github.com/villares/sketch-a-day/tree/master/s059)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
