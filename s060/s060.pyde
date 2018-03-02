@@ -1,15 +1,16 @@
 """
-sketch 60 180228 - Alexandre B A Villares
+sketch 60 180301 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
-
+from collections import namedtuple
 import random as rnd
 import copy as cp
 
-from drawing_classes import D_node
+# from drawing_classes import D_node
 
 SPACING, MARGIN = 50, 75
 POSITIONS = []  # listas de posições para elementos
+Point = namedtuple('Point', 'x y')
 DRAWING = []
 SAVE_FRAMES = False
 
@@ -23,15 +24,13 @@ def setup():
     create_drawing(DRAWING)
     println("'s' to save, and 'n' for a new drawing")
 
-# def keyPressed():
-#     global SAVE_FRAMES
-#     if key == 's':
-#         SAVE_FRAMES = not SAVE_FRAMES
-#         print "Saving " + repr(SAVE_FRAMES)
-#     if key == 'r':
-#         randomize_points_to(CURRENT_DRW)
-#     if key == 'n':
-#         create_drawing(CURRENT_DRW)
+def keyPressed():
+    global SAVE_FRAMES
+    if key == 's':
+        SAVE_FRAMES = not SAVE_FRAMES
+        print "Saving " + repr(SAVE_FRAMES)
+    if key == 'n':
+        create_drawing(DRAWING)
 
 def create_drawing(drawing):
     """
@@ -40,36 +39,27 @@ def create_drawing(drawing):
     """
     drawing[:] = []
     for x, y in POSITIONS:
-        drawing.append(D_node(x, y))
-    randomize_points_to(drawing)
-
-
-def randomize_points_to(drawing):
+        drawing.append(D_node(x, y, DRAWING))
     for node in drawing:  # para cada elemento do drawing
-        node.points_to[0][:] = []
-        random_node = rnd.choice(drawing)  # sorteia outro elemento
-        while dist(node.x, node.y, random_node.x, random_node.y) > 2.88 * SPACING:
-            random_node = rnd.choice(drawing)
-        if (node.x, node.y) != (random_node.x, random_node.y):
-            # 'aponta' para este elemento, acrescenta na sub_lista
-            node.points_to[0].append(random_node)
+        node.randomize_target(0)  # set of random targets
+        node.copy_target(0, -1)  # backup of original targets
+        node.randomize_target(1)  # secondary set of random targets
 
 def draw():
     background(200)
-    # fc = frameCount % 301 - 150
-    # if fc < 0:
-    #     DRAWING = CURRENT_DRW
-    # elif 0 <= fc < 150:
-    #     make_inter_nodes(map(fc, 0, 150, 0, 1), CURRENT_DRW, TARGET_DRW)
-    #     DRAWING = INTER_DRW
-    # elif fc == 150 and frameCount < 1050:
-    #     CURRENT_DRW, TARGET_DRW = TARGET_DRW, CURRENT_DRW
-    #     DRAWING = CURRENT_DRW
-    #     randomize_points_to(TARGET_DRW)
+    fc = frameCount % 301 - 150
+    if fc < 0 : fase = 0    
+    elif 0 <= fc < 150:
+        fase= map(fc, 0, 150, 0, 1)
+    elif fc == 150: # and frameCount < 1050:
+        fase = 0
+        for node in DRAWING:
+            node.copy_target(1, 0)
+            node.randomize_target(1)
     # else:
     #     if TARGET_DRW == INI_DRW:
     #         println('end of last cicle')
-    #         noLoop()  # stop draw at the end of this frame
+    # noLoop()  # stop draw at the end of this frame
     #     else:
     #         println('start of last cicle')
     #     CURRENT_DRW, TARGET_DRW = TARGET_DRW, INI_DRW
@@ -77,26 +67,25 @@ def draw():
 
     # draws white 'lines', non-arrows, INI_DRW.
     for node in (n for n in DRAWING if not n.is_arrow):
-        print node.x, node.y, node.s_weight 
-        for other in node.points_to[0]:  # se estiver apontando para alguém
-            #strokeWeight(node.s_weight)
-            stroke(255)
+        for other in node.points_now(fase):  # se estiver apontando para alguém
+            strokeWeight(node.s_weight)
+            stroke(node.s_color(fase))
             line(node.x, node.y, other.x, other.y)
             # desenha o círculo (repare que só em nós que 'apontam')
             ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws 'lonely nodes' in red (nodes that do not point anywhere)
-    for node in (n for n in DRAWING if not n.points_to[0]):
+    for node in (n for n in DRAWING if not n.points_now(fase)):
         strokeWeight(node.s_weight)
-        stroke(255, 0, 0)  # red stroke for lonely nodes
+        stroke(node.s_color(fase))  # red stroke for lonely nodes
         if node.is_arrow:
             rect(node.x, node.y, node.t_size, node.t_size)
         else:
             ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws black arrows
     for node in (n for n in DRAWING if n.is_arrow):
-        for other in node.points_to:  # se estiver apontando para alguém
+        for other in node.points_now(fase):  # se estiver apontando para alguém
             strokeWeight(node.s_weight)
-            stroke(0)
+            stroke(node.s_color(fase))
             seta(node.x, node.y, other.x, other.y,
                  node.t_size, node.s_weight * 5,
                  rect, node.t_size)
@@ -127,23 +116,57 @@ def seta(x1, y1, x2, y2, shorter=0, head=None,
         if tail_func and tail_size:
             tail_func(0, 0, tail_size, tail_size)
 
-def make_inter_nodes(amt, origin, target):
-    INTER_DRW[:] = []
-    for n1, n2 in zip(origin, target):
-        if n1.points_to:
-            p1x, p1y = n1.points_to[0].x, n1.points_to[0].y
+
+class D_node(object):
+
+    """
+    A class of drawing elements, that might be arrows and point to some other element
+    """
+
+    def __init__(self, x, y, drawing):
+        self.x = x
+        self.y = y
+        self.t_size = rnd.choice([5, 10, 15])    # t_size
+        self.s_weight = rnd.choice([1, 2, 3])    # s_weight
+        self.is_arrow = rnd.choice([True, False])
+        self.points_to = [[], [], []]
+        self.drawing = drawing
+
+    def randomize_target(self, index=0):
+        self.points_to[index][:] = []
+        rnd_node = rnd.choice(self.drawing)  # sorteia outro elemento
+        while dist(self.x, self.y, rnd_node.x, rnd_node.y) > 2.88 * SPACING:
+            rnd_node = rnd.choice(self.drawing)
+        if (self.x, self.y) != (rnd_node.x, rnd_node.y):
+            # 'aponta' para este elemento, acrescenta na sub_lista
+            self.points_to[index].append(Point(rnd_node.x, rnd_node.y))
+
+    def copy_target(self, origin, destination):
+        self.points_to[destination] = cp.deepcopy(self.points_to[origin])
+
+    def never_empty(self, points):
+        if not points:
+            return [Point(self.x, self.y)]
         else:
-            p1x, p1y = n1.x, n1.y
-        if n2.points_to:
-            p2x, p2y = n2.points_to[0].x, n2.points_to[0].y
+            return points
+
+    def points_now(self, amt=0):
+        p0 = self.never_empty(self.points_to[0])[0]
+        p1 = self.never_empty(self.points_to[1])[0]
+        if amt == 0:
+            return self.points_to[0]
+        elif amt == 1:
+            return self.points_to[1]
         else:
-            p2x, p2y = n2.x, n2.y
-        INTER_DRW.append(Node(  # elemento/"nó" uma namedtuple com:
-            n1.x,              # x
-            n1.y,              # y
-            n1.t_size,       # t_size (tail/circle size)
-            n1.s_weight,     # s_weight (espessura da linha)
-            n1.is_arrow,     # is_arrow? (se é seta ou 'linha')
-            # cp.deepcopy(n1.points_to)
-            [PVector(lerp(p1x, p2x, amt), lerp(p1y, p2y, amt))]
-        ))
+            return [Point(lerp(p0.x, p1.x, amt),
+                          lerp(p0.y, p1.y, amt))]
+    def color_def(node, index):
+        if not node.points_to[index]: return color(255, 0, 0)
+            
+    def s_color(self, fase):
+        if fase == 0:
+            if not self.points_to[int(fase)]: return color(255, 0, 0)
+            elif self.is_arrow:
+                return 0
+            else: return 255
+        else: return color(0, 0, 255)
