@@ -2,13 +2,12 @@
 sketch 60 180301 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
-from collections import namedtuple
+
 import random as rnd
 import copy as cp
 
 SPACING, MARGIN = 50, 75
 DRAWING = []  # drawing elements 'D_nodes'
-Point = namedtuple('Point', 'x y')  # positions on the grid
 SAVE_FRAMES = False
 
 def setup():
@@ -16,7 +15,7 @@ def setup():
     rectMode(CENTER)
     noFill()
     create_drawing(DRAWING)
- 
+
 def keyPressed():
     if key == 'n':
         create_drawing(DRAWING)
@@ -32,7 +31,7 @@ def create_drawing(drawing):
             drawing.append(D_node(x, y, DRAWING))
     for node in drawing:  # para cada elemento do drawing
         node.randomize_target(0)  # set of random targets
-        node.copy_target(0, -1)  # backup of original targets
+        node.copy_target(0, -1)   # backup of original targets
         node.randomize_target(1)  # secondary set of random targets
 
 def draw():
@@ -42,7 +41,7 @@ def draw():
         fase = 0
     elif 0 <= fc < 150:
         fase = map(fc, 0, 150, 0, 1)
-    elif fc == 150 and frameCount < 450: # add 300 for longer loops
+    elif fc == 150 and frameCount < 1050:  # add/remove 300 for longer/shorter
         fase = 0
         for node in DRAWING:
             node.copy_target(1, 0)
@@ -51,8 +50,8 @@ def draw():
         fase = 0
         for node in DRAWING:
             node.copy_target(1, 0)
-            node.copy_target(-1, 1) # target back to the first points
-    if frameCount > 900: # add 300 for longer loops
+            node.copy_target(-1, 1)  # target back to the first points
+    if frameCount > 1500:  # add/remove 300 for longer/shorter loops
         noLoop()
 
     # draws circles/'lines', non-arrows
@@ -93,19 +92,19 @@ class D_node(object):
                 line(self.x, self.y, other.x, other.y)
             ellipse(self.x, self.y, self.t_size, self.t_size)
 
-    def randomize_target(self, index=0, rnd_node=Point(-100, 100)):
+    def randomize_target(self, index=0, rnd_node=PVector(-100, 100)):
         self.points_to[index][:] = []
         while dist(self.x, self.y, rnd_node.x, rnd_node.y) > 2.88 * SPACING:
             rnd_node = rnd.choice(self.drawing)
         if (self.x, self.y) != (rnd_node.x, rnd_node.y):
-            self.points_to[index] = [Point(rnd_node.x, rnd_node.y)]
+            self.points_to[index] = [PVector(rnd_node.x, rnd_node.y)]
 
     def copy_target(self, origin, destination):
         self.points_to[destination] = cp.deepcopy(self.points_to[origin])
 
     def never_empty(self, points):
         if not points:
-            return [Point(self.x, self.y)]
+            return [PVector(self.x, self.y)]
         else:
             return points
 
@@ -115,8 +114,8 @@ class D_node(object):
         else:
             p0 = self.never_empty(self.points_to[0])[0]
             p1 = self.never_empty(self.points_to[1])[0]
-            return [Point(lerp(p0.x, p1.x, amt),
-                          lerp(p0.y, p1.y, amt))]
+            return [PVector(lerp(p0.x, p1.x, amt),
+                            lerp(p0.y, p1.y, amt))]
 
     def s_color(self, amt):
         if amt == 0 or amt == 1:
