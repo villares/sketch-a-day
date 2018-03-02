@@ -16,13 +16,8 @@ def setup():
     rectMode(CENTER)
     noFill()
     create_drawing(DRAWING)
-    println("'s' to save, and 'n' for a new drawing")
-
+ 
 def keyPressed():
-    global SAVE_FRAMES
-    if key == 's':
-        SAVE_FRAMES = not SAVE_FRAMES
-        print "Saving " + repr(SAVE_FRAMES)
     if key == 'n':
         create_drawing(DRAWING)
 
@@ -47,7 +42,7 @@ def draw():
         fase = 0
     elif 0 <= fc < 150:
         fase = map(fc, 0, 150, 0, 1)
-    elif fc == 150 and frameCount < 450:
+    elif fc == 150 and frameCount < 450: # add 300 for longer loops
         fase = 0
         for node in DRAWING:
             node.copy_target(1, 0)
@@ -57,7 +52,7 @@ def draw():
         for node in DRAWING:
             node.copy_target(1, 0)
             node.copy_target(-1, 1) # target back to the first points
-    if frameCount > 900:
+    if frameCount > 900: # add 300 for longer loops
         noLoop()
 
     # draws circles/'lines', non-arrows
