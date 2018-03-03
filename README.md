@@ -2,9 +2,17 @@
 # sketch-a-day
 ### one visual idea a day [[on GitHub!](https://github.com/villares/sketch-a-day)]
 
-Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. I'm working with [Processing Java Mode](https://processing.org), [Processing Python Mode](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN), [P5JS (JavaScript)](p5js.org) and sometimes other stuff.
+Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. I'm working mostly with [Processing Python Mode](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN) and sometimes [Processing Java Mode](https://processing.org) and[P5JS (JavaScript)](p5js.org) or other stuff.
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
+
+----
+
+![s062](s062/s062.gif)
+
+062: [code](https://github.com/villares/sketch-a-day/tree/master/s062)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+`+` and `-` keys control the distange/range of targes in 0.5 * SPACING increments
 
 ----
 
