@@ -80,7 +80,6 @@ class D_node(object):
         strokeWeight(self.s_weight)
         stroke(self.s_color(amt))
         for other in self.points_now(amt):
-
             if self.is_arrow:
                 seta(self.x, self.y, other.x, other.y,
                      self.t_size, self.s_weight * 5,
