@@ -8,10 +8,10 @@ import copy as cp
 
 SPACING, MARGIN, RANGE = 50, 75, 1
 DRAWING = []  # drawing elements 'D_nodes'
-SAVE_FRAMES = False
+SAVE_FRAMES = True
 
 def setup():
-    size(600, 600)
+    size(500, 500)
     rectMode(CENTER)
     noFill()
     create_drawing(DRAWING)
