@@ -6,7 +6,7 @@ https://abav.lugaralgum.com/sketch-a-day
 import random as rnd
 import copy as cp
 
-SPACING, MARGIN = 100, 75
+SPACING, MARGIN = 100, 100
 DRAWING = []  # drawing elements 'D_nodes'
 SAVE_FRAMES = False
 
