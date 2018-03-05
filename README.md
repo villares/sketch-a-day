@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s063](s063/s063.gif)
+
+063: [code](https://github.com/villares/sketch-a-day/tree/master/s063)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Revisiting an onlder graph with arrows...
+
+----
+
 ![s062](s062/s062.gif)
 
 062: [code](https://github.com/villares/sketch-a-day/tree/master/s062)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
