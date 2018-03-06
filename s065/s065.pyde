@@ -3,11 +3,10 @@ sketch 65 180396 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
 
-
 import random as rnd
 import copy as cp
 
-SAVE_FRAMES = True
+SAVE_FRAMES, STOP = True, False
 
 def setup():
     global d1, d2, d3
@@ -16,10 +15,8 @@ def setup():
     noFill()
     d1 = Drawing(SPACING=50, MARGIN=125, COLOR=color(0, 255, 0))
     d2 = Drawing(SPACING=100, MARGIN=100, COLOR=color(0, 0, 255))
-    d3 = Drawing(SPACING=150, MARGIN=75, COLOR=color(255, 0,0 ))
+    d3 = Drawing(SPACING=150, MARGIN=75, COLOR=color(255, 0, 0))
 
-
-    
 def draw():
     background(200)
     fc = frameCount % 300 - 150
@@ -29,6 +26,8 @@ def draw():
         fase = map(fc, 0, 149, 0, 1)
     # and frameCount < 1050:  # add/remove 300 for longer/shorter
     elif fc == 149:
+        if STOP:
+            noLoop()
         fase = 0
         d1.randomize()
         d2.randomize()
@@ -37,21 +36,17 @@ def draw():
     d1.plot(fase)
     d2.plot(fase)
     d3.plot(fase)
-    
+
     if SAVE_FRAMES and not fc % 10:
         saveFrame("####.tga")
 
-# def keyPressed():
-#     global RANGE
-#     if key == 'n':
-#         create_drawing(DRAWING)
-#     if key == 'b':
-#         for node in DRAWING:
-#             node.copy_target(-1, 1)  # target back to the first points
-#     if key == '=' or key == "+":
-#         RANGE += .5
-#     if key == '-' and RANGE > 1:
-#         RANGE -= .5
+def keyPressed():
+    global STOP
+    if key == 'b':
+        d1.go_back()
+        d2.go_back()
+        d3.go_back()
+        STOP = True
 
 class Drawing():
 
@@ -65,17 +60,23 @@ class Drawing():
         self.SPACING, self.MARGIN, self.RANGE = SPACING, MARGIN, RANGE
         for x in range(MARGIN, 1 + width - MARGIN, SPACING):
             for y in range(MARGIN, 1 + height - MARGIN, SPACING):
-                self.drawing.append(D_node(x, y, self.drawing, self.single_color))
+                self.drawing.append(
+                    D_node(x, y, self.drawing, self.single_color))
         for node in self.drawing:  # para cada elemento do drawing
             node.randomize_target(0, RANGE * SPACING)  # set of random targets
             node.copy_target(0, -1)   # backup of original targets
-            node.randomize_target(1, RANGE * SPACING)  # secondary set of random targets
+            # secondary set of random targets
+            node.randomize_target(1, RANGE * SPACING)
 
     def randomize(self):
         for node in self.drawing:
             node.copy_target(1, 0)
             node.randomize_target(1, self.RANGE * self.SPACING)
-            
+
+    def go_back(self):
+        for node in self.drawing:
+            node.copy_target(-1, 1)  # target back to the first points
+
     def plot(self, fase):
             # draws circles/'lines', non-arrows
         for node in (n for n in self.drawing if not n.is_arrow):
@@ -95,7 +96,8 @@ class D_node(object):
         self.t_size = rnd.choice([5, 10, 15])    # t_size
         self.s_weight = rnd.choice([1, 2, 3])    # s_weight
         self.is_arrow = rnd.choice([True, False])
-        self.points_to = [[], [], []] # current targets, next targets, initial targets
+        # current targets, next targets, initial targets
+        self.points_to = [[], [], []]
         self.drawing = drawing
         self.single_color = s_color
 
@@ -105,8 +107,9 @@ class D_node(object):
         for other in self.points_now(amt):
             if self.is_arrow:
                 seta(self.x, self.y, other.x, other.y,
-                     self.t_size, self.s_weight * 5, # shorten amount, head size
-                     rect, self.t_size) # tail func, tail size
+                     # shorten amount, head size
+                     self.t_size, self.s_weight * 5,
+                     rect, self.t_size)  # tail func, tail size
             else:
                 line(self.x, self.y, other.x, other.y)
                 ellipse(self.x, self.y, self.t_size, self.t_size)
@@ -142,11 +145,12 @@ class D_node(object):
         if amt == 0 or amt == 1:
             return self.points_to[int(amt)]
         else:
-            #for p0 in self.never_empty(self.points_to[0]):
-                p0 = self.never_empty(self.points_to[0])[0]   # not all interpolated arrows are shown
-                for p1 in self.never_empty(self.points_to[1]):
-                    points.append(PVector(lerp(p0.x, p1.x, amt),
-                                          lerp(p0.y, p1.y, amt)))
+            # for p0 in self.never_empty(self.points_to[0]):
+            # not all interpolated arrows are shown
+            p0 = self.never_empty(self.points_to[0])[0]
+            for p1 in self.never_empty(self.points_to[1]):
+                points.append(PVector(lerp(p0.x, p1.x, amt),
+                                      lerp(p0.y, p1.y, amt)))
         return points
 
     def s_color(self, amt):
