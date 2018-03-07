@@ -6,7 +6,7 @@ https://abav.lugaralgum.com/sketch-a-day
 import random as rnd
 import copy as cp
 
-SAVE_FRAMES, STOP = True, False
+SAVE_FRAMES, STOP = False, False
 
 def setup():
     global d1, d2, d3
@@ -24,7 +24,6 @@ def draw():
         fase = 0
     elif 0 <= fc < 149:
         fase = map(fc, 0, 149, 0, 1)
-    # and frameCount < 1050:  # add/remove 300 for longer/shorter
     elif fc == 149:
         if STOP:
             noLoop()
@@ -142,7 +141,7 @@ class D_node(object):
 
     def points_now(self, amt=0):
         points = []
-        if amt == 0 or amt == 1:
+        if amt in [0, 1]:
             return self.points_to[int(amt)]
         else:
             # for p0 in self.never_empty(self.points_to[0]):
@@ -154,7 +153,7 @@ class D_node(object):
         return points
 
     def s_color(self, amt):
-        if amt == 0 or amt == 1:
+        if amt in [0, 1]:
             if not self.points_to[int(amt)]:
                 return self.single_color
             elif self.is_arrow:
