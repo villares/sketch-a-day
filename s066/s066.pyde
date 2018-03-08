@@ -1,21 +1,24 @@
 """
-sketch 65 180306 - Alexandre B A Villares
+sketch 66 180307 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
 
 import random as rnd
 import copy as cp
 
-SAVE_FRAMES, STOP = False, False
+SAVE_FRAMES, STOP = True, False
 
 def setup():
     global d1, d2, d3
     size(500, 500)
     rectMode(CENTER)
     noFill()
-    d1 = Drawing(SPACING=50, MARGIN=125, COLOR=color(0, 255, 0))
-    d2 = Drawing(SPACING=100, MARGIN=100, COLOR=color(0, 0, 255))
-    d3 = Drawing(SPACING=150, MARGIN=75, COLOR=color(255, 0, 0))
+    d1 = Drawing(
+        45, 45, spacing=30, size_=150, range_=1, color_=color(0, 255, 0))
+    d2 = Drawing(
+        105, 105, spacing=60, size_=240, range_=1.5, color_=color(0, 0, 255))
+    d3 = Drawing(
+        225, 225, spacing=75, size_=225, range_=2, color_=color(255, 0, 0))
 
 def draw():
     background(200)
@@ -49,28 +52,28 @@ def keyPressed():
 
 class Drawing():
 
-    def __init__(self, SPACING, MARGIN, RANGE=1, COLOR=color(255, 0, 0)):
+    def __init__(self, x_=10, y_=10, spacing=10, size_=100, range_=1, color_=color(255, 0, 0)):
         """
         clears the list of nodes and creates a a new drawing appending a
         list of nodes/drawing elements: arrows, connecting lines and lonely nodes
         """
-        self.single_color = COLOR
+        self.single_color = color_
         self.drawing = list()
-        self.SPACING, self.MARGIN, self.RANGE = SPACING, MARGIN, RANGE
-        for x in range(MARGIN, 1 + width - MARGIN, SPACING):
-            for y in range(MARGIN, 1 + height - MARGIN, SPACING):
+        self.spacing, self.size_, self.range_ = spacing, size_, range_
+        for x in range(x_, x_ + size_ + 1, spacing):
+            for y in range(y_, y_ + size_ + 1, spacing):
                 self.drawing.append(
                     D_node(x, y, self.drawing, self.single_color))
         for node in self.drawing:  # para cada elemento do drawing
-            node.randomize_target(0, RANGE * SPACING)  # set of random targets
+            node.randomize_target(0, range_ * spacing)  # set of random targets
             node.copy_target(0, -1)   # backup of original targets
             # secondary set of random targets
-            node.randomize_target(1, RANGE * SPACING)
+            node.randomize_target(1, range_ * spacing)
 
     def randomize(self):
         for node in self.drawing:
             node.copy_target(1, 0)
-            node.randomize_target(1, self.RANGE * self.SPACING)
+            node.randomize_target(1, self.range_ * self.spacing)
 
     def go_back(self):
         for node in self.drawing:

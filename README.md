@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s066](s066/s066.gif)
+
+066: [code](https://github.com/villares/sketch-a-day/tree/master/s066)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Arrow grid networks can be sized and placed...
+
+----
+
 ![s065](s065/s065.gif)
 
 065: [code](https://github.com/villares/sketch-a-day/tree/master/s065)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
