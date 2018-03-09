@@ -11,16 +11,17 @@ def setup():
     
 def draw():
     background(0)
-    N = map(mouseX, 0, width, QUARTER_PI/2, HALF_PI)
-    D = map(mouseY, 0, height, 1, 5)
+    N = map(mouseX, 0, width, PI/6, TWO_PI/3)
+    D = map(mouseY, 0, height, 1, 3+N)
+    print(N, D)
     poly_shape(width/2, height/2, N, D)
             
             
 def poly_shape(x, y, angle, D):
-        stroke((frameCount/10 * D) % 256, 255, 255, 100)
+        stroke((frameCount/2 * D) % 256, 255, 255, 100)
         with pushMatrix():
             translate(x, y)
-            radius = 5 + D * 20 
+            radius = D * 25 
             ps = createShape()
             ps.beginShape()
             a = 0
