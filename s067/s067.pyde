@@ -15,6 +15,8 @@ def draw():
     D = map(mouseY, 0, height, 1, 3+N)
     print(N, D)
     poly_shape(width/2, height/2, N, D)
+    
+    if not frameCount % 10: saveFrame("s####.tga")
             
             
 def poly_shape(x, y, angle, D):
