@@ -21,8 +21,6 @@ class Slider:
         self.rectx = self.x + map(self.val, self.low, self.high, 0, 120)
         self.recty = self.y - 10
         
-    def plot(self):
-        pass
 
     def value(self):
         '''updates the slider and returns value'''

@@ -7,15 +7,14 @@ from slider import Slider
 
 i = Slider(PI / 6, TWO_PI / 3, QUARTER_PI)
 j = Slider(1, 4, 2)
-k = Slider(1, 50, 25)
+k = Slider(10, 50, 25)
 
-I, J, K = 3, 3, 3
+I, J, K = 1, 1, 1 # dummy initial slider values
 
 
 def setup():
     size(600, 600)
     colorMode(HSB)
-    strokeWeight(5)
     noFill()
     i.position(20, 20)
     j.position(20, 60)
@@ -24,17 +23,20 @@ def setup():
 def draw():
     global I, J, K
     background(0)
-    poly_shape(width / 2, height / 2, I, J, K)
-
-    I = i.value()  # PI/6, TWO_PI/3
-    J = j.value()  # 0 , 4
-    K = k.value()  # 1, 50
-    # if not frameCount % 10: saveFrame("s####.tga")
+    poly_shape(width / 2, height/2, I, J, K)
+    # Read and update sliders
+    I = i.value()  # from PI/6 to TWO_PI/3
+    j.high = 3 + I * 1.5 # change J's upper limit
+    J = j.value()  # 1 to 3 + I * 1.5 
+    K = k.value()  # 10 to 50
+    #if not frameCount % 100: saveFrame("s####.tga")
 
 def poly_shape(x, y, angle, D, offset):
-    stroke((frameCount / 2 * D) % 256, 255, 255, 100)
+    stroke((frameCount / 2 * D) % 256, 255, 255, 255)
+    strokeWeight(D)
     with pushMatrix():
         translate(x, y)
+        # rotate(radians(30))
         radius = D * offset
         ps = createShape()
         ps.beginShape()
