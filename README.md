@@ -8,11 +8,19 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s069](s069/s069.gif)
+
+069: [code](https://github.com/villares/sketch-a-day/tree/master/s069)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Added rotation.
+
+----
+
 ![s068](s068/s068.gif)
 
 068: [code](https://github.com/villares/sketch-a-day/tree/master/s068)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-... and with sliders.
+... and with sliders (by [Peter Farell](https://github.com/hackingmath/python-sliders))
 
 ----
 
