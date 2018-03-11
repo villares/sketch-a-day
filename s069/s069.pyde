@@ -9,7 +9,7 @@ from slider import Slider
 i = Slider(PI / 6, TWO_PI / 3, QUARTER_PI) # angle, changes number of sides
 j = Slider(1, 4, 2) # depth, changes number of recursions (fiddled afterwards)
 k = Slider(10, 50, 25) # offset, changes scale
-l = Slider(0, TWO_PI, 0) # offset, changes scale
+l = Slider(0, TWO_PI, 0) # rotation
 
 I, J, K, L = 1, 1, 1, 1 # dummy initial slider global values
 # ^ I need these globals because I want to read/draw sliders 
