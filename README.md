@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s070](s070/s070.gif)
+
+070: [code](https://github.com/villares/sketch-a-day/tree/master/s070)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Thicker and with a saturation slider (no more scale offset)
+
+----
+
 ![s069](s069/s069.gif)
 
 069: [code](https://github.com/villares/sketch-a-day/tree/master/s069)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
