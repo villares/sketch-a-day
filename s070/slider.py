@@ -28,7 +28,7 @@ class Slider:
         rectMode(CENTER)
         # black translucid rect behind slider
         fill(0, 100)
-        stroke(0)
+        noStroke()
         rect(self.x + 60, self.y, 130, 20)
         # gray line behind slider
         strokeWeight(4)

@@ -1,4 +1,6 @@
-def gif_export(GifMaker=None,
+
+
+def gif_export(GifMaker,
                filename="exported",
                repeat=0,
                quality=255,
@@ -7,7 +9,9 @@ def gif_export(GifMaker=None,
     """
     Be careful! frames=0 will stop the sketch on keyPressed or frameCount >= 100000... 
     """
-    if GifMaker:
+    try:
+        gifExporter
+    except:
         global gifExporter
         file = filename + ".gif"
         gifExporter = GifMaker(this, file)

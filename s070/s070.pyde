@@ -29,7 +29,6 @@ def setup():
     k.position(20, 100)
     l.position(20, 140)
     frameRate(10)
-    gif_export(GifMaker)
 
 def draw():
     global I, J, K, L
@@ -42,8 +41,7 @@ def draw():
     K = k.value()  # 10 to 50
     L = l.value()  # 0 to TWO_PI
     # uncomment the next line to save frames!
-    # if not frameCount % 100: saveFrame("s####.tga")
-    gif_export()
+    gif_export(GifMaker, frames=200)
 
 
 def poly_shape(x, y, angle, D, sat, rotation):
