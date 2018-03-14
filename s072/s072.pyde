@@ -40,7 +40,7 @@ def draw():
     K = k.value()  # 10 to 50
     L = l.value()  # 0 to TWO_PI
     # uncomment the next line to save frames!
-    if not frameCount % 10: gif_export(GifMaker, frames=3000)
+    #if not frameCount % 10: gif_export(GifMaker, frames=3000)
 
 
 def poly_shape(x, y, angle, D, sat, rotation):
