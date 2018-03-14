@@ -59,7 +59,7 @@ def poly_shape(x, y, D):
             ps.strokeWeight(D * 5)
             ps.stroke(int(D * 255) % 256, 255, 255)
         ps.endShape(CLOSE)  # end of PShape creation
-        shape(ps, 0, 0, D * 10, D * 10)  # Draw the PShape
+        shape(ps, 0, 0, D * 10, D * 10)  # Draw the PShape, but scaled down
         if D > 1:  # if the recursion 'distance'/'depth' allows...
             for i in range(ps.getVertexCount()):
                 # for each vertex
@@ -70,9 +70,7 @@ def poly_shape(x, y, D):
                     stroke(255)
                 strokeWeight(D)
                 arrow(0, 0, pv.x, pv.y,
-                      shorter=D * 10,
-                      tail_func=None,
-                      tail_size=D * 3)
+                      shorter=D * 10)
                 # recusively call poly_shape with a smaller D
                 poly_shape(pv.x, pv.y, D * .66)
 
