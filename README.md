@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s074](s074/s074.gif)
+
+074: [code](https://github.com/villares/sketch-a-day/tree/master/s074)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Adaptomg Shiffmans recusive Tree, with sliders or Pots...
+
+----
+
 ![s073](s073/s073.gif)
 
 073: [code](https://github.com/villares/sketch-a-day/tree/master/s073)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
