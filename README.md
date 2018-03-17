@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s075](s075/s075.gif)
+
+075: [code](https://github.com/villares/sketch-a-day/tree/master/s075)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+... and slightly different parameters and recursion level control instead of lenght
+
+----
+
 ![s074](s074/s074.gif)
 
 074: [code](https://github.com/villares/sketch-a-day/tree/master/s074)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
