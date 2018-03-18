@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s077](s077/s077.gif)
+
+077: [code](https://github.com/villares/sketch-a-day/tree/master/s077)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Random branch reduction is now less simmetric, and random seed changes on depth change.
+
+----
+
 ![s076](s076/s076.gif)
 
 076: [code](https://github.com/villares/sketch-a-day/tree/master/s076)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
