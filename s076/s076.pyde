@@ -52,20 +52,19 @@ def branch(gen, theta, branch_size):
         h = branch_size * (1 + random(b) / 4)
         branch_size *= 1 - random(b) / 10
         # Save the current state of transformation (i.e. where are we now)
-        pushMatrix()
-        rotate(theta + c * random(1))  # Rotate by theta
-        line(0, 0, 0, -h)  # Draw the branch
-        translate(0, -h)  # Move to the end of the branch
-        # Ok, now call myself to draw two branches!!
-        pushStyle()
-        branch(gen - 1, theta, branch_size)
-        popStyle()
-        # Whenever we get back here, we "pop" in order to restore the previous
-        # matrix state
-        popMatrix()
+        with pushMatrix():
+            rotate(theta + c * random(1))  # Rotate by theta
+            line(0, 0, 0, -h)  # Draw the branch
+            translate(0, -h)  # Move to the end of the branch
+            # Ok, now call myself to draw two branches!!
+            pushStyle()
+            branch(gen - 1, theta, branch_size)
+            popStyle()
         # Repeat the same thing, only branch off to the "left" this time!
         with pushMatrix():
             rotate(-theta + c * random(1))
             line(0, 0, 0, -h)
             translate(0, -h)
+            pushStyle()
             branch(gen - 1, theta, branch_size)
+            popStyle()

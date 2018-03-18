@@ -55,23 +55,16 @@ def draw():
     #if not frameCount % 10: gif_export(GifMaker, frames=3000)
 
 def branch(gen, theta, branch_size):
-    # Each branch will be 2/3rds the size of the previous one
-
-    
     # All recursive functions must have an exit condition!!!!
     if gen > 1 and branch_size > 1:
         h = branch_size * (1 + random(b) / 4)
         branch_size *= 1 - random(b) / 10
-        # Save the current state of transformation (i.e. where are we now)
-        pushMatrix()
-        rotate(theta + c * random(1))  # Rotate by theta
-        line(0, 0, 0, -h)  # Draw the branch
-        translate(0, -h)  # Move to the end of the branch
-        # Ok, now call myself to draw two branches!!
-        branch(gen - 1, theta, branch_size)
-        # Whenever we get back here, we "pop" in order to restore the previous
-        # matrix state
-        popMatrix()
+        with pushMatrix():
+            rotate(theta + c * random(1))  # Rotate by theta
+            line(0, 0, 0, -h)  # Draw the branch
+            translate(0, -h)  # Move to the end of the branch
+            # Ok, now call myself to draw two branches!!
+            branch(gen - 1, theta, branch_size)
         # Repeat the same thing, only branch off to the "left" this time!
         with pushMatrix():
             rotate(-theta + c * random(1))
