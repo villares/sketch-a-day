@@ -1,6 +1,6 @@
 
 """
-sketch 77 180317 - Alexandre B A Villares
+sketch 78 180319 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 
 Based on Recursive Tree by Daniel Shiffman.    
@@ -17,6 +17,7 @@ D = Slider(2, 10, 10)
 
 def setup():
     size(600, 600, P2D)
+    colorMode(HSB)
     A.position(20, height - 60)
     B.position(20, height - 30)
     C.position(width - 180, height - 60)
@@ -24,7 +25,7 @@ def setup():
 
 def draw():
     global b, c, d
-    background(200)
+    background(0)
     frameRate(30)
     stroke(0)
     strokeWeight(2)
@@ -39,12 +40,14 @@ def draw():
     branch(d, a, width/25 + (width/75)*b)
 
     # #uncomment next lines to export GIF
-    # if not frameCount % 10: gif_export(GifMaker,
-    #                                    frames=2000,
-    #                                    filename="s077")
+    if not frameCount % 10: gif_export(GifMaker,
+                                       frames=2000,
+                                       filename="s078")
 
 def branch(gen, theta, branch_size):
     strokeWeight(gen)
+    cor = (map(gen,0,d,255,0) + frameCount) % 256
+    stroke(cor,255,100)
     # All recursive functions must have an exit condition!!!!
     if gen > 1:# and branch_size > 1:
         with pushMatrix():
