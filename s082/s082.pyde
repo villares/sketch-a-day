@@ -16,7 +16,7 @@ C = Slider(1, 40, 10)
 D = Slider(1, 40, 10)
 # I need these globals because I want to call the sliders after drawing
 a, b, c, d = 1, 1, 1, 1
-SHAPES = [ellipse, rect, lambda x, y, c, _: rect(x, y, c, c, -c/2)]
+SHAPES = [ellipse, rect, lambda x, y, c, _: rect(x, y, c, c, c/2)]
 
 def setup():
     size(600, 600, P2D)
@@ -54,10 +54,10 @@ def draw():
     d = int(D.value())  # grid num
 
     # uncomment next lines to export GIF
-    # if not frameCount % 10:
-    #     gif_export(GifMaker,
-    #                frames=2000,
-    #                filename=SKETCH_NAME)
+    if not frameCount % 10:
+        gif_export(GifMaker,
+                   frames=2000,
+                   filename=SKETCH_NAME)
 
 def grid(x, y, num, size_, space, func):  # , func, *args):
     for i in range(x, x + num * space, space):

@@ -34,13 +34,13 @@ class Slider:
         stroke(200)
         line(self.x, self.y, self.x + 120, self.y)
         # press mouse to move slider
-        if (self.x < mouseX < self.x + 20 and
-                 self.y < mouseY < self.y + 20):
-        #     fill(250)
-        #     textSize(10)
-        #     text(str(self.val), self.rectx, self.recty + 35)
-             if mousePressed:
-                 self.rectx = mouseX
+        if (self.x < mouseX < self.x + 120 and
+                self.y < mouseY < self.y + 20):
+            fill(250)
+            textSize(10)
+            text(str(self.val), self.rectx, self.recty + 35)
+            if mousePressed:
+                self.rectx = mouseX
         # constrain rectangle
         self.rectx = constrain(self.rectx, self.x, self.x + 120)
         # draw rectangle

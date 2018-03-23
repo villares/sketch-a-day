@@ -8,6 +8,22 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s082](s082/s082.gif)
+
+082: [code](https://github.com/villares/sketch-a-day/tree/master/s082)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Squares and ellipses
+
+--------
+
+![s081](s081/s081.gif)
+
+081: [code](https://github.com/villares/sketch-a-day/tree/master/s081)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Let's try some grids
+
+----
+
 ![s080](s080/s080.gif)
 
 080: [code](https://github.com/villares/sketch-a-day/tree/master/s080)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
