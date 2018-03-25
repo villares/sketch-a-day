@@ -8,13 +8,21 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s083](s083/s083.gif)
+
+083: [code](https://github.com/villares/sketch-a-day/tree/master/s083)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Xs and rotated rectangles
+
+----
+
 ![s082](s082/s082.gif)
 
 082: [code](https://github.com/villares/sketch-a-day/tree/master/s082)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Squares and ellipses
 
---------
+----
 
 ![s081](s081/s081.gif)
 
