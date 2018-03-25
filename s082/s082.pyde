@@ -20,6 +20,7 @@ SHAPES = [ellipse, rect, lambda x, y, c, _: rect(x, y, c, c, c/2)]
 
 def setup():
     size(600, 600, P2D)
+    frameRate(30)
     colorMode(HSB)
     rectMode(CENTER)
     noFill()
@@ -33,7 +34,6 @@ def draw():
     global a, b, c, d
     rect(10, 10, 100, 100)
     background(200)
-    frameRate(30)
 
     randomSeed(int(d * 100))
 

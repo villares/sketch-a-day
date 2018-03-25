@@ -16,7 +16,8 @@ a, b, c, d = 1, 1, 1, 1
 
 def setup():
     size(600, 600, P2D)
-    colorMode(HSB)
+    colorMode(HSB) 
+    frameRate(30)
     noFill()
     A.position(20, height - 70)
     B.position(20, height - 30)
@@ -28,7 +29,6 @@ def draw():
     global a, b, c, d
     rect(10, 10, 100, 100)
     background(200)
-    frameRate(30)
 
     randomSeed(int(d * 100))
 

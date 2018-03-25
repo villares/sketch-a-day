@@ -17,6 +17,7 @@ D = Slider(2, 10, 10)
 
 def setup():
     size(600, 600, P2D)
+    frameRate(30)
     A.position(20, height - 60)
     B.position(20, height - 30)
     C.position(width - 180, height - 60)
@@ -25,7 +26,6 @@ def setup():
 def draw():
     global b, c, d
     background(200)
-    frameRate(30)
     stroke(0)
     strokeWeight(2)
 

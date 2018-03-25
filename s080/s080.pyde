@@ -17,6 +17,7 @@ D = Slider(2, 10, 10)
 
 def setup():
     size(600, 600, P2D)
+    frameRate(30)
     colorMode(HSB)
     noFill()
     A.position(20, height - 60)
@@ -27,7 +28,6 @@ def setup():
 def draw():
     global b, c, d
     background(200)
-    frameRate(30)
 
     a = A.value()  # Angle
     b = B.value()  # branch size randomization
