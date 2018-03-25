@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s084](s084/s084.gif)
+
+084: [code](https://github.com/villares/sketch-a-day/tree/master/s084)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+[in progress] Make the grid's position/origin align based on the spacing size (super- grid)
+
+----
+
 ![s083](s083/s083.gif)
 
 083: [code](https://github.com/villares/sketch-a-day/tree/master/s083)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
