@@ -41,8 +41,8 @@ def setup():
 
     A.position(40, height - 70)
     B.position(40, height - 30)
-    C.position(width - 120, height - 70)
-    D.position(width - 120, height - 30)
+    C.position(width - 140, height - 70)
+    D.position(width - 140, height - 30)
     # noLoop()
 
 def draw():
@@ -72,11 +72,11 @@ def draw():
     d = int(D.value())  # grid num
 
     # uncomment next lines to export GIF
-    if not frameCount % 10:
-        gif_export(GifMaker,
-                   frames=2000,
-                   delay=340,
-                   filename=SKETCH_NAME)
+    # if not frameCount % 12:
+    #     gif_export(GifMaker,
+    #                frames=2000,
+    #                delay=340,
+    #                filename=SKETCH_NAME)
 
 def grid(x, y, num, size_, space, func):  
     for i in range(x, x + num * space, space):
