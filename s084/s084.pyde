@@ -6,14 +6,14 @@ https://abav.lugaralgum.com/sketch-a-day
 
 import random as rnd
 
-#add_library('gifAnimation')
-#from gif_exporter import gif_export
+add_library('gifAnimation')
+from gif_exporter import gif_export
 from slider import Slider
 
-A = Slider(1, 40, 10) #, 'q', 'a')
-B = Slider(1, 40, 10) #, 'w', 's')
-C = Slider(1, 40, 10) #, 'e', 'd')
-D = Slider(1, 40, 10) #, 'r', 'f')
+A = Slider(1, 40, 10, 'q', 'a')
+B = Slider(1, 40, 10, 'w', 's')
+C = Slider(1, 40, 10, 'e', 'd')
+D = Slider(1, 40, 10, 'r', 'f')
 # I need these globals because I want to call the sliders after drawing
 a, b, c, d = 1, 1, 1, 1
 
@@ -72,10 +72,11 @@ def draw():
     d = int(D.value())  # grid num
 
     # uncomment next lines to export GIF
-    # if not frameCount % 10:
-    #     gif_export(GifMaker,
-    #                frames=2000,
-    #                filename=SKETCH_NAME)
+    if not frameCount % 10:
+        gif_export(GifMaker,
+                   frames=2000,
+                   delay=340,
+                   filename=SKETCH_NAME)
 
 def grid(x, y, num, size_, space, func):  
     for i in range(x, x + num * space, space):
@@ -86,5 +87,5 @@ def rnd_choice(collection):
     i = int(random(len(collection)))
     return collection[i]
     
-def keyPressed():
-    saveFrame(SKETCH_NAME + '_###.gif')
+# def keyPressed():
+#     saveFrame(SKETCH_NAME + '_###.gif')
