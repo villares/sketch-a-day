@@ -4,8 +4,6 @@ sketch 83 180324 - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
 """
 
-import random as rnd
-
 add_library('gifAnimation')
 from gif_exporter import gif_export
 from slider import Slider
@@ -43,13 +41,10 @@ def setup():
     B.position(20, height - 30)
     C.position(width - 140, height - 70)
     D.position(width - 140, height - 30)
-    # noLoop()
 
 def draw():
     global a, b, c, d
-    rect(10, 10, 100, 100)
     background(200)
-    
     randomSeed(int(d * 100))
 
     func = ellipse

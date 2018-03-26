@@ -1,10 +1,5 @@
-SKETCH_NAME = "s084"
-"""
-sketch 84 180325 - Alexandre B A Villares
-https://abav.lugaralgum.com/sketch-a-day
-"""
-
-import random as rnd
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s084" # 180325
 
 add_library('gifAnimation')
 from gif_exporter import gif_export
@@ -38,6 +33,7 @@ def setup():
     size(600, 600, P2D)
     colorMode(HSB)
     rectMode(CENTER)
+    noFill()
 
     A.position(40, height - 70)
     B.position(40, height - 30)
@@ -47,13 +43,9 @@ def setup():
 
 def draw():
     global a, b, c, d
-    rect(10, 10, 100, 100)
     background(200)
-    noFill()
-        
     randomSeed(int(d * 100))
 
-    func = ellipse
     for i in range(d):
         tam = a * c
         x = int(random(width - tam)/c)*c
@@ -62,10 +54,8 @@ def draw():
             stroke(0)
         else:
             stroke(255)
-        #strokeWeight(int(random(1, 4)))
         grid(x, y, a, b, c, rnd_choice(SHAPES))  # , ellipse, (a, a))
         
-    fill(255)
     a = int(A.value())  # elem num
     b = int(B.value())  # size
     c = int(C.value())  # space
