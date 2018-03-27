@@ -10,9 +10,6 @@ A = Slider(1, 40, 10, 'q', 'a')
 B = Slider(1, 40, 10, 'w', 's')
 C = Slider(1, 40, 10, 'e', 'd')
 D = Slider(1, 40, 10, 'r', 'f')
-# I need these globals because I want to call the sliders after drawing
-a, b, c, d = 1, 1, 1, 1
-
 
 def setup():
     size(600, 600, P2D)
@@ -23,36 +20,34 @@ def setup():
     B.position(40, height - 30)
     C.position(width - 140, height - 70)
     D.position(width - 140, height - 30)
-    # noLoop()
 
 def draw():
-    global a, b, c, d
-    rect(10, 10, 100, 100)
     background(200)
     noFill()
-        
-    randomSeed(int(d * 100))
+    
+    a = int(A.val)  # number of elements
+    b = int(B.val)  # size of elements
+    c = int(C.val)  # space between elements
+    d = int(D.val)  # number of grids
+    
+    randomSeed(int(d * 100)) # a different random seed
 
     for i in range(d):
         tam = a * c
         x = int(random(width - tam)/c)*c
         y = int(random(height - tam)/c)*c
         stroke(rnd_choice(COLORS))
-        strokeWeight(int(random(1, 3)))
-        grid(x, y, a, b, c, rnd_choice(SHAPES))  # , ellipse, (a, a))
+        #strokeWeight(int(random(1, 3)))
+        grid(x, y, a, b, c, rnd_choice(SHAPES)) 
         
-    fill(255)
-    a = int(A.value())  # elem num
-    b = int(B.value())  # size
-    c = int(C.value())  # space
-    d = int(D.value())  # grid num
-
-    # uncomment next lines to export GIF
+    # # uncomment next lines to export GIF
     # if not frameCount % 12:
     #     gif_export(GifMaker,
     #                frames=2000,
     #                delay=340,
     #                filename=SKETCH_NAME)
+    
+    Slider.update_all()
 
 def grid(x, y, num, size_, space, func):  
     for i in range(x, x + num * space, space):

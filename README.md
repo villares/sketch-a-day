@@ -8,11 +8,19 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s085](s085/s085.gif)
+
+085: [code](https://github.com/villares/sketch-a-day/tree/master/s085)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Some colour, and some crazy meddling with the Slider class...
+
+----
+
 ![s084](s084/s084.gif)
 
 084: [code](https://github.com/villares/sketch-a-day/tree/master/s084)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-[in progress] Make the grid's position/origin align based on the spacing size (super- grid)
+Make the grid's position/origin align based on the spacing size (super- grid)
 
 ----
 

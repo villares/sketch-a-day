@@ -4,6 +4,8 @@ https://github.com/hackingmath/python-sliders http://farrellpolymath.com/
 """
 
 class Slider:
+    
+    SLIDERS = []
 
     def __init__(self, low, high, default, more_key, less_key):
         '''slider has range from low to high
@@ -14,6 +16,7 @@ class Slider:
         self.clicked = False
         self.more = more_key
         self.less = less_key
+        Slider.SLIDERS.append(self)
 
     def position(self, x, y):
         '''slider's position on screen'''
@@ -23,8 +26,8 @@ class Slider:
         self.rectx = self.x + map(self.val, self.low, self.high, 0, 120)
         self.recty = self.y - 10
 
-    def value(self):
-        '''updates the slider and returns value'''
+    def update(self):
+        '''updates the slider'''
         pushStyle()
         rectMode(CENTER)
         # black translucid rect behind slider
@@ -43,14 +46,12 @@ class Slider:
             text(str(self.val), self.rectx, self.recty + 35)
             if mousePressed:
                 self.rectx = mouseX
-
         # key usage
         if keyPressed:
             if key == self.more:
                 self.rectx += 1
             if key == self.less:
                 self.rectx -= 1
-
         # constrain rectangle
         self.rectx = constrain(self.rectx, self.x, self.x + 120)
         # draw rectangle
@@ -58,6 +59,15 @@ class Slider:
         fill(255)
         rect(self.rectx, self.recty + 10, 10, 20)
         self.val = map(self.rectx, self.x, self.x + 120, self.low, self.high)
-        # draw label
         popStyle()
+        
+    def value(self):
+        ''' backwards compatible method... '''
+        self.update()
         return self.val
+    
+    @classmethod
+    def update_all(cls):
+        for slider in Slider.SLIDERS:
+            slider.update()
+    
