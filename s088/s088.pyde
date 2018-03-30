@@ -18,9 +18,6 @@ SHAPES = [my_ellipse,
 
 def setup():
     size(600, 600, P2D)
-    colorMode(HSB)
-    rectMode(CENTER)
-
     A.position(40, height - 70)
     B.position(40, height - 30)
     C.position(width - 140, height - 70)
@@ -28,8 +25,7 @@ def setup():
 
 def draw():
     background(200)
-    noFill()
-
+    
     a = int(A.val)  # number of elements
     b = C.val * B.val / 100  # size of el ements (B.val % of spacing!)
     c = int(C.val)  # spacing between elements
@@ -64,6 +60,3 @@ def grid(x, y, num, size_, space, func):
 def rnd_choice(collection):
     i = int(random(len(collection)))
     return collection[i]
-
-# def keyPressed():
-# saveFrame(SKETCH_NAME + '_###.gif')

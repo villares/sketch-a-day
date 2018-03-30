@@ -6,8 +6,11 @@ ported to Processing 3 by 01010101 (https://github.com/01010101)
 Download the library from https://github.com/01010101/GifAnimation/archive/master.zip
 This helper was inspired by an example by Art Simon https://github.com/APCSPrinciples/AnimatedGIF/
 
-Put add_library('gifAnimation') at the start of your sketch
-and add gif_export(GifMaker) at the end of draw()
+Put  at the start of your sketch:
+   add_library('gifAnimation')
+   from gif_exporter import gif_export
+and at the end of draw():
+    gif_export(GifMaker)
 """
 def gif_export(GifMaker,             # gets a reference to the library
                filename="exported",  # .gif will be added

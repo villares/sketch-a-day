@@ -23,7 +23,6 @@ COLORS = [color(0), color(0), color(0),
 
 def setup():
     size(600, 600, P2D)
-    colorMode(HSB)
     rectMode(CENTER)
 
     A.position(40, height - 70)
@@ -47,17 +46,16 @@ def draw():
         x = int(random(width - tam) / c) * c
         y = int(random(height - tam) / c) * c
         stroke(rnd_choice(COLORS))
-        noFill()  # fill(rnd_choice(COLORS), 100)
         strokeWeight(int(random(1, 3)))
         random_a = rnd_choice(range(1, a + 1))
         grid(x, y, random_a, b, c, rnd_choice(SHAPES))
 
     # uncomment next lines to export GIF
-    if not frameCount % 30:
-        gif_export(GifMaker,
-                   frames=2000,
-                   delay=500,
-                   filename=SKETCH_NAME)
+    # if not frameCount % 30:
+    #     gif_export(GifMaker,
+    #                frames=2000,
+    #                delay=500,
+    #                filename=SKETCH_NAME)
 
     # Draws sliders and checks for mouse dragging or keystrokes
     Slider.update_all()
@@ -70,6 +68,3 @@ def grid(x, y, num, size_, space, func):
 def rnd_choice(collection):
     i = int(random(len(collection)))
     return collection[i]
-
-# def keyPressed():
-# saveFrame(SKETCH_NAME + '_###.gif')
