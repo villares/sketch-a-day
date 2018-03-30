@@ -6,13 +6,22 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+
+----
+
+![s089](s089/s089.gif)
+
+089: [code](https://github.com/villares/sketch-a-day/tree/master/s089)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+X stroke now is translucent and grid elements have random colour inside grids.
+
 ----
 
 ![s088](s088/s088.gif)
 
-088: [code](https://github.com/villares/sketch-a-day/tree/master/s087)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+088: [code](https://github.com/villares/sketch-a-day/tree/master/s088)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-FIlled rects, ellipses and losangles (without sktroke) and Xs
+Filled rects, ellipses and losangles (without sktroke) and Xs
 
 ----
 
