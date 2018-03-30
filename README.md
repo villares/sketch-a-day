@@ -8,6 +8,22 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s088](s088/s088.gif)
+
+088: [code](https://github.com/villares/sketch-a-day/tree/master/s087)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+FIlled rects, ellipses and losangles (without sktroke) and Xs
+
+----
+
+![s087](s087/s087.gif)
+
+087: [code](https://github.com/villares/sketch-a-day/tree/master/s087)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+No fill again, less colours. Variable/random number of elements per grid.
+
+----
+
 ![s086](s086/s086.gif)
 
 086: [code](https://github.com/villares/sketch-a-day/tree/master/s086)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -250,7 +266,7 @@ Revisited 54 and now I'm re-selecting random points_to nodes...
 
 ![s056](s056/s056.gif)
 
-056: [code](https://github.com/villares/sketch-a-day/tree/master/s056)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+056: [code](https://github.com/villares/sketch-a-day/tree/master/s056)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Arrow grid moving in HSB colour space
 
@@ -258,7 +274,7 @@ Arrow grid moving in HSB colour space
 
 ![s055](s055/s055.png)
 
-055: [code](https://github.com/villares/sketch-a-day/tree/master/s055)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+055: [code](https://github.com/villares/sketch-a-day/tree/master/s055)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Grid revisited
 
@@ -266,7 +282,7 @@ Grid revisited
 
 ![s054](s054/s054.gif)
 
-054: [code](https://github.com/villares/sketch-a-day/tree/master/s054)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+054: [code](https://github.com/villares/sketch-a-day/tree/master/s054)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 New arrows! With a "Tail" parameter...
 
@@ -274,7 +290,7 @@ New arrows! With a "Tail" parameter...
 
 ![s053](s053/s053.png)
 
-053: [code](https://github.com/villares/sketch-a-day/tree/master/s053)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+053: [code](https://github.com/villares/sketch-a-day/tree/master/s053)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Big invisible refactor (no more point-grid to select from, now a list of possible X and Y positons to choose).
 On the visible side, fewer elements, and non-pointing elements redrawn in red on top.
@@ -283,7 +299,7 @@ On the visible side, fewer elements, and non-pointing elements redrawn in red on
 
 ![s052](s052/s052.png)
 
-052: [code](https://github.com/villares/sketch-a-day/tree/master/s052)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+052: [code](https://github.com/villares/sketch-a-day/tree/master/s052)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 White lines first, black arrows on top.
 
@@ -291,7 +307,7 @@ White lines first, black arrows on top.
 
 ![s051](s051/s051.gif)
 
-051: [code](https://github.com/villares/sketch-a-day/tree/master/s051)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+051: [code](https://github.com/villares/sketch-a-day/tree/master/s051)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Points  now on a grid.
 
@@ -299,7 +315,7 @@ Points  now on a grid.
 
 ![s050](s050/s050.gif)
 
-050: [code](https://github.com/villares/sketch-a-day/tree/master/s050)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+050: [code](https://github.com/villares/sketch-a-day/tree/master/s050)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Arrows now...
 
@@ -307,56 +323,56 @@ Arrows now...
 
 ![s049](s049/s049.gif)
 
-049: [code](https://github.com/villares/sketch-a-day/tree/master/s049)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+049: [code](https://github.com/villares/sketch-a-day/tree/master/s049)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet more graphs
 
 ----
 
 ![s048](s048/s048.gif)
 
-048: [code](https://github.com/villares/sketch-a-day/tree/master/s048)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+048: [code](https://github.com/villares/sketch-a-day/tree/master/s048)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet more graphs
 
 ----
 
 ![s047](s047/s047.gif)
 
-047: [code](https://github.com/villares/sketch-a-day/tree/master/s047)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+047: [code](https://github.com/villares/sketch-a-day/tree/master/s047)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet more graphs
 
 ----
 
 ![s046](s046/s046.png)
 
-046: [code](https://github.com/villares/sketch-a-day/tree/master/s046)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+046: [code](https://github.com/villares/sketch-a-day/tree/master/s046)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet more graphs
 
 ----
 
 ![s045](s045/s045.gif)
 
-045: [code](https://github.com/villares/sketch-a-day/tree/master/s045)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+045: [code](https://github.com/villares/sketch-a-day/tree/master/s045)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet more graphs
 
 ----
 
 ![s044](s044/s044.gif)
 
-044: [code](https://github.com/villares/sketch-a-day/tree/master/s044)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+044: [code](https://github.com/villares/sketch-a-day/tree/master/s044)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 More graphs
 
 ----
 
 ![s043](s043/s043.png)
 
-043: [code](https://github.com/villares/sketch-a-day/tree/master/s043)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+043: [code](https://github.com/villares/sketch-a-day/tree/master/s043)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 More graphs
 
 ----
 
 ![s042](s042/s042.gif)
 
-042: [code](https://github.com/villares/sketch-a-day/tree/master/s042)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+042: [code](https://github.com/villares/sketch-a-day/tree/master/s042)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet another interactive recursive thingy, the image on the right is shown with a key pressed
 
 ----
@@ -364,7 +380,7 @@ Yet another interactive recursive thingy, the image on the right is shown with a
 ![s041](s041/s041.png)
 
 
-041: [code](https://github.com/villares/sketch-a-day/tree/master/s041)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+041: [code](https://github.com/villares/sketch-a-day/tree/master/s041)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Yet another interactive recursive thingy, the image on the right is shown with a key pressed
 
 ----
@@ -415,7 +431,7 @@ Preparing for "Carnahacking"
 ![034](sketch_180203c/sketch_180203c.gif)
 
 034: [sketch_180203c](https://github.com/villares/sketch-a-day/tree/master/sketch_180203c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-Like 33 but again with "w squared" circles 
+Like 33 but again with "w squared" circles
 
 ----
 
@@ -472,14 +488,14 @@ Saving a list of points to animate colour... Mouse speed changes recorded colour
 
 ![26](sketch_180126c/sketch_180126c.png)
 
-026: [sketch_180126c](https://github.com/villares/sketch-a-day/tree/master/sketch_180126c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+026: [sketch_180126c](https://github.com/villares/sketch-a-day/tree/master/sketch_180126c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Mouse speed changing colour &  strokeWeight()
 
 ----
 
 ![25](sketch_180125c/sketch_180125c.png)
 
-025c: [sketch_180125b](https://github.com/villares/sketch-a-day/tree/master/sketch_180125c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+025c: [sketch_180125b](https://github.com/villares/sketch-a-day/tree/master/sketch_180125c)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Mouse speed changing strokeWeight()
 
 ----
@@ -502,19 +518,19 @@ Mouse speed changing strokeWeight()
 
 ![21b](sketch_180121b/sketch_180121b.gif)
 
-021b: [sketch_180121b](https://github.com/villares/sketch-a-day/tree/master/sketch_180121b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+021b: [sketch_180121b](https://github.com/villares/sketch-a-day/tree/master/sketch_180121b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Playing with Peter "[Hacking Math Class](http://twitter.com/hackingmath)" Farrel's Sliders!
 
 ----
 
 ![20b](sketch_180120b/sketch_180120b.gif)
 
-020b: [sketch_180120b](https://github.com/villares/sketch-a-day/tree/master/sketch_180120b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+020b: [sketch_180120b](https://github.com/villares/sketch-a-day/tree/master/sketch_180120b)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 I was stuck on my DBN conversion sketch 20a, so this HSB shape play is 20b...
 
 ![20a](sketch_180120a/sketch_180120a.png)
 
-020a: [sketch_180120a](https://github.com/villares/sketch-a-day/tree/master/sketch_180120a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 
+020a: [sketch_180120a](https://github.com/villares/sketch-a-day/tree/master/sketch_180120a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 Refactored the code generation, removed most of the repeated vertices... C D E G O R not nice yet…
 
 ----
@@ -527,7 +543,7 @@ Refactored the code generation, removed most of the repeated vertices... C D E G
 
 ![18a](sketch_180118a/sketch_180118a.png)
 
-018: [sketch_180118a](https://github.com/villares/sketch-a-day/tree/master/sketch_180118a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Color font? Nah… 
+018: [sketch_180118a](https://github.com/villares/sketch-a-day/tree/master/sketch_180118a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] DBN Color font? Nah…
 
 ----
 
@@ -551,13 +567,13 @@ Refactored the code generation, removed most of the repeated vertices... C D E G
 
 ![14a](sketch_180114a/sketch_180114a.png)
 
-014: [sketch_180114a](https://github.com/villares/sketch-a-day/tree/master/sketch_180114a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Another 3D Graph 
+014: [sketch_180114a](https://github.com/villares/sketch-a-day/tree/master/sketch_180114a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Another 3D Graph
 
 ----
 
 ![13a](sketch_180113a/sketch_180113a.png)
 
-013: [s180113](https://github.com/villares/sketch-a-day/tree/master/sketch_180113a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 3D Graph 
+013: [s180113](https://github.com/villares/sketch-a-day/tree/master/sketch_180113a)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] 3D Graph
 
 ----
 
@@ -603,7 +619,7 @@ Refactored the code generation, removed most of the repeated vertices... C D E G
 
 ----
 
-005: [s180105](https://github.com/villares/sketch-a-day/tree/master/s180105) [[p5js](https://www.p5js.org)] Line Tetrahedrons in p5*js - [interactive](https://villares.github.io/sketch-a-day/s180105/s180105) 
+005: [s180105](https://github.com/villares/sketch-a-day/tree/master/s180105) [[p5js](https://www.p5js.org)] Line Tetrahedrons in p5*js - [interactive](https://villares.github.io/sketch-a-day/s180105/s180105)
 
 ----
 
