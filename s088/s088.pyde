@@ -11,8 +11,8 @@ B = Slider(1, 100, 50, 'w', 's')
 C = Slider(1, 40, 10, 'e', 'd')
 D = Slider(1, 40, 10, 'r', 'f')
 
-SHAPES = [my_ellipse,
-          my_rect,
+SHAPES = [circle,
+          square,
           exes,
           losang]
 

@@ -3,13 +3,13 @@ COLORS = [color(0), color(0), color(0),
           color(200, 0, 100),
           ]
 
-def my_ellipse(x, y, d, _):
+def circle(x, y, d, _):
     pushStyle()
     noStroke()
     ellipse(x, y, d, d)
     popStyle()
     
-def my_rect(x, y, d, _):
+def square(x, y, d, _):
     pushStyle()
     rectMode(CENTER)
     noStroke()
