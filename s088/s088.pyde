@@ -47,11 +47,11 @@ def draw():
         grid(x, y, random_a, b, c, rnd_choice(SHAPES))
 
     # uncomment next lines to export GIF
-    if not frameCount % 30:
-        gif_export(GifMaker,
-                   frames=2000,
-                   delay=500,
-                   filename=SKETCH_NAME)
+    # if not frameCount % 30:
+    #     gif_export(GifMaker,
+    #                frames=2000,
+    #                delay=500,
+    #                filename=SKETCH_NAME)
 
     # Draws sliders and checks for mouse dragging or keystrokes
     Slider.update_all()
