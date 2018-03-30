@@ -18,6 +18,8 @@ SHAPES = [my_ellipse,
 
 def setup():
     size(600, 600, P2D)
+    rectMode(CENTER)
+    
     A.position(40, height - 70)
     B.position(40, height - 30)
     C.position(width - 140, height - 70)

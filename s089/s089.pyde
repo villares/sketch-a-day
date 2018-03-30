@@ -18,6 +18,9 @@ SHAPES = [circle,
 
 def setup():
     size(600, 600, P2D)
+    # rectMode(CENTER) # forgot this and it dislocates losangs :(
+    # but now I've left like this for this one :)    
+    
     A.position(40, height - 70)
     B.position(40, height - 30)
     C.position(width - 140, height - 70)
@@ -45,11 +48,11 @@ def draw():
              rnd_choice(SHAPES))  # random shape drawing function
 
     # uncomment next lines to export GIF
-    if not frameCount % 30:
-        gif_export(GifMaker,
-                   frames=2000,
-                   delay=500,
-                   filename=SKETCH_NAME)
+    # if not frameCount % 30:
+    #     gif_export(GifMaker,
+    #                frames=2000,
+    #                delay=500,
+    #                filename=SKETCH_NAME)
 
     # Draws sliders and checks for mouse dragging or keystrokes
     Slider.update_all()
