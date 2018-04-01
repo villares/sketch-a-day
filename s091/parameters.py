@@ -154,13 +154,13 @@ class Slider:
 
 class Analog_input:
 
-    INPUTS = []
+    INPUTS_LIST = []
 
     def __init__(self, board, pin):
         self.board = board
         self.pin = pin
         self.val = 100
-        Analog_input.INPUTS.append(self)
+        Analog_input.INPUTS_LIST.append(self)
 
     def update(self):
         arduino = self.board
@@ -172,6 +172,6 @@ class Analog_input:
 
     @classmethod
     def update_all(cls):
-        for reader in Analog_input.INPUTS:
+        for reader in Analog_input.INPUTS_LIST:
             reader.update()
  

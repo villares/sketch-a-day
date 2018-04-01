@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s090"  # 180331
+SKETCH_NAME = "s091"  # 180401
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -18,6 +18,7 @@ aY, bY, cY, dY = 0, 0, 0, 0
 
 def setup():
     size(600, 600)
+    frameRate(30)
     background(0)
     global A, B, C, D
     # Ask user for Arduino port, cancel will return `None`
@@ -48,11 +49,11 @@ def draw():
         background(0)
 
     # uncomment next lines to export GIF
-    # if not frameCount % 30:
-    #      gif_export(GifMaker,
-    #                 frames=2000,
-    #                 delay=500,
-    #                 filename=SKETCH_NAME)
+    if not frameCount % 30:
+         gif_export(GifMaker,
+                    frames=2000,
+                    delay=500,
+                    filename=SKETCH_NAME)
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
     Inputs.update_inputs()
