@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s091](s091/s091.gif)
+
+091: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Major rethink of my Arduino/Firmata code. I can now choose on start between sliders and potentiometers.
+
+----
+
 ![s090](s090/s090.gif)
 
 090: [code](https://github.com/villares/sketch-a-day/tree/master/s090)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
