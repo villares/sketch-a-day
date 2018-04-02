@@ -8,7 +8,6 @@ https://github.com/hackingmath/python-sliders http://farrellpolymath.com/
 """
 class Inputs:
     TILT = None
-    #update_inputs = None
     
     @staticmethod
     def select_source(Arduino):
@@ -43,7 +42,6 @@ class Inputs:
             @staticmethod
             def update():
                 Slider.update_all()
-                Inputs.TILT = (keyPressed and key == ' ')
 
         else:
             arduino = Inputs.Arduino(this, Inputs.Arduino.list()[port], 57600)
@@ -57,6 +55,7 @@ class Inputs:
             def update():
                 Analog_input.update_all()
                 Inputs.TILT = arduino.digitalRead(13) == Inputs.Arduino.HIGH
+                
         Inputs.update_inputs = update
         return A, B, C, D
 
@@ -124,7 +123,7 @@ class Slider:
                 self.y < mouseY < self.y + 20):
             fill(250)
             textSize(10)
-            text(str(self.val), self.rectx, self.recty + 35)
+            text(str(int(self.val)), self.rectx, self.recty + 35)
             if mousePressed:
                 self.rectx = mouseX
         # key usage
