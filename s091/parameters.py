@@ -42,6 +42,7 @@ class Inputs:
             @staticmethod
             def update():
                 Slider.update_all()
+                Inputs.TILT = (keyPressed and key == ' ')
 
         else:
             arduino = Inputs.Arduino(this, Inputs.Arduino.list()[port], 57600)

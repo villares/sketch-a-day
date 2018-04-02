@@ -20,20 +20,20 @@ def setup():
     size(400, 400)
 
 def draw():
-    global TAM_BARRA, NUM_PONTOS, VEL_MAX, NUM_CONNECT
-    background(128)        # limpa a tela
+    background(128) 
 
-    TAM_BARRA = A.val / 4
-    NUM_PONTOS = int(B.val / 4)
-    VEL_MAX = C.val / 128
-    NUM_CONNECT = 1+ int(D.val / 256)
+    TAM_BARRA   =         A.val / 4
+    NUM_PONTOS  =     int(B.val / 4)
+    VEL_MAX     =         C.val / 128
+    NUM_CONNECT = 1 + int(D.val / 256)
 
     # para cada ponto
     for ponto in Ponto.SET:
         ponto.desenha()  # desenha
         ponto.move(VEL_MAX)    # atualiza posição
     # para cada aresta
-    for aresta in Aresta.ARESTAS:  # checa se há Arestas com Pontos já removidos
+    # checa se há Arestas com Pontos já removidos
+    for aresta in Aresta.ARESTAS:
         if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET):
             Aresta.ARESTAS.remove(aresta)   # nesse caso remove a Aresta também
         else:                # senão
@@ -46,8 +46,8 @@ def draw():
         Ponto.SET.remove(rnd_choice(list(Ponto.SET)))
 
     if Inputs.TILT:
-         Ponto.SET = set()
-         
+        Ponto.SET = set()
+
     # uncomment next lines to export GIF
     # if not frameCount % 30:
     #      gif_export(GifMaker,
