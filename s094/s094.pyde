@@ -23,7 +23,7 @@ def setup():
 def draw():
     background(200)
 
-    TAM_BARRA = A.val / 4
+    TAM_ARESTA = A.val / 4
     NUM_PONTOS = int(B.val / 4)
     VEL_MAX = C.val / 128
     CONNECT_RATE = 0.5 + D.val / 256  # % of connections
@@ -32,27 +32,22 @@ def draw():
     for ponto in Ponto.SET:
         ponto.desenha()  # desenha
         ponto.move(VEL_MAX)    # atualiza posição
-    # para cada aresta checa se pode desenhar, se não teve pontos já removidos
-    # ou pontos iguais
+    # checa arestas, se OK desenhar, se nãotem pontos removidos ou iguais
     COM_ARESTAS = set()  # para guardar pontos com aresta
     for aresta in Aresta.ARESTAS:
         if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET)\
                 or (aresta.p1 is aresta.p2):  # arestas degeneradas
             Aresta.ARESTAS.remove(aresta)   # remove a aresta
-        else:                # senão
+        else:                # senão, tudo OK!
             aresta.desenha()  # desenha a linha
-            aresta.puxa_empurra(TAM_BARRA)  # altera a velocidade dos pontos
+            aresta.puxa_empurra(TAM_ARESTA)  # altera a velocidade dos pontos
             # Adiciona ao conjunto de pontos com aresta
             COM_ARESTAS.update([aresta.p1, aresta.p2])
     Ponto.SET = COM_ARESTAS  # isto remove pontos sem nenhuma aresta
     # atualiza número de pontos
     if NUM_PONTOS > len(Ponto.SET):
         Ponto.SET.add(Ponto(random(width), random(height)))
-    # elif NUM_PONTOS < len(Ponto.SET) - 10:
-    #     print (NUM_PONTOS, len(Ponto.SET))
-    #     rnd_ponto = rnd_choice(list(Ponto.SET))
-    #     Ponto.SET.remove(rnd_ponto)
-
+    # pontos são removidos indiretamente pela redução de arestas a seguir...
     # atualiza número de arestas
     if int((NUM_PONTOS) * CONNECT_RATE) > len(Aresta.ARESTAS) + 1:
         rnd_choice(list(Ponto.SET)).cria_arestas()
@@ -63,11 +58,11 @@ def draw():
         Ponto.reset_SET(int(B.val / 4))
 
     # uncomment next lines to export GIF
-    if not frameCount % 30:
-         gif_export(GifMaker,
-                    frames=2000,
-                    delay=500,
-                    filename=SKETCH_NAME)
+    # if not frameCount % 30:
+    #     gif_export(GifMaker,
+    #                frames=2000,
+    #                delay=500,
+    #                filename=SKETCH_NAME)
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
     Inputs.update_inputs()
