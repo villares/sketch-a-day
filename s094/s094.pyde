@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s093"  # 180403
+SKETCH_NAME = "s094"  # 180404
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -10,22 +10,23 @@ from graphs import *
 from parameters import *
 
 def setup():
-    frameRate(30)
     global A, B, C, D
+    size(400, 400)
+    frameRate(30)
     # Ask user for Arduino port, cancel will return `None`
     port = Inputs.select_source(Arduino)
     # `None` will activate Sliders
     A, B, C, D = Inputs.setup_inputs(port)
-
-    size(400, 400)
+    for _ in range(int(B.val / 4)):
+        Ponto.SET.add(Ponto(random(width), random(height)))
 
 def draw():
-    background(0) 
+    background(200)
 
-    TAM_BARRA   =         A.val / 4
-    NUM_PONTOS  =     int(B.val / 4)
-    VEL_MAX     =         C.val / 128
-    NUM_CONNECT =     1+    int(D.val / 256) # % of connections
+    TAM_BARRA = A.val / 4
+    NUM_PONTOS = int(B.val / 4)
+    VEL_MAX = C.val / 128
+    CONNECT_RATE = 0.5 + D.val / 256  # % of connections
 
     # para cada ponto
     for ponto in Ponto.SET:
@@ -35,26 +36,28 @@ def draw():
     # checa se há Arestas com Pontos já removidos
     COM_ARESTAS = set()
     for aresta in Aresta.ARESTAS:
-        if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET):
+        if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET)\
+            or (aresta.p1 is aresta.p2):
             Aresta.ARESTAS.remove(aresta)   # nesse caso remove a Aresta também
         else:                # senão
             aresta.desenha()  # desenha a linha
             aresta.puxa_empurra(TAM_BARRA)  # altera a velocidade dos pontos
             COM_ARESTAS.update([aresta.p1, aresta.p2])
-    Ponto.SET = COM_ARESTAS # remove pontos sem nenhuma aresta
+    Ponto.SET = COM_ARESTAS  # remove pontos sem nenhuma aresta
     # atualiza número de pontos
     if NUM_PONTOS > len(Ponto.SET):
         Ponto.SET.add(Ponto(random(width), random(height)))
-    elif NUM_PONTOS < len(Ponto.SET):
-        rnd_ponto = rnd_choice(list(Ponto.SET))
-        Ponto.SET.remove(rnd_ponto)
+    # elif NUM_PONTOS < len(Ponto.SET) - 10:
+    #     print (NUM_PONTOS, len(Ponto.SET))
+    #     rnd_ponto = rnd_choice(list(Ponto.SET))
+    #     Ponto.SET.remove(rnd_ponto)
 
     # atualiza número de arestas
-    if NUM_PONTOS * NUM_CONNECT > len(Aresta.ARESTAS):
+    if int((NUM_PONTOS) * CONNECT_RATE) > len(Aresta.ARESTAS) + 1:
         rnd_choice(list(Ponto.SET)).cria_arestas()
-    elif NUM_PONTOS * NUM_CONNECT < len(Aresta.ARESTAS):
-         Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
-    
+    elif int(NUM_PONTOS * CONNECT_RATE) < len(Aresta.ARESTAS) - 1:
+        Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
+
     if Inputs.TILT:
         Ponto.SET = set()
 
@@ -75,3 +78,4 @@ def mouseDragged():        # quando o mouse é arrastado
             ponto.x, ponto.y = mouseX, mouseY
             ponto.vx = 0
             ponto.vy = 0
+            
