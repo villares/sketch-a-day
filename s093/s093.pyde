@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s091"  # 180401
+SKETCH_NAME = "s093"  # 180403
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -20,7 +20,7 @@ def setup():
     size(400, 400)
 
 def draw():
-    background(128) 
+    background(0) 
 
     TAM_BARRA   =         A.val / 4
     NUM_PONTOS  =     int(B.val / 4)
@@ -33,22 +33,28 @@ def draw():
         ponto.move(VEL_MAX)    # atualiza posição
     # para cada aresta
     # checa se há Arestas com Pontos já removidos
+    COM_ARESTAS = set()
     for aresta in Aresta.ARESTAS:
         if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET):
             Aresta.ARESTAS.remove(aresta)   # nesse caso remove a Aresta também
         else:                # senão
             aresta.desenha()  # desenha a linha
             aresta.puxa_empurra(TAM_BARRA)  # altera a velocidade dos pontos
+            COM_ARESTAS.add(aresta.p1)
+            COM_ARESTAS.add(aresta.p2)
+    Ponto.SET = COM_ARESTAS # remove pontos sem nenhuma aresta
     # atualiza número de pontos
     if NUM_PONTOS > len(Ponto.SET):
         Ponto.SET.add(Ponto(random(width), random(height)))
     elif NUM_PONTOS < len(Ponto.SET):
-        Ponto.SET.remove(rnd_choice(list(Ponto.SET)))
+        rnd_ponto = rnd_choice(list(Ponto.SET))
+        Ponto.SET.remove(rnd_ponto)
+
     # atualiza número de arestas
     if NUM_PONTOS * NUM_CONNECT > len(Aresta.ARESTAS):
         rnd_choice(list(Ponto.SET)).cria_arestas()
     elif NUM_PONTOS * NUM_CONNECT < len(Aresta.ARESTAS):
-        Ponto.SET.remove(rnd_choice(list(Ponto.SET)))
+         Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
     
     if Inputs.TILT:
         Ponto.SET = set()

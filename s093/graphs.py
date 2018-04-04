@@ -4,6 +4,7 @@ TAM_PONTO = 50  # TAM_PONTO dos Pontos
 class Ponto():
     VEL_MAX = 5
     SET = set()
+    SET_COM_ARESTAS = set()
 
     " Pontos num grafo, VEL_MAX inicial sorteada, criam Arestas com outros Pontos "
 
@@ -14,7 +15,6 @@ class Ponto():
         self.z = 0  # para compatibilidade com PVector...
         self.vx = random(-VEL_MAX, VEL_MAX)
         self.vy = random(-VEL_MAX, VEL_MAX)
-        self.sel = False   # se está selecionado, começa sem seleção
         self.cor = color(random(128, 255),  # R
                          random(128, 255),  # G
                          random(128, 255),  # B
@@ -22,11 +22,8 @@ class Ponto():
         self.cria_arestas()
 
     def desenha(self):
-        if self.sel:
-            stroke(0)
-        else:
-            noStroke()
-        fill(self.cor)
+        noStroke()
+        fill(100, 100)
         ellipse(self.x, self.y, TAM_PONTO, TAM_PONTO)
 
     def move(self, VEL_MAX):
@@ -65,11 +62,12 @@ class Aresta():
         self.p2 = p2
 
     def desenha(self):
-        stroke(0)
+        stroke(lerpColor(self.p1.cor, self.p2.cor, 0.5))
         line(self.p1.x, self.p1.y, self.p2.x, self.p2.y)
         noStroke()
-        fill(0)
+        fill(self.p1.cor)
         ellipse(self.p1.x, self.p1.y, TAM_PONTO / 6, TAM_PONTO / 6)
+        fill(self.p2.cor)
         ellipse(self.p2.x, self.p2.y, TAM_PONTO / 6, TAM_PONTO / 6)
 
     def puxa_empurra(self, TAM_BARRA):
@@ -83,5 +81,8 @@ class Aresta():
         self.p2.vy = self.p2.vy - dir.y
 
 def rnd_choice(collection):
-    i = int(random(len(collection)))
-    return collection[i]
+    if collection:
+        i = int(random(len(collection)))
+        return collection[i]
+    else:
+        return None

@@ -83,5 +83,8 @@ class Aresta():
         self.p2.vy = self.p2.vy - dir.y
 
 def rnd_choice(collection):
-    i = int(random(len(collection)))
-    return collection[i]
+    if collection:
+        i = int(random(len(collection)))
+        return collection[i]
+    else:
+        return None

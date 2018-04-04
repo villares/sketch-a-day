@@ -48,17 +48,17 @@ def draw():
     if NUM_PONTOS * NUM_CONNECT > len(Aresta.ARESTAS):
         rnd_choice(list(Ponto.SET)).cria_arestas()
     elif NUM_PONTOS * NUM_CONNECT < len(Aresta.ARESTAS):
-        Ponto.SET.remove(rnd_choice(list(Ponto.SET)))
+        Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
     
     if Inputs.TILT:
         Ponto.SET = set()
 
     # uncomment next lines to export GIF
-    if not frameCount % 30:
-         gif_export(GifMaker,
-                    frames=2000,
-                    delay=500,
-                    filename=SKETCH_NAME)
+    # if not frameCount % 30:
+    #      gif_export(GifMaker,
+    #                 frames=2000,
+    #                 delay=500,
+    #                 filename=SKETCH_NAME)
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
     Inputs.update_inputs()
