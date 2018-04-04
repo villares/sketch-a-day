@@ -29,10 +29,10 @@ class Inputs:
 
         if port == None:
             # start, end, default, + key, - key
-            A = Slider(0, 1023, 10, 'q', 'a')
-            B = Slider(0, 1023, 10, 'w', 's')
-            C = Slider(0, 1023, 10, 'e', 'd')
-            D = Slider(0, 1023, 10, 'r', 'f')
+            A = Slider(0, 1023, 128, 'q', 'a')
+            B = Slider(0, 1023, 128, 'w', 's')
+            C = Slider(0, 1023, 128, 'e', 'd')
+            D = Slider(0, 1023, 128, 'r', 'f')
 
             A.position(40, height - 70)
             B.position(40, height - 30)

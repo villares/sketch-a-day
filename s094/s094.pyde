@@ -17,8 +17,8 @@ def setup():
     port = Inputs.select_source(Arduino)
     # `None` will activate Sliders
     A, B, C, D = Inputs.setup_inputs(port)
-    for _ in range(int(B.val / 4)):
-        Ponto.SET.add(Ponto(random(width), random(height)))
+
+    Ponto.reset_SET(int(B.val / 4))  # cria um set vazio e popula
 
 def draw():
     background(200)
@@ -32,18 +32,19 @@ def draw():
     for ponto in Ponto.SET:
         ponto.desenha()  # desenha
         ponto.move(VEL_MAX)    # atualiza posição
-    # para cada aresta
-    # checa se há Arestas com Pontos já removidos
-    COM_ARESTAS = set()
+    # para cada aresta checa se pode desenhar, se não teve pontos já removidos
+    # ou pontos iguais
+    COM_ARESTAS = set()  # para guardar pontos com aresta
     for aresta in Aresta.ARESTAS:
         if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET)\
-            or (aresta.p1 is aresta.p2):
-            Aresta.ARESTAS.remove(aresta)   # nesse caso remove a Aresta também
+                or (aresta.p1 is aresta.p2):  # arestas degeneradas
+            Aresta.ARESTAS.remove(aresta)   # remove a aresta
         else:                # senão
             aresta.desenha()  # desenha a linha
             aresta.puxa_empurra(TAM_BARRA)  # altera a velocidade dos pontos
+            # Adiciona ao conjunto de pontos com aresta
             COM_ARESTAS.update([aresta.p1, aresta.p2])
-    Ponto.SET = COM_ARESTAS  # remove pontos sem nenhuma aresta
+    Ponto.SET = COM_ARESTAS  # isto remove pontos sem nenhuma aresta
     # atualiza número de pontos
     if NUM_PONTOS > len(Ponto.SET):
         Ponto.SET.add(Ponto(random(width), random(height)))
@@ -59,14 +60,14 @@ def draw():
         Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
 
     if Inputs.TILT:
-        Ponto.SET = set()
+        Ponto.reset_SET(int(B.val / 4))
 
     # uncomment next lines to export GIF
-    # if not frameCount % 30:
-    #      gif_export(GifMaker,
-    #                 frames=2000,
-    #                 delay=500,
-    #                 filename=SKETCH_NAME)
+    if not frameCount % 30:
+         gif_export(GifMaker,
+                    frames=2000,
+                    delay=500,
+                    filename=SKETCH_NAME)
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
     Inputs.update_inputs()
@@ -78,4 +79,3 @@ def mouseDragged():        # quando o mouse é arrastado
             ponto.x, ponto.y = mouseX, mouseY
             ponto.vx = 0
             ponto.vy = 0
-            

@@ -8,6 +8,54 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s094](s094/s094.gif)
+
+094: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Connection 'rate' can be less than 1, prevents less than 2 nodes
+
+----
+
+![s093](s093/s093.gif)
+
+093: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Nodes without connection are now removed
+
+```
+    COM_ARESTAS = set()  # para guardar pontos com aresta
+    for aresta in Aresta.ARESTAS:
+        if (aresta.p1 not in Ponto.SET) or (aresta.p2 not in Ponto.SET)\
+                or (aresta.p1 is aresta.p2):  # arestas degeneradas
+            Aresta.ARESTAS.remove(aresta)   # remove a aresta
+        else:                # senão, tudo OK!
+            aresta.desenha()  # desenha a linha
+            aresta.puxa_empurra(TAM_ARESTA)  # altera a velocidade dos pontos
+            # Adiciona ao conjunto de pontos com aresta
+            COM_ARESTAS.update([aresta.p1, aresta.p2])
+    Ponto.SET = COM_ARESTAS  # isto remove pontos sem nenhuma aresta
+ 
+```
+
+
+
+----
+
+![s092](s092/s092.gif)
+
+092: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Dynamic change of connection rate
+
+```
+if NUM_PONTOS * NUM_CONNECT > len(Aresta.ARESTAS):
+        rnd_choice(list(Ponto.SET)).cria_arestas()
+    elif NUM_PONTOS * NUM_CONNECT < len(Aresta.ARESTAS):
+        Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
+```
+
+----
+
 ![s091](s091/s091.gif)
 
 091: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

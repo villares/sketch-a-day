@@ -49,6 +49,12 @@ class Ponto():
         else:
             return v
 
+    @staticmethod
+    def reset_SET(num):
+        Ponto.SET = set()
+        for _ in range(num):
+            Ponto.SET.add(Ponto(random(width), random(height)))
+
 class Aresta():
 
     """ Arestas contém só dois Pontos e podem ou não estar selecionadas """
