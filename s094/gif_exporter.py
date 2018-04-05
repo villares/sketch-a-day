@@ -12,6 +12,7 @@ Put  at the start of your sketch:
 and at the end of draw():
     gif_export(GifMaker)
 """
+
 def gif_export(GifMaker,             # gets a reference to the library
                filename="exported",  # .gif will be added
                repeat=0,             # 0 makes it an "endless" animation
@@ -33,4 +34,6 @@ def gif_export(GifMaker,             # gets a reference to the library
             or (frames != 0 and frameCount >= frames):
         gifExporter.finish()
         print("gif saved")
-        exit()
+        return False
+    else:
+        return True

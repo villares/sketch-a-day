@@ -5,14 +5,16 @@ add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
 add_library('gifAnimation')
 
-from gif_exporter import gif_export
+from gif_exporter import *
 from graphs import *
 from parameters import *
 
+
 def setup():
-    global A, B, C, D
+    global A, B, C, D, GIF_EXPORT
     size(400, 400)
     frameRate(30)
+    GIF_EXPORT = False
     # Ask user for Arduino port, cancel will return `None`
     port = Inputs.select_source(Arduino)
     # `None` will activate Sliders
@@ -58,11 +60,12 @@ def draw():
         Ponto.reset_SET(int(B.val / 4))
 
     # uncomment next lines to export GIF
-    # if not frameCount % 30:
-    #     gif_export(GifMaker,
-    #                frames=2000,
-    #                delay=500,
-    #                filename=SKETCH_NAME)
+    global GIF_EXPORT
+    if not frameCount % 30 and GIF_EXPORT:
+        GIF_EXPORT = gif_export(GifMaker,
+                                frames=1000,
+                                delay=500,
+                                filename=SKETCH_NAME)
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
     Inputs.update_inputs()
@@ -74,3 +77,17 @@ def mouseDragged():        # quando o mouse é arrastado
             ponto.x, ponto.y = mouseX, mouseY
             ponto.vx = 0
             ponto.vy = 0
+
+def keyPressed():
+    global GIF_EXPORT
+    if key == 'p':  # save PNG
+       selectFolder("Select a file to write to:", "fileSelected")
+    if key == 'g':  # save GIF
+        GIF_EXPORT = True
+
+def fileSelected(selection):
+    if selection == None:
+        println("canceled.")
+    else:
+       saveFrame(seletion.getAbsolutePath()+"/oioi.png") 
+  

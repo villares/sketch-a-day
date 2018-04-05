@@ -4,7 +4,6 @@ TAM_PONTO = 40  # TAM_PONTO dos Pontos
 class Ponto():
     VEL_MAX = 5
     SET = set()
-    SET_COM_ARESTAS = set()
 
     " Pontos num grafo, VEL_MAX inicial sorteada, criam Arestas com outros Pontos "
 
