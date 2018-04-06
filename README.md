@@ -8,9 +8,30 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s095](s095/s095.gif)
+
+095: [code](https://github.com/villares/sketch-a-day/tree/master/s095)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Complete rewrite of the 'Inputs' helper
+
+```
+# Ask user for Arduino port, uses slider if none is selected`
+input = Input(Arduino)
+
+# reads analog pins 1, 2, 3, 4 or sliders
+pot1 = input.analog(1)
+tilt = input.digital(13) # also triggerd by [space bar]
+
+# When on sliders, this draws them and checks mouse dragging / keystrokes
+input.update()
+
+```
+
+----
+
 ![s094](s094/s094.gif)
 
-094: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+094: [code](https://github.com/villares/sketch-a-day/tree/master/s094)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Connection 'rate' can be less than 1, prevents less than 2 nodes
 
@@ -18,7 +39,7 @@ Connection 'rate' can be less than 1, prevents less than 2 nodes
 
 ![s093](s093/s093.gif)
 
-093: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+093: [code](https://github.com/villares/sketch-a-day/tree/master/s093)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Nodes without connection are now removed
 
@@ -43,7 +64,7 @@ Nodes without connection are now removed
 
 ![s092](s092/s092.gif)
 
-092: [code](https://github.com/villares/sketch-a-day/tree/master/s091)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+092: [code](https://github.com/villares/sketch-a-day/tree/master/s092)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Dynamic change of connection rate
 
