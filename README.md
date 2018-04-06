@@ -15,12 +15,17 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 Complete rewrite of the 'Inputs' helper
 
 ```
-# Ask user for Arduino port, uses slider if none is selected`
+# Ask user for Arduino port, uses slider if none is selected, use on `setup()`
+global input
 input = Input(Arduino)
 
-# reads analog pins 1, 2, 3, 4 or sliders
+# on `draw()`read analog pins 1, 2, 3, 4 or sliders
 pot1 = input.analog(1)
-tilt = input.digital(13) # also triggerd by [space bar]
+pot2 = input.analog(2)
+pot3 = input.analog(3)
+pot4 = input.analog(4)
+
+tilt = input.digital(13) # also triggered by [space bar]
 
 # When on sliders, this draws them and checks mouse dragging / keystrokes
 input.update()
