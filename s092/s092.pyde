@@ -48,7 +48,7 @@ def draw():
     if NUM_PONTOS * NUM_CONNECT > len(Aresta.ARESTAS):
         rnd_choice(list(Ponto.SET)).cria_arestas()
     elif NUM_PONTOS * NUM_CONNECT < len(Aresta.ARESTAS):
-        Aresta.ARESTAS.remove(rnd_choice(list(Aresta.ARESTAS)))
+        Aresta.ARESTAS.remove(rnd_choice(Aresta.ARESTAS))
     
     if Inputs.TILT:
         Ponto.SET = set()
