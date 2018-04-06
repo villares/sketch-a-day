@@ -8,6 +8,15 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s096](s096/s096.gif)
+
+096: [code](https://github.com/villares/sketch-a-day/tree/master/s096)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+More 'Inputs' helper changes (WASD & arrows for sliders). New GIF export helper actually works now!
+More lone nodes and edge creation changes...
+
+----
+
 ![s095](s095/s095.gif)
 
 095: [code](https://github.com/villares/sketch-a-day/tree/master/s095)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
