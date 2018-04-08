@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s096"  # 180406
+SKETCH_NAME = "s097"  # 180407
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -19,17 +19,18 @@ def setup():
 def draw():
     background(200)
     rectMode(CENTER)
-    #stroke(0)
-    noStroke()
-    #strokeWeight(2)
-    fill(255, 100)
+    stroke(0)
+    #noStroke()
+    strokeWeight(2)
+    #fill(255, 100)
+    noFill()
 
     grid_elem = int(input.analog(1) / 16)  # 0 to 64
     elem_size = int(input.analog(2) / 16)  # 0 to 64
     rand_size = int(input.analog(3) / 16)  # 0 to 64
     rand_posi = int(input.analog(4) / 16)  # 0 to 64
     #print(grid_size, elem_size, spac_size, rand_range)
-    randomSeed(int(input.analog(1)))
+    randomSeed(int(input.analog(1))/4)
     spac_size = int(width / (grid_elem + 1))
     for x in range(spac_size / 2, width , spac_size):
         for y in range(spac_size / 2, width , spac_size):
