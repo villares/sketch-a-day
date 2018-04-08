@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s097"  # 180407
+SKETCH_NAME = "s098"  # 180408
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -11,39 +11,38 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT
     size(600, 600)
+    colorMode(HSB)
     rectMode(CENTER)  # retângulos desenhados pelo centro
-    stroke(0)  # linha em preto
-    strokeWeight(2)  # espessura de linha 2px
-    noFill()  # sem preenchimento
-    frameRate(30)  # deixa um pouco mais lento
+    noStroke()  # sem contorno
+    frameRate(30)
     GIF_EXPORT = False
-    input = Input(Arduino)  # Ask for Arduino port, slider if none is selected`
+    # Ask user for Arduino port, uses slider if none is selected`
+    input = Input(Arduino)
 
 def draw():
-    background(200)  # fundo cinza claro
+    background(0)  # fundo cinza claro
 
-    # 0 a 63, número de linhas e colunas na grade
-    grid_elem = int(input.analog(1) / 16)
-    # 0 a 63, tamanho base de cada quadrado
-    elem_size = int(input.analog(2) / 16)
-    # 0 a 63, ativa faixa entre -64 e 63 para randomizar tamanho
-    rand_size = int(input.analog(3) / 16)
-    # 0 a 63, ativa faixa equivalente para randomizar a posição
-    rand_posi = int(input.analog(4) / 16)
-
-    # trava a randomização entre os ciclos de draw
+    grid_elem = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
+    elem_size = int(input.analog(2) / 16)  # 0 a 63 tamanho base dos quadrados
+    rand_size = int(input.analog(3) / 16)  # escala a randomização do tamanho
+    rand_posi = int(input.analog(4) / 16)  # escala a randomização da posição
+    # trava a random entre os ciclos de draw
     # mas varia com o número de colunas na grade
     randomSeed(int(input.analog(1)) / 4)
-    # calcula o espaçamento entre os quadrandos
+    # espaçamento entre os quadrandos
     spac_size = int(width / (grid_elem + 1))
-    # para cada coluna um x
-    for x in range(spac_size / 2, width, spac_size):
-        # para cada linha um y
-        for y in range(spac_size / 2, width, spac_size):
+    for x in range(spac_size / 2, width, spac_size):  # um x p/ cada coluna
+        for y in range(spac_size / 2, width, spac_size):  # um y p/ cada linha
             # sorteia um tamanho (se o rand_size > 0)
             square_size = elem_size + rand_size * random(-1, 1)
-            rect(x + rand_posi * random(-1, 1),  # desenha um quadrado
-                 y + rand_posi * random(-1, 1),
+            offsetX = rand_posi * random(-1, 1)
+            offsetY = rand_posi * random(-1, 1)
+            H = map(offsetX + offsetY, -128, 127, 0, 255)
+            S = map(square_size, 0, 63, 0, 255)
+            fill(H, S, 255, 200)
+            #print(H, S)
+            rect(x + offsetX,  # desenha um quadrado
+                 y + offsetY,
                  square_size,
                  square_size)
 
