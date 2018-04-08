@@ -17,26 +17,24 @@ def setup():
     input = Input(Arduino)
 
 def draw():
-    background(200)
-    rectMode(CENTER)
-    stroke(0)
-    #noStroke()
-    strokeWeight(2)
-    #fill(255, 100)
-    noFill()
+    background(200) # fundo cinza claro
+    rectMode(CENTER) # retângulos desenhados pelo centro
+    stroke(0) # linha em preto
+    strokeWeight(2) # espessura de linha 2px
+    noFill()  # sem preenchimento
 
-    grid_elem = int(input.analog(1) / 16)  # 0 to 64
-    elem_size = int(input.analog(2) / 16)  # 0 to 64
-    rand_size = int(input.analog(3) / 16)  # 0 to 64
-    rand_posi = int(input.analog(4) / 16)  # 0 to 64
-    #print(grid_size, elem_size, spac_size, rand_range)
-    randomSeed(int(input.analog(1))/4)
-    spac_size = int(width / (grid_elem + 1))
-    for x in range(spac_size / 2, width , spac_size):
-        for y in range(spac_size / 2, width , spac_size):
-            square_size = elem_size + rand_size * random(-1, 1)
-            rect(x + rand_posi * random(-1, 1),
-                 y + rand_posi * random(-1, 1),
+    grid_elem = int(input.analog(1) / 16)  # 0 a 64, número de linhas e colunas na grade
+    elem_size = int(input.analog(2) / 16)  # 0 a 64, tamanho base de cada quadrado
+    rand_size = int(input.analog(3) / 16)  # 0 a 64, ativa faixa entre -64 e 63 para randomizar tamanho
+    rand_posi = int(input.analog(4) / 16)  # 0 a 64, ativa faixa equivalente para randomizar a posição
+
+    randomSeed(int(input.analog(1))/4) # trava a randomização entre os ciclos de draw
+    spac_size = int(width / (grid_elem + 1)) # calcula o espaçamento entre os quadrandos
+    for x in range(spac_size / 2, width , spac_size):     # para cada coluna um x
+        for y in range(spac_size / 2, width , spac_size): # para cada linha um y
+            square_size = elem_size + rand_size * random(-1, 1) # sorteia um tamanho (se o rand_size > 0)
+            rect(x + rand_posi * random(-1, 1),  # desenha um quadrado
+                 y + rand_posi * random(-1, 1),  
                  square_size,
                  square_size)
 
