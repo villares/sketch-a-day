@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s098"  # 180408
+SKETCH_NAME = "s099"  # 180409
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -11,16 +11,16 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT
     size(600, 600)
-    colorMode(HSB)
     rectMode(CENTER)  # retângulos desenhados pelo centro
-    noStroke()  # sem contorno
+    noFill()  # sem contorno
     frameRate(30)
+    strokeWeight(3)
     GIF_EXPORT = False
     # Ask user for Arduino port, uses slider if none is selected`
-    input = Input(Arduino)
+    input = Input(Arduino, slider_pins=[1, 2, 3, 4])
 
 def draw():
-    background(0)  # fundo cinza claro
+    background(127)  # fundo cinza claro
 
     grid_elem = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
     elem_size = int(input.analog(2) / 16)  # 0 a 63 tamanho base dos quadrados
@@ -37,10 +37,11 @@ def draw():
             square_size = elem_size + rand_size * random(-1, 1)
             offsetX = rand_posi * random(-1, 1)
             offsetY = rand_posi * random(-1, 1)
-            HUE = map(offsetX + offsetY, -128, 127, 0, 255)
-            SAT = map(square_size, 0, 63, 0, 255)
-            fill(HUE, SAT, 255, 200)
-            rect(x + offsetX,  # desenha um quadrado
+            H = map(offsetX + offsetY, -128, 127, 0, 255)
+            S = map(square_size, 0, 63, 0, 255)
+            stroke(S)
+            #print(H, S)
+            ellipse(x + offsetX,  # desenha um quadrado
                  y + offsetY,
                  square_size,
                  square_size)

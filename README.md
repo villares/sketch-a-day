@@ -8,16 +8,61 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s099](s099/s099.gif)
+
+099: [code](https://github.com/villares/sketch-a-day/tree/master/s099)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+```python
+    spac_size = int(width / (grid_elem + 1))
+    for x in range(spac_size / 2, width, spac_size):  
+        for y in range(spac_size / 2, width, spac_size): 
+            final_size = elem_size + rand_size * random(-1, 1)
+            offsetX = rand_posi * random(-1, 1)
+            offsetY = rand_posi * random(-1, 1)
+            GREY = map(final_size, 0, 63, 0, 255)
+            stroke(GREY)
+            ellipse(x + offsetX,  # desenha um círculo
+                 y + offsetY,
+                 final_size,
+                 final_size)
+```
+----
+
 ![s098](s098/s098.gif)
 
 098: [code](https://github.com/villares/sketch-a-day/tree/master/s098)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+```python
+    spac_size = int(width / (grid_elem + 1))
+    for x in range(spac_size / 2, width, spac_size):  
+        for y in range(spac_size / 2, width, spac_size): 
+            square_size = elem_size + rand_size * random(-1, 1)
+            offsetX = rand_posi * random(-1, 1)
+            offsetY = rand_posi * random(-1, 1)
+            HUE = map(offsetX + offsetY, -128, 127, 0, 255)
+            SAT = map(square_size, 0, 63, 0, 255)
+            fill(HUE, SAT, 255, 200)
+            rect(x + offsetX,  # desenha um quadrado
+                 y + offsetY,
+                 square_size,
+                 square_size)
+```
 ----
 
 ![s097](s097/s097.gif)
 
 097: [code](https://github.com/villares/sketch-a-day/tree/master/s097)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+```python
+    spac_size = int(width / (grid_elem + 1))
+    for x in range(spac_size / 2, width, spac_size):
+        for y in range(spac_size / 2, width, spac_size):
+            # sorteia um tamanho (se o rand_size > 0)
+            square_size = elem_size + rand_size * random(-1, 1)
+            rect(x + rand_posi * random(-1, 1),  # desenha um quadrado
+                 y + rand_posi * random(-1, 1),  
+                 square_size,
+                 square_size)
+```
 ----
 
 ![s096](s096/s096.gif)
