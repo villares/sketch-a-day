@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s099"  # 180409
+SKETCH_NAME = "s100"  # 180410
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -9,12 +9,13 @@ from gif_exporter import *
 from inputs import *
 
 def setup():
-    global input, GIF_EXPORT
+    global input, GIF_EXPORT, ELEMENTS
     size(600, 600)
     rectMode(CENTER)  # retângulos desenhados pelo centro
     noFill()  # sem contorno
     frameRate(30)
     strokeWeight(3)
+    ELEMENTS = []
     GIF_EXPORT = False
     # Ask user for Arduino port, uses slider if none is selected`
     input = Input(Arduino, slider_pins=[1, 2, 3, 4])
@@ -29,22 +30,34 @@ def draw():
     # trava a random entre os ciclos de draw
     # mas varia com o número de colunas na grade
     randomSeed(int(input.analog(1)) / 4)
-    # espaçamento entre os quadrandos
+    # espaçamento entre os elementos
     spac_size = int(width / (grid_elem + 1))
-    for x in range(spac_size / 2, width, spac_size):  # um x p/ cada coluna
-        for y in range(spac_size / 2, width, spac_size):  # um y p/ cada linha
-            # sorteia um tamanho (se o rand_size > 0)
-            final_size = elem_size + rand_size * random(-1, 1)
-            offsetX = rand_posi * random(-1, 1)
-            offsetY = rand_posi * random(-1, 1)
-            H = map(offsetX + offsetY, -128, 127, 0, 255)
-            S = map(final_size, 0, 63, 0, 255)
-            stroke(S)
-            #print(H, S)
-            ellipse(x + offsetX,  # desenha um quadrado
-                 y + offsetY,
-                 final_size,
-                 final_size)
+    for _ in range(2):
+        for x in range(spac_size / 2, width, spac_size):  # um x p/ cada coluna
+            # um y p/ cada linha
+            for y in range(spac_size / 2, width, spac_size):
+                # sorteia um tamanho (se o rand_size > 0)
+                final_size = elem_size + rand_size * random(-1, 1)
+                offsetX = rand_posi * random(-1, 1)
+                offsetY = rand_posi * random(-1, 1)
+                C = map(final_size, 0, 63, 0, 255)
+                ELEMENTS.append((C,
+                                x + offsetX,
+                                y + offsetY,
+                                final_size
+                                ))
+    for stroke_c, x, y, el_size in ELEMENTS:
+        stroke(stroke_c)
+        ellipse(x, y, el_size, el_size)
+    for _ in range(grid_elem):
+        stroke_c, x1, y1, _ = rnd_choice(ELEMENTS)
+        ________, x2, y2, _ = rnd_choice(ELEMENTS)
+        stroke(stroke_c)
+        line(x1, y1, x2, y2)
+    # empty list
+    ELEMENTS[:] = []
+        
+         
 
     # uncomment next lines to export GIF
     global GIF_EXPORT
@@ -71,3 +84,7 @@ def keyPressed():
 
 def keyReleased():
     input.keyReleased()
+
+def rnd_choice(collection):
+    i = int(random(len(collection)))
+    return collection[i]
