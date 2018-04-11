@@ -8,6 +8,24 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s101](s101/s101.gif)
+
+101: [code](https://github.com/villares/sketch-a-day/tree/master/s101)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+```python
+    for _ in range(grid_elem * 2):        
+        stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
+        stroke(stroke1)
+        ellipse(x1, y1, es1, es1)
+        stroke2, x2, y2, es2 = rnd_choice(ELEMENTS)
+        stroke(stroke2)
+        # line
+        ellipse(x2, y2, es2, es2)
+        line(x1, y1, x2, y2)
+```
+
+----
+
 ![s100](s100/s100.gif)
 
 100: [code](https://github.com/villares/sketch-a-day/tree/master/s100)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
