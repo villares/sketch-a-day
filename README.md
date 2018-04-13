@@ -8,6 +8,44 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s102](s102/s102.gif)
+
+102: [code](https://github.com/villares/sketch-a-day/tree/master/s102)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+```python
+    spac_size = width / (grid_elem + 1)
+    v = spac_size * 1.5
+    h = spac_size * sqrt(3)
+    for ix in range(-1, grid_elem + 1):
+        for iy in range(-1, grid_elem + 1):
+            if iy % 2:
+                x = ix * h + h / 4
+            else:
+                x = ix * h - h / 4
+            y = iy * v
+            final_size = elem_size + rand_size * random(-1, 1)
+            offsetX = rand_posi * random(-1, 1)
+            offsetY = rand_posi * random(-1, 1)
+            C = map(final_size, 0, 63, 0, 255)
+            ELEMENTS.append((C,
+                             x + offsetX,
+                             y + offsetY,
+                             final_size
+                             ))
+    for elem in ELEMENTS:
+        stroke1, x1, y1, es1 = elem
+        ellipse(x1, y1, es1, es1)
+
+    for _ in range(grid_elem):
+        stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
+        stroke2, x2, y2, es2 = rnd_choice(ELEMENTS)
+        stroke(stroke2)
+        line(x1, y1, x2, y2)
+
+```
+
+----
+
 ![s101](s101/s101.gif)
 
 101: [code](https://github.com/villares/sketch-a-day/tree/master/s101)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
