@@ -30,42 +30,37 @@ def draw():
     # mas varia com o número de colunas na grade
     randomSeed(int(input.analog(1)) / 4)
     # espaçamento entre os elementos
-    spac_size = int(width / (grid_elem + 1))
-    for _ in range(1):
-        v = int(spac_size * 1.5)
-        h =  int(spac_size * sqrt(3))
-        for x in range(-spac_size , width, h): 
-            for y in range(-spac_size, width, v):
-                if y % 2:
-                    x = x + h/4
-                else:
-                    x = x - h/4
-                final_size = elem_size + rand_size * random(-1, 1)
-                offsetX = rand_posi * random(-1, 1)
-                offsetY = rand_posi * random(-1, 1)
-                C = map(final_size, 0, 63, 0, 255)
-                ELEMENTS.append((C,
-                                x + offsetX,
-                                y + offsetY,
-                                final_size
-                                ))
+    spac_size = width / (grid_elem + 1)
+    v = spac_size * 1.5
+    h = spac_size * sqrt(3)
+    for ix in range(-1, grid_elem + 1):
+        for iy in range(-1, grid_elem + 1):
+            if iy % 2:
+                x = ix * h + h / 4
+            else:
+                x = ix * h - h / 4
+            y = iy * v
+            final_size = elem_size + rand_size * random(-1, 1)
+            offsetX = rand_posi * random(-1, 1)
+            offsetY = rand_posi * random(-1, 1)
+            C = map(final_size, 0, 63, 0, 255)
+            ELEMENTS.append((C,
+                             x + offsetX,
+                             y + offsetY,
+                             final_size
+                             ))
     for elem in ELEMENTS:
         stroke1, x1, y1, es1 = elem
-        ellipse(x1, y1, es1, es1) 
-
-    for _ in range(grid_elem * 2):        
-        stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
-        stroke(stroke1)
         ellipse(x1, y1, es1, es1)
+
+    for _ in range(grid_elem):
+        stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
         stroke2, x2, y2, es2 = rnd_choice(ELEMENTS)
         stroke(stroke2)
-        ellipse(x2, y2, es2, es2)
         line(x1, y1, x2, y2)
-        
+
     # empty list
     ELEMENTS[:] = []
-        
-         
 
     # uncomment next lines to export GIF
     global GIF_EXPORT
