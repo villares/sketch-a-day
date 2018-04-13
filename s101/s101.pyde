@@ -45,7 +45,7 @@ def draw():
                                 ))
 
     for _ in range(grid_elem * 2):        
-        stroke1 x1, y1, es = rnd_choice(ELEMENTS)
+        stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
         stroke(stroke1)
         ellipse(x1, y1, es1, es1)
         stroke2, x2, y2, es2 = rnd_choice(ELEMENTS)
