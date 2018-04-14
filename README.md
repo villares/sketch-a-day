@@ -8,6 +8,50 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s104](s104/s104.gif)
+
+104: [code](https://github.com/villares/sketch-a-day/tree/master/s104)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Back to stroke variation
+
+----
+
+![s103](s103/s103.gif)
+
+103: [code](https://github.com/villares/sketch-a-day/tree/master/s103)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Layers but only black strokes
+
+```python
+    spac_size = width / (grid_elem + 1)
+    v = spac_size * 1.5
+    h = spac_size * sqrt(3)
+    for ix in range(-1, grid_elem + 1):
+        for iy in range(-1, grid_elem + 1):
+            if iy % 2:
+                x = ix * h + h / 4
+            else:
+                x = ix * h - h / 4
+            y = iy * v
+            for i in range(3):
+                final_size = elem_size + rand_size * random(-1, 1)
+                ELEMENTS.append((x, y, final_size))
+    # three layers of elements            
+    for i in range(3):
+        offsetX = rand_posi * random(-1, 1)
+        offsetY = rand_posi * random(-1, 1)
+        for elem in ELEMENTS[i::3]:
+            x, y, es = elem
+            ellipse(x + offsetX, y + offsetY, es, es)
+
+    for _ in range(grid_elem):
+        x1, y1, es1 = rnd_choice(ELEMENTS)
+        x2, y2, es2 = rnd_choice(ELEMENTS)
+        line(x1, y1, x2, y2)
+```
+
+----
+
 ![s102](s102/s102.gif)
 
 102: [code](https://github.com/villares/sketch-a-day/tree/master/s102)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
