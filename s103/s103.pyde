@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s102"  # 180412
+SKETCH_NAME = "s103"  # 180413
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -40,23 +40,22 @@ def draw():
             else:
                 x = ix * h - h / 4
             y = iy * v
-            final_size = elem_size + rand_size * random(-1, 1)
-            offsetX = rand_posi * random(-1, 1)
-            offsetY = rand_posi * random(-1, 1)
-            C = map(final_size, 0, 63, 0, 255)
-            ELEMENTS.append((C,
-                             x + offsetX,
-                             y + offsetY,
-                             final_size
-                             ))
-    for elem in ELEMENTS:
-        stroke1, x1, y1, es1 = elem
-        ellipse(x1, y1, es1, es1)
+            for i in range(3):
+                final_size = elem_size + rand_size * random(-1, 1)
+                C = map(final_size, 0, 63, 0, 255)
+                ELEMENTS.append((C, x, y, final_size))
+    # three layers of elements            
+    for i in range(3):
+        offsetX = rand_posi * random(-1, 1)
+        offsetY = rand_posi * random(-1, 1)
+        for elem in ELEMENTS[i::3]:
+            stroke, x, y, es = elem
+            ellipse(x + offsetX, y + offsetY, es, es)
 
     for _ in range(grid_elem):
         stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
         stroke2, x2, y2, es2 = rnd_choice(ELEMENTS)
-        stroke(stroke2)
+        #stroke(stroke1)
         line(x1, y1, x2, y2)
 
     # empty list
