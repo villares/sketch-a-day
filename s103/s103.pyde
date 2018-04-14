@@ -42,20 +42,18 @@ def draw():
             y = iy * v
             for i in range(3):
                 final_size = elem_size + rand_size * random(-1, 1)
-                C = map(final_size, 0, 63, 0, 255)
-                ELEMENTS.append((C, x, y, final_size))
+                ELEMENTS.append((x, y, final_size))
     # three layers of elements            
     for i in range(3):
         offsetX = rand_posi * random(-1, 1)
         offsetY = rand_posi * random(-1, 1)
         for elem in ELEMENTS[i::3]:
-            stroke, x, y, es = elem
+            x, y, es = elem
             ellipse(x + offsetX, y + offsetY, es, es)
 
     for _ in range(grid_elem):
-        stroke1, x1, y1, es1 = rnd_choice(ELEMENTS)
-        stroke2, x2, y2, es2 = rnd_choice(ELEMENTS)
-        #stroke(stroke1)
+        x1, y1, es1 = rnd_choice(ELEMENTS)
+        x2, y2, es2 = rnd_choice(ELEMENTS)
         line(x1, y1, x2, y2)
 
     # empty list
