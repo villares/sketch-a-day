@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s105](s105/s105.gif)
+
+105: [code](https://github.com/villares/sketch-a-day/tree/master/s105)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Layers now have different "base" sizes (0.5, 1.5 and 2.5 times base size). Removed lines for now.
+
+----
+
 ![s104](s104/s104.gif)
 
 104: [code](https://github.com/villares/sketch-a-day/tree/master/s104)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
