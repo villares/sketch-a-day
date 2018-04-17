@@ -8,6 +8,24 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s106](s106/s106.gif)
+
+106: [code](https://github.com/villares/sketch-a-day/tree/master/s106)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Lazy triangles
+
+```python
+def equilateral(x, y, r):
+    with pushMatrix():
+        translate(x, y)
+        triangle(-0.866 * r, -0.5 * r,
+                  0.866 * r, -0.5 * r,
+                  0.000 * r,  1.0 * r) 
+                  # I know... 0 * r and 1 * r...
+```
+
+----
+
 ![s105](s105/s105.gif)
 
 105: [code](https://github.com/villares/sketch-a-day/tree/master/s105)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

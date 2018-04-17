@@ -99,4 +99,5 @@ def equilateral(x, y, r):
         translate(x, y)
         triangle(-0.866 * r, -0.5 * r,
                   0.866 * r, -0.5 * r,
-                  0.000 * r,  1.0 * r)
+                 #0.000 * r,  1.0 * r)
+                  0, r)
