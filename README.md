@@ -8,6 +8,34 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s107](s107/s107.gif)
+
+107: [code](https://github.com/villares/sketch-a-day/tree/master/s107)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Inverting odd rows
+
+```python
+  v = spac_size * 1.5
+    h = spac_size * sqrt(3)
+    for ix in range(-1, grid_elem + 1):
+        for iy in range(-1, grid_elem + 1):
+            if iy % 2:
+                x = ix * h + h / 4
+                es = elem_size
+            else:
+                x = ix * h - h / 4
+                es = -elem_size
+            y = iy * v
+            for i in range(3):
+                final_size = es * (i + 0.5)
+                C = map(final_size, 0, 63, 0, 255)
+                oX = rand_posi * random(-1, 1)
+                oY = rand_posi * random(-1, 1)
+                ELEMENTS.append((C, x + oX, y + oY, final_size))
+```
+
+----
+
 ![s106](s106/s106.gif)
 
 106: [code](https://github.com/villares/sketch-a-day/tree/master/s106)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
