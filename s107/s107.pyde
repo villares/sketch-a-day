@@ -11,7 +11,7 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT, ELEMENTS
     size(600, 600)
-    noFill()  # sem contorno
+    noFill()  # sem preenchimento
     frameRate(30)
     strokeWeight(3)
     ELEMENTS = []
