@@ -8,6 +8,20 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s108](s108/s108.gif)
+
+108: [code](https://github.com/villares/sketch-a-day/tree/master/s107)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+```python
+colorMode(HSB)
+...
+C = color(map(abs(final_size), 0, 63, 0, 255),
+                          255, 255)
+```
+
+----
+
 ![s107](s107/s107.gif)
 
 107: [code](https://github.com/villares/sketch-a-day/tree/master/s107)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
