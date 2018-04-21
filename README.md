@@ -8,11 +8,58 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s111](s111/s111.gif)
+
+111: [code](https://github.com/villares/sketch-a-day/tree/master/s111)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now I 'fixed' the rotation with propper pushMatrix() and translate()
+
+```python
+        with pushMatrix():
+            translate(x0,y0)
+            rotate(fs0)
+            stroke(st0)
+            equilateral(0, 0, fs0)
+        with pushMatrix():
+            translate(x1,y1)
+            rotate(fs1)
+            stroke(st1)
+            equilateral(0, 0, fs1)
+        with pushMatrix():
+            translate(x2,y2)
+            rotate(fs2)
+            stroke(st2)
+            equilateral(0, 0, fs2)
+```
+
+----
+
+![s110](s110/s110.gif)
+
+110: [code](https://github.com/villares/sketch-a-day/tree/master/s110)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Just added some rotations to mess things up. It's "wrong", but I like it!
+
+```python
+        rotate(fs0)
+        stroke(st0)
+        equilateral(x0, y0, fs0)
+        stroke(st1)
+        rotate(fs1)
+        equilateral(x1, y1, fs1)
+        stroke(st2)
+        rotate(fs2)
+        equilateral(x2, y2, fs2)
+
+```
+
+----
+
 ![s109](s109/s109.gif)
 
 109: [code](https://github.com/villares/sketch-a-day/tree/master/s109)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-```python
+​```python
 colorMode(HSB)
 ...
 C = color(map(final_size,-63 , 63, 0, 255),
@@ -26,7 +73,7 @@ C = color(map(final_size,-63 , 63, 0, 255),
 108: [code](https://github.com/villares/sketch-a-day/tree/master/s108)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
-```python
+​```python
 colorMode(HSB)
 ...
 C = color(map(abs(final_size), 0, 63, 0, 255),
