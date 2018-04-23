@@ -15,7 +15,15 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 Hexagons! 
 
 ```python
-
+def hexagon(x, y, r):
+    with pushMatrix():
+        translate(x, y)
+        beginShape()
+        for i in range(6):
+            vx = cos(i * TWO_PI /6) * r
+            vy = sin(i * TWO_PI /6) * r
+            vertex(vx, vy)
+        endShape(CLOSE)
 ```
 
 ----
