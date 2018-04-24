@@ -79,11 +79,11 @@ Just added some rotations to mess things up. It's "wrong", but I like it!
 
 109: [code](https://github.com/villares/sketch-a-day/tree/master/s109)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-​```python
+```python
 colorMode(HSB)
 ...
-C = color(map(final_size,-63 , 63, 0, 255),
-                          255, 255)
+C = color(map(final_size,-63 , 63, 0, 255), 255, 255)
+                          
 ```
 
 ----
@@ -93,11 +93,11 @@ C = color(map(final_size,-63 , 63, 0, 255),
 108: [code](https://github.com/villares/sketch-a-day/tree/master/s108)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
-​```python
+```python
 colorMode(HSB)
 ...
-C = color(map(abs(final_size), 0, 63, 0, 255),
-                          255, 255)
+C = color(map(abs(final_size), 0, 63, 0, 255), 255, 255)
+
 ```
 
 ----
