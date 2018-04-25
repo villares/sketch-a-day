@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s113"  # 180422 
+SKETCH_NAME = "s113"  # 180423 
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
