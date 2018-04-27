@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s114"  # 180424 
+SKETCH_NAME = "s115"  # 180425
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -22,7 +22,7 @@ def setup():
     input = Input(Arduino, slider_pins=[1, 2, 3, 4])
 
 def draw():
-    background(200)  # fundo cinza claro
+    background(200, 150, 100)  # fundo escuro
 
     grid_elem = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
     elem_size = int(input.analog(2) / 16)  # 0 a 63 tamanho base dos quadrados
@@ -59,16 +59,15 @@ def draw():
         st1, x1, y1, es1 = e1
         fs0 = es0 + rand_size * random(-1, 1)
         fs1 = es1 + rand_size * random(-1, 1)
-        with pushMatrix():
-            translate(x0,y0)
-            rotate(fs0)
-            stroke(0)
-            hexagon(0, 0, fs0)
-        with pushMatrix():
-            translate(x1,y1)
-            rotate(fs1)
-            stroke(255)
-            hexagon(0, 0, fs1)
+        for i in range(5):
+            x, y = lerp(x0, x1, .25 * i), lerp(y0, y1, .25 * i)
+            fs = lerp(fs0, fs1, .25 * i)
+            st = lerp(128, 255, .25 * i)
+            with pushMatrix():
+                translate(x, y)
+                rotate(fs)
+                stroke(st)
+                hexagon(0, 0, fs)
 
     # empty list
     ELEMENTS[:] = []
@@ -108,7 +107,7 @@ def hexagon(x, y, r):
         translate(x, y)
         beginShape()
         for i in range(6):
-            sx = cos(i * TWO_PI /6) * r
-            sy = sin(i * TWO_PI /6) * r
+            sx = cos(i * TWO_PI / 6) * r
+            sy = sin(i * TWO_PI / 6) * r
             vertex(sx, sy)
         endShape(CLOSE)
