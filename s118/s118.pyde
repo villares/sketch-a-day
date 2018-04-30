@@ -44,15 +44,13 @@ def draw():
             y = iy * v
             for i in range(2):
                 final_size = spac_size - i * 0.5 * elem_size
-                C = color(map(final_size, -100, 100, 0, 255),
-                          255, 255, 100)
                 oX = rand_posi * random(-1, 1)
                 oY = rand_posi * random(-1, 1)
-                ELEMENTS.append((C, x + oX, y + oY, final_size))
+                ELEMENTS.append((x + oX, y + oY, final_size))
 
     for e0, e1 in zip(ELEMENTS[0::2], ELEMENTS[1::2]):
-        st0, x0, y0, es0 = e0
-        st1, x1, y1, es1 = e1
+        x0, y0, es0 = e0
+        x1, y1, es1 = e1
         for i in range(5):
             x, y = lerp(x0, x1, .25 * i), lerp(y0, y1, .25 * i)
             fs = lerp(es0, es1, .25 * i)
