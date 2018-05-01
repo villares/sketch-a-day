@@ -53,7 +53,7 @@ def draw():
     #cria duas grades
     ELEMENTS = create_grid(0) 
     OTHER =  create_grid(1)
-    for e0, e1 in zip(ELEMENTS, OTHER[::-1]):
+    for e0, e1 in zip(ELEMENTS, reversed(OTHER)):
         x0, y0, es0, state0 = e0
         x1, y1, es1, state1 = e1
         if state1:
