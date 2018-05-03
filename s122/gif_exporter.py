@@ -16,7 +16,7 @@ and at the end of draw():
 def gif_export(GifMaker,             # gets a reference to the library
                filename="exported",  # .gif will be added
                repeat=0,             # 0 makes it an "endless" animation
-               quality=182,          # quality range 0 - 255
+               quality=100,          # quality range 0 - 255
                delay=170,            # this is quick
                frames=0):            # 0 will stop on keyPressed or frameCount >= 100000
     global gifExporter

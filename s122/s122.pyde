@@ -1,8 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # inspired by a Processing implementation of Game of Life By Joan Soler-Adillon
 
-SKETCH_NAME = "s121"  # 180501
-GIF_EXPORT = False
+SKETCH_NAME = "s122b"  # 180502
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -12,28 +11,24 @@ from gif_exporter import *
 from inputs import *
 
 cellSize = 16  # Size of cells
-
 # How likely for a cell to be alive at start (in percentage)
-probabilityOfAliveAtStart = 15
-
+probabilityOfAliveAtStart = 20
 # Variables for timer
-interval = 100
+interval = 150
 lastRecordedTime = 0
-
-# Colors for active/inactive cells
-alive = color(0, 200, 0)
-dead = color(0)
-
 pause = False  # Pause
+GIF_EXPORT = False
+
 
 def setup():
-    frameRate(10)
     global input
     global grid_w, grid_h
     global cells  # Array of cells
     global cellsBuffer  # Buffer while changing the others in the interations
-    size(600, 600)
+    size(500, 500)
     colorMode(HSB)
+    strokeWeight(3)
+    background(0)
     # Instantiate arrays
     input = Input(Arduino, slider_pins=[1, 2, 3, 4])
     grid_w, grid_h = int(width / cellSize), int(height / cellSize)
@@ -41,7 +36,6 @@ def setup():
     cellsBuffer = [[None] * grid_w for _ in range(grid_h)]
     # This stroke will draw the background grid
     noFill()  # stroke(48)
-    noSmooth()
     # Initialization of cells
     for x in range(grid_w):
         for y in range(grid_h):
@@ -51,25 +45,32 @@ def setup():
             else:
                 state = 1
             cells[x][y] = state  # Save state of each cell
-    background(0)  # Fill in black in case cells don't cover all the windows
 
 def draw():
-    background(0)
     global lastRecordedTime
+    fill(0,30)
+    rect(0, 0, width, height)
     # Draw grid
     for x in range(grid_w):
         for y in range(grid_h):
+            n = calc_neighbours(x, y)
             if cells[x][y] == 1:
-                n = calc_neighbours(x, y)
                 stroke((n*25 + frameCount) % 256, 255, 255)  # If alive
             else:
                 noStroke()  # fill(dead)  # If dead
+            noFill()
             pointy_hexagon(x * cellSize, y * cellSize, cellSize)
     # Iterate if timer ticks
     if millis() - lastRecordedTime > interval:
         if not pause:
             iteration()
             lastRecordedTime = millis()
+        global GIF_EXPORT
+        if GIF_EXPORT:
+            GIF_EXPORT = gif_export(GifMaker,
+                                frames=100,
+                                filename=SKETCH_NAME)
+
     # Create new cells manually on pause
     if pause and mousePressed:
         # Map and adef out of bound errors
@@ -90,15 +91,9 @@ def draw():
             for y in range(grid_h):
                 cellsBuffer[x][y] = cells[x][y]
                 
-    global GIF_EXPORT
-    if GIF_EXPORT:
-        GIF_EXPORT = gif_export(GifMaker,
-                                frames=1000,
-                                delay=500,
-                                filename=SKETCH_NAME)
-
 
 def iteration():  # When the clock ticks
+    global n
     # Save cells to buffer
     # (so we opeate with one array keeping the other intact)
     for x in range(grid_w):
@@ -108,12 +103,12 @@ def iteration():  # When the clock ticks
     for x in range(grid_w):
         for y in range(grid_h):
             # And visit all the neighbours of each cell
-            neighbours = calc_neighbours(x, y)
+            n = calc_neighbours(x, y)
             if cellsBuffer[x][y] == 1:
-                if neighbours < 2 or neighbours > 3:
+                if n < 2 or n > 3:
                     cells[x][y] = 0  # Die unless it has 2 or 3 neighbours
             else:  # The cell is dead: make it live if necessary
-                if neighbours == 3:
+                if n == 3:
                     cells[x][y] = 1  # Only if it has 3 neighbours
 
 def calc_neighbours(x, y):
