@@ -2,13 +2,8 @@
 # inspired by a Processing implementation of Game of Life By Joan Soler-Adillon
 
 SKETCH_NAME = "s122b"  # 180502
-
-add_library('serial')  # import processing.serial.*;
-add_library('arduino')  # import cc.arduino.*;
 add_library('gifAnimation')
-
 from gif_exporter import *
-from inputs import *
 
 cellSize = 16  # Size of cells
 # How likely for a cell to be alive at start (in percentage)
@@ -30,7 +25,6 @@ def setup():
     strokeWeight(3)
     background(0)
     # Instantiate arrays
-    input = Input(Arduino, slider_pins=[1, 2, 3, 4])
     grid_w, grid_h = int(width / cellSize), int(height / cellSize)
     cells = [[None] * grid_w for _ in range(grid_h)]
     cellsBuffer = [[None] * grid_w for _ in range(grid_h)]
@@ -147,20 +141,6 @@ def keyPressed():
         saveFrame("####.png")
     if key == 'g':  # save GIF
         GIF_EXPORT = True
-    if key == 'h':
-        input.help()
-
-    # input.keyPressed()
-
-def keyReleased():
-    input.keyReleased()
-
-def rnd_choice(collection):
-    i = int(random(len(collection)))
-    return collection[i]
-
-def item_at_x_y(x, y, collenction, width_):
-    return collection[x + y * width_]
 
 def pointy_hexagon(x, y, r):
     with pushMatrix():
