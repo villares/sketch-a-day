@@ -9,13 +9,14 @@ from gif_exporter import *
 from inputs import *
 
 def setup():
-    global input, GIF_EXPORT, ELEMENTS
+    global input, GIF_EXPORT
     size(600, 600)
     rectMode(CENTER)  # retângulos desenhados pelo centro
+    textAlign(CENTER, CENTER)
     noFill()  # sem contorno
     frameRate(30)
     strokeWeight(3)
-    ELEMENTS = []
+    Cell.ELEMENTS = []
     GIF_EXPORT = False
     # Ask user for Arduino port, uses slider if none is selected`
     input = Input(Arduino, slider_pins=[1, 2])
@@ -24,15 +25,8 @@ def setup():
 def draw():
     background(127)  # fundo cinza claro
 
-    for stroke_c, x, y, el_size, status in ELEMENTS:
-        if dist(x, y, mouseX, mouseY) < spac_size * 2:
-            fill(0, 100)
-        else:
-            noFill()
-        if status:
-            stroke(stroke_c)
-            pointy_hexagon(x, y, el_size)
-
+    for cell in Cell.ELEMENTS:
+        cell.draw_()
     # uncomment next lines to export GIF
     global GIF_EXPORT
     if not frameCount % 20 and GIF_EXPORT:
@@ -53,10 +47,8 @@ def keyPressed():
         GIF_EXPORT = True
     if key == 'h':
         input.help()
-    if keyCode == SHIFT:
-        create_grid()
-
     input.keyPressed()
+    create_grid()
 
 def keyReleased():
     input.keyReleased()
@@ -79,28 +71,60 @@ def pointy_hexagon(x, y, r):
             vertex(sx, sy)
         endShape(CLOSE)
 
+def calculate_neighbours():
+    pass
+
 def create_grid():
-    global grid_elem, rand_size, spac_size
+    global GRID_SIDE, RAND_SIZE, SPAC_SIZE
     # seize inputs
-    grid_elem = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
-    rand_size = int(input.analog(2) / 16)  # escala a randomização do tamanho
+    GRID_SIDE = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
+    RAND_SIZE = int(input.analog(2) / 16)  # escala a randomização do tamanho
     randomSeed(int(input.analog(1)) / 4)
     # espaçamento entre os elementos
-    spac_size = int(width / (grid_elem + 0.01))
+    SPAC_SIZE = int(width / (GRID_SIDE + 0.01))
 
     # empty list
-    ELEMENTS[:] = []
-    v = spac_size * 1.5
-    h = spac_size * sqrt(3)
+    Cell.ELEMENTS[:] = []
+    v = SPAC_SIZE * 1.5
+    h = SPAC_SIZE * sqrt(3)
     for _ in range(1):
-        for ix in range(grid_elem):  # um x p/ cada coluna
+        for ix in range(GRID_SIDE):  # um x p/ cada coluna
             # um y p/ cada linha
-            for iy in range(grid_elem):
+            for iy in range(GRID_SIDE):
                 if iy % 2:
                     x = ix * h + h / 4
                 else:
                     x = ix * h - h / 4
                 y = iy * v
-                final_size = spac_size + rand_size * random(-1, 1)
+                final_size = SPAC_SIZE + RAND_SIZE * random(-1, 1)
                 C = map(final_size, 0, 63, 0, 255)
-                ELEMENTS.append((C, x, y, final_size, int(random(2))))
+                Cell.ELEMENTS.append(Cell(C, x, y, final_size, int(random(2))))
+                
+class Cell():
+    
+    def __init__(self, col, x, y, siz, sta):
+        self.color_ = col
+        self.x = x
+        self.y = y
+        self.size_ = siz
+        self.status = sta 
+    
+    def draw_(self):
+        if dist(self.x, self.y, mouseX, mouseY) < SPAC_SIZE * 2:
+            fill(0, 100)
+        else:
+            noFill()
+        if self.status:
+            stroke(self.color_)
+            pointy_hexagon(self.x, self.y, self.size_)
+            fill(255)
+            text(str(self.neighbours()), self.x, self.y)
+
+            
+    def neighbours(self):
+        count = 0
+        for cell in Cell.ELEMENTS:
+            if cell is not self and cell.status:
+                if dist(self.x, self.y, cell.x, cell.y) < SPAC_SIZE * 2:
+                   count += 1
+        return count
