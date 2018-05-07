@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s126"  # 180506
+SKETCH_NAME = "s126b"  # 180506
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -11,8 +11,8 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT
     size(600, 600, P2D)
-    frameRate(10)
-    textAlign(CENTER, CENTER)
+    #frameRate(10)
+    #textAlign(CENTER, CENTER)
     noFill() 
     #frameRate(30)
     #strokeWeight(3)
@@ -23,7 +23,7 @@ def setup():
     create_grid()
 
 def draw():
-    fill(64, 64, 127, 128)  # fundo cinza claro
+    fill(64, 64, 127, 128) 
     rect(0, 0, width, height)
 
     for cell in Cell.CELLS:
@@ -32,7 +32,7 @@ def draw():
     global GIF_EXPORT
     if GIF_EXPORT:
         GIF_EXPORT = gif_export(GifMaker,
-                                frames=200,
+                                frames=50,
                                 delay=200,
                                 filename=SKETCH_NAME)
 
