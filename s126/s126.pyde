@@ -10,12 +10,11 @@ from inputs import *
 
 def setup():
     global input, GIF_EXPORT
-    size(600, 600)
+    size(600, 600, P2D)
     frameRate(10)
-    rectMode(CENTER)  # retângulos desenhados pelo centro
     textAlign(CENTER, CENTER)
-    noFill()  # sem contorno
-    frameRate(30)
+    noFill() 
+    #frameRate(30)
     #strokeWeight(3)
     Cell.CELLS = []
     GIF_EXPORT = False
@@ -24,16 +23,17 @@ def setup():
     create_grid()
 
 def draw():
-    background(100, 100, 127)  # fundo cinza claro
+    fill(64, 64, 127, 128)  # fundo cinza claro
+    rect(0, 0, width, height)
 
     for cell in Cell.CELLS:
         cell.draw_()
     # uncomment next lines to export GIF
     global GIF_EXPORT
-    if not frameCount % 16 and GIF_EXPORT:
+    if GIF_EXPORT:
         GIF_EXPORT = gif_export(GifMaker,
-                                frames=1000,
-                                delay=400,
+                                frames=200,
+                                delay=200,
                                 filename=SKETCH_NAME)
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
@@ -49,8 +49,9 @@ def keyPressed():
         GIF_EXPORT = True
     if key == 'h':
         input.help()
+    if key == 'r':
+        create_grid()
     input.keyPressed()
-    create_grid()
 
 def keyReleased():
     input.keyReleased()
@@ -72,9 +73,6 @@ def pointy_hexagon(x, y, r):
             sy = sin(i * TWO_PI / 6) * r
             vertex(sx, sy)
         endShape(CLOSE)
-
-def mousePressed():
-    pass
 
 def create_grid():
     global GRID_SIDE, RAND_SIZE, SPAC_SIZE
@@ -107,7 +105,7 @@ class Cell():
 
         self.x = x
         self.y = y
-        self.status = int(random(2))
+        self.status = int(random(10)<8)
 
     def update_nc(self):
         self.nc = self.neighbours()
@@ -131,14 +129,15 @@ class Cell():
 
     def draw_(self):
         self.update_nc()
-        if dist(self.x, self.y, mouseX, mouseY) < SPAC_SIZE * 2:
-            fill(255)
-            text(str(self.nc), self.x, self.y)
-            fill(0, 16)
-        else:
-            noFill()
+        # if dist(self.x, self.y, mouseX, mouseY) < SPAC_SIZE * 2:
+        #     fill(255)
+        #     text(str(self.nc), self.x, self.y)
+        #     fill(0, 16)
+        # else:
+        #     noFill()
         if self.status:
             stroke(self.get_color())
+            noFill()
             pointy_hexagon(self.x, self.y, self.get_size())
 
     def neighbours(self):
