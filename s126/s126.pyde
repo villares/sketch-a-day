@@ -11,11 +11,12 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT
     size(600, 600)
+    frameRate(10)
     rectMode(CENTER)  # retângulos desenhados pelo centro
     textAlign(CENTER, CENTER)
     noFill()  # sem contorno
     frameRate(30)
-    strokeWeight(3)
+    #strokeWeight(3)
     Cell.CELLS = []
     GIF_EXPORT = False
     # Ask user for Arduino port, uses slider if none is selected`
@@ -23,7 +24,7 @@ def setup():
     create_grid()
 
 def draw():
-    background(127, 100, 127)  # fundo cinza claro
+    background(100, 100, 127)  # fundo cinza claro
 
     for cell in Cell.CELLS:
         cell.draw_()
@@ -37,6 +38,7 @@ def draw():
 
     # Updates reading or draws sliders and checks mouse dragging / keystrokes
     input.update()
+    Cell.update()
 
 
 def keyPressed():
@@ -71,14 +73,14 @@ def pointy_hexagon(x, y, r):
             vertex(sx, sy)
         endShape(CLOSE)
 
-def calculate_neighbours():
+def mousePressed():
     pass
 
 def create_grid():
     global GRID_SIDE, RAND_SIZE, SPAC_SIZE
     # seize inputs
     GRID_SIDE = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
-    #RAND_SIZE = int(input.analog(2) / 16)  # escala a randomização do tamanho
+    # RAND_SIZE = int(input.analog(2) / 16)  # escala a randomização do tamanho
     randomSeed(int(input.analog(2)) / 4)
     # espaçamento entre os elementos
     SPAC_SIZE = int(width / (GRID_SIDE + 0.01))
@@ -109,7 +111,18 @@ class Cell():
 
     def update_nc(self):
         self.nc = self.neighbours()
-
+        if self.nc < 2:
+            self.next = 0
+        elif self.nc > 3:
+            self.next = 0
+        else:
+            self.next = 1
+            
+    @classmethod        
+    def update(cls):
+        for cell in cls.CELLS:
+            cell.status = cell.next
+        
     def get_color(self):
         return map(self.nc, 0, 6, 0, 255)
 
@@ -127,7 +140,6 @@ class Cell():
         if self.status:
             stroke(self.get_color())
             pointy_hexagon(self.x, self.y, self.get_size())
-
 
     def neighbours(self):
         count = 0
