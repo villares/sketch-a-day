@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s126b"  # 180506
+SKETCH_NAME = "s127"  # 180507
 
 add_library('serial')  # import processing.serial.*;
 add_library('arduino')  # import cc.arduino.*;
@@ -23,8 +23,9 @@ def setup():
     create_grid()
 
 def draw():
-    fill(64, 64, 127, 128) 
-    rect(0, 0, width, height)
+    background(64, 64, 127, 128)
+    # fill(64, 64, 127, 128) 
+    # rect(0, 0, width, height)
 
     for cell in Cell.CELLS:
         cell.draw_()
@@ -136,9 +137,11 @@ class Cell():
         # else:
         #     noFill()
         if self.status:
-            stroke(self.get_color())
-            noFill()
-            pointy_hexagon(self.x, self.y, self.get_size())
+            fill(self.get_color())
+            noStroke()
+            s = SPAC_SIZE * 1.2
+            ellipse(self.x, self.y, s,s)
+            #pointy_hexagon(self.x, self.y, self.get_size())
 
     def neighbours(self):
         count = 0
