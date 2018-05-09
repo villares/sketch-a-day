@@ -11,11 +11,6 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT
     size(600, 600, P2D)
-    #frameRate(10)
-    #textAlign(CENTER, CENTER)
-    noFill() 
-    #frameRate(30)
-    #strokeWeight(3)
     Cell.CELLS = []
     GIF_EXPORT = False
     # Ask user for Arduino port, uses slider if none is selected`
@@ -24,8 +19,6 @@ def setup():
 
 def draw():
     background(64, 64, 127, 128)
-    # fill(64, 64, 127, 128) 
-    # rect(0, 0, width, height)
 
     for cell in Cell.CELLS:
         cell.draw_()
@@ -79,7 +72,6 @@ def create_grid():
     global GRID_SIDE, RAND_SIZE, SPAC_SIZE
     # seize inputs
     GRID_SIDE = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
-    # RAND_SIZE = int(input.analog(2) / 16)  # escala a randomização do tamanho
     randomSeed(int(input.analog(2)) / 4)
     # espaçamento entre os elementos
     SPAC_SIZE = int(width / (GRID_SIDE + 0.01))
@@ -110,12 +102,12 @@ class Cell():
 
     def update_nc(self):
         self.nc = self.neighbours()
-        if self.nc < 2:
+        if self.nc <= 1:     # 1 vizinho só, morre
             self.next = 0
-        elif self.nc > 3:
+        elif self.nc >= 4:   # 4, 5 ou 6 vizinhos, morre
             self.next = 0
         else:
-            self.next = 1
+            self.next = 1   # 2 ou 3 vizinhos, nasce ou persiste
             
     @classmethod        
     def update(cls):
@@ -130,12 +122,6 @@ class Cell():
 
     def draw_(self):
         self.update_nc()
-        # if dist(self.x, self.y, mouseX, mouseY) < SPAC_SIZE * 2:
-        #     fill(255)
-        #     text(str(self.nc), self.x, self.y)
-        #     fill(0, 16)
-        # else:
-        #     noFill()
         if self.status:
             fill(self.get_color())
             noStroke()

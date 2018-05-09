@@ -11,11 +11,7 @@ from inputs import *
 def setup():
     global input, GIF_EXPORT
     size(600, 600, P2D)
-    #frameRate(10)
-    #textAlign(CENTER, CENTER)
     noFill() 
-    #frameRate(30)
-    #strokeWeight(3)
     Cell.CELLS = []
     GIF_EXPORT = False
     # Ask user for Arduino port, uses slider if none is selected`
@@ -56,13 +52,6 @@ def keyPressed():
 def keyReleased():
     input.keyReleased()
 
-def rnd_choice(collection):
-    i = int(random(len(collection)))
-    return collection[i]
-
-def item_at_x_y(x, y, collenction, width_):
-    return collection[x + y * width_]
-
 def pointy_hexagon(x, y, r):
     with pushMatrix():
         translate(x, y)
@@ -78,7 +67,6 @@ def create_grid():
     global GRID_SIDE, RAND_SIZE, SPAC_SIZE
     # seize inputs
     GRID_SIDE = int(input.analog(1) / 16)  # 0 a 63 linhas e colunas na grade
-    # RAND_SIZE = int(input.analog(2) / 16)  # escala a randomização do tamanho
     randomSeed(int(input.analog(2)) / 4)
     # espaçamento entre os elementos
     SPAC_SIZE = int(width / (GRID_SIDE + 0.01))
@@ -129,12 +117,6 @@ class Cell():
 
     def draw_(self):
         self.update_nc()
-        # if dist(self.x, self.y, mouseX, mouseY) < SPAC_SIZE * 2:
-        #     fill(255)
-        #     text(str(self.nc), self.x, self.y)
-        #     fill(0, 16)
-        # else:
-        #     noFill()
         if self.status:
             stroke(self.get_color())
             noFill()
