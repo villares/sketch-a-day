@@ -1,6 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s129"  # 180509
-GRID_SIDE = 100  # colunas na grade
+SKETCH_NAME = "s130"  # 180510
+GRID_SIDE = 32  # colunas na grade
+UPDATE = False
 
 add_library('gifAnimation')
 from gif_exporter import *
@@ -17,7 +18,7 @@ def setup():
 
 
 def draw():
-    background(100, 150, 100)
+    background(200, 150, 0)
     #fill(64, 64, 127, 128)
     #rect(0, 0, width, height)
 
@@ -30,7 +31,7 @@ def draw():
                                 frames=50,
                                 delay=200,
                                 filename=SKETCH_NAME)
-    Cell.update()
+    if UPDATE: Cell.update()
 
 
 def create_grid():
@@ -46,13 +47,13 @@ def create_grid():
             Cell.CELL_GRID[x][y] = new_cell
             Cell.CELLS.append(new_cell)
     for  cell in Cell.CELLS:
-         cell.status = int(random(10)>8.5)
+         cell.status = int(random(10)>9)
          cell.update_nc()
          cell.color_ = map(cell.nc, 0, 6, 0, 255)
 
 
 def keyPressed():
-    global GIF_EXPORT
+    global GIF_EXPORT, UPDATE
     if key == 'p':  # save PNG
         saveFrame("####.png")
     if key == 'g':  # save GIF
@@ -61,6 +62,8 @@ def keyPressed():
         input.help()
     if key == 'r':
         create_grid()
+    if key == ' ':
+        UPDATE = not UPDATE
 
 
 class Cell():
@@ -110,8 +113,10 @@ class Cell():
             y = self.y * v
             ellipse(x, y, s, s)
             # pointy_hexagon(x, y, s)
-            # fill(255, 0, 0)
-            # text(str((self.nc)), x, y)
+            fill(255, 0, 0)
+            textSize(10)
+            text(str((self.x, self.y)), x, y)
+            text(str((self.nc)), x, y+10)
             # if dist(mouseX, mouseY, x, y) < s:
             #     print [(cell.x, cell.y) for cell in self.neighbours() if cell]
 
@@ -124,7 +129,11 @@ class Cell():
 
     def neighbours(self):
         neighbour_list = []
-        offset_list = [(-1, 0), (0, -1), (0, 1), (1, 0), (1, -1), (1, 1)]
+        if self.y % 2:
+            offset_list = [(-1, 0), (0, -1), (0, 1), (1, 0), (1, -1), (1, 1)]     
+        else:
+            offset_list = [(-1, 0), (0, -1), (0, 1), (1, 0), (-1, -1), (-1, 1)]
+
         for offset_x, offset_y in offset_list:
             try:
                 neighbour = Cell.CELL_GRID[self.x + offset_x][self.y + offset_y]
@@ -132,9 +141,3 @@ class Cell():
             except IndexError:
                 pass
         return neighbour_list
-
-    @staticmethod
-    def item_at_x_y(x, y, collection, w, h):
-        if 0 < x < w and 0 < y < h:
-            return collection[x + y * w]
-        return None
