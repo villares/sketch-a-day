@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s129"  # 180509
-GRID_SIDE = 40  # colunas na grade
+GRID_SIDE = 100  # colunas na grade
 
 add_library('gifAnimation')
 from gif_exporter import *
@@ -17,9 +17,9 @@ def setup():
 
 
 def draw():
-    # background(64, 127, 127, 128)
-    fill(64, 64, 127, 128)
-    rect(0, 0, width, height)
+    background(100, 150, 100)
+    #fill(64, 64, 127, 128)
+    #rect(0, 0, width, height)
 
     for cell in Cell.CELLS:
         cell.draw_()
@@ -46,8 +46,9 @@ def create_grid():
             Cell.CELL_GRID[x][y] = new_cell
             Cell.CELLS.append(new_cell)
     for  cell in Cell.CELLS:
-         cell.status = int(random(10)>7)
+         cell.status = int(random(10)>8.5)
          cell.update_nc()
+         cell.color_ = map(cell.nc, 0, 6, 0, 255)
 
 
 def keyPressed():
@@ -72,7 +73,6 @@ class Cell():
         self.status = 0
         self.nc = 6
         self.next = 0
-        self.color_ = color(255, 0, 0)
 
     def update_nc(self):
         '''
@@ -83,7 +83,7 @@ class Cell():
         # cells with 1, 5 or 6 neighbours die
         if self.nc < 2:
             self.next = 0
-        elif self.nc > 4:
+        elif self.nc >= 4:
             self.next = 0
         else:
             self.next = 1
@@ -110,11 +110,10 @@ class Cell():
             y = self.y * v
             ellipse(x, y, s, s)
             # pointy_hexagon(x, y, s)
-            fill(255)
-            text(str((self.nc)), x, y)
-            if dist(mouseX, mouseY, x, y) < s:
-                for cell in self.neighbours():
-                    if cell: print(cell.x, cell.y)
+            # fill(255, 0, 0)
+            # text(str((self.nc)), x, y)
+            # if dist(mouseX, mouseY, x, y) < s:
+            #     print [(cell.x, cell.y) for cell in self.neighbours() if cell]
 
     def count_neighbours(self):
         count = 0
@@ -133,3 +132,9 @@ class Cell():
             except IndexError:
                 pass
         return neighbour_list
+
+    @staticmethod
+    def item_at_x_y(x, y, collection, w, h):
+        if 0 < x < w and 0 < y < h:
+            return collection[x + y * w]
+        return None
