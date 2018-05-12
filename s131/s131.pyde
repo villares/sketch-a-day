@@ -1,14 +1,16 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s131"  # 180511
-GRID_SIDE = 200  # colunas na grade
+GRID_SIDE = 150  # colunas na grade
 UPDATE = False
 
+add_library('gifAnimation')
+from gif_exporter import *
 
 def setup():
     global input, GIF_EXPORT
     size(600, 600, P2D)
-    frameRate(10)
-    # textAlign(CENTER, CENTER)
+    #frameRate(10)
+    textAlign(CENTER, CENTER)
     noFill()
     Cell.CELLS = []
     GIF_EXPORT = False
@@ -17,12 +19,10 @@ def setup():
 
 def draw():
     background(200, 150, 0)
-    #fill(64, 64, 127, 128)
-    #rect(0, 0, width, height)
 
     for cell in Cell.CELLS:
         cell.draw_()
-    # uncomment next lines to export GIF
+
     global GIF_EXPORT
     if GIF_EXPORT:
         GIF_EXPORT = gif_export(GifMaker,
@@ -33,7 +33,7 @@ def draw():
         Cell.update()
 
 
-def create_grid(mode=0):
+def create_grid(rnd=False):
     global SPAC_SIZE
     # espaçamento entre os elementos
     SPAC_SIZE = int(width / GRID_SIDE)
@@ -46,7 +46,7 @@ def create_grid(mode=0):
             Cell.CELL_GRID[x][y] = new_cell
             Cell.CELLS.append(new_cell)
     for cell in Cell.CELLS:
-        if mode == 1:
+        if rnd:
             cell.status = int(random(10) > 9)
         else:
             cell.status = 0
@@ -65,7 +65,7 @@ def keyPressed():
     if key == 'r':
         create_grid()
     if key == '1':
-        create_grid(1)
+        create_grid(rnd=True)
     if key == ' ':
         UPDATE = not UPDATE
         for cell in Cell.CELLS:
@@ -121,14 +121,14 @@ class Cell():
         if self.status:
             ellipse(x, y, s, s)
             # pointy_hexagon(x, y, s)
-            if not UPDATE:
+        if not UPDATE:
+            if dist(mouseX, mouseY, x, y) < s:
                 fill(255, 0, 0)
                 textSize(10)
                 text(str((self.x, self.y)), x, y)
                 text(str((self.nc)), x, y + 10)
-        if dist(mouseX, mouseY, x, y) < s:
-            if mousePressed:
-                self.status = (1, 0)[self.status]
+                if mousePressed:
+                    self.status = (1, 0)[self.status]
 
     def count_neighbours(self):
         count = 0
