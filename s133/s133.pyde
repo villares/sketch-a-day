@@ -1,10 +1,12 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s132"  # 180512
 
+import cPickle as pickle
+
 LINE_SPACE = 22
 ITEM_WIDTH = 80
 ITEM_HEIGHT = 20
-
+MOUSE_PRESSED = False
 ITEMS, EDGES = [], []
 
 ThemeS = ["sin.com",
@@ -46,17 +48,14 @@ class Theme():
     def update(self):
         self.move()
         self.plot()
+        self.under_mouse = self.mouse_over()
 
     def move(self):
-        if self.mouse_over():
-            self.under_mouse = True
-            if keyPressed and keyCode == CONTROL:
-                self.x = mouseX - ITEM_WIDTH / 2
-                self.y = mouseY - ITEM_HEIGHT / 2
-            if keyPressed and keyCode == ALT:
-                self.selected = not self.selected
-        else:
-            self.under_mouse = False
+        if self.selected and mousePressed:
+            deltaX = mouseX - pmouseX
+            deltaY = mouseY - pmouseY
+            self.x += deltaX
+            self.y += deltaY
 
     def plot(self):
         noFill()
@@ -72,12 +71,29 @@ class Theme():
         stroke(R, 0, B)
         rect(self.x, self.y, ITEM_WIDTH, ITEM_HEIGHT)
         fill(0)
-        text(self.content, self.x + 6, self.y + 3)
+        text(self.content, self.x, self.y)
 
     def mouse_over(self):
-        return (self.x < mouseX < self.x + ITEM_WIDTH and
-                self.y < mouseY < self.y + ITEM_HEIGHT)
-        
+        return self.relative_pos(mouseX, mouseY) == 11  # 11 means inside
+        # return (self.x - ITEM_WIDTH / 2 < mouseX < self.x + ITEM_WIDTH / 2 and
+        #         self.y - ITEM_HEIGHT / 2 < mouseY < self.y + ITEM_HEIGHT / 2)
+
+    def relative_pos(self, x, y):
+        if self.x - ITEM_WIDTH / 2 <= x <= self.x + ITEM_WIDTH / 2:
+            rx = 10  # inside on x
+        elif x < self.x - ITEM_WIDTH / 2:
+            rx = 0  # x to the left
+        elif x > self.x + ITEM_WIDTH / 2:
+            rx = 20  # x to the right
+        if self.y - ITEM_HEIGHT / 2 <= y < self.y + ITEM_HEIGHT / 2:
+            ry = 1  # inside on y
+        elif y < self.y - ITEM_HEIGHT / 2:
+            ry = 0
+        elif y > self.y + ITEM_HEIGHT / 2:
+            ry = 2            
+        return rx + ry
+
+
 class Link():
 
     def __init__(self, a, b):
@@ -103,6 +119,11 @@ def mousePressed():
         if c:
             ITEMS.append(Theme(c, x, y))
 
+def mouseReleased():
+    for i in ITEMS:
+        if i.under_mouse:
+            i.selected = not i.selected
+
 def keyPressed():
     if key == "l":
         selected = [i for i in ITEMS if i.selected]
@@ -110,13 +131,19 @@ def keyPressed():
             a, b = selected
             EDGES.append(Link(a, b))
 
+    if key == 's':
+        pickle.dump(ITEMS, open("items.p", "wb"))
+        print 'done s'
+
+    if key == 'l':
+        f = open("items.p", 'rb')
+        pickle.load(f)
+        print 'done l'
+
 
 def input(message=''):
     from javax.swing import JOptionPane
     return JOptionPane.showInputDialog(frame, message)
-
-
-
 
     # def mouse_over(self):
     #     return (self.x < mouseX < self.x + ITEM_WIDTH and
