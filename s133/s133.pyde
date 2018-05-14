@@ -24,10 +24,10 @@ def setup():
 
 def draw():
     background(200)
-    for i in ITEMS:
-        i.update()
     for e in EDGES:
         e.update()
+    for i in ITEMS:
+        i.update()
 
 
 class Theme():
@@ -63,13 +63,13 @@ class Theme():
             B = 255
         else:
             B = 0
-
         if self.selected:
             R = 255
         else:
             R = 0
         stroke(R, 0, B)
-        rect(self.x, self.y, ITEM_WIDTH, ITEM_HEIGHT)
+        fill(200)
+        rect(self.x, self.y, ITEM_WIDTH, ITEM_HEIGHT, ITEM_HEIGHT/4)
         fill(0)
         text(self.content, self.x, self.y)
 
@@ -85,12 +85,12 @@ class Theme():
             rx = 0  # x to the left
         elif x > self.x + ITEM_WIDTH / 2:
             rx = 20  # x to the right
-        if self.y - ITEM_HEIGHT / 2 <= y < self.y + ITEM_HEIGHT / 2:
+        if self.y - ITEM_HEIGHT / 2 <= y <= self.y + ITEM_HEIGHT / 2:
             ry = 1  # inside on y
         elif y < self.y - ITEM_HEIGHT / 2:
-            ry = 0
+            ry = 0  # y is upwards
         elif y > self.y + ITEM_HEIGHT / 2:
-            ry = 2            
+            ry = 2  # y us downwards          
         return rx + ry
 
 
@@ -98,8 +98,6 @@ class Link():
 
     def __init__(self, a, b):
 
-        self.under_mouse = False
-        self.selected = False
         self.a = a
         self.b = b
 
@@ -109,6 +107,7 @@ class Link():
     def plot(self):
         mx = (self.a.x + self.b.x) / 2
         noFill()
+        stroke(0)
         bezier(self.a.x, self.a.y, mx, self.a.y,
                mx, self.b.y, self.b.x, self.b.y)
 
