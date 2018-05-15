@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s132"  # 180512
+SKETCH_NAME = "s133"  # 180513
 
 import cPickle as pickle
 
