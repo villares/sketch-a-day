@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s138"  # 1805168 Revisitig ideas from sketch s071 180312
+SKETCH_NAME = "s138"  # 180518 Revisitig ideas from sketch s071 180312
 
 add_library('gifAnimation')
 from gif_exporter import *
@@ -37,3 +37,6 @@ def poly_shape(x, y, angle, D):
                 pv = ps.getVertex(i)  # gets vertex as a PVector
                 # recusively call poly_shape with a smaller D
                 poly_shape(pv.x, pv.y, angle, D - 1)
+                
+def keyPressed():
+    loop()

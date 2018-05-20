@@ -37,6 +37,7 @@ def gif_export(GifMaker,             # gets a reference to the library
         gifExporter.finish()
         #background(255)
         print("gif saved")
+        noLoop()
         del(gifExporter)
         return False
     else:

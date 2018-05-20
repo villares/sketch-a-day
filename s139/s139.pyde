@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s138"  # 1805168 Revisitig ideas from sketch s071 180312
+SKETCH_NAME = "s139"  # 180519 Revisitig ideas from sketch s071 180312
 
 add_library('gifAnimation')
 from gif_exporter import *
