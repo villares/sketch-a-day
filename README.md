@@ -16,9 +16,18 @@ s139: [code](https://github.com/villares/sketch-a-day/tree/master/s139)  [[Py.Pr
 
 ---
 
-![s138](s138/s138.gif)
+![s138](s138/s138.png)
 
 138: [code](https://github.com/villares/sketch-a-day/tree/master/s138)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Heavy animated GIF: [s138.gif](s138/s138.gif)
+
+----
+
+![s137](s137/s137.png)
+s137: [code](https://github.com/villares/sketch-a-day/tree/master/s137)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+PDF:  [diagram.pdf](s137/diagram.pdf)
 
 ----
 
