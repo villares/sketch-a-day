@@ -8,6 +8,12 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s141](s141/s141.png)
+
+141: [code](https://github.com/villares/sketch-a-day/tree/master/s141)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+----
+
 ![s140](s140/s140.gif)
 
 s140: [code](https://github.com/villares/sketch-a-day/tree/master/s140)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -23,6 +29,8 @@ s139: [code](https://github.com/villares/sketch-a-day/tree/master/s139)  [[Py.Pr
 ![s138](s138/s138.png)
 
 138: [code](https://github.com/villares/sketch-a-day/tree/master/s138)  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Revisiting ideas of recursion from s071
 
 Heavy animated GIF: [s138.gif](s138/s138.gif)
 
