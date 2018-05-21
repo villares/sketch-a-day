@@ -6,7 +6,7 @@ from gif_exporter import *
 
 
 def setup():
-    print_sketch_text(SKETCH_NAME)
+    print_text_for_readme(SKETCH_NAME)
     size(600, 600)
     noFill()
 
@@ -23,10 +23,10 @@ def draw():
     gif_export(GifMaker, frames=10, filename=SKETCH_NAME)
     # noLoop()
 
-def poly_shape(x, y, angle, rnd, D):
+def poly_shape(x, y, angle, rnd, gen):
     with pushMatrix():
         translate(x, y)
-        radius = D * 7
+        radius = gen * 7
         ps = createShape()  # to create a polygon on a ps PShape object
         ps.beginShape()
         a = 0
@@ -36,18 +36,18 @@ def poly_shape(x, y, angle, rnd, D):
             ps.vertex(sx + random(-rnd, rnd), sy + random(-rnd, rnd))
             a += angle
         ps.endShape(CLOSE)  # end of PShape creation
-        shape(ps, 0, 0)  # Draw the PShape
-        if D > 1:  # if the recursion 'distance'/'depth' allows...
+        shape(ps, 0, 0)  # genraw the PShape
+        if gen > 1:  # if the recursion 'distance'/'depth' allows...
             for i in range(ps.getVertexCount()):
                 # for each vertex
                 pv = ps.getVertex(i)  # gets vertex as a PVector
-                # recusively call poly_shape with a smaller D
-                poly_shape(pv.x, pv.y, angle, rnd, D - 1)
+                # recusively call poly_shape with a smaller gen
+                poly_shape(pv.x, pv.y, angle, rnd, gen - 1)
 
 def keyPressed():
     loop()
 
-def print_sketch_text(name):
+def print_text_for_readme(name):
     println("""
 ![{0}]({0}/{0}.gif)
 {0}: [code](https://github.com/villares/sketch-a-day/tree/master/{0})  [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
