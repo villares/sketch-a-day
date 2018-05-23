@@ -1,9 +1,8 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s140"  # 180520 Revisitig ideas from sketch s071 180312
 
-add_library('gifAnimation')
-from gif_exporter import *
-
+# add_library('gifAnimation')
+# from gif_exporter import *
 
 def setup():
     print_text_for_readme(SKETCH_NAME)
@@ -20,8 +19,8 @@ def draw():
             px = border + space / 2 + x * space
             py = border + space / 2 + y * space
             poly_shape(px, py, TWO_PI / (x + 3), y, 4)
-    gif_export(GifMaker, frames=10, filename=SKETCH_NAME)
-    # noLoop()
+    # gif_export(GifMaker, frames=10, filename=SKETCH_NAME)
+    noLoop()
 
 def poly_shape(x, y, angle, rnd, gen):
     with pushMatrix():

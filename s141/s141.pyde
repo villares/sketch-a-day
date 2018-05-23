@@ -4,7 +4,6 @@ SKETCH_NAME = "s141"  # 180521 Revisitig ideas from sketch s071 180312
 # add_library('gifAnimation')
 # from gif_exporter import *
 
-
 def setup():
     print_text_for_readme(SKETCH_NAME)
     size(700, 700)
