@@ -43,10 +43,6 @@ class Ponto():
         self.plot()
 
     def plot(self):
-        noStroke()
-        fill(100, 100)
-        s = 10
-        #ellipse(self.px, self.py, s, s)
         stroke(0)
         for p in Ponto.PONTOS:
             if dist(p.px, p.py,
