@@ -47,9 +47,6 @@ class Ponto():
         self.plot()
 
     def plot(self):
-        noStroke()
-        fill(100, 100)
-        s = 10
         for p in Ponto.PONTOS:
             d = dist(p.px, p.py, self.px, self.py)
             if  Ponto.spacing * .9 < d <= Ponto.spacing * 1.2:
