@@ -8,6 +8,18 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s148](s148/s148.gif)
+
+148: [code](https://github.com/villares/sketch-a-day/tree/master/s148) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+----
+
+![s147](s147/s147.gif)
+
+147: [code](https://github.com/villares/sketch-a-day/tree/master/s147) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+----
+
 ![s146](s146/s146.gif)
 
 146: [code](https://github.com/villares/sketch-a-day/tree/master/s146) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
