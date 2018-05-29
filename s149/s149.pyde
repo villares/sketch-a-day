@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "s149", ".gif"  # 180528
+SKETCH_NAME, OUTPUT = "s149", ".gif"  # 180528-B
 
 add_library('gifAnimation')
 from gif_export_wrapper import *
