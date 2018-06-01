@@ -63,11 +63,6 @@ class Ponto():
         noStroke()
         ellipse(self.px, self.py, 3, 3)
         
-    
-
-def keyPressed():
-    redraw()
-
 def print_text_for_readme(name, output):
     println("""
 ![{0}]({0}/{0}{2})

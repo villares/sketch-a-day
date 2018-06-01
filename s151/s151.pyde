@@ -24,7 +24,7 @@ def draw():
     rect(0, 0, width, height)
     for p in Ponto.PONTOS:
         p.update()
-    noLoop()
+    # noLoop() # for debug
 
     if frameCount > 100 and not frameCount % 2:
         gif_export(GifMaker, frames=200, filename=SKETCH_NAME)
@@ -61,10 +61,8 @@ class Ponto():
             translate(self.ox, self.oy)
             ellipse(self.x, self.y, 5, 5)
         
-    
-
-def keyPressed():
-    redraw()
+# def keyPressed():
+#     redraw() # for debug
 
 def print_text_for_readme(name, output):
     println("""
