@@ -17,8 +17,8 @@ def draw():
     n_max, n_min = 0.5, 0.5
     for x in range(cols):
         for y in range(cols):
-            n = noise((mouseX + x) * perlinScale,
-                      (mouseY + y) * perlinScale,
+            n = noise((mx + x) * perlinScale,
+                      (my + y) * perlinScale,
                       z * perlinScale)
             if n > n_max:
                 n_max = n
@@ -38,5 +38,5 @@ def draw():
     my += 1
     z += 1           
     
-    if frameCount <= 50: saveFrame(OUTPUT)
+    #if frameCount <= 50: saveFrame(OUTPUT)
     # Gif exporter lib did not work well for the colours! :(
