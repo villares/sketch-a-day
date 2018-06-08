@@ -3,7 +3,7 @@
  * A festa é um ArrayList de grupoDeBolas (uma lista de grupos de bolinhas)
  */
 
-String SKETCH_NAME  = "s158b"; // 180608
+String SKETCH_NAME  = "s159"; // 180608
 String OUTPUT = ".gif"  ;
 
 import gifAnimation.*;
@@ -12,13 +12,13 @@ GifMaker gifExporter;
 ArrayList<grupoDeBolas> festa; // festa é uma lista de grupos de bolas
 
 void setup() {
-  size(1080, 1080);
+  size(500, 500);
   noStroke();
   festa = new ArrayList<grupoDeBolas>(); // inicializa a festa
   for (int i = 0; i < 20; i++) {
-    festa.add(new grupoDeBolas(random(width), random(height-width/2, height), 150));
+    festa.add(new grupoDeBolas(random(width), random(height-width/4, height), 150));
   }
-  gifExporter = GifMaker(this, SKETCH_NAME + OUTPUT);
+  gifExporter = new GifMaker(this, SKETCH_NAME + OUTPUT);
   gifExporter.setRepeat(0);
   gifExporter.setDelay(170);
 }
@@ -59,7 +59,7 @@ class Bola {
     cor = color(random(100, 200), 255, 255);
     vx = random(-2, 2);
     vy = random(-6, -2);
-    println(vy);
+    //println(vy);
   }
   void plot() {
     fill(cor);
