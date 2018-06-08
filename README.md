@@ -8,6 +8,12 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s159](s159/s159.gif)
+
+159: [code](https://github.com/villares/sketch-a-day/tree/master/s158) [[Processing Java](https://www.processing.org)]
+
+----
+
 ![s158](s158/s158b.gif)
 
 158: [code](https://github.com/villares/sketch-a-day/tree/master/s158) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
