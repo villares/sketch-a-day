@@ -1,10 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "s158", ".gif"  # 180607
-'''
-![s158](s158/s158.gif)
-
-158: [code](https://github.com/villares/sketch-a-day/tree/master/s158) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-'''
+SKETCH_NAME, OUTPUT = "s158b", ".gif"  # 180607
 
 add_library('gifAnimation')
 from gif_export_wrapper import *
@@ -18,22 +13,23 @@ def setup():
     stroke(200)
     noFill()
     strokeWeight(2)
+    #ortho()
 
 def draw():
     #translate(0, 0, 0)
-    rotateX(radians(200))
+    rotateX(radians(225))
     global yo
     background(0)
     lines = []
-    for l in range(-40, 10):
+    for l in range(-32, 32):
         line_ = []
         beginShape()
         y = l * 10
         for x in range(40, width - 40, 10):
             n = noise((x + yo / 4) * perlinScale,
                       (l * -4 + yo) * 2 * perlinScale)
-            a = (250 - abs(x - width / 2)) / 2
-            z = height / 2 + map(n, 0, 1, -a, 0)
+            a = width/2 - abs(width / 2 - x)
+            z = height / 2 + map(n, 0, 1, -a*.75, 0)
             vertex(x, y, z)
             line_.append((x, y, z))
         endShape()
