@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s160](s160/s160.gif)
+
+160: [code](https://github.com/villares/sketch-a-day/tree/master/s160) [[Processing Java](https://www.processing.org)]
+
+Interactive genetic algorithm
+
+----
+
 ![s159](s159/s159.gif)
 
 159: [code](https://github.com/villares/sketch-a-day/tree/master/s158) [[Processing Java](https://www.processing.org)]
