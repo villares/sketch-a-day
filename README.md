@@ -8,6 +8,14 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ----
 
+![s161](s161/s161.png)
+
+161: [code](https://github.com/villares/sketch-a-day/tree/master/s161) [[Processing Java](https://www.processing.org)]
+
+Perlin Noise + eye
+
+----
+
 ![s160](s160/s160.gif)
 
 160: [code](https://github.com/villares/sketch-a-day/tree/master/s160) [[Processing Java](https://www.processing.org)]
