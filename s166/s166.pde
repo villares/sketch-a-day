@@ -1,5 +1,5 @@
 //  Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-String SKETCH_NAME = "s166" // 180614
+String SKETCH_NAME = "s166"; // 180614
 
 import peasy.*;
 
@@ -10,8 +10,9 @@ float space;
 void setup() {
   size(600, 600, P3D);
   colorMode(HSB);
+  noStroke();
   cam = new PeasyCam(this, 100);
-  cam.setMinimumDistance(100);
+  cam.setMinimumDistance(1000);
   cam.setMaximumDistance(1000);
 
   // Reassign some drag handlers in order to free the left-drag to other uses
@@ -42,11 +43,11 @@ void draw() {
     pushMatrix();
     translate(p.x, p.y, p.z);
     float noiseScale = 0.005;
-    float n =  noise(100+ (mouseX + p.x) *noiseScale,
-                     300+ (mouseY + p.y) * noiseScale,
-                     p.z*noiseScale);
+    float n =  noise(abs (mouseX + p.x) *noiseScale,
+                      (1000+mouseY + p.y) * noiseScale,
+                     (300000+ p.z)*noiseScale);
     fill(256*n, 255, 255);
-    box(space *(1-n));
+    box(space*(1-n));
     popMatrix();
   }
 }
