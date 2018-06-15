@@ -22,7 +22,7 @@ def setup():
                 x = space / 2 + ix * space - width / 2
                 y = space / 2 + iy * space - width / 2
                 z = space / 2 + iz * space - width / 2
-                pontos.add(PVector(x, y, z))
+                pontos.append(PVector(x, y, z))
         
 
 def draw():
