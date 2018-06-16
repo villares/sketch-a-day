@@ -5,17 +5,18 @@ import peasy.*;
 
 PeasyCam cam;
 ArrayList<PVector> pontos; 
+ArrayList<PVector[]> lines; 
+
 float space;
 
 void setup() {
   size(600, 600, P3D);
-  noStroke();
-  strokeWeight(2);
-  cam = new PeasyCam(this, 100);
+  cam = new PeasyCam(this, 300);
   cam.setMinimumDistance(100);
   cam.setMaximumDistance(1000);
 
   pontos = new ArrayList<PVector>();
+  lines = new ArrayList<PVector[]>();
 
   int gridDim = 10;
   space = width / gridDim;
@@ -29,8 +30,18 @@ void setup() {
       }
     }
   }
+  for (PVector p : pontos) {
+    for (PVector op : pontos) {
+      if (dist(p.x, p.y, p.z, op.x, op.y, op.z) < space) {
+        lines.add(new PVector[]{p, op});
+      }
+    }
+  }
 }
+
+
 void draw() {
+  //rotateY(frameCount/1000.);
   background(200);
   for (PVector p : pontos) {
     pushMatrix();
@@ -39,11 +50,15 @@ void draw() {
     noStroke();
     box(4);
     popMatrix();
-    for (PVector op : pontos) {
-      stroke(200, 0, 100);
-      if (dist(p.x, p.y, p.z, op.x, op.y, op.z) < space) {
-        line(p.x, p.y, p.z, op.x, op.y, op.z);
-      }
-    }
   }
+  for (PVector[] l : lines) {
+    strokeWeight(2);
+    stroke(200, 0, 100);
+    line(l[0].x, l[0].y, l[0].z, l[1].x, l[1].y, l[1].z);
+  }
+  //if (frameCount/31.4 <= TWO_PI) {
+  //  saveFrame("s###.png");
+  //} else { 
+  //  exit();
+  //}
 }

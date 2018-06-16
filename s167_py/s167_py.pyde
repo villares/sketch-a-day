@@ -23,11 +23,11 @@ def setup():
                 z = space / 2 + iz * space - width / 2 + random(-2, 2)
                 pontos.append(PVector(x, y, z))
     for p in pontos:
-        for other in pontos:
+        for op in pontos:
             stroke(200, 0, 100)
-            if (dist(p.x, p.y, p.z,
-                     other.x, other.y, other.z) < space * 1):
-                lines.append((p.x, p.y, p.z, other.x, other.y, other.z))
+            if (dist( p.x,  p.y,  p.z,
+                     op.x, op.y, op.z) < space * 1):
+                lines.append((p.x, p.y, p.z, op.x, op.y, op.z))
 
 def draw():
     background(200)
