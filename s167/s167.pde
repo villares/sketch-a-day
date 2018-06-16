@@ -22,9 +22,9 @@ void setup() {
   for (int ix =0; ix< gridDim; ix++) {
     for (int iy=0; iy< gridDim; iy++) {
       for (int iz=0; iz< gridDim; iz++) {
-        float x = space/2 + ix * space - width/2 + random(-2, 2);
-        float y = space/2 + iy * space - width/2 + random(-2, 2);
-        float z = space/2 + iz * space - width/2 + random(-2, 2);
+        float x = space/2 + ix * space - width/2 + random(-2,2);
+        float y = space/2 + iy * space - width/2 + random(-2,2);
+        float z = space/2 + iz * space - width/2 + random(-2,2);
         pontos.add(new PVector(x, y, z));
       }
     }
@@ -39,10 +39,11 @@ void draw() {
     noStroke();
     box(4);
     popMatrix();
-    for (PVector op : pontos) {
+    for (PVector other : pontos) {
       stroke(200, 0, 100);
-      if (dist(p.x, p.y, p.z, op.x, op.y, op.z) < space) {
-        line(p.x, p.y, p.z, op.x, op.y, op.z);
+      if (dist(p.x, p.y, p.z, 
+        other.x, other.y, other.z) < space*1) {
+        line(p.x, p.y, p.z, other.x, other.y, other.z);
       }
     }
   }
