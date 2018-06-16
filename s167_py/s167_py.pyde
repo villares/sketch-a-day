@@ -8,7 +8,6 @@ pontos, lines = [], []
 def setup():
     global space
     size(600, 600, P3D)
-    noStroke()
     strokeWeight(2)
     #noSmooth()
     cam = PeasyCam(this, 100)

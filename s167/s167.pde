@@ -1,5 +1,5 @@
 //  Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-String SKETCH_NAME = "s166"; // 180614
+String SKETCH_NAME = "s167"; // 180615
 
 import peasy.*;
 
