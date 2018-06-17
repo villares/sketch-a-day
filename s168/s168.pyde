@@ -1,9 +1,9 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com / sketch - a - day
-SKETCH_NAME = "s167"  # 180615
+SKETCH_NAME = "s168"  # 180616
 
 add_library('peasycam')
 
-boxes, lines, walls = [], [], []
+points, lines, walls = [], [], []
 
 def setup():
     global space
@@ -22,9 +22,9 @@ def setup():
                 x = space / 2 + ix * space - width / 2 + random(2)
                 y = space / 2 + iy * space - width / 2 + random(2)
                 z = space / 2 + iz * space - width / 2  # + random(-2, 2)
-                boxes.append(PVector(x, y, z))
-    for p in boxes:
-        for op in boxes:
+                points.append(PVector(x, y, z))
+    for p in points:
+        for op in points:
             if p != op:
                 stroke(200, 0, 100)
                 if (dist(p.x, p.y, p.z,
@@ -60,7 +60,7 @@ def draw():
         stroke(200, 0, 100)
         line(p.x, p.y, p.z, op.x, op.y, op.z)
 
-    for p in boxes:
+    for p in points:
         pushMatrix()
         translate(p.x, p.y, p.z)
         fill(0)

@@ -3,7 +3,7 @@ SKETCH_NAME = "s167"  # 180615
 
 add_library('peasycam')
 
-pontos, lines = [], []
+points, lines = [], []
 
 def setup():
     global space
@@ -21,24 +21,23 @@ def setup():
                 x = space / 2 + ix * space - width / 2 + random(-2, 2)
                 y = space / 2 + iy * space - width / 2 + random(-2, 2)
                 z = space / 2 + iz * space - width / 2 + random(-2, 2)
-                pontos.append(PVector(x, y, z))
-    for p in pontos:
-        for op in pontos:
+                points.append(PVector(x, y, z))
+    for p in points:
+        for op in points:
             stroke(200, 0, 100)
             if (dist( p.x,  p.y,  p.z,
                      op.x, op.y, op.z) < space * 1):
-                lines.append((p.x, p.y, p.z, op.x, op.y, op.z))
+                lines.append((p, op))
 
 def draw():
     background(200)
-    for p in pontos:
+    for p in points:
         pushMatrix()
         translate(p.x, p.y, p.z)
         fill(0)
         noStroke()
         box(4)
         popMatrix()
-    for l in lines:
+    for (p1, p2) in lines:
             stroke(200, 0, 100)
-            px, py, pz, ox, oy, oz = l
-            line(px, py, pz, ox, oy, oz)
+            line(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z)

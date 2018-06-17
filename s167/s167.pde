@@ -4,7 +4,7 @@ String SKETCH_NAME = "s167"; // 180615
 import peasy.*;
 
 PeasyCam cam;
-ArrayList<PVector> pontos; 
+ArrayList<PVector> points; 
 ArrayList<PVector[]> lines; 
 
 float space;
@@ -15,7 +15,7 @@ void setup() {
   cam.setMinimumDistance(100);
   cam.setMaximumDistance(1000);
 
-  pontos = new ArrayList<PVector>();
+  points = new ArrayList<PVector>();
   lines = new ArrayList<PVector[]>();
 
   int gridDim = 10;
@@ -26,12 +26,12 @@ void setup() {
         float x = space/2 + ix * space - width/2 + random(-2, 2);
         float y = space/2 + iy * space - width/2 + random(-2, 2);
         float z = space/2 + iz * space - width/2 + random(-2, 2);
-        pontos.add(new PVector(x, y, z));
+        points.add(new PVector(x, y, z));
       }
     }
   }
-  for (PVector p : pontos) {
-    for (PVector op : pontos) {
+  for (PVector p : points) {
+    for (PVector op : points) {
       if (dist(p.x, p.y, p.z, op.x, op.y, op.z) < space) {
         lines.add(new PVector[]{p, op});
       }
@@ -43,7 +43,7 @@ void setup() {
 void draw() {
   //rotateY(frameCount/1000.);
   background(200);
-  for (PVector p : pontos) {
+  for (PVector p : points) {
     pushMatrix();
     translate(p.x, p.y, p.z);
     fill(0);
