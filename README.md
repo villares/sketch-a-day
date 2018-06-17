@@ -6,6 +6,13 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+----
+
+![s169](s169/s169.png)
+
+169:[code](https://github.com/villares/sketch-a-day/tree/master/s169) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now same Z lines can form floors.
 
 ----
 
@@ -13,7 +20,7 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 168:[code](https://github.com/villares/sketch-a-day/tree/master/s168) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-No random movent in Z so no line connections in Z, comparing some lines to make translucent 'walls'.
+No random movement in Z so no line connections between different (Z) levels. Comparing  lines with different Zs to create translucent 'walls'.
 
 ----
 
