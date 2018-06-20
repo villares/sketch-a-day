@@ -10,7 +10,7 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 ![s171](s171/s171.png)
 
-171:[code](https://github.com/villares/sketch-a-day/tree/master/s171) [[Processing Java](https://processing.org)]
+171:[Java code](https://github.com/villares/sketch-a-day/tree/master/s171)[[Processing Java](https://processing.org)] &  [Python code](https://github.com/villares/sketch-a-day/tree/master/s171_py) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ----
 
