@@ -1,26 +1,32 @@
 // Inpired on http://10print.org/
 // s171 180619
 
-int altura = 10;
+int tam = 20;
 
 void setup() {
   rectMode(CENTER);
-  frameRate(10);
-  noStroke();
   size(500, 500);
-  for ( int h = 10; h < height; h = h + 20) {
-    //rect(10, h, 200, 10);
-  }
+  noStroke();
+  noLoop();
 }
 void draw() {
-  //background(255);
-  for (int i = 0; i < 25; i=i+1) {
-    for (int j = 0; j < 25; j=j+1) {
-      fill(random(256), 
-        random(256), 
-        random(256));
-      float tam = random (10, 20);
-      rect(10+j*20, 10+i*20, tam, tam);
+  background(0);
+  int num = int(width/tam);
+  for (int i = 0; i < num; i=i+1) {
+    for (int j = 0; j < num; j=j+1) {
+      fill(random(128), random(128), random(128));
+      rect(tam/2+j*tam, tam/2+i*tam, tam, tam);
+    }
+  }
+  for (int i = 0; i < num; i=i+1) {
+    for (int j = 0; j < num; j=j+1) {
+      stroke(255);
+      strokeWeight(6);
+      pushMatrix();      
+      translate(tam/2+j*tam, tam/2+i*tam);
+      rotate(HALF_PI * int(random(2)));
+      line(-tam/2, -tam/2, tam/2, tam/2);
+      popMatrix();
     }
   }
 }
