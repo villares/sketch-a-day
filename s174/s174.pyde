@@ -3,16 +3,16 @@
 from random import randint
 
 def setup():
-    global m, shape, Z, C
+    global m, dim, Z, C
     size(800, 800)
     rectMode(CENTER)
     colorMode(HSB)
     noLoop()
     noStroke()
-    # Only odd shapes
-    shape = ((101 // 2) * 2 + 1, (101 // 2) * 2 + 1)
-    Z = [[0] * shape[1] for _ in range(shape[0])]
-    C = [[0] * shape[1] for _ in range(shape[0])]
+    # Only odd dims
+    dim = ((101 // 2) * 2 + 1, (101 // 2) * 2 + 1)
+    Z = [[0] * dim[1] for _ in range(dim[0])]
+    C = [[0] * dim[1] for _ in range(dim[0])]
     m = maze(101,101)
     w, h = 8, 8
     for x in range(len(m)):
@@ -24,21 +24,21 @@ def setup():
 
 def maze(mh, mw, complexity=.51, density=2):
     # Adjust complexity and density relative to maze size
-    complexity = int(complexity * (5 * (shape[0] + shape[1]))) # number of components
-    density    = int(density * ((shape[0] // 2) * (shape[1] // 2))) # size of components
+    complexity = int(complexity * (5 * (dim[0] + dim[1]))) # number of components
+    density    = int(density * ((dim[0] // 2) * (dim[1] // 2))) # size of components
     # Build actual maze
 
     # Make aisles
     for i in range(density):
-        x = randint(0, shape[1] // 2) * 2
-        y = randint(0, shape[0] // 2) * 2 # pick a random position
+        x = randint(0, dim[1] // 2) * 2
+        y = randint(0, dim[0] // 2) * 2 # pick a random position
         Z[y][x] = 1
         for j in range(complexity):
             neighbours = []
             if x > 1:             neighbours.append((y, x - 2))
-            if x < shape[1] - 2:  neighbours.append((y, x + 2))
+            if x < dim[1] - 2:  neighbours.append((y, x + 2))
             if y > 1:             neighbours.append((y - 2, x))
-            if y < shape[0] - 2:  neighbours.append((y + 2, x))
+            if y < dim[0] - 2:  neighbours.append((y + 2, x))
             if len(neighbours):
                 y_,x_ = neighbours[randint(0, len(neighbours) - 1)]
                 if Z[y_][x_] == 0:
