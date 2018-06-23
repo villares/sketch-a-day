@@ -5,7 +5,7 @@ add_library('gifAnimation')
 
 GRID_SIZE = 40
 SKETCH_NAME = "s175"
-OUTPUT = ".png"
+OUTPUT = ".gif"
 
 def setup():
     size(500, 500)
