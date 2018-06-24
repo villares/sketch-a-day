@@ -4,7 +4,7 @@ from gif_export_wrapper import *
 add_library('gifAnimation')
 
 GRID_SIZE = 50
-SKETCH_NAME = "s175"
+SKETCH_NAME = "s176"
 OUTPUT = ".gif"
 
 def setup():
