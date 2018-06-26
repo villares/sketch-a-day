@@ -1,4 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# s176 180623
+
 from random import choice
 from gif_export_wrapper import *
 add_library('gifAnimation')

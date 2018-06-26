@@ -1,4 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# s178 180625
+
 from random import choice
 
 GRID_SIZE = 49

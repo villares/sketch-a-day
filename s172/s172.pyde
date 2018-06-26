@@ -1,3 +1,4 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # based on Randomized Prim's algorithm https://en.wikipedia.org/wiki/Maze_generation_algorithm
 
 from random import randint
