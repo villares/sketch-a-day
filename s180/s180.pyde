@@ -4,9 +4,9 @@ from random import choice
 from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
-GRID_SIZE = 10
-SKETCH_NAME = "s178"
-OUTPUT = ".gif"
+GRID_SIZE = 12
+SKETCH_NAME = "s180"
+OUTPUT = ".png"
 
 def setup():
     size(700, 700, P3D)
@@ -14,7 +14,7 @@ def setup():
     cam.setMinimumDistance(100)
     cam.setMaximumDistance(1000)
     colorMode(HSB)
-    strokeWeight(5)
+    strokeWeight(4)
     print_text_for_readme(SKETCH_NAME, OUTPUT)
     border = 50
     spacing = (width - border * 2) / GRID_SIZE
@@ -61,9 +61,9 @@ class Node():
     def set_nbs(self):
         self.nbs, self.unvisited_nbs = [], []
         for node in Node.nodes:
-            #if random(1) < 0.1:
+            # if random(1) < 0.1:
             if node != self and dist(node.x, node.y, node.z,
-                                     self.x, self.y, self.z) <= Node.spacing * 1.8:
+                                     self.x, self.y, self.z) <= Node.spacing * 1.1:
                 self.nbs.append(node)
                 self.unvisited_nbs.append(node)
 
@@ -92,11 +92,11 @@ class Node():
                     rnd_choice.current = True
                 else:
                     print("finished")
-                    #noLoop()
+                    # noLoop()
 
 def keyPressed():
     loop()
-    saveFrame("####s179.png")
+    saveFrame("####" + SKETCH_NAME + OUTPUT)
 
 def print_text_for_readme(name, output):
     println("""
