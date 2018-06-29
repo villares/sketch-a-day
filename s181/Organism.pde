@@ -83,7 +83,7 @@ class Organism {
       pushMatrix();
       stroke(map(gen,0,9,0,1), 1, 1);
       rl = map(dna.genes[3+gen], 0, 1, 0, 10);
-      float h = branch_size  * (1 - random(rl/3, rl) / 15);
+      float h = branch_size  * (1 - random(rl/2, rl) / 15);
       rotate(theta + ra * random(1)); // Rotate by theta
       line(0, 0, 0, -h);  // Draw the branch
       translate(0, -h);  // Move to the end of the branch
