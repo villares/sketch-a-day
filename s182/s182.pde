@@ -8,7 +8,7 @@ void setup() {
   size(750, 750);
   colorMode(HSB, 1.0);
   int popmax = 25;
-  float mutationRate = 0.01;  // A pretty high mutation rate here, our population is rather small we need to enforce variety
+  float mutationRate = 0.03;  // A pretty high mutation rate here, our population is rather small we need to enforce variety
   // Create a population with a target phrase, mutation rate, and population max
   population = new Population(mutationRate, popmax);
 }
