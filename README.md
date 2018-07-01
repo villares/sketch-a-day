@@ -6,6 +6,35 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+
+---
+
+![s183](s183/s183.png)
+
+183: [code](https://github.com/villares/sketch-a-day/tree/master/s183)
+
+---
+
+![s182](s182/s182.png)
+
+182: [code](https://github.com/villares/sketch-a-day/tree/master/s182)
+
+---
+
+![s181](s181/s181.png)
+
+183: [code](https://github.com/villares/sketch-a-day/tree/master/s181)
+
+---
+
+178, 179, 180
+
+I have to add images here... the code is there, look at the repositóry...
+
+---
+
+177: [code](https://github.com/villares/sketch-a-day/tree/master/s177) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![s176](s176/s176.png)
