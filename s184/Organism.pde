@@ -33,8 +33,8 @@ class Organism {
     translate(x, y);
     for (int i = 2; i < n; i = i + 2) {
       stroke(1);
-      stroke(dna.genes[i-1], 1, 1);
-      noFill();
+      fill(dna.genes[i-1], 1, 1);
+      //noFill();
       float x1 = map(dna.genes[i], 0, 1, -wh/4, wh/4);
       float y1 = map(dna.genes[i+1], 0, 1, -wh/4, wh/4);
       float x2 = map(dna.genes[i*2], 0, 1, -wh/4, wh/4);
@@ -45,26 +45,36 @@ class Organism {
     }
     // Draw the bounding box
     popStyle();
-    
+
     rectMode(CENTER);
 
-    if (mouseIsOver) fill(0.5, 0.5);
-    else noFill();
-    
-    stroke(1);
+    if (mouseIsOver) stroke(0, 1, 1);
+    else stroke(1);
+    noFill();
     rect(0, 0, wh, wh);
     stroke(0.5);
     line(-wh/2, 0, wh/2, 0);
     line(0, -wh/2, 0, wh/2);
     popMatrix();
 
+
     // Display fitness value
+    getFitness();
     textAlign(CENTER);
     fill(1);
     text(fitness, x, y+70);
   }
 
   float getFitness() {
+    int q1, q2, q3, q4;
+    int cx = int(x-wh/2);
+    int cy = int(y-wh/2);
+    q1 = getNonBlack(cx, cy, int(x), int(y));
+    q2 = getNonBlack(int(x),cy , cx+wh,int(y));
+    q3 = getNonBlack(cx, int(y), int(x), cy+wh);
+    q4 = getNonBlack(int(x), int(y), cx+wh, cy+wh);
+    int t = getNonBlack(cx, cy,  cx+wh, cy+wh);
+    fitness = t - abs(q1-q2) - abs(q3 - q4)  - abs(q1 - q3)  - abs(q2 - q2);
     return fitness;
   }
 
@@ -72,10 +82,22 @@ class Organism {
     return dna;
   }
 
+  int getNonBlack(int x1, int y1, int x2, int y2) {
+    int count = 0;
+    for (int x = x1; x < x2; x++) {
+      for (int y = y1; y < y2; y++) {
+        if (get(x, y) != color(0)) count++;
+      }
+    }
+    return count;
+  }
+
+
   // Increment fitness if mouse is rolling over organism
   void checkMouseOver(int mx, int my) {
     int cx = int(x-wh/2);
     int cy = int(y-wh/2);
+
     if (mx > cx && mx < cx + wh  && my > cy && my < cy + wh) {
       mouseIsOver = true;
       if (mousePressed) fitness += 0.25;
