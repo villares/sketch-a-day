@@ -1,5 +1,5 @@
-
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+
 from random import choice
 from gif_export_wrapper import *
 add_library('gifAnimation')
@@ -61,7 +61,6 @@ class Node():
     def set_nbs(self):
         self.nbs, self.unvisited_nbs = [], []
         for node in Node.nodes:
-            # if random(1) < 0.1:
             if node != self and dist(node.x, node.y, node.z,
                                      self.x, self.y, self.z) <= Node.spacing * 1.1:
                 self.nbs.append(node)
