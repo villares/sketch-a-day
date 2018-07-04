@@ -2,8 +2,6 @@
 # s177 180624
 
 from random import choice
-from gif_export_wrapper import *
-add_library('gifAnimation')
 
 GRID_SIZE = 40
 SKETCH_NAME = "s177"

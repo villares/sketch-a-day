@@ -6,32 +6,75 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+---
+
+![s185](s185/s185.png)
+
+185: [code](https://github.com/villares/sketch-a-day/tree/master/s185) [[Processing Java](https://www.processing.org)]
+
+
+
+---
+
+![s184](s184/s184.png)
+
+184: [code](https://github.com/villares/sketch-a-day/tree/master/s184) [[Processing Java](https://www.processing.org)]
 
 ---
 
 ![s183](s183/s183.png)
 
-183: [code](https://github.com/villares/sketch-a-day/tree/master/s183)
+183: [code](https://github.com/villares/sketch-a-day/tree/master/s183) [[Processing Java](https://www.processing.org)]
 
 ---
 
 ![s182](s182/s182.png)
 
-182: [code](https://github.com/villares/sketch-a-day/tree/master/s182)
+182: [code](https://github.com/villares/sketch-a-day/tree/master/s182) [[Processing Java](https://www.processing.org)]
 
 ---
 
 ![s181](s181/s181.png)
 
-183: [code](https://github.com/villares/sketch-a-day/tree/master/s181)
+181: [code](https://github.com/villares/sketch-a-day/tree/master/s181) [[Processing Java](https://www.processing.org)]
 
 ---
 
-178, 179, 180
+![s180](s180/s180.gif)
+```
+    def set_nbs(self):
+        self.nbs, self.unvisited_nbs = [], []
+        for node in Node.nodes:
+            if node != self and dist(node.x, node.y, node.z,
+                                     self.x, self.y, self.z) <= Node.spacing * 1.1:
+                self.nbs.append(node)
+                self.unvisited_nbs.append(node)
+```
+![s180b](s180/s180b.gif)
 
-I have to add images here... the code is there, look at the repositóry...
+```
+if node != self and dist(node.x, node.y, node.z,
+                         self.x, self.y, self.z) <= Node.spacing * 1.5:
+```
+
+180: [code](https://github.com/villares/sketch-a-day/tree/master/s180) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
+
+![s179COLOR](s179/COR_s179.png)
+![s179PB](s179/PB_s179.png)
+
+179: [code](https://github.com/villares/sketch-a-day/tree/master/s179) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+----
+
+![s178](s178/s178.jpg)
+
+178: [code](https://github.com/villares/sketch-a-day/tree/master/s178) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s177](s177/s177.png)
 
 177: [code](https://github.com/villares/sketch-a-day/tree/master/s177) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -463,7 +506,7 @@ To be brutally honest, I had no idea that reversing the second random grid would
 
 Hexagons! 
 
-```python
+​```python
 def hexagon(x, y, r):
     with pushMatrix():
         translate(x, y)
@@ -483,7 +526,7 @@ def hexagon(x, y, r):
 
 Now I 'fixed' the rotation with propper pushMatrix() and translate()
 
-```python
+​```python
         with pushMatrix():
             translate(x0,y0)
             rotate(fs0)
