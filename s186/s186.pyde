@@ -2,13 +2,10 @@
 SKETCH_NAME = "s186" #20180703
 OUTPUT = ".png"
 
-add_library('gifAnimation')
-
 num_hatches = 12
 hatches = []
 
 def setup():
-    print_text_for_readme(SKETCH_NAME, OUTPUT)
     size(500, 500)
     smooth()
     for _ in range(num_hatches):
@@ -38,13 +35,3 @@ class Hatch:
             #ellipse(0, 0, 5,5)
             for i in range(self.n):
                 line(s * i - l, -l, s * i - l, l)
-
-
-def print_text_for_readme(name, output):
-    println("""
-![{0}]({0}/{0}{2})
-
-{1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
-""".format(name, name[1:], output)
-    )
