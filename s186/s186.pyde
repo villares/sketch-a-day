@@ -30,7 +30,7 @@ class Hatch:
     def plot(self):
         with pushMatrix():
             translate(self.x, self.y)
-            rotate(self.rot + mouseX / 50.)
+            rotate(self.rot + mouseX / 62.)
             s, l = self.space, self.half
             #ellipse(0, 0, 5,5)
             for i in range(self.n):
