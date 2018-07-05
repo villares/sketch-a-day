@@ -1,11 +1,13 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s186" #20180703
-OUTPUT = ".png"
+OUTPUT = ".gif"
 
+from gif_export_wrapper import *
 add_library('gifAnimation')
 
 num_hatches = 12
 hatches = []
+global_rot = 0
 
 def setup():
     print_text_for_readme(SKETCH_NAME, OUTPUT)
@@ -15,10 +17,19 @@ def setup():
         hatches.append(Hatch())
 
 def draw():
+    global global_rot
     background(100)
     stroke(255)
     for h in hatches:
         h.plot()
+        
+    global_rot += 0.05
+
+    gif_export(GifMaker, filename=SKETCH_NAME)
+
+    if global_rot > PI:
+        gif_export(GifMaker, finish=True)
+        noLoop()
 
 class Hatch:
 
@@ -30,10 +41,10 @@ class Hatch:
         self.y = random(self.half, height - self.half)
         self.rot = random(TWO_PI)
 
-    def plot(self):
+    def plot(self):        
         with pushMatrix():
             translate(self.x, self.y)
-            rotate(self.rot + mouseX / 50.)
+            rotate(self.rot + global_rot)
             s, l = self.space, self.half
             #ellipse(0, 0, 5,5)
             for i in range(self.n):
