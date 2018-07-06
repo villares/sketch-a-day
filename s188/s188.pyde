@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s188"  # 20180705
-OUTPUT = ".png"
+OUTPUT = ".gif"
 
 from gif_export_wrapper import *
 add_library('gifAnimation')
