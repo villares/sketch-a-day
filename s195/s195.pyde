@@ -34,12 +34,12 @@ def draw():
 
     global_rot += 0.0314
 
-    if not frameCount % 10:
-        gif_export(GifMaker, filename=SKETCH_NAME)
+    # if not frameCount % 10:
+    #     gif_export(GifMaker, filename=SKETCH_NAME)
 
-    if global_rot > PI * cycles:
-        gif_export(GifMaker, finish=True)
-        noLoop()
+    # if global_rot > PI * cycles:
+    #     gif_export(GifMaker, finish=True)
+    #     noLoop()
 
 
 class Hatch:
