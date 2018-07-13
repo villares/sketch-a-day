@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s195"  # 20180713
+SKETCH_NAME = "s196"  # 20180713
 OUTPUT = ".gif"
 
 from gif_export_wrapper import *
@@ -28,20 +28,19 @@ def draw():
     background(200)
 
     for i, h in enumerate(hatches):
-        f = frameCount / 100
-        h.plot(do_rotation=(f % cycles == i))
+        h.plot()
 
-    global_rot += 0.0314
+    global_rot += 0.0314 
 
-    # if not frameCount % 10:
-    #     gif_export(GifMaker, filename=SKETCH_NAME)
+    if not frameCount % 5:
+        gif_export(GifMaker, filename=SKETCH_NAME)
 
-    # if global_rot > PI * cycles:
-    #     gif_export(GifMaker, finish=True)
-    #     noLoop()
+    if global_rot > TWO_PI:
+        gif_export(GifMaker, finish=True)
+        noLoop()
 
 
-class Hatch:
+class Hatch():
 
     def __init__(self, c, rot):
         self.n = width / 6
@@ -53,19 +52,17 @@ class Hatch:
         self.c = c
         #println((self.x, self.y, s))
 
-    def plot(self, do_rotation):
+    def plot(self):
         with pushMatrix():
             translate(self.x, self.y)
             rotate(self.rot)
-            if do_rotation:            
-                w = cos(global_rot + PI/4)
-            else:
-                -w = cos(global_rot + PI/4)
+            wx = cos(global_rot) * 2
+            wy = sin(global_rot) * 3
             s, l = self.space, self.n * self.space
             for i in range(1, self.n):
                 for j in range(1, self.n):
                     fill(self.c)
-                    d = 1.5 * s * noise(i * noise_scale - w, j * noise_scale + w)
+                    d = 1.5 * s * noise(i * noise_scale - wx, j * noise_scale + wy)
                     ellipse(
                         s / 2 + s * i - l / 2. ,
                         s / 2 + s * j - l / 2. ,
