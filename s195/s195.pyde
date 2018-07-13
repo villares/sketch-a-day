@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s195"  # 20180711
+SKETCH_NAME = "s195"  # 20180712
 OUTPUT = ".gif"
 
 from gif_export_wrapper import *
@@ -11,10 +11,11 @@ global_rot = 0
 noise_scale = 0.03
 
 def setup():
-    blendMode(MULTIPLY)
     print_text_for_readme(SKETCH_NAME, OUTPUT)
     size(500, 500, P2D)
+    blendMode(MULTIPLY)
     noStroke()
+    
     hatches.append(Hatch(color(0, 255, 255), # cian
                          radians(15)))
     hatches.append(Hatch(color(255, 0, 255), # magenta
@@ -30,7 +31,7 @@ def draw():
 
     for i, h in enumerate(hatches):
         f = frameCount / 100
-        h.plot(no_rotation=(f % cycles == i))
+        h.plot()
 
     global_rot += 0.0314
 
@@ -54,7 +55,7 @@ class Hatch:
         self.c = c
         #println((self.x, self.y, s))
 
-    def plot(self, no_rotation):
+    def plot(self):
         with pushMatrix():
             translate(self.x, self.y)
             rotate(self.rot)
