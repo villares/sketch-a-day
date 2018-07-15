@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s197b"  # 20180713
+SKETCH_NAME = "s198b"  # 20180713
 OUTPUT = ".gif"
 
 from gif_export_wrapper import *
@@ -30,9 +30,9 @@ def draw():
     for i, h in enumerate(hatches):
         h.plot()
 
-    global_rot += 0.0314
+    global_rot += 0.0314 * 2
 
-    if not frameCount % 5:
+    if not frameCount % 2:
         gif_export(GifMaker, filename=SKETCH_NAME)
 
     if global_rot > TWO_PI:
