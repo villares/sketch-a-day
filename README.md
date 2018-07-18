@@ -6,13 +6,29 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+---
+
+![s200](s200/s200.gif)
+
+200: [code](https://github.com/villares/sketch-a-day/tree/master/s200) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s199](s199/s199.gif)
+
+199: [code](https://github.com/villares/sketch-a-day/tree/master/s199) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s198](s198/s198.gif)
+
+198: [code](https://github.com/villares/sketch-a-day/tree/master/s198) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s197](s197/s197.gif)
 
 197: [code](https://github.com/villares/sketch-a-day/tree/master/s197) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -38,20 +54,17 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 193: [code](https://github.com/villares/sketch-a-day/tree/master/s193) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s192](s192/s192_73.gif)
 
 192: [code](https://github.com/villares/sketch-a-day/tree/master/s192) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s191](s191/s191b.gif)
 
 191: [code](https://github.com/villares/sketch-a-day/tree/master/s191) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -66,7 +79,6 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 ![s189](s189/s189.gif)
 
 189: [code](https://github.com/villares/sketch-a-day/tree/master/s189) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
