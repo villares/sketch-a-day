@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s202 20180719 (picking up from s180 20180627)
+# s203 20180720 (picking up from s180 20180627)
 
 from gif_export_wrapper import *
 add_library('gifAnimation')
@@ -7,7 +7,7 @@ add_library('peasycam')
 GRID_SIZE = 10
 SKETCH_NAME = "s203"
 OUTPUT = ".png"
-color_mode = True
+color_mode = False
 
 def setup():
     lights()
@@ -16,8 +16,7 @@ def setup():
     cam.setMinimumDistance(1000)
     cam.setMaximumDistance(1000)
     colorMode(HSB)
-    noStroke()
-    # strokeWeight(4)
+    strokeWeight(2)
     print_text_for_readme(SKETCH_NAME, OUTPUT)
     border = 50
     spacing = (width - border * 2) / GRID_SIZE
@@ -40,8 +39,9 @@ def draw():
     background(0)
     for i, node in enumerate(Node.nodes):
         node.plot_links()
-        if (frameCount + i) % 31 == 0:
+        if (frameCount + i) % 17 == 0:
             node.update()
+    gif_export(GifMaker)
 
 class Node():
     nodes = []
@@ -53,17 +53,20 @@ class Node():
         self.visited = False
         self.current = False
         self.links = []
-        self.cor = 255
+        self.cor = None
 
     def plot_links(self):
+        if self.cor is not None:
+            c = color(self.cor % 256, 255, 255)
+        else:
+            c = color(255)
+            
         if color_mode:
             stroke(0)
-            colorMode(HSB)
-            fill(color(self.cor % 256, 255, 255))
+            fill(c)
         else:
-            colorMode(RGB)
-            stroke(255)
-            fill(color(self.cor % 256))
+            stroke(c)
+            fill(0)
         with pushMatrix():
             translate(self.x, self.y, self.z)
             box(Node.spacing / 2)
@@ -92,6 +95,8 @@ class Node():
         self.set_unvisited_nbs()
         if self.current:
             self.visited = True
+            if not self.cor:
+                self.cor = 0
             if self.unvisited_nbs:
                 for unvisited_nb in self.unvisited_nbs[::2]:
                     self.links.append(unvisited_nb)
@@ -117,6 +122,8 @@ def keyPressed():
         color_mode = not color_mode
     if key in ['s', 'S']:
         saveFrame("####" + SKETCH_NAME + OUTPUT)
+    if key == 'q':
+        gif_export(GifMaker, finish=True)
         
         
 
