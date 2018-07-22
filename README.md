@@ -6,12 +6,31 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+
 ---
 
-![s204](s204/s204.png)
+
+![s204](s205b/s205b.gif)
+
+205b: [code](https://github.com/villares/sketch-a-day/tree/master/s205b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Two layer version. Added `rotateX(rot)`.
+
+---
+
+![s204](s205/s205.gif)
+
+205: [code](https://github.com/villares/sketch-a-day/tree/master/s205) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+One layer version, I'll use it to test some ideas another day.
+
+---
+
+![s204](s204/s204.gif)
 
 204: [code](https://github.com/villares/sketch-a-day/tree/master/s204) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+At each cycle, it starts on the next node.
 
 ---
 
@@ -19,11 +38,15 @@ If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/w
 
 203: [code](https://github.com/villares/sketch-a-day/tree/master/s203) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+A big one, animated the maze generation process.
+
 ---
 
 ![s202](s202/s202.png)
 
 202: [code](https://github.com/villares/sketch-a-day/tree/master/s202) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+A bigger one
 
 ---
 
