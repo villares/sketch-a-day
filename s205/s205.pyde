@@ -5,18 +5,19 @@ from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 10
+GRID_SIZE = 7
 SKETCH_NAME = "s205"
 OUTPUT = ".png"
 color_mode = True
 starting_node = 0
+end_cycle = False
 
 def setup():
     lights()
     size(700, 700, P3D)
     cam = PeasyCam(this, 100)
-    cam.setMinimumDistance(500)
-    cam.setMaximumDistance(750)
+    cam.setMinimumDistance(1000)
+    cam.setMaximumDistance(1000)
     colorMode(HSB)
     strokeWeight(2)
     print_text_for_readme(SKETCH_NAME, OUTPUT)
@@ -29,7 +30,7 @@ def setup():
                 Node.nodes.append(Node(
                     border + spacing / 2 + x * spacing - width / 2,
                     border + spacing / 2 + y * spacing - width / 2,
-                    border + spacing / 2 + z * spacing - width / 2))
+                    border + spacing / 2 + z * spacing )) #- width / 2))
     for node in Node.nodes:
         node.set_nbs()
         
@@ -42,22 +43,31 @@ def draw():
     for node in Node.nodes:
         node.plot_links()
         node.update()
-    if frameCount % 2:
-        gif_export(GifMaker)
         
+    gif_export(GifMaker)
+    
+    if end_cycle == True:
+        gif_export(GifMaker)
+        gif_export(GifMaker)
+        clear_grid()
+        global end_cycle 
+        end_cycle = False    
+
 def clear_grid():
-    for node in Node.nodes:
-        node.visited = False
-        node.links = []
-        node.cor = None
+    global starting_node
+    starting_node += 1
         
     if starting_node < len(Node.nodes):
-        Node.nodes[starting_node].current = True
-    elif starting_node == len(Node.nodes):
-        pass
+        for node in Node.nodes:
+            node.visited = False
+            node.current = False
+            node.links = []
+            node.cor = None
+        Node.nodes[starting_node].current = True  
     else:
         gif_export(GifMaker, finish=True)
-        
+        noLoop()
+ 
 
 class Node():
     nodes = []
@@ -114,9 +124,10 @@ class Node():
             if not self.cor:
                 self.cor = 0
             if self.unvisited_nbs:
-                for unvisited_nb in self.unvisited_nbs[::2]:
+                for unvisited_nb in self.unvisited_nbs[::-2]:
                     self.links.append(unvisited_nb)
                     self.current = False
+                    unvisited_nb.visited = True
                     unvisited_nb.current = True
                     unvisited_nb.cor = self.cor + 10
             else:
@@ -129,9 +140,8 @@ class Node():
                     next.current = True
                 else:
                     print("finished")
-                    global starting_node
-                    starting_node += 1
-                    clear_grid()
+                    global end_cycle
+                    end_cycle = True
 
 def keyPressed():
     global color_mode
@@ -139,15 +149,15 @@ def keyPressed():
         color_mode = not color_mode
     if key in ['p', 'P']:
         saveFrame("####" + SKETCH_NAME + OUTPUT)
-    if key == 's':
-        gif_export(GifMaker, finish=True)
-    if key == 'g':
-        gif_export(GifMaker)
-    if key == 'r':
-        clear_grid()
-    if key in ['=', '+']:
-        global starting_node
-        starting_node += 1
+    # if key == 's':
+    #     gif_export(GifMaker, finish=True)
+    # if key == 'g':
+    #     gif_export(GifMaker)
+    # if key == 'r':
+    #     clear_grid()
+    # if key in ['=', '+']:
+    #     global starting_node
+    #     starting_node += 1
 
 
 def print_text_for_readme(name, output):
