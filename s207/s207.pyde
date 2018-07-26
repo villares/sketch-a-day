@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s204 20180721
+# s207 20180724
 
 from gif_export_wrapper import *
 add_library('gifAnimation')
