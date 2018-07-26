@@ -6,7 +6,7 @@ add_library('gifAnimation')
 add_library('peasycam')
 
 GRID_SIZE = 11
-SKETCH_NAME = "s207"
+SKETCH_NAME = "s208"
 OUTPUT = ".png"
 color_mode = True
 starting_node = 0
@@ -16,7 +16,7 @@ def setup():
     lights()
     size(700, 700, P3D)
     cam = PeasyCam(this, 100)
-    cam.setMinimumDistance(500)
+    cam.setMinimumDistance(1000)
     cam.setMaximumDistance(1000)
     #colorMode(HSB)
     strokeWeight(2)
@@ -25,7 +25,7 @@ def setup():
     Node.spacing = (width - Node.border * 2) / GRID_SIZE
     for x in range(GRID_SIZE):
         for y in range(GRID_SIZE):
-            for z in range(1):
+            for z in range(GRID_SIZE):
                 Node.nodes.append(Node(x, y, z))
     Node.rooms = [node for node in Node.nodes 
                   if node.ix % 2 == 1 and
@@ -66,7 +66,6 @@ def clear_grid():
             node.visited = False
             node.current = False
             node.links = []
-            node.cor = None
         Node.nodes[starting_node].current = True
     else:
         gif_export(GifMaker, finish=True)
@@ -86,7 +85,7 @@ class Node():
         self.visited = False
         self.current = False
         self.links = []
-        self.cor = 255
+        self.cor = color(255)
         self.nbs = []
 
     def plot(self):
@@ -116,7 +115,7 @@ class Node():
             #         self.ix == node.ix + 1 or
             #         self.iy == node.iy - 1 or
             #         self.iy == node.iy + 1):
-                self.cor = color(255, 0, 0)
+                node.cor = color(255, 0, 0)
                 self.nbs.append(node)
                 self.unvisited_nbs.append(node)
 
