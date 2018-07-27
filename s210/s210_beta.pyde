@@ -2,9 +2,10 @@
 # s210 20180727
 
 from gif_export_wrapper import *
+add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 21
+GRID_SIZE = 11
 SKETCH_NAME = "s210"
 OUTPUT = ".png"
 color_mode = True
@@ -27,23 +28,29 @@ def setup():
                 Node.nodes.append(Node(x, y, z))
     Node.rooms = [node for node in Node.nodes
                   if node.ix % 2 == 1 and
-                     node.iy % 2 == 1 and
-                     node.iz % 2 == 1]
+                  node.iy % 2 == 1 and
+                  node.iz % 2 == 1]
     for node in Node.rooms:
         node.set_nbs()
         node.cor = color(0, 0, 255)
 
     clear_grid()
-    
-    frameRate(2)
 
 def draw():
     lights()
     background(200)
 
     for node in Node.nodes:
-        if node.iz - 1 < frameCount % GRID_SIZE:
+        if node.iz - 1 < frameCount / 10 % GRID_SIZE:
             node.plot()
+
+    # gif_export(GifMaker)
+
+    # if end_cycle == True:
+    #     gif_export(GifMaker)
+    #     clear_grid()
+    #     global end_cycle
+    #     end_cycle = False
 
 def clear_grid():
     global starting_node, end_cycle
@@ -55,6 +62,9 @@ def clear_grid():
             node.current = False
             node.links = []
         Node.rooms[starting_node].current = True
+    # else:
+    #     gif_export(GifMaker, finish=True)
+    #     noLoop()
 
     while not end_cycle:
         for node in Node.rooms:
@@ -104,6 +114,10 @@ class Node():
                                          self.x, self.y, self.z) <= Node.spacing * 2:
                     self.rnbs.append(node)
                     self.unvisited_rnbs.append(node)
+                # if (self.ix == node.ix - 1 or
+                #         self.ix == node.ix + 1 or
+                #         self.iy == node.iy - 1 or
+                #         self.iy == node.iy + 1):
 
     def set_unvisited_rnbs(self):
         self.unvisited_rnbs = [node for node in self.rnbs
@@ -152,8 +166,14 @@ def keyPressed():
         saveFrame("####" + SKETCH_NAME + OUTPUT)
     if key == 's':
         gif_export(GifMaker, finish=True)
+    # if key == 'g':
+    #     gif_export(GifMaker)
     if key == 'r':
         clear_grid()
+    # if key in ['=', '+']:
+    #     global starting_node
+    #     starting_node += 1
+
 
 def print_text_for_readme(name, output):
     println("""
