@@ -5,7 +5,7 @@ from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 11
+GRID_SIZE = 21
 SKETCH_NAME = "s209"
 OUTPUT = ".png"
 color_mode = True
@@ -13,7 +13,6 @@ starting_node = 0
 end_cycle = False
 
 def setup():
-    lights()
     size(700, 700, P3D)
     cam = PeasyCam(this, 100)
     cam.setMinimumDistance(500)
@@ -39,18 +38,16 @@ def setup():
 
 
 def draw():
-    # lights()
+    lights()
     background(0)
-    # for node in Node.rooms:
-    #     node.plot()
-        # node.plot_links()
+
     for node in Node.nodes:
         node.plot()
 
     for node in Node.rooms:
         node.update()
 
-    # gif_export(GifMaker)
+    gif_export(GifMaker)
 
     if end_cycle == True:
         gif_export(GifMaker)
@@ -62,7 +59,7 @@ def draw():
 def clear_grid():
     global starting_node
     starting_node += 1
-
+    Node.corridors = []
     if starting_node < len(Node.rooms):
         for node in Node.rooms:
             node.visited = False
@@ -76,6 +73,8 @@ def clear_grid():
 
 class Node():
     nodes = []
+    rooms = []
+    corridors = []
 
     def __init__(self, x, y, z):
         self.ix = x
@@ -87,65 +86,59 @@ class Node():
         self.visited = False
         self.current = False
         self.links = []
-        self.cor = color(255)
+        self.cor = color(255, 50)
         self.nbs = []
         self.rnbs = []
 
     def plot(self):
         fill(self.cor)
-        if self in Node.rooms:
+        if self not in Node.corridors:
             with pushMatrix():
                 translate(self.x, self.y, self.z)
                 box(Node.spacing)
-        else:
-            with pushMatrix():
-                translate(self.x, self.y, self.z)
-                box(Node.spacing/2)
-
-
-    # def plot_links(self):
-    #     for node in self.rnbs:
-    #         stroke(255, 0, 0)
-    #         line(self.x, self.y, self.z, node.x, node.y, node.z)
 
     def set_nbs(self):
-        self.nbs, self.unvisited_nbs = [], []
+        self.nbs, self.unvisited_rnbs = [], []
         for node in Node.nodes:
             if node != self and dist(node.x, node.y, node.z,
                                      self.x, self.y, self.z) <= Node.spacing * 1:
-                node.cor = color(255, 0, 0)
                 self.nbs.append(node)
         if self in Node.rooms:
             for node in Node.rooms:
                 if node != self and dist(node.x, node.y, node.z,
                                          self.x, self.y, self.z) <= Node.spacing * 2:
                     self.rnbs.append(node)
-                    self.unvisited_nbs.append(node)
+                    self.unvisited_rnbs.append(node)
                 # if (self.ix == node.ix - 1 or
                 #         self.ix == node.ix + 1 or
                 #         self.iy == node.iy - 1 or
                 #         self.iy == node.iy + 1):
 
-    def set_unvisited_nbs(self):
-        self.unvisited_nbs = [node for node in self.rnbs
+    def set_unvisited_rnbs(self):
+        self.unvisited_rnbs = [node for node in self.rnbs
                               if not node.visited]
 
+    def find_corridor(self, other):
+         for n1 in self.nbs:
+             for n2 in other.nbs:
+                 if n1 == n2:
+                     return n1
+
     def update(self):
-        self.set_unvisited_nbs()
+        self.set_unvisited_rnbs()
         if self.current:
             self.visited = True
-            self.cor = color(0)
-            if self.unvisited_nbs:
-                for unvisited_nb in self.unvisited_nbs[::-2]:
-                    self.links.append(unvisited_nb)
-                    unvisited_nb.links.append(self)
+            Node.corridors.append(self)
+            if self.unvisited_rnbs:
+                for unvisited_rnb in self.unvisited_rnbs[::-2]:
+                    Node.corridors.append(self.find_corridor(unvisited_rnb))
                     self.current = False
-                    unvisited_nb.visited = True
-                    unvisited_nb.current = True
-                    unvisited_nb.cor = self.cor + 10
+                    unvisited_rnb.visited = True
+                    unvisited_rnb.current = True
+                    unvisited_rnb.cor = self.cor + 10
             else:
                 branch_nodes = [node for node in Node.nodes
-                                if node.visited and node.unvisited_nbs]
+                                if node.visited and node.unvisited_rnbs]
                 if branch_nodes:
                     print(len(branch_nodes))
                     next = branch_nodes[-1]
@@ -155,17 +148,17 @@ class Node():
                     print("finished")
                     global end_cycle
                     end_cycle = True
-                    noLoop()
+                    #noLoop()
 
 def keyPressed():
+    loop()
     global color_mode
     if key == 'c':
         color_mode = not color_mode
     if key in ['p', 'P']:
         saveFrame("####" + SKETCH_NAME + OUTPUT)
-    loop()
-    # if key == 's':
-    #     gif_export(GifMaker, finish=True)
+    if key == 's':
+        gif_export(GifMaker, finish=True)
     # if key == 'g':
     #     gif_export(GifMaker)
     # if key == 'r':
