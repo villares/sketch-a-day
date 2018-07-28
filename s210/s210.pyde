@@ -1,10 +1,9 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # s210 20180727
 
-from gif_export_wrapper import *
 add_library('peasycam')
 
-GRID_SIZE = 21
+GRID_SIZE = 11
 SKETCH_NAME = "s210"
 OUTPUT = ".png"
 color_mode = True
@@ -16,7 +15,6 @@ def setup():
     cam = PeasyCam(this, 100)
     cam.setMinimumDistance(1000)
     cam.setMaximumDistance(1000)
-    # colorMode(HSB)
     strokeWeight(2)
     print_text_for_readme(SKETCH_NAME, OUTPUT)
     Node.border = 50
@@ -32,10 +30,9 @@ def setup():
     for node in Node.rooms:
         node.set_nbs()
         node.cor = color(0, 0, 255)
-
     clear_grid()
-    
     frameRate(2)
+    
 
 def draw():
     lights()
@@ -53,7 +50,7 @@ def clear_grid():
         for node in Node.rooms:
             node.visited = False
             node.current = False
-            node.links = []
+            node.unvisited_rnbs = []
         Node.rooms[starting_node].current = True
 
     while not end_cycle:
@@ -74,10 +71,10 @@ class Node():
         self.z = Node.border + Node.spacing / 2 + z * Node.spacing - width / 2
         self.visited = False
         self.current = False
-        self.links = []
         self.cor = None
         self.nbs = []
         self.rnbs = []
+        self.unvisited_rnbs = []
 
     def plot(self):
         if self.cor:
@@ -93,7 +90,7 @@ class Node():
                 box(Node.spacing)
 
     def set_nbs(self):
-        self.nbs, self.unvisited_rnbs = [], []
+
         for node in Node.nodes:
             if node != self and dist(node.x, node.y, node.z,
                                      self.x, self.y, self.z) <= Node.spacing * 1:
@@ -141,17 +138,13 @@ class Node():
                     print("finished")
                     global end_cycle
                     end_cycle = True
-                    # noLoop()
 
 def keyPressed():
-    loop()
     global color_mode
     if key == 'c':
         color_mode = not color_mode
     if key in ['p', 'P']:
         saveFrame("####" + SKETCH_NAME + OUTPUT)
-    if key == 's':
-        gif_export(GifMaker, finish=True)
     if key == 'r':
         clear_grid()
 
