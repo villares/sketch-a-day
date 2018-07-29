@@ -5,7 +5,7 @@ from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 17 # 16 on the exported GIF
+GRID_SIZE = 17 # 16 and "odds" on the exported GIF
 SKETCH_NAME = "s211"
 OUTPUT = ".gif"
 
@@ -25,12 +25,12 @@ def setup():
         for y in range(GRID_SIZE):
             for z in range(GRID_SIZE):
                 Node.nodes.append(Node(x, y, z))
-    # Node.rooms is a list of spaced nodes inside the grid
-    Node.rooms = [node for node in Node.nodes
-                  if node.ix % 2 == 1 and
-                     node.iy % 2 == 1 and
-                     node.iz % 2 == 1]
-    for node in Node.rooms:
+    # Node.evens is a list of spaced nodes on the grid
+    Node.evens = [node for node in Node.nodes
+                  if node.ix % 2 == 0 and
+                     node.iy % 2 == 0 and
+                     node.iz % 2 == 0]
+    for node in Node.evens:
         node.cor = color(0, 0, 255)
 
 def draw():
@@ -54,7 +54,7 @@ def draw():
 
 class Node():
     nodes = []
-    rooms = []
+    evens = []
 
     def __init__(self, x, y, z):
         self.ix = x
