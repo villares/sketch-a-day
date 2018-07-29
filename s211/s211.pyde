@@ -5,7 +5,7 @@ from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 16
+GRID_SIZE = 17 # 16 on the exported GIF
 SKETCH_NAME = "s211"
 OUTPUT = ".gif"
 
