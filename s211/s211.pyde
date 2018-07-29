@@ -1,66 +1,60 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s210 20180727
+# s211 20180728
 
+from gif_export_wrapper import *
+add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 11
-SKETCH_NAME = "s210"
+GRID_SIZE = 16
+SKETCH_NAME = "s211"
 OUTPUT = ".png"
-color_mode = True
-starting_node = 0
-end_cycle = False
 
 def setup():
+    # print_text_for_readme(SKETCH_NAME, OUTPUT)
     size(700, 700, P3D)
+    hint(ENABLE_DEPTH_SORT)
+    # optional PeasyCam setup to allow orbiting with a mouse drag
     cam = PeasyCam(this, 100)
     cam.setMinimumDistance(1000)
     cam.setMaximumDistance(1000)
-    strokeWeight(2)
-    print_text_for_readme(SKETCH_NAME, OUTPUT)
+    # sets border and grid spacing
     Node.border = 50
     Node.spacing = (width - Node.border * 2) / GRID_SIZE
+    # Node.nodes is a list of nodes in a 3D grid
     for x in range(GRID_SIZE):
         for y in range(GRID_SIZE):
             for z in range(GRID_SIZE):
                 Node.nodes.append(Node(x, y, z))
+    # Node.rooms is a list of spaced nodes inside the grid
     Node.rooms = [node for node in Node.nodes
                   if node.ix % 2 == 1 and
                      node.iy % 2 == 1 and
                      node.iz % 2 == 1]
     for node in Node.rooms:
-        node.set_nbs()
         node.cor = color(0, 0, 255)
-    clear_grid()
-    frameRate(2)
-    
 
 def draw():
     lights()
-    background(200)
-
+    # arbitray rotation
+    rotate(-1, 1/2, 1, 1/2)
+    background(100)
+    # angle based on frameCount to animate box sizes
+    ang = frameCount/10.
+    
     for node in Node.nodes:
-        if node.iz - 1 < frameCount % GRID_SIZE:
             node.plot()
-
-def clear_grid():
-    global starting_node, end_cycle
-    starting_node += 1
-    Node.corridors = []
-    if starting_node < len(Node.rooms):
-        for node in Node.rooms:
-            node.visited = False
-            node.current = False
-            node.unvisited_rnbs = []
-        Node.rooms[starting_node].current = True
-
-    while not end_cycle:
-        for node in Node.rooms:
-            node.update()
+            node.update(ang)
+            
+    # stop after a full size animatiom cycle
+    if ang < TWO_PI:
+        gif_export(GifMaker)
+    else:
+        gif_export(GifMaker, finish=True)
+    
 
 class Node():
     nodes = []
     rooms = []
-    corridors = []
 
     def __init__(self, x, y, z):
         self.ix = x
@@ -69,86 +63,34 @@ class Node():
         self.x = Node.border + Node.spacing / 2 + x * Node.spacing - width / 2
         self.y = Node.border + Node.spacing / 2 + y * Node.spacing - width / 2
         self.z = Node.border + Node.spacing / 2 + z * Node.spacing - width / 2
-        self.visited = False
-        self.current = False
+        self.size_ = 1 
         self.cor = None
-        self.nbs = []
-        self.rnbs = []
-        self.unvisited_rnbs = []
+        self.update(0)
 
     def plot(self):
+        """ draws box """
         if self.cor:
+            stroke(0)
             fill(self.cor)
         else:
-            if color_mode:
-                fill(255, 50)
-            else:
-                fill(128)
-        if color_mode or self not in Node.corridors:
-            with pushMatrix():
+            stroke(0)
+            fill(255, 100)
+        with pushMatrix():
                 translate(self.x, self.y, self.z)
-                box(Node.spacing)
+                box(Node.spacing * self.size_)
 
-    def set_nbs(self):
+    def update(self, ang):
+        """ changing box size """
+        self.size_ = sin(self.x + self.y + self.z + ang)
 
-        for node in Node.nodes:
-            if node != self and dist(node.x, node.y, node.z,
-                                     self.x, self.y, self.z) <= Node.spacing * 1:
-                self.nbs.append(node)
-        if self in Node.rooms:
-            for node in Node.rooms:
-                if node != self and dist(node.x, node.y, node.z,
-                                         self.x, self.y, self.z) <= Node.spacing * 2:
-                    self.rnbs.append(node)
-                    self.unvisited_rnbs.append(node)
-
-    def set_unvisited_rnbs(self):
-        self.unvisited_rnbs = [node for node in self.rnbs
-                               if not node.visited]
-
-    def find_corridor(self, other):
-        for n1 in self.nbs:
-            for n2 in other.nbs:
-                if n1 == n2:
-                    return n1
-
-    def update(self):
-        self.set_unvisited_rnbs()
-        if self.current:
-            self.visited = True
-            Node.corridors.append(self)
-            if self.unvisited_rnbs:
-                for unvisited_rnb in self.unvisited_rnbs[::-2]:
-                    corridor = self.find_corridor(unvisited_rnb)
-                    Node.corridors.append(corridor)
-                    corridor.cor = color(0, 255, 0)
-                    self.current = False
-                    unvisited_rnb.visited = True
-                    unvisited_rnb.current = True
-
-            else:
-                branch_nodes = [node for node in Node.nodes
-                                if node.visited and node.unvisited_rnbs]
-                if branch_nodes:
-                    print(len(branch_nodes))
-                    next = branch_nodes[-1]
-                    self.current = False
-                    next.current = True
-                else:
-                    print("finished")
-                    global end_cycle
-                    end_cycle = True
 
 def keyPressed():
-    global color_mode
-    if key == 'c':
-        color_mode = not color_mode
+    """ press P to save an image """
     if key in ['p', 'P']:
         saveFrame("####" + SKETCH_NAME + OUTPUT)
-    if key == 'r':
-        clear_grid()
 
 def print_text_for_readme(name, output):
+    """ prints text in the console to add to project README.md """
     println("""
 ![{0}]({0}/{0}{2})
 
