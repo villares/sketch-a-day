@@ -7,7 +7,7 @@ add_library('peasycam')
 
 GRID_SIZE = 16
 SKETCH_NAME = "s211"
-OUTPUT = ".png"
+OUTPUT = ".gif"
 
 def setup():
     # print_text_for_readme(SKETCH_NAME, OUTPUT)
@@ -46,10 +46,10 @@ def draw():
             node.update(ang)
             
     # stop after a full size animatiom cycle
-    if ang < TWO_PI:
-        gif_export(GifMaker)
-    else:
-        gif_export(GifMaker, finish=True)
+    # if ang < TWO_PI:
+    #     gif_export(GifMaker)
+    # else:
+    #     gif_export(GifMaker, finish=True)
     
 
 class Node():
