@@ -1,13 +1,13 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s211 20180728
+# s213 20180730
 
 from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 16
-SKETCH_NAME = "s211"
-OUTPUT = ".png"
+GRID_SIZE = 17
+SKETCH_NAME = "s213"
+OUTPUT = ".gif"
 
 def setup():
     # print_text_for_readme(SKETCH_NAME, OUTPUT)
@@ -25,36 +25,37 @@ def setup():
         for y in range(GRID_SIZE):
             for z in range(GRID_SIZE):
                 Node.nodes.append(Node(x, y, z))
-    # Node.rooms is a list of spaced nodes inside the grid
-    Node.rooms = [node for node in Node.nodes
-                  if node.ix % 2 == 1 and
-                     node.iy % 2 == 1 and
-                     node.iz % 2 == 1]
-    for node in Node.rooms:
-        node.cor = color(0, 0, 255)
-
+    # Node.walls is a list of nodes on the cube surface
+    end_pos = GRID_SIZE - 1
+    Node.walls = [node for node in Node.nodes
+                  if node.ix == 0 or node.ix == end_pos
+                  or node.iy == 0 or node.iy == end_pos
+                  or node.iz == 0 or node.iz == end_pos
+                  ]
 def draw():
     lights()
     # arbitray rotation
-    rotate(-1, 1/2, 1, 1/2)
+    rotate(-0.5, 1/2, 1, 1/2)
+
+
     background(100)
     # angle based on frameCount to animate box sizes
-    ang = frameCount/10.
-    
-    for node in Node.nodes:
-            node.plot()
-            node.update(ang)
-            
-    # stop after a full size animatiom cycle
-    if ang < TWO_PI:
-        gif_export(GifMaker)
-    else:
-        gif_export(GifMaker, finish=True)
-    
+    ang = frameCount / 10.
+
+    for node in Node.walls:
+        node.plot()
+        node.update(ang)
+
+    # Save GIF frame & stop after a full size animatiom cycle
+    # if ang < TWO_PI:
+    #     gif_export(GifMaker, filename=SKETCH_NAME)
+    # else:
+    #     gif_export(GifMaker, finish=True)
+
 
 class Node():
     nodes = []
-    rooms = []
+    walls = []
 
     def __init__(self, x, y, z):
         self.ix = x
@@ -63,25 +64,26 @@ class Node():
         self.x = Node.border + Node.spacing / 2 + x * Node.spacing - width / 2
         self.y = Node.border + Node.spacing / 2 + y * Node.spacing - width / 2
         self.z = Node.border + Node.spacing / 2 + z * Node.spacing - width / 2
-        self.size_ = 1 
+        self.size_ = 1
         self.cor = None
         self.update(0)
 
     def plot(self):
         """ draws box """
-        if self.cor:
-            stroke(0)
-            fill(self.cor)
+        s = Node.spacing * self.size_
+        if s > 0:
+            stroke(255)
+            fill(0)
         else:
             stroke(0)
-            fill(255, 100)
+            fill(255)
         with pushMatrix():
-                translate(self.x, self.y, self.z)
-                box(Node.spacing * self.size_)
+            translate(self.x, self.y, self.z)
+            box(s)
 
     def update(self, ang):
         """ changing box size """
-        self.size_ = sin(self.x + self.y + self.z + ang)
+        self.size_ = sin((self.x + self.y + self.z)/60. + ang)
 
 
 def keyPressed():
