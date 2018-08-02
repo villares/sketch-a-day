@@ -5,8 +5,8 @@ from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 16
-SKETCH_NAME = "s214x"
+GRID_SIZE = 15
+SKETCH_NAME = "s215"
 OUTPUT = ".gif"
 
 def setup():
@@ -25,34 +25,8 @@ def setup():
         for y in range(GRID_SIZE):
             for z in range(GRID_SIZE):
                 Node.nodes.append(Node(x, y, z))
-    # Node.rooms is a list of spaced nodes inside the grid
-    Node.rooms = [node for node in Node.nodes
-                  if node.ix % 2 == 0 and
-                     node.iy % 2 == 0 and
-                     node.iz % 2 == 0]
-    for node in Node.rooms:
-        node.cor = color(0, 128, 255)
-    # 3    
-    Node.rooms = [node for node in Node.nodes
-                  if node.ix % 3 == 0 and
-                     node.iy % 3 == 0 and
-                     node.iz % 3 == 0]
-    for node in Node.rooms:
-        node.cor = color(255, 128, 0)
-    # Node.rooms is a list of spaced nodes inside the grid
-    Node.rooms = [node for node in Node.nodes
-                  if node.ix % 5 == 0 and
-                     node.iy % 5 == 0 and
-                     node.iz % 5 == 0]
-    for node in Node.rooms:
-        node.cor = color(128, 0, 255)
-    # 7 
-    Node.rooms = [node for node in Node.nodes
-                  if node.ix % 7 == 0 and
-                     node.iy % 7 == 0 and
-                     node.iz % 7 == 0]
-    for node in Node.rooms:
-        node.cor = color(255, 0, 128)
+
+
         
 def draw():
     lights()
@@ -62,12 +36,23 @@ def draw():
     # angle based on frameCount to animate box sizes
     ang = frameCount/10.
     
+    # Node.rooms is a list of spaced nodes inside the grid
+    s = 1 + (frameCount % GRID_SIZE)
+    Node.rooms = set([node for node in Node.nodes
+                  if node.ix % s == 0 and
+                     node.iy % s == 0 and
+                     node.iz % s == 0])
+    for node in Node.nodes:
+        if node in Node.rooms:
+            node.cor = color(0, 128, 255)
+        else:
+            node.cor = None
     for node in Node.nodes:
             node.plot()
-            node.update(ang)
+            #node.update(ang)
             
     # stop after a full size animatiom cycle
-    if ang < TWO_PI:
+    if frameCount < 16:
         gif_export(GifMaker, filename=SKETCH_NAME)
     else:
         gif_export(GifMaker, finish=True)
@@ -94,8 +79,8 @@ class Node():
             stroke(0)
             fill(self.cor)
         else:
-            stroke(255, 50)
-            fill(255, 10)
+            stroke(255, 10)
+            noFill()
         with pushMatrix():
                 translate(self.x, self.y, self.z)
                 box(Node.spacing * self.size_)
