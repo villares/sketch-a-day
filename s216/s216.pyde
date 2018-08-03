@@ -27,7 +27,7 @@ def setup():
             for z in range(GRID_SIZE):
                 new_node = Node(x, y, z)
                 Node.nodes.append(new_node)
-                Node.node[x,y,z] = new_node
+                Node.grid[x,y,z] = new_node
                 
 def draw():
     lights()
@@ -39,22 +39,22 @@ def draw():
 
     s = frameCount - 1 if frameCount - 1 < m else m
 
-    Node.node[(0, s, s)].cor = color(128, 255, 255)
-    Node.node[(s, 0, s)].cor = color(255, 128, 255)
-    Node.node[(s, s, 0)].cor = color(255, 255, 128)
-    Node.node[(0, 0, s)].cor = color(255, 0, 0)
-    Node.node[(0, s, 0)].cor = color(0, 0, 255)
-    Node.node[(s, 0, 0)].cor = color(0, 255, 0)
-    Node.node[(m, m, s)].cor = color(255, 0, 0)
-    Node.node[(m, s, m)].cor = color(0, 0, 255)
-    Node.node[(s, m, m)].cor = color(0, 255, 0)
-    Node.node[(0, m, s)].cor = color(255, 0, 0)
-    Node.node[(0, s, m)].cor = color(0, 0, 255)
-    Node.node[(s, 0, m)].cor = color(0, 255, 0)
-    Node.node[(m, 0, s)].cor = color(255, 0, 0)
-    Node.node[(m, s, 0)].cor = color(0, 0, 255)
-    Node.node[(s, m, 0)].cor = color(0, 255, 0)
-    Node.node[(s, s, s)].cor = color(255, 255, 255)
+    Node.grid[(0, s, s)].cor = color(128, 255, 255)
+    Node.grid[(s, 0, s)].cor = color(255, 128, 255)
+    Node.grid[(s, s, 0)].cor = color(255, 255, 128)
+    Node.grid[(0, 0, s)].cor = color(255, 0, 0)
+    Node.grid[(0, s, 0)].cor = color(0, 0, 255)
+    Node.grid[(s, 0, 0)].cor = color(0, 255, 0)
+    Node.grid[(m, m, s)].cor = color(255, 0, 0)
+    Node.grid[(m, s, m)].cor = color(0, 0, 255)
+    Node.grid[(s, m, m)].cor = color(0, 255, 0)
+    Node.grid[(0, m, s)].cor = color(255, 0, 0)
+    Node.grid[(0, s, m)].cor = color(0, 0, 255)
+    Node.grid[(s, 0, m)].cor = color(0, 255, 0)
+    Node.grid[(m, 0, s)].cor = color(255, 0, 0)
+    Node.grid[(m, s, 0)].cor = color(0, 0, 255)
+    Node.grid[(s, m, 0)].cor = color(0, 255, 0)
+    Node.grid[(s, s, s)].cor = color(255, 255, 255)
         
     for node in Node.nodes:
             node.plot()
@@ -67,7 +67,7 @@ def draw():
 
 class Node():
     nodes = []
-    rooms = dict()
+    grid = dict()
 
     def __init__(self, x, y, z):
         self.ix = x
