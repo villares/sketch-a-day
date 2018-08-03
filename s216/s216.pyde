@@ -32,11 +32,10 @@ def setup():
 def draw():
     lights()
     # arbitray rotation
-    m = GRID_SIZE - 1
     rotate(-1 + TWO_PI/(GRID_SIZE*2) * frameCount, 1/2, 1, 1/2)
     background(100)
 
-
+    m = GRID_SIZE - 1
     s = frameCount - 1 if frameCount - 1 < m else m
 
     Node.grid[(0, s, s)].cor = color(128, 255, 255)
@@ -78,7 +77,6 @@ class Node():
         self.z = Node.border + Node.spacing / 2 + z * Node.spacing - width / 2
         self.size_ = 1 
         self.cor = None
-        self.update(0)
 
     def plot(self):
         """ draws box """
@@ -92,14 +90,6 @@ class Node():
         with pushMatrix():
                 translate(self.x, self.y, self.z)
                 box(Node.spacing * self.size_)
-
-    def update(self, ang):
-        """ changing box size """
-        if self.cor == None:
-            self.size_ = 1
-        else:
-            self.size_ = cos(ang) #self.x + self.y + self.z + ang)
-
 
 def keyPressed():
     """ press P to save an image """
