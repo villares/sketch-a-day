@@ -1,11 +1,12 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # s216 20180802
 
+from random import randint
 from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
 
-GRID_SIZE = 64
+GRID_SIZE = 32
 SKETCH_NAME = "s217"
 OUTPUT = ".gif"
 
@@ -43,6 +44,16 @@ def setup():
         Node.grid[(m, 0, s)].cor = color(255, 0, 0)
         Node.grid[(m, s, 0)].cor = color(0, 0, 255)
         Node.grid[(s, m, 0)].cor = color(0, 255, 0)
+    for i in range(1,50):
+        c = 255 if i < 25 else None
+        x = randint(1,m)-1
+        y = randint(1,m)-1
+        z = randint(1,m)-1
+        w = randint(1,m-x+1)-1
+        h = randint(1,m-y+1)-1
+        d = randint(1,m-z+1)-1
+        big_box(x, y, z, w, h, d, c) 
+
 
 
 def draw():
@@ -54,16 +65,18 @@ def draw():
     for node in Node.nodes:
         node.plot()
 
-    # if frameCount < GRID_SIZE*2:
-    #     gif_export(GifMaker, filename=SKETCH_NAME)
-    # else:
-    #     gif_export(GifMaker, finish=True)
+    if frameCount < GRID_SIZE*2:
+        gif_export(GifMaker, filename=SKETCH_NAME)
+    else:
+        gif_export(GifMaker, finish=True)
 
 
-def big_box(px, py, pz, w, h, d, c):
+def big_box(px, py, pz, w, h=None, d=None, c=255):
+    h = h if h else w
+    d = d if d else w
     for x in range(px, px + w):
         for y in range(py, py + h):
-            for z im range(pz, pz + d):
+            for z in range(pz, pz + d):
                 if (0 <= x < GRID_SIZE and
                     0 <= y < GRID_SIZE and
                     0 <= z < GRID_SIZE):
@@ -87,7 +100,7 @@ class Node():
     def plot(self):
         """ draws box """
         if self.cor:
-            noStroke()  # stroke(0)
+            #noStroke()  # stroke(0)
             fill(self.cor)
             with pushMatrix():
                 translate(self.x, self.y, self.z)
