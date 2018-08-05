@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s218 20180804
+# s219 20180805
 
 from random import randint
 from gif_export_wrapper import *
@@ -44,32 +44,35 @@ def setup():
         box_list.append((x, y, z, w, h, d))
     for i in range(num_boxes):
         x, y, z, w, h, d = box_list[i]
-        big_box(x, y, z, w, h, d, color(i*4, 255, 255))
+        big_box(x, y, z, w, h, d, color(i * 4))
     for i in range(num_boxes):
         x, y, z, w, h, d = box_list[i]
         side = randint(1, 3)
         if side == 1:
             h -= 1
             w -= 1
+            z -= 1
         elif side == 2:
             d -= 1
             h -= 1
+            x -= 1
         else:
             w -= 1
             d -= 1
-        big_box(x, y, z, w, h, d, None)
+            y -= 1
+        big_box(x + 1, y + 1, z + 1, w - 1, h - 1, d - 1, None)
 
 
 def draw():
     lights()
     # arbitray rotation
-    rotate(-1 + TWO_PI / (GRID_SIZE * 2) * frameCount, 1 / 2, 1, 1 / 2)
+    rotate(-1 + (TWO_PI * frameCount / 200.), 1 / 2, 1, 1 / 2)
     background(100)
 
     for node in Node.nodes:
         node.plot()
 
-    if frameCount < GRID_SIZE * 2:
+    if frameCount / 200. < 1:
         gif_export(GifMaker, filename=SKETCH_NAME)
     else:
         gif_export(GifMaker, finish=True)
