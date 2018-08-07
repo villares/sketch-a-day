@@ -6,6 +6,42 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, make a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) or with [Patreon](https://patreon.com/arteprog)
 
+
+
+
+---
+
+![s221](s221/s221.gif)
+
+221: [code](https://github.com/villares/sketch-a-day/tree/master/s220) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![s220](s220/s220.gif)
+
+220: [code](https://github.com/villares/sketch-a-day/tree/master/s220) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s219](s219/s219.gif)
+
+219: [code](https://github.com/villares/sketch-a-day/tree/master/s219) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s218](s218/s218.gif)
+
+218: [code](https://github.com/villares/sketch-a-day/tree/master/s218) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![s217](s217/s217.gif)
+
+217: [code](https://github.com/villares/sketch-a-day/tree/master/s217) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
 ---
 
 ![s216](s216/s216.gif)
