@@ -83,10 +83,10 @@ def draw():
     for node in Node.nodes:
         node.plot()
 
-    # if frameCount / 200. < 1:
-    #     gif_export(GifMaker, filename=SKETCH_NAME)
-    # else:
-    #     gif_export(GifMaker, finish=True)
+    if frameCount / 200. < 1:
+        gif_export(GifMaker, filename=SKETCH_NAME)
+    else:
+        gif_export(GifMaker, finish=True)
 
 
 def keyPressed():
