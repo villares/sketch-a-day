@@ -1,9 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s224 20180810
-# Lost it! Trying to reconstruct :(
+# s224 20180810 # Lost & reconstructed :/
 
-from __future__ import division
-# made my own randint #from random import randint
+# made my own randint so no need of this: # from random import randint
 from gif_export_wrapper import *
 add_library('gifAnimation')
 add_library('peasycam')
@@ -32,20 +30,20 @@ def setup():
                 new_node = Node(x, y, z)
                 Node.nodes.append(new_node)
                 Node.grid[x, y, z] = new_node
-    create_new_boxes()
+    create_tubes()
 
 
-def create_new_boxes():
-    #seed = 205
-    seed = int(random(1000))
+def create_tubes():
+    # sets the objects, list of tuples -> hollowed boxes
+    seed = int(random(1000)) #seed = 205
     println("seed: {}".format(seed))
     randomSeed(seed)
     m = GRID_SIZE - 1
-    box_list = []
-    num_boxes = 10
+    tube_list = []
+    num_tubes = 10
     border = 1
-    for i in range(num_boxes):
-        # random size in range 3 to GRID_SIZE padded
+    for i in range(num_tubes):
+        # random size in range 3 to GRID_SIZE - borders
         w = randint(3, m - border * 2)
         h = randint(3, m - border * 2)
         d = randint(3, m - border * 2)
@@ -55,15 +53,15 @@ def create_new_boxes():
         z = randint(border, m - d - border)
         box_tuple = (x, y, z, w, h, d)
         print(box_tuple)
-        box_list.append(box_tuple)
-    # solid box 
-    for i in range(num_boxes):
-        x, y, z, w, h, d = box_list[i]
+        tube_list.append(box_tuple)
+    # solid boxes 
+    for i in range(num_tubes):
+        x, y, z, w, h, d = tube_list[i]
         big_box(x, y, z, w, h, d,
                 color(64 + (i % 3) * 32, 200, 200, 100))
-    # erase inside boxes
-    for i in range(num_boxes):
-        x, y, z, w, h, d = box_list[i]
+    # erase inside boxes, making tubes
+    for i in range(num_tubes):
+        x, y, z, w, h, d = tube_list[i]
         side = (i % 3) + 1
         if side == 1:
             h -= 2
@@ -78,10 +76,10 @@ def create_new_boxes():
             d -= 2
             y -= 1
         big_box(x + 1, y + 1, z + 1, w, h, d,
-                None)
-                # use color(0) to debug
+                # use color(0) below, instead of None to debug
                 # color(0))
-
+                None)
+    
 
 def draw():
     lights()
@@ -100,7 +98,7 @@ def keyPressed():
     if key == " ":
         for node in Node.nodes:
             node.cor = None
-        create_new_boxes()
+        create_tubes()
         gif_export(GifMaker, delay=1000, filename=SKETCH_NAME)
     if key == "f":
         gif_export(GifMaker, finish=True)
