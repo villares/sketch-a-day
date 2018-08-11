@@ -9,7 +9,7 @@ add_library('peasycam')
 GRID_SIZE = 32
 SKETCH_NAME = "s225"
 OUTPUT = ".gif"
-
+# Cutting-plane position (press + & - to change)
 cut_plane = GRID_SIZE / 2
 
 def setup():

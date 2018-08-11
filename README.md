@@ -6,14 +6,27 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
+---
+
+![s225](s225/s225.gif)
+
+225: [code](https://github.com/villares/sketch-a-day/tree/master/s225) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now (hollow) boxes, and a cutting-plane controlled by the keyboard.
 
 ---
 
+![s224](s224/s224.gif)
+
+224: [code](https://github.com/villares/sketch-a-day/tree/master/s225) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Tubes! Solid boxes hollowed in one of three directions.
+
+---
 
 ![s223](s223/s223.gif)
 
 223: [code](https://github.com/villares/sketch-a-day/tree/master/s223) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -45,13 +58,11 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 218: [code](https://github.com/villares/sketch-a-day/tree/master/s218) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s217](s217/s217.gif)
 
 217: [code](https://github.com/villares/sketch-a-day/tree/master/s217) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
