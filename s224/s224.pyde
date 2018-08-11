@@ -1,5 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s223 20180809
+# s224 20180810
+# Lost it! Trying to reconstruct :(
 
 from __future__ import division
 # made my own randint #from random import randint
@@ -8,7 +9,7 @@ add_library('gifAnimation')
 add_library('peasycam')
 
 GRID_SIZE = 32
-SKETCH_NAME = "s223"
+SKETCH_NAME = "s224"
 OUTPUT = ".gif"
 
 def setup():
@@ -23,7 +24,7 @@ def setup():
     # sets border and grid spacing
     Node.border = 50
     Node.spacing = (width - Node.border * 2) / GRID_SIZE
-    stroke(0, 10)
+    stroke(0, 200)
     # Node.nodes is a list of nodes in a 3D grid
     for x in range(GRID_SIZE):
         for y in range(GRID_SIZE):
@@ -42,23 +43,25 @@ def create_new_boxes():
     m = GRID_SIZE - 1
     box_list = []
     num_boxes = 10
-    border = 3
+    border = 1
     for i in range(num_boxes):
-        x = randint(border, m - border)
-        y = randint(border, m - border)
-        z = randint(border, m - border)
-        w = randint(3, m - x)
-        h = randint(3, m - y)
-        d = randint(3, m - z)
-        t = (x, y, z, w, h, d)
-        print(t)
-        box_list.append(t)
-    # box
+        # random size in range 3 to GRID_SIZE padded
+        w = randint(3, m - border * 2)
+        h = randint(3, m - border * 2)
+        d = randint(3, m - border * 2)
+        # random position
+        x = randint(border, m - w - border)
+        y = randint(border, m - h - border)
+        z = randint(border, m - d - border)
+        box_tuple = (x, y, z, w, h, d)
+        print(box_tuple)
+        box_list.append(box_tuple)
+    # solid box 
     for i in range(num_boxes):
         x, y, z, w, h, d = box_list[i]
         big_box(x, y, z, w, h, d,
-                color((i % 6) * 255 / 12, 200, 200))
-    # void
+                color(64 + (i % 3) * 32, 200, 200, 100))
+    # erase inside boxes
     for i in range(num_boxes):
         x, y, z, w, h, d = box_list[i]
         side = (i % 3) + 1
