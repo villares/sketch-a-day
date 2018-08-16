@@ -40,18 +40,18 @@ def my_box(side):
             (+1, +1, -1),
             (-1, +1, -1),
             )
-    top = ((-1, -1, -1),
-           (+1, -1, -1),
-           (+1, +1, -1),
-           (-1, +1, -1),
+    top = ((-1, -1, +1),
+           (+1, -1, +1),
+           (+1, +1, +1),
+           (-1, +1, +1),
            )
 
-    faces = ((top, color(255, 0, 0, 100)),
-             (down, color(0, 255, 0, 100)),
-             (right, color(0, 0, 255, 100)),
-             (left, color(255, 255, 0, 100)),
-             (back, color(255, 0, 255, 100)),
-             (front, color(0, 255, 255, 100)),
+    faces = ((top, color(255, 0, 0)),
+             (down, color(0, 255, 0)),
+             (right, color(0, 0, 255)),
+             (left, color(255, 255, 0)),
+             (back, color(255, 0, 255)),
+             (front, color(0, 255, 255)),
              )
 
     for pts, shade in faces:
