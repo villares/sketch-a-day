@@ -6,6 +6,29 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
+---
+
+![s233](s233/s233.gif)
+
+233: [code](https://github.com/villares/sketch-a-day/tree/master/s232) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s232](s232/s232.png)
+
+232: [code](https://github.com/villares/sketch-a-day/tree/master/s232) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s231](s231/s231.gif)
+
+231: [code](https://github.com/villares/sketch-a-day/tree/master/s231) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s230](s230/s230.png)
+
+230: [code](https://github.com/villares/sketch-a-day/tree/master/s230) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
@@ -13,13 +36,11 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 229: [code](https://github.com/villares/sketch-a-day/tree/master/s229) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s228](s228/s228.png)
 
 228: [code](https://github.com/villares/sketch-a-day/tree/master/s228) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
