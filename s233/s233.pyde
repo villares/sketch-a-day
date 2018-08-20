@@ -1,6 +1,6 @@
 add_library('OBJExport')
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# s232 20180818
+# s233 20180819
 
 # made my own randint so no need of this: # from random import randint
 from gif_export_wrapper import gif_export
