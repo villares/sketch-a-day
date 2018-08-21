@@ -36,7 +36,7 @@ def setup():
                 Node.nodes.append(new_node)
                 Node.grid[x, y, z] = new_node
     # crear objects
-    create_boxes()
+    create_tubes()
 
 def draw():
     # lights()
@@ -53,16 +53,16 @@ def draw():
         global export
         export = False
 
-def create_boxes():
+def create_tubes():
     # sets the objects, list of tuples -> hollowed boxes
-    seed = int(random(1000))  # seed = 205
+    seed = int(random(1000)) #seed = 205
     println("seed: {}".format(seed))
     randomSeed(seed)
     m = GRID_SIZE - 1
-    box_list = []
-    num_boxes = 10
+    tube_list = []
+    num_tubes = 10
     border = 1
-    for i in range(num_boxes):
+    for i in range(num_tubes):
         # random size in range 3 to GRID_SIZE - borders
         w = randint(3, m - border * 2)
         h = randint(3, m - border * 2)
@@ -72,33 +72,33 @@ def create_boxes():
         y = randint(border, m - h - border)
         z = randint(border, m - d - border)
         box_tuple = (x, y, z, w, h, d)
-        # print(box_tuple)
-        box_list.append(box_tuple)
-    # solid boxes
-    for i in range(num_boxes):
-        x, y, z, w, h, d = box_list[i]
-        big_ugly(x, y, z, w, h, d,
-                color(64 + (i % 3) * 32, 200, 200, 255))
-    # erase inside boxes
-    for i in range(num_boxes):
-        x, y, z, w, h, d = box_list[i]
-        # big_box(x + 1, y + 1, z + 1, w - 2, h - 2, d - 2,
-        #         # use color(0) below, instead of None to debug
-        #         # color(0))
-        #         None)
-        # side = (i % 3) + 1
-        # if side == 1:
-        #     h -= 2
-        #     w -= 2
-        #     z -= 1
-        # elif side == 2:
-        #     d -= 2
-        #     h -= 2
-        #     x -= 1
-        # else:
-        #     w -= 2
-        #     d -= 2
-        #     y -= 1
+        print(box_tuple)
+        tube_list.append(box_tuple)
+    # solid boxes 
+    for i in range(num_tubes):
+        x, y, z, w, h, d = tube_list[i]
+        big_box(x, y, z, w, h, d,
+                color(64 + (i % 3) * 32, 200, 200, 100))
+    # erase inside boxes, making tubes
+    for i in range(num_tubes):
+        x, y, z, w, h, d = tube_list[i]
+        side = (i % 3) + 1
+        if side == 1:
+            h -= 2
+            w -= 2
+            z -= 1
+        elif side == 2:
+            d -= 2
+            h -= 2
+            x -= 1
+        else:
+            w -= 2
+            d -= 2
+            y -= 1
+        big_box(x + 1, y + 1, z + 1, w, h, d,
+                # use color(0) below, instead of None to debug
+                # color(0))
+                None)
 
 def keyPressed():
     """ press P to save an image """
@@ -107,7 +107,7 @@ def keyPressed():
     if key == " ":
         for node in Node.nodes:
             node.cor = None
-        create_boxes()
+        create_tubes()
     if key == "g":
         gif_export(GifMaker, delay=1000, filename=SKETCH_NAME)
     if key == "f":
