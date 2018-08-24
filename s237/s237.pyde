@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s236" #20180822
+SKETCH_NAME = "s237" #20180823
 
 # made my own randint so no need of this: # from random import randint
 from gif_export_wrapper import gif_export
@@ -35,7 +35,7 @@ def setup():
                 Node.grid[x, y, z] = new_node
     # crear objects
     create_rods()
-    create_tubes()
+    #create_tubes()
 
 def draw():
     # lights()
@@ -100,14 +100,14 @@ def big_ugly(px, py, pz, w, h=None, d=None, c=255):
                 if (0 <= x < GRID_SIZE and
                         0 <= y < GRID_SIZE and
                         0 <= z < GRID_SIZE):
-                    if w % 3 == 1:
-                        orient =  x % 2 and y % 2
-                    elif w % 3 == 2:
-                        orient = x % 2 and z % 2
-                    else:
-                        orient = y % 2 and z % 2
-                    if orient:
+                        orient1 =  x % 2 and y % 2
+                        orient2 = x % 2 and z % 2
+                        orient3 = y % 2 and z % 2
+                        if orient1 or orient2 or orient3:
                         Node.grid[(x, y, z)].cor = c
+                else:
+                    Node.grid[(x, y, z)].cor = None
+                
 
 
 def create_tubes():
