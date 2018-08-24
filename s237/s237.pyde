@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s237" #20180823
+SKETCH_NAME = "s237"  # 20180823
 
 # made my own randint so no need of this: # from random import randint
 from gif_export_wrapper import gif_export
@@ -35,7 +35,7 @@ def setup():
                 Node.grid[x, y, z] = new_node
     # crear objects
     create_rods()
-    #create_tubes()
+    # create_tubes()
 
 def draw():
     # lights()
@@ -53,8 +53,6 @@ def draw():
         export = False
 
 
-   
-
 def keyPressed():
     """ press P to save an image """
     if key in ['p', 'P']:
@@ -63,7 +61,7 @@ def keyPressed():
         for node in Node.nodes:
             node.cor = None
         create_rods()
-        create_tubes()
+        #create_tubes()
     if key == "g":
         gif_export(GifMaker, delay=2000, filename=SKETCH_NAME)
     if key == "f":
@@ -100,19 +98,18 @@ def big_ugly(px, py, pz, w, h=None, d=None, c=255):
                 if (0 <= x < GRID_SIZE and
                         0 <= y < GRID_SIZE and
                         0 <= z < GRID_SIZE):
-                        orient1 =  x % 2 and y % 2
-                        orient2 = x % 2 and z % 2
-                        orient3 = y % 2 and z % 2
-                        if orient1 or orient2 or orient3:
-                        Node.grid[(x, y, z)].cor = c
-                else:
-                    Node.grid[(x, y, z)].cor = None
-                
+                    orient1 = x % 2 and y % 2
+                    orient2 = x % 2 and z % 2
+                    orient3 = y % 2 and z % 2
+                    if orient1 or orient2 or orient3:
+                      Node.grid[(x, y, z)].cor = c
+                    else:
+                      Node.grid[(x, y, z)].cor = None
 
 
 def create_tubes():
     # sets the objects, list of tuples -> hollowed boxes
-    seed = int(random(1000)) #seed = 205
+    seed = int(random(1000))  # seed = 205
     println("seed: {}".format(seed))
     randomSeed(seed)
     m = GRID_SIZE - 1
@@ -131,7 +128,7 @@ def create_tubes():
         box_tuple = (x, y, z, w, h, d)
         print(box_tuple)
         tube_list.append(box_tuple)
-    # solid boxes 
+    # solid boxes
     for i in range(num_tubes):
         x, y, z, w, h, d = tube_list[i]
         big_box(x, y, z, w, h, d,
@@ -182,7 +179,7 @@ def create_rods():
     for i in range(num_boxes):
         x, y, z, w, h, d = box_list[i]
         big_ugly(x, y, z, w, h, d, color(128 + (i % 3) * 32, 200, 200))
-        
+
 class Node():
     nodes = []
     grid = dict()
