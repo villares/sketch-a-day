@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s239"  # 20180825
+OUTPUT = ".gif"
 
-# made my own randint so no need of this: # from random import randint
 from gif_export_wrapper import gif_export
 from my_box import my_box
 add_library('gifAnimation')
@@ -10,7 +10,7 @@ add_library('dxf')
 add_library('OBJExport')
 
 GRID_SIZE = 32
-OUTPUT = ".gif"
+
 # Cutting-plane position (press + & - to change)
 cut_plane = GRID_SIZE
 export = False
@@ -33,13 +33,12 @@ def setup():
                 new_node = Node(x, y, z)
                 Node.nodes.append(new_node)
                 Node.grid[x, y, z] = new_node
-    # crear objects
+    # create objects
     create_frames()
-    # create_tubes()
 
 def draw():
     global export
-    rotateY(QUARTER_PI)
+    rotateY(-QUARTER_PI)
     lights()
     background(100)
     if export:
@@ -62,7 +61,6 @@ def keyPressed():
         for node in Node.nodes:
             node.cor = None
         create_frames()
-        # create_tubes()
     if key == "g":
         gif_export(GifMaker, delay=2000, filename=SKETCH_NAME)
     if key == "f":
@@ -79,16 +77,6 @@ def keyPressed():
         export = True
 
 
-def big_box(px, py, pz, w, h=None, d=None, c=255):
-    h = h if h else w
-    d = d if d else w
-    for z in range(pz, pz + d):
-        for y in range(py, py + h):
-            for x in range(px, px + w):
-                if (0 <= x < GRID_SIZE and
-                        0 <= y < GRID_SIZE and
-                        0 <= z < GRID_SIZE):
-                    Node.grid[(x, y, z)].cor = c
 
 def cube_frame(px, py, pz, w, h=None, d=None, c=255):
     h = h if h else w
@@ -116,64 +104,15 @@ def cube_frame(px, py, pz, w, h=None, d=None, c=255):
                         Node.grid[(x, y, z)].cor = c
                     else:
                         pass
-                        # Node.grid[(x, y, z)].cor = None
+                        #Node.grid[(x, y, z)].cor = None
 
-
-def create_tubes():
+def create_frame_list(num_boxes):
     # sets the objects, list of tuples -> hollowed boxes
     seed = int(random(1000))  # seed = 205
     println("seed: {}".format(seed))
     randomSeed(seed)
     m = GRID_SIZE - 1
-    tube_list = []
-    num_tubes = 10
-    border = 1
-    for i in range(num_tubes):
-        # random size in range 3 to GRID_SIZE - borders
-        w = randint(3, m - border * 2)
-        h = randint(3, m - border * 2)
-        d = randint(3, m - border * 2)
-        # random position
-        x = randint(border, m - w - border)
-        y = randint(border, m - h - border)
-        z = randint(border, m - d - border)
-        box_tuple = (x, y, z, w, h, d)
-        print(box_tuple)
-        tube_list.append(box_tuple)
-    # solid boxes
-    for i in range(num_tubes):
-        x, y, z, w, h, d = tube_list[i]
-        big_box(x, y, z, w, h, d,
-                color(64 + (i % 3) * 32, 200, 200))
-    # erase inside boxes, making tubes
-    for i in range(num_tubes):
-        x, y, z, w, h, d = tube_list[i]
-        side = (i % 3) + 1
-        if side == 1:
-            h -= 2
-            w -= 2
-            z -= 1
-        elif side == 2:
-            d -= 2
-            h -= 2
-            x -= 1
-        else:
-            w -= 2
-            d -= 2
-            y -= 1
-        big_box(x + 1, y + 1, z + 1, w, h, d,
-                # use color(0) below, instead of None to debug
-                # color(0))
-                None)
-
-def create_frames():
-    # sets the objects, list of tuples -> hollowed boxes
-    seed = int(random(1000))  # seed = 205
-    println("seed: {}".format(seed))
-    randomSeed(seed)
-    m = GRID_SIZE - 1
-    box_list = []
-    num_boxes = 10
+    frame_list = []
     border = 1
     for i in range(num_boxes):
         # random size in range 3 to GRID_SIZE - borders
@@ -186,10 +125,15 @@ def create_frames():
         z = randint(border, m - d - border)
         box_tuple = (x, y, z, w, h, d)
         # print(box_tuple)
-        box_list.append(box_tuple)
+        frame_list.append(box_tuple)    
+    return frame_list
+
+def create_frames():
+    num_boxes = 6
+    frame_list = create_frame_list(num_boxes)
     # solid boxes
     for i in range(num_boxes):
-        x, y, z, w, h, d = box_list[i]
+        x, y, z, w, h, d = frame_list[i]
         cube_frame(x, y, z, w, h, d, color(64 + (i % 3) * 32, 200, 200))
 
 class Node():
