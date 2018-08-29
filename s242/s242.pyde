@@ -12,6 +12,8 @@ def setup():
         f.append(random(.2, 5))
     
 def draw():
+    background(0)
+    translate(0, height/2, 0)
     for x in range(width):
         for i in range(n):
             ang = x / 30.
