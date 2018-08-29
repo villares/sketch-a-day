@@ -13,7 +13,7 @@ def setup():
     
 def draw():
     background(0)
-    translate(0, height/2, 0)
+    translate(0, height/2)
     for x in range(width):
         for i in range(n):
             ang = x / 30.
