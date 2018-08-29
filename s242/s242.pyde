@@ -1,18 +1,27 @@
+
+h, a, f = [], [], []
+n = 18
+
 def setup():
     size(1024, 300)
     blendMode(ADD)
     background(0)
+    for i in range(n):
+        h.append(random(-height/2,height/2))
+        a.append(random(-height/2, height/2))
+        f.append(random(.2, 5))
     
 def draw():
-    translate(-100, height/2, 0)
-    scale(3,-1,1)
-    ang = frameCount / 30.
-    stroke(255, 0, 0)
-    line(frameCount, height/2, frameCount, height/2 + sin(ang) * 100)
-    stroke(0, 255, 0)
-    line(frameCount, height/2, frameCount, height/2 + cos(ang) * 100)
-    stroke(0, 0, 255)
-    line(frameCount, height/2, frameCount, height/2 + abs(sin(ang)) * 100)
+    for x in range(width):
+        for i in range(n):
+            ang = x / 30.
+            if i % 3 == 0:
+                stroke(255, 0, 0)
+            elif i % 3 == 1:
+                stroke(0, 255, 0)
+            else:
+                stroke(0, 0, 255)
+            line(x, h[i], x, h[i] + sin(ang * f[i]) * a[i])
 
-    if ang > width: 
-        noLoop()
+def keyPressed():
+    loop()
