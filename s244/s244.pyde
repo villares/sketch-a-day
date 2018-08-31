@@ -9,22 +9,24 @@ def setup():
 def keyPressed():
     curvas[:] = []
     for i in range(n):
-        h.append((random(-height/4,height/2)),
-        random(-height/2, height/2)),
-         random(.2, 5)
-                 )
+        curvas.append((random(-height/4,height/4),
+                  random(-height/4, height/4),
+                  random(.2, 5),
+                  random(.2, 5),
+                  random(.2, 5),
+                 ))
 
 def draw():
     background(0)
     translate(0, height/2)
     for x in range(width):
-          for h, f, a in curvas:
+          for h, a, f1, f2, f3 in curvas:
             ang = x / 30.
-            if h % 3 == 0:
+            if int(a) % 3 == 0:
                 stroke(255, 0, 0)
-            elif h % 3 == 1:
+            elif int(a) % 3 == 1:
                 stroke(0, 255, 0)
             else:
                 stroke(0, 0, 255)
-            s = sin(ang * f) * a
-            line(x, 0, x, h + s)
+            s = sin(ang * f1) + sin(ang * f2) + sin(ang * f3) 
+            line(x, h, x, h+ s * a)
