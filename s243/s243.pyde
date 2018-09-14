@@ -1,3 +1,7 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s243"  # 20180829
+OUTPUT = ".png"
+
 h, a, f = [], [], []
 n = 6
 
@@ -12,6 +16,7 @@ def keyPressed():
         h.append(random(-height/4,height/2))
         a.append(random(-height/2, height/2))
         f.append(random(.2, 5))
+    saveFrame(SKETCH_NAME+OUTPUT)
 
 def draw():
     background(0)
@@ -31,3 +36,16 @@ def draw():
                  sin(ang * f[i-2]) * a[i-2]
                  )
             line(x, h[i], x, h[i] + s)
+            
+def settings():
+    print_text_for_readme(SKETCH_NAME, OUTPUT)
+    
+def print_text_for_readme(name, output):
+    """ prints text in the console to add to project README.md """
+    println("""
+![{0}]({0}/{0}{2})
+
+{1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+""".format(name, name[1:], output)
+    )

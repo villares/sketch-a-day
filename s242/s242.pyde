@@ -1,3 +1,5 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s242"  # 20180828
 
 h, a, f = [], [], []
 n = 18
