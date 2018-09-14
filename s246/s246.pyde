@@ -1,3 +1,7 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s246"  # 20180901
+OUTPUT = ".png"
+
 curvas = []
 n = 3
 
@@ -41,3 +45,16 @@ def draw():
             vertex(x, 10 + h + s * a)
         endShape(CLOSE)
         
+# this part is for making it easy to add a markdown static "blog" entry 
+def settings():
+    print_text_for_readme(SKETCH_NAME, OUTPUT)
+    
+def print_text_for_readme(name, output):
+    """ prints text in the console to add to project README.md """
+    println("""
+![{0}]({0}/{0}{2})
+
+{1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+""".format(name, name[1:], output)
+    )
