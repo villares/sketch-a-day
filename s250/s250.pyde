@@ -1,4 +1,11 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s250"  # 20180905
+OUTPUT = ".png"
 
+def settings():
+    """ making it easier to add a markdown static "blog" entry """
+    from log_aid import print_text_for_readme
+    print_text_for_readme(SKETCH_NAME, OUTPUT)
 
 def setup():
     size(400, 400)
@@ -19,3 +26,4 @@ def draw():
         ellipse(0, 0, 100, 100)
         fill(0)
         ellipse(0, 50, 10, 10)
+        

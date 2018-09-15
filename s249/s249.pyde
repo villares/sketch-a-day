@@ -1,3 +1,7 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s249"  # 20180904
+OUTPUT = ".png"
+
 curvas = []
 n = 3
 
@@ -39,3 +43,13 @@ def draw():
             vertex(x, h + s * a)
         endShape()
         
+# this part is for making it easy to add a markdown static "blog" entry 
+def settings():
+    println(
+"""
+![{0}]({0}/{0}{2})
+
+{1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+""".format(SKETCH_NAME, SKETCH_NAME[1:], OUTPUT)
+)

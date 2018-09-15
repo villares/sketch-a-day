@@ -6,6 +6,78 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
+---
+
+![s258](s258/s258.png)
+
+258: [code](https://github.com/villares/sketch-a-day/tree/master/s258) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s257](s257/s257.png)
+
+257: [code](https://github.com/villares/sketch-a-day/tree/master/s257) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![s256](s256/s256.png)
+
+256: [code](https://github.com/villares/sketch-a-day/tree/master/s256) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![s254](s254/s254.png)
+
+254: [code](https://github.com/villares/sketch-a-day/tree/master/s254) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s253](s253/s253.png)
+
+253: [code](https://github.com/villares/sketch-a-day/tree/master/s253) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s252](s252/s252.png)
+
+252: [code](https://github.com/villares/sketch-a-day/tree/master/s252) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s251](s251/s251.png)
+
+251: [code](https://github.com/villares/sketch-a-day/tree/master/s251) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s250](s250/s250.png)
+
+250: [code](https://github.com/villares/sketch-a-day/tree/master/s250) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+This was kind of a dead end. It's easy to rotate stuff with pushMatrix(), transtlate() and rotate(), but it doesn't work inside beginShape() as I found out the next day.
+
+---
+
+![s249](s249/s249.png)
+
+249: [code](https://github.com/villares/sketch-a-day/tree/master/s249) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![s248](s248/s248.png)
+
+248: [code](https://github.com/villares/sketch-a-day/tree/master/s248) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Animation
+
+---
+
+![s247](s247/s247.png)
+
+247: [code](https://github.com/villares/sketch-a-day/tree/master/s247) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
