@@ -16,6 +16,8 @@ def keyPressed():
         h.append(random(-height/4,height/2))
         a.append(random(-height/2, height/2))
         f.append(random(.2, 5))
+        
+def mousePressed():
     saveFrame(SKETCH_NAME+OUTPUT)
 
 def draw():
