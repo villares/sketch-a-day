@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s258"  # 20180913
+SKETCH_NAME = "s259"  # 20180914
 OUTPUT = ".png"
 
 def setup():
