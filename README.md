@@ -2,9 +2,19 @@
 # sketch-a-day
 ### one visual idea a day [[on GitHub!](https://github.com/villares/sketch-a-day)]
 
-Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. I'm working mostly with [Processing Python Mode](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN) and sometimes [Processing Java Mode](https://processing.org) and [P5JS (JavaScript)](p5js.org) or other stuff.
+Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. I'm working mostly with Python ([Processing Python Mode](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)) and sometimes [Processing Java Mode](https://processing.org) and [P5JS (JavaScript)](p5js.org) or other stuff.
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
+
+---
+
+![s269](s269/s269.png)
+269: [code](https://github.com/villares/sketch-a-day/tree/master/s269) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s268](s268/s268.png)
+268: [code](https://github.com/villares/sketch-a-day/tree/master/s268) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
