@@ -14,7 +14,8 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 ---
 
 ![s268](s268/s268.png)
-268: [code](https://github.com/villares/sketch-a-day/tree/master/s268) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+268: [code](https://github.com/villares/sketch-a-day/tree/master/s268) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] & 
+[code](https://github.com/villares/sketch-a-day/blob/master/s268_pygame/s268_pygame.py)[[Pygame](https://wwwpygame.org)]
 
 ---
 
