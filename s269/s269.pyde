@@ -2,7 +2,7 @@
 SKETCH_NAME = "s269"  # 20180924
 OUTPUT = ".png"
 
-import colorsys
+from random import randint
 from random import choice
 
 gliphs = [ lambda x, y, s: rect(x, y, s, s),
@@ -26,10 +26,10 @@ def draw():
 def ensamble(ex, ey, order):
     with pushMatrix():
         translate(ex, ey)
-        for _ in xrange(order): 
-            fill(0 + int(random(3)) * 51, 255, 255)
+        for _ in range(order): 
+            fill(0 + randint(0, 2) * 51, 255, 255)
             order, spacing, side = int(random(3, 6)), 14, 7
-            x, y = int(random(-5, 5)) * side, int(random(-5, 5)) * side    
+            x, y = randint(-5, 4) * side, randint(-5, 4) * side    
             grid(x, y, order, spacing, choice(gliphs), side)
 
 def grid(x, y, order, spacing, function, *args):
