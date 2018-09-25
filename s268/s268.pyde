@@ -3,6 +3,7 @@ SKETCH_NAME = "s268"  # 20180923
 OUTPUT = ".png"
 
 from random import choice
+from random import randint
 
 gliphs = [ lambda x, y, s: rect(x, y, s, s),
            lambda x, y, s: ellipse(x, y, s, s),
@@ -25,7 +26,7 @@ def ensamble(ex, ey, order):
         translate(ex, ey)
         for _ in xrange(order): 
             order, spacing, side = int(random(3, 12)), 12, 6
-            x, y = int(random(-6, 6)) * side, int(random(-6, 6)) * side    
+            x, y = randint(-6, 5) * side, randint(-6, 5) * side   
             grid(x, y, order, spacing, choice(gliphs), side)
 
 def grid(x, y, order, spacing, function, *args):
