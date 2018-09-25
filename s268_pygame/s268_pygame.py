@@ -16,7 +16,7 @@ def setup():
     size(700, 700)
     rectMode(CENTER)
 
-          
+
 def draw():
     background(250)
     # ensamble of 5 , on grid also order=5
@@ -77,9 +77,9 @@ def fill(r, g=None, b=None):
     else:
         current_fill = (r, r, r)
 
-def size(h, w):
-    global height, width
-    height, width = h, w
+def size(w, h):
+    global width, height
+    width, height = w, h
 
 def noLoop():
     global _pause
@@ -108,18 +108,18 @@ def run():
     _pause = False
 
     setup()
+
     # Set the height and width of the screen
-    screen = pygame.display.set_mode([height, width])
+    screen = pygame.display.set_mode([width, height])
     pygame.display.set_caption(SKETCH_NAME)
     clock = pygame.time.Clock()
-
     draw()
     # Loop until the user clicks the close button.
     while not _done:
         # This limits the while loop to a max of 10 times per second.
         # Leave this out and we will use all CPU we can.
         clock.tick(10)
-        # Get Pygame events
+
         for event in pygame.event.get():  # User did something
             if event.type == pygame.QUIT:  # If user clicked close
                 _done = True  # Flag that we are _done so we exit this loop
@@ -133,7 +133,6 @@ def run():
         # Go ahead and update the screen with what we've drawn.
         # This MUST happen after all the other drawing commands.
         pygame.display.flip()
-
     # Be IDLE friendly
     pygame.quit()
 
