@@ -13,6 +13,7 @@ gliphs = [lambda x, y, s: rect(x, y, s, s),
 
 def setup():
     size(700, 700)
+    rectMode(CENTER)
 
 def draw():
     background(250)
@@ -52,6 +53,9 @@ def line(x1, y1, x2, y2):
 #    pygame.draw.aaline(screen, current_stroke, [x1, y1],[x2, y2], True)
 
 def rect(x, y, w, h):
+    if _rect_mode == CENTER:
+        x -= w/2
+        y -= h/2
     pygame.draw.rect(screen, current_fill, [x, y, w, h], 0)
     pygame.draw.rect(screen, current_stroke, [x, y, w, h], stroke_weight)
 
@@ -83,9 +87,15 @@ def noLoop():
 def loop():
     global _pause
     _pause = False
-
+    
+def rectMode(c):
+    _rect_mode = c
+        
 
 def run():
+    global CENTER, CORNER, _rect_mode
+    _rect_mode = CORNER = 0
+    CENTER = 3
     global width, height, screen, current_fill, current_stroke, stroke_weight, _pause
     # Initialize the game engine
     pygame.init()
@@ -99,7 +109,7 @@ def run():
     setup()
 
     # Set the height and width of the screen
-    screen = pygame.display.set_mode([width, height])
+    screen = pygame.display.set_mode([height, width])
     pygame.display.set_caption(SKETCH_NAME)
     clock = pygame.time.Clock()
     draw()
