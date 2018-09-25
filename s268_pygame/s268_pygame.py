@@ -2,6 +2,7 @@
 SKETCH_NAME = "s268"  # 20180923
 
 import pygame  # install Pygame https://www.pygame.org
+import pygame.gfxdraw
 from random import choice
 from random import randint
 
@@ -42,26 +43,25 @@ def grid(x, y, order, spacing, function, *args):
 # Now stuff to make it easier to port from Processing to Pygame
 
 def triangle(x0, y0, x1, y1, x2, y2):
-    # This draws a triangle using the polygon command
-    pygame.draw.polygon(screen, current_fill,
-                        [[x0, y0], [x1, y1], [x2, y2]], 0)
-    pygame.draw.polygon(screen, current_stroke,
-                        [[x0, y0], [x1, y1], [x2, y2]], stroke_weight)
+    # This draws a triangle
+    pygame.gfxdraw.filled_trigon(screen, int(x0), int(y0), int(x1), int(y1), int(x2), int(y2), current_fill)
+    pygame.gfxdraw.trigon(screen, int(x0), int(y0), int(x1), int(y1), int(x2), int(y2), current_stroke)
 
-def line(x1, y1, x2, y2):
-    pygame.draw.line(screen, current_fill, [x1, y1], [x2, y2], stroke_weight)
-#    pygame.draw.aaline(screen, current_stroke, [x1, y1],[x2, y2], True)
+# def line(x1, y1, x2, y2):
+#    pygame.draw.aaline(screen, current_fill, [x1, y1], [x2, y2], stroke_weight)
 
 def rect(x, y, w, h):
     if _rect_mode == CENTER:
         x -= w/2
         y -= h/2
-    pygame.draw.rect(screen, current_fill, [x, y, w, h], 0)
-    pygame.draw.rect(screen, current_stroke, [x, y, w, h], stroke_weight)
+    pygame.gfxdraw.box(screen, (int(x), int(y), int(w), int(h)), current_fill)
+    pygame.gfxdraw.rectangle(screen, (int(x), int(y), int(w), int(h)), current_stroke)
 
 def ellipse(x, y, w, h):
-    pygame.draw.ellipse(screen, current_fill, [x, y, w, h], 0)
-    pygame.draw.ellipse(screen, current_stroke, [x, y, w, h], stroke_weight)
+    x -= w/2
+    y -= h/2
+    pygame.gfxdraw.filled_ellipse(screen, int(x), int(y), int(w/2), int(h/2), current_fill)
+    pygame.gfxdraw.ellipse(screen, int(x), int(y), int(w/2), int(h/2), current_stroke)
 
 def background(r, g=None, b=None):
     if g and b:
