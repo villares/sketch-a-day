@@ -19,7 +19,7 @@ def setup():
     
 def draw():
     noLoop()
-    background(250) 
+    background(200) 
     grid(width/4, height/2, 4, 150, ensamble, 5) # ensamble of 5 , on grid also order=5
     grid(width/4*3, height/2, 4, 150, ensamble, 5) # ensamble of 5 , on grid also order=5
 

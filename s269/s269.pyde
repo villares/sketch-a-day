@@ -28,7 +28,7 @@ def ensamble(ex, ey, order):
         translate(ex, ey)
         for _ in range(order): 
             fill(0 + randint(0, 2) * 51, 255, 255)
-            order, spacing, side = int(random(3, 6)), 14, 7
+            order, spacing, side = randint(3, 5), 14, 7
             x, y = randint(-5, 4) * side, randint(-5, 4) * side    
             grid(x, y, order, spacing, choice(gliphs), side)
 
