@@ -1,15 +1,17 @@
-# ASCII video
-
 """
+ ASCII video
  Aperte 'g' para gravar um PDF na pasta do sketch
  Press 'g' to record a PDF
  a, d, w, s to change sizes
 """
+
 add_library('video')
 add_library('pdf')
+
+color_mode = False
 recordingPDF = False
-grid_size = 16  # tamanho da grade
-font_size = 16  # tamanho dsa letras
+grid_size = 8  # tamanho da grade
+font_size = 12  # tamanho dsa letras
 gliphs = (
     " .`-_':,;^=+/\"|)\\<>)iv%xclrs{*}I?!][1taeo7zjLu" +
     "nT#JCwfy325Fp6mqSghVd4EgXPGZbYkOA&8U$@KHDBWNMR0Q"
@@ -17,8 +19,7 @@ gliphs = (
 print(gliphs)    
 
 def setup():
-    global fonte
-    global colunas, filas, video
+    global fonte, n_cols, n_rows, video
     size(640, 480)
     noStroke()
     smooth()
@@ -29,38 +30,32 @@ def setup():
     video = Capture(this, width, height)
     # Começa a captura
     video.start()
-    background(0)
-
 
 def draw():
-    global recordingPDF, filas, colunas
-    colunas = int(width / grid_size)
-    filas = int(height / grid_size)
+    global recordingPDF, n_rows, n_cols
+    n_cols = int(width / grid_size)
+    n_rows = int(height / grid_size)
     if video.available():
         background(255) 
         # se foi apertado 'g'
         if recordingPDF:
-            # fill(0)
-            # rect(0, 0, width, height)
             beginRecord(PDF, "Imagem.pdf")
         video.read()
         video.loadPixels()
-        # Loopando as colunas da grade
-        for i in range(colunas):
-            # Loop das filas
-            for j in range(filas):
-                x = i * grid_size
-                y = j * grid_size
-                pos = y * video.width + x # índice da posição do pixel
-                #cor = video.get(x, y)
-                cor = video.pixels[pos]
-                bri = brightness(cor)
-                dar = int(map(bri, 0, 255, 0, len(gliphs)-1))
-                fill(cor) # gliph color
+        for c in range(n_cols):
+            x = c * grid_size
+            for r in range(n_rows):
+                y = r * grid_size
+                i = y * video.width + x # índice da posição do pixel
+                #colour = video.get(x, y)
+                colour = video.pixels[i]
+                bri = brightness(colour)
+                g = int(map(bri, 0, 255, 0, len(gliphs)-1))
+                if color_mode: fill(colour)
+                else: fill(0)
                 textSize(font_size)
-                text(gliphs[dar], x + grid_size / 2, y + grid_size / 2)
-             # dim fo loop das filas
-         # fim do loop das colunas
+                text(gliphs[g], x + grid_size / 2, y + grid_size / 2)
+
         if (recordingPDF):
             endRecord()
             println('saved ascii_image.pdf')
@@ -68,7 +63,7 @@ def draw():
 
 
 def keyPressed(self):
-    global recordingPDF, font_size, grid_size
+    global recordingPDF, font_size, grid_size, color_mode
     if key == 'g':
         recordingPDF = True
     if key == 'w':
@@ -79,4 +74,5 @@ def keyPressed(self):
         grid_size += 1
     if key == 'd' and grid_size > 1:
         grid_size -= 1
- 
+    if key == 'c':
+        color_mode = not color_mode
