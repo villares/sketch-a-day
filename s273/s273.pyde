@@ -8,6 +8,8 @@ def setup():
     noSmooth() # turns off antialiasing
     textAlign(CENTER, CENTER)
     printable_ascii = list(range(32, 127))# + list(range(161, 256))
+    f = createFont("SourceCodePro-Bold", 24)
+    textFont(f)
     
 def draw():
     global i, gliphs    
@@ -49,3 +51,8 @@ def present():
     text("{} B:{}\nW:{}:\nO:{}".format(ord(gliph), b, w, o), width/2, 20)
     textSize(100)
     text(gliph, width/2, height/2)
+
+# .`:,';-_*"~!i|/\rI^)+(l?{><=}tc[]sjvJL7f1xzTyYF5e23onuaV4$SkC#EPhZX96U0pqKdbGA%gH8wRBmODN&Q@WM SourceCodePro Bold
+# .`:,';_-*"~!i|/\rI^+()l?}{<>=tc[]sjvJL7f1xzTyYF5e23nuoaV4$SkC#EPhZX906UKpqdbGA%gH8wR@BmODN&QWM Default    
+# .`-',:_;~"!Ii\/r^><+=l|1?t()c*L}z{jvfJ7sx[]TYFnuCyo2kaeS54V3XhPEZUAK690bdqHp#$R8GDOwmNgBQ%&MW@ Open Sans
+# `'.^"~,_-:\/;|*!+)(=<>71?il[]{}rtIjvJuznc3LYf4s%o2a&xVC5Uk9hywFZeT60PS$OD@gbKAXdm8GEHRq#NpWBMQ Courier
