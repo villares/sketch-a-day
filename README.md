@@ -8,6 +8,35 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
+![s274](s274/s274.png)
+274: [code](https://github.com/villares/sketch-a-day/tree/master/s274) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s273](s273/s273.png)
+273: [code](https://github.com/villares/sketch-a-day/tree/master/s273) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+This sorts a gliph sequence from lighter to darker
+
+---
+
+![s272](s272/s272.png)
+272: [code](https://github.com/villares/sketch-a-day/tree/master/s272) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s271](s271/s271.png)
+
+271: [code](https://github.com/villares/sketch-a-day/tree/master/s271) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s270](s270/s270.png)
+
+270: [code](https://github.com/villares/sketch-a-day/tree/master/s270) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![s269](s269/s269.png)
 
 269: [code](https://github.com/villares/sketch-a-day/tree/master/s269) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -34,7 +63,6 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 ![s265](s265/s265.png)
 265: [code](https://github.com/villares/sketch-a-day/tree/master/s265) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s264](s264/s264.png)
@@ -45,20 +73,17 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 ![s263](s263/s263.png)
 263: [code](https://github.com/villares/sketch-a-day/tree/master/s263) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s262](s262/s262.png)
 
 262: [code](https://github.com/villares/sketch-a-day/tree/master/s262) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s261](s261/s261.png)
 
 261: [code](https://github.com/villares/sketch-a-day/tree/master/s261) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -84,13 +109,11 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 257: [code](https://github.com/villares/sketch-a-day/tree/master/s257) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s256](s256/s256.png)
 
 256: [code](https://github.com/villares/sketch-a-day/tree/master/s256) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -130,7 +153,6 @@ This was kind of a dead end. It's easy to rotate stuff with pushMatrix(), transt
 
 249: [code](https://github.com/villares/sketch-a-day/tree/master/s249) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s248](s248/s248.png)
@@ -151,13 +173,11 @@ Animation
 
 246: [code](https://github.com/villares/sketch-a-day/tree/master/s246) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![s245](s245/s245.png)
 
 245: [code](https://github.com/villares/sketch-a-day/tree/master/s245) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
