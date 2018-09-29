@@ -3,6 +3,8 @@ table = []
 def setup():
     global gliphs, tally
     size(100, 200)
+    background(255)
+    fill(0)
     noSmooth() # turns off antialiasing
     textAlign(CENTER, CENTER)
     printable_ascii = list(range(32, 127)) + list(range(161, 256))
@@ -33,7 +35,6 @@ def count_pixels():
             
 def draw():
     background(255)
-    fill(0)
     i = int(map(mouseY, 0, height-1, 0, len(gliphs)-1))
     gliph, b, w, o = table[i]
     textSize(8)
