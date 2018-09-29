@@ -1,18 +1,25 @@
 
+table = []
+gliphs = ""
+
 def setup():
+    global gliphs
     size(100, 100)
     fill(0)
     textSize(60)
     textAlign(CENTER, CENTER)
-    for c in range(10, 256):
+    printable_ascii = list(range(32, 127)) + list(range(161, 256))
+    for c in printable_ascii:
         gliph = chr(c)
-        if gliph != u"":
+        if  gliph:
             background(255)
             text(gliph, width/2, height/2)
             tally = count_pixels()
             print("{}({}) black: {} white: {} other: {}"
               .format(c, gliph, *tally))
-
+            gliphs += gliph
+            table.append(tally)
+            print(gliphs)
 
 def count_pixels():
     black, white, other = 0, 0, 0
