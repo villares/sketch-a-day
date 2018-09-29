@@ -1,6 +1,4 @@
-
 table = []
-gliphs = ""
 
 def setup():
     global gliphs, tally
@@ -12,15 +10,13 @@ def setup():
     printable_ascii = list(range(32, 127)) + list(range(161, 256))
     for c in printable_ascii:
         gliph = chr(c)
-        if  gliph:
-            background(255)
-            text(gliph, width/2, height/2)
-            tally = count_pixels()
-            print("{}({}) black: {} white: {} other: {}"
+        background(255)
+        text(gliph, width/2, height/2)
+        tally = count_pixels()
+        print("{}({}) black: {} white: {} other: {}"
               .format(c, gliph, *tally))
-            gliphs += gliph
-            b, w, o = tally
-            table.append((c, b, w, o))
+        b, w, o = tally
+        table.append((c, b, w, o))
     table.sort(key=lambda s: s[1])
     gliphs = "".join([chr(c) for c, b, w, o in table])
     print(gliphs)
