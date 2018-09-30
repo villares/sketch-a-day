@@ -3,14 +3,10 @@ SKETCH_NAME = "s274"  # 20180929
 OUTPUT = ".png"
 
 from random import choice
-letter = " "
+
 ascii = """ .`:,';-_*"~!i|/\rI^)+(l?{><=}tc[]sjvJL7f1xzTyYF5e23onuaV4$SkC#EPhZX96U0pqKdbGA%gH8wRBmODN&Q@WM"""
-gliphs = [ # lambda x, y, s: rect(x, y, s, s),
-           # lambda x, y, s: ellipse(x, y, s, s),
-           # lambda x, y, s: triangle(x - s, y, x - s, y + s, x, y + s),
-           # lambda x, y, s: triangle(x + s, y, x + s, y - s, x, y - s),
-           lambda x, y, s: text(letter, x, y)
-           ]
+gliph = lambda x, y, l: text(l, x, y)
+
 
 def setup():
     size(1200, 600)
@@ -31,15 +27,12 @@ def draw():
 def ensamble(ex, ey, order):
     with pushMatrix():
         translate(ex, ey)
-        for _ in xrange(order): 
-            #fill(int(random(5)) * 32, 255, 250, 255) #fill(random(4) * 64, 255, 255, 100)
-            global letter
-            letter = choice(ascii)
+        for _ in range(order): 
+            c = choice(ascii)
             fill(0)
-            noFill()
             order, spacing, side = int(random(3, 6)), 14, 7
             x, y = int(random(-5, 5)) * side, int(random(-5, 5)) * side    
-            grid(x, y, order, spacing, choice(gliphs), side)
+            grid(x, y, order, spacing, gliph, c)
 
 def grid(x, y, order, spacing, function, *args):
     with pushMatrix():
