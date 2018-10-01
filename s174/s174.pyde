@@ -1,6 +1,9 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# based on Randomized Prim's algorithm https://en.wikipedia.org/wiki/Maze_generation_algorithm
-# s174 18021
+# Based on Randomized Prim's algorithm https://en.wikipedia.org/wiki/Maze_generation_algorithm
+# To run this, install Processing Python Mode:
+# https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
+#
+# s174 180621
 
 from random import randint
 
