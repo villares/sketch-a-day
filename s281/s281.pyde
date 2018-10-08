@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s281"  # 20181005
+SKETCH_NAME = "s281"  # 20181006
 OUTPUT = ".gif"
 
 add_library('peasycam')
