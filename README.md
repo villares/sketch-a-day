@@ -6,52 +6,66 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
+---
+
+![s282](s282/s282.gif)
+
+282: [code](https://github.com/villares/sketch-a-day/tree/master/s282) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+First attempt at joining rectangular cells into bigger polygonal faces.
 
 ---
 
 ![s281](s281/s281.gif)
-281: [code](https://github.com/villares/sketch-a-day/tree/master/s281) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+281: [code](https://github.com/villares/sketch-a-day/tree/master/s281) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s280](s280/s280.png)
-280: [code](https://github.com/villares/sketch-a-day/tree/master/s280) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+280: [code](https://github.com/villares/sketch-a-day/tree/master/s280) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s279](s279/s279.gif)
+
 279: [code](https://github.com/villares/sketch-a-day/tree/master/s279) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s278](s278/s278.png)
+
 278: [code](https://github.com/villares/sketch-a-day/tree/master/s278) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s277](s277/s277.png)
+
 277: [code](https://github.com/villares/sketch-a-day/tree/master/s277) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s276](s276/s276.png)
+
 276: [code](https://github.com/villares/sketch-a-day/tree/master/s276) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s275](s275/s275.png)
+
 275: [code](https://github.com/villares/sketch-a-day/tree/master/s275) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s274](s274/s274.png)
+
 274: [code](https://github.com/villares/sketch-a-day/tree/master/s274) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![s273](s273/s273.png)
+
 273: [code](https://github.com/villares/sketch-a-day/tree/master/s273) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 This sorts a gliph sequence from lighter to darker
@@ -59,6 +73,7 @@ This sorts a gliph sequence from lighter to darker
 ---
 
 ![s272](s272/s272.png)
+
 272: [code](https://github.com/villares/sketch-a-day/tree/master/s272) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
