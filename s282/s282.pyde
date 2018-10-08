@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s282"  # 20181007
 OUTPUT = ".gif"
-GRID_SIZE = 8
+GRID_SIZE = 10
 
 add_library('peasycam')
 from random import seed
@@ -11,8 +11,11 @@ from random import randint
 from node import Node
 
 def setup():
+    global ang
+    ang = 0
     size(500, 500, P3D)
     colorMode(HSB)
+    strokeWeight(2)
     cam = PeasyCam(this, 100)
     cam.setMinimumDistance(750)
     cam.setMaximumDistance(750)
@@ -21,13 +24,17 @@ def setup():
 
             
 def draw():
-    background(200)
-    #strokeWeight(2)
+    global ang
+    background(0)
+    rotateY(ang)
     for node in Node.nodes:
         node.plot()
+        
+    if ang <= TWO_PI:
+        ang += 0.02
                                                 
 def init_grid(grid_size):
-    Node.border = 0
+    Node.border = 10
     Node.spacing = (width - Node.border * 2) / grid_size
     Node.nodes = []
     for x in range(grid_size):
@@ -37,7 +44,7 @@ def init_grid(grid_size):
                 Node.nodes.append(new_node)
                 Node.grid[x, y, z] = new_node
                 if randint(1, 10) > 5:
-                    new_node.cor = 1 #color(z * 32, 255, 255)
+                    new_node.cor = color(z * 28, 255, 255)
                 else:
                     new_node.cor = None
 
