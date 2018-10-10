@@ -29,7 +29,9 @@ class Node():
             stroke(self.cor)
             with pushMatrix():
                 translate(0, 0, self.z)
-                #rect(0, 0, Node.spacing * self.size_, Node.spacing * self.size_)
+                ellipse(self.x, self.y,
+                        Node.spacing * self.size_/2,
+                        Node.spacing * self.size_/2)
                 self.draw_borders()
                 
     def draw_borders(self):
@@ -64,5 +66,6 @@ class Node():
         nb5 = Node.grid.get((self.ix, self.iy, self.iz+1))
         self.nb[5] = True if nb5 and nb5.cor else False
         
-        self.update_borders()
+        if self.cor:
+            self.update_borders()
         
