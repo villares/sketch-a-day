@@ -19,15 +19,15 @@ class Node():
                    5 : False,
                   }
     def plot(self):
-        """ draws box """
+        """ draws node """
         if self.cor:
             noFill() #stroke(0)
             stroke(self.cor)
             with pushMatrix():
                 translate(self.x, self.y, self.z)
-                self.rect(0, 0, Node.spacing * self.size_, Node.spacing * self.size_)
+                self.lines(0, 0, Node.spacing * self.size_, Node.spacing * self.size_)
                 
-    def rect(self, x, y, w, h):
+    def lines(self, x, y, w, h):
         rectMode(CENTER)
         rect(x, y, w/2, h/2)
         tlX, tlY = x - w/2, y - h/2
@@ -40,3 +40,17 @@ class Node():
         if not self.nb[3]: line(blX, blY, brX, brY)
         if self.nb[4]: line(x, y, 0, x, y, -w/2)
         if self.nb[5]: line(x, y, 0, x, y, w/2)
+        
+    def update_nbs(self):
+        nb0 = Node.grid.get((self.ix-1, self.iy, self.iz))
+        self.nb[0] = True if nb0 and nb0.cor else False
+        nb1 = Node.grid.get((self.ix+1, self.iy, self.iz))
+        self.nb[1] = True if nb1 and nb1.cor else False
+        nb2 = Node.grid.get((self.ix, self.iy-1, self.iz))
+        self.nb[2] = True if nb2 and nb2.cor else False
+        nb3 = Node.grid.get((self.ix, self.iy+1, self.iz))
+        self.nb[3] = True if nb3 and nb3.cor else False
+        nb4 = Node.grid.get((self.ix, self.iy, self.iz-1))
+        self.nb[4] = True if nb4 and nb4.cor else False
+        nb5 = Node.grid.get((self.ix, self.iy, self.iz+1))
+        self.nb[5] = True if nb5 and nb5.cor else False

@@ -31,7 +31,7 @@ def draw():
         node.plot()
         
     if ang <= TWO_PI:
-        saveFrame("###.png")
+        #saveFrame("###.png")
         ang += 0.02
                                                 
 def init_grid(grid_size):
@@ -50,18 +50,7 @@ def init_grid(grid_size):
                     new_node.cor = None
 
     for node in Node.nodes:
-        nb0 = Node.grid.get((node.ix-1, node.iy, node.iz))
-        node.nb[0] = True if nb0 and nb0.cor else False
-        nb1 = Node.grid.get((node.ix+1, node.iy, node.iz))
-        node.nb[1] = True if nb1 and nb1.cor else False
-        nb2 = Node.grid.get((node.ix, node.iy-1, node.iz))
-        node.nb[2] = True if nb2 and nb2.cor else False
-        nb3 = Node.grid.get((node.ix, node.iy+1, node.iz))
-        node.nb[3] = True if nb3 and nb3.cor else False
-        nb4 = Node.grid.get((node.ix, node.iy, node.iz-1))
-        node.nb[4] = True if nb4 and nb4.cor else False
-        nb5 = Node.grid.get((node.ix, node.iy, node.iz+1))
-        node.nb[5] = True if nb5 and nb5.cor else False
+        node.update_nbs()
 
 
 def keyPressed():
@@ -85,6 +74,7 @@ def settings():
     println(
 """
 ![{0}]({0}/{0}{2})
+
 {1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 """.format(SKETCH_NAME, SKETCH_NAME[1:], OUTPUT)
     )

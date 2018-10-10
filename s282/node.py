@@ -19,15 +19,15 @@ class Node():
                    5 : False,
                   }
     def plot(self):
-        """ draws box """
+        """ draws node """
         if self.cor:
             noFill() #stroke(0)
             stroke(self.cor)
             with pushMatrix():
                 translate(self.x, self.y, self.z)
-                self.rect(0, 0, Node.spacing * self.size_, Node.spacing * self.size_)
+                self.lines(0, 0, Node.spacing * self.size_, Node.spacing * self.size_)
                 
-    def rect(self, x, y, w, h):
+    def lines(self, x, y, w, h):
         rectMode(CENTER)
         #rect(x, y, w/2, h/2)
         tlX, tlY = x - w/2, y - h/2

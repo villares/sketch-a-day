@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s282"  # 20181007
 OUTPUT = ".gif"
-GRID_SIZE = 10
+GRID_SIZE = 8
 
 add_library('peasycam')
 from random import seed
@@ -79,6 +79,7 @@ def settings():
     println(
 """
 ![{0}]({0}/{0}{2})
+
 {1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 """.format(SKETCH_NAME, SKETCH_NAME[1:], OUTPUT)
     )
