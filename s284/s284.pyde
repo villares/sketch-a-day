@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s284"  # 2018109
+SKETCH_NAME = "s284"  # 20181009
 OUTPUT = ".gif"
 GRID_SIZE = 6
 
