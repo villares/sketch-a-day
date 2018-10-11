@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s284"  # 2018109
+SKETCH_NAME = "s285"  # 20181010
 OUTPUT = ".gif"
 GRID_SIZE = 10
 
@@ -12,7 +12,7 @@ from node import Node
 def setup():
     global ang
     ang = 0
-    size(500, 500, P2D)
+    size(500, 500)
     strokeWeight(2)
     rectMode(CENTER)
     random_seed(101)
