@@ -1,10 +1,9 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s286"  # 20181011
+SKETCH_NAME = "s287"  # 20181012
 OUTPUT = ".gif"
+
 GRID_SIZE = 10
 BORDER = 50
-trans = False
-ang = -HALF_PI
 
 from random import seed
 from random import choice
@@ -12,30 +11,40 @@ from node import Node
 
 def setup():
     size(500, 500)
-    strokeWeight(2)
+    # strokeWeight(2)
     rectMode(CENTER)
     frameRate(10)
-    random_seed(101)
+    random_seed(7)
     Node.init_grid(GRID_SIZE, BORDER)
             
 def draw():
     translate(width/2, height/2)
     background(200)
-    
+    ang = frameCount/31.
+
     for node in Node.nodes:
         node.plot(ang)
-
-    global ang            
-    if ang < TWO_PI * 2:
+                        
+    if ang < TWO_PI:
+        pass
         #saveFrame("###.png")
-        ang += 0.03
-        if abs(ang - TWO_PI) <= 0.03:
-            Node.send_back()
-            
+    else:
+        noLoop()            
+
+                                            
+def init_grid(grid_size):
+    Node.border = 50
+    Node.spacing = (width - Node.border * 2) / grid_size
+    Node.nodes = []
+    for x in range(grid_size):
+        for y in range(grid_size):
+                new_node = Node(x, y)
+                Node.nodes.append(new_node)
+
  
 def keyPressed():
     if key == "n":
-        Node.init_grid(GRID_SIZE, BORDER)
+        init_grid(GRID_SIZE)
     if key == "s": saveFrame("###.png")
     
     

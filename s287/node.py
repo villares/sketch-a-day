@@ -7,28 +7,36 @@ class Node():
         self.x = Node.border + Node.spacing / 2 + x * Node.spacing - width / 2
         self.y = Node.border + Node.spacing / 2 + y * Node.spacing - height / 2
         self.size_ = 1
-        self.rot0 = choice((0, HALF_PI)) #, PI, PI + HALF_PI))
-        self.rot1 = choice((HALF_PI , PI)) #, PI + HALF_PI))
-        self.rot2 = self.rot0
-        
+        self.rot0 = choice((0,-HALF_PI, -PI))
+        self.rot1 = choice((0, HALF_PI , PI, PI + HALF_PI))
+        self.rot2 = self.rot0    
+                        
     def plot(self, ang):
         """ draws node """
+        inc = 1/31.
         with pushMatrix():
             translate(self.x, self.y)
-            if abs(self.rot0 - self.rot1) >= 0.03:
-                if ang > 0: self.rot0 += 0.03
+            if abs(self.rot0 - self.rot1) > inc:
+                self.rot0 += inc
             else:
                self.rot0 = self.rot1
-                   
             rotate(self.rot0)
-            noFill() #stroke(0)
-            stroke(0, 0, 200, 50)
+
             siz = Node.spacing * self.size_
-            rect(0, 0, siz, siz)
-            # line(-siz/2, -siz/2, siz/2, siz/2)
+            fill(200) 
+            noStroke()
+            rect(0, 0, siz, siz)            
             stroke(0, 100, 100)
-            arc(-siz/2, -siz/2, siz, siz, 0, HALF_PI)
-            arc(siz/2, siz/2, siz, siz,PI, PI+HALF_PI)
+            fill(0, 200, 100, 200)
+            arc(siz/2, siz/2, siz/3*4, siz/3*4, PI, PI+HALF_PI)
+            fill(200)
+            arc(siz/2, siz/2, siz/3*2, siz/3*2, PI, PI+HALF_PI)
+            fill(0, 200, 100, 200)
+            arc(0, -siz/2, siz/3, siz/3, 0, PI)
+            arc(-siz/2, 0, siz/3, siz/3, -HALF_PI, PI-HALF_PI)
+            noFill()
+            stroke(0, 0, 200)
+            rect(0, 0, siz, siz)    
 
     @classmethod                                            
     def init_grid(cls, grid_size, border):
