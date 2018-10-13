@@ -30,10 +30,10 @@ def draw():
     if not frameCount % 12:
         init_grid(GRID_SIZE)    
                 
-    if ang <= PI:
-        saveFrame("###.png")
-    else:
-        noLoop()
+    # if ang <= PI:
+    #     saveFrame("###.png")
+    # else:
+    #     noLoop()
                                             
 def init_grid(grid_size):
     Node.border = 50
