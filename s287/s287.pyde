@@ -30,21 +30,10 @@ def draw():
         #saveFrame("###.png")
     else:
         noLoop()            
-
-                                            
-def init_grid(grid_size):
-    Node.border = 50
-    Node.spacing = (width - Node.border * 2) / grid_size
-    Node.nodes = []
-    for x in range(grid_size):
-        for y in range(grid_size):
-                new_node = Node(x, y)
-                Node.nodes.append(new_node)
-
  
 def keyPressed():
     if key == "n":
-        init_grid(GRID_SIZE)
+        Node.init_grid(GRID_SIZE)
     if key == "s": saveFrame("###.png")
     
     
