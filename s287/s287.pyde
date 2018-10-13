@@ -14,7 +14,7 @@ def setup():
     # strokeWeight(2)
     rectMode(CENTER)
     frameRate(10)
-    random_seed(7)
+    random_seed(4)
     Node.init_grid(GRID_SIZE, BORDER)
             
 def draw():
@@ -25,7 +25,7 @@ def draw():
     for node in Node.nodes:
         node.plot(ang)
                         
-    if ang < TWO_PI:
+    if ang < TWO_PI + 1/31.:
         pass
         #saveFrame("###.png")
     else:
