@@ -8,17 +8,27 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
+---
+
+![s289](s289/s289.gif)
+
+289: [code](https://github.com/villares/sketch-a-day/tree/master/s289) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+True arcs and lines
+
+---
+
 ![s288](s288/s288.gif)
 
 288: [code](https://github.com/villares/sketch-a-day/tree/master/s288) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Ellipse arcs
 
 ---
 
 ![s287](s287/s287.gif)
 
 287: [code](https://github.com/villares/sketch-a-day/tree/master/s287) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -1148,14 +1158,14 @@ Hexagons!
 
 ​```python
 def hexagon(x, y, r):
-    with pushMatrix():
-        translate(x, y)
-        beginShape()
-        for i in range(6):
-            vx = cos(i * TWO_PI /6) * r
-            vy = sin(i * TWO_PI /6) * r
-            vertex(vx, vy)
-        endShape(CLOSE)
+​    with pushMatrix():
+​        translate(x, y)
+​        beginShape()
+​        for i in range(6):
+​            vx = cos(i * TWO_PI /6) * r
+​            vy = sin(i * TWO_PI /6) * r
+​            vertex(vx, vy)
+​        endShape(CLOSE)
 ```
 
 ----
