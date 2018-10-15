@@ -2,7 +2,7 @@
 SKETCH_NAME = "s290"  # 20181016
 OUTPUT = ".gif"
 
-NUM = 10 
+NUM = 6 
 BORDER = 50
 SPACING = 20
 
@@ -49,9 +49,8 @@ def inter_line(points, L):
             ellipse(inter.x, inter.y, 10, 10)
             
     if len(inter_points) > 1:
-        possible = pairwise(inter_points) + [(inter_points[-1], inter_points[0])]
-        for p1, p2 in edges:
-            for p3, p4 in possible:
+        possible = pairwise(inter_points) #+ [(inter_points[-1], inter_points[0])]
+        for p3, p4 in possible:
                 strokeWeight(1)
                 stroke(0, 100, 0)
                 line(p3.x, p3.y, p4.x, p4.y)
