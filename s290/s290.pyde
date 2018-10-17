@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s290"  # 20181016
+SKETCH_NAME = "s290"  # 20181015
 OUTPUT = ".gif"
 
 NUM = 6 
