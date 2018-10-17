@@ -18,9 +18,8 @@ def create_points():
               for _ in range(NUM)]
 
 def draw():  
-    fill(200)
+    background(200)
     stroke(0, 0, 100)
-    rect(0, 0, width, height)
     strokeWeight(3)
     noFill()
     beginShape()
