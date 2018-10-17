@@ -8,6 +8,14 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
+![s292](s292/s292.gif)
+
+292: [code](https://github.com/villares/sketch-a-day/tree/master/s292) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+
+---
+
 ![s291](s291/s291.gif)
 
 291: [code](https://github.com/villares/sketch-a-day/tree/master/s291) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
