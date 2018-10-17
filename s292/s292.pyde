@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s291"  # 20181016
+SKETCH_NAME = "s292"  # 20181017
 OUTPUT = ".gif"
 
 NUM = 10 
@@ -19,18 +19,9 @@ def create_points():
               for _ in range(NUM)]
 
 def draw():  
-    fill(200)
-    stroke(0)
-    rect(0, 0, width, height)
+    background(200)
     strokeWeight(2)
-    noFill()
-                    
     
-    # beginShape()
-    # for p in next_points:
-    #      vertex(p.x, p.y)
-    # endShape(CLOSE)
-
     stroke(0, 0, 100)
     for x in range(0, width, SPACING):
            a = PVector(x, 0)
@@ -69,7 +60,9 @@ def draw_inter(inter_points):
     
 def keyPressed():
     global points, next_points
-    if key == " ": next_points = create_points()
+    if key == " ": 
+        points = create_points()
+        next_points = create_points()
     if key == "s": saveFrame("###.png")
         
 class Line():
