@@ -6,12 +6,21 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
+
+---
+
+![s293](s293/s293.gif)
+
+293: [code](https://github.com/villares/sketch-a-day/tree/master/s293) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+The polygons now are non-self-intersecting, and the hatches are kept inside :)
+White lines in the background are from discarded random polys that self-intersected.
+
 ---
 
 ![s292](s292/s292.gif)
 
 292: [code](https://github.com/villares/sketch-a-day/tree/master/s292) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 
 ---
