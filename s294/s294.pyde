@@ -1,17 +1,16 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s293"  # 20181018
+SKETCH_NAME = "s294"  # 20181019
 OUTPUT = ".gif"
 
-NUM = 8 
+NUM = 20 
 BORDER = 50
-SPACING = 10
+SPACING = 20
 
 def setup():
     global previous_points, next_points, points
     size(500, 500)
     frameRate(5 )
-    points = previous_points = create_points()
-    next_points = create_points()
+    points = previous_points = create_points(non_intersecting=False)
     
 def create_points(non_intersecting=True):
     background(200)
@@ -28,9 +27,6 @@ def create_points(non_intersecting=True):
                     # test only non consecutive edges
                     if (p1 != p3) and (p2 != p3) and (p1 != p4):
                         if line_instersect(Line(p1, p2), Line(p3, p4)):
-                            stroke(255, 51)
-                            strokeWeight(2)
-                            line(p1.x, p1.y, p2.x, p2.y)
                             done = False
                             break
     return points
@@ -40,6 +36,7 @@ def create_points(non_intersecting=True):
 def draw():  
 
     stroke(0, 0, 100)
+    fill(0, 0, 100)
     for x in range(0, width, SPACING):
            a = PVector(x, 0)
            b = PVector(x, height)
@@ -47,10 +44,11 @@ def draw():
            draw_inter(inter_points)
             
     stroke(100, 0, 0)
+    fill(100, 0, 0)
     for y in range(0, height, SPACING):
            a = PVector(0, y)
            b = PVector(width, y)
-           inter_points = inter_line(next_points, Line(a, b))
+           inter_points = inter_line(points, Line(a, b))
            draw_inter(inter_points)
     
 
@@ -60,8 +58,8 @@ def inter_line(points, L):
     inter_points = []
     
     for p1, p2 in edges:
-        strokeWeight(2)
-        line(p1.x, p1.y, p2.x, p2.y)
+        # strokeWeight(2)
+        # line(p1.x, p1.y, p2.x, p2.y)
         inter = line_instersect(Line(p1, p2), L)
         if inter:
             inter_points.append(inter)
@@ -77,13 +75,15 @@ def draw_inter(inter_points):
         pairs = zip(inter_points[::2], inter_points[1::2])
         for p1, p2 in pairs:
             if p2:
+               # noFill()
+               ellipse(p1.x, p1.y, 5, 5)
+               ellipse(p2.x, p2.y, 5, 5)
                line(p1.x, p1.y, p2.x, p2.y)    
     
 def keyPressed():
     global points, next_points
     if key == " ": 
-        points = create_points()
-        next_points = create_points()
+        points = create_points(non_intersecting=False)
     if key == "s": saveFrame("###.png")
         
 class Line():
