@@ -20,11 +20,11 @@ def create_points(non_intersecting=True):
         points = [PVector(random(BORDER, width - BORDER),
                           random(BORDER, height - BORDER))
                   for _ in range(NUM)]
-        edges = pairwise(points) + [(points[-1], points[0])]
+        ed = edges(points)
         done = True
         if non_intersecting:
-            for p1, p2 in edges[::-1]:
-                for p3, p4 in edges[2::]:
+            for p1, p2 in ed[::-1]:
+                for p3, p4 in ed[2::]:
                     # test only non consecutive edges
                     if (p1 != p3) and (p2 != p3) and (p1 != p4):
                         if line_instersect(Line(p1, p2), Line(p3, p4)):
@@ -73,10 +73,8 @@ def draw_if_inside(points, x, y):
 
 
 def inter_line_points(points, L):                         
-    edges = pairwise(points) + [(points[-1], points[0])]
     inter_points = []
-    
-    for p1, p2 in edges:
+    for p1, p2 in edges(points):
         inter = line_instersect(Line(p1, p2), L)
         if inter:
             inter_points.append(inter)
@@ -128,10 +126,10 @@ def line_instersect(line_a, line_b):
         uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
         uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
     except ZeroDivisionError:
-        return []
+        return
         
     if not(0 <= uA <= 1 and 0 <= uB <= 1):
-        return []
+        return
         
     x = line_a.p1.x + uA * (line_a.p2.x - line_a.p1.x)
     y = line_a.p1.y + uA * (line_a.p2.y - line_a.p1.y)
