@@ -10,7 +10,8 @@ def setup():
     global poly
     size(500, 500)
     frameRate(5 )
-    poly = create_points(True)
+    poly = create_points(non_intersecting=True)
+    
     
 def create_points(non_intersecting=True):
     background(200)
@@ -22,14 +23,11 @@ def create_points(non_intersecting=True):
         edges = pairwise(points) + [(points[-1], points[0])]
         done = True
         if non_intersecting:
-            for p1, p2 in edges:
-                for p3, p4 in edges:
+            for p1, p2 in edges[::-1]:
+                for p3, p4 in edges[2::]:
                     # test only non consecutive edges
                     if (p1 != p3) and (p2 != p3) and (p1 != p4):
                         if line_instersect(Line(p1, p2), Line(p3, p4)):
-                            # stroke(255, 51)
-                            # strokeWeight(2)
-                            # line(p1.x, p1.y, p2.x, p2.y)
                             done = False
                             break
     return points
@@ -46,10 +44,10 @@ def draw():
     for x in range(0, width, SPACING):
         for y in range(0, height, SPACING):
             draw_if_inside(poly, x, y)
+            
     stroke(0)
     strokeWeight(2) 
-    edges = pairwise(poly) + [(poly[-1], poly[0])]    
-    for p1, p2 in edges:
+    for p1, p2 in edges(poly):
         line(p1.x, p1.y, p2.x, p2.y)       
    
    
@@ -72,9 +70,6 @@ def draw_if_inside(points, x, y):
             if p:
                 ellipse(p.x, p.y, SPACING/2, SPACING/2)
     return
-            
-     
-         
 
 
 def inter_line_points(points, L):                         
@@ -82,17 +77,19 @@ def inter_line_points(points, L):
     inter_points = []
     
     for p1, p2 in edges:
-        # strokeWeight(2)
-        # line(p1.x, p1.y, p2.x, p2.y)
         inter = line_instersect(Line(p1, p2), L)
         if inter:
             inter_points.append(inter)
     return inter_points   
 
 
+def edges(points):
+    return pairwise(points) + [(points[-1], points[0])]    
+
+
 def inter_lines(inter_points):
     inter_lines = []
-    if inter_points and len(inter_points) > 1:
+    if len(inter_points) > 1:
         inter_points.sort()
         pairs = zip(inter_points[::2], inter_points[1::2])
         for p1, p2 in pairs:
@@ -108,11 +105,13 @@ def keyPressed():
         poly = create_points(True)
     if key == "s": saveFrame("###.png")
         
+        
 class Line():
     """ I should change this to a named tuple... """
     def __init__(self, p1, p2):
         self.p1 = p1
         self.p2 = p2
+    
     
 def line_instersect(line_a, line_b):     
     """
@@ -129,10 +128,10 @@ def line_instersect(line_a, line_b):
         uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
         uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
     except ZeroDivisionError:
-        return 
+        return []
         
     if not(0 <= uA <= 1 and 0 <= uB <= 1):
-        return
+        return []
         
     x = line_a.p1.x + uA * (line_a.p2.x - line_a.p1.x)
     y = line_a.p1.y + uA * (line_a.p2.y - line_a.p1.y)
