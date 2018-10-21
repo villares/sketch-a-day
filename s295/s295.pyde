@@ -17,10 +17,10 @@ def create_points(non_intersecting=True):
     background(200)
     done = False
     while not done:
-        points = [PVector(random(BORDER, width - BORDER),
-                          random(BORDER, height - BORDER))
-                  for _ in range(NUM)]
-        ed = edges(points)
+        poly_points = [PVector(random(BORDER, width - BORDER),
+                               random(BORDER, height - BORDER))
+                       for _ in range(NUM)]
+        ed = edges(poly_points)
         done = True
         if non_intersecting:
             for p1, p2 in ed[::-1]:
@@ -30,7 +30,7 @@ def create_points(non_intersecting=True):
                         if line_instersect(Line(p1, p2), Line(p3, p4)):
                             done = False
                             break
-    return points
+    return poly_points
     
 
 def draw():
@@ -43,7 +43,9 @@ def draw():
     fill(0, 0, 200)
     for x in range(0, width, SPACING):
         for y in range(0, height, SPACING):
-            draw_if_inside(poly, x, y)
+            if is_inside(x, y, poly):
+                ellipse(x, y, SPACING/2, SPACING/2)
+                
             
     stroke(0)
     strokeWeight(2) 
@@ -51,25 +53,27 @@ def draw():
         line(p1.x, p1.y, p2.x, p2.y)       
    
    
-def draw_if_inside(points, x, y):   
+def is_inside(x, y, poly_points):   
     a = PVector(x, 0)
     b = PVector(x, height)
-    inter_points_x = inter_line_points(points, Line(a, b))
-    if  not inter_points_x: return
+    inter_points_x = inter_line_points(poly_points, Line(a, b))
+    if  not inter_points_x:
+        return False
     v_lines = inter_lines(inter_points_x)
         
     a = PVector(0, y)
     b = PVector(width, y)
-    inter_points_y = inter_line_points(points, Line(a, b))
-    if not inter_points_x: return
+    inter_points_y = inter_line_points(poly_points, Line(a, b))
+    if not inter_points_y:
+        return False
     h_lines = inter_lines(inter_points_y)
             
     for v in v_lines:
         for h in h_lines:
-            p = line_instersect(v, h)
-            if p:
-                ellipse(p.x, p.y, SPACING/2, SPACING/2)
-    return
+            if line_instersect(v, h):
+                return True   
+                         
+    return False
 
 
 def inter_line_points(points, L):                         
@@ -79,10 +83,6 @@ def inter_line_points(points, L):
         if inter:
             inter_points.append(inter)
     return inter_points   
-
-
-def edges(points):
-    return pairwise(points) + [(points[-1], points[0])]    
 
 
 def inter_lines(inter_points):
@@ -136,6 +136,9 @@ def line_instersect(line_a, line_b):
         
     return PVector(x, y)
 
+
+def edges(poly_points):
+    return pairwise(poly_points) + [(poly_points[-1], poly_points[0])]   
 
 def pairwise(iterable):
     import itertools
