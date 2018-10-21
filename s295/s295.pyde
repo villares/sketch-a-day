@@ -12,7 +12,6 @@ def setup():
     frameRate(5 )
     poly = create_points(non_intersecting=True)
     
-    
 def create_points(non_intersecting=True):
     background(200)
     done = False
@@ -45,8 +44,7 @@ def draw():
         for y in range(0, height, SPACING):
             if is_inside(x, y, poly):
                 ellipse(x, y, SPACING/2, SPACING/2)
-                
-            
+                    
     stroke(0)
     strokeWeight(2) 
     for p1, p2 in edges(poly):
@@ -54,19 +52,18 @@ def draw():
    
    
 def is_inside(x, y, poly_points):   
+
     a = PVector(x, 0)
     b = PVector(x, height)
-    inter_points_x = inter_line_points(poly_points, Line(a, b))
-    if  not inter_points_x:
+    v_lines = inter_lines(Line(a, b), poly_points)
+    if not v_lines:
         return False
-    v_lines = inter_lines(inter_points_x)
         
     a = PVector(0, y)
     b = PVector(width, y)
-    inter_points_y = inter_line_points(poly_points, Line(a, b))
-    if not inter_points_y:
+    h_lines = inter_lines(Line(a, b), poly_points)
+    if not h_lines:
         return False
-    h_lines = inter_lines(inter_points_y)
             
     for v in v_lines:
         for h in h_lines:
@@ -76,16 +73,14 @@ def is_inside(x, y, poly_points):
     return False
 
 
-def inter_line_points(points, L):                         
+def inter_lines(L, poly_points):
     inter_points = []
-    for p1, p2 in edges(points):
+    for p1, p2 in edges(poly_points):
         inter = line_instersect(Line(p1, p2), L)
         if inter:
             inter_points.append(inter)
-    return inter_points   
-
-
-def inter_lines(inter_points):
+    if  not inter_points:
+        return []
     inter_lines = []
     if len(inter_points) > 1:
         inter_points.sort()
