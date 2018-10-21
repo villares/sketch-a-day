@@ -6,13 +6,18 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
+---
+
+![s295](s295/295.gif)
+
+295: [code](https://github.com/villares/sketch-a-day/tree/master/s295) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 
 ---
 
-![s294](s294/083.png)
+![s294](s294/294.gif)
 
 294: [code](https://github.com/villares/sketch-a-day/tree/master/s294) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
