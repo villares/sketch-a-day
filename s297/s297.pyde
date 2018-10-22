@@ -2,8 +2,8 @@
 SKETCH_NAME = "s297"  # 20181022
 OUTPUT = ".gif"
 
-add_library('gifAnimation')
-from gif_exporter import gif_export
+# add_library('gifAnimation')
+# from gif_exporter import gif_export
 
 NUM = 10 
 BORDER = 50
@@ -55,10 +55,8 @@ def draw():
     for p1, p2 in edges(poly):
         line(p1.x, p1.y, p2.x, p2.y)   
                                         
-    if 40 > SPACING > 10:
-        gif_export(GifMaker, SKETCH_NAME, frames=40)
+    # gif_export(GifMaker, SKETCH_NAME, frames=40)
   
-   
    
 def is_inside(x, y, poly_points):   
     min_, max_ = min_max(poly_points)
