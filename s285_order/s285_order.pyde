@@ -22,15 +22,15 @@ def setup():
     random_seed(101)
     init_grid(GRID_SIZE)
     
-    global segmentos, first, next, ordenados
+    global segmentos, first, next_, ordenados
     for l in range(1):
         segmentos = [t for t in Node.ver if t[0][3] == l]       
-        first, next = segmentos[-1]
-        ordenados = sort(segmentos)
+        first, next_ = segmentos[-1]
+        # ordenados = sort(segmentos)
 
             
 def draw():
-    global ang, segmentos, next
+    global ang, segmentos, next_
     background(0)
     rotateY(ang)
     for node in Node.nodes:
@@ -46,18 +46,7 @@ def draw():
         endShape()
 
             # while len(segmentos)>2:
-    if segmentos > 0:
-        print segmentos
-        p1, p2 = segmentos.pop()
-        if p1[:1] == next[:1] or p2[:1] == next[:1]:
-            if p1 == next:
-                ordenados.append(p2)
-                next = p2
-            else: # p2 == next
-                ordenados.append(p1)
-                next = p1
-        else:
-            segmentos = [(p1, p2)] + segmentos
+
         
     # if ang <= TWO_PI:
     #     #saveFrame("###.png")
