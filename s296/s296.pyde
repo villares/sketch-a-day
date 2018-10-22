@@ -48,8 +48,8 @@ def draw():
             if is_inside(x, y, poly):
                 ellipse(x, y, SPACING/2, SPACING/2)
                     
-    if SPACING < 11:
-        saveFrame("c##.png")    
+    if SPACING > 10:
+        saveFrame("a##.png")    
    
    
 def is_inside(x, y, poly_points):   
