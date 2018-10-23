@@ -1,7 +1,7 @@
 class Node():
     nodes = []
     grid = dict()
-    ver = set()
+    ver = []
 
     def __init__(self, x, y, z):
         self.ix = x

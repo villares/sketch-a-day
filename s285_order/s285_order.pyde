@@ -9,6 +9,7 @@ from random import choice
 from random import randint
 
 from node import Node
+from order_segments import order_segments
 
 def setup():
     global ang
@@ -21,29 +22,23 @@ def setup():
     cam.setMaximumDistance(750)
     random_seed(101)
     init_grid(GRID_SIZE)
-    
-    global segmentos, first, next_, ordenados
-    for l in range(1):
-        segmentos = [t for t in Node.ver if t[0][3] == l]       
-        first, next_ = segmentos[-1]
-        # ordenados = sort(segmentos)
-
             
 def draw():
     global ang, segmentos, next_
     background(0)
     rotateY(ang)
+    
     for node in Node.nodes:
-        node.plot()
+        node.plot()       
+    
 
-    for l in range(GRID_SIZE):   
-        fill(255)      
-        beginShape()    
-        for (x, y, z, iz), (x2, y2, z2, _) in segmentos:
-            if l == iz:
+    stroke(128, 200, 200)   
+    fill(255, 100)      
+    beginShape()    
+    for (x, y, z, iz) in points:
+            if 0 == iz:
                 vertex(x, y, z-10)
-                vertex(x2, y2, z2-10)
-        endShape()
+    endShape()
 
             # while len(segmentos)>2:
 
@@ -73,6 +68,12 @@ def init_grid(grid_size):
             node.update_nbs()
             
 
+    for l in range(1):
+        global points
+        segmentos = [t for t in Node.ver if t[0][3] == l]
+    # print(set(segmentos))  
+    points = order_segments(set(segmentos))
+    print(points)
     
 
 def keyPressed():
