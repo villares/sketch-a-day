@@ -13,11 +13,9 @@ def setup():
     init_grid(GRID_SIZE)
 
 def draw():
-    noLoop()
     background(200)
     for c in Cell.cells:
         c.draw_vers()
-        c.hatch()
 
 def init_grid(grid_size):
     Cell.border = 50
@@ -84,18 +82,21 @@ class Cell():
     def hatch(self):
         poly_points = self.vers
         # min_, max_ = min_max(poly_points)
+        self.lines = []
         if random(10) > 5:            
             for y in range(-height, height*2, int(random(2, 7))):        
                 a = PVector(-width, y)
                 b = PVector(width*2, y)
                 lines = inter_lines(Line(a, b), poly_points)
-                if lines: self.lines.append(lines)        
+                for l in lines:
+                    self.lines.append(l)          
         else:
             for x in range(-width, width*2, int(random(2, 7))):        
                 a = PVector(x, -height)
                 b = PVector(x, height*2,)
                 lines = inter_lines(Line(a, b), poly_points)
-                if lines: self.lines.append(lines)        
+                for l in lines:
+                    self.lines.append(l)        
                         
 def keyPressed():
     if key == "n":

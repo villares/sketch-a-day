@@ -1,8 +1,4 @@
 
-
-
-        
-    
 def create_points(non_intersecting=True):
     background(200)
     done = False
