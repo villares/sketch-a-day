@@ -15,7 +15,7 @@ def setup():
 def draw():
     background(200)
     for c in Cell.cells:
-        c.draw_vers()
+        c.plot()
 
 def init_grid(grid_size):
     Cell.border = 50
@@ -64,7 +64,7 @@ class Cell():
         self.py = Cell.border + Cell.spacing / 2 + y * Cell.spacing 
         self.vers = []        
       
-    def draw_vers(self):
+    def plot(self):
         if len(self.vers) > 1:
             for n0, n1 in edges(self.vers):
                 line(n0.px, n0.py, n1.px, n1.py)
