@@ -7,18 +7,31 @@ Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can ma
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) 
 
 
+
+
 ---
 
+![s302](s302/s302.png)
+
+302: [code](https://github.com/villares/sketch-a-day/tree/master/s302) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Hatches parallel to opposed sides. 
+
+---
 
 ![s301](s301/s301.png)
 
 301: [code](https://github.com/villares/sketch-a-day/tree/master/s301) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Tried to supress some vertices from the hatch grid.
 
 ---
 
 ![s300](s300/s300.png)
 
 300: [code](https://github.com/villares/sketch-a-day/tree/master/s300) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Cross hatch and, a simplified "cell" polygon drawing and selective non-random verticies (if pos % 3 == 0)
 
 ---
 
@@ -27,11 +40,15 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 299: [code](https://github.com/villares/sketch-a-day/tree/master/s299) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Inclined hatches
+
 ---
 
 ![s298](s298/s298.png)
 
 298: [code](https://github.com/villares/sketch-a-day/tree/master/s298) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+First hatch attempt on a random "cell" grid. Each cell has 4 "node" vertices
 
 ---
 
@@ -39,24 +56,34 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 297: [code](https://github.com/villares/sketch-a-day/tree/master/s297) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Changed my internal point grid to "pixels"
+
 ---
 
 ![s296](s296/s296.gif)
 
 296: [code](https://github.com/villares/sketch-a-day/tree/master/s296) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+
+Demo of how the "inside poly" test works from from my lines intersecting poly function.
+
+
 ---
 
-![s295](s295/295.gif)
+![s295](s295/s295.gif)
 
 295: [code](https://github.com/villares/sketch-a-day/tree/master/s295) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Testing if a point is inside a poly to make a grid/retucule.
+Advancing from my lines intersecting poly function.
 
 ---
 
 ![s294](s294/294.gif)
 
 294: [code](https://github.com/villares/sketch-a-day/tree/master/s294) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Playing with my code for lines intersecting polygons.
 
 ---
 
