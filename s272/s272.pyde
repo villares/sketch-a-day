@@ -1,7 +1,5 @@
 """
  ASCII video
- Aperte 'g' para gravar um PDF na pasta do sketch
- Press 'g' to record a PDF
  a, d, w, s to change sizes
 """
 
@@ -16,7 +14,7 @@ gliphs = (
     "nT#JCwfy325Fp6mqSghVd4EgXPGZbYkOA&8U$@KHDBWNMR0Q"
     )[::-1]   
 # esse [::-1]  é um "reverse" do string em Python, para o primiro glifo ser o mais escuro e o último o mais claro
-# print(gliphs)    
+print(gliphs)    
 
 def setup():
     global fonte, n_cols, n_rows, video
@@ -32,7 +30,7 @@ def setup():
     video.start()
 
 def draw():
-    global recordingPDF, n_rows, n_cols
+    global n_rows, n_cols
     n_cols = int(width / grid_size)
     n_rows = int(height / grid_size)
     if video.available():
@@ -53,16 +51,11 @@ def draw():
                 textSize(font_size)
                 text(gliphs[g], x + grid_size / 2, y + grid_size / 2)
 
-        if (recordingPDF):
-            endRecord()
-            println('saved ascii_image.pdf')
-            recordingPDF = False
-
 
 def keyPressed(self):
-    global recordingPDF, font_size, grid_size, color_mode
+    global font_size, grid_size, color_mode
     if key == 'g':
-        recordingPDF = True
+        saveFrame("f####.png")
     if key == 'w':
         font_size += 1
     if key == 's' and font_size > 1:
