@@ -126,3 +126,15 @@ def min_max(points):
                 max_y = p.y
         return (PVector(min_x, min_y),
                 PVector(max_x, max_y))
+        
+def par_hatch(points, divisions, *sides):
+        lines = []
+        if not sides: sides = [0]
+        for s in sides:
+            a, b = points[-1 + s].v, points[+0 + s].v
+            d, c = points[-2 + s].v, points[-3 + s].v
+            for i in range(1, divisions):
+                s0 = PVector.lerp(a, b, i/float(divisions))
+                s1 = PVector.lerp(d, c, i/float(divisions))
+                lines.append(Line(s0, s1)) 
+        return lines

@@ -1,14 +1,10 @@
-from __future__ import division
-
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s302"  # 20181027
 OUTPUT = ".png"
 GRID_SIZE = 24
 
-
-from line_geometry import edges
 from line_geometry import Line
-from line_geometry import inter_lines
+from line_geometry import par_hatch
 
 def setup():
     global xo, yo
@@ -104,20 +100,10 @@ class Cell():
         n = int(random(5, 12))
         r = random(10)
         if r > 5:                        
-            self.par_hatch(poly_points, n, 0)
+            self.lines.extend(par_hatch(poly_points, n, 0))
         if r < 6:
-            self.par_hatch(poly_points, n, 1)
-                                        
-    def par_hatch(self, points, divisions, *sides):
-        if not sides: sides = [0]
-        for s in sides:
-            a, b = points[-1 + s].v, points[+0 + s].v
-            d, c = points[-2 + s].v, points[-3 + s].v
-            for i in range(1, divisions):
-                s0 = PVector.lerp(a, b, i/divisions)
-                s1 = PVector.lerp(d, c, i/divisions)
-                self.lines.append(Line(s0, s1)) 
-                        
+            self.lines.extend(par_hatch(poly_points, n, 1))
+        
 def keyPressed():
     if key == "n":
         init_grid(GRID_SIZE)
