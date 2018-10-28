@@ -6,7 +6,6 @@
 """
 
 add_library('video')
-add_library('pdf')
 
 color_mode = False
 recordingPDF = False
@@ -15,8 +14,9 @@ font_size = 12  # tamanho dsa letras
 gliphs = (
     " .`-_':,;^=+/\"|)\\<>)iv%xclrs{*}I?!][1taeo7zjLu" +
     "nT#JCwfy325Fp6mqSghVd4EgXPGZbYkOA&8U$@KHDBWNMR0Q"
-    )[::-1]
-print(gliphs)    
+    )[::-1]   
+# esse [::-1]  é um "reverse" do string em Python, para o primiro glifo ser o mais escuro e o último o mais claro
+# print(gliphs)    
 
 def setup():
     global fonte, n_cols, n_rows, video
@@ -37,9 +37,6 @@ def draw():
     n_rows = int(height / grid_size)
     if video.available():
         background(255) 
-        # se foi apertado 'g'
-        if recordingPDF:
-            beginRecord(PDF, "Imagem.pdf")
         video.read()
         video.loadPixels()
         for c in range(n_cols):
