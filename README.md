@@ -8,6 +8,10 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
+![s304](s304/s304.gif)
+
+304: [code](https://github.com/villares/sketch-a-day/tree/master/s304) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![s303](s303/s303.png)
