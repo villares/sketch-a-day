@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s306"  # 20181031
+SKETCH_NAME = "s307"  # 20181101
 OUTPUT = ".png"
 GRID_SIZE = 24
 
