@@ -67,7 +67,7 @@ class Node():
            self.py += sqrt(abs(self.py - my)) * qy
         self.x = self.px
         self.y = self.py
-        self.v = PVector(self.x, self.y)
+        #self.v = PVector(self.x, self.y)
 
 class Cell():
     cells = []
@@ -92,7 +92,7 @@ class Cell():
         noFill()
         strokeWeight(2)
         for p in self.vers:
-            vertex(p.v.x, p.v.y)
+            vertex(p.x, p.y)
         endShape(CLOSE)
         
     def update_vers(self):
