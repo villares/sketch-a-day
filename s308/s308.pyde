@@ -22,15 +22,6 @@ def draw():
     stroke(0)
     for c in Cell.cells:
         c.plot()
-    
-    # for p in Node.nodes:
-    #     if rule(p.ix, p.iy):
-    #         if dist(p.x, p.y, mouseX, mouseY) < 5:
-    #             stroke(255, 0, 0)
-    #         else:
-    #             stroke(255)        
-    #         ellipse(p.x, p.y, 10, 10)    
-    
 
 def init_grid(grid_size):
     Cell.border = 50.
@@ -125,15 +116,7 @@ def keyPressed():
     if keyCode == UP: U += 1
     if keyCode == DOWN and U > 1: U -= 1
     if keyCode == RIGHT: V += 1
-    if keyCode == LEFT and V > 1: V -= 1
-    
-    
-def mouseDragged():
-    for p in Node.nodes:
-        if rule(p.ix, p.iy):
-            if dist(p.x, p.y, mouseX, mouseY) < 5:
-                p.x, p.y = mouseX, mouseY
-                p.v = PVector(p.x, p.y)
+    if keyCode == LEFT and V > 1: V -= 1    
                 
 # print text to add to the project's README.md             
 def settings():
