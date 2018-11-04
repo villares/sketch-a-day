@@ -17,7 +17,7 @@ def setup():
     
 def draw():
     global rule
-    rule = lambda x, y: random(40) < 30
+    rule = lambda x, y: random(40) < 20
     background(200)
     stroke(0)
     for c in Cell.cells:
@@ -28,13 +28,14 @@ def init_grid(grid_size):
     Cell.border = 50.
     Cell.spacing = (width - Cell.border *2) / grid_size
     Cell.cells = []
-
+    randomSeed(1)
     for x in range(0, grid_size, 2):
         for y in range(0, grid_size, 2):
                 new_cell = Cell(x, y)
                 Cell.cells.append(new_cell)
                 Cell.grid[x, y] = new_cell
-
+                
+    randomSeed(frameCount) 
     Node.nodes = []
     for x in range(-1, grid_size+1, 2):
         for y in range(-1, grid_size+1, 2):
@@ -56,10 +57,11 @@ class Node():
         self.py = Cell.border + Cell.spacing + y * Cell.spacing 
         if rule(x, y):
            mx, my = width/2, height/2
-           qx = 0.15 * (self.px - mx) / (abs(self.px - mx) + 0.001)
-           qy = -0.15 * (self.py - my) / (abs(self.py - my) + 0.001)
-           self.px += abs(self.px - mx) ** 1.05 * qx
-           self.py += abs(self.py - my) ** 1.05 * qy
+           qx =  0.15 * (self.px - mx) / (abs(self.px - mx) + 0.001)
+           qy =  -0.15 * (self.py - my) / (abs(self.py - my) + 0.001)
+           self.px += abs(self.px - mx) * qx 
+           self.py += abs(self.py - my) * qy
+           print(qx, qy) 
         self.x = self.px
         self.y = self.py
         #self.v = PVector(self.x, self.y)
@@ -76,7 +78,7 @@ class Cell():
         self.py = Cell.border + Cell.spacing  + y * Cell.spacing 
         self.vers = []
         self.num_hatches = int(random(5, 12))
-        self.type_hatches = random(10)       
+        self.type_hatches = random(10)      
       
     def plot(self):
         self.hatch()
