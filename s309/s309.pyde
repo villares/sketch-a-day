@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s309"  # 20181103
-OUTPUT = ".gif"
+OUTPUT = ".png"
 GRID_SIZE = 24
 
 from line_geometry import Line
@@ -40,15 +40,12 @@ def init_grid(grid_size):
     for x in range(-1, grid_size+1, 2):
         for y in range(-1, grid_size+1, 2):
                 new_node = Node(x, y)
-                Node.nodes.append(new_node) 
                 Cell.grid[x, y] = new_node   # extrarir do dict
 
     for c in Cell.cells:
         c.update_vers()
    
 class Node():
-    nodes = []
-    grid = dict()
 
     def __init__(self, x, y):
         self.ix = x
@@ -57,19 +54,17 @@ class Node():
         self.py = Cell.border + Cell.spacing + y * Cell.spacing 
         if rule(x, y):
            mx, my = width/2, height/2
-           qx =  0.15 * (self.px - mx) / (abs(self.px - mx) + 0.001)
-           qy =  -0.15 * (self.py - my) / (abs(self.py - my) + 0.001)
-           self.px += abs(self.px - mx) * qx 
-           self.py += abs(self.py - my) * qy
-           print(qx, qy) 
+           # qx =  0.15 * (self.px - mx) / (abs(self.px - mx) + 0.001)
+           # qy =  -0.15 * (self.py - my) / (abs(self.py - my) + 0.001)
+           self.px += (self.px - mx) * 0.15 
+           self.py += (self.py - my) * -0.15
+           # print(qx, qy) 
         self.x = self.px
         self.y = self.py
-        #self.v = PVector(self.x, self.y)
 
 class Cell():
     cells = []
     grid = dict()
-    vers = []
 
     def __init__(self, x, y):
         self.ix = x
@@ -81,7 +76,6 @@ class Cell():
         self.type_hatches = random(10)      
       
     def plot(self):
-        self.hatch()
         strokeWeight(1)
         for l in self.lines:
             l.plot()
@@ -97,8 +91,8 @@ class Cell():
         self.v1 = Cell.grid.get((self.ix-1, self.iy+1))
         self.v3 = Cell.grid.get((self.ix+1, self.iy-1))
         self.v2 = Cell.grid.get((self.ix+1, self.iy+1))
-        # if random(10) > 2:
         self.vers = [self.v0, self.v1, self.v2, self.v3]
+        self.hatch()
         
     def hatch(self):
         self.lines = []
@@ -112,7 +106,7 @@ class Cell():
 def keyPressed():
     if key == "n" or key == CODED:
         init_grid(GRID_SIZE)
-        saveFrame("###.png")
+        #saveFrame("###.png")
     if key == "s": saveFrame("###.png")
 
 # print text to add to the project's README.md             

@@ -34,19 +34,15 @@ def init_grid(grid_size):
                 Cell.cells.append(new_cell)
                 Cell.grid[x, y] = new_cell
 
-    Node.nodes = []
     for x in range(-1, grid_size+1, 2):
         for y in range(-1, grid_size+1, 2):
                 new_node = Node(x, y)
-                Node.nodes.append(new_node) 
                 Cell.grid[x, y] = new_node   # extrarir do dict
 
     for c in Cell.cells:
         c.update_vers()
    
 class Node():
-    nodes = []
-    grid = dict()
 
     def __init__(self, x, y):
         self.ix = x
@@ -61,12 +57,10 @@ class Node():
            self.py += sqrt(abs(self.py - my)) * qy
         self.x = self.px
         self.y = self.py
-        #self.v = PVector(self.x, self.y)
 
 class Cell():
     cells = []
     grid = dict()
-    vers = []
 
     def __init__(self, x, y):
         self.ix = x
@@ -78,7 +72,6 @@ class Cell():
         self.type_hatches = random(10)       
       
     def plot(self):
-        self.hatch()
         strokeWeight(1)
         for l in self.lines:
             l.plot()
@@ -96,6 +89,7 @@ class Cell():
         self.v2 = Cell.grid.get((self.ix+1, self.iy+1))
         # if random(10) > 2:
         self.vers = [self.v0, self.v1, self.v2, self.v3]
+        self.hatch()
         
     def hatch(self):
         self.lines = []
