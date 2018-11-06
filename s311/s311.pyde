@@ -1,12 +1,12 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s311"  # 20181105
+SKETCH_NAME = "s311b"  # 20181105
 OUTPUT = ".gif"
 GRID_SIZE = 12
 
 from line_geometry import Line
 from line_geometry import par_hatch
-add_library('gifAnimation')
-from gif_exporter import gif_export
+# add_library('gifAnimation')
+# from gif_exporter import gif_export
 
 rule = lambda x, y: random(40) < 20
 
@@ -20,22 +20,23 @@ def draw():
     background(200)
     f = frameCount/10.
     t = 0.5 + sin(f)/2    
-    stroke(0, 0, 200)
+    stroke(0, 0, 200, 240)
     for c in Cell.cells:
         c.plot(-t)    
     stroke(0)
-    stroke(200, 0, 0)
+    stroke(200, 0, 0, 240)
     for c in Cell.cells:
         c.plot(+t)    
-    stroke(0)
 
+    # stroke(0)
     # for c in Cell.cells:
     #     c.plot(t)
     
-    if f < TWO_PI:
-        gif_export(GifMaker, SKETCH_NAME)
-    else:
-        exit()
+    # if f < TWO_PI:
+    #     pass
+    #     # gif_export(GifMaker, SKETCH_NAME)
+    # else:
+    #     exit()
 
 def init_grid(grid_size):
     Cell.border = 125.
