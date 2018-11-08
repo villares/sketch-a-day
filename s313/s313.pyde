@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s313"  # 20181106
-OUTPUT = ".gif"
+SKETCH_NAME = "s313"  # 20181107
+OUTPUT = ".png"
 GRID_SIZE = 12
 
 from line_geometry import Line
