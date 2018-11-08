@@ -26,7 +26,7 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
-![s311](s311b/s311.gif)
+![s311](s311/s311.gif)
 
 311: [code](https://github.com/villares/sketch-a-day/tree/master/s311) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
