@@ -8,7 +8,7 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
-![s316](s316/s316.png)
+![s316](s316/s316.gif)
 
 316: [code](https://github.com/villares/sketch-a-day/tree/master/s316) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
