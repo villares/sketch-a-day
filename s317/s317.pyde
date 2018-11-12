@@ -114,7 +114,9 @@ class Cell():
         #strokeWeight(1)
         #stroke(100, 0, 100)
         for p0, p1 in zip(V0, V1):
-            vertex(lerp(p0.x, p1.x, t), lerp(p0.y, p1.y, t), lerp(p0.z, p1.z, t) )
+            vertex(lerp(p0.x, p1.x, t),
+                   lerp(p0.y, p1.y, t),
+                   lerp(p0.z, p1.z, t) )
         endShape(CLOSE)
         
     def update_vers(self):
