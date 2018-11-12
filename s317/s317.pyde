@@ -5,8 +5,8 @@ GRID_SIZE = 36
 
 from line_geometry import Line
 from line_geometry import par_hatch
-add_library('gifAnimation')
-from gif_exporter import gif_export
+# add_library('gifAnimation')
+# from gif_exporter import gif_export
 
 # this rule was used to choose nodes that would move on 
 # earlier regular grid deformation sketches (now it's just a random selection)
@@ -33,15 +33,10 @@ def draw():
                 translate(0, -c.py)
                 for i in range(32):
                     c.plot(cos(i/5.)/2)
-
-    # if frameCount % 10 == 0:
-    #     print(t)
-    #     for c in Cell.cells:
-    #         c.plot(t)  
             
     if 0 < f < TWO_PI:
         pass
-        gif_export(GifMaker, SKETCH_NAME)
+        # gif_export(GifMaker, SKETCH_NAME)
     else:
         # for i in range(60):
         #     gif_export(GifMaker, SKETCH_NAME)
