@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s313"  # 20181107
-OUTPUT = ".png"
+SKETCH_NAME = "s318"  # 20181112
+OUTPUT = ".gif"
 GRID_SIZE = 12
 
 from line_geometry import Line
@@ -19,27 +19,28 @@ def setup():
     
 def draw():
     translate(width/2, 0)
-    rotateY(frameCount/10.)
+    rotateY(frameCount/7.)
     translate(-width/2, 0)
     # noStroke()
     # fill(200, 10)
     # rect(0, 0, width, height)
     background(200)
     i = 0
-    while i/10. < TWO_PI:
-        t = cos(i/10.)/3    
+    while i/5. < TWO_PI:
+        t = cos(i/5.)/3    
         stroke(0, 32)
         for c in Cell.cells:
             c.plot(t*5)
         i += 1
         
-    f = frameCount/10.  
-    if 0 < f < TWO_PI:
-    #     pass
-    #     #gif_export(GifMaker, SKETCH_NAME)
-    else:
-    #     noLoop()
-         pass
+    f = frameCount/7.  
+    # if 0 < f < TWO_PI:
+    #      pass
+    #      gif_export(GifMaker, SKETCH_NAME)
+    # else:
+    #      gif_export(GifMaker, SKETCH_NAME, finish=True)
+    #      noLoop()
+    #      pass
 
 def init_grid(grid_size):
     Cell.border = 125.
