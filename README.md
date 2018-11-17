@@ -34,13 +34,13 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 ---
 
-![s319](s319/s319.jpg)
+![s319](s319/s219.jpg)
 
 319: [code](https://github.com/villares/sketch-a-day/tree/master/s319) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
-![s318](s318/s18.gif)
+![s318](s318/s318.gif)
 
 318: [code](https://github.com/villares/sketch-a-day/tree/master/s318) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
