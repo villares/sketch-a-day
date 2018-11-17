@@ -32,13 +32,13 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
-![s319](s319/s319.png)
+![s319](s319/s319.jpg)
 
 319: [code](https://github.com/villares/sketch-a-day/tree/master/s319) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
-![s318](s318/s18.png)
+![s318](s318/s18.gif)
 
 318: [code](https://github.com/villares/sketch-a-day/tree/master/s318) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
