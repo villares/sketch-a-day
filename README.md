@@ -8,6 +8,20 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
 
+
+---
+
+![s325](s325/s325.png)
+
+325: [code](https://github.com/villares/sketch-a-day/tree/master/s325) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![s324](s324/s324.png)
+
+324: [code](https://github.com/villares/sketch-a-day/tree/master/s324) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![s323](s323/s323.gif)
