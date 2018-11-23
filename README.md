@@ -11,6 +11,24 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 ---
 
+![s328](s328/s328.png)
+
+328: [code](https://github.com/villares/sketch-a-day/tree/master/s328) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s327](s327/s327.png)
+
+327: [code](https://github.com/villares/sketch-a-day/tree/master/s327) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![s326](s326/s326.png)
+
+326: [code](https://github.com/villares/sketch-a-day/tree/master/s326) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![s325](s325/s325.png)
 
 325: [code](https://github.com/villares/sketch-a-day/tree/master/s325) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
