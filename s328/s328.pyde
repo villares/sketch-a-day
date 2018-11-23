@@ -21,7 +21,8 @@ def setup():
 
     
 def draw():
-    t = cos(frameCount/2.)    
+    f = frameCount/2.
+    t = cos(f)    
     stroke(0)
     #print t
     for c in Cell.cells:
