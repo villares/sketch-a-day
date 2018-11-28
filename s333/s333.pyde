@@ -1,6 +1,6 @@
 
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s332"  # 20181126
+SKETCH_NAME = "s333"  # 20181127
 OUTPUT = ".png"
 NUM = 5
 BORDER = 50
