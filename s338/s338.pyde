@@ -1,6 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "s338"  # 20181202
 OUTPUT = ".png"
+mode = 0
 
 from cell import Cell
 from random import choice
@@ -18,13 +19,21 @@ def init_grid(w, h):
         for j in range(h):
             Cell.grid[(i, j)] = Cell((i,j), CELL_SIZE, choice((True, False)))    
             
-def draw():
+def draw():    
+    background(220)
     for c in Cell.grid.values():
-        c.play()
+        c.play(mode)
         
 def keyPressed():
+    global mode
     if key == "s":
         saveFrame("###.png")
+    if key == "2":
+        mode = 2
+    if key == "1":
+        mode = 1
+    if key == "0":
+        mode = 0
                                             
 # print text to add to the project's README.md             
 def settings():
