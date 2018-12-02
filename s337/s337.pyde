@@ -1,3 +1,7 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s337"  # 20181201
+OUTPUT = ".png"
+
 from cell import Cell
 from random import choice
 
