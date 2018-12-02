@@ -65,5 +65,3 @@ class Cell():
                      self.size_,
                      self.size_
                      )
-def keyPressed():
-     saveFrame("###.png")

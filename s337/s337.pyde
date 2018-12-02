@@ -17,11 +17,17 @@ def init_grid(w, h):
 def draw():
     for c in Cell.grid.values():
         c.play()
-        
-        
-        
-        
-        
-        
-        
-        
+
+def keyPressed():
+    if key == "s":
+        saveFrame("###.png")                                    
+                                                                                                            
+# print text to add to the project's README.md             
+def settings():
+    println(
+"""
+![{0}]({0}/{0}{2})
+
+{1}: [code](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+""".format(SKETCH_NAME, SKETCH_NAME[1:], OUTPUT)
+    )
