@@ -10,16 +10,19 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 ---
 ![s341](s341/s341_2127.png)
+
 341: [code](https://github.com/villares/sketch-a-day/tree/master/s341) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 ![s340](s340/3895.png)
+
 340: [code](https://github.com/villares/sketch-a-day/tree/master/s340) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 ![s339](s339/s339.gif)
+
 339: [code](https://github.com/villares/sketch-a-day/tree/master/s339) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
@@ -30,21 +33,25 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 ---
 ![s337](s337/337b.png)
+
 337: [code](https://github.com/villares/sketch-a-day/tree/master/s337) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 ![s336](s336/s336.png)
+
 336: [code](https://github.com/villares/sketch-a-day/tree/master/s336) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 ![s335](s335/s335.png)
+
 335: [code](https://github.com/villares/sketch-a-day/tree/master/s335) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 ![s334](s334/s334.png)
+
 334: [code](https://github.com/villares/sketch-a-day/tree/master/s334) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
