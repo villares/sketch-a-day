@@ -1,3 +1,7 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME = "s340"  # 20181204
+OUTPUT = ".png"
+
 from java.awt import Toolkit
 
 xo, yo = 100, 100
@@ -8,7 +12,7 @@ s = 10
 def setup():
     size(500, 500)
     global img
-    img = loadImage("unifont-11.0.02.bmp")
+    img = loadImage("unifont-11.0.02.png")
 
 def draw():
     # KeyEvent.VK_CAPS_LOCK is 20
@@ -16,12 +20,14 @@ def draw():
     if capsLocked:
         image(img, xio, yio)
         noFill()
+        rectMode(CORNER)
         rect(xio + xo, yio + yo, grid_size, grid_size)
     else:
         for x in range(grid_size):
             for y in range(grid_size):
                 c = img.get(xo + x, yo + y)
                 fill(c)
+                rectMode(CENTER)
                 rect(x * s, y * s, s, s)
     
 def keyPressed():
