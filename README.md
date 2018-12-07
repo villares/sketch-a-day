@@ -9,19 +9,25 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
 
 ---
+![s343](s343/s343.gif)
+
+343: [code](https://github.com/villares/sketch-a-day/tree/master/s343) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
 ![s342](s342/s342.gif)
 
 342: [code](https://github.com/villares/sketch-a-day/tree/master/s342) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
-![s341](s341/s341_2127.png)
+![s341](s341/s341.gif)
 
 341: [code](https://github.com/villares/sketch-a-day/tree/master/s341) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
-![s340](s340/3895.png)
+![s340](s340/s340.gif)
 
 340: [code](https://github.com/villares/sketch-a-day/tree/master/s340) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
