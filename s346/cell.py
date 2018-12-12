@@ -37,11 +37,13 @@ class Cell():
             noFill()
         strokeWeight(1)
         stroke(200)
-        #rect(self.pos.x, self.pos.y, self.size_, self.size_)
+        with pushMatrix():
+            translate(self.pos.x, self.pos.y, -16)
+            rect(0, 0, self.size_, self.size_)
 
     def plot(self, mode):
         if self.state:
-            strokeWeight(self.size_ / 5.)
+            strokeWeight(self.size_ / 3.)
             if mode == -1:
                 fill(0)
                 noStroke()
@@ -49,23 +51,23 @@ class Cell():
             if mode == 0:
                 stroke(0)
                 self.draw_lines(Cell.NL)
-                self.draw_lines(Cell.NL)
+                self.draw_lines2(Cell.NL)
             elif mode == 1:
                 stroke(0, 150, 0)
-                self.draw_lines(Cell.ONL)
+                self.draw_lines2(Cell.ONL)
             elif mode == 2:
                 stroke(0, 0, 150)
                 self.draw_lines(Cell.DNL)
             elif mode == 3:
                 stroke(0, 150, 0)
-                self.draw_lines(Cell.ONL)
+                self.draw_lines2(Cell.ONL)
                 stroke(0, 0, 150)
                 self.draw_lines(Cell.DNL)
             elif mode == 4:
                 stroke(0, 150, 0)
                 self.draw_lines(Cell.DNL)
                 stroke(0, 0, 150)
-                self.draw_lines(Cell.ONL)
+                self.draw_lines2(Cell.ONL)
 
     def draw_lines(self, nbs):
         third = self.size_ / 3
@@ -73,9 +75,24 @@ class Cell():
         for (ni, nj) in nbs:
             nb = Cell.grid.get((i + ni, j + nj), None)
             if nb and nb.state:
-                rect(self.pos.x + ni * third * 1.5,
+                line(self.pos.x + ni * third * 1.5,
                      self.pos.y + nj * third * 1.5,
-                     third, third)
-                #point(self.pos.x, self.pos.y) #, third, third)
-                rect(self.pos.x, self.pos.y, third, third)
-3
+                     self.pos.x, self.pos.y)
+                ellipse(self.pos.x, self.pos.y, third, third)
+
+    def draw_lines2(self, nbs):
+        third = self.size_ / 3
+        i, j = self.index[0], self.index[1]
+        for (ni, nj) in nbs:
+            nb = Cell.grid.get((i + ni, j + nj), None)
+            if nb and nb.state:
+                with pushMatrix():
+                    translate(self.pos.x, self.pos.y, -15)
+                    if ni == 0 and nj != 0:
+                        line(-third, nj * third * 1.5, -third, 0)
+                        line(+third, nj * third * 1.5, +third, 0)
+                    elif nj == 0 and ni != 0:
+                        line(ni * third * 1.5, -third, 0, -third)
+                        line(ni * third * 1.5, +third, 0, +third)
+                    else:
+                        ellipse(0, 0, third * 2, third * 2)
