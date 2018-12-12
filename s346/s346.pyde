@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s346"  # 20181210
+SKETCH_NAME = "s346"  # 20181212
 OUTPUT = ".png"
 mode = 0
 
@@ -7,7 +7,7 @@ from cell import Cell
 from random import choice
 from java.awt import Toolkit
 
-CELL_SIZE = 24
+CELL_SIZE = 9
 Cell.grid = dict()
 
 xo, yo = 100, 100
@@ -15,10 +15,9 @@ xio, yio = 0, 0
 s = 10
 
 def setup():
-    size(600, 600, P3D)
-    smooth(2)
+    size(600, 600)
     global img, grid_size
-    img = loadImage("unifont-11.0.02.png")
+    img = loadImage("a.png")
     grid_size = width / CELL_SIZE
 
 def init_grid(f=None):
@@ -27,7 +26,7 @@ def init_grid(f=None):
         for j in range(h): 
             if f == None:
                 f = lambda i, j: choice((True, False))
-            Cell.grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j))
+            Cell.grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j) )
 
 def p_ou_b(i, j):
      c = img.get(xo + i, yo + j)
@@ -36,6 +35,7 @@ def p_ou_b(i, j):
      
 
 def draw():
+    #scale(3)
     background(220)
     strokeWeight(1)
     # KeyEvent.VK_CAPS_LOCK is 20
@@ -79,9 +79,6 @@ def keyPressed():
             init_grid(lambda i, j: (i + j) % 2 == 0)
         if key == "r":
             init_grid()
-        if key == "t":
-            init_grid(lambda i, j: choice((True, False))
-                      if j < grid_size / 3 or j > grid_size * 0.66 else False )
     if xo > width - grid_size:
         xio = width - grid_size - xo
     if yo > height - grid_size:
