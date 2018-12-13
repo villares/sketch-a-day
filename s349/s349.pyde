@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s348"  # 20181212
+SKETCH_NAME = "s349b"  # 20181213
 OUTPUT = ".png"
 mode = 0
 
@@ -7,7 +7,7 @@ from cell import Cell
 from random import choice
 from java.awt import Toolkit
 
-CELL_SIZE = 9
+CELL_SIZE = 30
 Cell.grid = dict()
 
 xo, yo = 100, 100
@@ -37,7 +37,7 @@ def p_ou_b(i, j):
 def draw():
     #scale(3)
     background(220)
-    #strokeWeight(1)
+    strokeWeight(1)
     # KeyEvent.VK_CAPS_LOCK is 20
     capsLocked = Toolkit.getDefaultToolkit().getLockingKeyState(20)
     if capsLocked:

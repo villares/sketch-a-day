@@ -68,14 +68,17 @@ class Cell():
                 self.draw_lines(Cell.ONL)
 
     def draw_lines(self, nbs):
-        third = self.size_ / 3
+        third = self.size_ / 3.
         i, j = self.index[0], self.index[1]
+        strokeWeight(1)
         for (ni, nj) in nbs:
             nb = Cell.grid.get((i + ni, j + nj), None)
             if nb and nb.state:
-                ellipse(self.pos.x + ni * third * 1.5,
-                     self.pos.y + nj * third * 1.5,
-                     third, third)
-                #point(self.pos.x, self.pos.y) #, third, third)
-                ellipse(self.pos.x, self.pos.y, third, third)
+                for i in range(3):
+                    s = (third + i * third)
+                    ellipse(self.pos.x + ni * third * 1.5,
+                      self.pos.y + nj * third * 1.5,
+                      s, s)
+                    #point(self.pos.x, self.pos.y) #, third, third)
+                    ellipse(self.pos.x, self.pos.y, s, s)
 3
