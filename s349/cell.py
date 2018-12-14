@@ -1,15 +1,15 @@
-
+1
 class Cell():
     # neighbours list
-    NL = ((-1, -1), (+0, -1), (+1, -1),
-          (-1, +0), (+0, +0), (+1, +0),
-          (-1, +1), (+0, +1), (+1, +1))
-    ONL = ((+0, -1),
-           (-1, +0), (+0, +0), (+1, +0),
-           (+0, +1))
-    DNL = ((-1, -1), (+1, -1),
-           (+0, +0),
-           (-1, +1), (+1, +1))
+    NL = ((-1, -1), (0, -1), (1, -1),
+          (-1, 0), (0, 0), (1, 0),
+          (-1, 1), (0, 1), (1, 1))
+    ONL = (          (0, -1),
+           (-1, 0), (0, 0), (1, 0),
+                     (0, 1))
+    DNL = ((-1, -1), (1, -1),
+                (0, 0),
+           (-1, 1), (1, 1))
 
     def __init__(self, index, cell_size, state=False):
         self.index = index
@@ -49,7 +49,6 @@ class Cell():
             if mode == 0:
                 stroke(0)
                 self.draw_lines(Cell.NL)
-                self.draw_lines(Cell.NL)
             elif mode == 1:
                 stroke(0, 150, 0)
                 self.draw_lines(Cell.ONL)
@@ -74,10 +73,10 @@ class Cell():
         for (ni, nj) in nbs:
             nb = Cell.grid.get((i + ni, j + nj), None)
             if nb and nb.state:
-                for i in range(3):
-                    s = (third + i * third)
+                for si in range(3):
+                    s = (third + si * third)
                     ellipse(self.pos.x + ni * third * 1.5,
-                      self.pos.y + nj * third * 1.5,
+                            self.pos.y + nj * third * 1.5,
                       s, s)
                     #point(self.pos.x, self.pos.y) #, third, third)
                     ellipse(self.pos.x, self.pos.y, s, s)
