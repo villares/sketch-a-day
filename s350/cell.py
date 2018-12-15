@@ -4,11 +4,11 @@ class Cell():
     NL = ((-1, -1), (0, -1), (1, -1),
           (-1, 0), (0, 0), (1, 0),
           (-1, 1), (0, 1), (1, 1))
-    ONL = ((0, -1),
+    ONL = (          (0, -1),
            (-1, 0), (0, 0), (1, 0),
-           (0, 1))
+                     (0, 1))
     DNL = ((-1, -1), (1, -1),
-           (0, 0),
+                (0, 0),
            (-1, 1), (1, 1))
 
     def __init__(self, index, cell_size, state=False):
@@ -73,8 +73,7 @@ class Cell():
             if nb and nb.state:
                 for si in range(3):
                     s = (third + si * third)
-                    set(self.pos.x + ni, self.pos.y + nj, color(0))
+                    set(self.pos.x + ni ,           self.pos.y + nj, color(0))
                     #   s, s)
-                    # point(self.pos.x, self.pos.y) #, third, third)
+                    # #point(self.pos.x, self.pos.y) #, third, third)
                     set(self.pos.x, self.pos.y, color(0))
-3
