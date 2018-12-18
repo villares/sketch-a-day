@@ -7,7 +7,7 @@ from cell import Cell
 from random import choice
 from java.awt import Toolkit
 
-CELL_SIZE = 40
+CELL_SIZE = 10
 Cell.grid = dict()
 
 xo, yo = 100, 100
