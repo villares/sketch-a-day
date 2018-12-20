@@ -12,6 +12,61 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 ---
 
+![s355](s355/s355.gif)
+
+355: [code](https://github.com/villares/sketch-a-day/tree/master/s35) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s354](s354/s354.png)
+
+354: [code](https://github.com/villares/sketch-a-day/tree/master/s354) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s353](s353/s353.png)
+
+353: [code](https://github.com/villares/sketch-a-day/tree/master/s353) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s352](s352/s352.png)
+
+352: [code](https://github.com/villares/sketch-a-day/tree/master/s352) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s351](s351/s351.png)
+
+351: [code](https://github.com/villares/sketch-a-day/tree/master/s351) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s350](s350/s350.png)
+
+350: [code](https://github.com/villares/sketch-a-day/tree/master/s350) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s349](s349/s349.png)
+
+349: [code](https://github.com/villares/sketch-a-day/tree/master/s349) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![s348](s348/s348.png)
+
+348: [code](https://github.com/villares/sketch-a-day/tree/master/s348) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---        
+        
+![s347](s347/s347.png)
+
+347: [code](https://github.com/villares/sketch-a-day/tree/master/s348) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![s346](s346/s346.png)
 
 346: [code](https://github.com/villares/sketch-a-day/tree/master/s344) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
