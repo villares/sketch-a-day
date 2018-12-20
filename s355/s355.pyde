@@ -11,13 +11,13 @@ Cell.grid = dict()
 
 s = 5
 x, y = 0, 0
-vx, vy = random(-2, 2), random(-2, 2)
+vx, vy = random(-5, 5), random(-5, 5)
 
 def setup():
     size(500, 500)
-    global img, grid_size
-    img = loadImage("a.png")
+    global grid_size
     grid_size = width / CELL_SIZE
+    rectMode(CENTER)
 
 def init_grid(f=None):
     w, h = width // CELL_SIZE, height // CELL_SIZE
@@ -36,14 +36,14 @@ def p_ou_b(i, j):
 
 
 def draw():
-    # scale(3)
+    global vx, vy, x, y
     background(220)
-    rectMode(CENTER)
-    for c in Cell.grid.values():
-        c.update(x, y)
     for c in Cell.grid.values():
         c.plot(mode)
-    global vx, vy, x, y
+    for c in Cell.grid.values():
+        if c.update(x, y):
+            saveFrame("####.png")
+
     x += vx
     y += vy
     if not 0 < x < width:
@@ -53,19 +53,8 @@ def draw():
     ellipse
 
 def keyPressed():
-    global mode
-    global xo, yo, xio, yio
-    if key == CODED:
-
-        if keyCode == RIGHT and xo < img.width - 11:
-            xo += 16
-        if keyCode == LEFT and xo > 10:
-            xo -= 16
-        if keyCode == DOWN and yo < img.height - 11:
-            yo += 16
-        if keyCode == UP and yo > 10:
-            yo -= 16
-    else:
+        global mode
+        global vx, vy
         if key == "s" or key == "S":
             saveFrame(SKETCH_NAME + "_###.png")
         if key in "01234567789":
@@ -75,7 +64,7 @@ def keyPressed():
         if key == " ":
             init_grid(lambda i, j: False)
         if key == "x":
-            init_grid(lambda i, j: (i + j) % 2 == 0)
+            vx, vy = random(-5, 5), random(-5, 5)
         if key == "r":
             init_grid()
 

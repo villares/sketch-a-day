@@ -32,7 +32,8 @@ class Cell():
         elif self.mouse_down:    
             self.state = not self.state
             self.mouse_down = False
-            saveFrame("s_###.png")
+            return True
+        return False
 
     def plot(self, mode):
         if self.state:
