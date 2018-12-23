@@ -15,12 +15,16 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 358: [code](https://github.com/villares/sketch-a-day/tree/master/s358) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+
+... in preparation for something...
+
 ---        
         
 ![s357](s357/s357.png)
 
 357: [code](https://github.com/villares/sketch-a-day/tree/master/s357) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Back to ideas from 322...
 
 ---        
         
