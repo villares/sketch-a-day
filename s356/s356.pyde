@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s355"  # 20181219
+SKETCH_NAME = "s356"  # 20181220
 OUTPUT = ".png"
 mode = 0
 
@@ -8,10 +8,9 @@ from random import choice
 
 CELL_SIZE = 40
 Cell.grid = dict()
+Cell.grid2 = dict()
 
 s = 5
-x, y = 0, 0
-vx, vy = random(-5, 5), random(-5, 5)
 
 def setup():
     size(500, 500)
@@ -26,6 +25,7 @@ def init_grid(f=None):
             if f == None:
                 f = lambda i, j: choice((True, False))
             Cell.grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j))
+            Cell.grid2[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j))
 
 def p_ou_b(i, j):
     c = img.get(xo + i, yo + j)
@@ -40,17 +40,12 @@ def draw():
     background(220)
     for c in Cell.grid.values():
         c.plot(mode)
-    for c in Cell.grid.values():
-        if c.update(x, y):
-            saveFrame("####.png")
+    for c2 in Cell.grid2.values():
+        c2.plot(mode - 1)
 
-    x += vx
-    y += vy
-    if not 0 < x < width:
-        vx = -vx
-    if not 0 < y < height:
-        vy = -vy
-    ellipse
+    for c in Cell.grid.values():
+        c.update(mouseX, mouseY)
+
 
 def keyPressed():
         global mode
