@@ -1,9 +1,9 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s322" # 20181116
+SKETCH_NAME = "s358" # 20181222
 OUTPUT = ".gif"
 
-GRID_SIZE = 20
-BORDER = 10
+GRID_SIZE = 5
+BORDER = 50
 
 from random import seed
 from random import choice
