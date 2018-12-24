@@ -131,8 +131,9 @@ class Cell():
                     elif self.type == "10100":
                         half_circle(0, -l, a - i, BOTTOM)
                     elif self.type == "00100":
-                        ellipse(0, 0, (a + i) * 2.0, (a + i) * 2.0)
-                        ellipse(0, 0, (a - i) * 2.5, (a - i) * 2.5)
+                        ellipse(0, 0, (a - i) * 2, (a -d i) * 2)
+                        # ellipse(0, 0, (a + i) * 2.0, (a + i) * 2.0)
+                        # ellipse(0, 0, (a - i) * 2.5, (a - i) * 2.5)
 
     def find_type(self, nbs):
         i, j = self.index[0], self.index[1]
