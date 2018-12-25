@@ -64,11 +64,11 @@ class Cell():
                 stroke(0, 0, 200, 50)
                 rect(0, 0, siz, siz)
                 #text(self.type, 0, 0)
-                if self.type == "11110": # inv t
+                if self.type == "11110":  # inv t
                     rotate(PI)
-                if self.type == "11101": # t r
+                if self.type == "11101" or self.type == "01110":  # t r & i
                     rotate(HALF_PI)
-                if self.type == "10111": # t r
+                if self.type == "10111":  # t l
                     rotate(PI + HALF_PI)
 
                 for i in range(-4, 5, 4):  # (-28, 29, 7):
@@ -100,16 +100,16 @@ class Cell():
                         quarter_circle(-l, l, c + i, TOP + RIGHT)
                         #quarter_circle(l, -l, c + i, BOTTOM + LEFT)
                         ellipse(0, 0, (a + i) * 2, (a + i) * 2)
-                    elif self.type == "10101":
-                        line(a + i, -l, a + i, l)
+                    elif self.type == "10101" or self.type == "01110":
+                        line(+a - i, -l, +a - i, l)
                         line(-a + i, -l, -a + i, l)
                         #half_circle(0, l, a - i, TOP)
                         #half_circle(0, -l, a - i, BOTTOM)
-                    elif self.type == "01110":
-                        line(-l, a + i, l, a + i)
-                        line(-l, -a + i, l, -a + i)
-                        #half_circle(-l, 0, a - i, RIGHT)
-                        #half_circle(l, 0, a - i, LEFT)
+                    # elif self.type == "01110":
+                    #     line(-l, a + i, l, a + i)
+                    #     line(-l, -a + i, l, -a + i)
+                    # half_circle(-l, 0, a - i, RIGHT)
+                    # half_circle(l, 0, a - i, LEFT)
                     elif self.type == "11100":
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(0, -l, a - i, BOTTOM)
@@ -131,7 +131,7 @@ class Cell():
                     elif self.type == "10100":
                         half_circle(0, -l, a - i, BOTTOM)
                     elif self.type == "00100":
-                        ellipse(0, 0, (a - i) * 2, (a -d i) * 2)
+                        ellipse(0, 0, (a - i) * 2, (a - i) * 2)
                         # ellipse(0, 0, (a + i) * 2.0, (a + i) * 2.0)
                         # ellipse(0, 0, (a - i) * 2.5, (a - i) * 2.5)
 
