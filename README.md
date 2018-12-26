@@ -12,10 +12,16 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
+![s362](s362/s362.gif)
+
+362: [code](https://github.com/villares/sketch-a-day/tree/master/s362) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
 ![s361](s361/s361.png)
 
 361: [code](https://github.com/villares/sketch-a-day/tree/master/s361) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 

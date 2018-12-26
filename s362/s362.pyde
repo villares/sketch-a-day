@@ -14,6 +14,7 @@ def setup():
     global grid_size
     grid_size = width / CELL_SIZE
     rectMode(CENTER)
+    strokeCap(SQUARE)
 
 def init_grid(f=None):
     w, h = width // CELL_SIZE, height // CELL_SIZE
