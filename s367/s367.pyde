@@ -26,7 +26,7 @@ def init_grid(f=None):
         f = lambda i, j: choice((True, False))
     # number of collums and rows -2 for default cell sized border    
     w = int(width // CELL_SIZE) - 2
-    h = int(height // CELL_SIZE) - r2
+    h = int(height // CELL_SIZE) - 2
     for i in range(w):
         for j in range(h):
             # default Cell constructor has border=CELL_SIZE
