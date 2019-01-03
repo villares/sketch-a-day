@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "sketch_20190101a" 
+SKETCH_NAME = "sketch_20190102da" 
 OUTPUT = ".png"
 mode = 0
 
