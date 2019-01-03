@@ -13,14 +13,14 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
-![sketch_20190102a](2019/sketch_20190102da/sketch_20190102a.gif)
+![sketch_20190102a](2019/sketch_20190102a/sketch_20190102a.gif)
 
 sketch_20190102a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190102a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 
-![sketch_20190101a](2019/sketch_20190101da/sketch_20190101a.gif)
+![sketch_20190101a](2019/sketch_20190101a/sketch_20190101a.gif)
 
 sketch_20190101a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
