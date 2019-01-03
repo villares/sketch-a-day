@@ -10,6 +10,13 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
 
 
+---
+
+## [2018](2018.md)
+
+---
+
+## 2019
 
 ---
 
@@ -25,6 +32,3 @@ sketch_20190102a: [code](https://github.com/villares/sketch-a-day/tree/master/20
 sketch_20190101a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
----
-
-#[2018](2018.md)
