@@ -20,6 +20,14 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 ---
 
+![sketch_20190102a](2019/sketch_20190103a/03.gif)
+
+sketch_20190103a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190103a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Made this today, thinking about my new newsletter: [[sketch-mail](tinyletter.com/villares)]
+
+---
+
 ![sketch_20190102a](2019/sketch_20190102a/sketch_20190102a.gif)
 
 sketch_20190102a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190102a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
