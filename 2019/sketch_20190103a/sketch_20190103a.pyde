@@ -43,12 +43,16 @@ def draw():
         c.plot(mode)
 
     if save_frame:
+         global save_frame
+         save_frame = False
          gif_export(GifMaker, SKETCH_NAME)
 
 def keyPressed():
-    global mode, modulus
+    global mode, modulus, save_frame
+    if key == "g" or key == "G":
+        save_frame = True
     if key == "s" or key == "S":
-        saveFrame(SKETCH_NAME + "_###.png")
+        saveFrame(SKETCH_NAME + "_#######.png")
     if key != CODED and key in "01234567789":
         mode = int(key)
     if key == "-":
@@ -73,7 +77,10 @@ def keyPressed():
         move_grid(x=1, y=0)
     if keyCode == LEFT:
         move_grid(x=-1, y=0)
-
+    if keyCode == UP:
+        move_grid(x=0, y=-1)
+    if keyCode == DOWN:
+        move_grid(x=0, y=1)
 
 def move_grid(x=1, y=1):
     w, h = width // CELL_SIZE, height // CELL_SIZE

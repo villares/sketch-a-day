@@ -31,10 +31,8 @@ def gif_export(GifMaker,             # gets a reference to the library
     gifExporter.addFrame()
 
     if frames == 0:
-       if keyPressed or frameCount >= 100000:
+       if keyPressed and key == "e":
            finish = True
-    elif frameCount >= frames:
-        finish = True
                 
     if finish:
         gifExporter.finish()

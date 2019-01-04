@@ -65,7 +65,7 @@ class Cell():
             if mode == 4:
                 self.variation = choice(("a", "b", "c"))
             if mode == -1:
-                fill(0)
+                fill(100)
                 noStroke()
                 rect(self.pos.x, self.pos.y, self.size_, self.size_)
             noFill()
