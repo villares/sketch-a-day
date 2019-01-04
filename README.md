@@ -9,6 +9,7 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
 
+Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/villares)]
 
 ---
 
@@ -24,7 +25,7 @@ If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donati
 
 sketch_20190103a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190103a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Made this today, thinking about my new newsletter: [[sketch-mail](tinyletter.com/villares)]
+Made this today, thinking about my new newsletter: [[sketch-mail](https://tinyletter.com/villares)]
 
 ---
 
