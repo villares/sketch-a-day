@@ -21,23 +21,37 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 
 ---
 
+
+
+
+---
+
 ![sketch_20190102a](2019/sketch_20190103a/03.gif)
 
 sketch_20190103a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190103a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Made this today, thinking about my new newsletter: [[sketch-mail](https://tinyletter.com/villares)]
 
+
+
+---
+
+
+![sketch_20190104a](2019/sketch_20190104a/sketch_20190104a.png)
+
+[sketch_20190104a](https://github.com/villares/sketch-a-day/tree/master/sketch_20190104a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![sketch_20190102a](2019/sketch_20190102a/sketch_20190102a.gif)
 
-sketch_20190102a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190102a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_20190102a]https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190102a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 
 ![sketch_20190101a](2019/sketch_20190101a/sketch_20190101a.gif)
 
-sketch_20190101a: [code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_20190101a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_20190101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
