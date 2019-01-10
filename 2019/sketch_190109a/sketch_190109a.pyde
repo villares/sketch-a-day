@@ -70,8 +70,6 @@ def keyPressed():
         modulus += 1
     if key == "z":
         move_grid()
-    if key == "R":
-        Cell.rotated_start = not Cell.rotated_start
     if keyCode == RIGHT:
         move_grid(x=1, y=0)
     if keyCode == LEFT:

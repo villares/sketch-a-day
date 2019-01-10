@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "sketch_190108a" # find sketch name yourself!
+SKETCH_NAME = "sketch_190110a" # find sketch name yourself!
 OUTPUT = ".gif"
 mode = 0
 save_frame = False
@@ -35,7 +35,6 @@ def init_grid(f=None):
             Cell.grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j), border=0) 
 
 def draw():
-    global save_frame
     background(200)
     for c in Cell.grid.values():
         c.update(mouseX, mouseY)
@@ -43,6 +42,7 @@ def draw():
         c.plot(mode)
 
     if save_frame:
+         global save_frame
          save_frame = False
          gif_export(GifMaker, SKETCH_NAME)
 
@@ -89,6 +89,9 @@ def move_grid(x=1, y=1):
                 c.index = ((i + x) % w, (j + y) % h)
                 c.calculate_pos()
                 new_grid[c.index] = c
+            # else:
+            #     f = lambda i, j: choice((True, False))
+            #     new_grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j))
                 
     Cell.grid = new_grid
 

@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "sketch_190108a" # find sketch name yourself!
+SKETCH_NAME = "sketch_19010b" # find sketch name yourself!
 OUTPUT = ".gif"
 mode = 0
 save_frame = False
@@ -89,6 +89,9 @@ def move_grid(x=1, y=1):
                 c.index = ((i + x) % w, (j + y) % h)
                 c.calculate_pos()
                 new_grid[c.index] = c
+            # else:
+            #     f = lambda i, j: choice((True, False))
+            #     new_grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j))
                 
     Cell.grid = new_grid
 
