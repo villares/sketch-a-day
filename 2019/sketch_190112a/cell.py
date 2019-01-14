@@ -23,10 +23,10 @@ class Cell():
              "10110": L,
              "00111": L,
              "11100": L,
-             "00000": E,
-             "10000": E,
-             "01000": E,
-             "00010": E
+             # "00000": E,
+             # "10000": E,
+             # "01000": E,
+             # "00010": E
              }
     # neighbours list
     NL = ((-1, -1), (+0, -1), (+1, -1),
@@ -38,8 +38,6 @@ class Cell():
     DNL = ((-1, -1), (+1, -1),
            (+0, +0),
            (-1, +1), (+1, +1))
-    #
-#    module_types = {"
 
     def __init__(self, index, cell_size, state=False, border=None):
         self.index = index

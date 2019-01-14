@@ -7,26 +7,26 @@ class Cell():
     debug_mode = False
     # constants
     N, A, I, T, L, C, E = "NAITLCE"
-    types = {"11111": A,
-             "00100": N,
-             "01111": T,
+    types = {"11111": A, # All neighbours on
+             "00100": N, # No neighbours on - isolated
+             "01111": T, # T-shaped (three neighbours)
              "11110": T,
              "11101": T,
              "10111": T,
-             "10101": I,
-             "01110": I,
-             "01100": C,
+             "10101": I, # I - Up & down or Left and Right
+             "01110": I, 
+             "01100": C, # Cap - single neighbour
              "00110": C,
              "00101": C,
              "10100": C,
-             "01101": L,
+             "01101": L, # L-shaped (two neighbours)
              "10110": L,
              "00111": L,
              "11100": L,
-             "00000": E,
-             "10000": E,
-             "01000": E,
-             "00010": E
+             # "00000": E, # Empty - not used at this point
+             # "10000": E,
+             # "01000": E,
+             # "00010": E
              }
 
     # neighbours list
@@ -39,8 +39,6 @@ class Cell():
     DNL = ((-1, -1), (+1, -1),
            (+0, +0),
            (-1, +1), (+1, +1))
-    #
-#    module_types = {"
 
     def __init__(self, index, cell_size, state=False, border=None):
         self.index = index
@@ -128,13 +126,13 @@ class Cell():
                         "11101": HALF_PI,
                         "01110": HALF_PI,
                         "11100": HALF_PI,
-                        "00110": HALF_PI,
-                        "11111": HALF_PI,
+                        "00110": HALF_PI, 
+                        "11111": HALF_PI * self.ang,
                         "10111": PI + HALF_PI,
                         "00111": PI + HALF_PI,
                         "01100": PI + HALF_PI
                         }
-            rotate(rotation.get(self.variation, 0))
+            rotate(rotation.get(self.type, 0))
             
             for i in range(Cell.step_start,
                            Cell.step_end,
