@@ -33,10 +33,12 @@ class Cell():
     NL = ((-1, -1), (+0, -1), (+1, -1),
           (-1, +0), (+0, +0), (+1, +0),
           (-1, +1), (+0, +1), (+1, +1))
+    # ortho neighbours
     ONL = ((+0, -1),
            (-1, +0), (+0, +0),
             (+1, +0),
            (+0, +1))
+    # diagonal neighbours
     DNL = ((-1, -1), (+1, -1),
            (+0, +0),
            (-1, +1), (+1, +1))
@@ -46,7 +48,7 @@ class Cell():
         self.state = state
         self.size_ = cell_size
         self.mouse_down = False
-        self.variation = choice(("a", "b", "c"))
+        self.variation = "a"
         self.ang = choice((0, 1, 2, 3))
         self.border = border
         self.calculate_pos()
@@ -71,7 +73,7 @@ class Cell():
             self.state = not self.state
             self.mouse_down = False
 
-        self.find_type(Cell.ONL)
+        self.set_ons(Cell.ONL)
 
     def plot(self, mode):
         quarter = self.size_ / 4.  # - 1
@@ -215,7 +217,7 @@ class Cell():
                 elif Cell.types[self.type] == Cell.N:
                     ellipse(0, 0, (a - i) * 2, (a - i) * 2)
 
-    def find_type(self, nbs):
+    def set_ons(self, nbs):
         i, j = self.index[0], self.index[1]
         self.type = ""
         for (ni, nj) in nbs:

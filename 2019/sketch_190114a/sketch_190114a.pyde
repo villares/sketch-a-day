@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "sketch_19013a" # find sketch name yourself!
+SKETCH_NAME = "sketch_190114a" # find sketch name yourself!
 # refactoring to create module rotation dict
 
 OUTPUT = ".gif"
@@ -12,9 +12,9 @@ add_library('GifAnimation')
 from gif_exporter import gif_export
 
 CELL_SIZE = 25
-Cell.step_start = -3
-Cell.step_end = 4
-Cell.step = 3
+Cell.step_start = -6
+Cell.step_end = 7
+Cell.step = 4
 modulus = 3
 
 def setup():
