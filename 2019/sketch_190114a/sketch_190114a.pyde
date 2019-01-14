@@ -11,10 +11,10 @@ from random import choice
 add_library('GifAnimation')
 from gif_exporter import gif_export
 
-CELL_SIZE = 25
-Cell.step_start = -6
+CELL_SIZE = 20
+Cell.step_start = -5
 Cell.step_end = 7
-Cell.step = 4
+Cell.step = 3
 modulus = 3
 
 def setup():
