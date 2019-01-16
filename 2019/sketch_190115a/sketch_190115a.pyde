@@ -1,6 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "sketch_190115"  # find sketch name yourself!
-# refactoring to create module rotation dict
+# mode 6 creates a dict of variations for each type
+# 'R' randomizes the type-variation dict
 
 OUTPUT = ".gif"
 mode = 0
