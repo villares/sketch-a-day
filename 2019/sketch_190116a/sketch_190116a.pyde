@@ -9,8 +9,11 @@ add_library('GifAnimation')
 from gif_exporter import gif_export
 
 CELL_SIZE = 20
-Cell.step_start = -5
-Cell.step_end = 12
+# Cell.step_start = -5
+# Cell.step_end = 12
+# Cell.step = 5
+Cell.step_start = -0
+Cell.step_end = 7
 Cell.step = 5
 modulus = 3
 mode = 0

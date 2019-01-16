@@ -4,7 +4,7 @@ from arcs import quarter_circle, half_circle, circle_arc, bar
 
 class Cell():
     grid = dict()
-    debug_mode = True
+    debug_mode = False
     # constants
     variations = "abcde"
     N, A, I, T, L, C, E = type_names = "NAITLCE"
@@ -156,9 +156,9 @@ class Cell():
                         quarter_circle(-l, -l, c + i, BOTTOM + RIGHT)
                         quarter_circle(-l, l, c + i, TOP + RIGHT)
                         quarter_circle(l, -l, c + i, BOTTOM + LEFT)
-                    if self.variation == "d":
+                    if self.variation in "de":
                         ellipse(0, 0, (a - i) * 2, (a - i) * 2)
-                    if self.variation == "a":
+                    if self.variation in "ae":
                         # ellipse(0, 0, (a + i) * 2, (a + i) * 2)
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(l, 0, a - i, LEFT)
@@ -172,15 +172,16 @@ class Cell():
                         # if keyPressed: ellipse(0, 0, (a - i) * 2, (a - i) * 2)
 
                 elif self.type == Cell.T:
-                    if self.variation in "bd":
+                    if self.variation in "bde":
                         line(-l, -a + i, l, -a + i)
                         quarter_circle(l, l, c + i, TOP + LEFT)
                         quarter_circle(-l, l, c + i, TOP + RIGHT)
                     elif self.variation == "c":
+                        pass
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(l, 0, a - i, LEFT)
                         half_circle(0, l, a - i, TOP)
-                    if self.variation in "cd":
+                    if self.variation in "ce":
                         ellipse(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation == "a":
                         line(-l, -a + i, l, -a + i)
@@ -189,9 +190,9 @@ class Cell():
                         half_circle(0, l, a - i, TOP)
 
                 elif self.type == Cell.I:
-                    if self.variation == "d":
+                    if self.variation == "e":
                         ellipse(0, 0, (a - i) * 2, (a - i) * 2)
-                    if self.variation in "abd":
+                    if self.variation in "abde":
                         line(+a - i, -l, +a - i, l)
                         line(-a + i, -l, -a + i, l)
                     if self.variation in "ca":
@@ -205,21 +206,21 @@ class Cell():
                         quarter_circle(-l, l, siz - c - i, TOP + RIGHT)
                         i *= -1
                         quarter_circle(-l, l, c - i, TOP + RIGHT)
-                    elif self.variation == "c":
+                    elif self.variation in "ce":
                         ellipse(0, 0, (a - i) * 2, (a - i) * 2)
-                    if self.variation in "acd":
+                    if self.variation in "acde":
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(0, l, a - i, TOP)
 
                 elif self.type == Cell.C:
-                    if self.variation in "ac":
+                    if self.variation in "ace":
                         half_circle(0, -l, a - i, BOTTOM)
                     if self.variation in "ab":
                         half_circle(0, 0, a - i, BOTTOM)
-                    if self.variation in "abd":
+                    if self.variation in "abde":
                         line(+a - i, -l, +a - i, 0)
                         line(-a + i, -l, -a + i, 0)
-                    if self.variation in "dc":
+                    if self.variation in "dce":
                         ellipse(0, 0, (a - i) * 2, (a - i) * 2)
 
                 elif self.type == Cell.N:
