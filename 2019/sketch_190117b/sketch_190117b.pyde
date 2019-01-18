@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190117a", ".gif"  # find sketch name yourself!
+SKETCH_NAME, OUTPUT = "sketch_190117b", ".gif"  # find sketch name yourself!
 # mode 6 creates a dict of variations for each type
 # 'R' randomizes the type-variation dict
 

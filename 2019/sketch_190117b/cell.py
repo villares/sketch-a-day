@@ -109,13 +109,13 @@ class Cell():
                         for ii in range(Cell.step_start - 2,
                                         Cell.step_end - 2,
                                         Cell.step):  # (-28, 29, 7):
-                            stroke(64 - ii * 8, 128, 64 + ii * 8)
+                            fill(64 - ii * 8, 128, 64 + ii * 8)
                             if ni <> 0 and nj <> 0:
                                 bar(self.pos.x, self.pos.y,
                                     nb.pos.x, nb.pos.y,
                                     (quarter + ii) * 2, ends=(0, 1))
                             # else:
-                            #     ellipse(self.pos.x, self.pos.y,
+                            #     rect(self.pos.x, self.pos.y,
                             #             (a + ii) * 2, (a + ii) * 2)
 
     def draw_node(self):
@@ -157,9 +157,9 @@ class Cell():
                         quarter_circle(-l, l, c + i, TOP + RIGHT)
                         quarter_circle(l, -l, c + i, BOTTOM + LEFT)
                     if self.variation in "de":
-                        ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                        rect(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation in "ae":
-                        # ellipse(0, 0, (a + i) * 2, (a + i) * 2)
+                        # rect(0, 0, (a + i) * 2, (a + i) * 2)
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(l, 0, a - i, LEFT)
                         half_circle(0, l, a - i, TOP)
@@ -169,7 +169,7 @@ class Cell():
                         line(-a + i, -l, -a + i, l)
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(l, 0, a - i, LEFT)
-                        # if keyPressed: ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                        # if keyPressed: rect(0, 0, (a - i) * 2, (a - i) * 2)
 
                 elif self.type == Cell.T:
                     if self.variation in "bde":
@@ -182,7 +182,7 @@ class Cell():
                         half_circle(l, 0, a - i, LEFT)
                         half_circle(0, l, a - i, TOP)
                     if self.variation in "ce":
-                        ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                        rect(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation == "a":
                         line(-l, -a + i, l, -a + i)
                         half_circle(-l, 0, a - i, RIGHT)
@@ -191,7 +191,7 @@ class Cell():
 
                 elif self.type == Cell.I:
                     if self.variation == "ce":
-                        ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                        rect(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation in "abde":
                         line(+a - i, -l, +a - i, l)
                         line(-a + i, -l, -a + i, l)
@@ -207,7 +207,7 @@ class Cell():
                         i *= -1
                         quarter_circle(-l, l, c - i, TOP + RIGHT)
                     elif self.variation in "ce":
-                        ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                        rect(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation in "acde":
                         half_circle(-l, 0, a - i, RIGHT)
                         half_circle(0, l, a - i, TOP)
@@ -221,16 +221,16 @@ class Cell():
                         line(+a - i, -l, +a - i, 0)
                         line(-a + i, -l, -a + i, 0)
                     if self.variation in "dc":
-                        ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                        rect(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation == "e":
                         half_circle(0, -l/2, a - i, TOP)
                         
                 elif self.type == Cell.N:
-                    ellipse(0, 0, (a - i) * 2, (a - i) * 2)
+                    rect(0, 0, (a - i) * 2, (a - i) * 2)
                     
                 # else: # self.type == Cell.E:
                 #     stroke(0)
-                #     ellipse(0, 0, self.size_, self.size_)
+                #     rect(0, 0, self.size_, self.size_)
 
     def identify_module(self, nbs):
         i, j = self.index[0], self.index[1]

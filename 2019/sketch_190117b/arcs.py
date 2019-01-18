@@ -27,7 +27,16 @@ def half_circle(x, y, radius, quadrant):
     circle_arc(x, y, radius, ROTATION[quadrant], PI)
 
 def circle_arc(x, y, radius, start_ang, sweep_ang):
-    arc(x, y, radius * 2, radius * 2, start_ang, start_ang + sweep_ang)
+    npoints = 2.
+    angle = sweep_ang/npoints
+    a = start_ang
+    while a < start_ang + sweep_ang:
+            sx = x + cos(a) * radius
+            sy = y + sin(a) * radius
+            line(0, 0, sx, sy)
+            a += angle
+    
+    #arc(x, y, radius * 2, radius * 2, start_ang, start_ang + sweep_ang)
     
 def bar(x1, y1, x2, y2, thickness=None, shorter=0, ends=(1,1)):
     """
