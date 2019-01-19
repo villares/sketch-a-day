@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190118a", ".gif"  # find sketch name yourself!
+SKETCH_NAME, OUTPUT = "sketch_190119a", ".gif"  # find sketch name yourself!
 
 from cell import Cell
 from random import choice
@@ -14,6 +14,8 @@ Cell.step = 2
 modulus = 3
 mode = 0
 save_frame = False 
+frame_saved = 0
+
 def setup():
     size(600, 600, P3D)
     colorMode(HSB)
@@ -32,13 +34,14 @@ def init_grid(f=None):
     # number of collums and rows -2 for default cell sized border
     w = int(width // CELL_SIZE)  # - 2
     h = int(height // CELL_SIZE)  # - 2
+    print(w, h)
     for i in range(w):
         for j in range(h):
             # default Cell constructor has border=CELL_SIZE
             Cell.grid[(i, j)] = Cell((i, j), CELL_SIZE, f(i, j), border=0)
 
 def draw():
-    global save_frame
+    global save_frame, frame_saved
     background(0)
     for c in Cell.grid.values():
         c.update(mouseX, mouseY)
@@ -47,7 +50,9 @@ def draw():
 
     if save_frame:
         save_frame = False
+        frame_saved += 1
         gif_export(GifMaker, SKETCH_NAME)
+        println(frame_saved)
 
 def keyPressed():
     global mode, modulus, save_frame
