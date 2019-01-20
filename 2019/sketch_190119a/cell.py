@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from random import choice
-from arcs import quarter_circle, half_circle, circle_arc, bar
+from poly_arcs import quarter_poly, half_poly, poly_arc, bar
 
 class Cell():
     grid = dict()
@@ -152,42 +152,42 @@ class Cell():
 
                 if self.type == Cell.A:
                     if self.variation in "bd":
-                        quarter_circle(l, l, c + i, TOP + LEFT)
-                        quarter_circle(-l, -l, c + i, BOTTOM + RIGHT)
-                        quarter_circle(-l, l, c + i, TOP + RIGHT)
-                        quarter_circle(l, -l, c + i, BOTTOM + LEFT)
+                        quarter_poly(l, l, c + i, TOP + LEFT)
+                        quarter_poly(-l, -l, c + i, BOTTOM + RIGHT)
+                        quarter_poly(-l, l, c + i, TOP + RIGHT)
+                        quarter_poly(l, -l, c + i, BOTTOM + LEFT)
                     if self.variation in "de":
                         rect(0, 0, (a - i) * 2, (a - i) * 2)
                     if self.variation in "ae":
                         # rect(0, 0, (a + i) * 2, (a + i) * 2)
-                        half_circle(-l, 0, a - i, RIGHT)
-                        half_circle(l, 0, a - i, LEFT)
-                        half_circle(0, l, a - i, TOP)
-                        half_circle(0, -l, a - i, BOTTOM)
+                        half_poly(-l, 0, a - i, RIGHT)
+                        half_poly(l, 0, a - i, LEFT)
+                        half_poly(0, l, a - i, TOP)
+                        half_poly(0, -l, a - i, BOTTOM)
                     if self.variation == "c":
                         line(+a - i, -l, +a - i, l)
                         line(-a + i, -l, -a + i, l)
-                        half_circle(-l, 0, a - i, RIGHT)
-                        half_circle(l, 0, a - i, LEFT)
+                        half_poly(-l, 0, a - i, RIGHT)
+                        half_poly(l, 0, a - i, LEFT)
                         # if keyPressed: rect(0, 0, (a - i) * 2, (a - i) * 2)
 
                 elif self.type == Cell.T:
                     if self.variation in "bde":
                         line(-l, -a + i, l, -a + i)
-                        quarter_circle(l, l, c + i, TOP + LEFT)
-                        quarter_circle(-l, l, c + i, TOP + RIGHT)
+                        quarter_poly(l, l, c + i, TOP + LEFT)
+                        quarter_poly(-l, l, c + i, TOP + RIGHT)
                     elif self.variation == "c":
                         pass
-                        half_circle(-l, 0, a - i, RIGHT)
-                        half_circle(l, 0, a - i, LEFT)
-                        half_circle(0, l, a - i, TOP)
+                        half_poly(-l, 0, a - i, RIGHT)
+                        half_poly(l, 0, a - i, LEFT)
+                        half_poly(0, l, a - i, TOP)
                     if self.variation in "ce":
                         box( (a - i) * 2)
                     if self.variation == "a":
                         line(-l, -a + i, l, -a + i)
-                        half_circle(-l, 0, a - i, RIGHT)
-                        half_circle(l, 0, a - i, LEFT)
-                        half_circle(0, l, a - i, TOP)
+                        half_poly(-l, 0, a - i, RIGHT)
+                        half_poly(l, 0, a - i, LEFT)
+                        half_poly(0, l, a - i, TOP)
 
                 elif self.type == Cell.I:
                     if self.variation == "ce":
@@ -196,34 +196,34 @@ class Cell():
                         line(+a - i, -l, +a - i, l)
                         line(-a + i, -l, -a + i, l)
                     if self.variation in "ca":
-                        half_circle(0, l, a - i, TOP)
-                        half_circle(0, -l, a - i, BOTTOM)
+                        half_poly(0, l, a - i, TOP)
+                        half_poly(0, -l, a - i, BOTTOM)
 
                 elif self.type == Cell.L:
                     if self.variation in "a":
-                        quarter_circle(-l, l, siz - c - i, TOP + RIGHT)
+                        quarter_poly(-l, l, siz - c - i, TOP + RIGHT)
                     elif self.variation == "b":
-                        quarter_circle(-l, l, siz - c - i, TOP + RIGHT)
+                        quarter_poly(-l, l, siz - c - i, TOP + RIGHT)
                         i *= -1
-                        quarter_circle(-l, l, c - i, TOP + RIGHT)
+                        quarter_poly(-l, l, c - i, TOP + RIGHT)
                     elif self.variation in "ce":
                         box((a - i) * 2)
                     if self.variation in "acde":
-                        half_circle(-l, 0, a - i, RIGHT)
-                        half_circle(0, l, a - i, TOP)
+                        half_poly(-l, 0, a - i, RIGHT)
+                        half_poly(0, l, a - i, TOP)
 
                 elif self.type == Cell.C:
                     if self.variation in "ac":
-                        half_circle(0, -l, a - i, BOTTOM)
+                        half_poly(0, -l, a - i, BOTTOM)
                     if self.variation in "abe":
-                        half_circle(0, 0, a - i, BOTTOM)
+                        half_poly(0, 0, a - i, BOTTOM)
                     if self.variation in "abde":
                         line(+a - i, -l, +a - i, 0)
                         line(-a + i, -l, -a + i, 0)
                     if self.variation in "dc":
                         box((a - i) * 2)
                     if self.variation == "e":
-                        half_circle(0, -l/2, a - i, TOP)
+                        half_poly(0, -l/2, a - i, TOP)
                         
                 elif self.type == Cell.N:
                     box( (a - i) * 2)
