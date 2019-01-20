@@ -22,6 +22,18 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 
 ---
 
+![sketch_190119a](2019/sketch_190119a/sketch_190119a.gif)
+
+[sketch_190119a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190119a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190119a](2019/sketch_190119a/sketch_190119a.gif)
+
+[sketch_190119a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190119a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_190118a](2019/sketch_190118a/sketch_190118a.gif)
 
 [sketch_190118a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190118a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
