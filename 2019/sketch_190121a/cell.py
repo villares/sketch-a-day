@@ -3,6 +3,7 @@ from random import choice
 from poly_arcs import quarter_poly, half_poly, poly_arc, bar
 
 class Cell():
+    RES = 4.
     grid = dict()
     debug_mode = False
     # constants
@@ -78,7 +79,6 @@ class Cell():
         self.type = Cell.module_types.get(self.module, "")
 
     def plot(self, mode):
-        quarter = self.size_ / 4.  # - 1
         rnd = choice(Cell.variations)
         mode_variation = {1: "a",
                           2: "b",
@@ -88,7 +88,6 @@ class Cell():
                           6: Cell.variation_dict.get(Cell.module_types.get(self.module)),
                           7: rnd
                           }
-        self.draw_node()
         if self.state:
             strokeWeight(2)
             if 1 <= mode <= len(mode_variation):
@@ -99,26 +98,34 @@ class Cell():
                 noStroke()
                 rect(self.pos.x, self.pos.y, self.size_, self.size_)
                 noFill()
+            elif mode == 8:         # diagonal mode
+                self.draw_diagonals()
+            else:
+                self.draw_mode()
 
-            # diagonal mode
-            if mode == 8:
-                i, j = self.index
-                for (ni, nj) in Cell.DNL:
-                    nb = Cell.grid.get((i + ni, j + nj), None)
-                    if nb and nb.state:
-                        for ii in range(Cell.step_start,
-                                        Cell.step_end,
-                                        Cell.step):  # (-28, 29, 7):
-                            stroke(64 - ii * 8, 255, 255)
-                            if ni <> 0 and nj <> 0:
-                                bar(self.pos.x, self.pos.y,
-                                    nb.pos.x, nb.pos.y,
-                                    (quarter + ii) * 2, ends=(0, 1))
-                            # else:
-                            #     rect(self.pos.x, self.pos.y,
-                            #             (a + ii) * 2, (a + ii) * 2)
 
-    def draw_node(self):
+
+    def draw_diagonals(self):
+        quarter = self.size_ / 4.  # - 1 
+        i, j = self.index
+        for (ni, nj) in Cell.DNL:
+            nb = Cell.grid.get((i + ni, j + nj), None)
+            if nb and nb.state:
+                for ii in range(Cell.step_start,
+                                Cell.step_end,
+                                Cell.step):  # (-28, 29, 7):
+                    stroke(64 - ii * 8, 255, 255)
+                    with pushMatrix():
+                        translate(0, 0, -ii)
+                        if ni <> 0 and nj <> 0:
+                            bar(self.pos.x, self.pos.y,
+                                nb.pos.x, nb.pos.y,
+                                (quarter + ii) * 2, ends=(0, 1))
+                        # else:
+                        #     translate(self.pos.x, self.pos.y)
+                        #     Cell.square(quarter, -ii)
+
+    def draw_mode(self):
         """ draws node """
         siz = self.size_
         l = siz / 2.
@@ -169,7 +176,7 @@ class Cell():
                         half_poly(l, 0, a - i, LEFT)
                     if self.variation in "de":
                         Cell.square(a, i)
-                        
+
                 elif self.type == Cell.T:
                     if self.variation in "bde":
                         line(-l, -a + i, l, -a + i)
@@ -225,7 +232,8 @@ class Cell():
                         half_poly(0, -l / 2, a - i, TOP)
 
                 elif self.type == Cell.N:
-                    box((a - i) * 2)
+                    poly_arc(
+                        0, 0, (a - i) * 2, QUARTER_PI, TWO_PI, num_points=4)
 
     def identify_module(self, nbs):
         i, j = self.index[0], self.index[1]
@@ -236,12 +244,12 @@ class Cell():
                 self.module += "1"
             else:
                 self.module += "0"
-                
+
     @staticmethod
     def square(a, i):
-        with pushMatrix():
-            #translate(0, 0, (a - i))
-            rect(0, 0, (a - i) * 2, (a - i) * 2)
+        # poly_arc(0, 0, radius=(a-i), start_ang=0, sweep_ang=TWO_PI,
+        # num_points=Cell.RES*2):
+        rect(0, 0, (a - i) * 2, (a - i) * 2)
 
     @staticmethod
     def variation_choices():
