@@ -34,7 +34,7 @@ def half_poly(x, y, radius, quadrant, num_points=2):
     #     rotate(ROTATION[quadrant] + HALF_PI)
     #     line( 0, -radius, radius, 0)
     #     line(radius, 0, 0,  radius)
-     poly_arc(x, y, radius, ROTATION[quadrant], PI, num_points)
+     poly_arc(x, y, radius, ROTATION[quadrant], PI, num_points/2 +1)
 
 def poly_arc(x, y, radius, start_ang, sweep_ang, num_points=4):
     angle = sweep_ang / int(num_points)

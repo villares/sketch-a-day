@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190120a", ".gif"  # find sketch name yourself!
+SKETCH_NAME, OUTPUT = "sketch_190122a", ".gif"  # find sketch name yourself!
 
 from cell import Cell
 from random import choice

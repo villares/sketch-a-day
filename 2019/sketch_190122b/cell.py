@@ -75,6 +75,8 @@ class Cell():
         self.type = Cell.module_types.get(self.module, "")
 
     def plot(self, mode):
+        self.res = int (5 +  2 * cos( frameCount/10. + self.pos.x/2.))
+        mode = self.res
         rnd = choice(Cell.variations)
         mode_variation = {1: "a",
                           2: "b",
@@ -89,7 +91,6 @@ class Cell():
         if self.state:
             strokeWeight(2)
             self.variation = mode_variation.get(mode, self.variation)
-            # self.draw_node()
             if mode == -1:
                 fill(100, 100)
                 noStroke()
@@ -107,8 +108,8 @@ class Cell():
         with pushMatrix():
             translate(self.pos.x, self.pos.y)
             if Cell.debug_mode:
-                fill(0)
-                text(self.type, 0, 0)
+                fill(255)
+                text(self.res, 0, 0)
             noFill()  # stroke(0)
             rotation = {"11110": PI,
                         "10110": PI,
@@ -124,97 +125,94 @@ class Cell():
                         }
             # rotation appropriate for each type
             rotate(rotation.get(self.module, 0))
+            def corner(h, v, i):
+                    corner_y = {TOP : siz / 2, BOTTOM: -siz / 2}
+                    corner_x = {LEFT : siz / 2, RIGHT: -siz / 2}
+                    quarter_poly(corner_x[h], corner_y[v], q_plus + i, h + v, self.res)
+                    
+            def side(pos, i):
+                    x, y = {TOP : (0, half), BOTTOM: (0, -half),
+                            LEFT: (half, 0), RIGHT : (-half, 0)}[pos]
+                    half_poly(x, y, q_minus - i, pos, self.res)
+
+            def middle(i):
+                poly_arc(0, 0, (q_minus-i), 0, TWO_PI, self.res *2)
 
             for i in range(Cell.step_start,
                            Cell.step_end,
                            Cell.step):  # (-28, 29, 7):
                 translate(0, 0, (q_minus + i))
                 stroke(16 + i * 8, 255, 255)
-                def corner(h, v):
-                    corner_y = {TOP : siz / 2, BOTTOM: -siz / 2}
-                    corner_x = {LEFT : siz / 2, RIGHT: -siz / 2}
-                    quarter_poly(corner_x[h], corner_y[v], q_plus + i, h + v)
 
                 if self.type == Cell.A:
                     if self.variation in "bd":
-                        corner(LEFT, TOP)
-                        corner(LEFT, BOTTOM)
-                        corner(RIGHT, TOP)
-                        corner(RIGHT, BOTTOM)
-                        # quarter_poly(+l, +l, q_plus + i, TOP + LEFT)
-                        # quarter_poly(-l, -l, q_plus + i, BOTTOM + RIGHT)
-                        # quarter_poly(-l, +l, q_plus + i, TOP + RIGHT)
-                        # quarter_poly(+l, -l, q_plus + i, BOTTOM + LEFT)
+                        corner(LEFT, TOP, i)
+                        corner(LEFT, BOTTOM, i)
+                        corner(RIGHT, TOP, i)
+                        corner(RIGHT, BOTTOM, i)
                     if self.variation in "ae":
-                        half_poly(-l, 0, q_minus - i, RIGHT)
-                        half_poly(l, 0, q_minus - i, LEFT)
-                        half_poly(0, l, q_minus - i, TOP)
-                        half_poly(0, -l, q_minus - i, BOTTOM)
+                        for pos in (RIGHT, LEFT, TOP, BOTTOM):
+                            side(pos, i)
                     if self.variation == "c":
                         line(+q_minus - i, -l, +q_minus - i, l)
                         line(-q_minus + i, -l, -q_minus + i, l)
-                        half_poly(-l, 0, q_minus - i, RIGHT)
-                        half_poly(l, 0, q_minus - i, LEFT)
+                        side(RIGHT, i)
+                        side(LEFT, i)
                     if self.variation in "de":
-                        self.middle(q_minus, i)
+                        middle(i)
 
                 elif self.type == Cell.T:
                     if self.variation in "bde":
                         line(-l, -q_minus + i, l, -q_minus + i)
-                        quarter_poly(l, l, q_plus+ i, TOP + LEFT)
-                        quarter_poly(-l, l, q_plus+ i, TOP + RIGHT)
-                    elif self.variation == "c":
-                        pass
-                        half_poly(-l, 0, q_minus - i, RIGHT)
-                        half_poly(l, 0, q_minus - i, LEFT)
-                        half_poly(0, l, q_minus - i, TOP)
+                        corner(LEFT, TOP, i)
+                        corner(RIGHT, TOP, i)
+                    elif self.variation in "ac":
+                        for pos in (RIGHT, LEFT, TOP):
+                            side(pos, i)
                     if self.variation in "ce":
-                        self.middle(q_minus, i)
+                        middle(i)
                     if self.variation == "a":
                         line(-l, -q_minus + i, l, -q_minus + i)
-                        half_poly(-l, 0, q_minus - i, RIGHT)
-                        half_poly(l, 0, q_minus - i, LEFT)
-                        half_poly(0, l, q_minus - i, TOP)
-
+ 
                 elif self.type == Cell.I:
                     if self.variation in "abde":
                         line(+q_minus - i, -l, +q_minus - i, l)
                         line(-q_minus + i, -l, -q_minus + i, l)
                     if self.variation in "ca":
-                        half_poly(0, l, q_minus - i, TOP)
-                        half_poly(0, -l, q_minus - i, BOTTOM)
+                        side(TOP, i)
+                        side(BOTTOM, i)
                     if self.variation == "ce":
-                        self.middle(q_minus, i)
+                        middle(i)
 
                 elif self.type == Cell.L:
                     if self.variation in "acde":
-                        half_poly(-l, 0, q_minus - i, RIGHT)
-                        half_poly(0, l, q_minus - i, TOP)
-                    if self.variation in "a":
-                        quarter_poly(-l, l, siz - q_plus - i, TOP + RIGHT)
-                    elif self.variation == "b":
-                        quarter_poly(-l, l, siz - q_plus - i, TOP + RIGHT)
+                        half_poly(-l, 0, q_minus - i, RIGHT, self.res)
+                        half_poly(0, l, q_minus - i, TOP, self.res)
+                    if self.variation in "ab":
+                        quarter_poly(-l, l, siz - q_plus - i, TOP + RIGHT, self.res)
+                    if self.variation == "b":
+                        #quarter_poly(-l, l, siz - q_plus - i, TOP + RIGHT, self.res)
                         i *= -1
-                        quarter_poly(-l, l, q_plus - i, TOP + RIGHT)
+                        quarter_poly(-l, l, q_plus - i, TOP + RIGHT, self.res)
                     elif self.variation in "ce":
-                        self.middle(q_minus, i)
+                        middle(i)
 
                 elif self.type == Cell.C:
                     if self.variation in "ac":
-                        half_poly(0, -l, q_minus - i, BOTTOM)
+                        half_poly(0, -l, q_minus - i, BOTTOM, self.res)
                     if self.variation in "abe":
-                        half_poly(0, 0, q_minus - i, BOTTOM)
+                        half_poly(0, 0, q_minus - i, BOTTOM, self.res)
                     if self.variation in "abde":
                         line(+q_minus - i, -l, +q_minus - i, 0)
                         line(-q_minus + i, -l, -q_minus + i, 0)
                     if self.variation in "dc":
-                        self.middle(q_minus, i)
+                        middle(i)
                     if self.variation == "e":
-                        half_poly(0, -l / 2, q_minus - i, TOP)
+                        half_poly(0, -l / 2, q_minus - i, TOP, self.res)
 
                 elif self.type == Cell.N:
                     poly_arc(
-                        0, 0, (q_minus - i) * 2, QUARTER_PI, TWO_PI, num_points=4)
+                        0, 0, (q_minus - i), QUARTER_PI, TWO_PI, self.res *2)
 
     def identify_module(self, nbs):
         i, j = self.index[0], self.index[1]
@@ -226,10 +224,8 @@ class Cell():
             else:
                 self.module += "0"
 
-    def middle(self, q, i):
-        # poly_arc(0, 0, radius=(a-i), start_ang=0, sweep_ang=TWO_PI,
         # num_points=self.res*2):
-        rect(0, 0, (q - i) * 2, (q - i) * 2)
+        #rect(0, 0, (q - i) * 2, (q - i) * 2)
 
     @staticmethod
     def variation_choices():

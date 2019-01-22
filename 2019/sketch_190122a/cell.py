@@ -96,7 +96,7 @@ class Cell():
                 self.variation = mode_variation[mode]
             with pushMatrix():
                     translate(self.pos.x, self.pos.y, self.pos.z)
-                    stroke(255)
+                    stroke(self.index[2] * 8, 255, 255)
                     fill(200,10)
                     box(self.size_/3)
             self.draw_mode()

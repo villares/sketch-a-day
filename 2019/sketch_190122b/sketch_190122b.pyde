@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190120a", ".gif"  # find sketch name yourself!
+SKETCH_NAME, OUTPUT = "sketch_190122b", ".gif"  # find sketch name yourself!
 
 from cell import Cell
 from random import choice
@@ -46,6 +46,7 @@ def draw():
     background(0)
     for c in Cell.grid.values():
         c.update(mouseX, mouseY)
+        c.res = modulus
     for c in Cell.grid.values():
         c.plot(mode)
 
