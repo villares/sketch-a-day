@@ -96,11 +96,12 @@ def move_grid(x=1, y=1):
     new_grid = dict()
     for i in range(w):
         for j in range(h):
-            c = Cell.grid.get((i, j), None)
-            if c:
-                c.index = ((i + x) % w, (j + y) % h)
-                c.calculate_pos()
-                new_grid[c.index] = c
+            for k in range(h):
+                c = Cell.grid.get((i, j, k), None)
+                if c:
+                   c.index = ((i + x) % w, (j + y) % h, k)
+                   c.calculate_pos()
+                   new_grid[c.index] = c
     Cell.grid = new_grid
 
 
