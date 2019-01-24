@@ -19,6 +19,11 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 
 ## 2019
 
+---
+
+![sketch_190124a](2019/sketch_190124a/sketch_190124a.gif)
+
+[sketch_190124a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190124a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 ![sketch_190123a](2019/sketch_190123a/sketch_190123a.gif)
