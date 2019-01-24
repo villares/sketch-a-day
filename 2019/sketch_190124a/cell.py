@@ -34,10 +34,24 @@ class Cell():
 
     # ortho neighbours
     ONL = ((+0, -1, +0),
-           (-1, +0, +0), (+0, +0, +0),
+           (-1, +0, +0), # (+0, +0, +0),
            (+1, +0, +0),
            (+0, +1, +0),
           (+0, +0, -1), (+0, +0, +1),
+           )
+    # diagonal neighbours
+    DNL = ((+1, +1, +0),
+           (-1, -1, +0), # (+0, +0, +0),
+           (+1, -1, +0),
+           (-1, +1, +0),
+           (+0, -1, +1),
+           (-1, +0, +1),
+           (+1, +0, +1),
+           (+0, +1, +1),
+           (+0, -1, -1),
+           (-1, +0, -1),
+           (+1, +0, -1),
+           (+0, +1, -1),
            )
 
     def __init__(self, index, cell_size, state=False):
@@ -129,10 +143,20 @@ class Cell():
             for (ni, nj, nk) in Cell.ONL:
                 nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
                 if nb and nb.state:
+                    stroke(128, 200, 200)
+                    line(0, 0, 0,
+                         ni * siz/2, nj * siz/2, nk * siz/2)
+                    stroke(64, 200, 200)
                     with pushMatrix():
                         translate(ni * siz/3, nj * siz/3, nk * siz/3)
                         box(siz/3)
-
+            stroke(128, 200, 200)
+            for (ni, nj, nk) in Cell.DNL:
+                nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
+                if nb and nb.state:
+                    line(0, 0, 0,
+                         ni * siz/2, nj * siz/2, nk * siz/2)
+                        
                         
 
 
