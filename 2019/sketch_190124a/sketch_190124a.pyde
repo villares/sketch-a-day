@@ -13,7 +13,7 @@ Cell.step_end = 3
 Cell.step = 2
 modulus = 3
 mode = 0
-save_frame = False 
+save_frame = False
 frame_saved = 0
 
 def setup():
@@ -40,7 +40,7 @@ def init_grid(f=None):
     for i in range(w):
         for j in range(h):
             for k in range(z):
-               Cell.grid[(i, j, k)] = Cell((i, j, k), CELL_SIZE, f(i, j))
+                Cell.grid[(i, j, k)] = Cell((i, j, k), CELL_SIZE, f(i, j))
 
 def draw():
     global save_frame, frame_saved
@@ -99,9 +99,9 @@ def move_grid(x=1, y=1):
             for k in range(h):
                 c = Cell.grid.get((i, j, k), None)
                 if c:
-                   c.index = ((i + x) % w, (j + y) % h, k)
-                   c.calculate_pos()
-                   new_grid[c.index] = c
+                    c.index = ((i + x) % w, (j + y) % h, k)
+                    c.calculate_pos()
+                    new_grid[c.index] = c
     Cell.grid = new_grid
 
 

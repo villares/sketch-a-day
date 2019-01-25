@@ -31,17 +31,16 @@ class Cell():
                     # "00010": E
                     }
 
-
     # ortho neighbours
     ONL = ((+0, -1, +0),
-           (-1, +0, +0), # (+0, +0, +0),
+           (-1, +0, +0),  # (+0, +0, +0),
            (+1, +0, +0),
            (+0, +1, +0),
-          (+0, +0, -1), (+0, +0, +1),
+           (+0, +0, -1), (+0, +0, +1),
            )
     # diagonal neighbours
     DNL = ((+1, +1, +0),
-           (-1, -1, +0), # (+0, +0, +0),
+           (-1, -1, +0),  # (+0, +0, +0),
            (+1, -1, +0),
            (-1, +1, +0),
            (+0, -1, +1),
@@ -66,13 +65,14 @@ class Cell():
     def calculate_pos(self):
         i, j, k = self.index
         self.pos = PVector(Cell.border + self.size_ / 2 + i * self.size_ - width / 2,
-                           Cell.border + self.size_ / 2 + j * self.size_ - height / 2,
+                           Cell.border + self.size_ / 2 +
+                           j * self.size_ - height / 2,
                            k * self.size_)
 
     def update(self, mx, my):
         # mouse over & selection treatment
         hs = self.size_ / 2
-        px, py = self.pos.x + width/2, self.pos.y + height/2
+        px, py = self.pos.x + width / 2, self.pos.y + height / 2
         self.mouse_on = (px - hs < mx < px + hs and
                          py - hs < my < py + hs)
         if self.mouse_on and mousePressed:
@@ -100,12 +100,10 @@ class Cell():
             self.variation = mode_variation.get(mode, self.variation)
             self.draw_mode()
             if mode == -1:
-                fill(100,100,100, 10)
+                fill(100, 100, 100, 10)
                 noStroke()
                 rect(self.pos.x, self.pos.y, self.size_, self.size_)
                 noFill()
-
-
 
     def draw_mode(self):
         """ draws node """
@@ -113,7 +111,7 @@ class Cell():
         with pushMatrix():
             translate(self.pos.x, self.pos.y, self.pos.z)
             if Cell.debug_mode:
-                fill(255,0,100)
+                fill(255, 0, 100)
                 text(self.module, 0, 0)
             noFill()  # stroke(0)
             # rotation = {"11110": PI,
@@ -128,7 +126,7 @@ class Cell():
             #             "00111": PI + HALF_PI,
             #             "01100": PI + HALF_PI
             #             }
-            # # rotation appropriate for each type
+            # rotation appropriate for each type
             # rotate(rotation.get(self.module, 0))
 
             for i in range(Cell.step_start,
@@ -137,29 +135,25 @@ class Cell():
                 #translate(0, 0, (a + i))
                 stroke(16 + i * 8, 255, 255)
                 #stroke(self.index[2] * 8, 255, 255)
-                #fill(200,10)
-                box(siz/3 + i)
+                # fill(200,10)
+                box(siz / 3 + i)
             i, j, k = self.index
             for (ni, nj, nk) in Cell.ONL:
                 nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
                 if nb and nb.state:
                     stroke(128, 200, 200)
                     line(0, 0, 0,
-                         ni * siz/2, nj * siz/2, nk * siz/2)
+                         ni * siz / 2, nj * siz / 2, nk * siz / 2)
                     stroke(64, 200, 200)
                     with pushMatrix():
-                        translate(ni * siz/3, nj * siz/3, nk * siz/3)
-                        box(siz/3)
+                        translate(ni * siz / 3, nj * siz / 3, nk * siz / 3)
+                        box(siz / 3)
             stroke(128, 200, 200)
             for (ni, nj, nk) in Cell.DNL:
                 nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
                 if nb and nb.state:
                     line(0, 0, 0,
-                         ni * siz/2, nj * siz/2, nk * siz/2)
-                        
-                        
-
-
+                         ni * siz / 2, nj * siz / 2, nk * siz / 2)
 
     def identify_module(self, nbs):
         i, j, k = self.index

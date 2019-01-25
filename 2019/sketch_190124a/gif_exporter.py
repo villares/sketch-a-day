@@ -17,7 +17,8 @@ def gif_export(GifMaker,             # gets a reference to the library
                repeat=0,             # 0 makes it an "endless" animation
                quality=255,          # quality range 0 - 255
                delay=900,            # this is quick
-               frames=0,             # 0 will stop on keyPressed or frameCount >= 100000
+               # 0 will stop on keyPressed or frameCount >= 100000
+               frames=0,
                finish=False):        # force stop
     global gifExporter
     try:
@@ -27,13 +28,13 @@ def gif_export(GifMaker,             # gets a reference to the library
         gifExporter.setRepeat(repeat)
         gifExporter.setQuality(quality)
         gifExporter.setDelay(delay)
-        
+
     gifExporter.addFrame()
 
     if frames == 0:
-       if keyPressed and key == "e":
-           finish = True
-                
+        if keyPressed and key == "e":
+            finish = True
+
     if finish:
         gifExporter.finish()
         print("gif saved")
