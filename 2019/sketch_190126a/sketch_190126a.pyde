@@ -8,9 +8,6 @@ add_library('peasycam')
 from gif_exporter import gif_export
 
 CELL_SIZE = 100
-Cell.step_start = -2
-Cell.step_end = 3
-Cell.step = 2
 modulus = 3
 mode = 0
 save_frame = False
@@ -24,7 +21,6 @@ def setup():
     grid_size = width / CELL_SIZE
     rectMode(CENTER)
     strokeCap(SQUARE)
-    Cell.variation_choices()
     cam = PeasyCam(this, 700)
 
 
@@ -72,8 +68,6 @@ def keyPressed():
         init_grid(choice((t, f)))
     if key == "r":
         init_grid()
-    if key == "R":
-        Cell.variation_choices()
     if key == "x":
         init_grid(lambda i, j: (i + j) % modulus)
     if key == "<" and modulus > 2:

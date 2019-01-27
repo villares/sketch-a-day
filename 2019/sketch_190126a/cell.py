@@ -7,30 +7,7 @@ class Cell():
     RES = 4.
     grid = dict()
     debug_mode = False
-    # constants
-    variations = "abcde"
-    N, A, I, T, L, C, E = type_names = "NAITLCE"
-    module_types = {"11111": A,  # All neighbours on
-                    "00100": N,  # No neighbours on - isolated
-                    "01111": T,  # T-shaped (three neighbours)
-                    "11110": T,
-                    "11101": T,
-                    "10111": T,
-                    "10101": I,  # I - Up & down or Left and Right
-                    "01110": I,
-                    "01100": C,  # Cap - single neighbour
-                    "00110": C,
-                    "00101": C,
-                    "10100": C,
-                    "01101": L,  # L-shaped (two neighbours)
-                    "10110": L,
-                    "00111": L,
-                    "11100": L,
-                    "00000": E,  # Empty - not used at this point
-                    # "10000": E,
-                    # "01000": E,
-                    # "00010": E
-                    }
+
 
     # ortho neighbours
     ONL = ((+0, -1, +0),
@@ -83,22 +60,10 @@ class Cell():
             self.state = not self.state
             self.mouse_down = False
 
-        self.identify_module(Cell.ONL)
-        self.type = Cell.module_types.get(self.module, "")
-
     def plot(self, mode):
-        rnd = choice(Cell.variations)
-        mode_variation = {1: "a",
-                          2: "b",
-                          3: "c",
-                          4: "d",
-                          5: "e",
-                          6: Cell.variation_dict.get(Cell.module_types.get(self.module)),
-                          7: rnd
-                          }
+
         if self.state:
             strokeWeight(1)
-            self.variation = mode_variation.get(mode, self.variation)
             self.draw_mode()
             if mode == -1:
                 fill(100, 100, 100, 10)
@@ -115,29 +80,6 @@ class Cell():
                 fill(255, 0, 100)
                 text(self.module, 0, 0)
             noFill()  # stroke(0)
-            # rotation = {"11110": PI,
-            #             "10110": PI,
-            #             "00101": PI,
-            #             "11101": HALF_PI,
-            #             "01110": HALF_PI,
-            #             "11100": HALF_PI,
-            #             "00110": HALF_PI,
-            #             "11111": HALF_PI * self.ang,
-            #             "10111": PI + HALF_PI,
-            #             "00111": PI + HALF_PI,
-            #             "01100": PI + HALF_PI
-            #             }
-            # rotation appropriate for each type
-            # rotate(rotation.get(self.module, 0))
-
-            # for i in range(Cell.step_start,
-            #                Cell.step_end,
-            #                Cell.step):  # (-28, 29, 7):
-            #     #translate(0, 0, (a + i))
-            #     stroke(16 + i * 8, 255, 255)
-            #     #stroke(self.index[2] * 8, 255, 255)
-            #     # fill(200,10)
-            #     box(siz / 3 + i)
             i, j, k = self.index
             for (ni, nj, nk) in Cell.ONL:
                 nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
@@ -156,19 +98,3 @@ class Cell():
                     bar(0, 0, 0,
                          ni * siz, nj * siz, nk * siz,
                          ni * 2 + nj * 3 + nk * 5)
-
-    def identify_module(self, nbs):
-        i, j, k = self.index
-        self.module = ""
-        for (ni, nj, nk) in nbs:
-            nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
-            if nb and nb.state:
-                self.module += "1"
-            else:
-                self.module += "0"
-
-    @staticmethod
-    def variation_choices():
-        Cell.variation_dict = dict()
-        for t in Cell.type_names:
-            Cell.variation_dict[t] = choice(Cell.variations)
