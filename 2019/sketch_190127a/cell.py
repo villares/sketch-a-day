@@ -136,26 +136,28 @@ class Cell():
             #     #translate(0, 0, (a + i))
             #     stroke(16 + i * 8, 255, 255)
             #     #stroke(self.index[2] * 8, 255, 255)
-            #     # fill(200,10)
-            #     box(siz / 3 + i)
+            strokeWeight(2)
+            stroke(255)
+            box(siz / 3)
+            strokeWeight(2)
             i, j, k = self.index
             for (ni, nj, nk) in Cell.ONL:
                 nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
                 if nb and nb.state:
                     stroke(200)
-                    bar(0, 0, 0,
-                         ni * siz, nj * siz, nk * siz)
-                    # stroke(64, 200, 200)
-                    # with pushMatrix():
-                    #     translate(ni * siz / 3, nj * siz / 3, nk * siz / 3)
-                    #     box(siz / 3)
+                    with pushMatrix():
+                        translate(ni * siz / 3, nj * siz / 3, nk * siz / 3)
+                        box(siz / 3)
             for (ni, nj, nk) in Cell.DNL:
                 nb = Cell.grid.get((i + ni, j + nj, k + nk), None)
                 if nb and nb.state:
                     stroke(64 + (ni * 2 + nj * 3 + nk * 5) * 16, 255, 200)
-                    bar(0, 0, 0,
-                         ni * siz, nj * siz, nk * siz,
-                         ni * 2 + nj * 3 + nk * 5)
+                    with pushMatrix():
+                        translate(ni * siz / 3, nj * siz / 3, nk * siz / 3)
+                        box(siz / 3)
+                    # bar(0, 0, 0,
+                    #      ni * siz, nj * siz, nk * siz,
+                    #      ni * 2 + nj * 3 + nk * 5)
 
     def identify_module(self, nbs):
         i, j, k = self.index

@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190126a", ".gif"  # find sketch name yourself!
+SKETCH_NAME, OUTPUT = "sketch_190127a", ".gif"  # find sketch name yourself!
 
 from cell import Cell
 from random import choice
@@ -17,7 +17,7 @@ save_frame = False
 frame_saved = 0
 
 def setup():
-    hint(ENABLE_DEPTH_SORT)
+    #hint(ENABLE_DEPTH_SORT)
     size(600, 600, P3D)
     colorMode(HSB)
     global grid_size
