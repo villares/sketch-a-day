@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190127a", ".gif"  # find sketch name yourself!
+SKETCH_NAME, OUTPUT = "sketch_190128b", ".gif"  # find sketch name yourself!
 
 from cell import Cell
 from random import choice
@@ -21,7 +21,7 @@ def setup():
     grid_size = width / CELL_SIZE
     rectMode(CENTER)
     strokeCap(SQUARE)
-    cam = PeasyCam(this, 700)
+    cam = PeasyCam(this, 1000)
 
 
 def init_grid(f=None):
@@ -31,7 +31,7 @@ def init_grid(f=None):
     # number of collums and rows -2 for default cell sized border
     w = int(width // CELL_SIZE)  # - 2
     h = int(height // CELL_SIZE)  # - 2
-    z = 3
+    z = h
     # print(w, h)
     for i in range(w):
         for j in range(h):

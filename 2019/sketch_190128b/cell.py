@@ -44,14 +44,15 @@ class Cell():
         self.pos = PVector(Cell.border + self.size_ / 2 + i * self.size_ - width / 2,
                            Cell.border + self.size_ / 2 +
                            j * self.size_ - height / 2,
-                           k * self.size_)
+                           k * self.size_ - height / 2)
 
     def update(self, mx, my):
         # mouse over & selection treatment
         hs = self.size_ / 2
-        px, py = self.pos.x + width / 2, self.pos.y + height / 2
-        self.mouse_on = (px - hs < mx < px + hs and
-                         py - hs < my < py + hs)
+        sx = screenX(self.pos.x, self.pos.y, self.pos.z)
+        sy = screenY(self.pos.x, self.pos.y, self.pos.z)
+        self.mouse_on = (sx - hs < mx < sx + hs and
+                         sy - hs < my < sy + hs)
         if self.mouse_on and mousePressed:
             self.mouse_down = True
 
