@@ -2,8 +2,11 @@ from arcs import *
 
 def setup():
     size(500, 500)
+    
+def draw():
+    background(200)
     noStroke()
-    var_bar(100, 100, 400, 400, 50, 25)
+    var_bar(mouseX, mouseY, 400, 400, 50, 25)
     stroke(0)
     noFill()
     var_bar(400, 100, 200, 350, 50, 100)
