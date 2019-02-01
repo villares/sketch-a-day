@@ -29,8 +29,8 @@ def draw():
     line(p1.x - x1, p1.y - y1, p2.x - x2, p2.y - y2)
     line(p1.x - x1, p1.y + y1, p2.x - x2, p2.y + y2)
     stroke(255, 0, 0)
-    arc(p1.x, p1.y, r1 * 2, r1 * 2, PI + beta , PI + beta + 0.1 ) #rt_ang + sweep_ang)
-    arc(p2.x, p2.y, r2 * 2, r2 * 2, 0 , theta ) #rt_ang + sweep_ang)
+    arc(p1.x, p1.y, r1 * 2, r1 * 2,  -PI-(HALF_PI - theta) ,  -(HALF_PI-theta)) #rt_ang + sweep_ang)
+    arc(p2.x, p2.y, r2 * 2, r2 * 2, -(HALF_PI-theta), HALF_PI - theta ) #rt_ang + sweep_ang)
     println((beta, PI + beta))
   
         
@@ -46,3 +46,7 @@ def draw():
     #     #     half_circle(0, offset, thickness/2, UP)
     #     # if ends[1]:
     #     #     half_circle(0,  d - offset, thickness/2, DOWN)
+    
+    
+def keyPressed():
+    saveFrame("sketch-190131a.png")
