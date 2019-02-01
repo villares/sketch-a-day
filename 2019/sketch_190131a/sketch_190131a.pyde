@@ -1,6 +1,6 @@
 def setup():
     size(500, 500)
-    
+
 def draw():
     background(200)
     strokeWeight(1)
@@ -9,9 +9,9 @@ def draw():
     r2 = 25.
     ri = r1 - r2
     p1 = PVector(200, 250)
-    p2 = PVector(map(mouseX, 0, width, p1.x +1, width), 250)
-    ellipse(p2.x, p2.y, r2*2, r2*2)
-    ellipse(p1.x, p1.y, r1*2, r1*2)
+    p2 = PVector(map(mouseX, 0, width, p1.x + 1, width), 250)
+    ellipse(p2.x, p2.y, r2 * 2, r2 * 2)
+    ellipse(p1.x, p1.y, r1 * 2, r1 * 2)
     #ellipse(p1.x, p1.y, ri*2, ri*2)
     #line(p1.x, p1.y, p2.x, p2.y)
     strokeWeight(3)
@@ -29,11 +29,14 @@ def draw():
     line(p1.x - x1, p1.y - y1, p2.x - x2, p2.y - y2)
     line(p1.x - x1, p1.y + y1, p2.x - x2, p2.y + y2)
     stroke(255, 0, 0)
-    arc(p1.x, p1.y, r1 * 2, r1 * 2,  -PI-(HALF_PI - theta) ,  -(HALF_PI-theta)) #rt_ang + sweep_ang)
-    arc(p2.x, p2.y, r2 * 2, r2 * 2, -(HALF_PI-theta), HALF_PI - theta ) #rt_ang + sweep_ang)
+    # rt_ang + sweep_ang)
+    arc(p1.x, p1.y, r1 * 2, r1 * 2,
+        -1.5 * PI - theta, -HALF_PI + theta)
+    # rt_ang + sweep_ang)
+    arc(p2.x, p2.y, r2 * 2, r2 * 2,
+        -HALF_PI + theta, HALF_PI - theta)
     println((beta, PI + beta))
-  
-        
+
     # thickness = r2 * 2
     # with pushMatrix():
     #     translate(p1.x, p1.y)
@@ -42,11 +45,11 @@ def draw():
     #     offset = 0
     #     line(thickness/2, offset, thickness/2, d - offset)
     #     line(-thickness/2, offset, -thickness/2, d - offset)
-    #     # if ends[0]:
-    #     #     half_circle(0, offset, thickness/2, UP)
-    #     # if ends[1]:
-    #     #     half_circle(0,  d - offset, thickness/2, DOWN)
-    
-    
+    # if ends[0]:
+    # half_circle(0, offset, thickness/2, UP)
+    # if ends[1]:
+    # half_circle(0,  d - offset, thickness/2, DOWN)
+
+
 def keyPressed():
     saveFrame("sketch-190131a.png")
