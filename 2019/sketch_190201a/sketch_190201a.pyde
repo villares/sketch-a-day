@@ -7,22 +7,20 @@ def draw():
     stroke(0)
     r1 = 75.
     r2 = 25.
-    ri = r1 - r2
     p1 = PVector(200, 250)
     p2 = PVector(mouseX, mouseY)
-    # ellipse(d, 0, r2 * 2, r2 * 2)
-    # ellipse(0, 0, r1 * 2, r1 * 2)
+    ellipse(p2.x, p2.y, r2 * 2, r2 * 2)
+    ellipse(p1.x, p1.y, r1 * 2, r1 * 2)
     strokeWeight(3)
     noFill()
     new_bar(p1, p2, r1, r2)
 
-
-def new_bar(p1p, p2p, r1, r2):
-    d = dist(p1p.x, p1p.y, p2p.x, p2p.y)
+def new_bar(p1, p2, r1, r2):
+    d = dist(p1.x, p1.y, p2.x, p2.y)
     if d > 0:
         with pushMatrix():
-            translate(p1p.x, p1p.y)
-            angle = atan2(p1p.x - p2p.x, p2p.y - p1p.y)
+            translate(p1.x, p1.y)
+            angle = atan2(p1.x - p2.x, p2.y - p1.y)
             rotate(angle + HALF_PI)
             ri = r1 - r2
             beta = asin(ri / d) + HALF_PI
