@@ -40,7 +40,7 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 ---
 
-![sketch_190130a](2019/sketch_190130a/sketch-190130a.png)
+![sketch_190130a](2019/sketch_190130a/sketch_1901310a.png)
 
 [sketch_190130a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190130a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
