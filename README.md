@@ -20,6 +20,11 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 ## 2019
 
 
+![sketch_190202a](2019/sketch_190202a/sketch_190202a.gif)
+
+[sketch_190202a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190202a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 ---
 
