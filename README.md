@@ -28,19 +28,19 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 ---
 
-![sketch_190201a](2019/sketch_190201a/sketch_190201a.png)
+![sketch_190201a](2019/sketch_190201a/sketch-190201a.png)
 
 [sketch_190201a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190201a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
-![sketch_190131a](2019/sketch_190131a/sketch_190131a.png)
+![sketch_190131a](2019/sketch_190131a/sketch-190131a.png)
 
 [sketch_190131a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190131a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
-![sketch_190130a](2019/sketch_190130a/sketch_190130a.png)
+![sketch_190130a](2019/sketch_190130a/sketch_1901310a.png)
 
 [sketch_190130a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190130a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
