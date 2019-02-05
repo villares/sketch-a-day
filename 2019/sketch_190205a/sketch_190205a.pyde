@@ -10,10 +10,10 @@ from collections import namedtuple
 import random as rnd
 import copy as cp
 
-SPACING, MARGIN = 120, 120
+SPACING, MARGIN = 60, 120
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
-NUM_NODES = 8  # número de elementos do desenho / number of nodes
+NUM_NODES = 32  # número de elementos do desenho / number of nodes
 Node = namedtuple(
     'Node', 'x y t_size s_weight is_special points_to')
 save_frames = False
@@ -69,14 +69,15 @@ def new_node():
 def make_nodes_point(desenho):
     for node in desenho:  # para cada elemento do desenho
         node.points_to[:] = []
-        random_node = rnd.choice(desenho)  # sorteia outro elemento
-        if (node.x, node.y) != (random_node.x, random_node.y):
+        random_node = rnd.choice(desenho)  # sorteia o,utro elemento
+        if ((node.x, node.y) != (random_node.x, random_node.y)
+            and dist(node.x, node.y, random_node.x, random_node.y) <= SPACING * 3):
             # 'aponta' para este elemento, acrescenta na sub_lista
             node.points_to.append(random_node)
 
 def draw():
     global desenho_atual, outro_desenho
-    #background(200)
+    background(200)
     fc = frameCount % 300 - 150
     if fc < 0:
         desenho = desenho_atual
@@ -103,9 +104,9 @@ def draw():
     # then draws 'lonely nodes' in red (nodes that do not point anywhere)
     for node in (n for n in desenho if not n.points_to):
         strokeWeight(node.s_weight)
-        stroke(255, 0, 0)  # red stroke for lonely nodes
+        stroke(100)  # grey stroke for lonely nodes
         if node.is_special:
-            ellipse(node.x, node.y, node.s_weight * 5, node.s_weight * 5)
+            ellipse(node.x, node.y, node.t_size*2, node.t_size*2)
         else:
             ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws black specials
