@@ -85,16 +85,16 @@ def var_bar(p1x, p1y, p2x, p2y, r1, r2=None):
             y1 = sin(beta) * r1
             x2 = cos(beta) * r2
             y2 = sin(beta) * r2
-            with pushStyle():
-                noStroke()
-                beginShape()
-                vertex(-x1, -y1)
-                vertex(d - x2, -y2)
-                vertex(d, 0)
-                vertex(d - x2, +y2)
-                vertex(-x1, +y1)
-                vertex(0, 0)
-                endShape(CLOSE)
+            # with pushStyle():
+            # noStroke()
+            # beginShape()
+            # vertex(-x1, -y1)
+            # vertex(d - x2, -y2)
+            # vertex(d, 0)
+            #      #vertex(d - x2, +y2, 0)
+            #      #vertex(-x1, +y1, 0)
+            #      #vertex(0, 0, 0)
+            # endShape()
             line(-x1, -y1, d - x2, -y2)
             line(-x1, +y1, d - x2, +y2)
             arc(0, 0, r1 * 2, r1 * 2,

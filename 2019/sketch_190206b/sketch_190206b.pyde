@@ -5,12 +5,14 @@ SKETCH_NAME, OUTPUT = "sketch_190204a", ".gif"
 A retake of sketch 58 180228 + work from 190201 :)
 """
 
+add_library('GifAnimation')
+add_library('peasycam')
 from arcs import var_bar
 from collections import namedtuple
 import random as rnd
 import copy as cp
 
-SPACING, MARGIN = 60, 120
+SPACING, MARGIN = 120, 0
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
 NUM_NODES = 32  # número de elementos do desenho / number of nodes
@@ -20,9 +22,10 @@ save_frames = False
 
 def setup():
     smooth(16)
-    size(600, 600)
+    size(600, 600, P3D)
     rectMode(CENTER)
     noFill()
+    cam = PeasyCam(this, 500)
     X_LIST[:] = [x for x in range(MARGIN, 1 + width - MARGIN, SPACING)]
     Y_LIST[:] = [y for y in range(MARGIN, 1 + height - MARGIN, SPACING)]
     novo_desenho(desenho_atual)
@@ -32,9 +35,9 @@ def setup():
 def keyPressed():
     global save_frames
     if key == 's':
-        # saveFrame("####.png")
-        save_frames = not save_frames
-        print "Saving "+repr(save_frames)
+        saveFrame("####.png")
+        # save_frames = not save_frames
+        # print "Saving "+repr(save_frames)
     if key == 'r':
         make_nodes_point(desenho_atual)
     if key == 'n':
@@ -61,8 +64,8 @@ def new_node():
         rnd.choice(X_LIST),        # x
         rnd.choice(Y_LIST),        # y
         rnd.choice([10, 20, 30]),  # t_size (tail/circle size)
-        rnd.choice([1, 2, 3]),     # s_weight (espessura da linha)
-        rnd.choice([True, False]),  # is_special? (se é seta ou 'linha')
+        rnd.choice([2, 4, 6]),     # s_weight
+        True, #rnd.choice([True, False]),  # is_special? (se é seta ou 'linha')
         []  # points_to... (lista com ref. a outro elem.))
     )
 
@@ -74,8 +77,11 @@ def make_nodes_point(desenho):
             and dist(node.x, node.y, random_node.x, random_node.y) <= SPACING * 3):
             # 'aponta' para este elemento, acrescenta na sub_lista
             node.points_to.append(random_node)
+        else:
+            node.points_to.append(node)
 
 def draw():
+    translate(-width/2, -height/2)
     global desenho_atual, outro_desenho
     background(200)
     fc = frameCount % 300 - 150
@@ -97,14 +103,14 @@ def draw():
     # draws white 'lines', non-specials, first.
     for node in (n for n in desenho if not n.is_special):
         for other in node.points_to:  # se estiver apontando para alguém
-            strokeWeight(node.s_weight)
+            #strokeWeight(node.s_weight)
             stroke(255)
             line(node.x, node.y, other.x, other.y)
             # desenha o círculo (repare que só em nós que 'apontam')
             ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws 'lonely nodes' in red (nodes that do not point anywhere)
     for node in (n for n in desenho if not n.points_to):
-        strokeWeight(node.s_weight)
+        #strokeWeight(node.s_weight)
         stroke(100)  # grey stroke for lonely nodes
         if node.is_special:
             ellipse(node.x, node.y, node.t_size*2, node.t_size*2)
@@ -113,10 +119,14 @@ def draw():
     # then draws black specials
     for node in (n for n in desenho if n.is_special):
         for other in node.points_to:  # se estiver apontando para alguém
-            strokeWeight(node.s_weight)
+            #strokeWeight(node.s_weight)
             stroke(0)
-            var_bar(node.x, node.y, other.x, other.y,
-                    node.t_size, node.s_weight * 5)
+            #fill(255, 100)
+            with pushMatrix():
+                for i in range(-5, 10, 2):
+                    translate(0, 0, node.s_weight)
+                    var_bar(node.x, node.y, other.x, other.y,
+                    node.t_size-i, node.s_weight * 5-i)
             
     if save_frames and frameCount % 10 == 0:
         saveFrame("####.tga")
