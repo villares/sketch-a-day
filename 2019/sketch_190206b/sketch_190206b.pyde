@@ -12,7 +12,7 @@ from collections import namedtuple
 import random as rnd
 import copy as cp
 
-SPACING, MARGIN = 120, 0
+SPACING, MARGIN = 100, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
 NUM_NODES = 32  # número de elementos do desenho / number of nodes
