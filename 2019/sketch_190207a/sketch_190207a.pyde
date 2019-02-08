@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190204a", ".gif" 
+SKETCH_NAME, OUTPUT = "sketch_190207a", ".gif" 
 
 """
 A retake of sketch 58 180228 + work from 190201 :)
@@ -23,6 +23,7 @@ save_frames = False
 def setup():
     smooth(16)
     size(600, 600, P3D)
+    colorMode(HSB)
     rectMode(CENTER)
     noFill()
     cam = PeasyCam(this, 500)
@@ -74,7 +75,7 @@ def make_nodes_point(desenho):
         node.points_to[:] = []
         random_node = rnd.choice(desenho)  # sorteia o,utro elemento
         if ((node.x, node.y) != (random_node.x, random_node.y)
-            and dist(node.x, node.y, random_node.x, random_node.y) <= SPACING * 3):
+            and dist(node.x, node.y, random_node.x, random_node.y) <= SPACING * 1.44):
             # 'aponta' para este elemento, acrescenta na sub_lista
             node.points_to.append(random_node)
         else:
@@ -83,7 +84,7 @@ def make_nodes_point(desenho):
 def draw():
     translate(-width/2, -height/2)
     global desenho_atual, outro_desenho
-    background(200)
+    background(0)
     fc = frameCount % 300 - 150
     if fc < 0:
         desenho = desenho_atual
@@ -100,30 +101,13 @@ def draw():
         else:
             outro_desenho[:] = cp.deepcopy(desenho_inicial)
     
-    # draws white 'lines', non-specials, first.
-    for node in (n for n in desenho if not n.is_special):
-        for other in node.points_to:  # se estiver apontando para alguém
-            #strokeWeight(node.s_weight)
-            stroke(255)
-            line(node.x, node.y, other.x, other.y)
-            # desenha o círculo (repare que só em nós que 'apontam')
-            ellipse(node.x, node.y, node.t_size, node.t_size)
-    # then draws 'lonely nodes' in red (nodes that do not point anywhere)
-    for node in (n for n in desenho if not n.points_to):
-        #strokeWeight(node.s_weight)
-        stroke(100)  # grey stroke for lonely nodes
-        if node.is_special:
-            ellipse(node.x, node.y, node.t_size*2, node.t_size*2)
-        else:
-            ellipse(node.x, node.y, node.t_size, node.t_size)
     # then draws black specials
     for node in (n for n in desenho if n.is_special):
         for other in node.points_to:  # se estiver apontando para alguém
             #strokeWeight(node.s_weight)
-            stroke(0)
-            #fill(255, 100)
             with pushMatrix():
-                for i in range(-5, 10, 2):
+                for i in range(-4, 11, 2):
+                    stroke(48 + i * 8, 200, 200)
                     translate(0, 0, node.s_weight)
                     var_bar(node.x, node.y, other.x, other.y,
                     node.t_size-i, node.s_weight * 5-i)
