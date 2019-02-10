@@ -6,7 +6,8 @@ A retake of sketch 58 180228 + work from 190201 :)
 """
 
 add_library('GifAnimation')
-add_library('peasycam')
+from gif_exporter import gif_export
+#add_library('peasycam')
 from arcs import var_bar
 from collections import namedtuple
 import random as rnd
@@ -116,8 +117,9 @@ def draw():
                             ,node.s_weight * 5-i + node.s_weight *
                             sin(node.y + frameCount / 120.))
 
-    if save_frames and frameCount % 10 == 0:
-        saveFrame("####.tga")
+    if frameCount % 4 == 0:
+        gif_export(GifMaker)
+        #saveFrame("####.tga")
 
 
 def make_inter_nodes(amt):
