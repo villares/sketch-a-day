@@ -78,10 +78,12 @@ void roundedCorner(PVector angularPoint,
     sweepAngle = PI - sweepAngle;
 
   //Draw result using graphics
+  noFill();
+  strokeWeight(3);
   line(p1.x, p1.y, p1Cross.x, p1Cross.y);
   line(p2.x, p2.y, p2Cross.x, p2Cross.y);
   arc(circlePoint.x, circlePoint.y, 2 * radius, 2 * radius, 
-    startAngle, startAngle +sweepAngle);
+    startAngle, startAngle + sweepAngle);
 }
 
 float GetLength(float dx, float dy)
@@ -93,8 +95,12 @@ PVector GetProportionPoint(
   PVector point, float segment, 
   float L, float dx, float dy)
 {
-  float factor = segment / L;
-
+  float factor;
+  if (L !=0) {
+    factor = segment / L;
+  } else { 
+    factor = 0;
+  }
   return new PVector(
     (float)(point.x - dx * factor), 
     (float)(point.y - dy * factor));
