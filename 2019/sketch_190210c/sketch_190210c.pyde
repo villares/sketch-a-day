@@ -6,11 +6,14 @@ def draw():
   p1 = PVector(100, 400)
   p0 = PVector(300, 100)
   p2 = PVector(mouseX, mouseY)
-  r1 = 10
+  r1 = 50
   r2 = 40
   r0 = 30
+  stroke(0)
   roundedCorner(p0, p2, p1, r0)
+  stroke(255)
   roundedCorner(p1, p2, p1, r1)
+  stroke(128)
   roundedCorner(p2, p1, p0, r2)
 
 def roundedCorner(angularPoint, p1, p2, radius):
