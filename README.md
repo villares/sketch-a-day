@@ -50,7 +50,7 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 
 ---        
         
-![sketch_190211b](2019/sketch_190211a/sketch_190211b.gif)
+![sketch_190211b](2019/sketch_190211b/sketch_190211b.gif)
 
 [sketch_190211b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190211b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -63,15 +63,16 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 
 ---        
         
-![sketch_190210a](2019/sketch_190210a/sketch_190210a.gif)      ![sketch_190210b](2019/sketch_190211a/sketch_190210b.gif)
-![sketch_190210c](2019/sketch_190211a/sketch_190210c.gif)
+![sketch_190210c](2019/sketch_190211a/sketch_190210c.png)
 
 
-[sketch_190210a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190210a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190210c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190210c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+"a" and "b" are Java and Python ports of a C# round corner.
 
 ---        
         
-![sketch_190209a](2019/sketch_190209a/sketch_190209a.gif)
+![sketch_190209a](2019/sketch_190209a/sketch_190209a.png)
 
 [sketch_190209a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190209a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -92,9 +93,9 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 
 ---        
         
-![sketch_190206a](2019/sketch_190206a/sketch_190206a.gif)
+![sketch_190206b](2019/sketch_190206b/sketch_190206b.gif)
 
-[sketch_190206a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190206a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190206b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190206a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---        
         
@@ -108,12 +109,6 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 ![sketch_190204a](2019/sketch_190204a/sketch_190204a.gif)
 
 [sketch_190204a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190204a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
----        
-        
-![sketch_190203a](2019/sketch_190203a/sketch_190203a.gif)
-
-[sketch_190203a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190203a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
