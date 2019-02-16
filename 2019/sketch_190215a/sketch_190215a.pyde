@@ -1,21 +1,20 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190214a", ".gif"
-
+SKETCH_NAME, OUTPUT = "sketch_190215a", ".gif"
 """
-Moving the drawing again
+Now some 3D...
 """
 from collections import namedtuple
 import copy as cp
 add_library('GifAnimation')
 from gif_exporter import gif_export
-# add_library('peasycam')
+add_library('peasycam')
 from arcs import var_bar, poly_rounded
 import random as rnd
 
-SPACING, MARGIN = 100, 100
+SPACING, MARGIN = 200, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
-NUM_NODES = 4  # número de elementos do desenho / number of nodes
+NUM_NODES = 2  # número de elementos do desenho / number of nodes
 Node = namedtuple(
     'Node', 'x y t_size s_weight is_special points_to')
 save_frames = False
@@ -23,11 +22,11 @@ strips = 10
 
 def setup():
     smooth(16)
-    size(600, 600)
+    size(600, 600, P3D)
     colorMode(HSB)
     rectMode(CENTER)
     noFill()
-    #cam = PeasyCam(this, 500)
+    cam = PeasyCam(this, 600)
     X_LIST[:] = [x for x in range(MARGIN, 1 + width - MARGIN, SPACING)]
     Y_LIST[:] = [y for y in range(MARGIN, 1 + height - MARGIN, SPACING)]
     novo_desenho(desenho_atual)
@@ -36,7 +35,7 @@ def setup():
 
 def draw():
     global strips, desenho_atual, outro_desenho
-    #translate(-width/2, -height/2)
+    translate(-width/2, -height/2)
     background(200)
     fc = frameCount % 200 - 100
     if fc < 0:
@@ -108,10 +107,10 @@ def desenho_plot(d):
         p1, p2 = node.points_to  # se estiver apontando para alguém
         # strokeWeight(node.s_weight)
         with pushMatrix():
-            for i in range(2):
-                stroke(0 + i * 255)
+            for i in range(10):
+                # stroke(0 + i * 8)
                 strokeWeight(2)
-                translate(0, 0, node.s_weight)
+                translate(0, 0, -node.s_weight*5)
                 poly_rounded([node, p1, p2], (node.s_weight + i) * strips)
 
 def mouseWheel(E):
