@@ -101,11 +101,14 @@ def new_node(*args):
         return Node(*args)
 
 def make_nodes_point(desenho):
-    # A = (x1y2 + x2y3 + x3y1 – x1y3 – x2y1 – x3y2)/2.
+    # AREA = (x1y2 + x2y3 + x3y1 – x1y3 – x2y1 – x3y2)/2.
+    # x₁ (y₂ - y₃) + x₂ (y₃ - y₁) + x₃ (y₁ - y₂) == 0
     for n0 in desenho:  # para cada elemento do desenho
         n1, n2 = new_node(), new_node()
-        while (n1.x * n2.y + n2.x * n0.y + n0.x * n1.y
-              - n1.x * n0.y - n2.x * n1.y - n0.x * n2.y) == 0:
+        while (n1.x * (n2.y - n0.y) +
+               n2.x * (n0.y - n1.y) +
+               n0.x * (n1.y - n2.y) == 0):
+            # if the points are colinear, choose new nodes
             n1, n2 = new_node(), new_node()
         n0.points_to[:] = []
         n0.points_to.append(n1)
