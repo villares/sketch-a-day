@@ -7,8 +7,7 @@ def setup():
 
 def draw():
     background(200)
-    p_list.append(PVector(mouseX, mouseY, radius))
-    
+    p_list.append(PVector(mouseX, mouseY, radius))   
     for p0, p1, p2 in zip(p_list,
                           [p_list[-1]]+ p_list[:-1],
                           [p_list[-2]]+ [p_list[-1]]+ p_list[:-2]):
@@ -20,20 +19,9 @@ def draw():
         line(p1.x, p1.y, m2.x, m2.y)
         stroke(255)
         strokeWeight(3)
-        roundedCorner(p1, m1, m2, p1.z)
-
-        
+        roundedCorner(p1, m1, m2, p1.z)    
     p_list.pop()
 
-def mousePressed():
-    if mouseButton == LEFT:
-        p_list.append(PVector(mouseX, mouseY, radius))
-    elif len(p_list) > 2:
-        p_list.pop()
-        
-def mouseWheel(e):
-    global radius
-    radius += int(e.getAmount())
     
 def roundedCorner(pc, p1, p2, r):
     """
@@ -115,7 +103,16 @@ def GetLength(dx, dy):
 def GetProportionPoint(pt, segment, L, dx, dy):
     # factor = segment / L if L != 0 else 0
     factor = float(segment) / L if L != 0 else segment
-    
     return PVector(
         (pt.x - dx * factor), 
         (pt.y - dy * factor))
+    
+def mousePressed():
+    if mouseButton == LEFT:
+        p_list.append(PVector(mouseX, mouseY, radius))
+    elif len(p_list) > 2:
+        p_list.pop()
+        
+def mouseWheel(e):
+    global radius
+    radius += int(e.getAmount())

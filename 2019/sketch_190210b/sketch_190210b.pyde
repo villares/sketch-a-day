@@ -29,7 +29,7 @@ def roundedCorner( angularPoint,
     #Angle between vector 1 and vector 2 divided by 2
     angle = (atan2(dy1, dx1) - atan2(dy2, dx2)) / 2
 
-    # The length of segment between angular poand the
+    # The length of segment between angular point and the
     # points of intersection with the circle of a given radius
     segment = radius / abs(tan(angle))
 
