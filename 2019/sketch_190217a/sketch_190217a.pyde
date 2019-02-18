@@ -4,19 +4,19 @@ SKETCH_NAME, OUTPUT = "sketch_190217a", ".gif"
 Like 190215 but using the rounded poly from 190216
 """
 from collections import namedtuple
-import copy as cp
-add_library('GifAnimation')
-from gif_exporter import gif_export
-add_library('peasycam')
-from arcs import var_bar, poly_rounded2
 import random as rnd
+import copy as cp
+from gif_exporter import gif_export
+from arcs import var_bar, poly_rounded2
+add_library('peasycam')
+add_library('GifAnimation')
 
 SPACING, MARGIN = 200, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
 NUM_NODES = 2  # número de elementos do desenho / number of nodes
 Node = namedtuple(
-    'Node', 'x y t_size s_weight is_special points_to')
+    'Node', 'x y tam points_to')
 save_frames = False
 strips = 10
 
@@ -89,10 +89,7 @@ def new_node():
     return Node(                   # elemento/"nó" uma namedtuple com:
         rnd.choice(X_LIST),        # x
         rnd.choice(Y_LIST),        # y
-        rnd.choice([10, 20, 30]),  # t_size (tail/circle size)
-        rnd.choice([2, 4, 6]),     # s_weight
-        # rnd.choice([True, False]),  # is_special? (se é seta ou 'linha')
-        True,
+        rnd.choice([2, 4, 6]),     # tam
         []  # points_to... (lista com ref. a outro elem.))
     )
 
@@ -105,15 +102,15 @@ def make_nodes_point(desenho):
 def desenho_plot(d):
     for node in d:
         p1, p2 = node.points_to  # se estiver apontando para alguém
-        # strokeWeight(node.s_weight)
+        # strokeWeight(node.tam)
         with pushMatrix():
             for i in range(10):
                 # stroke(0 + i * 8)
                 strokeWeight(2)
-                translate(0, 0, -node.s_weight*5)
-                rs = [(node.s_weight + i) * strips,
-                (p1.s_weight + i) * strips,
-                (p2.s_weight + i) * strips,]
+                translate(0, 0, -node.tam*5)
+                rs = [(node.tam + i) * strips,
+                (p1.tam + i) * strips,
+                (p2.tam + i) * strips,]
                 poly_rounded2([node, p1, p2], rs)
 
 def mouseWheel(E):
@@ -127,9 +124,7 @@ def make_inter_nodes(amt):
         desenho_inter.append(Node(                   # elemento/"nó" uma namedtuple com:
             n1.x,        # x
             n1.y,        # y
-            n1.t_size,  # t_size (tail/circle size)
-            n1.s_weight,     # s_weight (espessura da linha)
-            n1.is_special,  # is_special? (se é barra ou 'linha')
+            n1.tam,     # tam 
             # cp.deepcopy(n1.points_to)
             [PVector(lerp(p1.x, p2.x, amt), lerp(p1.y, p2.y, amt))
              for p1, p2 in zip(n1.points_to, n2.points_to)]
