@@ -1,3 +1,9 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME, OUTPUT = "sketch_190216a", ".png"
+"""
+A rounded polygon with variable radius
+"""
+
 p_list = [PVector(100, 400, 50),
           PVector(300, 100, 100),]
 radius = 30

@@ -1,7 +1,8 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190217a", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190218a", ".gif"
 """
-Like 190215 but using the rounded poly from 190216
+Like 190217 With the smaller radius down and regular z-offset
+No colinear triple points
 """
 from collections import namedtuple
 import copy as cp
@@ -14,7 +15,7 @@ import random as rnd
 SPACING, MARGIN = 200, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
-NUM_NODES = 2  # número de elementos do desenho / number of nodes
+NUM_NODES = 3  # número de elementos do desenho / number of nodes
 Node = namedtuple(
     'Node', 'x y t_size s_weight is_special points_to')
 save_frames = False
@@ -35,9 +36,9 @@ def setup():
 
 def draw():
     global strips, desenho_atual, outro_desenho
-    translate(-width/2, -height/2)
+    translate(-width / 2, -height / 2)
     background(200)
-    fc = -1 # frameCount % 200 - 100
+    fc = -1  # frameCount % 200 - 100
     if fc < 0:
         desenho = desenho_atual
     elif 0 <= fc < 99:
@@ -56,7 +57,7 @@ def draw():
     desenho_plot(desenho)
     # if frameCount % 4 == 0:
     #    gif_export(GifMaker, filename=SKETCH_NAME, delay=200)
-    # #strips += 1
+    # strips += 1
 
 def keyPressed():
     global save_frames
@@ -85,22 +86,30 @@ def novo_desenho(desenho):
     make_nodes_point(outro_desenho)
 
 
-def new_node():
-    return Node(                   # elemento/"nó" uma namedtuple com:
-        rnd.choice(X_LIST),        # x
-        rnd.choice(Y_LIST),        # y
-        rnd.choice([10, 20, 30]),  # t_size (tail/circle size)
-        rnd.choice([2, 4, 6]),     # s_weight
-        # rnd.choice([True, False]),  # is_special? (se é seta ou 'linha')
-        True,
-        []  # points_to... (lista com ref. a outro elem.))
-    )
+def new_node(*args):
+    if not args:
+        return Node(                   # elemento/"nó" uma namedtuple com:
+            rnd.choice(X_LIST),        # x
+            rnd.choice(Y_LIST),        # y
+            rnd.choice([10, 20, 30]),  # t_size (tail/circle size)
+            rnd.choice([2, 4, 6]),     # s_weight
+            # rnd.choice([True, False]),  # is_special? (se é seta ou 'linha')
+            True,
+            []  # points_to... (lista com ref. a outro elem.))
+        )
+    else:
+        return Node(*args)
 
 def make_nodes_point(desenho):
-    for node in desenho:  # para cada elemento do desenho
-        node.points_to[:] = []
-        node.points_to.append(new_node())
-        node.points_to.append(new_node())
+    # A = (x1y2 + x2y3 + x3y1 – x1y3 – x2y1 – x3y2)/2.
+    for n0 in desenho:  # para cada elemento do desenho
+        n1, n2 = new_node(), new_node()
+        while (n1.x * n2.y + n2.x * n0.y + n0.x * n1.y
+              - n1.x * n0.y - n2.x * n1.y - n0.x * n2.y) == 0:
+            n1, n2 = new_node(), new_node()
+        n0.points_to[:] = []
+        n0.points_to.append(n1)
+        n0.points_to.append(n2)
 
 def desenho_plot(d):
     for node in d:
@@ -110,10 +119,10 @@ def desenho_plot(d):
             for i in range(10):
                 # stroke(0 + i * 8)
                 strokeWeight(2)
-                translate(0, 0, -node.s_weight*5)
+                translate(0, 0, 15)
                 rs = [(node.s_weight + i) * strips,
-                (p1.s_weight + i) * strips,
-                (p2.s_weight + i) * strips,]
+                      (p1.s_weight + i) * strips,
+                      (p2.s_weight + i) * strips, ]
                 poly_rounded2([node, p1, p2], rs)
 
 def mouseWheel(E):
