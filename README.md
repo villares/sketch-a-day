@@ -1,10 +1,9 @@
 ----
 # sketch-a-day
-##### one visual idea a day 
+#### one visual idea a day 
 
-Hi!
 
-I'm [Alexandre Villares](https://abav.lugaralgum.com), welcome!
+Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), welcome!
 
 I try to make one small program (*sketch*) a day. I usually put the code on [[github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day)]
 
