@@ -3,13 +3,12 @@
 
 ### one visual idea a day [[on GitHub!](https://github.com/villares/sketch-a-day)]
 
-Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. I'm working mostly with Python ([Processing Python Mode](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)) and sometimes [Processing Java Mode](https://processing.org) and [P5JS (JavaScript)](p5js.org) or other stuff.
+Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), let's see if I can make one small program (*sketch*) a day. 
 
-Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
+Subscribe to sort-of-weekly newsletter: [[sketch-mail](https://tinyletter.com/villares)]
 
-If you enjoy this, be a [patreon](https://patreon.com/arteprog) or make a donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
-
-Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/villares)]
+Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. I also accept donations ;) [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
+ 
 
 ---
 
@@ -20,12 +19,30 @@ Subscribe to sort-of-weekly newsletter:  [[sketch-mail](https://tinyletter.com/v
 ## 2019
 
 ---
+        
+![sketch_190218a](2019/sketch_190218a/sketch_190218a.gif)
+
+[sketch_190218a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190218a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+ 
+![sketch_190217a](2019/sketch_190217a/sketch_190217a.gif)
+
+[sketch_190217a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190217a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---        
+        
+![sketch_190216a](2019/sketch_190216a/sketch_190216a.png)
+
+[sketch_190216a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190216a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+
 ---        
         
 ![sketch_190215a](2019/sketch_190215a/sketch_190215a.gif)
 
 [sketch_190215a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190215a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---        
         
@@ -333,5 +350,3 @@ Made this today, thinking about my new newsletter: [[sketch-mail](https://tinyle
 ![sketch_190101a](2019/sketch_190101a/sketch_190101a.gif)
 
 [sketch_190101a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
-
