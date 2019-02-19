@@ -5,13 +5,15 @@
 
 Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), welcome!
 
-I try to make one small program (*sketch*) a day. I usually put the code on [[github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day)]
+I try to make one small program (*sketch*) a day. I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day)
 
-You can get updates if you subscribe to my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter.com/villares)]
+Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
 
-Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. I also [accept donations!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) :)
+You may also support my artistic work, open source teaching resources and research with [donations](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) :)
+
+Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter.com/villares)]
+
  
-
 ---
 
 ## [2018](2018.md)
