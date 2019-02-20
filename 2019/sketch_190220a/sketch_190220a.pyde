@@ -31,7 +31,6 @@ def setup():
     Y_LIST[:] = [y for y in range(MARGIN, 1 + height - MARGIN, SPACING)]
     novo_desenho(desenho_atual)
     desenho_inicial[:] = cp.deepcopy(desenho_atual)
-    println("'s' to save, and 'n' for a new drawing")
 
 def draw():
     global strips, desenho_atual, outro_desenho
@@ -55,8 +54,8 @@ def draw():
             outro_desenho[:] = cp.deepcopy(desenho_inicial)
 
     desenho_plot(desenho)
-    # if frameCount % 4 == 0:
-    #    gif_export(GifMaker, filename=SKETCH_NAME, delay=200)
+    if frameCount % 4 == 0:
+       gif_export(GifMaker, filename=SKETCH_NAME, delay=200)
     #strips += 1
 
 def keyPressed():
