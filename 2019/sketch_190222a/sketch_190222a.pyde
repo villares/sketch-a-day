@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190221a", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190222a", ".gif"
 """
 Fixed the transition thing
 """
@@ -14,10 +14,12 @@ add_library('GifAnimation')
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
 
-SPACING, MARGIN = 250, 50
-NUM_NODES = 3  # número de elementos do desenho / number of nodes
+SPACING, MARGIN = 50, 50
+MAX_S = 3.5 
+LEVELS = 10
+NUM_NODES = 20  # número de elementos do desenho / number of nodes
 Node = namedtuple('Node', 'x y radius_size points_to')
-radius_modifier = 0
+radius_modifier = 2
 end_mode = False
 
 def setup():
@@ -34,10 +36,10 @@ def setup():
 def draw():
     global radius_modifier, desenho_atual, outro_desenho, end_mode
     ortho()
-    translate(-width / 2, -height / 2 + 50)
-    rotateX(HALF_PI / 4)
+    translate(-width / 2, -height / 2 + 150)
+    rotateX(HALF_PI / 2)
     background(200)
-    fc = frameCount % 150 - 100
+    fc =  -1 #frameCount % 150 - 100
     if fc < 0:
         desenho = desenho_atual
     elif 0 <= fc < 49:
@@ -58,10 +60,13 @@ def draw():
     # if frameCount % 4 == 0:
     #     gif_export(GifMaker, filename=SKETCH_NAME, delay=200)
     #radius_modifier += 1
+    
     if keyCode == UP and radius_modifier < 150:
         radius_modifier += 1
+        println(radius_modifier)
     if keyCode == DOWN and radius_modifier > 0:
         radius_modifier -= 1
+        println(radius_modifier)
 
 
 def keyPressed():
@@ -90,8 +95,8 @@ def novo_desenho(desenho):
     make_nodes_point(outro_desenho)
 
 
-def new_node(*args):
-    if not args:
+def new_node(base=None):
+    if not base:
         return Node(                   # elemento/"nó" uma namedtuple com:
             rnd.choice(X_LIST),        # x
             rnd.choice(Y_LIST),        # y
@@ -99,18 +104,21 @@ def new_node(*args):
             []  # points_to... (lista com ref. a outro elem.))
         )
     else:
-        return Node(*args)
+        n =  new_node()
+        while dist(n.x, n.y, base.x, base.y) > MAX_S * SPACING:
+            n =  new_node()
+        return n
 
 def make_nodes_point(desenho):
     # AREA = (x1y2 + x2y3 + x3y1 – x1y3 – x2y1 – x3y2)/2.
     # x₁ (y₂ - y₃) + x₂ (y₃ - y₁) + x₃ (y₁ - y₂) == 0
     for n0 in desenho:  # para cada elemento do desenho
-        n1, n2 = new_node(), new_node()
+        n1, n2 = new_node(n0), new_node(n0)
         while (n1.x * (n2.y - n0.y) +
                n2.x * (n0.y - n1.y) +
                n0.x * (n1.y - n2.y) == 0):
             # if the points are colinear, choose new nodes
-            n1, n2 = new_node(), new_node()
+            n1, n2 = new_node(n0), new_node(n0)
         n0.points_to[:] = []
         n0.points_to.append(n1)
         n0.points_to.append(n2)
@@ -119,7 +127,7 @@ def desenho_plot(d):
     for node in d:
         p1, p2 = node.points_to  # se estiver apontando para alguém
         with pushMatrix():
-            for i in range(10):
+            for i in range(LEVELS):
                 strokeWeight(2)
                 translate(0, 0, 15)
                 rs = [(node.radius_size + i) * radius_modifier,
