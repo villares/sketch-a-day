@@ -37,16 +37,13 @@ def keyPressed():
     if key == "s": saveFrame("###.png")
     
     
-def random_seed(s=None):
-    global rnd_seed
-    if s:
-        rnd_seed = s
-        seed(rnd_seed)
-        randomSeed(rnd_seed)    
-    else:
-        seed(rnd_seed)
-        randomSeed(rnd_seed)
-    
+def random_seed(rnd_seed=None):
+    if rnd_seed == None:
+        rnd_seed = int(random(10000))        
+    seed(rnd_seed)
+    randomSeed(rnd_seed)
+    println("seed: " + str(rnd_seed))
+
 # print text to add to the project's README.md             
 def settings():
     println(
