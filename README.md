@@ -24,6 +24,12 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter
 
 ---
 
+![sketch_190223a](2019/sketch_190223a/sketch_190223a.gif)
+
+[sketch_190223a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190223a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_190222a](2019/sketch_190222a/sketch_190222a.gif)
 
 [sketch_190222a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190222a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
