@@ -76,8 +76,8 @@ def keyPressed():
         make_nodes_point(desenho_atual)
     if key == 'n':
         novo_desenho(desenho_atual)
-    if key == ' ':
-        background(200)
+    if key == 'p':
+        saveFrame(SKETCH_NAME+".png")
 
 
 def novo_desenho(desenho):
@@ -125,6 +125,7 @@ def make_nodes_point(desenho):
         n0.points_to.append(n2)
 
 def desenho_plot(d):
+    noStroke()
     for node in d:
         p1, p2 = node.points_to  # se estiver apontando para alguém
         with pushMatrix():
