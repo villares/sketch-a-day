@@ -3,7 +3,7 @@
 
 # made my own randint #from random import randint
 from gif_export_wrapper import *
-add_library('gifAnimation')
+add_library('GifAnimation')
 add_library('peasycam')
 
 GRID_SIZE = 32
@@ -11,8 +11,9 @@ SKETCH_NAME = "s221"
 OUTPUT = ".gif"
 
 def setup():
+    fullScreen(P3D)
     print_text_for_readme(SKETCH_NAME, OUTPUT)
-    size(700, 700, P3D)
+    #size(700, 700, P3D)
     colorMode(HSB)
     # hint(ENABLE_DEPTH_SORT)
     # optional PeasyCam setup to allow orbiting with a mouse drag
