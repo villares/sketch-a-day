@@ -14,6 +14,7 @@ You may also support my artistic work, open source teaching resources and resear
 Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter.com/villares)]
 
  
+
 ---
 
 ## [2018](2018.md)
@@ -21,6 +22,14 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter
 ---
 
 ## 2019
+
+
+---
+
+
+![sketch_190302a](2019/sketch_190302a/sketch_190302a.gif)
+
+[sketch_190302a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190302a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
