@@ -38,7 +38,7 @@ def draw():
     global radius_modifier, desenho_atual, outro_desenho, end_mode
     ortho()
     #rotateX(HALF_PI / 2)
-    rotateY(frameCount * TWO_PI / 50)
+    rotateY(frameCount * TWO_PI / 100)
     translate(-width / 2, -height /2) # + 150)
     background(200)
     fc = frameCount % 100 - 50
@@ -61,7 +61,7 @@ def draw():
 
     desenho_plot(desenho)
     if frameCount % 4 == 0:
-         gif_export(GifMaker, filename=SKETCH_NAME, delay=200)
+         gif_export(GifMaker, filename=SKETCH_NAME, delay=400)
     
 def desenho_plot(d):
     #noStroke()
