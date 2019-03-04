@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190302a", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190303a", ".gif"
 """
 Fixed the transition thing
 """
@@ -17,7 +17,7 @@ desenho_atual, outro_desenho, desenho_inter, desenho_inicial = [], [], [], []
 SPACING, MARGIN = 100, 0
 MAX_S = 2 
 LEVELS = 5
-NUM_NODES = 20  # número de elementos do desenho / number of nodes
+NUM_NODES = 10  # número de elementos do desenho / number of nodes
 Node = namedtuple('Node', 'x y radius_size points_to')
 radius_modifier = 10
 end_mode = False
@@ -35,13 +35,23 @@ def setup():
     desenho_inicial[:] = cp.deepcopy(desenho_atual)
 
 def draw():
+    background(200) 
+    translate(-width/2, -height/2)
+    translate(0, 0, -300)
+    ensamble(0, 0, 5)
+    translate(0, 0, 600)
+    ensamble(0, 0, 5)
+    translate(0, 0, -300)
+    rotateX(HALF_PI)
+    translate(0, 0, -300)
+    ensamble(0, 0, 5)
+    translate(0, 0, 600)
+    ensamble(0, 0, 5)
+    #translate(0, 0, -300)
+ 
+def ensamble(ex, ey, _):
     global radius_modifier, desenho_atual, outro_desenho, end_mode
-    ortho()
-    #rotateX(HALF_PI / 2)
-    rotateY(frameCount * TWO_PI / 100)
-    translate(-width / 2, -height /2) # + 150)
-    background(200)
-    fc = frameCount % 100 - 50
+    fc = -1 #frameCount % 100 - 50
     radius_modifier = 10 + 10 * sin(frameCount * TWO_PI / 50)
     if fc < 0:
         desenho = desenho_atual
@@ -58,10 +68,11 @@ def draw():
             print("will reset")
             end_mode = True
             outro_desenho[:] = cp.deepcopy(desenho_inicial)
-
-    desenho_plot(desenho)
-    if frameCount % 4 == 0:
-         gif_export(GifMaker, filename=SKETCH_NAME, delay=400)
+    with pushMatrix():
+        translate(ex, ey)
+        desenho_plot(desenho)
+    # if frameCount % 4 == 0:
+    #      gif_export(GifMaker, filename=SKETCH_NAME, delay=400)
     
 def desenho_plot(d):
     #noStroke()
@@ -70,7 +81,7 @@ def desenho_plot(d):
         with pushMatrix():
             for i in range(LEVELS):
                 fill(128 + i * 16, 255, 255, 64) #164 + i * 8,, 255, 255, 64)
-                translate(0, 0, 48)
+                #translate(0, 0, 48)
                 rs = [(node.radius_size + i * radius_modifier),
                       (p1.radius_size + i * radius_modifier),
                       (p2.radius_size + i * radius_modifier), ]
