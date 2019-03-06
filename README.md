@@ -25,11 +25,23 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter
 
 ---
 
+![sketch_190305a](2019/sketch_190305a/sketch_190305a.gif)
+
+[sketch_190305a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190305a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Mais grapholia ;)
+
+Removi parte do código para controle com potenciômetros pois infelizmente a comunicação serial está quebrada neste momento no Processing Modo Python :((
+
+---
+
 ![sketch_190304a](2019/sketch_190304a/sketch_190304a.gif)
 
 [sketch_190304a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190304a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-grapholia ;)
+Grapholia ;)
+
+Retomando um sketch de grafos com 4 parâmetros ajustaveis (via teclado ou potenciômetros ligados em um Arduino)
 
 ---
 
