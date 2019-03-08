@@ -28,7 +28,8 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter
 
 ![sketch_190307a](2019/sketch_190307a/sketch_190307a.gif)
 
-[sketch_190307a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190307a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190307a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190307a) [[Py.Processing](https://villare
+s.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 An graph much like the ones before this, but made invisible, is behind the (virtual) corners of this rounded poly.
 
