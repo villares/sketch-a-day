@@ -12,7 +12,7 @@ from graphs import *
 from inputs import Input
 from arcs import poly_rounded2
 
-history = deque(maxlen=60)
+history = deque(maxlen=40)
 
 def setup():
     global input, GIF_EXPORT
@@ -43,14 +43,15 @@ def draw():
     p_list, r_list = [], []
     for ponto in Ponto.SET:
         ponto.move(VEL_MAX)    # atualiza posição
-        p_list.append(ponto)
+        p_list.append(PVector(ponto.x, ponto.y))
         r_list.append(ponto.r)
     noFill()
     #strokeWeight(3)
     history.append((p_list, r_list))
+    
     for p_l, r_l in history:
         poly_rounded2(p_l, r_l)
-        translate(0, 0, -7)
+        translate(0, 0, -10)
 
     # checa arestas, se OK desenhar, se nãotem pontos removidos ou iguais
     pontos_com_arestas = set()  # para guardar pontos com aresta
