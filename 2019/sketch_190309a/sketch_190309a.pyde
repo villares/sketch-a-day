@@ -15,7 +15,7 @@ from arcs import poly_rounded2
 history = deque(maxlen=40)
 
 def setup():
-    global input, GIF_EXPORT
+    global cam, input, GIF_EXPORT
     size(600, 600, P3D)
     frameRate(30)
     GIF_EXPORT = False
@@ -104,8 +104,10 @@ def draw():
                                 delay=300,
                                 filename=SKETCH_NAME)
 
-    # Updates reading or draws sliders and checks mouse dragging / keystrokes
+    # read & draw sliders & checks mouse dragging / keystrokes
+    cam.beginHUD()
     input.update()
+    cam.endHUD()
 
 def mouseDragged():        # quando o mouse é arrastado
     for ponto in Ponto.SET:   # para cada Ponto checa distância do mouse

@@ -27,10 +27,6 @@ class Ponto():
 
     def desenha(self):
         pass
-        # noStroke()
-        # stroke(255)
-        # noFill()
-        # ellipse(self.x, self.y, TAM_PONTO, TAM_PONTO)
 
     def move(self, VEL_MAX):
         Ponto.VEL_MAX = VEL_MAX
@@ -93,10 +89,3 @@ class Aresta():
         self.p1.vy = self.p1.vy + dir.y
         self.p2.vx = self.p2.vx - dir.x
         self.p2.vy = self.p2.vy - dir.y
-
-# def rnd_choice(collection):
-#     if collection:
-#         i = int(random(len(collection)))
-#         return collection[i]
-#     else:
-#         return None
