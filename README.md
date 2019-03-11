@@ -23,11 +23,23 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter
 
 ## 2019
 
+
+---
+
+
+![sketch_190310a](2019/sketch_190310a/sketch_190310a.gif)
+
+[sketch_190310a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190310a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Refactor and a not very good filling test
+
 ---
 
 ![sketch_190309a](2019/sketch_190309a/sketch_190309a.gif)
 
 [sketch_190309a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190309a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Deque collection for a dynamic history on Z
 
 ---
 

@@ -55,6 +55,12 @@ class Ponto():
             return -v_max
         else:
             return v
+        
+    @staticmethod
+    def reset_all(num):
+        Ponto.SET = set()
+        for _ in range(num):
+            Ponto.SET.add(Ponto(width / 2, height / 2))
 
 
 class Aresta():
