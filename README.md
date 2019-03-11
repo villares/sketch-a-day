@@ -11,7 +11,7 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 You may also support my artistic work, open source teaching resources and research with [donations](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) :)
 
-Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://tinyletter.com/villares)]
+Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.org/sketch-mail)]
 
  
 
