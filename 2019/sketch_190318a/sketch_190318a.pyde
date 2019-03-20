@@ -1,3 +1,6 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+SKETCH_NAME, OUTPUT = "sketch_190318a", ".png"
+
 W = 50
 H = 50
 S = 50
