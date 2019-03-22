@@ -25,7 +25,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
-![sketch_190320a](2019/sketch_190320a/sketch_190320.gif)
+![sketch_190320a](2019/sketch_190320a/sketch_190320a.gif)
 
 [sketch_190320a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190320a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -64,6 +64,12 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 ![sketch_190314a](2019/sketch_190314a/sketch_190314a.gif)
 
 [sketch_190314a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190314a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190321b](2019/sketch_190321b/sketch_190321b.gif)
+
+[sketch_190321b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190321b) 
 
 ---
 
@@ -118,7 +124,7 @@ An graph much like the ones before this, but made invisible, is behind the (virt
 
 ![sketch_190306a](2019/sketch_190306a/sketch_190306a.gif)
 
-[sketch_190306a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190306a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190306a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190306a) [Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
