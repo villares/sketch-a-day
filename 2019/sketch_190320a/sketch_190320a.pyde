@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190320a", ".gi"f
+SKETCH_NAME, OUTPUT = "sketch_190320a", ".gi"
 
 """
 based on sketch 57 180226 
