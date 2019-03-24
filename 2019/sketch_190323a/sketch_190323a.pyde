@@ -2,11 +2,14 @@
 SKETCH_NAME, OUTPUT = "sketch_190323a", ".gif" 
 
 """
-A retake of sketch 58 180228 + work from 190201 :)
+A retake of sketch 58 180228 + work from sketch_190321 :)
 """
 from collections import namedtuple
 import random as rnd
 import copy as cp
+
+add_library('GifAnimation')
+from gif_exporter import gif_export
 
 SPACING, MARGIN = 60, 120
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
@@ -120,8 +123,8 @@ def draw():
             ellipse(node.x, node.y, node.t_size/2, node.t_size/2)
             ellipse(other.x, other.y, node.s_weight, node.s_weight)
             
-    if frameCount % 4 == 0:
-        gif_export(GifMaker)
+    # if frameCount % 4 == 0:
+    #     gif_export(GifMaker)
 
 
 def make_inter_nodes(amt):
