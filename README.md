@@ -23,6 +23,11 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+---
+
+![sketch_190325a](2019/sketch_190325a/sketch_190325a.gif)
+
+[sketch_190325a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190325a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
@@ -96,12 +101,6 @@ selecting pointing nodes... (also present on 190323)
 ![sketch_190314a](2019/sketch_190314a/sketch_190314a.gif)
 
 [sketch_190314a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190314a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
----
-
-![sketch_190321b](2019/sketch_190321b/sketch_190321b.gif)
-
-[sketch_190321b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190321b) 
 
 ---
 

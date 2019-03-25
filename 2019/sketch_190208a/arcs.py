@@ -74,27 +74,33 @@ def var_bar(p1x, p1y, p2x, p2y, r1, r2=None):
     if r2 is None:
         r2 = r1
     d = dist(p1x, p1y, p2x, p2y)
-    if d > 0:
+    ri = r1 - r2
+    if d > abs(ri):
+        rid = (r1 - r2) / d
+        if rid > 1:
+            rid = 1
+        if rid < -1:
+            rid = -1
+        beta = asin(rid) + HALF_PI
         with pushMatrix():
             translate(p1x, p1y)
             angle = atan2(p1x - p2x, p2y - p1y)
             rotate(angle + HALF_PI)
-            ri = r1 - r2
-            beta = asin(ri / d) + HALF_PI
             x1 = cos(beta) * r1
             y1 = sin(beta) * r1
             x2 = cos(beta) * r2
             y2 = sin(beta) * r2
-            # with pushStyle():
-            # noStroke()
-            # beginShape()
-            # vertex(-x1, -y1)
-            # vertex(d - x2, -y2)
-            # vertex(d, 0)
-            #      #vertex(d - x2, +y2, 0)
-            #      #vertex(-x1, +y1, 0)
-            #      #vertex(0, 0, 0)
-            # endShape()
+            #print((d, beta, ri, x1, y1, x2, y2))
+            with pushStyle():
+                noStroke()
+                beginShape()
+                vertex(-x1, -y1)
+                vertex(d - x2, -y2)
+                vertex(d, 0)
+                vertex(d - x2, +y2)
+                vertex(-x1, +y1)
+                vertex(0, 0)
+                endShape(CLOSE)
             line(-x1, -y1, d - x2, -y2)
             line(-x1, +y1, d - x2, +y2)
             arc(0, 0, r1 * 2, r1 * 2,
@@ -103,4 +109,4 @@ def var_bar(p1x, p1y, p2x, p2y, r1, r2=None):
                 beta - PI, PI - beta)
     else:
         ellipse(p1x, p1y, r1 * 2, r1 * 2)
-        ellipse(p2y, p2x, r2 * 2, r2 * 2)
+        ellipse(p2x, p2y, r2 * 2, r2 * 2)
