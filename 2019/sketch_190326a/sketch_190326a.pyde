@@ -2,7 +2,7 @@
 SKETCH_NAME, OUTPUT = "sketch_190326a", ".gif"
 
 """
-A retake of sketch_190207a + work from sketch_190321 :)
+A retake of sketch_190207a + work from sketch_190325 :)
 Will stall sometimes... as there is an unsage while loop
 selecting pointing nodes...
 """
@@ -86,7 +86,7 @@ def draw():
     translate(-width / 2, -height / 2)
     global desenho_atual, outro_desenho
     background(0)
-    fc = frameCount % 300 - 50
+    fc = -1 #frameCount % 300 - 50
     if fc < 0:
         desenho = desenho_atual
     elif 0 <= fc < 49:
@@ -114,7 +114,7 @@ def draw():
                          node.t_size - i, node.s_weight * 5 - i)
 
     if frameCount % 4 == 0:
-        gif_export(GifMaker)
+        gif_export(GifMaker, filename=SKETCH_NAME)
 
 
 def make_inter_nodes(amt):
