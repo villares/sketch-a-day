@@ -39,7 +39,7 @@ def circ_circ_tangent(p1, p2, r1, r2):
     ri = r1 - r2
     if d > abs(ri):
         line_angle = atan2(p1.x - p2.x, p2.y - p1.y)
-        theta = asin(ri / d)
+        theta = asin(ri / float(d))
 
         x1 = cos(line_angle - theta) * r1
         y1 = sin(line_angle - theta) * r1
