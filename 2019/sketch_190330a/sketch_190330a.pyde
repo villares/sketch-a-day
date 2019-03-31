@@ -1,7 +1,14 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 from __future__ import division
 from random import choice
 from arcs import poly_filleted
+add_library('GifAnimation')
+from gif_exporter import gif_export
 
+"""
+Oh, the difference a grid makes!
+"""
+SKETCH_NAME, OUTPUT = "sketch_190330a", ".gif"
 SPACING, MARGIN = 100, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 rad_list = [10, 20, 30, 40]
@@ -44,12 +51,10 @@ def poly_arc_augmented(p_list, r_list):
         if a1 and a2:
             start = a1 if a1 < a2 else a1 - TWO_PI
             arc(p2.x, p2.y, r2 * 2, r2 * 2, start, a2)
-        elif a1:
-            println((a1, a2))
-            ellipse(p1.x, p1.y, r1 * 2, r1 * 2)
         else:
+            # println((a1, a2))
+            ellipse(p1.x, p1.y, r1 * 2, r1 * 2)
             ellipse(p2.x, p2.y, r2 * 2, r2 * 2)
-            println((a1, a2))
 
 
 def circ_circ_tangent(p1, p2, r1, r2):
@@ -73,10 +78,20 @@ def circ_circ_tangent(p1, p2, r1, r2):
         return (line_angle + theta)
     else:
         line(p1.x, p1.y, p2.x, p2.y)
-        return line_angle
+        return None
 
 def mouseClicked():
     create_list()
 
 def keyPressed():
-    saveFrame("s####.png")
+    gif_export(GifMaker, filename=SKETCH_NAME, delay=1200)
+
+# print text to add to the project's README.md
+def settings():
+    println(
+        """
+![{0}](2019/{0}/{0}{1})
+
+[{0}](https://github.com/villares/sketch-a-day/tree/master/2019/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+""".format(SKETCH_NAME, OUTPUT)
+    )
