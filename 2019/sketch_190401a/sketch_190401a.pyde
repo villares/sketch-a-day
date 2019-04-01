@@ -1,14 +1,16 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 from __future__ import division
+SKETCH_NAME, OUTPUT = "sketch_190401a", ".gif"
+
+"""
+Hmmm
+"""
+
 from random import choice
 from arcs import poly_filleted
 add_library('GifAnimation')
 from gif_exporter import gif_export
 
-"""
-Oh, the difference a grid makes!
-"""
-SKETCH_NAME, OUTPUT = "sketch_190330a", ".gif"
 SPACING, MARGIN = 100, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 rad_list = [10, 20, 30, 40]
@@ -21,14 +23,19 @@ def setup():
 
 def create_list():
     global p_list
-    p_list = [PVector(choice(X_LIST),choice(Y_LIST)) for r in rad_list]
+    p_list = []
+    for r in rad_list:
+        new_p = PVector(choice(X_LIST), choice(Y_LIST))
+        while new_p in p_list:
+            new_p = PVector(choice(X_LIST), choice(Y_LIST))
+        p_list.append(new_p)
 
 def draw():
     background(200)
     noFill()
     strokeWeight(2)
-    stroke(255) 
-    poly_filleted(p_list, rad_list)
+    stroke(255)
+    poly_filleted(p_list) #, rad_list)
     strokeWeight(2)
     stroke(0)
     poly_arc_augmented(p_list, rad_list)
@@ -40,7 +47,7 @@ def poly_arc_augmented(p_list, r_list):
         p1, p2, r1, r2 = p_list[i1], p_list[i2], r_list[i1], r_list[i2]
         a = circ_circ_tangent(p1, p2, r1, r2)
         a_list.append(a)
-        ellipse(p1.x, p1.y, 2, 2)
+        # ellipse(p1.x, p1.y, 2, 2)
 
     for i1 in range(len(a_list)):
         i2 = (i1 + 1) % len(a_list)

@@ -112,11 +112,16 @@ def var_bar(p1x, p1y, p2x, p2y, r1, r2=None):
         ellipse(p1x, p1y, r1 * 2, r1 * 2)
         ellipse(p2x, p2y, r2 * 2, r2 * 2)
 
-def poly_filleted(p_list, r_list, open_poly=False):
+def poly_filleted(p_list, r_list=None, open_poly=False):
+    
     """
     draws a 'filleted' polygon with variable radius
     dependent on roundedCorner()
     """
+    if not r_list:
+        r_list = [0] * len(p_list)
+    
+    
     if not open_poly:
         with pushStyle():
             noStroke()
