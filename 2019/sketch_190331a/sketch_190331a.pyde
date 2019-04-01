@@ -1,14 +1,16 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 from __future__ import division
+SKETCH_NAME, OUTPUT = "sketch_190331a", ".gif"
+
+"""
+Mostly broken
+"""
+
 from random import choice
 from arcs import poly_filleted
 add_library('GifAnimation')
 from gif_exporter import gif_export
 
-"""
-Oh, the difference a grid makes!
-"""
-SKETCH_NAME, OUTPUT = "sketch_190330a", ".gif"
 SPACING, MARGIN = 100, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 rad_list = [10, 20, 30, 40]
