@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 from __future__ import division
-SKETCH_NAME, OUTPUT = "sketch_190401b", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190402a", ".gif"
 
 """
 Hmmm
@@ -11,13 +11,13 @@ from arcs import poly_filleted
 add_library('GifAnimation')
 from gif_exporter import gif_export
 
-SPACING, MARGIN = 100, 100
+SPACING, MARGIN = 120, 120
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
-rad_list = list(range(5, 129, 8))
+rad_list = list(range(5, 81, 5))
 print len(rad_list)
 
 def setup():
-    size(500, 500)
+    size(600, 600)
     X_LIST[:] = [x for x in range(MARGIN, 1 + width - MARGIN, SPACING)]
     Y_LIST[:] = [y for y in range(MARGIN, 1 + height - MARGIN, SPACING)]
     create_list()
@@ -36,7 +36,7 @@ def draw():
     noFill()
     strokeWeight(1)
     for i, p in enumerate(p_list):
-        stroke(i * 28)
+        #stroke(i * 28)
         poly_arc_augmented(p_list, rad_list)
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
 
