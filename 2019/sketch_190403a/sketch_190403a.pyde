@@ -1,9 +1,9 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 from __future__ import division
-SKETCH_NAME, OUTPUT = "sketch_190402a", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190403a", ".gif"
 
 """
-Hmmm
+3D
 """
 
 from random import choice
@@ -45,6 +45,12 @@ def draw():
         translate(0, 0, -1 * i)
         poly_arc_augmented(p_list, rad_list)
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
+        
+    gif_export(GifMaker)
+    if frameCount/500. > TWO_PI: 
+        noLoop()
+        print("stop")
+         
 
 def poly_arc_augmented(p_list, r_list):
     a_list = []
