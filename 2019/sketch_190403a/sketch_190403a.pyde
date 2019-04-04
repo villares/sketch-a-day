@@ -46,8 +46,8 @@ def draw():
         poly_arc_augmented(p_list, rad_list)
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
         
-    gif_export(GifMaker)
-    if frameCount/100.  > TWO_PI and not frameCount % 16: 
+    # gif_export(GifMaker)
+    if frameCount/100.  > TWO_PI: 
         noLoop()
         print("stop")
          
