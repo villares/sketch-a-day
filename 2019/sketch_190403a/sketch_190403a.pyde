@@ -11,7 +11,7 @@ from arcs import poly_filleted
 add_library('GifAnimation')
 from gif_exporter import gif_export
 
-SPACING, MARGIN = 120, 120
+SPACING, MARGIN = 100, 100
 X_LIST, Y_LIST = [], []  # listas de posições para elementos
 rad_list = list(range(5, 81, 5))
 print len(rad_list)
@@ -34,9 +34,9 @@ def create_list():
 def draw():
     if not frameCount % 5:
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
-    translate(0, 300, -150)
-    rotateX(frameCount/200.) 
-    translate(0, -300)
+    translate(0, 250, -150)
+    rotateX(frameCount/100.) 
+    translate(0, -250)
 
     background(200)
     noFill()
@@ -47,7 +47,7 @@ def draw():
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
         
     gif_export(GifMaker)
-    if frameCount/200.  > TWO_PI and not frameCount % 16: 
+    if frameCount/100.  > TWO_PI and not frameCount % 16: 
         noLoop()
         print("stop")
          
