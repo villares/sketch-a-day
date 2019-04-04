@@ -17,7 +17,7 @@ rad_list = list(range(5, 81, 5))
 print len(rad_list)
 
 def setup():
-    size(600, 600, P3D)
+    size(500, 500, P3D)
     X_LIST[:] = [x for x in range(MARGIN, 1 + width - MARGIN, SPACING)]
     Y_LIST[:] = [y for y in range(MARGIN, 1 + height - MARGIN, SPACING)]
     create_list()
@@ -35,7 +35,7 @@ def draw():
     if not frameCount % 5:
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
     translate(0, 300, -150)
-    rotateX(frameCount/500.) 
+    rotateX(frameCount/200.) 
     translate(0, -300)
 
     background(200)
@@ -47,7 +47,7 @@ def draw():
         rad_list[:] = [rad_list[-1]] + rad_list[:-1]
         
     gif_export(GifMaker)
-    if frameCount/500. > TWO_PI: 
+    if frameCount/200.  > TWO_PI and not frameCount % 16: 
         noLoop()
         print("stop")
          
