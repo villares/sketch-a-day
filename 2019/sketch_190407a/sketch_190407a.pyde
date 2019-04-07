@@ -2,13 +2,13 @@
 SKETCH_NAME, OUTPUT = "sketch_190407a", ".gif"
 
 """
-Terrain Box
+Now with a rectangular base
 """
+
 add_library('GifAnimation')
 from gif_exporter import gif_export
 add_library('peasycam')
 from third_point import third_point
-from face_draw import face_draw
 
 diagonal_color = color(0, 100, 200)
 Z = 100
@@ -48,12 +48,22 @@ def faces_2D():
     b_2d = PVector(0, -B)
     c_2d = PVector(L, -C)
 
-    face_draw((b_2d, c_2d, (L, 0), (0, 0)))  # face 0
-    face_draw((c_2d, (L + W, -D), (L + W, 0), (L, 0)))  # face 1
-    # face 2
-    face_draw(((L + W, -D), (L * 2 + W, -A), (L * 2 + W, 0), (L + W, 0)))
-    face_draw(((L * 2 + W, -A), (L * 2 + W * 2, -B),
-               (L * 2 + W * 2, 0), (L * 2 + W, 0)))  # face 3
+    face_draw((b_2d, # face 0
+               c_2d,
+               (L, 0),
+               (0, 0)))  
+    face_draw((c_2d,  # face 1
+               (L + W, -D),
+               (L + W, 0),
+               (L, 0))) 
+    face_draw(((L + W, -D),  # face 2
+               (L * 2 + W, -A),
+               (L * 2 + W, 0),
+               (L + W, 0)))
+    face_draw(((L * 2 + W, -A),  # face 3
+               (L * 2 + W * 2, -B),
+               (L * 2 + W * 2, 0),
+               (L * 2 + W, 0)))
 
     bc = PVector.dist(b_2d, c_2d)  # (0, 0, -B, L, 0, -C)
     bd = dist(0, 0, B, L, W, D)
@@ -70,11 +80,13 @@ def faces_2D():
     stroke(0)
     line(b_2d.x, b_2d.y, a_2d.x, a_2d.y)
     line(d_2d.x, d_2d.y, a_2d.x, a_2d.y)
-    rect(0, 0, L, W)
+    rect(0, 0, L, W) # floor face
 
 def keyPressed():
-    gif_export(GifMaker, filename=SKETCH_NAME)
     global A, B, C, D, L, W, Z
+    # save frame on GIF
+    #gif_export(GifMaker, filename=SKETCH_NAME)
+    
     if key == "q":
         A += 5
     if key == "a":
@@ -94,7 +106,7 @@ def keyPressed():
     if key in ("+", "="):
         Z += 5
     if key == "-":
-        Z -= 5        
+        Z -= 5
     if keyCode == UP:
         L += 5
     if keyCode == DOWN:
@@ -103,7 +115,8 @@ def keyPressed():
         W += 5
     if keyCode == LEFT:
         W -= 5
-    if key == " ": init_values()
+    if key == " ":
+        init_values()
 
 def faces_3D():
     face_draw(((0, 0, 0),  # floor f
@@ -141,3 +154,9 @@ def faces_3D():
 
     stroke(diagonal_color)
     line(0, 0, B, L, W, D)
+
+def face_draw(points):
+    beginShape()
+    for p in points:
+        vertex(*p)
+    endShape(CLOSE)
