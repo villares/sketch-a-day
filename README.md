@@ -25,10 +25,19 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190407a](2019/sketch_190407a/sketch_190407a.gif)
+
+[sketch_190407a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190407a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now I can change the base proportions.
+
+---
+
 ![sketch_190406a](2019/sketch_190406a/sketch_190406a.gif)
 
 [sketch_190406a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190406a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+First unfold version ready!
 
 ---
 
@@ -36,11 +45,15 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190405a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190405a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Almost done!
+
 ---
 
 ![sketch_190404a](2019/sketch_190404a/sketch_190404a.png)
 
 [sketch_190404a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190403a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Study for a "Terrain box" a paper surface "unit".
 
 ---
 
