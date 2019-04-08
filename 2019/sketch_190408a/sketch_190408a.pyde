@@ -3,7 +3,7 @@ SKETCH_NAME, OUTPUT = "sketch_190408a", ".gif"
 """
 With glue tabs!
 """
-# add_library('Gifahnimation')
+# add_library('GifAnimation')
 # from gif_exporter import gif_export
 # add_library('peasycam')
 from third_point import third_point
@@ -169,7 +169,7 @@ def glue_tab(p1, p2, w, a=QUARTER_PI):
 def keyPressed():
     global ah, bh, ch, dh, box_w, box_d, box_h
     # save frame on GIF
-    #gif_export(GifMaker, filename=SKETCH_NAME)
+    # gif_export(GifMaker, filename=SKETCH_NAME)
 
     if key == "q":
         ah += 5
