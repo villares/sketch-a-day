@@ -8,14 +8,14 @@ With glue tabs!
 # add_library('peasycam')
 from third_point import third_point
 
-CUT_COLOR = color(200, 0, 0)
-ENG_COLOR = color(0, 0, 200)
-TAB_W = 10
-TAB_A = radians(30)
+CUT_COLOR = color(200, 0, 0) # Color to mark outline cut
+ENG_COLOR = color(0, 0, 200) # Color to mark folding/engraving
+TAB_W = 10 # tab width
+TAB_A = radians(30) # tab angle
 
-box_d, box_w, box_h = 100, 100, 100
+box_d, box_w, box_h = 100, 100, 100 # initial values
 ah = bh = ch = dh = box_h
-    
+
 def setup():
     size(850, 500, P3D)
     #global cam
@@ -40,9 +40,8 @@ def draw():
         draw_3d()
 
 def draw_unfolded():
-    noFill()
-    origin = (0, 0)
     bh_2d = (0, -bh)
+    b0_2d = (0, 0)
     ch_2d = (box_w, -ch)
     c0_2d = (box_w, 0)
     dh_2d = (box_w + box_d, -dh)
@@ -50,39 +49,48 @@ def draw_unfolded():
     ah_2d = (box_w * 2 + box_d, -ah)
     a0_2d = (box_w * 2 + box_d, 0)
 
-    stroke(ENG_COLOR)
+    noFill()
+    stroke(ENG_COLOR)  # Marked for folding
+
     # verticals
+    line_draw(b0_2d, bh_2d)
     line_draw(c0_2d, ch_2d)
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
+
     # lower triangle
     bd = dist(0, 0, bh, box_w, box_d, dh)
     cd = dist(box_w, 0, ch, box_w, box_d, dh)
-    d2_2d = third_point(bh_2d, ch_2d, bd, cd)[0] # gets the first solution
+    d2_2d = third_point(bh_2d, ch_2d, bd, cd)[0]  # gets the first solution
     line_draw(bh_2d, ch_2d)
     line_draw(bh_2d, d2_2d)
     line_draw(ch_2d, d2_2d)
+
     # upper triangle
     ab = dist(0, ah, box_w, bh)
     ad = dist(0, ah, box_d, dh)
-    a2_2d = third_point(d2_2d, bh_2d, ab, ad)[1] # gets the second solution
+    a2_2d = third_point(d2_2d, bh_2d, ab, ad)[1]  # gets the second solution
     line_draw(bh_2d, a2_2d)
     line_draw(d2_2d, a2_2d)
-    line_draw(origin, bh_2d)
+
     # floor face
     rect(0, 0, box_w, box_d)
 
-    stroke(CUT_COLOR)
+    stroke(CUT_COLOR)  # Marked for cutting
+
     # top tabs
     glue_tab(d2_2d, ch_2d, TAB_W, TAB_A)
     glue_tab(bh_2d, a2_2d, TAB_W, TAB_A)
     glue_tab(a2_2d, d2_2d, TAB_W, TAB_A)
+
     # middle tab
-    glue_tab(origin, bh_2d, TAB_W, TAB_A)
+    glue_tab(b0_2d, bh_2d, TAB_W, TAB_A)
+
     # floor tabs
-    glue_tab((0, box_d), origin, TAB_W, TAB_A)
+    glue_tab((0, box_d), b0_2d, TAB_W, TAB_A)
     glue_tab((box_w, box_d), (0, box_d), TAB_W, TAB_A)
     glue_tab((box_w, 0), (box_w, box_d), TAB_W, TAB_A)
+
     # main outline cut
     poly_draw((ch_2d, dh_2d, ah_2d,
                (box_w * 2 + box_d * 2, -bh),
@@ -212,13 +220,10 @@ def keyPressed():
 
 def slowly_reset_values():
     global box_w, box_d, box_h, ah, bh, ch, dh
-    box_w += (100 - box_w) / 2 
+    box_w += (100 - box_w) / 2
     box_d += (100 - box_d) / 2
-    box_h += (100 - box_h) / 2  
-    ah += (box_h - ah) / 2  
-    bh += (box_h - bh) / 2  
-    ch += (box_h - ch) / 2  
-    dh += (box_h - dh) / 2  
-    
-    
-    
+    box_h += (100 - box_h) / 2
+    ah += (box_h - ah) / 2
+    bh += (box_h - bh) / 2
+    ch += (box_h - ch) / 2
+    dh += (box_h - dh) / 2
