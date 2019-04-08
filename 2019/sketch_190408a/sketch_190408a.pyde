@@ -8,12 +8,12 @@ With glue tabs!
 # add_library('peasycam')
 from third_point import third_point
 
-CUT_COLOR = color(200, 0, 0) # Color to mark outline cut
-ENG_COLOR = color(0, 0, 200) # Color to mark folding/engraving
-TAB_W = 10 # tab width
-TAB_A = radians(30) # tab angle
+CUT_COLOR = color(200, 0, 0)  # Color to mark outline cut
+ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
+TAB_W = 10  # tab width
+TAB_A = radians(30)  # tab angle
 
-box_d, box_w, box_h = 100, 100, 100 # initial values
+box_d, box_w, box_h = 100, 100, 100  # initial values
 ah = bh = ch = dh = box_h
 
 def setup():
@@ -149,17 +149,23 @@ def poly_draw(points, closed=True):
 def line_draw(p1, p2):
     line(p1[0], p1[1], p2[0], p2[1])
 
-def glue_tab(p1, p2, w, a=QUARTER_PI):
-    a1 = atan2(p1[0] - p2[0], p1[1] - p2[1]) + a + PI
-    a2 = atan2(p1[0] - p2[0], p1[1] - p2[1]) - a
-    r = w / sin(a)  # radius to get the right width
-    f1 = PVector(p1[0] + r * sin(a1),
-                 p1[1] + r * cos(a1))
-    f2 = PVector(p2[0] + r * sin(a2),
-                 p2[1] + r * cos(a2))
-    d1 = dist(p1[0], p1[1], p2[0], p2[1])
+def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI):
+    """
+    draws a trapezoidal or triangular glue tab
+    along edge defined by p1 and p2, 
+    with width tab_w and cut angle a
+    """
+    a1 = atan2(p1[0] - p2[0], p1[1] - p2[1]) + cut_ang + PI
+    a2 = atan2(p1[0] - p2[0], p1[1] - p2[1]) - cut_ang
+    # calculate cut_len to get the right tab width
+    cut_len = tab_w / sin(cut_ang)
+    f1 = PVector(p1[0] + cut_len * sin(a1),
+                 p1[1] + cut_len * cos(a1))
+    f2 = PVector(p2[0] + cut_len * sin(a2),
+                 p2[1] + cut_len * cos(a2))
+    edge_len = dist(p1[0], p1[1], p2[0], p2[1])
 
-    if d1 > 2 * r * cos(a):  # 'normal' trapezoidal tab
+    if edge_len > 2 * cut_len * cos(cut_ang):  # 'normal' trapezoidal tab
         beginShape()
         vertex(*p1)  # vertex(p1[0], p1[1])
         vertex(*f1)  # vertex(f1.x, f1.y)
