@@ -23,6 +23,15 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+
+---
+
+![sketch_190408a](2019/sketch_190408a/sketch_190408a.gif)
+
+[sketch_190408a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190408a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+With glue tabs!
+
 ---
 
 ![sketch_190407a](2019/sketch_190407a/sketch_190407a.gif)
