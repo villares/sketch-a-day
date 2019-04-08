@@ -150,24 +150,24 @@ def line_draw(p1, p2):
     line(p1[0], p1[1], p2[0], p2[1])
 
 def glue_tab(p1, p2, w, a=QUARTER_PI):
-    f2 = atan2(p1[0] - p2[0], p1[1] - p2[1]) - a
-    f1 = atan2(p1[0] - p2[0], p1[1] - p2[1]) + a + PI
+    a1 = atan2(p1[0] - p2[0], p1[1] - p2[1]) + a + PI
+    a2 = atan2(p1[0] - p2[0], p1[1] - p2[1]) - a
     r = w / sin(a)  # radius to get the right width
-    fl = PVector(p1[0] + r * sin(f1),
-                 p1[1] + r * cos(f1))
-    fr = PVector(p2[0] + r * sin(f2),
-                 p2[1] + r * cos(f2))
+    f1 = PVector(p1[0] + r * sin(a1),
+                 p1[1] + r * cos(a1))
+    f2 = PVector(p2[0] + r * sin(a2),
+                 p2[1] + r * cos(a2))
     d1 = dist(p1[0], p1[1], p2[0], p2[1])
 
-    if d1 > 2 * r * cos(a):  # 'normal' trapezoidal flap
+    if d1 > 2 * r * cos(a):  # 'normal' trapezoidal tab
         beginShape()
         vertex(*p1)  # vertex(p1[0], p1[1])
-        vertex(*fl)  # vertex(fl.x, fl.y)
-        vertex(*fr)  # vertex(fr.x, fr.y)
+        vertex(*f1)  # vertex(f1.x, f1.y)
+        vertex(*f2)  # vertex(f2.x, f2.y)
         vertex(*p2)  # vertex(p2[0], p2[1])
         endShape()
-    else:  # short triangular flap
-        fm = (fl + fr) / 2
+    else:  # short triangular tab
+        fm = (f1 + f2) / 2
         beginShape()
         vertex(*p1)  # (p1[0], p1[1])
         vertex(*fm)  # (fm.x, fm.y)
