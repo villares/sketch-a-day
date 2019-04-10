@@ -24,8 +24,8 @@ assert len(cd_i) == len(ab_i)  # has to mantain equal number of pts
 
 def setup():
     size(850, 500, P3D)
-    global cam
-    cam = PeasyCam(this, 300)
+    # global cam
+    # cam = PeasyCam(this, 300)
     hint(ENABLE_DEPTH_SORT)
     smooth(16)
     strokeWeight(2)
@@ -37,14 +37,14 @@ def draw():
     ab_i[-1] = bh
 
     background(200)
-    cam.beginHUD()
+    # cam.beginHUD()
     with pushMatrix():
         translate(100, 350)
         draw_unfolded()
-    cam.endHUD()
+    # cam.endHUD()
 
     with pushMatrix():
-        # translate(width / 2, height / 2)  # comment out if with PeasyCam
+        translate(width / 2, height / 2)  # comment out if with PeasyCam
         rotateX(QUARTER_PI)
         rotateZ(PI)
         translate(-300, -50, -100)
@@ -147,9 +147,18 @@ def draw_3d():
 
     for i in range(1, len(ab_pts)):
         p = i - 1
+        x = screenX(*cd_pts[::-1][p])
+        y = screenY(*cd_pts[::-1][p])
+
         triangulated_face(
             cd_pts[::-1][p], ab_pts[p], ab_pts[i], cd_pts[::-1][i])
-
+    with pushStyle():
+        fill(0)
+        for i in range(len(ab_pts)):
+            text("ab"+str(i), *ab_pts[i])
+        for i in range(len(cd_pts)):
+            text("cd"+str(i), *cd_pts[i])
+ 
     # diagonal
     # stroke(ENG_COLOR)
     # line(0, 0, bh, box_w, box_d, dh)
