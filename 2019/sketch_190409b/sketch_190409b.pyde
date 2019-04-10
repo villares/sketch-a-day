@@ -1,7 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190409b", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190409b", ".png"
 """
-Subdivided top! (not quite there yet...)
 """
 add_library('GifAnimation')
 from gif_exporter import gif_export
