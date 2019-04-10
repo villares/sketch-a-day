@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME, OUTPUT = "sketch_190409b", ".gif"
 """
-Subdivided top!
+Subdivided top! (not quite there yet...)
 """
 add_library('GifAnimation')
 from gif_exporter import gif_export
@@ -12,13 +12,14 @@ CUT_COLOR = color(200, 0, 0)  # Color to mark outline cut
 ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
 TAB_W = 10  # tab width
 TAB_A = radians(30)  # tab angle
+DEBUG = True
 
 box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
 ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
 # height of points between d and c
-cd_i = [box_h, box_h + 10, box_h + 10, box_h]
+cd_i = [box_h, box_h + 15, box_h + 18, box_h + 15, box_h]
 # height of points between a and b
-ab_i = [box_h, box_h -10, box_h - 10, box_h]
+ab_i = [box_h, box_h - 15, box_h - 18, box_h - 15, box_h]
 
 assert len(cd_i) == len(ab_i)  # has to mantain equal number of pts
 
@@ -31,23 +32,23 @@ def setup():
     strokeWeight(2)
 
 def draw():
+    background(200)
+    # update top face point lists
     cd_i[0] = ch
     cd_i[-1] = dh
     ab_i[0] = ah
     ab_i[-1] = bh
-
-    background(200)
-    # cam.beginHUD()
+    # cam.beginHUD() # for use with PeasyCam
     with pushMatrix():
         translate(100, 350)
         draw_unfolded()
     # cam.endHUD()
 
     with pushMatrix():
-        translate(width / 2, height / 2)  # comment out if with PeasyCam
+        translate(width / 2, height / 2)  # Comment out if using with PeasyCam
         rotateX(QUARTER_PI)
-        rotateZ(PI)
-        translate(-300, -50, -100)
+        rotateZ(0)
+        translate(200, -50, -100)
         draw_3d()
 
 def draw_unfolded():
@@ -59,6 +60,7 @@ def draw_unfolded():
     d0_2d = (box_w + box_d, 0)
     ah_2d = (box_w * 2 + box_d, -ah)
     a0_2d = (box_w * 2 + box_d, 0)
+    # debug_text("BbCcDdAa", (bh_2d, b0_2d, ch_2d, c0_2d, dh_2d, d0_2d, ah_2d, a0_2d))
 
     noFill()
     # stroke(ENG_COLOR)  # Marked for folding
@@ -66,24 +68,20 @@ def draw_unfolded():
     # verticals
     line_draw(b0_2d, bh_2d)
     line_draw(c0_2d, ch_2d)
-    # line_draw((box_w + box_d / 3, 0), (box_w + box_d / 3, -dc_i[0]))
-    # line_draw((box_w + box_d * 2 / 3, 0), (box_w + box_d * 2 / 3, -dc_i[1]))
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
     # lower triangle
-    # bd = dist(0, 0, bh, box_w, box_d, dh)
-    # cd = dist(box_w, 0, ch, box_w, box_d, dh)
-    bd = dist(0, 0, bh, box_w, box_d / 3, cd_i[0])
-    cd = dist(box_w, 0, ch, box_w, box_d / 3, cd_i[0])
-    d2_2d = third_point(bh_2d, ch_2d, bd, cd)[0]  # gets the first solution
+    b_c1 = dist(0, 0, bh, box_w, box_d / len(cd_i)-1, cd_i[1])
+    c_c1 = dist(box_w, 0, ch, box_w, box_d / len(cd_i)-1, cd_i[1])
+    d2_2d = third_point(bh_2d, ch_2d, b_c1, c_c1)[0]  # gets the first solution
     line_draw(bh_2d, ch_2d)
     line_draw(bh_2d, d2_2d)
     line_draw(ch_2d, d2_2d)
+    debug_text("BCDA", (bh_2d, ch_2d, dh_2d, ah_2d))
     # upper triangle
-    # ab = dist(0, ah, box_w, bh)
-    # ad = dist(0, ah, box_d, dh)
-    ab = dist(0, ah, box_w, bh)
-    ad = dist(0, ah, box_d / 3, cd_i[0])
+
+    ab = dist(0, ab_i[::-1][1], box_w, bh)
+    ad = dist(0, ab_i[::-1][1], box_d / 3, ab_i[::-1][1])
     a2_2d = third_point(d2_2d, bh_2d, ab, ad)[1]  # gets the second solution
     line_draw(bh_2d, a2_2d)
     line_draw(d2_2d, a2_2d)
@@ -152,13 +150,27 @@ def draw_3d():
 
         triangulated_face(
             cd_pts[::-1][p], ab_pts[p], ab_pts[i], cd_pts[::-1][i])
-    with pushStyle():
-        fill(0)
-        for i in range(len(ab_pts)):
-            text("ab"+str(i), *ab_pts[i])
-        for i in range(len(cd_pts)):
-            text("cd"+str(i), *cd_pts[i])
- 
+
+        debug_text("cd", cd_pts, enum=True)
+        debug_text("ab", ab_pts, enum=True)
+        debug_text("DAad", ((box_w, box_d, dh),
+                            (0, box_d, ah),
+                            (0, box_d, 0),
+                            (box_w, box_d, 0)))
+
+def debug_text(name, points, enum=False):
+    if DEBUG:
+        for i, p in enumerate(points):
+            with push():
+                
+                fill(255, 0, 0)
+                if enum:
+                    translate(0, -5, 10)
+                    text(name + "-" + str(i), *p)
+                else:
+                    translate(10, 10, 10)
+                    text(name[i], *p)
+
     # diagonal
     # stroke(ENG_COLOR)
     # line(0, 0, bh, box_w, box_d, dh)
@@ -253,6 +265,7 @@ def keyPressed():
         box_w -= 5
     if key == " ":
         slowly_reset_values()
+        saveFrame("####.png")
 
 def slowly_reset_values():
     global box_w, box_d, box_h, ah, bh, ch, dh
