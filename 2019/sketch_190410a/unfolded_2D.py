@@ -21,20 +21,22 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
     # lower triangle
-    b_c1 = dist(0, 0, ab_i[-1], box_w, box_d / len(cd_i)-1, cd_i[1])
-    c_c1 = dist(box_w, 0, cd_i[0], box_w, box_d / len(cd_i)-1, cd_i[1])
-    d2_2d = third_point(bh_2d, ch_2d, b_c1, c_c1)[0]  # gets the first solution
-    line_draw(bh_2d, ch_2d)
-    line_draw(bh_2d, d2_2d)
-    line_draw(ch_2d, d2_2d)
+    # b_c1 = dist(0, 0, ab_i[-1], box_w, box_d / len(cd_i)-1, cd_i[1])
+    # c_d1 = dist(box_w, 0, cd_i[0], box_w, box_d / len(cd_i)-1, cd_i[1])
     debug_text("BCDA", (bh_2d, ch_2d, dh_2d, ah_2d))
-    # upper triangle
 
-    ab = dist(0, ab_i[::-1][1], box_w, ab_i[-1])
-    ad = dist(0, ab_i[::-1][1], box_d / len(cd_i)-1, ab_i[::-1][1])
-    a2_2d = third_point(d2_2d, bh_2d, ab, ad)[1]  # gets the second solution
-    line_draw(bh_2d, a2_2d)
-    line_draw(d2_2d, a2_2d)
+    for bc, cd, da, ab in face_data:
+        d2_2d = third_point(ch_2d, bh_2d, cd, bc)[1]  # gets the first solution
+        line_draw(bh_2d, ch_2d)
+        line_draw(bh_2d, d2_2d)
+        line_draw(ch_2d, d2_2d)
+        # upper triangle
+        a2_2d = third_point(bh_2d, d2_2d, ab, bc)[0]  # gets the second solution
+        line_draw(bh_2d, a2_2d)
+        line_draw(d2_2d, a2_2d)
+        bh_2d = d2_2d
+        ch_2d = a2_2d
+        
     # floor face
     rect(0, 0, box_w, box_d)
 

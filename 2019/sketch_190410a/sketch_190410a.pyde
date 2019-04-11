@@ -16,9 +16,9 @@ TAB_A = radians(30)  # tab angle
 box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
 ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
 # height of points between d and c
-cd_i = [box_h, box_h + 15, box_h + 10, box_h]
+cd_i = [box_h, box_h, box_h]* 2 #[box_h, box_h + 15, box_h + 10, box_h]
 # height of points between a and b
-ab_i = [box_h, box_h - 15, box_h - 10, box_h]
+ab_i = [box_h, box_h, box_h]*2 #[box_h, box_h - 15, box_h - 10, box_h]
 
 assert len(cd_i) == len(ab_i)  # has to mantain equal number of pts
 

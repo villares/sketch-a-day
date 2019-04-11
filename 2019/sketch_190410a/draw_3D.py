@@ -34,20 +34,25 @@ def draw_3d(box_w, box_d, ab_i, cd_i):
         (0, 0, 0)))
     # top faces
 
+    face_data = []
     for i in range(1, len(ab_pts)):
         p = i - 1
-        x = screenX(*cd_pts[::-1][p])
-        y = screenY(*cd_pts[::-1][p])
-
-        triangulated_face(
-            cd_pts[::-1][p], ab_pts[p], ab_pts[i], cd_pts[::-1][i])
-
+        a = PVector(*ab_pts[p])
+        b = PVector(*ab_pts[i])
+        c = PVector(*cd_pts[::-1][p])
+        d = PVector(*cd_pts[::-1][i])
+        triangulated_face(ab_pts[p], ab_pts[i], cd_pts[::-1][p], cd_pts[::-1][i])
+        face_data.append((PVector.dist(b, c),
+                          PVector.dist(c, d),
+                          PVector.dist(d, a),
+                          PVector.dist(a, b)))
         debug_text("cd", cd_pts[::-1], enum=True)
         debug_text("ab", ab_pts[::-1], enum=True)
         debug_text("DAad", ((box_w, box_d, cd_i[-1]),
                             (0, box_d, ab_i[0]),
                             (0, box_d, 0),
                             (box_w, box_d, 0)))
+    return face_data
 
 def poly_draw(points, closed=True):
     beginShape()
@@ -59,5 +64,5 @@ def poly_draw(points, closed=True):
         endShape()
 
 def triangulated_face(a, b, c, d):
-    poly_draw((b, d, a))
-    poly_draw((b, d, c))
+    poly_draw((a, b, c))
+    poly_draw((b, c, d))
