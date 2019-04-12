@@ -6,16 +6,18 @@ ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
 TAB_W = 10  # glue tab width
 TAB_A = radians(30)  # glue tab angle
 
-def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
-    """ main 2D drawing procedure, takes 3D points (face_data) from the 3D procedure"""
-    bh_2d = (0, -ab_i[-1])
-    b0_2d = (0, 0)
-    ch_2d = (box_w, -cd_i[0])
-    c0_2d = (box_w, 0)
-    dh_2d = (box_w + box_d, -cd_i[-1])
-    d0_2d = (box_w + box_d, 0)
-    ah_2d = (box_w * 2 + box_d, -ab_i[0])
-    a0_2d = (box_w * 2 + box_d, 0)
+def draw_unfolded(box_w, box_d, ab_l, cd_l, face_data):
+    """
+    main 2D drawing procedure
+    takes 2 box dimentions, 2 top point height lists,
+    and a collection of 3D points (face_data) from the 3D procedure
+    then draws the unfolded version of the volume with glue tabs
+    """
+    ah, bh, ch, dh = ab_l[0], ab_l[-1], cd_l[0], cd_l[-1]
+    ah_2d,  a0_2d = (box_w * 2 + box_d, -ah), (box_w * 2 + box_d, 0)
+    bh_2d, b0_2d = (0, -bh), (0, 0)
+    ch_2d, c0_2d = (box_w, -ch), (box_w, 0)
+    dh_2d, d0_2d = (box_w + box_d, -dh), (box_w + box_d, 0)
 
     noFill()
     # Marked for folding
@@ -45,11 +47,11 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     glue_tab((box_w, box_d), (0, box_d), TAB_W, TAB_A)
     glue_tab((box_w, 0), (box_w, box_d), TAB_W, TAB_A)
     # main outline cut
-    num_i = len(cd_i)
-    cd_pts = [(box_w + box_d * i / (num_i - 1), -cd_i[i])
-              for i in range(num_i)]
-    ab_pts = [(box_w * 2 + box_d + box_d * i / (num_i - 1), -ab_i[i])
-              for i in range(num_i)]
+    num_pts = len(cd_l)
+    cd_pts = [(box_w + box_d * i / (num_pts - 1), -cd_l[i])
+              for i in range(num_pts)]
+    ab_pts = [(box_w * 2 + box_d + box_d * i / (num_pts - 1), -ab_l[i])
+              for i in range(num_pts)]
     main_outline = tuple(cd_pts + ab_pts) + ((box_w * 2 + box_d * 2, 0), c0_2d)
     poly_draw(main_outline, closed=False)
 

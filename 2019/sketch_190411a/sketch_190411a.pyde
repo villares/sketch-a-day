@@ -7,18 +7,17 @@ I've got the divided top right and brought back the tabs
 add_library('GifAnimation')
 from gif_exporter import gif_export
 add_library('peasycam')
-from draw_3D import draw_3d
+from draw_3D import draw_3D
 from draw_2D import draw_unfolded
-
 
 box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
 ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
 # height of points between d and c
-cd_i = [box_h] * 7  # [box_h, box_h + 15, box_h + 10, box_h]
-# height of points between a and b
-ab_i = [box_h] * 7  # [box_h, box_h - 15, box_h - 10, box_h]
 
-assert len(cd_i) == len(ab_i)  # has to mantain equal number of pts
+cd_l = [box_h] * 7  # [box_h, box_h + 15, box_h + 10, box_h]
+# height of points between a and b
+ab_l = [box_h] * 7  # [box_h, box_h - 15, box_h - 10, box_h]
+assert len(cd_l) == len(ab_l)  # equal number of points only
 
 def setup():
     size(850, 500, P3D)
@@ -36,12 +35,12 @@ def draw():
         rotateX(QUARTER_PI)
         rotateZ(0)
         translate(200, -50, -100)
-        face_3D_data = draw_3d(box_w, box_d, ab_i, cd_i)
+        face_3D_data = draw_3D(box_w, box_d, ab_l, cd_l)
     # Draw 2D unfolded
     # cam.beginHUD() # for use with PeasyCam
     with pushMatrix():
         translate(100, 350)
-        draw_unfolded(box_w, box_d, ab_i, cd_i, face_3D_data)
+        draw_unfolded(box_w, box_d, ab_l, cd_l, face_3D_data)
     # cam.endHUD()
 
 def keyPressed():
@@ -88,11 +87,9 @@ def keyPressed():
         slowly_reset_values()
     if key == "p":
         saveFrame("####.png")
+        
     # update top face point lists
-    cd_i[0] = ch
-    cd_i[-1] = dh
-    ab_i[0] = ah
-    ab_i[-1] = bh
+    ab_l[0], ab_l[-1], cd_l[0], cd_l[-1] = ah, bh, ch, dh
 
 def slowly_reset_values():
     global box_w, box_d, box_h, ah, bh, ch, dh

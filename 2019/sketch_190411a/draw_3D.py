@@ -1,17 +1,17 @@
 from debug import *
 
-def draw_3d(box_w, box_d, ab_i, cd_i):
+def draw_3D(box_w, box_d, ab_l, cd_l):
     """
     main 3D drawing procedure, this also calculates some 3D point positions
-    from 2 lists of heights (ab_i and cd_i) that will then be returned
+    from 2 lists of heights (ab_l and cd_l) that will then be returned
     and used by the 2D procedure
     """
     # calculates upper 3D points from heights
-    num_i = len(cd_i)
-    cd_pts = tuple([(box_w, box_d - box_d * i / (num_i - 1), cd_i[::-1][i])
-                    for i in range(num_i)])
-    ab_pts = tuple([(0, box_d * i / (num_i - 1), ab_i[::-1][i])
-                    for i in range(num_i)]) 
+    num_pts = len(cd_l)
+    cd_pts = tuple([(box_w, box_d - box_d * i / (num_pts - 1), cd_l[::-1][i])
+                    for i in range(num_pts)])
+    ab_pts = tuple([(0, box_d * i / (num_pts - 1), ab_l[::-1][i])
+                    for i in range(num_pts)]) 
     # draw faces   
     stroke(0)
     fill(255, 200)
@@ -21,8 +21,8 @@ def draw_3d(box_w, box_d, ab_i, cd_i):
                (box_w, box_d, 0),
                (0, box_d, 0)))
     # face 0
-    poly_draw(((0, 0, ab_i[-1]),
-               (box_w, 0, cd_i[0]),
+    poly_draw(((0, 0, ab_l[-1]),
+               (box_w, 0, cd_l[0]),
                (box_w, 0, 0),
                (0, 0, 0)))
     # face 1
@@ -30,8 +30,8 @@ def draw_3d(box_w, box_d, ab_i, cd_i):
         (box_w, 0, 0),
         (box_w, box_d, 0)))
     # face 2
-    poly_draw(((box_w, box_d, cd_i[-1]),
-               (0, box_d, ab_i[0]),
+    poly_draw(((box_w, box_d, cd_l[-1]),
+               (0, box_d, ab_l[0]),
                (0, box_d, 0),
                (box_w, box_d, 0)))
     # face 3
@@ -51,8 +51,8 @@ def draw_3d(box_w, box_d, ab_i, cd_i):
     # debug text
     debug_text("cd", cd_pts[::-1], enum=True)
     debug_text("ab", ab_pts[::-1], enum=True)
-    debug_text("DAad", ((box_w, box_d, cd_i[-1]),
-                            (0, box_d, ab_i[0]),
+    debug_text("DAad", ((box_w, box_d, cd_l[-1]),
+                            (0, box_d, ab_l[0]),
                             (0, box_d, 0),
                             (box_w, box_d, 0)))
     return face_data # returns to be used by the 2D procedure
