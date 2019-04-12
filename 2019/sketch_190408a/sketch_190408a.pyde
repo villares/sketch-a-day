@@ -66,10 +66,9 @@ def draw_unfolded():
     line_draw(bh_2d, d2_2d)
     line_draw(ch_2d, d2_2d)
 
-    # upper triangle (fixed on 190411)
     ab = dist(0, ah, box_w, bh)
     ad = dist(0, ah, box_d, dh)
-    a2_2d = third_point(bh_2d, d2_2d, ab, ad)[0]  # gets the 1st solution too!
+    a2_2d = third_point(d2_2d, bh_2d, ab, ad)[1]  # gets the 1st solution too!
     line_draw(bh_2d, a2_2d)
     line_draw(d2_2d, a2_2d)
 

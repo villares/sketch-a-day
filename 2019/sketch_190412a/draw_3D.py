@@ -43,10 +43,10 @@ def draw_3D(box_w, box_d, ab_l, cd_l):
     face_data = []
     for i in range(1, len(ab_3Dpts)):
         p = i - 1
-        a = PVector(*ab_3Dpts[p])
-        b = PVector(*ab_3Dpts[i])
-        c = PVector(*cd_3Dpts[::-1][i])
-        d = PVector(*cd_3Dpts[::-1][p])
+        a = PVector(*ab_3Dpts[i])
+        b = PVector(*ab_3Dpts[p])
+        c = PVector(*cd_3Dpts[::-1][p])
+        d = PVector(*cd_3Dpts[::-1][i])
         triangulated_face(a, b, c, d)
         face_data.append((a, b, c, d))
     # debug text

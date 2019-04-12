@@ -13,6 +13,8 @@ def draw_unfolded(box_w, box_d, ab_l, cd_l, face_data):
     takes 2 box dimentions, 2 top point height lists,
     and a collection of 3D points (face_data) from the 3D procedure
     then draws the unfolded version of the volume with glue tabs
+    
+    TODO: Remove overlapping lines of triangular faces
     """
     ah, bh, ch, dh = ab_l[0], ab_l[-1], cd_l[0], cd_l[-1]
     ah_2d,  a0_2d = (box_w * 2 + box_d, -ah), (box_w * 2 + box_d, 0)

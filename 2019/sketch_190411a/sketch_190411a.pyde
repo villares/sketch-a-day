@@ -10,14 +10,14 @@ add_library('peasycam')
 from draw_3D import draw_3D
 from draw_2D import draw_unfolded
 
-box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
-ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
+# initial box dimensions
+box_d, box_w, box_h = 100, 100, 100  
 # height of points between d and c
-
 cd_l = [box_h] * 7  # [box_h, box_h + 15, box_h + 10, box_h]
 # height of points between a and b
 ab_l = [box_h] * 7  # [box_h, box_h - 15, box_h - 10, box_h]
 assert len(cd_l) == len(ab_l)  # equal number of points only
+ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
 
 def setup():
     size(850, 500, P3D)
