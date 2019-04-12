@@ -50,11 +50,11 @@ def draw_unfolded(box_w, box_d, ab_l, cd_l, face_data):
     glue_tab((box_w, 0), (box_w, box_d), TAB_W, TAB_A)
     # main outline cut
     num_pts = len(cd_l)
-    cd_3Dpts = [(box_w + box_d * i / (num_pts - 1), -cd_l[i])
+    cd_2Dpts = [(box_w + box_d * i / (num_pts - 1), -cd_l[i])
               for i in range(num_pts)]
-    ab_3Dpts = [(box_w * 2 + box_d + box_d * i / (num_pts - 1), -ab_l[i])
+    ab_2Dpts = [(box_w * 2 + box_d + box_d * i / (num_pts - 1), -ab_l[i])
               for i in range(num_pts)]
-    main_outline = tuple(cd_3Dpts + ab_3Dpts) + ((box_w * 2 + box_d * 2, 0), c0_2d)
+    main_outline = cd_2Dpts + ab_2Dpts + [(box_w * 2 + box_d * 2, 0), c0_2d]
     poly_draw(main_outline, closed=False)
 
 def line_draw(p1, p2, tab=False):

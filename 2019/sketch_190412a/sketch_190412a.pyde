@@ -6,12 +6,15 @@ A paraboloid test
 add_library('GifAnimation')
 from gif_exporter import gif_export
 add_library('peasycam')
+add_library('pdf')
+
 from draw_3D import draw_3D
 from draw_2D import draw_unfolded
 
-box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
+# initial box dimensions
+box_d, box_w, box_h = 100, 100, 100  
+edge_num = 4 # number of points on top-lateral edges
 # height of points between d and c
-edge_num = 4 # number of points on top lateral edges
 cd_l = [box_h - 10 * i for i in range(edge_num)] 
 # height of points between a and b
 ab_l = [box_h - 10 * i for i in range(edge_num)] 
@@ -19,13 +22,16 @@ assert len(cd_l) == len(ab_l)  # equal number of points only
 
 def setup():
     size(850, 500, P3D)
-    global cam
+    global cam, export
     cam = PeasyCam(this, -150, 0, 0, 300)
     hint(ENABLE_DEPTH_SORT)
     smooth(16)
     strokeWeight(2)
+    export = False
+
 
 def draw():
+    global export
     background(200)
     # Draw 3D
     with pushMatrix():
@@ -37,17 +43,21 @@ def draw():
         face_3D_data = draw_3D(box_w, box_d, ab_l, cd_l)
 
     # Draw 2D unfolded
+    if export:
+        beginRecord(PDF, SKETCH_NAME+ ".pdf") 
     cam.beginHUD() # for use with PeasyCam
     with pushMatrix():
         translate(300, 450)
         rotate(-HALF_PI)
         draw_unfolded(box_w, box_d, ab_l, cd_l, face_3D_data)
     cam.endHUD()
-
+    if export:
+        endRecord()
+        export = False
+        
 def keyPressed():
     global box_w, box_d, box_h
-    # save frame on GIF
-    gif_export(GifMaker, filename=SKETCH_NAME)
+    global export
     
     ah, bh, ch, dh = ab_l[0], ab_l[-1], cd_l[0], cd_l[-1]
     if key == "q":
@@ -77,6 +87,11 @@ def keyPressed():
         
     ab_l[0], ab_l[-1], cd_l[0], cd_l[-1] = ah, bh, ch, dh    
 
+    if key == "S":
+        print("file exported")
+        export = True
+    if key == "g":  #save frame on GIF
+        gif_export(GifMaker, filename=SKETCH_NAME)
     if key == "p":
         saveFrame("####.png")
     elif key in ("+", "="):
@@ -88,8 +103,7 @@ def keyPressed():
         cd_l[:] = [cd_l[i] - 5 for i in range(edge_num)] 
         ab_l[:] = [ab_l[i] - 5 for i in range(edge_num)] 
     elif key == " ":
-        slowly_reset_values()
-        
+        slowly_reset_values()    
 
 def slowly_reset_values():
     global box_w, box_d, box_h, ah, bh, ch, dh
