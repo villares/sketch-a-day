@@ -26,12 +26,16 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 ---
 
 
-![sketch_190411a](2019/sketch_190411a/sketch_190411a.png)
+![sketch_190411a](2019/sketch_190411a/sketch_190411a.gif)
 
 [sketch_190411a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190411a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
----
 
+Now we are talking! 
+I've got the divided top right, brought back the tabs,
+and also found a bug on 190408a (and fixed it)...
+
+---
 
 ![sketch_190410a](2019/sketch_190410a/sketch_190410a.png)
 

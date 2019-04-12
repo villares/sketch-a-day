@@ -1,7 +1,8 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME, OUTPUT = "sketch_190411a", ".gif"
 """
-hmmm
+Now we are talking! 
+I've got the divided top right and brought back the tabs
 """
 add_library('GifAnimation')
 from gif_exporter import gif_export
