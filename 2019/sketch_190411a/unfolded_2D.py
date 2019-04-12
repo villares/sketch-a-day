@@ -2,6 +2,11 @@ from draw_3D import poly_draw
 from third_point import third_point
 from debug import *
 
+CUT_COLOR = color(200, 0, 0)  # Color to mark outline cut
+ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
+TAB_W = 10  # tab width
+TAB_A = radians(30)  # tab angle
+
 def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     bh_2d = (0, -ab_i[-1])
     b0_2d = (0, 0)
@@ -13,36 +18,31 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     a0_2d = (box_w * 2 + box_d, 0)
 
     noFill()
-    # stroke(ENG_COLOR)  # Marked for folding
+    stroke(ENG_COLOR)  # Marked for folding
 
     # verticals
     line_draw(b0_2d, bh_2d)
     line_draw(c0_2d, ch_2d)
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
-    # lower triangle
-    # b_c1 = dist(0, 0, ab_i[-1], box_w, box_d / len(cd_i)-1, cd_i[1])
-    # c_d1 = dist(box_w, 0, cd_i[0], box_w, box_d / len(cd_i)-1, cd_i[1])
     debug_text("BCDA", (bh_2d, ch_2d, dh_2d, ah_2d))
-
+    # divided top face
     start_1, start_2 = bh_2d, ch_2d
     for a, b, c, d in face_data:
         start_1, start_2 = unfold_tri_face((start_1, start_2), (a, b, c, d))
 
     # floor face
     rect(0, 0, box_w, box_d)
-
-    # stroke(CUT_COcLOR)  # Marked for cutting
-    # top tabs
-    # glue_tab(d2_2d, ch_2d, TAB_W, TAB_A)
-    # glue_tab(bh_2d, a2_2d, TAB_W, TAB_A)
-    # glue_tab(a2_2d, d2_2d, TAB_W, TAB_A)
+    # Marked for cutting
+    stroke(CUT_COLOR)
+    # top tab
+    glue_tab(start_1, start_2, TAB_W, TAB_A)
     # middle tab
-    # glue_tab(b0_2d, bh_2d, TAB_W, TAB_A)
+    glue_tab(b0_2d, bh_2d, TAB_W, TAB_A)
     # floor tabs
-    # glue_tab((0, box_d), b0_2d, TAB_W, TAB_A)
-    # glue_tab((box_w, box_d), (0, box_d), TAB_W, TAB_A)
-    # glue_tab((box_w, 0), (box_w, box_d), TAB_W, TAB_A)
+    glue_tab((0, box_d), b0_2d, TAB_W, TAB_A)
+    glue_tab((box_w, box_d), (0, box_d), TAB_W, TAB_A)
+    glue_tab((box_w, 0), (box_w, box_d), TAB_W, TAB_A)
 
     # main outline cut
     num_i = len(cd_i)
@@ -53,10 +53,14 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     main_outline = tuple(cd_pts + ab_pts) + ((box_w * 2 + box_d * 2, 0), c0_2d)
     poly_draw(main_outline, closed=False)
 
-def line_draw(p1, p2):
+def line_draw(p1, p2, tab=False):
     line(p1[0], p1[1], p2[0], p2[1])
+    if tab:
+        with pushStyle():
+            stroke(CUT_COLOR)
+            glue_tab(p1, p2, TAB_W, TAB_A)    
 
-def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI):
+def glue_tab(p1, p2, tab_w=10, cut_ang=QUARTER_PI):
     """
     draws a trapezoidal or triangular glue tab
     along edge defined by p1 and p2,
@@ -101,11 +105,11 @@ def unfold_tri_face(pts_2D, pts_3D):
     d2D = third_point(b2D, c2D, bd_len, cd_len)[0]  # gets the first solution
     line_draw(b2D, c2D)
     line_draw(b2D, d2D)
-    line_draw(c2D, d2D)
+    line_draw(d2D, c2D, tab=True)
     # upper triangle
     ab_len = dist(b3D[0], b3D[1], b3D[2], a3D[0], a3D[1], a3D[2])
     ad_len = dist(a3D[0], a3D[1], a3D[2], d3D[0], d3D[1], d3D[2])
     a2D = third_point(b2D, d2D, ab_len, ad_len)[0]  # gets the second solution
-    line_draw(b2D, a2D)
+    line_draw(b2D, a2D, tab=True)
     line_draw(d2D, a2D)
     return (a2D, d2D)

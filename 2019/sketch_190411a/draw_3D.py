@@ -39,8 +39,8 @@ def draw_3d(box_w, box_d, ab_i, cd_i):
         p = i - 1
         a = PVector(*ab_pts[p])
         b = PVector(*ab_pts[i])
-        c = PVector(*cd_pts[::-1][p])
-        d = PVector(*cd_pts[::-1][i])
+        d = PVector(*cd_pts[::-1][p])
+        c = PVector(*cd_pts[::-1][i])
         triangulated_face(ab_pts[p], ab_pts[i], cd_pts[::-1][p], cd_pts[::-1][i])
         face_data.append((a, b, c, d))
         debug_text("cd", cd_pts[::-1], enum=True)

@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190410a", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190411a", ".gif"
 """
 hmmm
 """
@@ -9,17 +9,12 @@ add_library('peasycam')
 from unfolded_2D import *
 from draw_3D import *
 
-CUT_COLOR = color(200, 0, 0)  # Color to mark outline cut
-ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
-TAB_W = 10  # tab width
-TAB_A = radians(30)  # tab angle
-
 box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
 ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
 # height of points between d and c
-cd_i = [box_h, box_h]* 2 #[box_h, box_h + 15, box_h + 10, box_h]
+cd_i = [box_h] * 7  # [box_h, box_h + 15, box_h + 10, box_h]
 # height of points between a and b
-ab_i = [box_h, box_h]*2 #[box_h, box_h - 15, box_h - 10, box_h]
+ab_i = [box_h] * 7  # [box_h, box_h - 15, box_h - 10, box_h]
 
 assert len(cd_i) == len(ab_i)  # has to mantain equal number of pts
 
@@ -32,7 +27,7 @@ def setup():
     strokeWeight(2)
 
 def draw():
-    background(200)    
+    background(200)
     # Draw 3D
     with pushMatrix():
         translate(width / 2, height / 2)  # Comment out if using with PeasyCam
@@ -40,7 +35,7 @@ def draw():
         rotateZ(0)
         translate(200, -50, -100)
         face_3D_data = draw_3d(box_w, box_d, ab_i, cd_i)
-        
+
     # Draw 2D unfolded
     # cam.beginHUD() # for use with PeasyCam
     with pushMatrix():
@@ -51,7 +46,7 @@ def draw():
 def keyPressed():
     global ah, bh, ch, dh, box_w, box_d, box_h
     # save frame on GIF
-    # gif_export(GifMaker, filename=SKETCH_NAME)
+    gif_export(GifMaker, filename=SKETCH_NAME)
 
     if key == "q":
         ah += 5
@@ -93,7 +88,7 @@ def keyPressed():
         slowly_reset_values()
     if key == "p":
         saveFrame("####.png")
-        
+
     # update top face point lists
     cd_i[0] = ch
     cd_i[-1] = dh
@@ -109,6 +104,3 @@ def slowly_reset_values():
     bh += (box_h - bh) / 2
     ch += (box_h - ch) / 2
     dh += (box_h - dh) / 2
-    
-    
-    

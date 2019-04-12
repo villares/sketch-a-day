@@ -1,4 +1,4 @@
-DEBUG = True
+DEBUG = False
 
 def debug_text(name, points, enum=False):
     if DEBUG:
