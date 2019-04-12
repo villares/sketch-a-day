@@ -37,7 +37,6 @@ def draw():
         rotateZ(0)
         translate(200, -50, -100)
         face_3D_data = draw_3d(box_w, box_d, ab_i, cd_i)
-
     # Draw 2D unfolded
     # cam.beginHUD() # for use with PeasyCam
     with pushMatrix():
@@ -49,7 +48,6 @@ def keyPressed():
     global ah, bh, ch, dh, box_w, box_d, box_h
     # save frame on GIF
     # gif_export(GifMaker, filename=SKETCH_NAME)
-
     if key == "q":
         ah += 5
     if key == "a" and ah > 5:
@@ -90,7 +88,6 @@ def keyPressed():
         slowly_reset_values()
     if key == "p":
         saveFrame("####.png")
-
     # update top face point lists
     cd_i[0] = ch
     cd_i[-1] = dh

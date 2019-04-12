@@ -3,10 +3,11 @@ from debug import *
 
 CUT_COLOR = color(200, 0, 0)  # Color to mark outline cut
 ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
-TAB_W = 10  # tab width
-TAB_A = radians(30)  # tab angle
+TAB_W = 10  # glue tab width
+TAB_A = radians(30)  # glue tab angle
 
 def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
+    """ main 2D drawing procedure, takes 3D points (face_data) from the 3D procedure"""
     bh_2d = (0, -ab_i[-1])
     b0_2d = (0, 0)
     ch_2d = (box_w, -cd_i[0])
@@ -17,21 +18,22 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     a0_2d = (box_w * 2 + box_d, 0)
 
     noFill()
-    stroke(ENG_COLOR)  # Marked for folding
-
+    # Marked for folding
+    stroke(ENG_COLOR)  
     # verticals
     line_draw(b0_2d, bh_2d)
     line_draw(c0_2d, ch_2d)
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
     debug_text("BCDA", (bh_2d, ch_2d, dh_2d, ah_2d))
-    # divided top face
+    
+    # divided top face - also draws some CUT_COLOR glue tabs!
     start_1, start_2 = bh_2d, ch_2d
     for a, b, c, d in face_data:
         start_1, start_2 = unfold_tri_face((start_1, start_2), (a, b, c, d))
-
     # floor face
     rect(0, 0, box_w, box_d)
+
     # Marked for cutting
     stroke(CUT_COLOR)
     # top tab
@@ -42,7 +44,6 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     glue_tab((0, box_d), b0_2d, TAB_W, TAB_A)
     glue_tab((box_w, box_d), (0, box_d), TAB_W, TAB_A)
     glue_tab((box_w, 0), (box_w, box_d), TAB_W, TAB_A)
-
     # main outline cut
     num_i = len(cd_i)
     cd_pts = [(box_w + box_d * i / (num_i - 1), -cd_i[i])
