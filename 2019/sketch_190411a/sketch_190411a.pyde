@@ -7,8 +7,9 @@ I've got the divided top right and brought back the tabs
 add_library('GifAnimation')
 from gif_exporter import gif_export
 add_library('peasycam')
-from unfolded_2D import *
-from draw_3D import *
+from draw_3D import draw_3d
+from draw_2D import draw_unfolded
+
 
 box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
 ah = bh = ch = dh = box_h  # initial height of points a, b, c and d
@@ -47,7 +48,7 @@ def draw():
 def keyPressed():
     global ah, bh, ch, dh, box_w, box_d, box_h
     # save frame on GIF
-    gif_export(GifMaker, filename=SKETCH_NAME)
+    # gif_export(GifMaker, filename=SKETCH_NAME)
 
     if key == "q":
         ah += 5
