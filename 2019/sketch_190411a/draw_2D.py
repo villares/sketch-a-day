@@ -1,5 +1,6 @@
+from __future__ import division
 from draw_3D import poly_draw
-from debug import *
+from debug import debug_text
 
 CUT_COLOR = color(200, 0, 0)  # Color to mark outline cut
 ENG_COLOR = color(0, 0, 200)  # Color to mark folding/engraving
@@ -121,22 +122,19 @@ def unfold_tri_face(pts_2D, pts_3D):
     line_draw(d2D, a2D)
     return (a2D, d2D)
 
-"""
-Code adapted from code by Monkut https://stackoverflow.com/users/24718/monkut
-found at https://stackoverflow.com/questions/4001948/drawing-a-triangle-in-a-coordinate-plane-given-its-three-sides
-"""
-
-class NoTrianglePossible(BaseException):
-    pass
-
 def third_point(a, b, ac_len, bc_len):
     """
+    Adapted from code by Monkut https://stackoverflow.com/users/24718/monkut
+    at https://stackoverflow.com/questions/4001948/drawing-a-triangle-in-a-coordinate-plane-given-its-three-sides
+
     Returns two point c options given:
     point a, point b, ac length, bc length    
     """
+    class NoTrianglePossible(BaseException):
+        pass
+        
     # To allow use of tuples, creates or recreates PVectors
     a, b = PVector(*a), PVector(*b)
-
     # check if a triangle is possible
     ab_len = a.dist(b)
     if ab_len > (ac_len + bc_len) or ab_len < abs(ac_len - bc_len):
@@ -145,19 +143,15 @@ def third_point(a, b, ac_len, bc_len):
     # get the length to the vertex of the right triangle formed,
     # by the intersection formed by circles a and b
     ad_len = (ab_len ** 2 + ac_len ** 2 - bc_len ** 2) / (2.0 * ab_len)
-
     # get the height of the line at a right angle from a_len
     h = sqrt(abs(ac_len ** 2 - ad_len ** 2))
-
-    # Calculate the mid PVector (point d), needed to calculate point c(1|2)
-    d_x = a.x + ad_len * (b.x - a.x) / ab_len
-    d_y = a.y + ad_len * (b.y - a.y) / ab_len
-    d = PVector(d_x, d_y)
-
-    # get point_c locations
-    c_x1 = d.x + h * (b.y - a.y) / ab_len
-    c_x2 = d.x - h * (b.y - a.y) / ab_len
-    c_y1 = d.y - h * (b.x - a.x) / ab_len
-    c_y2 = d.y + h * (b.x - a.x) / ab_len
-
-    return PVector(c_x1, c_y1), PVector(c_x2, c_y2)
+    
+    # Calculate the mid point d, needed to calculate point c(1|2)
+    d = PVector(a.x + ad_len * (b.x - a.x) / ab_len,
+                a.y + ad_len * (b.y - a.y) / ab_len)
+    # get point c locations
+    c1 = PVector(d.x + h * (b.y - a.y) / ab_len,
+                 d.y - h * (b.x - a.x) / ab_len)
+    c2 = PVector(d.y + h * (b.x - a.x) / ab_len,
+                 d.x - h * (b.y - a.y) / ab_len)
+    return c1, c2

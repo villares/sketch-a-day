@@ -1,4 +1,5 @@
-from debug import *
+from __future__ import division
+from debug import debug_text
 
 def draw_3D(box_w, box_d, ab_l, cd_l):
     """
