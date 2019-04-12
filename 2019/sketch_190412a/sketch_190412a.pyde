@@ -1,8 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME, OUTPUT = "sketch_190411a", ".gif"
+SKETCH_NAME, OUTPUT = "sketch_190412a", ".gif"
 """
-Now we are talking! 
-I've got the divided top right and brought back the tabs
+A paraboloid test
 """
 add_library('GifAnimation')
 from gif_exporter import gif_export
@@ -13,15 +12,15 @@ from draw_2D import draw_unfolded
 box_d, box_w, box_h = 100, 100, 100  # initial box dimensions
 # height of points between d and c
 edge_num = 4 # number of points on top lateral edges
-cd_l = [box_h - 5 * i for i in range(edge_num)] 
+cd_l = [box_h - 10 * i for i in range(edge_num)] 
 # height of points between a and b
-ab_l = [box_h + 5 * i for i in range(edge_num)] 
+ab_l = [box_h - 10 * i for i in range(edge_num)] 
 assert len(cd_l) == len(ab_l)  # equal number of points only
 
 def setup():
     size(850, 500, P3D)
-    # global cam
-    # cam = PeasyCam(this, 300)
+    global cam
+    cam = PeasyCam(this, -150, 0, 0, 300)
     hint(ENABLE_DEPTH_SORT)
     smooth(16)
     strokeWeight(2)
@@ -30,22 +29,25 @@ def draw():
     background(200)
     # Draw 3D
     with pushMatrix():
-        translate(width / 2, height / 2)  # Comment out if using with PeasyCam
-        rotateX(QUARTER_PI)
-        rotateZ(0)
-        translate(200, -50, -100)
+        #translate(width / 2, height / 2)  # Comment out if using with PeasyCam
+        #translate(50, 0)
+        #rotateX(QUARTER_PI)
+        translate(-150,  -50, -50)
+        # rotateZ(0)
         face_3D_data = draw_3D(box_w, box_d, ab_l, cd_l)
+
     # Draw 2D unfolded
-    # cam.beginHUD() # for use with PeasyCam
+    cam.beginHUD() # for use with PeasyCam
     with pushMatrix():
-        translate(100, 350)
+        translate(300, 450)
+        rotate(-HALF_PI)
         draw_unfolded(box_w, box_d, ab_l, cd_l, face_3D_data)
-    # cam.endHUD()
+    cam.endHUD()
 
 def keyPressed():
     global box_w, box_d, box_h
     # save frame on GIF
-    # gif_export(GifMaker, filename=SKETCH_NAME)
+    gif_export(GifMaker, filename=SKETCH_NAME)
     
     ah, bh, ch, dh = ab_l[0], ab_l[-1], cd_l[0], cd_l[-1]
     if key == "q":
