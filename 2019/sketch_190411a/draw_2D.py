@@ -19,14 +19,14 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
 
     noFill()
     # Marked for folding
-    stroke(ENG_COLOR)  
+    stroke(ENG_COLOR)
     # verticals
     line_draw(b0_2d, bh_2d)
     line_draw(c0_2d, ch_2d)
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
     debug_text("BCDA", (bh_2d, ch_2d, dh_2d, ah_2d))
-    
+
     # divided top face - also draws some CUT_COLOR glue tabs!
     start_1, start_2 = bh_2d, ch_2d
     for a, b, c, d in face_data:
@@ -54,17 +54,21 @@ def draw_unfolded(box_w, box_d, ab_i, cd_i, face_data):
     poly_draw(main_outline, closed=False)
 
 def line_draw(p1, p2, tab=False):
+    """
+    sugar for drawing lines from 2 "points" (tuples or PVectors)
+    may also draw a glue tab suitably marked for cutting.
+    """
     line(p1[0], p1[1], p2[0], p2[1])
     if tab:
         with pushStyle():
             stroke(CUT_COLOR)
-            glue_tab(p1, p2, TAB_W, TAB_A)    
+            glue_tab(p1, p2, TAB_W, TAB_A)
 
 def glue_tab(p1, p2, tab_w=10, cut_ang=QUARTER_PI):
     """
     draws a trapezoidal or triangular glue tab
-    along edge defined by p1 and p2,
-    with width tab_w and cut angle a
+    along edge defined by p1 and p2, with provided
+    width (tab_w) and cut angle (cut_ang)
     """
     a1 = atan2(p1[0] - p2[0], p1[1] - p2[1]) + cut_ang + PI
     a2 = atan2(p1[0] - p2[0], p1[1] - p2[1]) - cut_ang
@@ -109,7 +113,8 @@ def unfold_tri_face(pts_2D, pts_3D):
     # upper triangle (fixed from 190408a)
     ab_len = dist(b3D[0], b3D[1], b3D[2], a3D[0], a3D[1], a3D[2])
     ad_len = dist(a3D[0], a3D[1], a3D[2], d3D[0], d3D[1], d3D[2])
-    a2D = third_point(b2D, d2D, ab_len, ad_len)[0]  # gets the 1st solution too! 
+    # gets the 1st solution too!
+    a2D = third_point(b2D, d2D, ab_len, ad_len)[0]
     line_draw(b2D, a2D, tab=True)
     line_draw(d2D, a2D)
     return (a2D, d2D)
