@@ -39,6 +39,10 @@ def draw():
         translate(-300, -50, -100)
         draw_3d()
 
+
+def p_dist(a, b):
+    return PVector.dist(PVector(*a), PVector(*b))
+
 def draw_unfolded():
     bh_2d = (0, -bh)
     b0_2d = (0, 0)
@@ -51,33 +55,20 @@ def draw_unfolded():
 
     noFill()
     stroke(ENG_COLOR)  # Marked for folding
-
     # verticals
     line_draw(b0_2d, bh_2d)
     line_draw(c0_2d, ch_2d)
     line_draw(d0_2d, dh_2d)
     line_draw(a0_2d, ah_2d)
-
-    # lower triangle
-    bd = dist(0, 0, bh, box_w, box_d, dh)
-    cd = dist(box_w, 0, ch, box_w, box_d, dh)
-    d2_2d = third_point(bh_2d, ch_2d, bd, cd)[0]  # gets the first solution
-    line_draw(bh_2d, ch_2d)
-    line_draw(bh_2d, d2_2d)
-    line_draw(ch_2d, d2_2d)
-
-    # upper triangle (fixed on 190411)
-    ab = dist(0, ah, box_w, bh)
-    ad = dist(0, ah, box_d, dh)
-    a2_2d = third_point(bh_2d, d2_2d, ab, ad)[0]  # gets the 1st solution too!
-    line_draw(bh_2d, a2_2d)
-    line_draw(d2_2d, a2_2d)
-
     # floor face
     rect(0, 0, box_w, box_d)
+    # unfolded top face
+    a2_2d, d2_2d = unfold_tri_face(((0, -bh), (box_w, -ch)),
+                            ((0, box_d, ah), (0, 0, bh),
+                             (box_w, 0, ch), (box_w, box_d, dh))
+                            )
 
     stroke(CUT_COLOR)  # Marked for cutting
-
     # top tabs
     glue_tab(d2_2d, ch_2d, TAB_W, TAB_A)
     glue_tab(bh_2d, a2_2d, TAB_W, TAB_A)
@@ -96,6 +87,30 @@ def draw_unfolded():
                (box_w * 2 + box_d * 2, -bh),
                (box_w * 2 + box_d * 2, 0),
                c0_2d), closed=False)
+
+def unfold_tri_face(pts_2D, pts_3D):
+    """
+    gets a collection of 2 (B, D) starting 2D points (PVectors or tuples)
+    Gets a collection of 4 (A, B, C, D) 3D points (PVectors or tuples)
+    Draws the unfolded face a returns (A, C) 2D positions.
+    """
+    b2D, c2D = pts_2D
+    a3D, b3D, c3D, d3D = pts_3D
+    bd_len = p_dist(b3D, d3D)
+    cd_len = p_dist(c3D, d3D)
+    # lower triangle
+    d2D = third_point(b2D, c2D, bd_len, cd_len)[0]  # gets the first solution
+    line_draw(b2D, c2D)
+    line_draw(b2D, d2D)
+    line_draw(c2D, d2D)
+    # upper triangle
+    ab_len = p_dist(a3D, b3D)
+    ad_len = p_dist(a3D, d3D)
+    a2D = third_point(b2D, d2D, ab_len, ad_len)[0]  # gets the second solution
+    line_draw(b2D, a2D)
+    line_draw(d2D, a2D)
+    return (a2D, d2D)
+
 
 def draw_3d():
     stroke(0)
