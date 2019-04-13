@@ -87,19 +87,13 @@ def glue_tab(p1, p2, tab_w=10, cut_ang=QUARTER_PI):
     edge_len = dist(p1[0], p1[1], p2[0], p2[1])
 
     if edge_len > 2 * cut_len * cos(cut_ang):  # 'normal' trapezoidal tab
-        beginShape()
-        vertex(*p1)  # vertex(p1[0], p1[1])
-        vertex(*f1)
-        vertex(*f2)
-        vertex(*p2)
-        endShape()
+        line_draw(p1, f1)
+        line_draw(f1, f2)
+        line_draw(f2, p2)
     else:  # short triangular tab
         fm = ((f1[0] + f2[0]) / 2, (f1[1] + f2[1]) / 2)
-        beginShape()
-        vertex(*p1)
-        vertex(*fm)  # middle way of f1 and f2
-        vertex(*p2)
-        endShape()
+        line_draw(p1, fm)
+        line_draw(fm, p2)
 
 def unfold_tri_face(pts_2D, pts_3D):
     """
@@ -129,7 +123,8 @@ def third_point(a, b, ac_len, bc_len):
     """
     Adapted from code by Monkut https://stackoverflow.com/users/24718/monkut
     at https://stackoverflow.com/questions/4001948/drawing-a-triangle-in-a-coordinate-plane-given-its-three-sides
-
+    for use with Processing Python Mode - using PVectors
+    
     Returns two point c options given:
     point a, point b, ac length, bc length    
     """
