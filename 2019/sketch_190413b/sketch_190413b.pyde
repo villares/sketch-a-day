@@ -1,8 +1,12 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 SKETCH_NAME = "sketch_190413b"
-
+"""
+Birthday sketch!
+"""
 add_library('GifAnimation')
 from gif_exporter import gif_export
 from parts import Face
+
 faces = []
 
 def setup():
