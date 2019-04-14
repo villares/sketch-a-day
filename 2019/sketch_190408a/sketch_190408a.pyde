@@ -165,19 +165,13 @@ def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI):
     edge_len = dist(p1[0], p1[1], p2[0], p2[1])
 
     if edge_len > 2 * cut_len * cos(cut_ang):  # 'normal' trapezoidal tab
-        beginShape()
-        vertex(*p1)  # vertex(p1[0], p1[1])
-        vertex(*f1)  # vertex(f1.x, f1.y)
-        vertex(*f2)  # vertex(f2.x, f2.y)
-        vertex(*p2)  # vertex(p2[0], p2[1])
-        endShape()
+        line_draw(p1, f1)
+        line_draw(f1, f2)
+        line_draw(f2, p2)
     else:  # short triangular tab
-        fm = (f1 + f2) / 2
-        beginShape()
-        vertex(*p1)  # (p1[0], p1[1])
-        vertex(*fm)  # (fm.x, fm.y)
-        vertex(*p2)  # (p2[0], p2[1])
-        endShape()
+        fm = ((f1[0] + f2[0]) / 2, (f1[1] + f2[1]) / 2)
+        line_draw(p1, fm)
+        line_draw(fm, p2)
 
 def keyPressed():
     global ah, bh, ch, dh, box_w, box_d, box_h
