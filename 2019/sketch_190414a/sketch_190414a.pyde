@@ -25,16 +25,16 @@ def draw():
     for f in faces:
         f.draw_3D(frameCount / -50.)
         translate(200, 0)
-        fill(100, 100, 200)
+        fill(170)
         f.draw_2D()
         translate(200, 0)
-        fill(100, 200, 100)
+        fill(230)
         f.draw_2D()
         x, y = 25, 350
         translate(-400, 0)
         for p1, p2 in f.edges():
             d = dist(p1[0], p1[1], p2[0], p2[1]) * 35
-            fill(200, 100, 100)
+            fill(250)
             glue_tab((x, y), (x + d, y))
             glue_tab((x + d, y + THICK),( x, y + THICK))
             rect(x, y , d, THICK)
