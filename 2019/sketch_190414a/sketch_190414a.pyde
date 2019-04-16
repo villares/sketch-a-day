@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """
-
+Unfold extrusion
 """
 add_library('GifAnimation')
 from gif_exporter import gif_export
