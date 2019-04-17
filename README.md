@@ -24,7 +24,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
-![sketch_190416a](2019/sketch_19041a/sketch_190416a.png)
+![sketch_190416a](2019/sketch_190416a/sketch_190416a.png)
 
 [sketch_190416a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190416a) [[Processing Java Mode](https://processing.org)]
 
