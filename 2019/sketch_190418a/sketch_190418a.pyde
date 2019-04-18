@@ -1,118 +1,129 @@
 """
 A minimal poly editor
 """
-click = False
 cell_size = 25
-pts = [(12.0, 10.0), (12.0, 0.0), (-2.0, -2.0),
-       (0.0, 12.0), (10.0, 12.0), (10.0,  10.0)]
-holes = [(2.0, 2.0), (6.0, 2.0), (6.0, 6.0), (2.0, 7.0)]
-md = -1
-
+outer_pts = [(12.0, 10.0), (12.0, 0.0), (-2.0, -2.0),
+             (0.0, 12.0), (10.0, 12.0), (10.0, 10.0)]
+inner_pts = [(2.0, 2.0), (6.0, 2.0), (6.0, 6.0), (2.0, 7.0)]
+outer_drag = -1
+inner_drag = -1
 
 def setup():
-    global cell_size, cell_half, order, grid_size
+    global cell_size, cell_size, order, grid_size
     size(500, 500, P2D)
     order = width / cell_size
-    grid_size = order * cell_size
-    cell_half = cell_size / 2
-    rectMode(CENTER)
+    # grid_size = order * cell_size
     strokeJoin(ROUND)
 
 def draw():
     background(230)
-    stroke(128)
-    for x in range(order):
-        line(x * cell_size, 0,
-             x * cell_size, cell_size * order)
-    for y in range(order):
-        line(0, y * cell_size,
-             cell_size * order , y * cell_size)
     # grade de cellulas
-    for i in range(order):
-        x = cell_half + i * cell_size
-        for j in range(order):
-            y = cell_half + j * cell_size
-            cell(x, y)
+    stroke(128)
+    noFill()
+    for x in range(order):
+        for y in range(order):
+            rect(x * cell_size, y * cell_size,
+                 cell_size, cell_size)
+
     poly_draw()
     fill(0)
-    text(str(pts), 0, grid_size)
+    text(str(outer_pts), 0, order * cell_size)
 
-def cell(mx, my):
-    global click
-    noStroke()
-    if dist(mouseX, mouseY, mx, my) < cell_half:
-        fill(209, 100)
-        if click:
-            x = mx / cell_size * 2
-            y = my / cell_size * 2 
-            if (x, y) in pts:
-                pts.remove((x, y))
-            else:
-                pts.append((x, y))
-            click = False
-    else:
-        noFill()
-    ellipse(mx, my, cell_size, cell_size)
 
 def poly_draw():
     #  polígono
     pushStyle()
     strokeWeight(3)  # espessura do polígono
     noFill()
-    if len(pts) >= 3:
+    if len(outer_pts) >= 3:
         fill(255)
         beginShape()
-        for x, y in pts[::-1]:
+        for x, y in outer_pts[::-1]:
             stroke(0)
-            sx = x * cell_half
-            sy = y * cell_half
-            vertex(sx, sy)            
+            sx = x * cell_size
+            sy = y * cell_size
+            vertex(sx, sy)
         beginContour()
-        for x, y in holes[::-1]:
-            sx = x * cell_half
-            sy = y * cell_half
-            vertex(sx, sy)  
-        endContour()  
+        for x, y in inner_pts[::-1]:
+            sx = x * cell_size
+            sy = y * cell_size
+            vertex(sx, sy)
+        endContour()
         endShape(CLOSE)
 
-    elif len(pts) == 2:
+    elif len(outer_pts) == 2:
         stroke(128)
         beginShape(LINES)
-        for x, y in pts:
-            sx = x * cell_half
-            sy = y * cell_half
-            vertex(sx, sy)
+        for x, y in outer_pts:
+            vertex(x * cell_size, y * cell_size)
         endShape()
+        for x, y in inner_pts:
+            fill(0)
+            ellipse(x * cell_size, y * cell_size, 5, 5)
+
+    else:
+        for x, y in outer_pts:
+            fill(255)
+            ellipse(x * cell_size, y * cell_size, 5, 5)
+        for x, y in inner_pts:
+            fill(0)
+            ellipse(x * cell_size, y * cell_size, 5, 5)
+
     popStyle()
 
 def keyPressed():
-    global pts
+    global outer_pts
     if key == " ":
-        pts = []  # empty pts
+        outer_pts = []  # empty outer_pts
     if key == "p":
-        println(pts)
-        
+        println(outer_pts)
+
 def mousePressed():
-    global md
-    for i, p in enumerate(pts):
-        x = p[0] * cell_half
-        y = p[1] * cell_half
-        if dist(mouseX, mouseY, x, y) < 10:
-            md = i
-            break
-    global click
-    if mouseButton == RIGHT:
-        click = True
-        
+    global outer_drag, inner_drag
+
+    if keyPressed and keyCode == SHIFT:
+        for i in range(order):
+            x = i * cell_size
+            for j in range(order):
+                y = j * cell_size
+                if dist(mouseX, mouseY, x, y) < 10 and mouseButton == LEFT:
+                    if (i, j) in outer_pts:
+                        outer_pts.remove((i, j))
+                    else:
+                        outer_pts.append((i, j))
+                if dist(mouseX, mouseY, x, y) < 10 and mouseButton == RIGHT:
+                    if (i, j) in inner_pts:
+                        inner_pts.remove((i, j))
+                    else:
+                        inner_pts.append((i, j))
+    else:
+        for i_op, op in enumerate(outer_pts):
+            ox = op[0] * cell_size
+            oy = op[1] * cell_size
+            if dist(mouseX, mouseY, ox, oy) < cell_size / 2:
+                outer_drag = i_op
+                return
+        for i_ip, ip in enumerate(inner_pts):
+            ix = ip[0] * cell_size
+            iy = ip[1] * cell_size
+            if dist(mouseX, mouseY, ix, iy) < cell_size / 2:
+                inner_drag = i_ip
+                return
+
 def mouseDragged():
-    if md >= 0:
-        pts[md] = (int(mouseX / cell_size * 2), 
-                   int(mouseY / cell_size * 2))
+    if outer_drag >= 0:
+        outer_pts[outer_drag] = (int(mouseX / cell_size),
+                                 int(mouseY / cell_size))
+    if inner_drag >= 0:
+        inner_pts[inner_drag] = (int(mouseX / cell_size),
+                                 int(mouseY / cell_size))
 
 def mouseReleased():
-    global md
-    md = -1        
-        
+    global outer_drag, inner_drag
+    outer_drag = -1
+    inner_drag = -1
+
+
 def settings():
     from os import path
     global SKETCH_NAME
