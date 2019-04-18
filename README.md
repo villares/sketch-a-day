@@ -24,15 +24,23 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190416a](2019/sketch_190416a/sketch_190416a.png)
+
+[sketch_190416a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190416a) [[Processing Java Mode](https://processing.org)]
+
+Very simple 3D example
+
+---
+
 ![sketch_190415a](2019/sketch_190415a/sketch_190415a.png)
 
-[sketch_190415a](https://github.com/villares/sketch-a-day/tree/master/sketch_190415a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190415a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190415a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
 ![sketch_190414a](2019/sketch_190414a/sketch_190414a.gif)
 
-[sketch_190414a](https://github.com/villares/sketch-a-day/tree/master/sketch_190414a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190414a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190414a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Let's unfold some simple extrudes
 
