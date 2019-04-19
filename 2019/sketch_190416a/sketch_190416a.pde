@@ -1,3 +1,4 @@
+// Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 // Some basic Processing 3D tips
 
 void setup() {

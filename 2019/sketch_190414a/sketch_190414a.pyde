@@ -62,6 +62,6 @@ def settings():
         """
 ![{0}](2019/{0}/{0}{1})
 
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[{0}](https://github.com/villares/sketch-a-day/tree/master/2019/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 """.format(SKETCH_NAME, OUTPUT)
     )

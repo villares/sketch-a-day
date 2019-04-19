@@ -1,5 +1,6 @@
 """
 A minimal poly editor
+Now you can drag vertices
 """
 ORDER = 10
 click = False
