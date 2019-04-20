@@ -4,8 +4,8 @@ A minimal poly editor
  - clockwise sort
 """
 
-add_library('GifAnimation')
-from gif_exporter import gif_export
+# add_library('GifAnimation')
+# from gif_exporter import gif_export
 
 cell_size = 25
 outer_pts = [(-8, 8), (8, -8), (-8, -5),  (3, -8), (-4, -8), (7, 8), (6, 5)]
@@ -136,21 +136,22 @@ def keyPressed():
     if key == " ":
         outer_pts = clockwise_sort(outer_pts)
         inner_pts = clockwise_sort(inner_pts)[::-1]
-    if key == "g":
-        gif_export(GifMaker, filename=SKETCH_NAME)
+    # if key == "g":
+    #     gif_export(GifMaker, filename=SKETCH_NAME)
 
 def centeroidpython(data):
     x, y = zip(*data)
-    l = len(x)
-    return sum(x) / l, sum(y) / l
+    data_len = len(x)
+    return sum(x) / data_len, sum(y) / data_len
 
 def clockwise_sort(xy_pairs):
-    # xy_pairs = list(zip(xy[:int(len(xy)/2)], xy[int(len(xy)/2):]))    
+    # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
     centroid_x, centroid_y = centeroidpython(xy_pairs)
-    xy_sorted = sorted(xy_pairs, key = lambda x: atan2((x[1]-centroid_y),(x[0]-centroid_x)))
+    xy_sorted = sorted(xy_pairs,
+                       key = lambda p: atan2((p[1]-centroid_y), (p[0]-centroid_x)))
     xy_sorted_xy = [coord for pair in list(zip(*xy_sorted)) for coord in pair]
-    l = int(len(xy_sorted_xy)/2)
-    return list(zip(xy_sorted_xy[:l], xy_sorted_xy[l:]))
+    half_len = int(len(xy_sorted_xy)/2)
+    return list(zip(xy_sorted_xy[:half_len], xy_sorted_xy[half_len:]))
 
 
 def settings():
