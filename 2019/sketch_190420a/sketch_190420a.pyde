@@ -1,16 +1,16 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """
 A minimal poly editor
- - clockwise sort
+ - Annotate points...
 """
 
-# add_library('GifAnimation')
-# from gif_exporter import gif_export
+add_library('GifAnimation')
+from gif_exporter import gif_export
 
-cell_size = 25
+cell_size = 20
 outer_pts = [(20, 20), (60, 40), (100, 20), (80, 60),
              (100, 100), (60, 80), (20, 100), (40, 60)]
-outer_pts = [map(lambda x: x/10, pair) for pair in outer_pts]
+outer_pts = [map(lambda x: x/5, pair) for pair in outer_pts]
 
 inner_pts = [(0, 0)] #[(5,6), (6,7), (7,6), (6,5)]
 outer_drag, inner_drag = -1, -1
@@ -61,33 +61,19 @@ def poly_draw():
         endContour()
         endShape(CLOSE)
 
-    # elif len(outer_pts) == 2:
-    #     stroke(128)
-    #     beginShape(LINES)
-    #     for x, y in outer_pts:
-    #         vertex((x + x_offset) * cell_size, 
-    #                (y + y_offset) * cell_size)
-    #     endShape()
-    #     for x, y in inner_pts:
-    #         fill(0)
-    #         ellipse((x + x_offset) * cell_size,
-    #                 (y + y_offset) * cell_size, 5, 5)
-    else:
-        for x, y in outer_pts:
-            fill(255)
-            ellipse((x + x_offset) * cell_size,
-                    (y + y_offset) * cell_size, 5, 5)
-        for x, y in inner_pts:
-            fill(0)
-            ellipse((x + x_offset) * cell_size,
-                    (y + y_offset) * cell_size, 5, 5)
-    fill(255, 0, 0)
-    textSize(16)
-    for x, y in outer_pts:
-        text(str((x*10, y*10)), (x + x_offset) * cell_size,
-                         (y + y_offset) * cell_size)
+    annotate_pts(outer_pts, color(200, 0, 0))
+    annotate_pts(inner_pts, color(0, 0, 200))
     popStyle()
     
+def annotate_pts(pts, c):
+    strokeWeight(5)
+    textSize(16)
+    fill(c)
+    stroke(c)
+    for i, j in pts:
+        x, y = (i + x_offset) * cell_size,(j + y_offset) * cell_size
+        point(x, y)
+        text(str((i, j)), x, y)    
 
 def keyPressed():
     global outer_pts
