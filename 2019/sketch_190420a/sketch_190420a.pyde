@@ -75,13 +75,6 @@ def annotate_pts(pts, c):
         point(x, y)
         text(str((i, j)), x, y)    
 
-def keyPressed():
-    global outer_pts
-    if key == " ":
-        outer_pts = []  # empty outer_pts
-    if key == "p":
-        println(outer_pts)
-
 def mousePressed():
     global outer_drag, inner_drag
 
@@ -131,19 +124,23 @@ def mouseReleased():
 def keyPressed():
     global outer_pts, inner_pts
     if key == " ":
+        
         outer_pts = clockwise_sort(outer_pts)
         inner_pts = clockwise_sort(inner_pts)[::-1]
-    # if key == "g":
-    #     gif_export(GifMaker, filename=SKETCH_NAME)
-
-def centeroidpython(data):
-    x, y = zip(*data)
-    data_len = len(x)
-    return sum(x) / data_len, sum(y) / data_len
+    if key == "g":
+        gif_export(GifMaker, filename=SKETCH_NAME)
+    if key == "p":
+        println(outer_pts)
+        println(inner_pts)
 
 def clockwise_sort(xy_pairs):
     # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
-    centroid_x, centroid_y = centeroidpython(xy_pairs)
+    data_len = len(xy_pairs)
+    if data_len > 2:
+        x, y = zip(*xy_pairs)
+    else:
+        return xy_pairs
+    centroid_x, centroid_y = sum(x) / data_len, sum(y) / data_len
     xy_sorted = sorted(xy_pairs,
                        key = lambda p: atan2((p[1]-centroid_y), (p[0]-centroid_x)))
     xy_sorted_xy = [coord for pair in list(zip(*xy_sorted)) for coord in pair]
