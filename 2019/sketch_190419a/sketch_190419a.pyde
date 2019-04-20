@@ -78,13 +78,6 @@ def poly_draw():
                     (y + y_offset) * cell_size, 5, 5)
     popStyle()
 
-def keyPressed():
-    global outer_pts
-    if key == " ":
-        outer_pts = []  # empty outer_pts
-    if key == "p":
-        println(outer_pts)
-
 def mousePressed():
     global outer_drag, inner_drag
 
@@ -138,6 +131,8 @@ def keyPressed():
         inner_pts = clockwise_sort(inner_pts)[::-1]
     # if key == "g":
     #     gif_export(GifMaker, filename=SKETCH_NAME)
+    if key == "p":
+        println(outer_pts)
 
 def centeroidpython(data):
     x, y = zip(*data)

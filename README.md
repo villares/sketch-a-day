@@ -22,10 +22,17 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+---
+
+![sketch_190420a](2019/sketch_190420a/sketch_190420a.gif)
+
+[sketch_190420a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190420a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Some refactoring and coordinate annotations that I'll use in my classes :)
 
 ---
 
-![sketch_190419a](2019/sketch_190419a/sketch_190419a.png)
+![sketch_190419a](2019/sketch_190419a/sketch_190419a.gif)
 
 [sketch_190419a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190419a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 

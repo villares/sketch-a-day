@@ -4,24 +4,24 @@ A minimal poly editor
  - Annotate points...
 """
 
-add_library('GifAnimation')
-from gif_exporter import gif_export
+# add_library('GifAnimation')
+# from gif_exporter import gif_export
 
 cell_size = 20
 outer_pts = [(20, 20), (60, 40), (100, 20), (80, 60),
              (100, 100), (60, 80), (20, 100), (40, 60)]
-outer_pts = [map(lambda x: x/5, pair) for pair in outer_pts]
+outer_pts = [map(lambda x: x/5 -12, pair) for pair in outer_pts]
 
 inner_pts = [(0, 0)] #[(5,6), (6,7), (7,6), (6,5)]
 outer_drag, inner_drag = -1, -1
-
+text_on = False
 
 def setup():
     global cell_size, cell_size, order, grid_size
     global x_offset, y_offset
     size(500, 500, P2D)
     order = width / cell_size
-    x_offset = y_offset = 0 #int(order / 2)
+    x_offset = y_offset = int(order / 2)
     strokeJoin(ROUND)
     f = createFont("Fira Mono Bold", 16)
     textFont(f)
@@ -60,12 +60,12 @@ def poly_draw():
             vertex(sx, sy)
         endContour()
         endShape(CLOSE)
-
-    annotate_pts(outer_pts, color(200, 0, 0))
-    annotate_pts(inner_pts, color(0, 0, 200))
+    if text_on:
+        annotate_pts(outer_pts, color(200, 0, 0), 5)
+        annotate_pts(inner_pts, color(0, 0, 200), 5)
     popStyle()
     
-def annotate_pts(pts, c):
+def annotate_pts(pts, c, scale_m=1):
     strokeWeight(5)
     textSize(16)
     fill(c)
@@ -73,7 +73,7 @@ def annotate_pts(pts, c):
     for i, j in pts:
         x, y = (i + x_offset) * cell_size,(j + y_offset) * cell_size
         point(x, y)
-        text(str((i, j)), x, y)    
+        text(str((i * scale_m, j * scale_m)), x, y)    
 
 def mousePressed():
     global outer_drag, inner_drag
@@ -122,17 +122,20 @@ def mouseReleased():
     inner_drag = -1
 
 def keyPressed():
-    global outer_pts, inner_pts
-    if key == " ":
-        
+    global outer_pts, inner_pts, text_on
+    if key == " ":        
         outer_pts = clockwise_sort(outer_pts)
         inner_pts = clockwise_sort(inner_pts)[::-1]
-    if key == "g":
-        gif_export(GifMaker, filename=SKETCH_NAME)
+    # if key == "g":
+    #     gif_export(GifMaker, filename=SKETCH_NAME)
     if key == "p":
         println(outer_pts)
         println(inner_pts)
-
+    if key == "s":
+        saveFrame("####.png")
+    if key == "t":
+        text_on = not text_on
+        
 def clockwise_sort(xy_pairs):
     # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
     data_len = len(xy_pairs)
