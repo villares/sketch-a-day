@@ -22,13 +22,20 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+
 ---
 
+![sketch_190419a](2019/sketch_190419a/sketch_190419a.png)
+
+[sketch_190419a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190419a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Press space-bar to order outer_pts clockwise, and inner_pts anticlockwise (counterclockwise, in the US)
+
+---
 
 ![sketch_190418a](2019/sketch_190418a/sketch_190418a.png)
 
 [sketch_190418a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190418a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
