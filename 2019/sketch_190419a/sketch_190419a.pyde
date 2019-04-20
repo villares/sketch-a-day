@@ -139,8 +139,6 @@ def keyPressed():
     if key == "g":
         gif_export(GifMaker, filename=SKETCH_NAME)
 
-    
-
 def centeroidpython(data):
     x, y = zip(*data)
     l = len(x)
