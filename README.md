@@ -24,6 +24,16 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190421a](2019/sketch_190420a/sketch_190421a.png)
+
+[sketch_190421](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190420a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+This clean up of my Design By Numbers studies from last year will count as today's sketch :)
+
+Check out the other pieces, pixel and scalable fonts I created here: http://github.com/villares/DesignByNumbers-alphabet
+
+---
+
 ![sketch_190420a](2019/sketch_190420a/sketch_190420a.gif)
 
 [sketch_190420a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190420a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
