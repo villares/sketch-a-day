@@ -46,7 +46,7 @@ Press space-bar to order outer_pts clockwise, and inner_pts anticlockwise (count
 
 ---
 
-![sketch_190417a](2019/sketch_190417a/sketch_190417a.pgn)
+![sketch_190417a](2019/sketch_190417a/sketch_190417a.png)
 
 [sketch_190417a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190417a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
