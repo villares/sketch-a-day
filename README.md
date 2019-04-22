@@ -28,7 +28,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190421](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190420a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-This clean up and tweak of studies of Maeda's Design By Numbers alphabet from last year will count as today's sketch :)
+This clean up and tweak of studies of Design By Numbers alphabet [designed by Peter Cho](https://twitter.com/johnmaeda/status/1120021496733347840) from last year will count as today's sketch :)
 
 Check out the other pieces, pixel and scaleable fonts I created here: http://github.com/villares/DesignByNumbers-alphabet
 
