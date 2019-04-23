@@ -4,7 +4,7 @@ class Poly():
     
     text_on = False
     drag = -1
-    hole = -1
+    drag_hole = -1
     drag_drag_pt = -1
     
     def __init__(self, outer_pts, holes=[[(0, 0)]]):
@@ -32,6 +32,9 @@ class Poly():
         Poly.annotate_pts(self.outer_pts, color(200, 0, 0), 5)
         Poly.annotate_pts(self.holes[0], color(0, 0, 200), 5)
         popStyle()
+        
+        def remove_pt(self, i, j):
+            pass
 
     @classmethod
     def annotate_pts(cls, pts, c, scale_m=1):
