@@ -15,7 +15,6 @@ polys = [Poly([(2, 2), (2, 4), (4, 4), (4, 2)]),
               holes=[[(-4, -4), (-6, -6), (-1, -7)], ]),
          ]
 
-
 def setup():
     size(500, 500, P2D)
     CELL_SIZE = 25
@@ -35,7 +34,6 @@ def draw():
     for p in polys:
         p.plot()
 
-
 def mousePressed():
     if keyPressed and keyCode == CONTROL:
         for p in polys:
@@ -48,7 +46,9 @@ def mousePressed():
                 return
 
 def mouseDragged():
-    if Poly.drag >= 0:  # a Poly point has been selected to be dragged
+    if Poly.drag >= 0 and not keyPressed:
+        # a Poly point has been selected to be dragged
+        # and no modifier key is pressed...
         if Poly.drag_hole == -1:  # if no hole wase selected
             polys[Poly.drag].outer_pts[Poly.drag_pt] = (
                 int(mouseX / Poly.cell_size) - Poly.x_offset,
@@ -59,6 +59,18 @@ def mouseDragged():
                 int(mouseY / Poly.cell_size) - Poly.y_offset)
 
 def mouseReleased():
+    if Poly.drag >= 0 and keyPressed and keyCode == SHIFT:
+        # a Poly point has been selected to be dragged
+        # and SHIFT key is pressed...
+        if Poly.drag_hole == -1:  # if no hole wase selected
+            polys[Poly.drag].outer_pts.insert(
+                Poly.drag_pt, (int(mouseX / Poly.cell_size) - Poly.x_offset,
+                               int(mouseY / Poly.cell_size) - Poly.y_offset))
+        else:
+            polys[Poly.drag].holes[Poly.drag_hole].insert(
+                Poly.drag_pt, (int(mouseX / Poly.cell_size) - Poly.x_offset,
+                               int(mouseY / Poly.cell_size) - Poly.y_offset))
+
     Poly.drag = -1  # No poly selected
     Poly.drag_hole = -1  # No hole selected
     Poly.drag_pt = -1  # No point selected
