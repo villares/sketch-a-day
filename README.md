@@ -23,6 +23,13 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 ## 2019
 ---
 
+![sketch_190423a](2019/sketch_190423a/sketch_190423a.png)
+
+[sketch_190423a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190423a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now I drag any point, inclunding of holes, and remove points.
+TODO: Add points; Drag polys.
+
 ---
 
 ![sketch_190422a](2019/sketch_190422a/sketch_190422a.png)
