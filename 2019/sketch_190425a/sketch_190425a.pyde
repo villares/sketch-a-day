@@ -84,7 +84,7 @@ def keyPressed():
     # if key == "g":
     #     gif_export(GifMaker, filename=SKETCH_NAME)
     if key == "s":
-        saveFrame(SKETCH_NAME + ".png")
+        saveFrame(SKETCH_NAME + "#.png")
     if key == "t":
         Poly.text_on = not Poly.text_on
 

@@ -1,36 +1,63 @@
 from __future__ import division
 
 order = 9
+p = 4
+alt = False
+
 
 def setup():
     size(700, 700)
-    noFill()# fill(0)
+    noFill()  # fill(0)
     textAlign(CENTER, CENTER)
     rectMode(CENTER)
     strokeWeight(2)
+    colorMode(HSB)
 
 def draw():
-    s = width / order
+    background(240)
+    siz = width / order
+    if alt:
+        grid(siz, draw_tritB)
+    else:
+        grid(siz, draw_tritA)
+
+def grid(siz, func):
     i = 0
     for x in range(order):
         for y in range(order):
             with pushMatrix():
-                translate(s / 2 + x * s, s/ 2 + y * s)
+                translate(siz / 2 + x * siz,
+                          siz / 2 + y * siz)
                 #text(trit(i, pad=4), 0, 0)
-                draw_trit(trit(i, pad=4))
-            i += 1        
+                func(trit(i, pad=p))
+            i += 1
 
-def draw_trit(trit):
-    r = 8
+def draw_tritA(trit):
+    r = 32
     for t in trit:
+        if t == '0':
+            stroke(0, 255, 128)
+            rect(0, 0, r, r)
+        elif t == '1':
+            stroke(256 / 3 * 2, 255, 128)
+            rect(0, 0, r / 2, r * 2)
+        else:
+            stroke(256 / 3, 255, 128)
+            rect(0, 0, r * 2, r / 2)
+        r -= 8
+
+def draw_tritB(trit):
+    r = 32
+    for t in trit:
+        stroke(8 + r * 7, 255, 128)
         if t == '0':
             rect(0, 0, r, r)
         elif t == '1':
-            rect(0, 0, r/2, r*2)
+            rect(0, 0, r / 2, r * 2)
         else:
-            rect(0, 0, r*2, r/2)
-        r += 8
-    
+            rect(0, 0, r * 2, r / 2)
+        r -= 8
+
 def to_base(num, base):
     # inverse of int(str, base)
     BS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -44,12 +71,22 @@ def trit(n, pad):
     s = to_base(n, 3)
     while len(s) < pad:
         s = "0" + s
-    return s
+    return s[::-1]
 
 
 def keyPressed():
-    saveFrame("###.png")
-    
+    global alt, p
+
+    if key == "s":
+        saveFrame("###.png")
+
+    if key == "a":
+        alt = not alt
+        
+    if key == "p":
+        p = (p - 1) % 5
+
+
 def settings():
     from os import path
     global SKETCH_NAME
