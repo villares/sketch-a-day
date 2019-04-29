@@ -1,3 +1,6 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# Quaternary combinations
+
 from __future__ import division
 
 order = 16 # for a grid with 256 positions

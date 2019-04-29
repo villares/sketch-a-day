@@ -1,3 +1,6 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# Trit grids inspired by Arjan vn der Meij @dutchplotter https://twitter.com/arjanvandermeij 
+
 from __future__ import division
 
 order = 9

@@ -1,3 +1,6 @@
+# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# Quaternary combinations
+
 from __future__ import division
 from arcs import var_bar
 
