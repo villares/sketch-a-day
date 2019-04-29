@@ -24,9 +24,19 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190428b](2019/sketch_190428b/sketch_190428b.png)
+
+[sketch_190428b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190428b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Mixing in my var_bar() circle/circle tangent shape
+
+---
+
 ![sketch_190427b](2019/sketch_190427b/sketch_190427b.png)
 
 [sketch_190427b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190427b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now based on 4 quaternary digits (256 variations). Each digit can be 0, 1, 2, or 3. And zero means no shape drawn for that layer/position. Still influenced by @arjanvandermeij :)
 
 ---
 
@@ -45,6 +55,9 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 ![sketch_190424b](2019/sketch_190424b/sketch_190424b.png)
 
 [sketch_190424b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190424b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+ Inspired by "trit" grids of balanced ternary digits from @arjanvandermeij
+ (4 ternary digits -> 81 variations) 
 
 ---
 
