@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# triternary combinations
+# ternary combinations
 
 from __future__ import division
 from arcs import var_bar
@@ -8,13 +8,13 @@ order = 5  # for a grid with 25 positions
 alt = False
 
 def setup():
-    size(720, 720)
+    size(600, 600)
     noFill()  # fill(0)
     textAlign(CENTER, CENTER)
     strokeWeight(2)
     smooth(4)
     colorMode(RGB)
-    #blendMode(MULTIPLY)
+    # blendMode(MULTIPLY)
 
 def draw():
     background(200)
@@ -24,6 +24,16 @@ def draw():
         grid(siz, margin, draw_tritB)
     else:
         grid(siz, margin, draw_tritA)
+        
+    fill(0)
+    ellipse(siz / 3, siz / 3, 64, 64)
+    fill(255)
+    text("000", siz / 3, siz / 3)
+    fill(255)
+    ellipse(height - siz / 3, height - siz / 3, 64, 64)
+    fill(0)
+    text("222", height - siz / 3, height - siz / 3)
+
 
 def grid(siz, margin, func):
     i = 1
