@@ -1,5 +1,5 @@
 """
-Alexandexternal_rB A Villares - https://abav.lugaralgum.com/sketch-a-day
+Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
 - Unfolding piramids
 """
@@ -64,23 +64,23 @@ def piramid_3D(np, ext_r, base_r):
             vertex(*p2)
             vertex(0, 0, h)
             endShape(CLOSE)
-    # sempexternal_rdesenha a base
+    # always draws base
     beginShape()
     for pt in base_points:
         vertex(*pt)
     endShape(CLOSE)
-    # devolve os points para usar no 2D!
+    # return points for 2D!
     return points
 
 def piramid_2D(points):
     noFill()
-    # FOLD_STROKEs da base
+    # base fold lines
     stroke(FOLD_STROKE)
     beginShape()
     for pt in points[::2]:
         vertex(*pt)
     endShape(CLOSE)
-    # edges laterais
+    # lateral edges
     o_points = points[1:] + [points[0]]
     edges = zip(points, o_points)
     for i, edge in enumerate(edges):
