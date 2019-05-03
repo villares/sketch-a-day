@@ -98,7 +98,7 @@ def piramid_2D(points):
 
 def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI / 3):
     """
-    draws a trapezoidal or tbase_rangular glue tab along edge defined by p1 and p2,
+    draws a trapezoidal or triangular glue tab along edge defined by p1 and p2,
     with width tab_w and cut angle a
     """
     al = atan2(p1[0] - p2[0], p1[1] - p2[1])
@@ -119,7 +119,7 @@ def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI / 3):
         vertex(*f2)
         vertex(*p2)
         endShape()
-    else:    # short tbase_rangular tab
+    else:    # short triangular tab
         fm = ((f1[0] + f2[0]) / 2, (f1[1] + f2[1]) / 2)
         beginShape()
         vertex(*p1)
