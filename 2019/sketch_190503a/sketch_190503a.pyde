@@ -59,10 +59,16 @@ def prism_3D(np, h, base_r):
     for pt in base_points:
         vertex(pt[0], pt[1], h)
     endShape(CLOSE)
+    beginShape()
+    for pt in base_points:
+        vertex(pt[0], pt[1], 0)
+    endShape(CLOSE)
     # return points for 2D!
     return points
 
 def prism_2D(points):
+    ang = radians(360. / len(points))
+    rotate(ang/2)
     noFill()
     # base fold lines
     stroke(FOLD_STROKE)
@@ -73,7 +79,7 @@ def prism_2D(points):
     # lateral edges
     o_points = points[1:] + [points[0]]
     edges = zip(points, o_points)
-    for i, edge in enumerate(edges):
+    for i, edge in enumerate(edges[1:]):
         p1, p2 = edge
         stroke(CUT_STROKE)
         # abas de cola
