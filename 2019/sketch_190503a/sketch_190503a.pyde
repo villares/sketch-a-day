@@ -1,7 +1,7 @@
 """
 Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
-- Unfolding piramids
+- Unfolding prism
 """
 
 # add_library('GifAnimation')
@@ -10,7 +10,7 @@ Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 CUT_STROKE = color(255, 0, 0)
 FOLD_STROKE = color(0, 0, 255)
 
-outer_radius, inner_radius = 100, 50
+p_height, inner_radius = 100, 50
 sides = 5
 
 def setup():
@@ -28,56 +28,46 @@ def draw():
     stroke(0)
     strokeWeight(2)
     # draw 3D piramid and get points
-    points = piramid_3D(sides, outer_radius, inner_radius)
+    points = prism_3D(sides, p_height, inner_radius)
     popMatrix()
     # draw unfolded 2D
     translate(width / 2, height *  3 / 4 - 50)
-    piramid_2D(points)
+    prism_2D(points)
 
-def piramid_3D(np, ext_r, base_r):
+def prism_3D(np, h, base_r):
     # calculando os points
     points = []
-    n = np * 2
-    for i in range(n):
-        ang = radians(i * 360. / n)
-        if i % 2 == 0:
-            r = base_r
-        else:
-            r = ext_r
-        x = sin(ang) * r
-        y = cos(ang) * r
+    for i in range(np):
+        ang = radians(i * 360. / np)
+        x = sin(ang) * base_r
+        y = cos(ang) * base_r
         points.append((x, y))
     # edges da base
-    base_points = points[::2]
+    base_points = points[::]
     o_base_points = base_points[1:] + [base_points[0]]
     base_edges = zip(base_points, o_base_points)
-    # calculo da altura
-    (p0x, p0y), (p1x, p1y) = points[0], points[1]
-    side = dist(p0x, p0y, p1x, p1y)
-    h_squared = side * side - base_r * base_r
-    if h_squared > 0:  # se a altura viavel
-        h = sqrt(h_squared)
-        for edge in base_edges:
-            p1, p2 = edge
+    for edge in base_edges:
+            (p1x, p1y), (p2x, p2y) = edge
             beginShape()
-            vertex(*p1)
-            vertex(*p2)
-            vertex(0, 0, h)
+            vertex(p1x, p1y, 0)
+            vertex(p1x, p1y, h)
+            vertex(p2x, p2y, h)
+            vertex(p2x, p2y, 0)
             endShape(CLOSE)
     # always draws base
     beginShape()
     for pt in base_points:
-        vertex(*pt)
+        vertex(pt[0], pt[1], h)
     endShape(CLOSE)
     # return points for 2D!
     return points
 
-def piramid_2D(points):
+def prism_2D(points):
     noFill()
     # base fold lines
     stroke(FOLD_STROKE)
     beginShape()
-    for pt in points[::2]:
+    for pt in points:
         vertex(*pt)
     endShape(CLOSE)
     # lateral edges
@@ -86,16 +76,12 @@ def piramid_2D(points):
     for i, edge in enumerate(edges):
         p1, p2 = edge
         stroke(CUT_STROKE)
-        if i % 2 == 0:
         # abas de cola
-            glue_tab(p2, p1, 10, )
-            # FOLD_STROKE
-            stroke(FOLD_STROKE)
-            line(p2[0], p2[1], p1[0], p1[1])
-        else:
-            # outra edge cortada
-            line(p1[0], p1[1], p2[0], p2[1])
-
+        glue_tab(p2, p1, 10, )
+        # FOLD_STROKE
+        stroke(FOLD_STROKE)
+        line(p2[0], p2[1], p1[0], p1[1])
+        
 def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI / 3):
     """
     draws a trapezoidal or triangular glue tab along edge defined by p1 and p2,
@@ -128,11 +114,11 @@ def glue_tab(p1, p2, tab_w, cut_ang=QUARTER_PI / 3):
         endShape()
 
 def keyPressed():
-    global inner_radius, outer_radius, sides
+    global inner_radius, p_height, sides
     if keyCode == UP:
-        outer_radius += 5
+        p_height += 5
     if keyCode == DOWN:
-        outer_radius -= 5
+        p_height -= 5
     if keyCode == LEFT:
         inner_radius += 5
     if keyCode == RIGHT:
