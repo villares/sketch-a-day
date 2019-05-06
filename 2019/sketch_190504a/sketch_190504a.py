@@ -1,4 +1,8 @@
-from pytop5js import *
+# Alexandre B A Villares
+# run this, install and run pyp5js
+# instructions at https://pypi.org/project/pyp5js/
+
+from pyp5js import *
 
 def setup():
     createCanvas(400, 400)
@@ -21,6 +25,5 @@ def draw():
         sy2 = y2 + sin(a2) * r * cos(frameCount/30.)
         line(sx1, sy1, sx2, sy2)
 
-  
 # This is required by pyp5js to work
 start_p5(setup, draw)
