@@ -50,7 +50,8 @@ def draw():
     rotateY(angle)
     angle += ANGLE_STEP
 
-    beta <= SEGS_LIMIT and addKnot()
+    if beta <= SEGS_LIMIT:
+        addKnot()
     beta += BETA_STEP
 
     with beginShape():
@@ -61,7 +62,7 @@ def draw():
 
 def mousePressed():
     global paused
-    paused ^= True
+    paused = not paused
     noLoop() if paused else loop()
 
 
