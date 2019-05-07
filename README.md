@@ -35,25 +35,15 @@ Old sketch tweaked to port tomorrow.
 
 ### Using [pyp5js](https://github.com/berinhard/pyp5js) to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190505b/index.html)
  
-Code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505b)[Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505a)
+sketch_190505a code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505b)[Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505a)
 
 ---
 
 ![sketch_190504a](2019/sketch_190504a/sketch_190504a.png)
 
-### Using [pyp5js](https://github.com/berinhard/pyp5js) to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
+### Using [pyp5js](https://github.com/berinhard/pyp5js)to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
  
-Code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190504a)
-
----
-
-![sketch_190504a](2019/sketch_190504a/sketch_190504a.png)
-
-### Using [pyp5js](https://github.com/berinhard/pyp5js)! 
-
-Code:[sketch_190504a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190504a)
-
-Running [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
+sketch_190504a code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190504a)
 
 ---
 
