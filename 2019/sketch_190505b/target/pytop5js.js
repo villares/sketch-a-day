@@ -1,4 +1,4 @@
-// Transcrypt'ed from Python, 2019-05-06 00:01:48
+// Transcrypt'ed from Python, 2019-05-06 22:22:55
 import {AssertionError, AttributeError, BaseException, DeprecationWarning, Exception, IndexError, IterableError, KeyError, NotImplementedError, RuntimeWarning, StopIteration, UserWarning, ValueError, Warning, __JsIterator__, __PyIterator__, __Terminal__, __add__, __and__, __call__, __class__, __envir__, __eq__, __floordiv__, __ge__, __get__, __getcm__, __getitem__, __getslice__, __getsm__, __gt__, __i__, __iadd__, __iand__, __idiv__, __ijsmod__, __ilshift__, __imatmul__, __imod__, __imul__, __in__, __init__, __ior__, __ipow__, __irshift__, __isub__, __ixor__, __jsUsePyNext__, __jsmod__, __k__, __kwargtrans__, __le__, __lshift__, __lt__, __matmul__, __mergefields__, __mergekwargtrans__, __mod__, __mul__, __ne__, __neg__, __nest__, __or__, __pow__, __pragma__, __proxy__, __pyUseJsNext__, __rshift__, __setitem__, __setproperty__, __setslice__, __sort__, __specialattrib__, __sub__, __super__, __t__, __terminal__, __truediv__, __withblock__, __xor__, all, any, assert, bool, bytearray, bytes, callable, chr, deepcopy, delattr, dict, dir, divmod, enumerate, getattr, hasattr, input, isinstance, issubclass, len, list, object, ord, property, py_TypeError, py_iter, py_metatype, py_next, py_reversed, py_typeof, range, repr, setattr, sorted, sum, tuple, zip} from './org.transcrypt.__runtime__.js';
 var __name__ = 'pytop5js';
 export var _P5_INSTANCE = null;
@@ -993,6 +993,17 @@ export var TAU = null;
 export var TWO_PI = null;
 export var DEGREES = null;
 export var RADIANS = null;
+export var CLOSE = null;
+export var RGB = null;
+export var HSB = null;
+export var CMYK = null;
+export var TOP = null;
+export var BOTTOM = null;
+export var CENTER = null;
+export var LEFT = null;
+export var RIGHT = null;
+export var SHIFT = null;
+export var WEBGL = null;
 export var frameCount = null;
 export var focused = null;
 export var displayWidth = null;
@@ -1031,7 +1042,6 @@ export var mouseButton = null;
 export var mouseIsPressed = null;
 export var touches = null;
 export var pixels = null;
-export var CLOSE = null;
 export var pre_draw = function (p5_instance, draw_func) {
 	HALF_PI = p5_instance.HALF_PI;
 	PI = p5_instance.PI;
@@ -1040,6 +1050,17 @@ export var pre_draw = function (p5_instance, draw_func) {
 	TWO_PI = p5_instance.TWO_PI;
 	DEGREES = p5_instance.DEGREES;
 	RADIANS = p5_instance.RADIANS;
+	CLOSE = p5_instance.CLOSE;
+	RGB = p5_instance.RGB;
+	HSB = p5_instance.HSB;
+	CMYK = p5_instance.CMYK;
+	TOP = p5_instance.TOP;
+	BOTTOM = p5_instance.BOTTOM;
+	CENTER = p5_instance.CENTER;
+	LEFT = p5_instance.LEFT;
+	RIGHT = p5_instance.RIGHT;
+	SHIFT = p5_instance.SHIFT;
+	WEBGL = p5_instance.WEBGL;
 	frameCount = p5_instance.frameCount;
 	focused = p5_instance.focused;
 	displayWidth = p5_instance.displayWidth;
@@ -1078,7 +1099,6 @@ export var pre_draw = function (p5_instance, draw_func) {
 	mouseIsPressed = p5_instance.mouseIsPressed;
 	touches = p5_instance.touches;
 	pixels = p5_instance.pixels;
-	CLOSE = p5_instance.CLOSE;
 	return draw_func ();
 };
 export var global_p5_injection = function (p5_sketch) {

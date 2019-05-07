@@ -747,6 +747,17 @@ TAU = None
 TWO_PI = None
 DEGREES = None
 RADIANS = None
+CLOSE = None
+RGB = None
+HSB = None
+CMYK = None
+TOP = None
+BOTTOM = None
+CENTER = None
+LEFT = None
+RIGHT = None
+SHIFT = None
+WEBGL = None
 frameCount = None
 focused = None
 displayWidth = None
@@ -785,13 +796,12 @@ mouseButton = None
 mouseIsPressed = None
 touches = None
 pixels = None
-CLOSE = None
 
 def pre_draw(p5_instance, draw_func):
     """
     We need to run this before the actual draw to insert and update p5 env variables
     """
-    global HALF_PI, PI, QUARTER_PI, TAU, TWO_PI, DEGREES, RADIANS, frameCount, focused, displayWidth, displayHeight, windowWidth, windowHeight, width, height, disableFriendlyErrors, deviceOrientation, accelerationX, accelerationY, accelerationZ, pAccelerationX, pAccelerationY, pAccelerationZ, rotationX, rotationY, rotationZ, pRotationX, pRotationY, pRotationZ, turnAxis, keyIsPressed, key, keyCode, mouseX, mouseY, pmouseX, pmouseY, winMouseX, winMouseY, pwinMouseX, pwinMouseY, mouseButton, mouseIsPressed, touches, pixels, CLOSE
+    global HALF_PI, PI, QUARTER_PI, TAU, TWO_PI, DEGREES, RADIANS, CLOSE, RGB, HSB, CMYK, TOP, BOTTOM, CENTER, LEFT, RIGHT, SHIFT, WEBGL, frameCount, focused, displayWidth, displayHeight, windowWidth, windowHeight, width, height, disableFriendlyErrors, deviceOrientation, accelerationX, accelerationY, accelerationZ, pAccelerationX, pAccelerationY, pAccelerationZ, rotationX, rotationY, rotationZ, pRotationX, pRotationY, pRotationZ, turnAxis, keyIsPressed, key, keyCode, mouseX, mouseY, pmouseX, pmouseY, winMouseX, winMouseY, pwinMouseX, pwinMouseY, mouseButton, mouseIsPressed, touches, pixels
 
     HALF_PI = p5_instance.HALF_PI
     PI = p5_instance.PI
@@ -800,6 +810,17 @@ def pre_draw(p5_instance, draw_func):
     TWO_PI = p5_instance.TWO_PI
     DEGREES = p5_instance.DEGREES
     RADIANS = p5_instance.RADIANS
+    CLOSE = p5_instance.CLOSE
+    RGB = p5_instance.RGB
+    HSB = p5_instance.HSB
+    CMYK = p5_instance.CMYK
+    TOP = p5_instance.TOP
+    BOTTOM = p5_instance.BOTTOM
+    CENTER = p5_instance.CENTER
+    LEFT = p5_instance.LEFT
+    RIGHT = p5_instance.RIGHT
+    SHIFT = p5_instance.SHIFT
+    WEBGL = p5_instance.WEBGL
     frameCount = p5_instance.frameCount
     focused = p5_instance.focused
     displayWidth = p5_instance.displayWidth
@@ -838,7 +859,6 @@ def pre_draw(p5_instance, draw_func):
     mouseIsPressed = p5_instance.mouseIsPressed
     touches = p5_instance.touches
     pixels = p5_instance.pixels
-    CLOSE = p5_instance.CLOSE
     
     return draw_func()
 

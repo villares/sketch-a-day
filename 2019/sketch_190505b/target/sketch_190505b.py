@@ -1,6 +1,5 @@
 from pytop5js import *
 
-
 w = h = d = 1
 
 # Cubo
