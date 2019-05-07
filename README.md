@@ -25,6 +25,28 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190506c](2019/sketch_190506c/sketch_190506c.gif)
+
+Old sketch tweaked to port tomorrow.
+
+---
+
+![sketch_190505a](2019/sketch_190505b/sketch_190505b.png)
+
+### Using [pyp5js](https://github.com/berinhard/pyp5js) to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190505b/index.html)
+ 
+Code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505b)[Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505a)
+
+---
+
+![sketch_190504a](2019/sketch_190504a/sketch_190504a.png)
+
+### Using [pyp5js](https://github.com/berinhard/pyp5js) to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
+ 
+Code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190504a)
+
+---
+
 ![sketch_190504a](2019/sketch_190504a/sketch_190504a.png)
 
 ### Using [pyp5js](https://github.com/berinhard/pyp5js)! 
