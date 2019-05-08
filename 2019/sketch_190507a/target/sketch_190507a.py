@@ -1,3 +1,7 @@
+"""
+Alexandre B A Villares - abav.lugaralgum.com/sketch-a-day
+"""
+
 from pyp5js import *
 
 sliders = []
