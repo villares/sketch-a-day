@@ -2,7 +2,7 @@
 Alexandre B A Villares - abav.lugaralgum.com/sketch-a-day
 """
 
-from pyp5js import *
+from pyp5js import * # pip3 install pyp5js [info at github.com/berinhard/pyp5js]
 
 sliders = []
 
@@ -45,9 +45,6 @@ def draw():
                  y + rand_posi * random(-1, 1),
                  square_size,
                  square_size)
-
-# def mousePressed():
-#     global grid_elem
 
 # This is required by pyp5js to work
 start_p5(setup, draw)
