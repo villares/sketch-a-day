@@ -1,33 +1,30 @@
-from pytop5js import *
-# P5 = _P5_INSTANCE
-param = [20, 20, 20, 20]
-grid_elem = elem_size = rand_size = rand_posi = 20
+from pyp5js import *
+
+sliders = []
 
 def setup():
-    # fullScreen()
-    createCanvas(600, 600)
- #   	s1 = _P5_INSTANCE.createSlider(0, 255, 100)
-	# s1.position(20, 20)
-	# s2 = _P5_INSTANCE.createSlider(0, 255, 0);
-	# s2.position(20, 50);
-	# s3 = _P5_INSTANCE.createSlider(0, 255, 255);
-	# s3.position(20, 80);
-	# s4 = _P5_INSTANCE.createSlider(0, 255, 255);
-	# s4.position(20,110);
-
-    rectMode(CENTER)  # retângulos desenhados pelo centro
-    colorMode(HSB, 255, 255, 255)  
+    P5 = _P5_INSTANCE
+    createCanvas(windowWidth, windowHeight)
+    #createCanvas(600, 600)
+    for i in range(4):
+        s = P5.createSlider(0, 64, 0)
+        s.position(10, i * 30)
+        s.style("width", "200px")
+        sliders.append(s)
+    rectMode('center')  # retângulos desenhados pelo centro
+    colorMode('hsb', 255, 255, 255)  
     strokeWeight(2)  # espessura de linha 2px
     noFill()  # sem preenchimento
     frameRate(30)  # deixa um pouco mais lento
     
 def draw():
-	# global grid_elem
-	# global elem_size, grid_elem, elem_size
     background(200)  # fundo cinza claro
 
- 	# grid_elem = mouseX / 10
-
+    grid_elem = 5 + sliders[0].value()
+    elem_size = 5 + sliders[1].value()
+    rand_size = sliders[2].value()
+    rand_posi = sliders[3].value()
+    
     # trava a randomização entre os ciclos de draw
     # mas varia com o número de colunas na grade
     randomSeed(int(grid_elem / 4))
@@ -46,8 +43,7 @@ def draw():
                  square_size)
 
 # def mousePressed():
-# 	global grid_elem
-
+#     global grid_elem
 
 # This is required by pyp5js to work
 start_p5(setup, draw)
