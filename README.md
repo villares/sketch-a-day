@@ -24,6 +24,12 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190508a](2019/sketch_190508a/sketch_190508a.gif)
+
+sketch_190508a [[code for Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190508a)]
+
+---
+
 [![sketch_190507a](2019/sketch_190507a/sketch_190507a.png)](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190507a/index.html)
 
 Using [pyp5js](https://github.com/berinhard/pyp5js)to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190507a/index.html)
@@ -42,13 +48,15 @@ Old sketch tweaked to port tomorrow.
 
 Using [pyp5js](https://github.com/berinhard/pyp5js) to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190505b/index.html)
  
-sketch_190505a [[code for pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505b)][[code for Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505a)]
+sketch_190505a
+[[code for pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505b)]
+[[code for Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505a)]
 
 ---
 
 ![sketch_190504a](2019/sketch_190504a/sketch_190504a.png)
 
-### Using [pyp5js](https://github.com/berinhard/pyp5js)to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
+Using [pyp5js](https://github.com/berinhard/pyp5js)to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
  
 sketch_190504a code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190504a)
 
