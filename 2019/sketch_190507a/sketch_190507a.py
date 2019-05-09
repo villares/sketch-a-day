@@ -1,8 +1,11 @@
 """
 Alexandre B A Villares - abav.lugaralgum.com/sketch-a-day
+
+Made with pyp5js - more info at github.com/berinhard/pyp5js
+Install it with $ pip3 install pyp5js 
 """
 
-from pyp5js import * # pip3 install pyp5js [info at github.com/berinhard/pyp5js]
+from pyp5js import *
 
 sliders = []
 
