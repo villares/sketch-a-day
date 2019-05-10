@@ -22,11 +22,22 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+
+---
+
+![sketch_190509a](2019/sketch_190509a/sketch_190509a.gif)
+
+[sketch_190509a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190509a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Ugly but works :)
+
 ---
 
 ![sketch_190508a](2019/sketch_190508a/sketch_190508a.gif)
 
 sketch_190508a [[code for Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190508a)]
+
+Back unfolding solids... 2D faces missing.
 
 ---
 
