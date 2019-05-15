@@ -24,7 +24,16 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
-![sketch_190513a](2019/sketch_190513a/sketch_190513a.png)
+
+![sketch_190514b](2019/sketch_190514b/sketch_190514b.gif)
+
+[sketch_190514b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190514b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Another take, thinking of color separation for printing ;)
+
+---
+
+![sketch_190513a](2019/sketch_190513a/sketch_190513a.gif)
 
 [sketch_190513a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190513a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
