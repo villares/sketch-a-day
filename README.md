@@ -24,6 +24,25 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190517a](2019/sketch_190517a/sketch_190517a.gif)
+
+[sketch_190517a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190517a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+56 combinations of 8 points, 3 at a time (and some 8 possible radius to the enclonsing rounded polys)
+
+---
+
+![sketch_190516a](2019/sketch_190516a/sketch_190516a.gif)
+
+[sketch_190516a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190516a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+![sketch_190517a](2019/sketch_190517a/sketch_190517a.gif)
+
+[sketch_190517a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190517a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Only 3 points now
+
+---
+
 ![sketch_190515a](2019/sketch_190515a/sketch_190515a.gif)
 
 [sketch_190515a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190515a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
