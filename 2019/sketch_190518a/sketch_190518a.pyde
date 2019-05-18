@@ -1,32 +1,39 @@
-"""*
- *        A simple example for class Combination.
- *        fjenett 20090306
- """
+"""
+A simple example for class Combination.
+fjenett 20090306
+"""
 
 add_library('Combinatorics')
 
 def setup():
     size(500, 500)
     background(0)
-    fill(255, 0, 0)
-    textSize(11)
-
-    chars = "0123456789ABCDEF"
+    colorMode(HSB)
+    chars, n = "0123456789ABCDEF", 3
+    # chars, n = "0123456789", 3
     # Generate the following combinations:
     # place 16 elements on 3 positions
-    combinations = Combination(len(chars), 3)
+    combinations = Combination(len(chars), n)
     println(combinations.totalAsInt())
-    
-    h = height / (combinations.totalAsInt() + 0.5) * 10.8
-    x, y, w = 0, h, 48
+
+    h = height / (combinations.totalAsInt() + 0.5) * 9.6
+    x, y, w = 0, 0, (width - 20) / 10
+    textSize(10)
+    i = 0
     while (combinations.hasMore()):
-        c = combinations.next()
-        t = chars[c[0]] + " " + chars[c[1]] + " " + chars[c[2]]
-        text(t, 20 + x, 5 + y)
+        combination = combinations.next()
+        t = ""
+        for elem in combination:
+            t += chars[elem]  # + " "
+        fill((i * 64) % 255, 255, 255)
+        text(t, 20 + x, 20 + y * h)
         x += w
-        if x > width:
+        if x > width - 50:
             x = 0
-            y += h
-            
+            y += 1
+            print y
+        i += 1
+        # print i
+
     saveFrame("sketch_190518a.png")
     noLoop()
