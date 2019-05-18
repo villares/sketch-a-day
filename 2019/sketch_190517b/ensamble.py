@@ -21,8 +21,6 @@ class Ensamble:
         # poly(self.p_list)
         strokeWeight(10)
         for i in range(len(rad_list)):
-            colorMode(HSB)
-            stroke(i 8, 255, 255)
             poly_arc_augmented(self.p_list, rad_list)
             rad_list[:] = [rad_list[-1]] + rad_list[:-1]
  

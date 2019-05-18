@@ -54,12 +54,16 @@ def create_grid(grid_list, rad_list):
 def draw():
     translate(0, 50)
     scale(1 / N, 1 / N)
+    colorMode(RGB)
     background(250, 250, 240)
     for x in range(N):
         for y in range(N):
+            i = x + y * N 
             pushMatrix()
             translate(x * 700, y * 700)
-            if x + y * N < 56:
+            if i < 56:
+                colorMode(HSB)
+                stroke(i * (256/8) % 256, 255, 255)
                 grid[x + y * N].plot()
             popMatrix()
 
