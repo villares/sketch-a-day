@@ -8,8 +8,7 @@ from gif_exporter import gif_export
 
 SPACING, MARGIN = 100, 250
 grid = []
-N = 8 
-
+# 56 combinations of 8 elements, taken 3 by 3
 combinations = ((0, 1, 2), (0, 1, 3), (0, 1, 4), (0, 1, 5),
                 (0, 1, 6), (0, 1, 7), (0, 2, 3), (0, 2, 4),
                 (0, 2, 5), (0, 2, 6), (0, 2, 7), (0, 3, 4),
@@ -50,6 +49,7 @@ def create_grid(grid_list, rad_list):
 
 def draw():
     translate(0, 50)
+    N = 8 
     scale(1 / N, 1 / N)
     colorMode(RGB)
     background(250, 250, 240)
