@@ -28,16 +28,14 @@ def setup():
     global grid_list, rad_list
     size(700, 700)
     W, H = 700, 700
-    X_LIST = [x for x in range(MARGIN, 1 + W - MARGIN, SPACING)]
-    Y_LIST = [y for y in range(MARGIN, 1 + H - MARGIN, SPACING)]
-    print X_LIST
-    grid_list = []
-    for x in X_LIST:
-        for y in Y_LIST:
-            grid_list.append((x, y))
-    grid_list.pop(len(grid_list) // 2)
-    rad_list = [20, 40, 60, 80, 100, 120, 140, 160] 
     
+    grid_list = []
+    for x in range(MARGIN, 1 + W - MARGIN, SPACING):
+        for y in range(MARGIN, 1 + H - MARGIN, SPACING):
+            grid_list.append((x, y))
+    grid_list.pop(len(grid_list) // 2) # 8 pos, 9 minus the middle pos
+    rad_list = list(range(20, 161, 20)) # 8: 20, 40, 60, ... 160
+
     create_grid(grid_list, rad_list)
     
     
