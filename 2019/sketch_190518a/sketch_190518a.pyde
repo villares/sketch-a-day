@@ -1,6 +1,6 @@
 """
-A simple example for class Combination.
-fjenett 20090306
+Port and tweak of a simple example for class Combination.
+by fjenett 20090306
 """
 
 add_library('Combinatorics')
@@ -22,11 +22,13 @@ def setup():
     i = 0
     while (combinations.hasMore()):
         combination = combinations.next()
-        t = ""
-        for elem in combination:
-            t += chars[elem]  # + " "
-        fill((i * 64) % 255, 255, 255)
-        text(t, 20 + x, 20 + y * h)
+        txt = ""
+        for n in combination:
+            elem = chars[n]
+            txt += elem
+        m = (int(txt, 16))
+        fill(m / 16 , 255, 255)
+        text(txt, 20 + x, 20 + y * h)
         x += w
         if x > width - 50:
             x = 0
