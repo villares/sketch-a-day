@@ -24,6 +24,30 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+
+![sketch_190519a](2019/sketch_190519a/sketch_190519a.gif)
+
+[sketch_190519a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190519a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+
+
+![sketch_190518a](2019/sketch_190518a/sketch_190518a.png)
+
+[sketch_190518a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190518a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![sketch_190517b](2019/sketch_190517b/sketch_190517b.gif)
+
+[sketch_190517b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190517a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Also... internation day against homophobia, transhoobia and biphobia.
+
+---
+
 ![sketch_190517a](2019/sketch_190517a/sketch_190517a.gif)
 
 [sketch_190517a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190517a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
