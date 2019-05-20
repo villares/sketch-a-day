@@ -20,7 +20,7 @@ def setup():
     x, y, w = 0, 0, (width - 20) / 10
     textSize(10)
     i = 0
-    while (combinations.hasMore()):
+    while combinations.hasMore():
         combination = combinations.next()
         txt = ""
         for n in combination:
