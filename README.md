@@ -29,11 +29,15 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190521a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190521a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Shuffle of 125970 combinations...
+
 ---
 
 ![sketch_190520a](2019/sketch_190520a/sketch_190520a-15504.gif)
 
 [sketch_190520a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190520a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+More experiments (check the code folder for other GIFs)
 
 ---
 
