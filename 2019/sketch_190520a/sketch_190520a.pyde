@@ -6,30 +6,32 @@ from gif_exporter import gif_export
 add_library('GifAnimation')
 
 space = 20
-num_lines = 6
-
+num_lines = 5
+position = 0  # initial position
 
 def setup():
     global line_combos, W, H, position, num
     size(600, 600)
+    W, H = (width - space) / space, (height - space) / space
+    print(W, H)
     frameRate(5)
     rectMode(CENTER)
     strokeWeight(1)
-    # grid = product(range(-1, 2), repeat=2) # 3X3
-    grid = product(range(-2, 2), repeat=2) # 4X4
+
+    grid = product(range(-1, 2), repeat=2) # 3X3
+    # grid = product(range(-2, 2), repeat=2) # 4X4
+    # all possible lines
     lines = combinations(grid, 2)
+    # only short lines
     short_lines = []
     for l in lines:
         (x0, y0), (x1, y1) = l[0], l[1]
-        if dist(x0, y0, x1, y1) <= sqrt(2):
+        if dist(x0, y0, x1, y1) < 2: # short as defined here
             short_lines.append(l)
     print(len(short_lines))
+    # main stuff
     line_combos = list(combinations(short_lines, num_lines))
     num = len(line_combos)
-    W, H = (width - space) / space, (height - space) / space
-    position = 0
-    print(W, H)
-
 
 def draw():
     global position
