@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# I offer this to my friend Rafael Garcia 
+# I offer this to my friend Rafael Garcia!
 
 from __future__ import division
 from random import choice
