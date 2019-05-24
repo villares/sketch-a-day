@@ -3,12 +3,12 @@
 
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
-from gif_exporter import gif_export
-add_library('GifAnimation')
+# from gif_exporter import gif_export
+# add_library('GifAnimation')
 
 space = 40
 num_lines = 5
-position = 0
+position = 0  # initial position
 
 
 def setup():
@@ -20,14 +20,19 @@ def setup():
     # grid = product(range(-1, 1), repeat=2) # 2X2
     grid = product(range(-1, 2), repeat=2) # 3X3
     # grid = product(range(-2, 2), repeat=2) # 4X4
+    
+    # all possible lines
     lines = combinations(grid, 2)
+    # colect only short lines
     short_lines = []
     for l in lines:
         (x0, y0), (x1, y1) = l[0], l[1]
-        if dist(x0, y0, x1, y1) <= sqrt(2):
+        if dist(x0, y0, x1, y1) < 2: # short as defined here...
             short_lines.append(l)
-    print(len(short_lines))
-    line_combos = list(combinations(short_lines, num_lines))
+    num_short_lines = len(short_lines)
+    println("Number of possible lines: {}".format(num_short_lines))
+    # main stuff
+    line_combos = list(combinations(num_short_lines, num_lines))
     shuffle(line_combos)
     num = len(line_combos)
     W, H = (width - space) / space, (height - space) / space

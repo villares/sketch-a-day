@@ -1,37 +1,46 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # More explorations of lines in grids
 
+from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
-# from gif_exporter import gif_export
-# add_library('GifAnimation')
+from gif_exporter import gif_export
+add_library('GifAnimation')
 
-space = 20
-num_lines = 5
+space = 35
 position = 0  # initial position
+
 
 def setup():
     global line_combos, W, H, position, num
     size(600, 600)
-    W, H = (width - space) / space, (height - space) / space
-    print(W, H)
     frameRate(5)
     rectMode(CENTER)
     strokeWeight(1)
-
-    grid = product(range(-1, 2), repeat=2) # 3X3
-    # grid = product(range(-2, 2), repeat=2) # 4X4
+    # grid = product(range(-1, 1), repeat=2) # 2X2
+    # grid = product(range(-1, 2), repeat=2) # 3X3
+    grid = product(range(-2, 2), repeat=2) # 4X4
+    
     # all possible lines
     lines = combinations(grid, 2)
-    # only short lines
+    # colect only short lines
     short_lines = []
     for l in lines:
         (x0, y0), (x1, y1) = l[0], l[1]
-        if dist(x0, y0, x1, y1) < 2: # short as defined here
+        if 1 < dist(x0, y0, x1, y1) < 2: # short as defined here...
             short_lines.append(l)
-    println("Number of possible lines: {}".format(len(short_lines)))
+    num_short_lines = len(short_lines)
+    println("Number of possible lines: {}".format(num_short_lines))
     # main stuff
-    line_combos = list(combinations(short_lines, num_lines))
+    line_combos = list(combinations(short_lines, 4))
+    # line_combos = []
+    # for n in range(9):
+    #    line_combos += list(combinations(short_lines, n))
+    # shuffle(line_combos)
     num = len(line_combos)
+    print line_combos
+    W, H = (width - space) / space, (height - space) / space
+    print(W, H)
+
 
 def draw():
     global position
@@ -50,12 +59,12 @@ def draw():
                 popMatrix()
                 i += 1
     if i < len(line_combos):
-        # gif_export(GifMaker, SKETCH_NAME + "-" +  str(num))
+        gif_export(GifMaker, SKETCH_NAME + "-" +  str(num))
         position += W
 
 def draw_combo(i):
     colorMode(RGB)
-    siz = space / 4
+    siz = space / 4 - 2
     for i, sl in enumerate(line_combos[i]):
         colorMode(HSB)
         # stroke(i * 32, 200, 200)
