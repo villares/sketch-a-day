@@ -1,4 +1,4 @@
-// Transcrypt'ed from Python, 2019-05-26 00:13:39
+// Transcrypt'ed from Python, 2019-05-26 19:19:28
 import {AssertionError, AttributeError, BaseException, DeprecationWarning, Exception, IndexError, IterableError, KeyError, NotImplementedError, RuntimeWarning, StopIteration, UserWarning, ValueError, Warning, __JsIterator__, __PyIterator__, __Terminal__, __add__, __and__, __call__, __class__, __envir__, __eq__, __floordiv__, __ge__, __get__, __getcm__, __getitem__, __getslice__, __getsm__, __gt__, __i__, __iadd__, __iand__, __idiv__, __ijsmod__, __ilshift__, __imatmul__, __imod__, __imul__, __in__, __init__, __ior__, __ipow__, __irshift__, __isub__, __ixor__, __jsUsePyNext__, __jsmod__, __k__, __kwargtrans__, __le__, __lshift__, __lt__, __matmul__, __mergefields__, __mergekwargtrans__, __mod__, __mul__, __ne__, __neg__, __nest__, __or__, __pow__, __pragma__, __proxy__, __pyUseJsNext__, __rshift__, __setitem__, __setproperty__, __setslice__, __sort__, __specialattrib__, __sub__, __super__, __t__, __terminal__, __truediv__, __withblock__, __xor__, all, any, assert, bool, bytearray, bytes, callable, chr, deepcopy, delattr, dict, dir, divmod, enumerate, getattr, hasattr, input, isinstance, issubclass, len, list, object, ord, property, py_TypeError, py_iter, py_metatype, py_next, py_reversed, py_typeof, range, repr, setattr, sorted, sum, tuple, zip} from './org.transcrypt.__runtime__.js';
 import {combinations, combinations_with_replacement, permutations, product} from './itertools.js';
 import {shuffle} from './random.js';
@@ -56,10 +56,10 @@ export var draw = function () {
 		position += W;
 	}
 };
-export var draw_combo = function (i) {
+export var draw_combo = function (n) {
 	var siz = space / 3.0;
-	for (var [i, sl] of enumerate (line_combos [i])) {
-		colorMode (p5.HSB);
+	for (var [i, sl] of enumerate (line_combos [n])) {
+		colorMode (HSB);
 		stroke (i * 64, 160, 160);
 		var __left0__ = tuple ([sl [0], sl [1]]);
 		var x0 = __left0__ [0][0];
@@ -72,4 +72,4 @@ export var draw_combo = function (i) {
 export var event_functions = dict ({'keyPressed': 'keyPressed'});
 start_p5 (setup, draw, event_functions);
 
-//# sourceMappingURL=sketch_190525b.map
+//# sourceMappingURL=test26a.map

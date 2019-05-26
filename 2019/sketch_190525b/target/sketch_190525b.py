@@ -1,11 +1,13 @@
-from pyp5js import *
-W = None
-H = None
-position = None
-num = None
-line_combos = None
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # More explorations of lines in grids
+
+from pyp5js import *
+
+W = None
+H = None
+num = None
+line_combos = None
+
 
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
@@ -48,7 +50,7 @@ def draw():
                 push()
                 translate(space + space * x, space + space * y)
                 draw_combo(i)
-                P5.pop()
+                pop()
                 i += 1
     if i < len(line_combos):
         position += W
@@ -61,9 +63,9 @@ def draw_combo(i):
         (x0, y0), (x1, y1) = sl[0], sl[1]
         line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
 
-def keyPressed():
-    if key == "s":
-        saveFrame("####.png")
+# def keyPressed():
+#     if key == "s":
+#         saveFrame("####.png")
         
 
 # ==== This is required by pyp5js to work
