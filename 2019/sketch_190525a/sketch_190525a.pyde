@@ -17,8 +17,8 @@ def setup():
     rectMode(CENTER)
     strokeWeight(2)
     # grid = product(range(-1, 1), repeat=2) # 2X2
-    # grid = product(range(-1, 2), repeat=2) # 3X3
-    grid = product(range(-2, 2), repeat=2) # 4X4
+    grid = product(range(-1, 2), repeat=2) # 3X3
+    # grid = product(range(-2, 2), repeat=2) # 4X4
     
     # all possible lines
     lines = combinations(grid, 2)
@@ -26,7 +26,7 @@ def setup():
     short_lines = []
     for l in lines:
         (x0, y0), (x1, y1) = l[0], l[1]
-        if 1 < dist(x0, y0, x1, y1) < 2: # short as defined here...
+        if dist(x0, y0, x1, y1) < 3: # short as defined here...
             short_lines.append(l)
     num_short_lines = len(short_lines)
     println("Number of possible lines: {}".format(num_short_lines))
@@ -35,11 +35,11 @@ def setup():
     # line_combos = []
     # for n in range(9):
     #    line_combos += list(combinations(short_lines, n))
-    # shuffle(line_combos)
+    shuffle(line_combos)
     num = len(line_combos)
-    print line_combos
+    println(num)
     W, H = (width - space) / space, (height - space) / space
-    print(W, H)
+    println((W, H, W * H))
 
 
 def draw():
@@ -50,7 +50,7 @@ def draw():
         for x in range(W):
             if i < len(line_combos):
                 pushMatrix()
-                translate(10 + space + space * x, 10 + space + space * y)
+                translate(space + space * x, space + space * y)
                 draw_combo(i)
                 popMatrix()
                 i += 1
