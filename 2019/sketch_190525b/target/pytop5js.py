@@ -190,9 +190,6 @@ def frameRate(*args):
 def noCursor(*args):
     return _P5_INSTANCE.noCursor(*args)
 
-def windowResized(*args):
-    return _P5_INSTANCE.windowResized(*args)
-
 def fullscreen(*args):
     return _P5_INSTANCE.fullscreen(*args)
 
@@ -231,9 +228,6 @@ def loop(*args):
 
 def push(*args):
     return _P5_INSTANCE.push(*args)
-
-def pop(*args):
-    return _P5_INSTANCE.pop(*args)
 
 def redraw(*args):
     return _P5_INSTANCE.redraw(*args)
@@ -382,56 +376,8 @@ def setMoveThreshold(*args):
 def setShakeThreshold(*args):
     return _P5_INSTANCE.setShakeThreshold(*args)
 
-def deviceMoved(*args):
-    return _P5_INSTANCE.deviceMoved(*args)
-
-def deviceTurned(*args):
-    return _P5_INSTANCE.deviceTurned(*args)
-
-def deviceShaken(*args):
-    return _P5_INSTANCE.deviceShaken(*args)
-
-def keyPressed(*args):
-    return _P5_INSTANCE.keyPressed(*args)
-
-def keyReleased(*args):
-    return _P5_INSTANCE.keyReleased(*args)
-
-def keyTyped(*args):
-    return _P5_INSTANCE.keyTyped(*args)
-
 def keyIsDown(*args):
     return _P5_INSTANCE.keyIsDown(*args)
-
-def mouseMoved(*args):
-    return _P5_INSTANCE.mouseMoved(*args)
-
-def mouseDragged(*args):
-    return _P5_INSTANCE.mouseDragged(*args)
-
-def mousePressed(*args):
-    return _P5_INSTANCE.mousePressed(*args)
-
-def mouseReleased(*args):
-    return _P5_INSTANCE.mouseReleased(*args)
-
-def mouseClicked(*args):
-    return _P5_INSTANCE.mouseClicked(*args)
-
-def doubleClicked(*args):
-    return _P5_INSTANCE.doubleClicked(*args)
-
-def mouseWheel(*args):
-    return _P5_INSTANCE.mouseWheel(*args)
-
-def touchStarted(*args):
-    return _P5_INSTANCE.touchStarted(*args)
-
-def touchMoved(*args):
-    return _P5_INSTANCE.touchMoved(*args)
-
-def touchEnded(*args):
-    return _P5_INSTANCE.touchEnded(*args)
 
 def createImage(*args):
     return _P5_INSTANCE.createImage(*args)
@@ -740,6 +686,13 @@ def setCamera(*args):
     return _P5_INSTANCE.setCamera(*args)
 
 
+
+def pop(*args):
+    __pragma__('noalias', 'pop')
+    p5_pop = _P5_INSTANCE.pop(*args)
+    __pragma__('alias', 'pop', 'py_pop')
+    return p5_pop
+
 HALF_PI = None
 PI = None
 QUARTER_PI = None
@@ -747,6 +700,17 @@ TAU = None
 TWO_PI = None
 DEGREES = None
 RADIANS = None
+CLOSE = None
+RGB = None
+HSB = None
+CMYK = None
+TOP = None
+BOTTOM = None
+CENTER = None
+LEFT = None
+RIGHT = None
+SHIFT = None
+WEBGL = None
 frameCount = None
 focused = None
 displayWidth = None
@@ -790,7 +754,7 @@ def pre_draw(p5_instance, draw_func):
     """
     We need to run this before the actual draw to insert and update p5 env variables
     """
-    global HALF_PI, PI, QUARTER_PI, TAU, TWO_PI, DEGREES, RADIANS, frameCount, focused, displayWidth, displayHeight, windowWidth, windowHeight, width, height, disableFriendlyErrors, deviceOrientation, accelerationX, accelerationY, accelerationZ, pAccelerationX, pAccelerationY, pAccelerationZ, rotationX, rotationY, rotationZ, pRotationX, pRotationY, pRotationZ, turnAxis, keyIsPressed, key, keyCode, mouseX, mouseY, pmouseX, pmouseY, winMouseX, winMouseY, pwinMouseX, pwinMouseY, mouseButton, mouseIsPressed, touches, pixels
+    global HALF_PI, PI, QUARTER_PI, TAU, TWO_PI, DEGREES, RADIANS, CLOSE, RGB, HSB, CMYK, TOP, BOTTOM, CENTER, LEFT, RIGHT, SHIFT, WEBGL, frameCount, focused, displayWidth, displayHeight, windowWidth, windowHeight, width, height, disableFriendlyErrors, deviceOrientation, accelerationX, accelerationY, accelerationZ, pAccelerationX, pAccelerationY, pAccelerationZ, rotationX, rotationY, rotationZ, pRotationX, pRotationY, pRotationZ, turnAxis, keyIsPressed, key, keyCode, mouseX, mouseY, pmouseX, pmouseY, winMouseX, winMouseY, pwinMouseX, pwinMouseY, mouseButton, mouseIsPressed, touches, pixels
 
     HALF_PI = p5_instance.HALF_PI
     PI = p5_instance.PI
@@ -799,6 +763,17 @@ def pre_draw(p5_instance, draw_func):
     TWO_PI = p5_instance.TWO_PI
     DEGREES = p5_instance.DEGREES
     RADIANS = p5_instance.RADIANS
+    CLOSE = p5_instance.CLOSE
+    RGB = p5_instance.RGB
+    HSB = p5_instance.HSB
+    CMYK = p5_instance.CMYK
+    TOP = p5_instance.TOP
+    BOTTOM = p5_instance.BOTTOM
+    CENTER = p5_instance.CENTER
+    LEFT = p5_instance.LEFT
+    RIGHT = p5_instance.RIGHT
+    SHIFT = p5_instance.SHIFT
+    WEBGL = p5_instance.WEBGL
     frameCount = p5_instance.frameCount
     focused = p5_instance.focused
     displayWidth = p5_instance.displayWidth
@@ -857,12 +832,14 @@ def global_p5_injection(p5_sketch):
     return decorator
 
 
-def start_p5(setup_func, draw_func):
+def start_p5(setup_func, draw_func, event_functions):
     """
     This is the entrypoint function. It accepts 2 parameters:
 
     - setup_func: a Python setup callable
     - draw_func: a Python draw callable
+    - event_functions: a config dict for the event functions in the format:
+                       {"eventFunctionName": python_event_function}
 
     This method gets the p5js's sketch instance and injects them
     """
@@ -871,4 +848,12 @@ def start_p5(setup_func, draw_func):
         p5_sketch.setup = global_p5_injection(p5_sketch)(setup_func)
         p5_sketch.draw = global_p5_injection(p5_sketch)(draw_func)
 
-    return __new__ (p5(sketch_setup, 'sketch-holder'))
+    instance =  __new__ (p5(sketch_setup, 'sketch-holder'))
+
+    # inject event functions into p5
+    event_function_names = ["deviceMoved", "deviceTurned", "deviceShaken", "keyPressed", "keyReleased", "keyTyped", "mouseMoved", "mouseDragged", "mousePressed", "mouseReleased", "mouseClicked", "doubleClicked", "mouseWheel", "touchStarted", "touchMoved", "touchEnded", "windowResized", ]
+
+    for f_name in [f for f in event_function_names if f in event_functions]:
+        func = event_functions[f_name]
+        event_func = global_p5_injection(instance)(func)
+        setattr(instance, f_name, event_func)
