@@ -2,18 +2,14 @@
 # More explorations of lines in grids
 
 from pyp5js import *
-
-W = None
-H = None
-num = None
-line_combos = None
-
-
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
 space = 15
 position = 0  # initial position
-
+W = None
+H = None
+num = None
+line_combos = None
 
 def setup():
     global line_combos, W, H, position, num
@@ -55,10 +51,10 @@ def draw():
     if i < len(line_combos):
         position += W
 
-def draw_combo(i):
+def draw_combo(n):
     siz = space / 3.
-    for i, sl in enumerate(line_combos[i]):
-        colorMode(p5.HSB)
+    for i, sl in enumerate(line_combos[n]):
+        colorMode(HSB)
         stroke(i * 64, 160, 160)
         (x0, y0), (x1, y1) = sl[0], sl[1]
         line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
