@@ -56,10 +56,9 @@ def draw():
     if i < len(line_combos):
         position += W
 
-def draw_combo(i):
-    colorMode(RGB)
+def draw_combo(n):
     siz = space / 3.
-    for i, sl in enumerate(line_combos[i]):
+    for i, sl in enumerate(line_combos[n]):
         colorMode(HSB, 255, 255, 255)
         stroke(i * 64, 160, 160)
         (x0, y0), (x1, y1) = sl[0], sl[1]

@@ -24,6 +24,17 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190527a](2019/sketch_190527a/sketch_190527a.gif)
+
+[sketch_190527a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190527a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Variations: isolated/merged color/b&w ordered/shuffled
+Number of possible long lines on 4x4 grid: 22
+Number of combinations: 7315
+Cols: 133 Lines: 55 Visible grid: 7315
+
+---
+
 ![sketch_190526a](2019/sketch_190526a/sketch_190526a.png)
 
 [sketch_190526a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190526a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

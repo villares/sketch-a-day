@@ -6,19 +6,19 @@ from itertools import product, combinations, permutations, combinations_with_rep
 from gif_exporter import gif_export
 add_library('GifAnimation')
 
-space = 15
+space = 10
 position = 0  # initial position
 
 
 def setup():
     global line_combos, W, H, position, num
-    size(1045, 700)
+    size(1340, 560)
     frameRate(5)
     rectMode(CENTER)
-    strokeWeight(2)
+    strokeWeight(1)
     # grid = product(range(-1, 1), repeat=2) # 2X2
-    grid = product(range(-1, 2), repeat=2) # 3X3
-    # grid = product(range(-2, 2), repeat=2) # 4X4
+    # grid = product(range(-1, 2), repeat=2) # 3X3
+    grid = product(range(-2, 2), repeat=2) # 4X4
     
     # all possible lines
     lines = combinations(grid, 2)
@@ -26,16 +26,13 @@ def setup():
     short_lines = []
     for l in lines:
         (x0, y0), (x1, y1) = l[0], l[1]
-        if dist(x0, y0, x1, y1) < 3: # short as defined here...
+        if dist(x0, y0, x1, y1) > 3: # short as defined here...
             short_lines.append(l)
     num_short_lines = len(short_lines)
     println("Number of possible lines: {}".format(num_short_lines))
     # main stuff
     line_combos = list(combinations(short_lines, 4))
-    # line_combos = []
-    # for n in range(9):
-    #    line_combos += list(combinations(short_lines, n))
-    shuffle(line_combos)
+    # shuffle(line_combos) # ucomment to shuffle!
     num = len(line_combos)
     println(num)
     W, H = (width - space) / space, (height - space) / space
@@ -54,15 +51,17 @@ def draw():
                 draw_combo(i)
                 popMatrix()
                 i += 1
+            else: noLoop()
     if i < len(line_combos):
-        gif_export(GifMaker, SKETCH_NAME + "-" +  str(num))
+        # gif_export(GifMaker, SKETCH_NAME + "-" +  str(num))
         position += W
 
-def draw_combo(n):
+def draw_combo(i):
+    colorMode(RGB)
     siz = space / 3.
-    for i, sl in enumerate(line_combos[n]):
+    for i, sl in enumerate(line_combos[i]):
         colorMode(HSB)
-        stroke(i * 64, 160, 160)
+        # stroke(i * 64, 160, 160)
         (x0, y0), (x1, y1) = sl[0], sl[1]
         line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
 
@@ -74,7 +73,7 @@ def settings():
     from os import path
     global SKETCH_NAME
     SKETCH_NAME = path.basename(sketchPath())
-    OUTPUT = ".gif"
+    OUTPUT = ".png"
     println(
         """
 ![{0}]({2}/{0}/{0}{1})
