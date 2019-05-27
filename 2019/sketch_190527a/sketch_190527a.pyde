@@ -3,8 +3,8 @@
 
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
-from gif_exporter import gif_export
-add_library('GifAnimation')
+# from gif_exporter import gif_export
+# add_library('GifAnimation')
 
 space = 10
 position = 0  # initial position
@@ -73,9 +73,9 @@ def draw_combo(combo_n):
 def keyPressed():
     global mode
     if key == "s":
-        saveFrame("####.png")
-    if key == "g":
-        gif_export(GifMaker, SKETCH_NAME, delay=1200)
+        saveFrame("mode-"+str(mode)+"-##.png")
+    # if key == "g":
+    #     gif_export(GifMaker, SKETCH_NAME, delay=1200)
     if key == "m":
         mode = (mode + 1) % 3
     if key == "r":

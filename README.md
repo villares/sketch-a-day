@@ -28,16 +28,20 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190527a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190527a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Variations: isolated/merged color/b&w ordered/shuffled
-Number of possible long lines on 4x4 grid: 22
-Number of combinations: 7315
-Cols: 133 Lines: 55 Visible grid: 7315
+- Number of possible long lines on 4x4 grid: 22
+- Number of combinations: 7315
+- Cols: 133 Lines: 55 Visible grid: 7315
+- Variations: isolated/merged color/b&w ordered/shuffled
 
 ---
 
 ![sketch_190526a](2019/sketch_190526a/sketch_190526a.png)
 
 [sketch_190526a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190526a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Number of possible lines on a 3x3 grid: 24
+- Number of combinations: 10626
+- Cols: 68 Lines: 45 Visible grid: 3060 (scrolling)
 
 ---
 
@@ -97,7 +101,7 @@ More experiments (check the code folder for other GIFs)
 
 [sketch_190517b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190517b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Also... internation day against homophobia, transhoobia and biphobia.
+Also... internation day against homophobia, transphobia and biphobia.
 
 ---
 

@@ -34,9 +34,9 @@ def setup():
     line_combos = list(combinations(short_lines, 4))
     # shuffle(line_combos) # ucomment to shuffle!
     num = len(line_combos)
-    println(num)
+    println("Number of combinations: {}".format(num))
     W, H = (width - space) / space, (height - space) / space
-    println((W, H, W * H))
+    println("Cols: {} Lines: {} Visible grid: {}".format(W, H, W * H))
 
 
 def draw():
@@ -57,7 +57,6 @@ def draw():
         position += W
 
 def draw_combo(combo_n):
-    colorMode(RGB)
     siz = space / 2.
     for stroke_n, stroke_line in enumerate(line_combos[combo_n]):
         colorMode(HSB)
