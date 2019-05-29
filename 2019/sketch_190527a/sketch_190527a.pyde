@@ -34,7 +34,7 @@ def setup():
     num = len(line_combos)
     println("Number of combinations: {}".format(num))
     W, H = (width - space) / space, (height - space) / space
-    println("Cols: {} Lines: {} Visible grid: {}".format(W, H, W * H))
+    println("Cols: {} Rows {} Visible grid: {}".format(W, H, W * H))
 
 
 def draw():

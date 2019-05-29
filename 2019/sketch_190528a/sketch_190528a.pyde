@@ -33,8 +33,7 @@ def setup():
     num = len(line_combos)
     println("Number of permutations: {}".format(num))
     W, H = 61, 62
-    println((W, H, W * H))
-    println("Cols: {} Lines: {} Visible grid: {}".format(W, H, W * H))
+    println("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))
 
 
 def draw():
