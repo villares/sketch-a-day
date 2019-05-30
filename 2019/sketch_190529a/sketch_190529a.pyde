@@ -3,8 +3,8 @@
 
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
-from gif_exporter import gif_export
-add_library('GifAnimation')
+# from gif_exporter import gif_export
+# add_library('GifAnimation')
 
 space, border = 40, 20
 position = 0  # initial position
@@ -54,7 +54,7 @@ def draw():
                 popMatrix()
                 i += 1
     if i < len(line_combos):
-        gif_export(GifMaker, SKETCH_NAME)
+        # gif_export(GifMaker, SKETCH_NAME)
         # gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
         position += H * W
     else:
@@ -62,7 +62,7 @@ def draw():
 
 def draw_combo(n):
     colorMode(RGB)
-    siz = space #/ 2. # B option
+    siz = space / 2. # B option
     for i, sl in enumerate(line_combos[n]):
         colorMode(HSB)
         stroke(i * 64, 128, 128)
