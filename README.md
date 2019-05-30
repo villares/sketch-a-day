@@ -24,11 +24,27 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+---
+
+![sketch_190529a](2019/sketch_190528a/sketch_190528a.gif)
+![sketch_190529b](2019/sketch_190528a/sketch_190528b.gif)
+
+[sketch_190529a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190529a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Number of bars on 2x2 grid: 12
+Number of permutations (taking 3 bars): 1320
+Cols: 20  Rows: 11  Visible grid: 220 (x6)
+
+---
+
 ![sketch_190528a](2019/sketch_190528a/0748.png)
 ![sketch_190528a](2019/sketch_190528a/0757.png)
 
 [sketch_190528a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190528a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Number of long lines on a 4x4 grid: 62
+Number of permutations (taking 2 lines): 3782
+Cols: 61  Rows: 62  Visible grid: 3782
 
 ---
 
@@ -38,7 +54,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 - Number of possible long lines on 4x4 grid: 22
 - Number of combinations: 7315
-- Cols: 133 Lines: 55 Visible grid: 7315
+- Cols: 133  Lines: 55  Visible grid: 7315
 - Variations: isolated/merged color/b&w ordered/shuffled
 
 ---
@@ -47,7 +63,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190526a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190526a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-- Number of possible lines on a 3x3 grid: 24
+- Number of lines on a 3x3 grid: 24
 - Number of combinations: 10626
 - Cols: 68 Lines: 45 Visible grid: 3060 (scrolling)
 
