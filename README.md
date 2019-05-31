@@ -24,17 +24,18 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
-![sketch_190530b](2019/sketch_190528b/sketch_190530b.gif)
+![sketch_190530b](2019/sketch_190530b/sketch_190530b.gif)
 
-[sketch_190530b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190529a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190530b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190530a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 - Number of possible lines on a 3x3: 40
 - Number of combinations: 91390
 - Cols: 19 Rows: 10 Visible grid: 190
+
 ---
 
-![sketch_190529a](2019/sketch_190528a/sketch_19052ba.gif)
-![sketch_190529b](2019/sketch_190528b/sketch_190529b.gif)
+![sketch_190529a](2019/sketch_190529a/sketch_19052ba.gif)
+![sketch_190529b](2019/sketch_190529b/sketch_190529b.gif)
 
 [sketch_190529a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190529a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
