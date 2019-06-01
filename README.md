@@ -24,6 +24,16 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190531a](2019/sketch_190531a/sketch_190531a.gif)
+
+[sketch_190531a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190531a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Number of possible lines: 84
+- Number of combinations: 3486
+- Cols: 38 Rows: 31 Visible grid: 1178
+
+---
+
 ![sketch_190530b](2019/sketch_190530b/sketch_190530b.gif)
 
 [sketch_190530b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190530a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

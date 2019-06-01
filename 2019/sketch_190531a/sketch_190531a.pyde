@@ -6,29 +6,29 @@ from itertools import product, combinations, permutations, combinations_with_rep
 from gif_exporter import gif_export
 add_library('GifAnimation')
 
-space, border = 40, 40
+space, border = 20, 20
 position = 0  # initial position
 
 
 def setup():
     global line_combos, W, H, position, num
-    size(840, 480)
+    size(800, 660)
     frameRate(1)
     rectMode(CENTER)
     strokeWeight(1.5)
     grid = product(range(-1, 2), repeat=2)  # 3X3
     # all line permutations on a grid
-    lines = permutations(grid, 2)
+    possible_lines = list(combinations(grid, 3))
     # allow only some lines
-    possible_lines = []
-    for l in lines:
-        (x0, y0), (x1, y1) = l[0], l[1]
-        if dist(x0, y0, x1, y1) < 2:  # rule defined here...
-            possible_lines.append(l)
+    # possible_lines = []
+    # for l in lines:
+    #     (x0, y0), (x1, y1) = l[0], l[1]
+    #     if dist(x0, y0, x1, y1) < 2:  # rule defined here...
+    #         possible_lines.append(l)
     num_possible_lines = len(possible_lines)
     println("Number of possible lines: {}".format(num_possible_lines))
     # main stuff
-    line_combos = list(combinations(possible_lines, 4))
+    line_combos = list(combinations(possible_lines, 2))
     # shuffle(line_combos) # ucomment to shuffle!
     num = len(line_combos)
     println("Number of permutations: {}".format(num))
@@ -54,7 +54,7 @@ def draw():
                 i += 1
     if i < len(line_combos):
         gif_export(GifMaker, SKETCH_NAME)
-        # gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
+        gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
         position += H * W
     # else:
         # gif_export(GifMaker, finish=True)
@@ -64,7 +64,7 @@ def draw_combo(n):
     siz = space/2
     for i, sl in enumerate(line_combos[n]):
         colorMode(HSB)
-        stroke(i * 64, 128, 128)
+        stroke(i * 128, 128, 128)
         (x0, y0), (x1, y1) = sl[0], sl[1]
         noFill()
         var_bar(x0 * siz, y0 * siz, x1 * siz, y1 * siz, siz / 8, siz / 4)
