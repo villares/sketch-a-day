@@ -54,10 +54,10 @@ def draw():
                 i += 1
     if i < len(line_combos):
         gif_export(GifMaker, SKETCH_NAME)
-        gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
+        # gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
         position += H * W
-    # else:
-        # gif_export(GifMaker, finish=True)
+    else:
+        gif_export(GifMaker, finish=True)
 
 def draw_combo(n):
     colorMode(RGB)
