@@ -5,6 +5,7 @@ from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
 from gif_exporter import gif_export
 add_library('GifAnimation')
+from polys import *
 
 space, border = 20, 20
 position = 0  # initial position
@@ -16,14 +17,14 @@ def setup():
     frameRate(1)
     rectMode(CENTER)
     strokeWeight(1.5)
-    grid = product(range(-1, 2), repeat=2)  # 3X3
+    grid = product(range(-1, 2), repeat=2)  # 2X2
     # all line permutations on a grid
     possible_lines = list(combinations(grid, 3))
     # allow only some lines
     # possible_lines = []
     # for l in lines:
     #     (x0, y0), (x1, y1) = l[0], l[1]
-    #     if dist(x0, y0, x1, y1) < 2:  # rule defined here...
+    # if dist(x0, y0, x1, y1) < 2:  # rule defined here...
     #         possible_lines.append(l)
     num_possible_lines = len(possible_lines)
     println("Number of possible lines: {}".format(num_possible_lines))
@@ -57,17 +58,19 @@ def draw():
         # gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
         position += H * W
     else:
-        # gif_export(GifMaker, finish=True)
+        gif_export(GifMaker, finish=True)
 
 def draw_combo(n):
     colorMode(RGB)
-    siz = space/2
+    siz = space / 2
     for i, sl in enumerate(line_combos[n]):
         colorMode(HSB)
-        stroke(i * 128, 128, 128)
-        (x0, y0), (x1, y1) = sl[0], sl[1]
-        noFill()
-        var_bar(x0 * siz, y0 * siz, x1 * siz, y1 * siz, siz / 8, siz / 4)
+        fill(i * 128, 128, 128, 100)
+        (x0, y0), (x1, y1), (x2, y2) = sl[0], sl[1], sl[2]
+        # noStroke()
+        poly(((x0 * siz, y0 * siz),
+             (x1 * siz, y1 * siz),
+             (x2 * siz, y2 * siz)))
 
 def keyPressed():
     global W, H
