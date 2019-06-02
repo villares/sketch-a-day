@@ -28,14 +28,17 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190601a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190601a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+- Number of possible triangles: 84 (including "colapsed triangles" with colinear points)
+- 2 triangles the number of combinations is: 3486 
 ---
 
 ![sketch_190531a](2019/sketch_190531a/sketch_190531a.gif)
 
 [sketch_190531a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190531a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-- Number of possible lines: 84
-- Number of combinations: 3486
+- Number of possible triangles: 84
+- Taking 3 points twice the number of combinations is: 3486 
+- But I'm drawing "bars" using just 2 of the 3 points, so I have lots of repeated "combos" on this one.
 - Cols: 38 Rows: 31 Visible grid: 1178
 
 ---
