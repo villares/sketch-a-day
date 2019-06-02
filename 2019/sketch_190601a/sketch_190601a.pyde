@@ -5,7 +5,6 @@ from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
 from gif_exporter import gif_export
 add_library('GifAnimation')
-from polys import *
 
 space, border = 20, 20
 position = 0  # initial position
@@ -54,8 +53,7 @@ def draw():
                 popMatrix()
                 i += 1
     if i < len(line_combos):
-        # gif_export(GifMaker, SKETCH_NAME)
-        # gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
+        gif_export(GifMaker, SKETCH_NAME)
         position += H * W
     else:
         gif_export(GifMaker, finish=True)
@@ -77,6 +75,19 @@ def keyPressed():
     if key == "s":
         saveFrame("####.png")
 
+
+def poly(p_list, closed=True):
+    beginShape()
+    for p in p_list:
+        if len(p) == 2 or p[2] == 0:
+            vertex(p[0], p[1])
+        else:
+            vertex(*p)
+    if closed:
+        endShape(CLOSE)
+    else:
+        endShape()
+
 def settings():
     from os import path
     global SKETCH_NAME
@@ -89,48 +100,3 @@ def settings():
 [{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 """.format(SKETCH_NAME, OUTPUT, year())
     )
-
-def var_bar(p1x, p1y, p2x, p2y, r1, r2=None):
-    """
-    Tangent/tangent shape on 2 circles of arbitrary radius
-    """
-    if r2 is None:
-        r2 = r1
-    #line(p1x, p1y, p2x, p2y)
-    d = dist(p1x, p1y, p2x, p2y)
-    ri = r1 - r2
-    if d > abs(ri):
-        rid = (r1 - r2) / d
-        if rid > 1:
-            rid = 1
-        if rid < -1:
-            rid = -1
-        beta = asin(rid) + HALF_PI
-        with pushMatrix():
-            translate(p1x, p1y)
-            angle = atan2(p1x - p2x, p2y - p1y)
-            rotate(angle + HALF_PI)
-            x1 = cos(beta) * r1
-            y1 = sin(beta) * r1
-            x2 = cos(beta) * r2
-            y2 = sin(beta) * r2
-            #print((d, beta, ri, x1, y1, x2, y2))
-            with pushStyle():
-                noStroke()
-                beginShape()
-                vertex(-x1, -y1)
-                vertex(d - x2, -y2)
-                vertex(d, 0)
-                vertex(d - x2, +y2)
-                vertex(-x1, +y1)
-                vertex(0, 0)
-                endShape(CLOSE)
-            line(-x1, -y1, d - x2, -y2)
-            line(-x1, +y1, d - x2, +y2)
-            arc(0, 0, r1 * 2, r1 * 2,
-                -beta - PI, beta - PI)
-            arc(d, 0, r2 * 2, r2 * 2,
-                beta - PI, PI - beta)
-    else:
-        ellipse(p1x, p1y, r1 * 2, r1 * 2)
-        ellipse(p2x, p2y, r2 * 2, r2 * 2)
