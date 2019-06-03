@@ -24,6 +24,16 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190602a](2019/sketch_190602a/sketch_190602a.png)
+
+[sketch_190602a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190602a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Number of possible triangles: 76
+- Number of combinations of 2 triangles: 2850
+- Cols: 75 Rows: 38 Visible grid: 2850
+
+---
+
 ![sketch_190601a](2019/sketch_190601a/sketch_190601a.png)
 
 [sketch_190601a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190601a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -38,7 +48,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 - Number of possible triangles: 84
 - Taking 3 points twice the number of combinations is: 3486 
-- But I'm drawing "bars" using just 2 of the 3 points, so I have lots of repeated "combos" on this one.
+- But I'm drawing "bars" using just 2 of the 3 points, so I have lots of repeated "combos" on this one
 - Cols: 38 Rows: 31 Visible grid: 1178
 
 ---
