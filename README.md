@@ -24,6 +24,24 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190604a](2019/sketch_190604a/sketch_190604a.png)
+
+[sketch_190604a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190604a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Did some cleanup of yesterday's code and updated my polygon aproximation of an arc, to use it with the filleted and arc-augmented polylines.
+
+---
+
+![sketch_190603a](2019/sketch_190603a/sketch_190603a.jpg)
+
+[sketch_190603a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190602a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+After many months, I took again my Bezier arc-aproximation studies and finished integrating it with two "polylines" ideas:
+- A filleted polygon
+- An arc-augmented polygon (imagine round pegs, of arbitrary radius, on every vertex of a polygon, and a line that goes round them)
+
+---
+
 ![sketch_190602a](2019/sketch_190602a/sketch_190602a.png)
 
 [sketch_190602a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190602a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
