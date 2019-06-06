@@ -30,7 +30,7 @@ def setup():
     line_combos = list(combinations(possible_lines, 3))
     # shuffle(line_combos) # ucomment to shuffle!
     num = len(line_combos)
-    println("Number of permutations: {}".format(num))
+    println("Number of combinations: {}".format(num))
     W = (width - border * 2) // space
     H = (height - border * 2) // space
     println("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))

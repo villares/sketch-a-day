@@ -28,7 +28,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190605a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190605a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Using new bars, with much better fill, thanks to my Bezier arc-aproximation.
+Using new bars, with much better fill, thanks to my Bezier arc-approximation.
 - Number of possible lines: 12
 - Number of combinations: 220
 
@@ -37,10 +37,8 @@ Using new bars, with much better fill, thanks to my Bezier arc-aproximation.
 ![sketch_190604a](2019/sketch_190604a/sketch_190604a.png)
 
 [sketch_190604a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190604a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-4a.png)
 
-[sketch_190604a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190604a) [[Py.Processing](https://villares.github.io/como-instalar-o-
-Did some cleanup of yesterday's code and updated my polygon aproximation of an arc, to use it with the filleted and arc-augmented polylines.
+Did some cleanup of yesterday's code and updated my polygon approximation of an arc, to use it with the filleted and arc-augmented polylines.
 
 ---
 
@@ -48,7 +46,7 @@ Did some cleanup of yesterday's code and updated my polygon aproximation of an a
 
 [sketch_190603a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190602a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-After many months, I took again my Bezier arc-aproximation studies and finished integrating it with two "polylines" ideas:
+After many months, I took again my Bezier arc-approximation studies and finished integrating it with two "polylines" ideas:
 - A filleted polygon
 - An arc-augmented polygon (imagine round pegs, of arbitrary radius, on every vertex of a polygon, and a line that goes round them)
 
