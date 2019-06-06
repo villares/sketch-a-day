@@ -18,9 +18,9 @@ def draw():
     stroke(0, 0, 0)
     noFill()
     if not keyPressed:
-        fill(0, 200, 0, 100) 
+        # fill(0, 200, 0, 100) 
         b_poly_arc_augmented(p_list, rad_list)
-        fill(0, 0, 200, 100)
+        # fill(0, 0, 200, 100)
         b_poly_filleted(p_list, rad_list)
     elif key == " ":
         poly_arc_augmented(p_list, rad_list)

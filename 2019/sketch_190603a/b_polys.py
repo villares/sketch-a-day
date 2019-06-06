@@ -143,18 +143,18 @@ def b_roundedCorner(pc, p2, p1, r):
         A = True
         startAngle, endAngle = endAngle, startAngle
         sweepAngle = -sweepAngle
-        # ellipse(pc[0], pc[1], 15, 15)
+        ellipse(pc[0], pc[1], 15, 15)
 
     if sweepAngle > PI:
         B = True
         startAngle, endAngle = endAngle, startAngle
         sweepAngle = TWO_PI - sweepAngle
-        # ellipse(pc[0], pc[1], 25, 25)
+        ellipse(pc[0], pc[1], 25, 25)
 
     if (A and not B) or (B and not A):
         startAngle, endAngle = endAngle, startAngle
         sweepAngle = -sweepAngle
-        # ellipse(pc[0], pc[1], 5, 5)
+        ellipse(pc[0], pc[1], 5, 5)
 
     b_arc(circlePoint[0], circlePoint[1], 2 * max_r, 2 * max_r,
           startAngle, startAngle + sweepAngle, arc_type=2)
