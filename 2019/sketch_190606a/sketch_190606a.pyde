@@ -1,8 +1,8 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # Circ-circ tangents on a poly using Bezier approximation of arcs
 
-pts = []
-rds = [30, 70, 50]
+pts = [(100, 100), (400, 100), (400, 400)]
+rds = [30, 40, 50, 60, 70, 20]
 dragged_pt = -1
 
 def setup():
@@ -28,6 +28,9 @@ def mouseWheel(E):
     for i, pt in enumerate(pts):
         if dist(mouseX, mouseY, pt[0], pt[1]) < 10:
             rds[i] += 5 * E.getAmount()
+
+def keyPressed():
+    saveFrame("####.png")
 
 def mousePressed():
     global dragged_pt
