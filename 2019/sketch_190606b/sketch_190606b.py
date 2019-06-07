@@ -80,7 +80,7 @@ def b_poly_arc_augmented(op_list, or_list):
             start = a1 if a1 < a2 else a1 - TWO_PI
             if r2 < 0:
                 a2 = a2 - TWO_PI
-            b_arc(p2[0], p2[1], r2 * 2, r2 * 2, start, a2, mode=2)
+            b_arc(p2[0], p2[1], r2 * 2, r2 * 2, start, a2, 2)
         else:
             # when the the segment is smaller than the diference between
             # radius, circ_circ_tangent won't renturn the angle
@@ -119,7 +119,7 @@ def circ_circ_tangent(p1, p2, r1, r2):
                 (p1[0], p1[1]),
                 (p2[0], p2[1]))
 
-def b_arc(cx, cy, w, h, start_angle, end_angle, mode=0):
+def b_arc(cx, cy, w, h, start_angle, end_angle, mode):
     """
     A bezier approximation of an arc
     using the same signature as the original Processing arc()
@@ -171,8 +171,8 @@ def b_arc(cx, cy, w, h, start_angle, end_angle, mode=0):
         # ellipse(px3, py3, 15, 15)
         # ellipse(px0, py0, 5, 5)
     # Drawing
-##    if mode == 0:  # 'normal' arc (not 'middle' nor 'naked')
-##        beginShape()
+    if mode == 0:  # 'normal' arc (not 'middle' nor 'naked')
+        beginShape()
     if mode != 1:  # if not 'middle'
         vertex(px3, py3)
     if abs(theta) < HALF_PI:
@@ -181,10 +181,10 @@ def b_arc(cx, cy, w, h, start_angle, end_angle, mode=0):
         # to avoid distortion, break into 2 smaller arcs
         b_arc(cx, cy, w, h, start_angle, end_angle - theta / 2.0, mode=1)
         b_arc(cx, cy, w, h, start_angle + theta / 2.0, end_angle, mode=1)
-##    if mode == 0:  # end of a 'normal' arc
-##        endShape()
+    if mode == 0:  # end of a 'normal' arc
+        endShape()
 
 # ==== This is required by pyp5js to work
 # Register your events functions here
-event_functions = {"mouseWheel": mouseWheel,  "mousePressed": mousePressed,  "mouseDragged": mouseDragged,  "mouseReleased": mouseReleased,  }
+event_functions = {} #"mouseWheel": mouseWheel,  "mousePressed": mousePressed,  "mouseDragged": mouseDragged,  "mouseReleased": mouseReleased,  }
 start_p5(setup, draw, event_functions)
