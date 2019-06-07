@@ -108,7 +108,7 @@ def circ_circ_tangent(p1, p2, r1, r2):
     d = dist(p1[0], p1[1], p2[0], p2[1])
     ri = r1 - r2
     line_angle = atan2(p1[0] - p2[0], p2[1] - p1[1])
-    if d - abs(ri) > 0:
+    if d - abs(ri) >= 0:
         theta = asin(ri / float(d))
         x1 = -cos(line_angle + theta) * r1
         y1 = -sin(line_angle + theta) * r1
@@ -189,6 +189,7 @@ def b_arc(cx, cy, w, h, start_angle, end_angle, mode=0):
 
 
 def settings():
+    """ print markdown to add at the sketc-a-day page"""
     from os import path
     global SKETCH_NAME
     SKETCH_NAME = path.basename(sketchPath())
