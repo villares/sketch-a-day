@@ -186,5 +186,5 @@ def b_arc(cx, cy, w, h, start_angle, end_angle, mode):
 
 # ==== This is required by pyp5js to work
 # Register your events functions here
-event_functions = {} #"mouseWheel": mouseWheel,  "mousePressed": mousePressed,  "mouseDragged": mouseDragged,  "mouseReleased": mouseReleased,  }
+event_functions = {"mouseWheel": mouseWheel,  "mousePressed": mousePressed,  "mouseDragged": mouseDragged,  "mouseReleased": mouseReleased,  }
 start_p5(setup, draw, event_functions)
