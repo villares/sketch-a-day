@@ -22,6 +22,15 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+
+---
+
+![sketch_190606a](2019/sketch_190606a/sketch_190606a.png)
+
+[sketch_190606a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190606a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+My arc-arc tangent augmented poly now can take negative radii (and it is Bezier based, so it now is a PShape and can be filled)
+
 ---
 
 ![sketch_190605a](2019/sketch_190605a/sketch_190605a.png)
