@@ -12,14 +12,14 @@ project = []
 
 def setup():
     size(500, 500)
-    strokeWeight(8)
+    strokeJoin(ROUND)
     LAB = silly.Glyph("<",
                     ((2, 0, 1), (0, 2, 1), (2, 4, 1)),
                     (".012:"))
     project.append(LAB)
     a = silly.Glyph("a",
-                    ((0, 4, 1), (2, 4, 1), (2, 0, 1),
-                     (0, 0, 1), (0, 2, 1), (1.9, 2, 1), ),
+                    ((0, 4, 1), (4, 4, 1), (4, 0, 1),
+                     (1, 0, 1), (0, 2, 1), (3.5, 2, 1), ),
                     (".012345:"))
     project.append(a)
 
