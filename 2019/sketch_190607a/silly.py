@@ -9,7 +9,7 @@ class Glyph:
 
     def __repr__(self):
         return 'Glyph("{}", {}, {})'.format(
-            self.id, self.points, repr(self.paths), self.w)
+            self.id, self.points, repr(self.paths))
 
     def plot(self):
         for ps in self.paths:
