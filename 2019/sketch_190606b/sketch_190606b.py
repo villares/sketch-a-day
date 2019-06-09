@@ -1,7 +1,7 @@
 from pytop5js import *
 
-pts = []
-rds = [30, 70, 50]
+pts = [(100, 100), (100, 400), (400, 400)]
+rds = [40, 40, 40, 30, 70, 50]
 dragged_pt = -1
 
 def setup():
