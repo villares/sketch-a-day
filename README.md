@@ -36,8 +36,8 @@ Back to the Poly Editor...
 
 [sketch_190607a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190607a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 Some ideas for "Silly Type Framework"
+
 ---
 
 ![sketch_190606a](2019/sketch_190606a/sketch_190606a.png)
