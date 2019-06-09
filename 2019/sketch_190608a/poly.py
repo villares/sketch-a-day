@@ -1,14 +1,18 @@
 
 class Poly():
 
+    selected = -1
     text_on = False
-    drag = -1
+    selected_drag = -1
     drag_hole = -1
-    drag_drag_pt = -1
+    drag_pt = -1
+    id = 0
 
-    def __init__(self, outer_pts, holes=[[(0, 0)]]):
+    def __init__(self, outer_pts, holes=None, closed=True, lw=1):
         self.outer_pts = outer_pts
-        self.holes = holes
+        self.holes = holes if holes else [[]]
+        self.closed = closed
+        self.lw = lw
     
     @classmethod
     def setup_grid(cls, cell_size, order, x_offset, y_offset):
@@ -17,12 +21,22 @@ class Poly():
         cls.x_offset, cls.y_offset = x_offset, y_offset
 
     def plot(self):
+        for i, p in enumerate(Poly.polys):
+            self.id = i if self == p else self.id
         pushStyle()
-        if len(self.outer_pts) >= 3:
-            fill(255)
+        strokeJoin(ROUND)
+        strokeWeight(self.lw)
+        if Poly.selected_drag == self.id:
+            stroke(200, 0, 0)
+        else:
+            stroke(0)
+        if len(self.outer_pts) >= 2:
+            if self.closed:
+                fill(100)
+            else:
+                noFill()
             beginShape()
             for x, y in self.outer_pts:
-                stroke(0)
                 sx = (x + Poly.x_offset) * Poly.cell_size
                 sy = (y + Poly.y_offset) * Poly.cell_size
                 vertex(sx, sy)
@@ -33,10 +47,13 @@ class Poly():
                     sy = (y + Poly.y_offset) * Poly.cell_size
                     vertex(sx, sy)
                 endContour()
-            endShape(CLOSE)
+            if self.closed:
+                endShape(CLOSE)
+            else:
+                endShape()
         if Poly.text_on:    
-            Poly.annotate_pts(self.outer_pts, color(200, 0, 0), 5)
-            Poly.annotate_pts(self.holes[0], color(0, 0, 200), 5)
+            Poly.annotate_pts(self.id, self.outer_pts, color(200, 0, 0), 5)
+            Poly.annotate_pts(self.id, self.holes[0], color(0, 0, 200), 5)
         popStyle()
 
     def remove_pt(self):
@@ -68,7 +85,7 @@ class Poly():
         return False
     
     @classmethod
-    def annotate_pts(cls, pts, c, scale_m=1):
+    def annotate_pts(cls, id, pts, c, scale_m=1):
             strokeWeight(5)
             textSize(12)
             fill(c)
@@ -77,7 +94,7 @@ class Poly():
                 x = (i + cls.x_offset) * cls.cell_size
                 y = (j + cls.y_offset) * cls.cell_size
                 point(x, y)
-                text(str((i * scale_m, j * scale_m)), x, y)
+                text(str(id)+":"+str((i * scale_m, j * scale_m)), x, y)
 
     @classmethod
     def draw_grid(cls):

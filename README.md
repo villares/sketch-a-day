@@ -22,7 +22,22 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ## 2019
 
+---
 
+![sketch_190608a](2019/sketch_190608a/sketch_190608a.png)
+
+[sketch_190608a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190608a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Back to the Poly Editor...
+
+---
+
+![sketch_190607a](2019/sketch_190607a/sketch_190607a.png)
+
+[sketch_190607a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190607a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+Some ideas for "Silly Type Framework"
 ---
 
 ![sketch_190606a](2019/sketch_190606a/sketch_190606a.png)

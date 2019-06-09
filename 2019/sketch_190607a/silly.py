@@ -1,6 +1,6 @@
 class Glyph:
     w = 5  # width
-    m = 8  # module
+    m = 16  # module
     sw = 8 # stroke weight
     f = None # fill
 
