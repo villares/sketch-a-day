@@ -1,3 +1,4 @@
+from arcs import *
 
 class Poly():
 
@@ -38,15 +39,22 @@ class Poly():
             else:
                 noFill()
             beginShape()
-            for x, y in self.pts:
-                sx = (x + self.x_offset) * self.cell_size
-                sy = (y + self.y_offset) * self.cell_size
-                vertex(sx, sy)
+            for i, pt in enumerate(self.pts):
+                x, y = pt[0], pt[1]
+                sx, sy = self.grid_to_screen(x, y)
+                if len(pt) == 2 or pt[2] == 0:
+                    vertex(sx, sy)
+                else:
+                    pp = self.grid_to_screen(self.pts[i - 1])
+                    np = self.grid_to_screen(self.pts[(i + 1)
+                                                       % len(self.pts)])
+                    r = pt[2] * self.cell_size
+                    b_roundedCorner((sx, sy), np, pp, r) # pt[2])
+                
             for h in self.holes:
                 beginContour()
                 for x, y in h:
-                    sx = (x + self.x_offset) * self.cell_size
-                    sy = (y + self.y_offset) * self.cell_size
+                    sx, sy = self.grid_to_screen(x, y)
                     vertex(sx, sy)
                 endContour()
             if self.closed:
@@ -92,11 +100,11 @@ class Poly():
         textSize(12)
         fill(c)
         stroke(c)
-        for i, j in pts:
-            x = (i + cls.x_offset) * cls.cell_size
-            y = (j + cls.y_offset) * cls.cell_size
-            point(x, y)
-            text(str(id) + ":" + str((i * scale_m, j * scale_m)), x, y)
+        for pt in pts:
+            i, j = pt[0], pt[1]
+            sx, sy = cls.grid_to_screen(i, j)
+            point(sx, sy)
+            text(str(id) + ":" + str((i * scale_m, j * scale_m)), sx, sy)
 
     @classmethod
     def draw_grid(cls):
@@ -155,16 +163,16 @@ class Poly():
             # and no modifier key is pressed...
             if cls.drag_hole == -1:  # if no hole was selected
                 poly = cls.polys[cls.selected_drag]
-                poly.pts[cls.drag_pt] = cls.mouse_pos()
+                poly.pts[cls.drag_pt] = cls.screen_to_grid(mouseX, mouseY)
             else:
                 poly = cls.polys[cls.selected_drag]
                 hole = poly.holes[cls.drag_hole]
-                hole[cls.drag_pt] = cls.mouse_pos()
+                hole[cls.drag_pt] = cls.screen_to_grid(mouseX, mouseY)
 
         elif cls.selected_drag >= 0 and key == "m":
             poly = cls.polys[cls.selected_drag]
             dragged_pt = poly.pts[cls.drag_pt]
-            mx, my = cls.mouse_pos()
+            mx, my = cls.screen_to_grid(mouseX, mouseY)
             dx, dy = mx - dragged_pt[0], my - dragged_pt[1]
             for i, pt in enumerate(poly.pts):
                 poly.pts[i] = (pt[0] + dx, pt[1] + dy)
@@ -172,12 +180,19 @@ class Poly():
                 for i, pt in enumerate(hole):
                     hole[i] = (pt[0] + dx, pt[1] + dy)
                     
-            
+    @classmethod
+    def grid_to_screen(cls, *args):
+        if len(args) == 2:
+            x, y = args
+        else:
+            x, y = args[0][0], args[0][1]
+        return ((x + cls.x_offset) * cls.cell_size,
+                (y + cls.y_offset) * cls.cell_size)
 
     @classmethod
-    def mouse_pos(cls):
-        return (int(mouseX / cls.cell_size) - cls.x_offset,
-                int(mouseY / cls.cell_size) - cls.y_offset)
+    def screen_to_grid(cls, x, y):
+        return (int(x / cls.cell_size) - cls.x_offset,
+                int(y / cls.cell_size) - cls.y_offset)
 
     @classmethod
     def mouseReleased(cls):
@@ -186,11 +201,11 @@ class Poly():
         # and SHIFT key is pressed...
             if cls.drag_hole == -1:  # if no hole wase selected
                 poly = cls.polys[cls.selected_drag]
-                poly.pts.insert(cls.drag_pt, cls.mouse_pos())
+                poly.pts.insert(cls.drag_pt, cls.screen_to_grid(mouseX, mouseY ))
             else:
                 poly = cls.polys[cls.selected_drag]
                 hole = poly.holes[Poly.drag_hole]
-                hole.insert(cls.drag_pt, cls.mouse_pos())
+                hole.insert(cls.drag_pt, cls.screen_to_grid(mouseX, mouseY))
         # Poly.selected_drag = -1  # No poly selected
         Poly.drag_hole = -1  # No hole selected
         Poly.drag_pt = -1  # No point selected
