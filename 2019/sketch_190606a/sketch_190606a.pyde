@@ -30,7 +30,8 @@ def mouseWheel(E):
             rds[i] += 5 * E.getAmount()
 
 def keyPressed():
-    saveFrame("####.png")
+    if key == "p":
+        saveFrame("####.png")
 
 def mousePressed():
     global dragged_pt
