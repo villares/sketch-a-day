@@ -40,23 +40,10 @@ class Poly():
             else:
                 noFill()
             beginShape()
-            for i, pt in enumerate(self.pts):
-                x, y = pt[0], pt[1]
-                sx, sy = self.grid_to_screen(x, y)
-                if len(pt) == 2 or pt[2] == 0:
-                    vertex(sx, sy)
-                else:
-                    pp = self.grid_to_screen(self.pts[i - 1])
-                    np = self.grid_to_screen(self.pts[(i + 1)
-                                                       % len(self.pts)])
-                    r = pt[2] * self.cell_size
-                    b_roundedCorner((sx, sy), np, pp, r) # pt[2])
-                
-            for h in self.holes:
+            Poly.draw_pts(self.pts)
+            for hole in self.holes:
                 beginContour()
-                for x, y in h:
-                    sx, sy = self.grid_to_screen(x, y)
-                    vertex(sx, sy)
+                Poly.draw_pts(hole)
                 endContour()
             if self.closed:
                 endShape(CLOSE)
@@ -67,16 +54,33 @@ class Poly():
             self.annotate_pts(self.id, self.holes[0], color(0, 0, 200), 5)
         popStyle()
 
+    @classmethod
+    def draw_pts(cls, pts):
+        for i, pt in enumerate(pts):
+            x, y, corner = pt
+            sx, sy = cls.grid_to_screen(x, y)
+            if corner == 0:
+                vertex(sx, sy)
+            elif corner > 0:
+                pp = cls.grid_to_screen(pts[i - 1])
+                np = cls.grid_to_screen(pts[(i + 1) % len(pts)])
+                r = corner * cls.cell_size
+                b_roundedCorner((sx, sy), np, pp, r) # pt[2])
+            else:
+                if keyPressed:
+                    vertex(sx, sy)
+
+
     def remove_pt(self):
         snap = self.mouse_snap()
         if snap:
             for pt in self.pts:
-                if pt == snap:
+                if pt[:2] == snap:
                     self.pts.remove(pt)
                     return True
                 for h in self.holes:
                     for pt in h:
-                        if pt == snap:
+                        if pt[:2] == snap:
                             h.remove(pt)
                             return True
 
@@ -84,12 +88,12 @@ class Poly():
         snap = Poly.mouse_snap()
         if snap:
             for ipt, pt in enumerate(self.pts):
-                if pt == snap:  # (io, jo):
+                if pt[:2] == snap:  # (io, jo):
                     Poly.drag_pt = ipt
                     return True
             for ih, h in enumerate(self.holes):
                 for ipt, pt in enumerate(h):
-                    if pt == snap:  # (io, jo):
+                    if pt[:2] == snap:  # (io, jo):
                         Poly.drag_hole = ih
                         Poly.drag_pt = ipt
                         return True
@@ -145,7 +149,7 @@ class Poly():
         return None
 
     @classmethod
-    def mousePressed(cls):
+    def mouse_pressed(cls):
         if keyPressed and keyCode == CONTROL:
             for p in cls.polys:
                 if p.remove_pt():  # io, jo):
@@ -158,35 +162,38 @@ class Poly():
         cls.selected_drag = -1  # click outside known vertices deselects
 
     @classmethod
-    def mouseDragged(cls):
+    def mouse_dragged(cls):
         if cls.selected_drag >= 0 and not keyPressed:
             # a Poly point has been selected to be dragged
             # and no modifier key is pressed...
             if cls.drag_hole == -1:  # if no hole was selected
                 poly = cls.polys[cls.selected_drag]
-                poly.pts[cls.drag_pt] = cls.screen_to_grid(mouseX, mouseY)
+                i, j = cls.screen_to_grid(mouseX, mouseY)
+                poly.pts[cls.drag_pt] = (i, j, poly.pts[cls.drag_pt][2])
             else:
                 poly = cls.polys[cls.selected_drag]
                 hole = poly.holes[cls.drag_hole]
-                hole[cls.drag_pt] = cls.screen_to_grid(mouseX, mouseY)
+                i, j = cls.screen_to_grid(mouseX, mouseY)
+                hole[cls.drag_pt] = (i, j, hole[cls.drag_pt][2])
 
         elif cls.selected_drag >= 0 and key == "m":
             poly = cls.polys[cls.selected_drag]
             dragged_pt = poly.pts[cls.drag_pt]
             mx, my = cls.screen_to_grid(mouseX, mouseY)
             dx, dy = mx - dragged_pt[0], my - dragged_pt[1]
-            for i, pt in enumerate(poly.pts):
-                poly.pts[i] = (pt[0] + dx, pt[1] + dy)
+            pts = poly.pts
+            for i, pt in enumerate(pts):
+                pts[i] = (pt[0] + dx, pt[1] + dy, pt[2] )
             for hole in poly.holes:
                 for i, pt in enumerate(hole):
-                    hole[i] = (pt[0] + dx, pt[1] + dy)
+                    hole[i] = (pt[0] + dx, pt[1] + dy, pt[2])
                     
     @classmethod
     def grid_to_screen(cls, *args):
-        if len(args) == 2:
-            x, y = args
-        else:
+        if len(args) == 1:
             x, y = args[0][0], args[0][1]
+        else:
+            x, y = args
         return ((x + cls.x_offset) * cls.cell_size,
                 (y + cls.y_offset) * cls.cell_size)
 
@@ -196,28 +203,30 @@ class Poly():
                 int(y / cls.cell_size) - cls.y_offset)
 
     @classmethod
-    def mouseReleased(cls):
+    def mouse_released(cls):
         if cls.selected_drag >= 0 and keyPressed and keyCode == SHIFT:
         # a Poly point has been selected to be dragged
         # and SHIFT key is pressed...
             if cls.drag_hole == -1:  # if no hole wase selected
                 poly = cls.polys[cls.selected_drag]
-                poly.pts.insert(cls.drag_pt, cls.screen_to_grid(mouseX, mouseY ))
+                i, j = cls.screen_to_grid(mouseX, mouseY )
+                poly.pts.insert(cls.drag_pt, (i, j, 0))
             else:
                 poly = cls.polys[cls.selected_drag]
                 hole = poly.holes[Poly.drag_hole]
-                hole.insert(cls.drag_pt, cls.screen_to_grid(mouseX, mouseY))
+                i, j = cls.screen_to_grid(mouseX, mouseY )
+                hole.insert(cls.drag_pt, (i, j, 0))
         # Poly.selected_drag = -1  # No poly selected
         Poly.drag_hole = -1  # No hole selected
         Poly.drag_pt = -1  # No point selected
         
     @classmethod
-    def duplicate_selected(cls):
+    def duplicate_selected(cls, off=1):
       if Poly.selected_drag >= 0:
         new_poly = deepcopy(cls.polys[cls.selected_drag])
         for i, pt in enumerate(new_poly.pts):
-            new_poly.pts[i] = (pt[0] + 2, pt[1] + 1)
+            new_poly.pts[i] = (pt[0] + off, pt[1] + off, pt[2])
         for h in new_poly.holes:
             for i, pt in enumerate(h):
-                h[i] = (pt[0] + 2, pt[1] + 1)
+                h[i] = (pt[0] + off, pt[1] + off, pt[2])
         cls.polys.append(new_poly)

@@ -19,10 +19,10 @@ def setup():
     order = width // CELL_SIZE
     x_offset = y_offset = int(order // 2)
     Poly.setup_grid(CELL_SIZE, order, x_offset, y_offset)
-    p1 = Poly([(0, 0, 2), (6, 0, 1), (6, 6, 3), (0, 6, 4)])
+    p1 = Poly([(0, 0, -1), (6, 0, 1), (6, 6, 1), (0, 6, 0)])
     Poly.polys.append(p1)
-    p2 = Poly([(-1, -1), (-6, -1), (-6, -6), (-1, -6)],
-              holes=[[(-2, -3), (-3, -3), (-2, -2)]])
+    p2 = Poly([(-1, -1, 0), (-6, -1, 0), (-6, -6, 0), (-1, -6, 0)],
+              holes=[[(-2, -3, 0), (-3, -3, 1), (-2, -2, 0)]])
     Poly.polys.append(p2)
 
 def draw():
@@ -34,13 +34,13 @@ def draw():
         p.plot()
 
 def mousePressed():
-    Poly.mousePressed()
+    Poly.mouse_pressed()
 
 def mouseDragged():
-    Poly.mouseDragged()
+    Poly.mouse_dragged()
 
 def mouseReleased():
-    Poly.mouseReleased()
+    Poly.mouse_released()
     
 def keyPressed():
     if key == "=":
