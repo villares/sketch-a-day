@@ -74,10 +74,10 @@ def b_poly_arc_augmented(op_list, or_list):
         a_list.append(a)
     # draw
     beginShape()
-    for i1, _ in enumerate(a_list):
+    for i1, ia in enumerate(a_list):
         i2 = (i1 + 1) % len(a_list)
         p1, p2, r1, r2 = p_list[i1], p_list[i2], r_list[i1], r_list[i2]
-        a1, p11, p12 = a_list[i1]
+        a1, p11, p12 = ia
         a2, p21, p22 = a_list[i2]
         if a1 and a2:
             start = a1 if a1 < a2 else a1 - TWO_PI
@@ -98,7 +98,7 @@ def reduce_radius(p1, p2, r1, r2):
     d = dist(p1[0], p1[1], p2[0], p2[1])
     ri = abs(r1 - r2)
     if d - ri < 0:
-        if r1 > r2:
+        if abs(r1) > abs(r2):
             r1 = map(d, ri + 1, 0, r1, r2)
         else:
             r2 = map(d, ri + 1, 0, r2, r1)

@@ -48,14 +48,8 @@ def keyPressed():
         Poly.selected_drag += 1
         if Poly.selected_drag >= len(Poly.polys):
             Poly.selected_drag = -1
-    if key == "d" and Poly.selected_drag >= 0:
-        new_poly = deepcopy(Poly.polys[Poly.selected_drag])
-        for i, pt in enumerate(new_poly.pts):
-            new_poly.pts[i] = (pt[0] + 2, pt[1] + 1)
-        for h in new_poly.holes:
-            for i, pt in enumerate(h):
-                h[i] = (pt[0] + 2, pt[1] + 1)
-        Poly.polys.append(new_poly)
+    if key == "d":
+        Poly.duplicate_selected()
 
     if key == " " and Poly.selected_drag >= 0:
         p = Poly.polys[Poly.selected_drag]

@@ -209,3 +209,14 @@ class Poly():
         # Poly.selected_drag = -1  # No poly selected
         Poly.drag_hole = -1  # No hole selected
         Poly.drag_pt = -1  # No point selected
+        
+    @classmethod
+    def duplicate_selected(cls):
+      if Poly.selected_drag >= 0:
+        new_poly = deepcopy(cls.polys[cls.selected_drag])
+        for i, pt in enumerate(new_poly.pts):
+            new_poly.pts[i] = (pt[0] + 2, pt[1] + 1)
+        for h in new_poly.holes:
+            for i, pt in enumerate(h):
+                h[i] = (pt[0] + 2, pt[1] + 1)
+        cls.polys.append(new_poly)
