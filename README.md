@@ -24,6 +24,14 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190610a](2019/sketch_190610a/sketch_190610a.gif)
+
+[sketch_190610a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190610a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- All points now have a third field (for radius or type). That broke almost everything, and I think I fixed most of it. Including a naughty fix for the naughty vertex ordering method (I'm storing the third field in a dict, and then getting it back after sorting, with a disct compreheension!)
+
+---
+
 ![sketch_190609a](2019/sketch_190609a/sketch_190609a.png)
 
 [sketch_190609a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190609a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
