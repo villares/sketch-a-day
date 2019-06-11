@@ -1,7 +1,14 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """
 A minimal poly editor
-- MODES: move, add vertex, change vertex, remove vertex
+r - load polys from pickled data
+s - save polys
+t - show pt annotations
+SHIFT - to drag-add points
+CONTROL - to remove points
+m + drag - move whole poly
+
+TODO: Create modes for move, add vertex, change vertex, remove vertex
 """
 import pickle
 from poly import Poly

@@ -23,7 +23,30 @@ class Poly():
         cls.x_offset, cls.y_offset = x_offset, y_offset
         cls.polys = []
         cls.text_on = False
+        
+    @classmethod
+    def grid_to_screen(cls, *args):
+        if len(args) == 1:
+            x, y = args[0][0], args[0][1]
+        else:
+            x, y = args
+        return ((x + cls.x_offset) * cls.cell_size,
+                (y + cls.y_offset) * cls.cell_size)
 
+    @classmethod
+    def screen_to_grid(cls, x, y):
+        return (int(x / cls.cell_size) - cls.x_offset,
+                int(y / cls.cell_size) - cls.y_offset)
+
+    @classmethod
+    def draw_grid(cls):
+        stroke(128)
+        noFill()
+        for x in range(cls.order):
+            for y in range(cls.order):
+                rect(x * cls.cell_size, y * cls.cell_size,
+                     cls.cell_size, cls.cell_size)
+        
     def plot(self):
         for i, p in enumerate(self.polys):
             self.id = i if self == p else self.id
@@ -69,19 +92,17 @@ class Poly():
             else:
                 if keyPressed:
                     vertex(sx, sy)
-
-    def remove_pt(self):
-        snap = self.mouse_snap()
-        if snap:
-            for pt in self.pts:
-                if pt[:2] == snap:
-                    self.pts.remove(pt)
-                    return True
-                for h in self.holes:
-                    for pt in h:
-                        if pt[:2] == snap:
-                            h.remove(pt)
-                            return True
+    @classmethod
+    def annotate_pts(cls, id, pts, c, scale_m=1):
+        strokeWeight(5)
+        textSize(12)
+        fill(c)
+        stroke(c)
+        for pt in pts:
+            i, j = pt[0], pt[1]
+            sx, sy = cls.grid_to_screen(i, j)
+            point(sx, sy)
+            text(str(id) + ":" + str((i * scale_m, j * scale_m)), sx, sy)
 
     def set_drag(self):  # , io, jo):
         snap = Poly.mouse_snap()
@@ -98,46 +119,18 @@ class Poly():
                         return True
         return False
 
-    @classmethod
-    def annotate_pts(cls, id, pts, c, scale_m=1):
-        strokeWeight(5)
-        textSize(12)
-        fill(c)
-        stroke(c)
-        for pt in pts:
-            i, j = pt[0], pt[1]
-            sx, sy = cls.grid_to_screen(i, j)
-            point(sx, sy)
-            text(str(id) + ":" + str((i * scale_m, j * scale_m)), sx, sy)
-
-    @classmethod
-    def draw_grid(cls):
-        stroke(128)
-        noFill()
-        for x in range(cls.order):
-            for y in range(cls.order):
-                rect(x * cls.cell_size, y * cls.cell_size,
-                     cls.cell_size, cls.cell_size)
-
-    @staticmethod
-    def clockwise_sort(pts):
-        d = {(x, y): z for x, y, z in pts}
-        xy_pairs = [(x, y) for x, y, z in pts]
-        # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
-        data_len = len(xy_pairs)
-        if data_len > 2:
-            x, y = zip(*xy_pairs)
-        else:
-            return xy_pairs
-        centroid_x, centroid_y = sum(x) / data_len, sum(y) / data_len
-        xy_sorted = sorted(xy_pairs,
-                           key=lambda p: atan2((p[1] - centroid_y), (p[0] - centroid_x)))
-        xy_sorted_xy = [
-            coord for pair in list(zip(*xy_sorted)) for coord in pair]
-        half_len = int(len(xy_sorted_xy) / 2)
-        s = list(zip(xy_sorted_xy[:half_len], xy_sorted_xy[half_len:]))
-        return [(x, y, d[(x, y)]) for x, y in s]
-
+    def remove_pt(self):
+        snap = self.mouse_snap()
+        if snap:
+            for pt in self.pts:
+                if pt[:2] == snap:
+                    self.pts.remove(pt)
+                    return True
+                for h in self.holes:
+                    for pt in h:
+                        if pt[:2] == snap:
+                            h.remove(pt)
+                            return True
     @classmethod
     def mouse_snap(cls):
         for i in range(cls.order):
@@ -186,20 +179,6 @@ class Poly():
                     hole[i] = (pt[0] + dx, pt[1] + dy, pt[2])
 
     @classmethod
-    def grid_to_screen(cls, *args):
-        if len(args) == 1:
-            x, y = args[0][0], args[0][1]
-        else:
-            x, y = args
-        return ((x + cls.x_offset) * cls.cell_size,
-                (y + cls.y_offset) * cls.cell_size)
-
-    @classmethod
-    def screen_to_grid(cls, x, y):
-        return (int(x / cls.cell_size) - cls.x_offset,
-                int(y / cls.cell_size) - cls.y_offset)
-
-    @classmethod
     def mouse_released(cls):
         if cls.selected_drag >= 0 and keyPressed and keyCode == SHIFT:
         # a Poly point has been selected to be dragged
@@ -231,3 +210,23 @@ class Poly():
                 for i, pt in enumerate(h):
                     h[i] = (pt[0] + off, pt[1] + off, pt[2])
             cls.polys.append(new_poly)
+
+
+    @staticmethod
+    def clockwise_sort(pts):
+        d = {(x, y): z for x, y, z in pts}
+        xy_pairs = [(x, y) for x, y, z in pts]
+        # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
+        data_len = len(xy_pairs)
+        if data_len > 2:
+            x, y = zip(*xy_pairs)
+        else:
+            return xy_pairs
+        centroid_x, centroid_y = sum(x) / data_len, sum(y) / data_len
+        xy_sorted = sorted(xy_pairs,
+                           key=lambda p: atan2((p[1] - centroid_y), (p[0] - centroid_x)))
+        xy_sorted_xy = [
+            coord for pair in list(zip(*xy_sorted)) for coord in pair]
+        half_len = int(len(xy_sorted_xy) / 2)
+        s = list(zip(xy_sorted_xy[:half_len], xy_sorted_xy[half_len:]))
+        return [(x, y, d[(x, y)]) for x, y in s]
