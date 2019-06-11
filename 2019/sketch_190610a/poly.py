@@ -65,11 +65,10 @@ class Poly():
                 pp = cls.grid_to_screen(pts[i - 1])
                 np = cls.grid_to_screen(pts[(i + 1) % len(pts)])
                 r = corner * cls.cell_size
-                b_roundedCorner((sx, sy), np, pp, r) # pt[2])
+                b_roundedCorner((sx, sy), np, pp, r)  # pt[2])
             else:
                 if keyPressed:
                     vertex(sx, sy)
-
 
     def remove_pt(self):
         snap = self.mouse_snap()
@@ -121,7 +120,9 @@ class Poly():
                      cls.cell_size, cls.cell_size)
 
     @staticmethod
-    def clockwise_sort(xy_pairs):
+    def clockwise_sort(pts):
+        d = {(x, y): z for x, y, z in pts}
+        xy_pairs = [(x, y) for x, y, z in pts]
         # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
         data_len = len(xy_pairs)
         if data_len > 2:
@@ -134,7 +135,8 @@ class Poly():
         xy_sorted_xy = [
             coord for pair in list(zip(*xy_sorted)) for coord in pair]
         half_len = int(len(xy_sorted_xy) / 2)
-        return list(zip(xy_sorted_xy[:half_len], xy_sorted_xy[half_len:]))
+        s = list(zip(xy_sorted_xy[:half_len], xy_sorted_xy[half_len:]))
+        return [(x, y, d[(x, y)]) for x, y in s]
 
     @classmethod
     def mouse_snap(cls):
@@ -150,15 +152,10 @@ class Poly():
 
     @classmethod
     def mouse_pressed(cls):
-        if keyPressed and keyCode == CONTROL:
-            for p in cls.polys:
-                if p.remove_pt():  # io, jo):
-                    return
-        else:
-            for ip, p in enumerate(cls.polys):
-                if p.set_drag():  # io, jo):
-                    cls.selected_drag = ip
-                    return
+        for ip, p in enumerate(cls.polys):
+            if p.set_drag():  # io, jo):
+                cls.selected_drag = ip
+                return
         cls.selected_drag = -1  # click outside known vertices deselects
 
     @classmethod
@@ -183,11 +180,11 @@ class Poly():
             dx, dy = mx - dragged_pt[0], my - dragged_pt[1]
             pts = poly.pts
             for i, pt in enumerate(pts):
-                pts[i] = (pt[0] + dx, pt[1] + dy, pt[2] )
+                pts[i] = (pt[0] + dx, pt[1] + dy, pt[2])
             for hole in poly.holes:
                 for i, pt in enumerate(hole):
                     hole[i] = (pt[0] + dx, pt[1] + dy, pt[2])
-                    
+
     @classmethod
     def grid_to_screen(cls, *args):
         if len(args) == 1:
@@ -209,24 +206,28 @@ class Poly():
         # and SHIFT key is pressed...
             if cls.drag_hole == -1:  # if no hole wase selected
                 poly = cls.polys[cls.selected_drag]
-                i, j = cls.screen_to_grid(mouseX, mouseY )
+                i, j = cls.screen_to_grid(mouseX, mouseY)
                 poly.pts.insert(cls.drag_pt, (i, j, 0))
             else:
                 poly = cls.polys[cls.selected_drag]
                 hole = poly.holes[Poly.drag_hole]
-                i, j = cls.screen_to_grid(mouseX, mouseY )
+                i, j = cls.screen_to_grid(mouseX, mouseY)
                 hole.insert(cls.drag_pt, (i, j, 0))
+        elif cls.selected_drag >= 0 and keyPressed and keyCode == CONTROL:
+            for p in cls.polys:
+                if p.remove_pt():  # io, jo):
+                    return
         # Poly.selected_drag = -1  # No poly selected
         Poly.drag_hole = -1  # No hole selected
         Poly.drag_pt = -1  # No point selected
-        
+
     @classmethod
-    def duplicate_selected(cls, off=1):
-      if Poly.selected_drag >= 0:
-        new_poly = deepcopy(cls.polys[cls.selected_drag])
-        for i, pt in enumerate(new_poly.pts):
-            new_poly.pts[i] = (pt[0] + off, pt[1] + off, pt[2])
-        for h in new_poly.holes:
-            for i, pt in enumerate(h):
-                h[i] = (pt[0] + off, pt[1] + off, pt[2])
-        cls.polys.append(new_poly)
+    def duplicate_selected(cls, offset=1):
+        if Poly.selected_drag >= 0:
+            new_poly = deepcopy(cls.polys[cls.selected_drag])
+            for i, pt in enumerate(new_poly.pts):
+                new_poly.pts[i] = (pt[0] + offset, pt[1] + offset, pt[2])
+            for h in new_poly.holes:
+                for i, pt in enumerate(h):
+                    h[i] = (pt[0] + off, pt[1] + off, pt[2])
+            cls.polys.append(new_poly)

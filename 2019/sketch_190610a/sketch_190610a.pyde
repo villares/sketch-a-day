@@ -1,16 +1,16 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """
 A minimal poly editor
-- Add points
+- MODES: move, add vertex, change vertex, remove vertex
 """
 import pickle
 from poly import Poly
-# add_library('GifAnimation')
-# from gif_exporter import gif_export
+add_library('GifAnimation')
+from gif_exporter import gif_export
 
 
 def setup():
-    size(500, 500, P2D)
+    size(500, 500)
 
     f = createFont("Fira Mono", 16)
     textFont(f)
@@ -55,12 +55,19 @@ def keyPressed():
         p.pts[:] = Poly.clockwise_sort(p.pts)
         for h in p.holes:
             h[:] = Poly.clockwise_sort(h)[::-1]
-    # if key == "g":
-    #     gif_export(GifMaker, filename=SKETCH_NAME)
+    if key == "g":
+        gif_export(GifMaker, filename=SKETCH_NAME)
     if key == "p":
         saveFrame(SKETCH_NAME + ".png")
     if key == "t":
         Poly.text_on = not Poly.text_on
+    if key == "c" and Poly.selected_drag >= 0:
+        p = Poly.polys[Poly.selected_drag]
+        p.closed = not p.closed
+        if p.closed:
+            p.lw = 1
+        else:
+            p.lw = 5
 
     if key == "s":
         with open("data/project.data", "wb") as file_out:
