@@ -21,9 +21,9 @@ def create_points():
         pts.append((x, y))
         r = int(random(2, 5)) * 10
         rds.append(r)
-    for i in range(NUM_POINTS):
-       pts[i] = (pts[i][0] + random(-1, 1),
-                 pts[i][1] + random(-1, 1)) 
+    #for i in range(NUM_POINTS):
+    #   pts[i] = (pts[i][0] + random(-1, 1),
+    #             pts[i][1] + random(-1, 1)) 
 
 def draw():
     background(200)
