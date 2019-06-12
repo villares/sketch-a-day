@@ -18,7 +18,6 @@ def create_points():
         while (x, y) in pts or x == 0:
             x = choice(list(range(BORDER, width - BORDER + 1, 100)))
             y = choice(list(range(BORDER, width - BORDER + 1, 100)))
-            print(x, y)
         pts.append((x, y))
         r = int(random(2, 5)) * 10
         rds.append(r)

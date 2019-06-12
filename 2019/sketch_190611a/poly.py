@@ -23,6 +23,7 @@ class Poly():
         cls.x_offset, cls.y_offset = x_offset, y_offset
         cls.polys = []
         cls.text_on = False
+        cls.mode = 0
         
     @classmethod
     def grid_to_screen(cls, *args):
@@ -80,6 +81,7 @@ class Poly():
     @classmethod
     def draw_pts(cls, pts):
         for i, pt in enumerate(pts):
+            if len(pt) == 2: print pt
             x, y, corner = pt
             sx, sy = cls.grid_to_screen(x, y)
             if corner == 0:
@@ -126,10 +128,23 @@ class Poly():
                 if pt[:2] == snap:
                     self.pts.remove(pt)
                     return True
-                for h in self.holes:
-                    for pt in h:
+                for hole_points in self.holes:
+                    for pt in hole_points:
                         if pt[:2] == snap:
-                            h.remove(pt)
+                            hole_points.remove(pt)
+                            return True
+                        
+    def change_pt(self, value):
+        snap = self.mouse_snap()
+        if snap:
+            for i, pt in enumerate(self.pts):
+                if pt[:2] == snap:
+                    self.pts[i] = (pt[0], pt[1], value)
+                    return True
+                for hole_points in self.holes:
+                    for i, pt in enumerate(hole_points):
+                        if pt[:2] == snap:
+                            hole_points[i] = (pt[0], pt[1], value)
                             return True
     @classmethod
     def mouse_snap(cls):
@@ -159,6 +174,7 @@ class Poly():
             if cls.drag_hole == -1:  # if no hole was selected
                 poly = cls.polys[cls.selected_drag]
                 i, j = cls.screen_to_grid(mouseX, mouseY)
+                if len(poly.pts[cls.drag_pt]) == 2: print poly.pts[cls.drag_pt]
                 poly.pts[cls.drag_pt] = (i, j, poly.pts[cls.drag_pt][2])
             else:
                 poly = cls.polys[cls.selected_drag]
@@ -196,6 +212,13 @@ class Poly():
             for p in cls.polys:
                 if p.remove_pt():  # io, jo):
                     return
+        elif cls.selected_drag >= 0 and keyPressed and key in "-0123456789":
+            if key == "-": v = -1
+            else: v = int(key)
+            for p in cls.polys:
+                if p.change_pt(v):  # io, jo):
+                    return        
+                
         # Poly.selected_drag = -1  # No poly selected
         Poly.drag_hole = -1  # No hole selected
         Poly.drag_pt = -1  # No point selected
@@ -214,6 +237,7 @@ class Poly():
 
     @staticmethod
     def clockwise_sort(pts):
+        if len(pts) < 3: return pts
         d = {(x, y): z for x, y, z in pts}
         xy_pairs = [(x, y) for x, y, z in pts]
         # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
@@ -229,4 +253,6 @@ class Poly():
             coord for pair in list(zip(*xy_sorted)) for coord in pair]
         half_len = int(len(xy_sorted_xy) / 2)
         s = list(zip(xy_sorted_xy[:half_len], xy_sorted_xy[half_len:]))
-        return [(x, y, d[(x, y)]) for x, y in s]
+        s_and_z = [(x, y, d[(x, y)]) for x, y in s]
+        print s_and_z
+        return s_and_z
