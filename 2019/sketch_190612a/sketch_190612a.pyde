@@ -1,5 +1,8 @@
-add_library('VideoExport')
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# Fixed arc_augmented_poly bug with verticaly aligned vertices
+
+# Testing Video Export library
+# add_library('VideoExport')
 
 from random import choice
 
@@ -12,10 +15,10 @@ def setup():
     size(500, 500)
     create_points()
     # Video Export
-    global ve
-    ve = VideoExport(this)
-    ve.setFrameRate(1)
-    ve.startMovie()
+    # global ve
+    # ve = VideoExport(this)
+    # ve.setFrameRate(1)
+    # ve.startMovie()
 
 def create_points():    
     global pts, rds
@@ -41,12 +44,11 @@ def draw():
         ellipse(pt[0], pt[1], 10, 10)
         # text(str(rds[i]), pt[0] + 10, pt[1] + 10)
     
-    global save_frame    
-    if save_frame:
-        ve.saveFrame()
-        save_frame = False
+    # global save_frame    
+    # if save_frame:
+    #     ve.saveFrame()
+    #     save_frame = False
     
-
 def mouseWheel(E):
     global r, d
     for i, pt in enumerate(pts):
@@ -58,11 +60,11 @@ def keyPressed():
         saveFrame("####.png")
     if key == " ":
         create_points()
-    if key == "m":
-        global save_frame
-        save_frame = True
-    if key == "e":
-        ve.endMovie() 
+    # if key == "m":
+    #     global save_frame
+    #     save_frame = True
+    # if key == "e":
+    #     ve.endMovie() 
 
 def mousePressed():
     global dragged_pt
