@@ -1,14 +1,21 @@
+add_library('VideoExport')
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
 from random import choice
 
 NUM_POINTS = 6
-BORDER = 100
+BORDER = 150
 dragged_pt = -1
+save_frame = False
 
 def setup():
     size(500, 500)
     create_points()
+    # Video Export
+    global ve
+    ve = VideoExport(this)
+    ve.setFrameRate(1)
+    ve.startMovie()
 
 def create_points():    
     global pts, rds
@@ -21,9 +28,9 @@ def create_points():
         pts.append((x, y))
         r = int(random(2, 5)) * 10
         rds.append(r)
-    #for i in range(NUM_POINTS):
-    #   pts[i] = (pts[i][0] + random(-1, 1),
-    #             pts[i][1] + random(-1, 1)) 
+    for i in range(NUM_POINTS):
+       pts[i] = (pts[i][0] + random(-1, 1),
+                 pts[i][1] + random(-1, 1)) 
 
 def draw():
     background(200)
@@ -33,6 +40,12 @@ def draw():
     for i, pt in enumerate(pts):
         ellipse(pt[0], pt[1], 10, 10)
         # text(str(rds[i]), pt[0] + 10, pt[1] + 10)
+    
+    global save_frame    
+    if save_frame:
+        ve.saveFrame()
+        save_frame = False
+    
 
 def mouseWheel(E):
     global r, d
@@ -45,6 +58,11 @@ def keyPressed():
         saveFrame("####.png")
     if key == " ":
         create_points()
+    if key == "m":
+        global save_frame
+        save_frame = True
+    if key == "e":
+        ve.endMovie() 
 
 def mousePressed():
     global dragged_pt
