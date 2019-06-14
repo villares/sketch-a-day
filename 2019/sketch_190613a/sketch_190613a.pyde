@@ -1,15 +1,15 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 #
 # Testing Video Export library
-# add_library('VideoExport')
+add_library('VideoExport')
 
 from random import choice
 
 NUM_POINTS = 6
 BORDER = 100
 SIZE = 50
-dragged_pt = -1
-save_frame = False
+# dragged_pt = -1
+save_frame = True
 ensambles = []
 st = 0
 
@@ -18,10 +18,10 @@ def setup():
     for i in range(3):
         ensambles.append(create_points())
     # Video Export
-    # global ve
-    # ve = VideoExport(this)
-    # ve.setFrameRate(1)
-    # ve.startMovie()
+    global ve
+    ve = VideoExport(this)
+    ve.setFrameRate(30)
+    ve.startMovie()
 
 def create_points():
     pts, rds = [], []
@@ -39,12 +39,17 @@ def create_points():
     return pts, rds
 
 def draw():
-    global st
+    global st, pts
+    pts = ensambles[st - 1][0]
     background(200)
     fill(255, 100)
     t = (frameCount % 500) / 500.
     if t == 0:
         st = (st + 1) % len(ensambles)
+        if st == 0:
+            ve.endMovie()
+
+            
     pts0, pts1 = ensambles[st - 1][0], ensambles[st][0]
     rds0, rds1 = ensambles[st - 1][1], ensambles[st][1]
     pts, rds = [], []
@@ -60,16 +65,11 @@ def draw():
         ellipse(pt[0], pt[1], 3, 3)
         # text(str(rds[i]), pt[0] + 10, pt[1] + 10)
 
-    # global save_frame
-    # if save_frame:
-    #     ve.saveFrame()
+    global save_frame
+    if save_frame:
+        ve.saveFrame()
     #     save_frame = False
 
-def mouseWheel(E):
-    global r, d
-    for i, pt in enumerate(pts):
-        if dist(mouseX, mouseY, pt[0], pt[1]) < 10:
-            rds[i] += 5 * E.getAmount()
 
 def keyPressed():
     if key == "p":
@@ -87,17 +87,23 @@ def keyPressed():
 def mousePressed():
     global dragged_pt
     for i, pt in enumerate(pts):
-        if dist(mouseX, mouseY, pt[0], pt[1]) < 10:
+        if dist(mouseX, mouseY, pt[0], pt[1]) < 100:
             dragged_pt = i
             break
 
-def mouseDragged():
-    if dragged_pt >= 0:
-        pts[dragged_pt] = mouseX, mouseY
+# def mouseDragged():
+#     if dragged_pt >= 0:
+#         pts[dragged_pt] = mouseX, mouseY
 
-def mouseReleased():
-    global dragged_pt
-    dragged_pt = -1
+# def mouseReleased():
+#     global dragged_pt
+#     dragged_pt = -1
+
+# def mouseWheel(E):
+#     global r, d
+#     for i, pt in enumerate(pts):
+#         if dist(mouseX, mouseY, pt[0], pt[1]) < 100:
+#             rds[i] += 5 * E.getAmount()
 
 def b_poly_arc_augmented(op_list, or_list):
     assert len(op_list) == len(or_list), \
