@@ -26,6 +26,10 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ![sketch_190613a](2019/sketch_190613a/sketch_190613a.gif)
 
+<video width="320" height="200" controls preload> 
+    <source src="https://raw.githubusercontent.com/villares/sketch-a-day/master/2019/sketch_190613a/processing-movie.mp4"></source> </video>
+
+
 [sketch_190613a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190613a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 - This version defines the radii acording to the area formed by the vertex point and its neighbours.
