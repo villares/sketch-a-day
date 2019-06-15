@@ -1,53 +1,50 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+# Trying some combinatorics...
 
-# Testing Video Export library
 add_library('VideoExport')
 
-from random import choice
-from itertools import product
+from random import choice, shuffle
+from itertools import product, permutations, combinations
 from forms import b_poly_arc_augmented
 from line_geometry import *
 
 NUM_POINTS = 6
 BORDER = 100
-SIZE = 50
-# dragged_pt = -1
+SIZE = 150
+RDS = 50
 save_frame = True
 ensambles = []
 st = 0
 
 def setup():
     size(500, 500)
-    for i in range(3):
-        ensambles.append(create_points())
-    # # Video Export
-    # global ve
-    # ve = VideoExport(this)
-    # ve.setFrameRate(30)
-    # ve.startMovie()
+    ensambles[:] = create_points()
+    # Video Export
+    global ve
+    ve = VideoExport(this)
+    ve.setFrameRate(20)
+    ve.startMovie()
 
 def create_points():
     """ non intersecting poly """
+    global grid
     good = False
-    grid = product(range(BORDER, width - BORDER + 1, SIZE),
-                   range(BORDER, height - BORDER + 1, SIZE))
-
-    while not good:
-        pts = []
-        for _ in range(NUM_POINTS):
-            x, y = 0, 0
-            while (x, y) in pts or x == 0:
-                x, y = choice(list(grid))
-            pts.append((x, y))
+    grid = list(product(range(BORDER, width - BORDER + 1, SIZE),
+                   range(BORDER, height - BORDER + 1, SIZE)))
+    combos = permutations(grid, NUM_POINTS)
+    ens = []
+    for pts in combos:
         if not intersecting(pts):
-            good = True            
-    return pts
+            ens.append(pts) 
+    print(len(ens))
+    shuffle(ens)
+    return ens
 
 def draw():
     global st, pts
     background(200)
 
-    t = (frameCount % 500) / 500.
+    t = (frameCount % 100) / 100.
     if t == 0:
         st = (st + 1) % len(ensambles)
         # if st == 0:
@@ -59,33 +56,31 @@ def draw():
         pt = lerp(pts0[i][0], pts1[i][0], t), lerp(pts0[i][1], pts1[i][1], t)
         pts.append(pt)
         
-
+    noStroke()
     fill(0, 200, 100)
-    beginShape()
-    for i, pt in enumerate(pts):
-        vertex(pt[0], pt[1])
+    # beginShape()
+    for i, pt in enumerate(grid):
+        ellipse(pt[0], pt[1], 5, 5)
         # text(str(rds[i]), pt[0] + 10, pt[1] + 10)
-    endShape(CLOSE)
-    fill(255, 100)
-    b_poly_arc_augmented(pts)
-    # # global save_frame
-    # if save_frame:
-    #     ve.saveFrame()
-    # #     save_frame = False
+    # endShape(CLOSE)
+    fill(0)
+    b_poly_arc_augmented(pts, [RDS] * NUM_POINTS)
+    # global save_frame
+    if save_frame and frameCount % 2:
+        ve.saveFrame()
+    #     save_frame = False
 
 
 def keyPressed():
     if key == "p":
         saveFrame("####.png")
     if key == " ":
-        ensambles[:] = []
-        for i in range(3):
-            ensambles.append(create_points())
+        ensambles[:] = create_points()
     # if key == "m":
     #     global save_frame
     #     save_frame = True
-    # if key == "e":
-    #     ve.endMovie()
+    if key == "e":
+        ve.endMovie()
 
 
 

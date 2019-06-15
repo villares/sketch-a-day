@@ -24,9 +24,19 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190615a](2019/sketch_190615a/sketch_190615a.png)
+
+[sketch_190615a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190615a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Adding some combinatorics... first try.
+- 3312 *non-crossing* poly permutations with 6 points on a 3 x 3 grid
+
+---
+
 ![sketch_190614a](2019/sketch_190614a/sketch_190614a.gif)
 
 [sketch_190614a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190614a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 
 - Non-intersecting polys (as end-states)
 

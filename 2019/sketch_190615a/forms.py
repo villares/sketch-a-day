@@ -21,7 +21,7 @@ def b_poly_arc_augmented(op_list, or_list=None):
         p0 = p_list[i0]
         i2 = (i1 + 1) % len(p_list)
         p2 = p_list[i2]
-        a = area(p0, p1, p2) / 500.
+        a = area(p0, p1, p2) / 1000.
         if or_list == None:
             r_list[i1] = a
         else:
