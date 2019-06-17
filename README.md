@@ -24,6 +24,26 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+---
+
+![sketch_190617a](2019/sketch_190617a/sketch_190617a.png)
+
+[sketch_190617a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190615a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- [Movie](2019/sketch_190617a/processing-movie.mp4)
+
+- Changed the radius inversion rule for a static drawing (the moving version would make the radius zero on aligned vertices)
+
+---
+
+![sketch_190616a](2019/sketch_190616a/sketch_190616a.gif)
+
+[sketch_190616a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190616a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Tried to discard point circuits that are rotated versions (and so visually equivalent)
+
+---
+
 ![sketch_190615a](2019/sketch_190615a/sketch_190615a.gif)
 
 [sketch_190615a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190615a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
