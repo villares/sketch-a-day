@@ -32,7 +32,8 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 - [Movie](2019/sketch_190617a/processing-movie.mp4)
 
-- Changed the radius inversion rule for a static drawing (the moving version would make the radius zero on aligned vertices)
+- Changed the radius inversion rule for a static drawing (the moving version would make the radius zero on aligned vertices).
+- Some aligned vertices visually disappear so different point circuits still produce equivalent results.
 
 ---
 
@@ -40,7 +41,7 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 [sketch_190616a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190616a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-- Tried to discard point circuits that are rotated versions (and so visually equivalent)
+- I tried to discard point circuits that are rotated versions of each other (and so visually equivalent)
 
 ---
 
