@@ -1,4 +1,5 @@
 def b_poly_arc_augmented(op_list, or_list=None):
+    if not op_list: return
     if or_list == None:
         r2_list = [0] * len(op_list)
     else:
