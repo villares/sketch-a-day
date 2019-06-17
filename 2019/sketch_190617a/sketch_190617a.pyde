@@ -11,7 +11,7 @@ from line_geometry import *
 NUM_POINTS = 5
 BORDER = 100
 SIZE = 150
-RDS = 50
+RDS = 25
 save_frame = True
 ensambles = []
 st = 0
@@ -60,17 +60,20 @@ def draw():
     #     pt = lerp(pts0[i][0], pts1[i][0], t), lerp(pts0[i][1], pts1[i][1], t)
     #     pts.append(pt)
         
-    noStroke()
+    # noStroke()
     fill(200, 0, 100)
-    b_poly_arc_augmented(pts0, [RDS] * NUM_POINTS)
+    if keyPressed:
+        b_poly_arc_augmented(pts0, [RDS] * NUM_POINTS)
     fill(0, 200, 100)
-    b_poly_arc_augmented(pts1, [RDS] * NUM_POINTS)
+    if mousePressed:
+        b_poly_arc_augmented(pts1, [RDS] * NUM_POINTS)
     fill(0, 0, 200)
     b_poly_arc_augmented(pts2, [RDS] * NUM_POINTS)
     # global save_frame
     if not frameCount % 100:
         ve.saveFrame()
-
+    for pt in grid:
+        ellipse(pt[0], pt[1], 25, 25)
 
 
 def keyPressed():
