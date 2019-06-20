@@ -24,11 +24,21 @@ Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://villares.o
 
 ---
 
+![sketch_190619a](2019/sketch_190619a/sketch_190619a.png)
+
+[sketch_190619a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190619a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190618a](2019/sketch_190618a/sketch_190618a.png)
+
+[sketch_190618a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190618a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![sketch_190617a](2019/sketch_190617a/sketch_190617a.png)
 
-[sketch_190617a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190615a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190617a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190617a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 - [Movie](2019/sketch_190617a/processing-movie.mp4)
 
