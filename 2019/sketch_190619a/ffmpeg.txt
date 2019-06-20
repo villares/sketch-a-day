@@ -1,0 +1,53 @@
+ffmpeg version 3.4.6-0ubuntu0.18.04.1 Copyright (c) 2000-2019 the FFmpeg developers
+  built with gcc 7 (Ubuntu 7.3.0-16ubuntu3)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.18.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-librsvg --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared
+  WARNING: library configuration mismatch
+  avcodec     configuration: --prefix=/usr --extra-version=0ubuntu0.18.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-librsvg --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared --enable-version3 --disable-doc --disable-programs --enable-libopencore_amrnb --enable-libopencore_amrwb --enable-libtesseract --enable-libvo_amrwbenc
+  libavutil      55. 78.100 / 55. 78.100
+  libavcodec     57.107.100 / 57.107.100
+  libavformat    57. 83.100 / 57. 83.100
+  libavdevice    57. 10.100 / 57. 10.100
+  libavfilter     6.107.100 /  6.107.100
+  libavresample   3.  7.  0 /  3.  7.  0
+  libswscale      4.  8.100 /  4.  8.100
+  libswresample   2.  9.100 /  2.  9.100
+  libpostproc    54.  7.100 / 54.  7.100
+Input #0, rawvideo, from 'pipe:':
+  Duration: N/A, start: 0.000000, bitrate: 6000 kb/s
+    Stream #0:0: Video: rawvideo (RGB[24] / 0x18424752), rgb24, 500x500, 6000 kb/s, 1 fps, 1 tbr, 1 tbn, 1 tbc
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+[swscaler @ 0x55e08fe89c40] Warning: data is not aligned! This can lead to a speed loss
+[libx264 @ 0x55e08fe75a00] using cpu capabilities: MMX2 SSE2Fast LZCNT
+[libx264 @ 0x55e08fe75a00] profile High, level 2.2
+[libx264 @ 0x55e08fe75a00] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=3 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=1 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=15.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/home/villares/sketchbook/sketch-a-day/2019/sketch_190619a/processing-movie.mp4':
+  Metadata:
+    comment         : Made with Video Export for Processing - https://git.io/vAXLk
+    encoder         : Lavf57.83.100
+    Stream #0:0: Video: h264 (libx264) (avc1 / 0x31637661), yuv420p, 500x500, q=-1--1, 1 fps, 16384 tbn, 1 tbc
+    Metadata:
+      encoder         : Lavc57.107.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: -1
+frame=    9 fps=0.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   10 fps=5.2 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   11 fps=3.7 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   12 fps=3.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   13 fps=2.6 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   14 fps=2.4 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   15 fps=2.2 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   16 fps=2.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   16 fps=1.8 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   16 fps=1.7 q=-1.0 Lsize=     675kB time=00:00:13.00 bitrate= 425.5kbits/s speed=1.36x    
+video:674kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.159485%
+[libx264 @ 0x55e08fe75a00] frame I:2     Avg QP: 6.55  size: 58364
+[libx264 @ 0x55e08fe75a00] frame P:6     Avg QP: 8.56  size: 43047
+[libx264 @ 0x55e08fe75a00] frame B:8     Avg QP:10.21  size: 39331
+[libx264 @ 0x55e08fe75a00] consecutive B-frames: 25.0% 12.5% 37.5% 25.0%
+[libx264 @ 0x55e08fe75a00] mb I  I16..4: 25.9% 20.4% 53.7%
+[libx264 @ 0x55e08fe75a00] mb P  I16..4: 13.4% 10.7% 31.2%  P16..4: 13.8%  5.8%  4.1%  0.0%  0.0%    skip:21.1%
+[libx264 @ 0x55e08fe75a00] mb B  I16..4:  5.1%  1.8% 22.1%  B16..8: 26.0%  8.2%  6.0%  direct: 3.8%  skip:27.0%  L0:52.9% L1:40.1% BI: 7.1%
+[libx264 @ 0x55e08fe75a00] 8x8 transform intra:15.6% inter:4.8%
+[libx264 @ 0x55e08fe75a00] coded y,uvDC,uvAC intra: 53.4% 0.0% 0.0% inter: 23.2% 0.0% 0.0%
+[libx264 @ 0x55e08fe75a00] i16 v,h,dc,p: 65% 31%  4%  0%
+[libx264 @ 0x55e08fe75a00] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 13% 32%  5%  2%  3%  4%  6%  7%
+[libx264 @ 0x55e08fe75a00] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 17% 14% 24%  8% 10%  8%  9%  6%  3%
+[libx264 @ 0x55e08fe75a00] i8c dc,h,v,p: 100%  0%  0%  0%
+[libx264 @ 0x55e08fe75a00] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x55e08fe75a00] ref P L0: 48.0%  1.9% 34.4% 15.7%
+[libx264 @ 0x55e08fe75a00] ref B L0: 67.0% 28.4%  4.6%
+[libx264 @ 0x55e08fe75a00] ref B L1: 91.5%  8.5%
+[libx264 @ 0x55e08fe75a00] kb/s:344.83
+Exiting normally, received signal 15.
