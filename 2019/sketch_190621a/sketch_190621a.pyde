@@ -57,9 +57,14 @@ def draw():
             popMatrix()
 
         
-def draw_ensamble(pts):   
-    r = RDS * sin(degrees(frameCount))
+def draw_ensamble(pts): 
+    fill(0)  
+    r = RDS / 2 + RDS / 2 * sin(degrees(frameCount))
     b_poly_arc_augmented(pts, [r] * NUM_POINTS)
+    noFill()
+    stroke(255)
+    for p in pts:
+        ellipse(p[0], p[1], r * 2 , r * 2)
 
 def keyPressed():
     if key == "p":
