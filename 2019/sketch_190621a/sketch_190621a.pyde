@@ -1,8 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # Trying some combinatorics...
 
-add_library('VideoExport')
-
 from random import choice, shuffle, sample
 from itertools import product, permutations, combinations
 from forms import b_poly_arc_augmented
@@ -12,9 +10,7 @@ NUM_POINTS = 5
 BORDER = 100
 SIZE = 150
 RDS = 50
-save_frame = True
 ensambles = []
-st = 0
 
 def setup():
     size(500, 500)
@@ -44,7 +40,6 @@ def create_points():
     return ens
 
 def draw():
-    global st, pts
     background(200)
     scale(1/4.)
     st = -1
@@ -71,9 +66,6 @@ def keyPressed():
         saveFrame("####.png")
     if key == " ":
         ensambles[:] = create_points()
-    if key == "e":
-        ve.endMovie()
-
 
 def settings():
     """ print markdown to add at the sketc-a-day page"""

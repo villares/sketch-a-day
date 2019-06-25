@@ -1,8 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # Trying rules by Leopoldo Leal
 
-add_library('VideoExport')
-
 from random import choice, shuffle, sample
 from itertools import product, permutations, combinations
 from forms import b_poly_arc_augmented
@@ -12,9 +10,7 @@ NUM_POINTS = 6
 BORDER = 100
 SIZE = 100
 RDS = 50
-save_frame = True
 ensambles = []
-st = 0
 
 def setup():
     size(500, 500)
@@ -75,9 +71,6 @@ def keyPressed():
     if key == " ":
         background(200)
         ensambles[:] = create_points()
-    if key == "e":
-        ve.endMovie()
-
 
 def settings():
     """ print markdown to add at the sketc-a-day page"""
