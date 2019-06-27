@@ -60,14 +60,17 @@ def draw():
             translate(width * i, height * j) 
             translate(height/2, width/2)
             rotateY(frameCount / 100.)
-            rotateX((frameCount + i * 10 + j * 10) / 200.)
+            rotateX((frameCount + i * 10 + j * 10) / 50.)
             translate(-height/2, -width/2)
             if ensambles:
                 draw_ensamble(ensambles[st])
                 st = (st + 1) % len(ensambles)
             popMatrix()
     if save_frame:
-                ve.saveFrame()
+        ve.saveFrame()
+        if (frameCount - frame_start) / 100. > TWO_PI:
+            ve.endMovie()
+    
                 
 def draw_ensamble(pts): 
     noFill()
@@ -76,24 +79,23 @@ def draw_ensamble(pts):
     translate(0, 0, -8 * 10)
     for i in range(8):
         # colorMode(HSB)
-        strokeWeight(15 - i * 1.5)
+        strokeWeight(2 + i * 1.5)
         translate(0, 0, 20)
         b_poly_arc_augmented(pts, [i * 10] * NUM_POINTS)
         # for p in pts:
         #     ellipse(p[0], p[1], i * 10 , i * 10)
 
 def keyPressed():
-    global st, save_frame
+    global st, save_frame, frame_start
     if key == "p":
         saveFrame("####.png")
     if key == " ":
         ensambles[:] = create_points()
         st = 0
-    if key == "m":
-        st = (st + 1) % len(ensambles)
-    if key == "e":
-        ve.endMovie()
+    # if key == "e":
+    #     ve.endMovie()
     if key == "s":
+        frame_start = frameCount
         save_frame = not save_frame
         println("aave frame: {}".format(save_frame))
 

@@ -22,11 +22,24 @@ You may also support my artistic work, open source teaching resources and resear
 
 ## 2019
 
+
+---
+
+![sketch_190626a](2019/sketch_190626a/sketch_190626a.gif)
+
+[sketch_190626a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190626a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190625a](2019/sketch_190625a/sketch_190625a.gif)
+
+[sketch_190625a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190625a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![sketch_190624a](2019/sketch_190624a/sketch_190624a.gif)
 
-[sketch_190624a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190623a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190624a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190624a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 - the usual 3D transformation
 
