@@ -114,13 +114,13 @@ def keyPressed():
     if key == "s":
         frame_start = frameCount
         save_frame = not save_frame
-        println("aave frame: {}".format(save_frame))
+        println("save frame: {}".format(save_frame))
 
 
 def settings():
     """ print markdown to add at the sketc-a-day page"""
     from os import path
-    global SKETCH_NAME
+    global SKETCH_NAME, OUTPUT
     SKETCH_NAME = path.basename(sketchPath())
     OUTPUT = ".png"
     println(

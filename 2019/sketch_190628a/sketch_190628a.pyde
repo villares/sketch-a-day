@@ -1,5 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # More combinatorics of triangles in grids based on sektch_190602a
+# Lerp to make intermediary triangles
 
 from itertools import product, combinations
 
@@ -12,7 +13,7 @@ def setup():
     strokeJoin(ROUND)
     # points on a 3x3 grid
     grid = product((-1, 0, 1), repeat=2)
-    # all 3-point combinatons on the grid
+    # all 3-point combinations on the grid
     points = combinations(grid, 3)
     # identify triangles (discard colinear point triples)
     triangles = []
@@ -26,13 +27,13 @@ def setup():
             .format(len(triangles)))
     # calculate 2-triangle combinations
     two_triangle_combos = list(combinations(triangles, 2))
-    println("Number of combinatrions: {}"
+    println("Number of 2-triangle combinations: {}"
             .format(len(two_triangle_combos)))
     # calculate display grid
     W = (width - border * 2) // space
     H = (height - border * 2) // space
-    println("Cols: {} Rows: {} Visible grid: {}"
-            .format(W, H, W * H))
+    println("Cols: {} Rows: {}"
+            .format(W, H))
     noLoop()
 
 
@@ -51,20 +52,19 @@ def draw():
 
 def draw_combo(combo):
     noFill()
-    # strokeWeight(2)
     siz = space * .5 # .35
-    sls = (combo[0],
+    triangles = (combo[0],
            lerp_poly(combo[0], combo[1], 0.33),
            lerp_poly(combo[0], combo[1], 0.66),
            combo[1])
-    for i, sl in enumerate(sls):
-        # colors for each of the two (t)riangles
+    for i, t in enumerate(triangles):
+        # colors for each of the triangles
         colors = (color(200, 100, 0),
                   color(133, 100, 66),
                   color(66, 100, 33),
                   color(0, 100, 200))
         stroke(colors[i])
-        draw_poly(scale_poly(sl, siz))
+        draw_poly(scale_poly(t, siz))
 
 def draw_poly(p_list, closed=True):
     beginShape()
@@ -94,7 +94,7 @@ def keyPressed():
         
         
 def settings():
-    """ print markdown to add at the sketc-a-day page"""
+    """ print markdown to add at the sketch-a-day page"""
     from os import path
     global SKETCH_NAME, OUTPUT
     SKETCH_NAME = path.basename(sketchPath())

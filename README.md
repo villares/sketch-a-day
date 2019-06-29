@@ -22,6 +22,16 @@ You may also support my artistic work, open source teaching resources and resear
 
 ## 2019
 
+
+---
+
+![sketch_190628a](2019/sketch_190628a/sketch_190628a.png)
+
+[sketch_190628a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190628a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Number of possible triangles on a 3x3 grid: 76
+- Number of combinations of 2 triangles (start, end): 2850
+
 ---
 
 
