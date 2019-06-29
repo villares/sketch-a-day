@@ -31,6 +31,7 @@ You may also support my artistic work, open source teaching resources and resear
 
 - Number of possible triangles on a 3x3 grid: 76
 - Number of combinations of 2 triangles (start, end): 2850
+- Interpolating 2 intermediary triangles
 
 ---
 

@@ -44,8 +44,8 @@ def draw():
         for x in range(W):
             if i < len(two_triangle_combos):
                 pushMatrix()
-                translate(border / 2 + space + space * x,
-                          border / 2 + space + space * y)
+                translate(border + space / 2 + space * x,
+                          border + space / 2 + space * y)
                 draw_combo(two_triangle_combos[i])
                 popMatrix()
                 i += 1
