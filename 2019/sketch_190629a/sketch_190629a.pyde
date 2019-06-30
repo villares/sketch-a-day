@@ -36,10 +36,10 @@ def setup():
     println("Cols: {} Rows: {}"
             .format(W, H))
     # Video Export
-    global ve
-    ve = VideoExport(this)
-    ve.setFrameRate(15)
-    ve.startMovie()
+    # global ve
+    # ve = VideoExport(this)
+    # ve.setFrameRate(15)
+    # ve.startMovie()
 
 def draw():
     background(240)
@@ -56,9 +56,9 @@ def draw():
                 popMatrix()
                 i += 1
     # save frame
-    ve.saveFrame()
-    if frameCount >= 90:
-        ve.endMovie()
+    # ve.saveFrame()
+    # if frameCount >= 90:
+    #     ve.endMovie()
 
 def draw_combo(combo):
     noFill()

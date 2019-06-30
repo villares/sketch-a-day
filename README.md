@@ -22,6 +22,13 @@ You may also support my artistic work, open source teaching resources and resear
 
 ## 2019
 
+---
+
+![sketch_190629a](2019/sketch_190629a/sketch_190629a.gif)
+
+[sketch_190629a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190628a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- First attempt at a 3D version of 190628a (not a very good gif, [mp4 here](2019/sketch_190629a/processing-movie.mp4))
 
 ---
 
