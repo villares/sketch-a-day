@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# More combinatorics of triangles in grids based on sektch_190602a
-# Lerp to make intermediary triangles
+# More combinatorics of triangles based on sketch_190629a
+# Now some 3D
 
 from itertools import product, combinations
 
