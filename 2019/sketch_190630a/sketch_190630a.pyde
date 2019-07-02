@@ -6,8 +6,8 @@ from itertools import product, combinations
 
 def setup():
     global two_triangle_combos, triangles, space, border
-    size(200, 200, P3D)
-    border = 50
+    size(500, 500, P3D)
+    border = 100
     space = width - 2 * border
     smooth(8)
     blendMode(MULTIPLY)    
@@ -37,7 +37,7 @@ def draw():
     translate(width / 2, height / 2)
     rotateY(radians(frameCount))
     noFill()
-    i = (frameCount % len(two_triangle_combos)) // 90
+    i = (frameCount // 90) % len(two_triangle_combos) 
     draw_combo(two_triangle_combos[i])
 
 def draw_combo(combo):

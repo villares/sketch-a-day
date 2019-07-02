@@ -42,7 +42,7 @@ def draw():
     # translate(width / 2, height / 2) # WEBGL already centered
     rotateY(radians(frameCount))
     noFill()
-    i = (frameCount % len(two_triangle_combos)) // 90
+    i = (frameCount // 90) % len(two_triangle_combos) 
     draw_combo(two_triangle_combos[i])
 
 def draw_combo(combo):
