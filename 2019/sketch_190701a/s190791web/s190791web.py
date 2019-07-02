@@ -1,17 +1,17 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# More combinatorics of triangles in grids based on sketch_190629a
-# Lerp to make intermediary triangles
+# More combinatorics of polys in grids based on sektch_190630a
+# Now quads in 3D
 
 from pyp5js import *
 
 border = 100
-two_triangle_combos = []
+two_poly_combos = []
 space = None
 
 from itertools import product, combinations
 
 def setup():
-    global two_triangle_combos, space, border
+    global two_poly_combos, space, border
     createCanvas(500, 500, WEBGL)
     space = width - 2 * border
     smooth(8)
@@ -20,21 +20,18 @@ def setup():
     # points on a 3x3 grid
     grid = product((-1, 0, 1), repeat=2)
     # all 3-point combinations on the grid
-    points = combinations(grid, 3)
-    # identify triangles (discard colinear point triples)
-    triangles = []
+    points = combinations(grid, 4)
+    # identify polys (discard colinear point triples)
+    polys = []
     for p in points:
-        area = (p[1][0] * (p[2][1] - p[0][1]) +
-                p[2][0] * (p[0][1] - p[1][1]) +
-                p[0][0] * (p[1][1] - p[2][1]))
-        if area != 0:
-            triangles.append(p)
-    print("Number of possible triangles: {}"
-            .format(len(triangles)))
-    # calculate 2-triangle combinations
-    two_triangle_combos = list(combinations(triangles, 2))
-    print("Number of 2-triangle combinations: {}"
-            .format(len(two_triangle_combos)))
+        if area(p) != 0:
+            polys.append(p)
+    print("Number of possible quads: {}"
+            .format(len(polys)))
+    # calculate 2-poly combinations
+    two_poly_combos = list(combinations(polys, 2))
+    print("Number of 2-poly combinations: {}"
+            .format(len(two_poly_combos)))
 
 def draw():
     background(240)
@@ -42,19 +39,19 @@ def draw():
     # translate(width / 2, height / 2) # WEBGL already centered
     rotateY(radians(frameCount))
     noFill()
-    i = (frameCount % len(two_triangle_combos)) // 90
-    draw_combo(two_triangle_combos[i])
+    i = (frameCount % len(two_poly_combos)) // 90
+    draw_combo(two_poly_combos[i])
 
 def draw_combo(combo):
     strokeWeight(border / 10)
     noFill()
     siz = space * .5 # .35
-    triangles = (combo[0],
+    polys = (combo[0],
            lerp_poly(combo[0], combo[1], 0.33),
            lerp_poly(combo[0], combo[1], 0.66),
            combo[1])
-    for i, t in enumerate(triangles):
-        # colors for each of the triangles
+    for i, t in enumerate(polys):
+        # colors for each of the polys
         colors = (color(200, 100, 0),
                   color(133, 100, 66),
                   color(66, 100, 133),
@@ -77,3 +74,13 @@ def lerp_poly(p0, p1, t):
         
 def scale_poly(p_list, s):
     return [(p[0] * s, p[1] * s) for p in p_list]
+
+def area(points):
+    n = len(points) # of points
+    a = 0.0
+    for i in range(n):
+        j = (i + 1) % n
+        a += points[i][0] * points[j][1]
+        a -= points[j][0] * points[i][1]
+    a /= 2.0
+    return a

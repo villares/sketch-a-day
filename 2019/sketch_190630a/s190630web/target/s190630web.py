@@ -4,7 +4,7 @@
 
 from pyp5js import *
 
-border = 50
+border = 100
 two_triangle_combos = []
 space = None
 
@@ -12,7 +12,7 @@ from itertools import product, combinations
 
 def setup():
     global two_triangle_combos, space, border
-    createCanvas(200, 200, WEBGL)
+    createCanvas(500, 500, WEBGL)
     space = width - 2 * border
     smooth(8)
     blendMode(MULTIPLY)    
