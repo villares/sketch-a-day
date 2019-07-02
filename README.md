@@ -22,6 +22,15 @@ You may also support my artistic work, open source teaching resources and resear
 
 ## 2019
 
+
+---
+
+<iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190701a/s190791web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
+
+---
+
+<iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190630a/s190630web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
+
 ---
 
 ![sketch_190629a](2019/sketch_190629a/sketch_190629a.gif)
