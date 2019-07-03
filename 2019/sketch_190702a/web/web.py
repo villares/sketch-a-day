@@ -1,13 +1,11 @@
 from pyp5js import *
 
-
 def setup():
     createCanvas(500, 500)
     smooth()
     for i in range(-9, 10):
         for j in range(-9, 10):
             Point(i, j)
-
 
 def draw():
     background(240, 240, 200)
@@ -43,3 +41,4 @@ class Point():
                 sx, sy = self.place()
                 mx, my = (ox + sx) / 2., (oy + sy) / 2.
                 line(mx, my, sx, sy)
+                
