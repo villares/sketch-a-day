@@ -2,17 +2,13 @@
 # sketch-a-day
 #### one visual idea a day 
 
+Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome!
 
-Hi! I'm [Alexandre Villares](https://abav.lugaralgum.com), welcome!
+I try to make one small program (*sketch*) a day, and I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
 
-I try to make one small program (*sketch*) a day. I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day)
+Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]
 
-Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]
-
-Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
-
-You may also support my artistic work, open source teaching resources and research with [donations](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2) :)
-
+You may also support my artistic work, open teaching resources and research with [donations](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)!
  
 ---
 
