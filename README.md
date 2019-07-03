@@ -22,18 +22,23 @@ You may also support my artistic work, open source teaching resources and resear
 
 ## 2019
 
+---
+
+<iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190702a/web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
+
+sketch_190702a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190702a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190702a/web)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190701a/s190791web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
 
-sketch_190701a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190701a)|[pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190701a/s190791web)
+sketch_190701a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190701a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190701a/s190791web)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190630a/s190630web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
 
-sketch_190630a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a)|[pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a/s190630web)
+sketch_190630a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a/s190630web)
 
 
 ---
