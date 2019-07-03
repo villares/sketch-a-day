@@ -1,5 +1,3 @@
-# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# A simple grid deformed by the mouse
 
 def setup():
     size(500, 500)
@@ -17,13 +15,13 @@ def draw():
 class Point():
    
     grid = dict()
-    nbr = ((-1, 0), (1, 0), (0, -1), (0, 1))
+    nbr = ((-1, -1), (1, -1), (1, 1), (-1, 1))
     
     def __init__(self, i, j):
         self.i = i
         self.j = j
         self.grid[(i, j)] = self
-        self.space = random(45, 55)
+        self.space = random(49, 51)
         
     def place(self):
         x, y = self.i * self.space, self.j * self.space
@@ -33,6 +31,8 @@ class Point():
         
     def plot(self):
         stroke(0)
+        fill(128, 100)
+        beginShape()
         for oi, oj in self.nbr:
             nbr_ij = (self.i + oi, self.j + oj)
             other = self.grid.get(nbr_ij)
@@ -40,8 +40,9 @@ class Point():
                  ox, oy = other.place()
                  sx, sy = self.place()
                  mx, my = (ox + sx) / 2., (oy + sy) / 2.
-                 line(mx, my, sx, sy)
-
+                 vertex(mx, my)
+        endShape(CLOSE)
+        ellipse(sx, sy, 5, 5)
                  
              
         
