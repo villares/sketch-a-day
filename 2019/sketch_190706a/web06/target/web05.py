@@ -1,9 +1,7 @@
-# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# Mouse twisted repulsion on a grid
+from pyp5js import *
 
 def setup():
-    size(500, 500)
-    smooth()
+    createCanvas(500, 500)
     for i in range(-9, 10):
         for j in range(-9, 10):
             Point(i, j)
@@ -13,7 +11,6 @@ def draw():
     translate(width / 2, height / 2)
     for p in Point.grid.values():
         p.plot()
-
 class Point():
 
     grid = dict()
@@ -57,7 +54,4 @@ class Point():
         endShape(CLOSE)
         strokeWeight(3)
         point(sx, sy)
-
-
-def keyPressed():
-    saveFrame("####.png")
+                 

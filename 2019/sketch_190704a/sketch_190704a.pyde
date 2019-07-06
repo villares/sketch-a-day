@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# Mouse repulsion on a 3D grid
+# Mouse repulsion on a grid
 
 def setup():
     size(500, 500)
