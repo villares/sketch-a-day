@@ -14,6 +14,7 @@ def draw():
 
         
 class Point():
+    """Node for a mouse-deformed twisting line"""
 
     grid = dict()
     nbr = ((0, -1),  (0, 1))

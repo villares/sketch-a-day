@@ -11,11 +11,13 @@ def draw():
     translate(width / 2, height / 2)
     for p in Point.grid.values():
         p.plot()
+
+        
 class Point():
+    """Node for a mouse-deformed twisting line"""
 
     grid = dict()
-    nbr = ((-1, 0), (-1, -1), (0, -1), (1, -1),
-           (1, 0), (1, 1), (0, 1), (-1, 1))
+    nbr = ((0, -1),  (0, 1))
 
     def __init__(self, i, j):
         self.i = i
@@ -30,8 +32,8 @@ class Point():
         mx, my = mouseX - width / 2., mouseY - height / 2.
         dx, dy = self.ox - mx, self.oy - my
         d = dist(mx, my, dx, dy)
-        move_factor = 100 / (1 + d)
-        if move_factor > 1:
+        move_factor = 50 / (1 + d)
+        if move_factor > 0.1:
             self.x += move_factor * -(-1 if dy < 0 else 1)
             self.y += move_factor * (-1 if dx < 0 else 1)
         self.x += offx * .01
@@ -51,7 +53,6 @@ class Point():
                 ox, oy = other.place()
                 mx, my = (ox + sx) / 2., (oy + sy) / 2.
                 vertex(mx, my)
-        endShape(CLOSE)
+        endShape()
         strokeWeight(3)
         point(sx, sy)
-                 
