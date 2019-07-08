@@ -5,13 +5,13 @@ from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
 from var_bar import var_bar
 
-space, border = 40, 0
+space, border = 55, 0
 position = 0  # initial position
 
 
 def setup():
     global line_combos, W, H, position, num
-    size(820, 460)
+    size(1122, 628)
     frameRate(1)
     rectMode(CENTER)
     strokeWeight(2)
