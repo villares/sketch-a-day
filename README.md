@@ -17,11 +17,31 @@ You may also support my artistic work, open teaching resources and research with
 ---
 
 ## 2019
+
+---
+
+
+![sketch_190708a](2019/sketch_190708a/sketch_190708a.png)
+
+[sketch_190708a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190708a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Number of possible bars on a 2x2 grid: 12 
+- Number of 2-bar combinations: 66
+- Cols: 11 Rows: 6 
+- Interpolating 6 intermediary bars (total of 8 bars drawn)
+- Overlapping slightly the combinations
+
 ---
 
 ![sketch_190707a](2019/sketch_190707a/sketch_190707a.png)
 
 [sketch_190707a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190707a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+More explorations of inerpolated combinations in grids
+- Number of possible bars on a 2x2 grid: 12 
+- Number of 3-bar combinations: 220
+- Cols: 20 Rows: 11 
+- Interpolating 2 intermediares each bar pair
 
 ---
 

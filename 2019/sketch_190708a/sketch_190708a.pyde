@@ -1,45 +1,45 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-"""
+""" 
 More explorations of inerpolated combinations in grids
 - Number of possible bars on a 2x2 grid: 12 
-- Number of 3-bar combinations: 220
-- Cols: 20 Rows: 11 
-- Interpolating 2 intermediares each bar pair
+- Number of 2-bar combinations: 66
+- Cols: 11 Rows: 6 
+- Interpolating 6 intermediary bars (total of 8 bars drawn)
+- Overlapping slightly the combinations
 """
 
 from random import shuffle
-from itertools import product, combinations, permutations, combinations_with_replacement
+from itertools import product, combinations, permutations
 from var_bar import var_bar
 
-space, border = 55, 0
+space, border = 80, 80
 position = 0  # initial position
-
+radius_a, radius_b = space / 8, space / 16
 
 def setup():
     global bar_combos, W, H, position, num
-    size(1122, 628)
+    size(960, 560)
     frameRate(1)
     rectMode(CENTER)
-    strokeWeight(2)
-    grid = product(range(-1, 1), repeat=2)  # 2X2
-    # all line combinations on a grid
+    grid = product(range(-1, 1), repeat=2)  # 2X2 grid
+    # all bar possibilities on a grid (they have a direction)
     bars = permutations(grid, 2)
     # allow only some bars
     possible_bars = []
-    for l in bars:
-        (x0, y0), (x1, y1) = l[0], l[1]
-        if dist(x0, y0, x1, y1) < 2:  # rule defined here...
+    for l in bars: # filter not applicable on this sketch
+        # (x0, y0), (x1, y1) = l[0], l[1]
+        # if dist(x0, y0, x1, y1) < 2:  # rule defined here...
             possible_bars.append(l)
     num_possible_bars = len(possible_bars)
     println("Number of possible bars on a 2x2 grid: {}".format(num_possible_bars))
     # main stuff
-    n_bars = 3
+    n_bars = 2
     bar_combos = list(combinations(possible_bars, n_bars))
     # shuffle(bar_combos) # ucomment to shuffle!
     num = len(bar_combos)
     println("Number of {}-bar combinations: {}".format(n_bars, num))
-    W = (width - border * 2) // space
-    H = (height - border * 2) // space
+    W = (width - border) // space
+    H = (height - border) // space
     println("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))
 
 
@@ -51,11 +51,8 @@ def draw():
         for x in range(W):
             if i < len(bar_combos):
                 pushMatrix()
-                # B option
-                # translate(border / 2 + space + space * x,
-                #           border / 2 + space + space * y)
-                translate(border + space + space * x,
-                          border + space + space * y)
+                translate(border + space / 2 + space * x,
+                          border + space / 2 + space * y)
                 draw_combo(i)
                 popMatrix()
                 i += 1
@@ -65,20 +62,18 @@ def draw():
         position += H * W
 
 def draw_combo(n):
-    colorMode(HSB)
-    blendMode(MULTIPLY)
-    noStroke()
-    siz = space / 2. # B option
-    bar_combo = bar_combos[n]
-    combo_len = len(bar_combo)
-    for i, single_line in enumerate(bar_combo):
-        ni = (i + 1) % combo_len
-        next_line = bar_combo[ni]
-        for j in range(4): 
-            c = lerpColor(color(i * 64, 128, 128), color(ni * 64, 128, 128), j)
-            fill(c)
-            (x0, y0), (x1, y1) = lerp_poly(single_line, next_line, j / 3.)
-            var_bar(x0 * siz, y0 * siz, x1 * siz, y1 * siz, siz / 16, siz / 8)
+    noFill()
+    stroke(0, 0, 100, 200)
+    # noStroke()
+    # fill(100, 100)
+    siz = space #/ 2. # B option
+    first_line = bar_combos[n][0]
+    next_line = bar_combos[n][1]    
+    jn = 8
+    for j in range(8): 
+        (x0, y0), (x1, y1) = lerp_poly(first_line, next_line, j / (jn - 1.))
+        var_bar(x0 * siz, y0 * siz, x1 * siz, y1 * siz,
+                radius_a, radius_b)
 
 def keyPressed():
     global W, H
