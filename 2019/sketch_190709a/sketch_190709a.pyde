@@ -12,12 +12,12 @@ from itertools import product, combinations, permutations
 from var_bar import var_bar
 
 space, border = 80, 80
-position = 0  # initial position
-radius_a, radius_b = space / 8, space / 16
+init_position = 0
 
 def setup():
     global bar_combos, W, H, position, num
     size(960, 560)
+    blendMode(MULTIPLY)
     frameRate(1)
     rectMode(CENTER)
     grid = product(range(-1, 1), repeat=2)  # 2X2 grid
@@ -43,9 +43,13 @@ def setup():
 
 
 def draw():
-    global position
+    global radius_a, radius_b, init_position
+    t = sin(radians(frameCount * 15))
+    radius_a = space / map(t, -1, 1, 4, 32)
+    radius_b = space / map(t, -1, 1, 32, 4)
+    
     background(240)
-    i = position
+    i = init_position
     for y in range(H):
         for x in range(W):
             if i < len(bar_combos):
@@ -56,15 +60,13 @@ def draw():
                 popMatrix()
                 i += 1
     if i < len(bar_combos):
-        # gif_export(GifMaker, SKETCH_NAME)
-        # gif_export(GifMaker, SKETCH_NAME[:-1] + "b") # B option
-        position += H * W
+        init_position += H * W
 
 def draw_combo(n):
     noFill()
     stroke(0, 0, 100, 200)
     # noStroke()
-    # fill(100, 100)
+    fill(200)
     siz = space #/ 2. # B option
     first_line = bar_combos[n][0]
     next_line = bar_combos[n][1]    
