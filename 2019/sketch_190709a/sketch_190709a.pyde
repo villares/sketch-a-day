@@ -18,7 +18,6 @@ def setup():
     global bar_combos, W, H, position, num
     size(960, 560)
     blendMode(MULTIPLY)
-    frameRate(1)
     rectMode(CENTER)
     grid = product(range(-1, 1), repeat=2)  # 2X2 grid
     # all bar possibilities on a grid (they have a direction)
@@ -44,7 +43,8 @@ def setup():
 
 def draw():
     global radius_a, radius_b, init_position
-    t = sin(radians(frameCount * 15))
+    ang = frameCount / 15.5
+    t = sin(ang)
     radius_a = space / map(t, -1, 1, 4, 32)
     radius_b = space / map(t, -1, 1, 32, 4)
     
@@ -61,6 +61,11 @@ def draw():
                 i += 1
     if i < len(bar_combos):
         init_position += H * W
+        
+    if ang < TWO_PI:
+        saveFrame("s####.png")
+    else:
+        exit() 
 
 def draw_combo(n):
     noFill()
