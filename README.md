@@ -18,6 +18,15 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+
+---
+
+![sketch_190710a](2019/sketch_190710a/sketch_190710a.gif)
+
+[sketch_190710a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190710a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- 1288 (half-total) combinations of 2-bars on a 3x3 grid
+
 ---
 
 ![sketch_190709a](2019/sketch_190709a/sketch_190709a.gif)
