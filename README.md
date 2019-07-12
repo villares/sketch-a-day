@@ -18,6 +18,11 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+---
+
+![sketch_190711a](2019/sketch_190711a/sketch_190711a.png)
+
+[sketch_190711a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190711a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
