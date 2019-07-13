@@ -1,9 +1,8 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """ 
-- Number of possible bars on a 3x3 grid: 72 
-- Number of 2-bar combinations: 66
-- Cols: 11 Rows: 6 
-- Interpolating 6 intermediary bars (total of 8 bars drawn)
+Number of possible lines (point pemutations) on a 3x3 grid: 72
+Number of 2-line combos: 2556
+Cols: 71 Rows: 36 Visible grid: 2556
 - Overlapping slightly the combinations
 """
 
@@ -11,17 +10,17 @@ from random import shuffle
 from itertools import product, combinations, permutations
 from var_bar import var_bar
 
-space, border = 20, 0
+space, border = 18, 0
 init_position = 0
 
 def setup():
     global bar_combos, W, H, position, num
-    size(600, 420)
+    size(1278, 648)
     blendMode(MULTIPLY)
     rectMode(CENTER)
     grid = product(range(-1, 2), repeat=2)  # 3X3 grid
     # all bar possibilities on a grid (they have a direction)
-    bars = combinations(grid, 2)
+    bars = permutations(grid, 2)
     # allow only some bars
     possible_bars = []
     for l in bars: # filter not applicable on this sketch
@@ -29,17 +28,17 @@ def setup():
         # if dist(x0, y0, x1, y1) < 2:  # rule defined here...
             possible_bars.append(l)
     num_possible_bars = len(possible_bars)
-    println("Number of possible bars on a 3x3 grid: {}".format(num_possible_bars))
+    println("Number of possible lines (point pemutations) on a 3x3 grid: {}".format(num_possible_bars))
     # main stuff
     n_bars = 2
     bar_combos = list(combinations(possible_bars, n_bars))
     # shuffle(bar_combos) # ucomment to shuffle!
     num = len(bar_combos)
-    println("Number of {}-bar combinations: {}".format(n_bars, num))
+    println("Number of {}-line combos: {}".format(n_bars, num))
     W = (width - border) // space
     H = (height - border) // space
     println("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))
-    bar_combos = bar_combos[:1288] # show just the first part
+    bar_combos = bar_combos[:] # show just the first part
 
 def draw():
     global radius_a, radius_b, init_position
@@ -78,7 +77,7 @@ def draw_combo(n):
     jn = 8
     for j in range(8): 
         (x0, y0), (x1, y1) = lerp_poly(first_line, next_line, j / (jn - 1.))
-        strokeWeight(lerp(radius_a / 4, radius_b / 4,  j / (jn - 1.)))
+        strokeWeight(1 + j / 4)
         line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
 
 def keyPressed():
