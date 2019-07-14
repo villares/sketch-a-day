@@ -71,14 +71,17 @@ def draw_combo(n):
     stroke(0, 0, 100, 200)
     # noStroke()
     fill(200)
-    siz = space #/ 2. # B option
+    siz = space / 2. # B option
     first_line = bar_combos[n][0]
     next_line = bar_combos[n][1]    
-    jn = 8
-    for j in range(8): 
+    jn = 5
+    for j in range(jn): 
+        strokeWeight(2)
         (x0, y0), (x1, y1) = lerp_poly(first_line, next_line, j / (jn - 1.))
-        strokeWeight(1 + j / 4)
         line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
+        (x0, y1), (x1, y0) = lerp_poly(first_line, next_line, j / (jn - 1.))
+        line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
+
 
 def keyPressed():
     global W, H
