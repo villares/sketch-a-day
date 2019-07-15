@@ -1,6 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # Using JCSG library prepared for Processing by George Profenza 
 # A new take on my experiments with boxes from last year
+# Now I can twist them!
 
 
 # You'll need to copy these libs into your Processing libraries folder:
@@ -17,11 +18,12 @@ def setup():
     size(600, 500, P3D)
     hint(ENABLE_DEPTH_TEST)
     hint(ENABLE_DEPTH_SORT)
+    fill(100, 200, 200, 240)
     pshape_result = calculate_stuff()
 
 
 def draw():
-    background(0)
+    background(240)
     lights()
     translate(width * 0.5, height * 0.5, -height)
     rotateY(map(mouseX, 0, width, -PI, PI))
@@ -35,13 +37,16 @@ def calculate_stuff():
     thick = 50
     for i, s in enumerate(range(3)):
         w, h, d = choice(dim), choice(dim), choice(dim)
-        cube = Cube(w, h, d).toCSG()
+        solid = Cube(w, h, d).toCSG()
         if w / 100 % 2:
             hole = Cube(w - thick, h, d - thick).toCSG()
         else:
-            hole =Cube(w, h - thick, d - thick).toCSG()
+            hole = Cube(w, h - thick, d - thick).toCSG()
         move = choice(dim)
-        solids.append(csgTranslate(cube, move - 250, 0, 0))
+        if move / 100 % 2:
+            hole = csgRot(hole, 15, 0, 0)
+            solid = csgRot(solid, 15, 0, 0)
+        solids.append(csgTranslate(solid, move - 250, 0, 0))
         holes.append(csgTranslate(hole, move - 250, 0, 0))
 
     mass = solids[0].union(solids[1:])
