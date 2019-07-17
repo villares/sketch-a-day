@@ -18,6 +18,13 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+---
+
+![sketch_190716a](2019/sketch_190716a/sketch_190716a.gif)
+
+[sketch_190716a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190716a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Testing cylinders
 
 ---
 
@@ -25,11 +32,15 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_190715a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190715a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Tried a 15 degree twist
+
 ---
 
 ![sketch_190714a](2019/sketch_190714a/sketch_190714a.gif)
 
 [sketch_190714a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190714a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Tube-boxes (added cuboids - added holes)
 
 ---
 
