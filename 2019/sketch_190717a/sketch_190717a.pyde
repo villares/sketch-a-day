@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 # Using JCSG library prepared for Processing by George Profenza
 # A new take on my experiments with boxes from last year
-# Now I can twist Cylinders!
+# Now I can twist them!
 
 
 # You'll need to copy these libs into your Processing libraries folder:

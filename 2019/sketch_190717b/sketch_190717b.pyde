@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# Using JCSG library prepared for Processing by George Profenza
+# Using JCSG library prepared for Processing by George Profenza 
 # A new take on my experiments with boxes from last year
-# Now I can twist Cylinders!
+# Now I can twist them!
 
 
 # You'll need to copy these libs into your Processing libraries folder:
@@ -18,11 +18,12 @@ def setup():
     size(600, 500, P3D)
     hint(ENABLE_DEPTH_TEST)
     hint(ENABLE_DEPTH_SORT)
+    # fill(100, 200, 200, 240)
     pshape_result = calculate_stuff()
 
 
 def draw():
-    background(100)
+    background(240)
     lights()
     translate(width * 0.5, height * 0.5, -height)
     rotateY(map(mouseX, 0, width, -PI, PI))
@@ -38,13 +39,9 @@ def calculate_stuff():
         w, h, d = choice(dim), choice(dim), choice(dim)
         solid = Cube(w, h, d).toCSG()
         if w / 100 % 2:
-            hole = csgTranslate(Cylinder(d, w, 32).toCSG(), 0, 0, -w / 2)
-            # hole = Cube(w - thick, h, d - thick).toCSG()
-            # hole = csgRot(hole, 0, 90, 0)
+            hole = Cube(w - thick, h, d - thick).toCSG()
         else:
-            hole = csgTranslate(Cylinder(h, w, 32).toCSG(), 0, 0, -w / 2)
-            # hole = Cube(w, h - thick, d - thick).toCSG()
-        hole = csgTranslate(Cylinder(200, w, 16).toCSG(), 0, 0, -w / 2)
+            hole = Cube(w, h - thick, d - thick).toCSG()
         move = choice(dim)
         if move / 100 % 2:
             hole = csgRot(hole, 15, 0, 0)
@@ -55,7 +52,7 @@ def calculate_stuff():
     mass = solids[0].union(solids[1:])
     void = holes[0].union(holes[1:])
     result = mass.difference(void)
-
+        
     return CSGToPShape(result, 1)
 
 
@@ -71,8 +68,7 @@ def CSGToPShape(mesh, scale):
     """
     result = createShape(GROUP)  # allocate a PShape group
     # for each polygon (Note: these can have 3,4 or more vertices)
-    final_i = len(mesh.getPolygons())
-    for i, p in enumerate(mesh.getPolygons()):
+    for p in mesh.getPolygons():
         # make a child PShape
         polyShape = createShape()
         # begin setting vertices to it
@@ -86,8 +82,7 @@ def CSGToPShape(mesh, scale):
 
         # finish this polygon
         polyShape.endShape()
-        polyShape.setFill(color(100, 200, map(i, 0, final_i, 0, 255)))
-        polyShape.setStroke(False)
+        polyShape.setFill(color(random(256), 100, 100))
         # append the child PShape to the parent
         result.addChild(polyShape)
 
