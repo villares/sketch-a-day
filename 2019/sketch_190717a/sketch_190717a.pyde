@@ -38,13 +38,9 @@ def calculate_stuff():
         w, h, d = choice(dim), choice(dim), choice(dim)
         solid = Cube(w, h, d).toCSG()
         if w / 100 % 2:
-            hole = csgTranslate(Cylinder(d, w, 32).toCSG(), 0, 0, -w / 2)
-            # hole = Cube(w - thick, h, d - thick).toCSG()
-            # hole = csgRot(hole, 0, 90, 0)
+            hole = Cube(w - thick, h, d - thick).toCSG()
         else:
-            hole = csgTranslate(Cylinder(h, w, 32).toCSG(), 0, 0, -w / 2)
-            # hole = Cube(w, h - thick, d - thick).toCSG()
-        hole = csgTranslate(Cylinder(200, w, 16).toCSG(), 0, 0, -w / 2)
+            hole = Cube(w, h - thick, d - thick).toCSG()
         move = choice(dim)
         if move / 100 % 2:
             hole = csgRot(hole, 15, 0, 0)
@@ -55,8 +51,9 @@ def calculate_stuff():
     mass = solids[0].union(solids[1:])
     void = holes[0].union(holes[1:])
     result = mass.difference(void)
-
+        
     return CSGToPShape(result, 1)
+
 
 
 def csgTranslate(csg, x, y, z):
@@ -87,7 +84,7 @@ def CSGToPShape(mesh, scale):
         # finish this polygon
         polyShape.endShape()
         polyShape.setFill(color(100, 200, map(i, 0, final_i, 0, 255)))
-        polyShape.setStroke(False)
+        # polyShape.setStroke(False)
         # append the child PShape to the parent
         result.addChild(polyShape)
 
