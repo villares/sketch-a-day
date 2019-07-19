@@ -20,6 +20,15 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_190718a](2019/sketch_190718a/sketch_190718a.gif)
+
+[sketch_190718a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190718a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+It should go without saying but sketch-a-day is about work in progress.
+I have yet to find ways of showing things I really think grew into something more consistent (even if I quite like some of the results here, there is a lot of unfinished stuff)
+
+---
+
 ![sketch_190717a](2019/sketch_190717a/sketch_190717a.gif)
 
 [sketch_190717a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190717a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

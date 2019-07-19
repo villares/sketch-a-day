@@ -1,8 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-# Using JCSG library prepared for Processing by George Profenza 
-# A new take on my experiments with boxes from last year
-# Now I can twist them!
-
+# Using JCSG library prepared for Processing by George Profenza
+# Work in progress...
 
 # You'll need to copy these libs into your Processing libraries folder:
 add_library('VVecMath')
@@ -28,8 +26,8 @@ def draw():
     translate(width * 0.5, height * 0.5, -height)
     rotateY(map(mouseX, 0, width, -PI, PI))
     rotateX(map(mouseY, 0, height, PI, -PI))
-
-    shape(pshape_result)
+    for ps in pshape_result:
+        shape(ps)
 
 
 def calculate_stuff():
@@ -51,9 +49,18 @@ def calculate_stuff():
 
     mass = solids[0].union(solids[1:])
     void = holes[0].union(holes[1:])
-    result = mass.difference(void)
+    sub_result = mass.difference(void)
+    results = []
+    for s in solids:
+        results.append(sub_result.intersect(s))
+    for i, r in enumerate(results):
+        results[i] = r.difference(solids[i - 1])
         
-    return CSGToPShape(result, 1)
+    colors = [lambda: color(255, 100, 100),
+              lambda: color(0, 255, 100),
+              lambda: color(0, 100, 255)]
+    return [CSGToPShape(r, 1, colors[i % len(results)])
+            for i, r in enumerate(results)]
 
 
 def csgTranslate(csg, x, y, z):
@@ -62,7 +69,7 @@ def csgTranslate(csg, x, y, z):
 def csgRot(csg, x, y, z):
     return csg.transformed(Transform.unity().rot(x, y, z))
 
-def CSGToPShape(mesh, scale):
+def CSGToPShape(mesh, scale, color_maker):
     """
     Convert a CSG mesh to a Processing PShape
     """
@@ -82,7 +89,7 @@ def CSGToPShape(mesh, scale):
 
         # finish this polygon
         polyShape.endShape()
-        polyShape.setFill(color(random(256), 100, 100))
+        polyShape.setFill(color_maker())
         # append the child PShape to the parent
         result.addChild(polyShape)
 
