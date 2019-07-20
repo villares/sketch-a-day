@@ -20,6 +20,16 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+---
+
+![sketch_190719a](2019/sketch_190718a/sketch_190719a.gif)
+
+[sketch_190719a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190719a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Intersections are hard!
+
+---
+
 ![sketch_190718a](2019/sketch_190718a/sketch_190718a.gif)
 
 [sketch_190718a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190718a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
