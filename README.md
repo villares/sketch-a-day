@@ -20,9 +20,18 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+
 ---
 
-![sketch_190719a](2019/sketch_190718a/sketch_190719a.gif)
+![sketch_190720a](2019/sketch_190720a/sketch_190720a.gif)
+
+[sketch_190720a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190720a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Back with cylinders... and randomly colored polys
+
+---
+
+![sketch_190719a](2019/sketch_190719a/sketch_190719a.gif)
 
 [sketch_190719a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190719a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
