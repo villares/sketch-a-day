@@ -18,6 +18,13 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+
+---
+
+![sketch_190723a](2019/sketch_190723a/0062.png)
+
+[sketch_190723a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190721a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 ![sketch_190722a](2019/sketch_190722a/sketch_190722a.gif)
@@ -28,7 +35,7 @@ Back with cylinders... and contiunously colored polys
 
 ---
 
-![sketch_190721a](2019/sketch_190721png/sketch_190721a.png)
+![sketch_190721a](2019/sketch_190721a/sketch_190721a.png)
 
 [sketch_190721a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190721a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
