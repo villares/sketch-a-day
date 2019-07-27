@@ -18,12 +18,29 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+---
+
+![sketch_190726a](2019/sketch_190726a/sketch_190726a.png)
+
+[sketch_190726a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190726a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190725a](2019/sketch_190725a/sketch_190725a.png)
+
+[sketch_190725a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190725a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
-![sketch_190723a](2019/sketch_190723a/0062.png)
+![sketch_190724a](2019/sketch_190724a/sketch_190724a.png)
 
-[sketch_190723a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190721a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_190724a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190724a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190723b](2019/sketch_190723b/sketch_190723b.png)
+
+[sketch_190723b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190723b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
@@ -1097,7 +1114,7 @@ An graph much like the ones before this, but made invisible, is behind the (virt
 
 Mais grapholia ;)
 
-Removi parte do código para controle com potenciômetros pois infelizmente a comunicação serial está quebrada neste momento no Processing Modo Python :((
+Removi parte do cÃ³digo para controle com potenciÃ´metros pois infelizmente a comunicaÃ§Ã£o serial estÃ¡ quebrada neste momento no Processing Modo Python :((
 
 ---
 
@@ -1107,7 +1124,7 @@ Removi parte do código para controle com potenciômetros pois infelizmente a co
 
 Grapholia ;)
 
-Retomando um sketch de grafos com 4 parâmetros ajustaveis (via teclado ou potenciômetros ligados em um Arduino)
+Retomando um sketch de grafos com 4 parÃ¢metros ajustaveis (via teclado ou potenciÃ´metros ligados em um Arduino)
 
 ---
 
