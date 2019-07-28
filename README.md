@@ -9,7 +9,7 @@ I try to make one small program (*sketch*) a day, and I usually put the code her
 Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my sort-of-weekly newsletter: [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]
 
 You may also support my artistic work, open teaching resources and research with [donations](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)!
- 
+
 ---
 
 ## [2018](2018.md)
@@ -20,10 +20,16 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_190727a](2019/sketch_190727a/sketch_190727a.png)
+
+[sketch_190727a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190727a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_190726a](2019/sketch_190726a/sketch_190726a.png)
 
 [sketch_190726a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190726a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
+
 ---
 
 ![sketch_190725a](2019/sketch_190725a/sketch_190725a.png)
@@ -213,7 +219,6 @@ sketch_190701a [Py.Processing code](https://github.com/villares/sketch-a-day/tre
 
 sketch_190630a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a/s190630web)
 
-
 ---
 
 ![sketch_190629a](2019/sketch_190629a/sketch_190629a.gif)
@@ -238,7 +243,6 @@ sketch_190630a [Py.Processing code](https://github.com/villares/sketch-a-day/tre
 ![sketch_190627b](2019/sketch_190627b/sketch_190627b.gif)
 
 [sketch_190627b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190627b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -651,7 +655,7 @@ Back unfolding solids... 2D faces missing.
 [![sketch_190507a](2019/sketch_190507a/sketch_190507a.png)](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190507a/index.html)
 
 Using [pyp5js](https://github.com/berinhard/pyp5js)to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190507a/index.html)
- 
+
 sketch_190507a [[code for pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190507a)]
 
 ---
@@ -665,7 +669,7 @@ Old sketch tweaked to port tomorrow.
 ![sketch_190505a](2019/sketch_190505b/sketch_190505b.png)
 
 Using [pyp5js](https://github.com/berinhard/pyp5js) to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190505b/index.html)
- 
+
 sketch_190505a
 [[code for pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505b)]
 [[code for Py.Processing](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190505a)]
@@ -675,7 +679,7 @@ sketch_190505a
 ![sketch_190504a](2019/sketch_190504a/sketch_190504a.png)
 
 Using [pyp5js](https://github.com/berinhard/pyp5js)to run [on your browser](https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190504a/index.html)
- 
+
 sketch_190504a code:[pyp5js](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190504a)
 
 ---
@@ -836,7 +840,6 @@ Let's unfold some simple extrudes
 
 [sketch_190413b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190413b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190412a](2019/sketch_190412a/sketch_190412a.gif)
@@ -862,7 +865,6 @@ and also found a bug on 190408a (and fixed it)...
 
 
 major re-org, still broken...
-
 
 ---
 
@@ -950,7 +952,6 @@ Study for a "Terrain box" a paper surface "unit".
 ![sketch_190329a](2019/sketch_190329a/sketch_190329a.gif)
 
 [sketch_190329a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190329a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -1168,7 +1169,6 @@ Retomando um sketch de grafos com 4 parÃ¢metros ajustaveis (via teclado ou pot
 
 [sketch_190225a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190225a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190224a](2019/sketch_190224a/sketch_190224a.gif)
@@ -1206,67 +1206,63 @@ Retomando um sketch de grafos com 4 parÃ¢metros ajustaveis (via teclado ou pot
 [sketch_190219a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190219a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
-        
+
 ![sketch_190218a](2019/sketch_190218a/sketch_190218a.gif)
 
 [sketch_190218a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190218a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
----        
- 
+---
+
 ![sketch_190217a](2019/sketch_190217a/sketch_190217a.gif)
 
 [sketch_190217a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190217a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
----        
-        
+---
+
 ![sketch_190216a](2019/sketch_190216a/sketch_190216a.png)
 
 [sketch_190216a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190216a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 
----        
-        
+---
+
 ![sketch_190215a](2019/sketch_190215a/sketch_190215a.gif)
 
 [sketch_190215a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190215a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
----        
-        
+---
+
 ![sketch_190214a](2019/sketch_190214a/sketch_190214a.gif)
 
 [sketch_190214a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190214a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190213a](2019/sketch_190213a/sketch_190213a.gif)
 
 [sketch_190213a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190213a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190212a](2019/sketch_190212a/sketch_190212a.gif)
 
 [sketch_190212a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190212a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190211b](2019/sketch_190211b/sketch_190211b.gif)
 
 [sketch_190211b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190211b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
----        
-        
+---
+
 ![sketch_190211a](2019/sketch_190211a/sketch_190211a.gif)
 
 [sketch_190211a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190211a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190210c](2019/sketch_190211a/sketch_190210c.png)
 
 
@@ -1274,42 +1270,38 @@ Retomando um sketch de grafos com 4 parÃ¢metros ajustaveis (via teclado ou pot
 
 "a" and "b" are Java and Python ports of a C# round corner.
 
----        
-        
+---
+
 ![sketch_190209a](2019/sketch_190209a/sketch_190209a.png)
 
 [sketch_190209a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190209a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190208a](2019/sketch_190208a/sketch_190208a.gif)
 
 [sketch_190208a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190208a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190207a](2019/sketch_190207a/sketch_190207a.gif)
 
 [sketch_190207a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190207a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190206b](2019/sketch_190206b/sketch_190206b.gif)
 
 [sketch_190206b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190206a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
----        
-        
+---
+
 ![sketch_190205a](2019/sketch_190205a/sketch_190205a.gif)
 
 [sketch_190205a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190205a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
 
----        
-        
 ![sketch_190204a](2019/sketch_190204a/sketch_190204a.gif)
 
 [sketch_190204a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190204a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -1430,7 +1422,6 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 [sketch_190116a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190116a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190115a](2019/sketch_190115a/sketch_190115a.gif)
@@ -1445,20 +1436,17 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 [sketch_190114a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190114a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190113a](2019/sketch_190113a/sketch_190113a.gif)
 
 [sketch_190113a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190113a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190112a](2019/sketch_190112a/sketch_190112a.gif)
 
 [sketch_190112a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190112a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -1474,13 +1462,11 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 [sketch_190110b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190110b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190109a](2019/sketch_190109a/sketch_190109a.gif)
 
 [sketch_190109a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190109a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -1488,13 +1474,11 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 
 [sketch_190108a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190108a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190107a](2019/sketch_190107a/sketch_190107a.gif)
 
 [sketch_190107a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190107a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -1507,7 +1491,6 @@ Retake of sketch #57 180226 with the variable "bar" from yesterday.
 ![sketch_190105a](2019/sketch_190105a/sketch_190105a.gif)
 
 [sketch_190105a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190105a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -1530,7 +1513,6 @@ Made this today, thinking about my new newsletter: [[sketch-mail](https://tinyle
 ![sketch_190102a](2019/sketch_190102a/sketch_190102a.gif)
 
 [sketch_190102a]https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190102a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
