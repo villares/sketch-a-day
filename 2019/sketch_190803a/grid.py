@@ -4,7 +4,7 @@ class Grid():
     
     def __init__(self, pos, **args):
         self.pos = PVector(*pos)
-        self.vel = PVector(choice((-1, 1, .5, -.5)), choice((-1, 1, .5, -.5)))
+        self.vel = PVector(choice((-1, 1, .5, -.5)), choice((.25, -.25)))
         self.shapes = Grid.shapes((0, 0), **args)
         self.space = args['space']
         
@@ -13,8 +13,8 @@ class Grid():
             shape(sh, self.pos.x, self.pos.y)
        
         self.pos += self.vel * self.space
-        if self.pos.mag() > width * .75:
-            self.vel = self.vel * -1
+        if self.pos.magSq() > width * height:
+            self.pos = self.pos * -1
          
     @staticmethod                                           
     def shapes(pos, dims, space, elem):
@@ -34,7 +34,7 @@ class Grid():
 
     @staticmethod                                           
     def color_rule(ix, iy, row_num):
-        return color(row_num * 24 - (ix + iy) % 3 * 32 , 255, 100)
+        return color(row_num * 24 - (ix + iy) % 3 * 32 , 255, 255)
     
     @staticmethod                                           
     def create_element(x, y, *args):
