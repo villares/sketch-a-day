@@ -30,7 +30,6 @@ def create_grids():
         
         global ix, iy
         ix, iy, _ = grids[0].pos
-        print ix, iy
         
 def draw():
     background(240)

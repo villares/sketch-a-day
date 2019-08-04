@@ -24,8 +24,8 @@ def create_grids():
         grids.append(Grid(pos=(x, y),
                           dims=(d, d),
                           space=sp,
-                          elem=(sh, si))
-                     )
+                          elem=(sh, si)))
+        
         global ix, iy
         ix, iy, _ = grids[0].pos
         print ix, iy
