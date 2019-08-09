@@ -3,7 +3,7 @@
 from random import choice
 
 # add_library('GifAnimation')
-from gif_exporter import gif_export
+# from gif_exporter import gif_export
 
 from grid import Grid
 
