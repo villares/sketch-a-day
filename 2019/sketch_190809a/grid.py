@@ -36,7 +36,8 @@ class Grid():
     def create_element(x, y, ix, iy, *args):
         sh = args[0]  # shape
         si = args[1]  # size
-        c = color(0)
+        c = color(128)
+        print ix, iy
         if int(si) % 3 == 0:
             c = color(200, 0, 0)
             si *= 0.25 + 0.25 * ((ix + iy) % 3)
@@ -53,7 +54,7 @@ class Grid():
         
     @staticmethod    
     def draw_element(el, sx, sy):
-        stroke(el[-1])
+        fill(el[-1])
         sh, ex, ey = el[0], el[1], el[2]
         pushMatrix()
         translate(sx, sy)
