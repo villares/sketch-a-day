@@ -67,7 +67,7 @@ class Grid():
         if sh == RECT:
             rect(ex, ey, el[3], el[4]) 
         if sh == ELLIPSE:
-            rect(ex, ey, el[3], el[4]) 
+            rect(ex, ey, el[3], el[4]) # ops! no ellipse is ever drawn!
         if sh == TRIANGLE:
             triangle(ex, ey, el[3], el[4], el[5], el[6]) 
         popMatrix()
