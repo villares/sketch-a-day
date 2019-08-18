@@ -20,18 +20,27 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_1900817a](2019/sketch_190817a/sketch_190817a.png)
+
+[sketch_190817a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190817a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_1900816a](2019/sketch_190816a/sketch_190816a.png)
+
+[sketch_190816a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190816a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_1900815a](2019/sketch_190815a/sketch_190815a.png)
 
 [sketch_190815a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190815a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
-
 
 ---
 
 ![sketch_1900814a](2019/sketch_190814a/sketch_190814a.png)
 
 [sketch_190814a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190814a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -65,13 +74,11 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_190809a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190809a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_1900808a](2019/sketch_190808a/sketch_190808a.png)
 
 [sketch_190808a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190808a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -84,7 +91,6 @@ You may also support my artistic work, open teaching resources and research with
 ![sketch_1900806a](2019/sketch_190806a/sketch_190806a.png)
 
 [sketch_190806a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190806a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -127,7 +133,6 @@ You may also support my artistic work, open teaching resources and research with
 ![sketch_190730a](2019/sketch_190730a/sketch_190730a.gif)
 
 [sketch_190730a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190730a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -303,43 +308,36 @@ More explorations of inerpolated combinations in grids
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190706a/web06/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190706a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190706a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190706a/web06)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190705a/web05/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190705a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190705a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190705a/web05)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190704a/web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190704a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190704a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190704a/web)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190703a/web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190703a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190703a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190703a/web)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190702a/web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190702a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190702a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190702a/web)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190701a/s190791web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190701a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190701a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190701a/s190791web)
 
 ---
 
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190630a/s190630web/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
-
 sketch_190630a [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190630a/s190630web)
 
 ---
