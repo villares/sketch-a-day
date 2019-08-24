@@ -18,6 +18,33 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+---
+
+![sketch_1900823a](2019/sketch_190823c/sketch_190823c.gif)
+
+[sketch_190823c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190823c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Interactive symmetryc polygons
+
+---
+
+![sketch_1900822c](2019/sketch_190822c/sketch_190822c.gif)
+
+[sketch_190822c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190822c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Interactive symmetric lines
+
+---
+
+![sketch_1900821c](2019/sketch_190821c/sketch_190821c.png)
+
+[sketch_190821c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190821c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_1900820a](2019/sketch_190820a/sketch_190820a.gif)
+
+[sketch_190820a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190820a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
