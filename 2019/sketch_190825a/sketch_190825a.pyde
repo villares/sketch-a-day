@@ -1,22 +1,31 @@
+add_library('peasycam')
 
 # inspired by https://twitter.com/takawo/status/1164723663200870401
 
 from random import randint as ri
+from random import seed
 
 a = 516
+s = 1
+
 def setup():
-    size(a, a)
+    size(a, a, P3D)
     colorMode(HSB)
-    noLoop()
+    strokeWeight(2)
+    cam = PeasyCam(this, 500)
 
 def draw():
     background(0)
+    translate(-width/ 2, -height / 2)
+    randomSeed(s)
+    seed(s)
     t(a // 10, a // 10, a - a // 10 * 2)
 
 def t(x, y, w):
     s = w // ri(2, 3)
     fill(255, 64)
     stroke(s * 2, 255, 255)
+    translate(0, 0, s  / 8)
     square(x, y, s)
     # print s
     for i in range(x, x + w - 1, s):
@@ -37,7 +46,10 @@ def l(x1, y1, x2, y2, s):
 
 
 def keyPressed():
-    if key == ' ': redraw()
+    global s
+    if key == ' ':
+        redraw()
+        s += 1
     if key == 's': saveFrame("#####.png")
     
 def settings():
