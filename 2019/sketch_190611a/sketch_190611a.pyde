@@ -1,21 +1,19 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """
 A minimal poly editor
-r: load polys from pickled data
-s: save polys
+r: reload Polys from pickled data
+s: save Polys as pickled data
 t: show pt annotations
 SHIFT: to drag-add points
 CONTROL: to remove points
 01234567890-: change vertex radius (- makes it -1, "hidden")
-m + drag - move whole poly
+d: duplicate selected (whole poly) # missing duplicate holes
+m + drag: move whole Poly
 
 TODO: Create modes for move, add vertex, change vertex, remove vertex
 """
 import pickle
 from poly import Poly
-add_library('GifAnimation')
-from gif_exporter import gif_export
-
 
 def setup():
     size(500, 500)
@@ -63,8 +61,6 @@ def keyPressed():
         p.pts[:] = Poly.clockwise_sort(p.pts)
         for h in p.holes:
             h[:] = Poly.clockwise_sort(h)[::-1]
-    if key == "g":
-        gif_export(GifMaker, filename=SKETCH_NAME)
     if key == "p":
         saveFrame(SKETCH_NAME + ".png")
     if key == "t":
