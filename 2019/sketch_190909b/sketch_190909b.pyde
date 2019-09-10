@@ -29,6 +29,7 @@ def rec_grid(x, y, n, tw):
     popMatrix()
     
 def keyPressed():
+    saveFrame("####.png")
     redraw()
     
     
