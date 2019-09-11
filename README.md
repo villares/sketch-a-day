@@ -30,6 +30,23 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_190909b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190909b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+---
+
+![sketch_190908b](2019/sketch_190908b/sketch_190908b.png)
+
+[sketch_190908b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190908b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190907c](2019/sketch_190907c/sketch_190907c.png)
+
+[sketch_190907c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190907c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_190906a](2019/sketch_190906a/sketch_190906a.png)
+
+[sketch_190906a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190906a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
