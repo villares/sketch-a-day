@@ -1,7 +1,7 @@
 #つぶやきProcessing
 a,b,c=512,256,128
-def setup():size(a,a);rectMode(3);frameRate(1);colorMode(3)
-def draw():clear();r(b,b,a)
+def setup():size(a,a);rectMode(3);colorMode(3)
+def draw():clear();r(b,b,a)#;saveFrame("#.png")
 def r(x,y,t):
  w=t/2
  m=(w-t)/2
