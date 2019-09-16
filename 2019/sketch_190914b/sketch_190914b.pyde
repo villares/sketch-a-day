@@ -1,17 +1,14 @@
-
-
-ox, oy = 0, 0
-
 def setup():
     size(512, 512)
     noLoop()
     rectMode(CENTER)
 
-def draw():background(-1);r(256, 256, 2, 512)
+def draw():
+    background(255)
+    r(256, 256, 2, 512)
     
 def r(x, y, n, tw):
     ox, oy = 0, 0
-    # global ox, oy
     cw = tw / n
     m = (cw - tw) / 2
     for i in range(n):
@@ -29,8 +26,3 @@ def r(x, y, n, tw):
 def keyPressed():
     saveFrame("####.png")
     redraw()
-    global ox, oy
-    ox, oy = 0 , 0
-    
-    
-    
