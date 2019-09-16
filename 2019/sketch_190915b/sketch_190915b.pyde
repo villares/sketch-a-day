@@ -1,17 +1,14 @@
 
-
-ox, oy = 0, 0
-
 def setup():
     size(512, 512)
     noLoop()
     rectMode(CENTER)
+    colorMode(HSB)
 
-def draw():background(-1);r(256, 256, 2, 512)
+def draw():clear();r(256, 256, 2, 512)
     
 def r(x, y, n, tw):
     ox, oy = 0, 0
-    # global ox, oy
     cw = tw / n
     m = (cw - tw) / 2
     for i in range(n):
@@ -21,7 +18,7 @@ def r(x, y, n, tw):
             if cw > 8 and random(10) < 8.5:
                 r(nx-x, ny-y, 2, cw)
             else:
-                fill(dist(ox, oy, nx, ny)/ 5.)
+                fill(55 + dist(ox, oy, nx, ny) % 200, 200, 200)
                 square(nx-x, ny-y, cw)                
                 ox += x
                 oy += y  
@@ -29,8 +26,7 @@ def r(x, y, n, tw):
 def keyPressed():
     saveFrame("####.png")
     redraw()
-    global ox, oy
-    ox, oy = 0 , 0
+
     
     
     
