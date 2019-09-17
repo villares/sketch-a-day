@@ -1,7 +1,7 @@
 """
 Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
-- Unfolding piramids
+- Unfolding pyramids
 """
 
 # add_library('GifAnimation')
@@ -27,14 +27,14 @@ def draw():
     fill(255, 200)
     stroke(0)
     strokeWeight(2)
-    # draw 3D piramid and get points
-    points = piramid_3D(sides, outer_radius, inner_radius)
+    # draw 3D pyramid and get points
+    points = pyramid_3D(sides, outer_radius, inner_radius)
     popMatrix()
     # draw unfolded 2D
     translate(width / 2, height *  3 / 4 - 50)
-    piramid_2D(points)
+    pyramid_2D(points)
 
-def piramid_3D(np, ext_r, base_r):
+def pyramid_3D(np, ext_r, base_r):
     # calculando os points
     points = []
     n = np * 2
@@ -72,7 +72,7 @@ def piramid_3D(np, ext_r, base_r):
     # return points for 2D!
     return points
 
-def piramid_2D(points):
+def pyramid_2D(points):
     noFill()
     # base fold lines
     stroke(FOLD_STROKE)
@@ -137,7 +137,7 @@ def keyPressed():
         inner_radius += 5
     if keyCode == RIGHT:
         inner_radius -= 5
-    if key == "+":
+    if key == "+" or key == "=":
         sides += 1
     if key == "-" and sides > 3:
         sides -= 1
