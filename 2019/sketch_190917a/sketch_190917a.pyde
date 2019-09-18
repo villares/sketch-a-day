@@ -1,7 +1,9 @@
-# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 """
-Unfold extrusion
+Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+
+Box with round holes
 """
+
 add_library('GifAnimation')
 from gif_exporter import gif_export
 from parts import Face
