@@ -20,6 +20,12 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_190918a](2019/sketch_190918a/sketch_190918a.gif)
+
+[sketch_190918a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190918a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_190917a](2019/sketch_190917a/sketch_190917a.gif)
 
 [sketch_190917a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190917a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -37,7 +43,6 @@ An audio reactive sketch!!!
 ![sketch_190915b](2019/sketch_190915b/sketch_190915b.png)
 
 [sketch_190915b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190915b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
