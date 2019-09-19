@@ -13,7 +13,7 @@ THICK = 20
 modes = [-1, 0, 1]  # click mouse to switch modes
 
 def setup():
-    size(500, 500, P3D)
+    size(600, 600, P3D)
     hint(ENABLE_DEPTH_SORT)
 
 def draw():
