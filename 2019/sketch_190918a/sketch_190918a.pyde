@@ -6,26 +6,30 @@ Box with round holes
 
 add_library('GifAnimation')
 from gif_exporter import gif_export
-from glue_tab import glue_tab
+from frame_box import frame_box, unfolded_frame_box
 
 faces = []
 THICK = 20
+modes = [-1, 0, 1]  # click mouse to switch modes
 
 def setup():
     size(500, 500, P3D)
     hint(ENABLE_DEPTH_SORT)
 
-
 def draw():
     background(200, 210, 220)
- 
-    # Face
-    fill(255, 100)
-    face_2D(250, 100, 250, 150, 15)
-    # Caixa
-    translate(250, 300)
-    rotateX(QUARTER_PI + frameCount/50.)
-    caixa(250, 150, 100, 15)    
+    translate(300, 300)
+    w, h, d, thick = (250, 150, 100, 30)
+    if modes[0] >= 0:
+        fill(255, 100)
+        stroke(0)
+        pushMatrix()
+        translate(0, 0, 200)
+        rotateX(QUARTER_PI + frameCount/50.)
+        frame_box(w, h, d, thick)
+        popMatrix()
+    if modes[0] <= 0:
+        unfolded_frame_box(w, h, d, thick)
 
     if frameCount/50. < TWO_PI:
         if frameCount % 2:
@@ -57,29 +61,9 @@ def face_2D(x, y, w, h, e=0, closed=True):
     else:
         endShape()
     popMatrix()
-    
-    
-def caixa(w, h, d, e=0):
-     mw, mh, md = w/2., h/2., d/2.
-     translate(0, 0, -md) # base
-     face_2D(0, 0, w, h, e)
-     translate(0, 0, d) # topo
-     face_2D(0, 0, w, h, e)
-     translate(0, 0, -md) # volta
-     rotateY(HALF_PI)
-     translate(0, 0, -mw) # lateral e
-     face_2D(0, 0, d, h, e)
-     translate(0, 0, w) # lateral d
-     face_2D(0, 0, d, h, e)
-     translate(0, 0, -mw) # volta    
-     rotateY(-HALF_PI)  # volta
-     rotateX(HALF_PI)
-     translate(0, 0, -mh) # lateral e
-     face_2D(0, 0, w, d, e)
-     translate(0, 0, h) # lateral d
-     face_2D(0, 0, w, d, e)
-     translate(0, 0, -mw) # volta         
-     rotateX(-HALF_PI)
+
+def mousePressed():
+    modes[:] = modes[1:] + [modes[0]]
 
 # print text to add to the project's README.md
 def settings():
