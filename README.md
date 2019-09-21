@@ -18,6 +18,24 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+
+
+---
+
+![sketch_190920a](2019/sketch_190920a/sketch_190920a.png)
+
+[sketch_190920a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190920a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Some accumulation…
+
+---
+
+![sketch_190919a](2019/sketch_190919a/sketch_190919a.png)
+
+[sketch_190919a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190919a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Modified neighbours form Conway!
+ 
 ---
 
 ![sketch_190918a](2019/sketch_190918a/sketch_190918a.gif)

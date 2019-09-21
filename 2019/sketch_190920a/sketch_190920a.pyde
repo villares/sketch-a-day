@@ -20,19 +20,17 @@ play = False
 
 def setup():
     global grid, next_grid, rows, cols
-    size(800, 500)
+    size(755, 500)
     colorMode(HSB)
     rows = height / cell_size
     cols = width / cell_size
     grid = empty_grid()
     next_grid = empty_grid()
     noStroke()
-    println("Press 'space' to start/stop")
-    println("'e' to clear all cells")
-    println("'r' to randomize grid")
 
 def draw():
-    background(0)
+    # background(0)
+
     for i in range(cols):
         x = i * cell_size
         for j in range(rows):
@@ -46,7 +44,9 @@ def draw():
             if current_state:
                 # circle(x, y, cell_size * 2) # overlapping circles
                 fill((clr+ next_grid[i][j]*128)%255, 255, current_state * 255)
-                square(x, y, cell_size)
+            else:
+                fill(0, 10)
+            square(x, y, cell_size)
 
     
     if play:
@@ -54,7 +54,7 @@ def draw():
 
 def calc_ngbs_alive(i, j):
     alive = 0
-    for iv, jv  in NEIGHBOURS:
+    for iv, jv in NEIGHBOURS:
         alive += grid[(i + iv) % cols][(j + jv) % rows]
     return alive
 
