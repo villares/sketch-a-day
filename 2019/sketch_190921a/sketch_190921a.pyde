@@ -4,9 +4,9 @@ from random import choice
 clr = 255
 
 NEIGHBOURS = ((-2,  0), ( 2,  0),
-            (-1, -1), ( 0, -2),
-            ( 1, -1), (-1,  1),
-            ( 0,  2), ( 1,  1)) 
+             (-1, -1), ( 0, -2),
+             ( 1, -1), (-1,  1),
+             ( 0,  2), ( 1,  1)) 
 
 def rule(s, v):
     if v < 2 or v > 3:
@@ -43,13 +43,13 @@ def draw():
             next_grid[i][j] = result  
             if current_state:
                 # circle(x, y, cell_size * 2) # overlapping circles
-                fill((clr+ next_grid[i][j]*128)%255, 255, current_state * 255)
+                fill((clr+ next_grid[i][j]*128)%255, 255, 255)
             else:
-                fill(0, 10)
+                fill(next_grid[i][j]*255, 128)
             square(x, y, cell_size)
 
     
-    if play:
+    if play and frameCount % 5 == 0:
         step()
 
 def calc_ngbs_alive(i, j):

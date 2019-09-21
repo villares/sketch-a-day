@@ -1,12 +1,11 @@
-cell_size = 10
 from random import choice
 
+cell_size = 10
 clr = 255
-
 NEIGHBOURS = ((-2,  0), ( 2,  0),
-            (-1, -1), ( 0, -2),
-            ( 1, -1), (-1,  1),
-            ( 0,  2), ( 1,  1)) 
+              (-1, -1), ( 0, -2),
+              ( 1, -1), (-1,  1),
+              ( 0,  2), ( 1,  1)) 
 
 def rule(s, v):
     if v < 2 or v > 3:
@@ -32,23 +31,18 @@ def setup():
     println("'r' to randomize grid")
 
 def draw():
-    background(0)
+    background(0) # clear canvas
     for i in range(cols):
         x = i * cell_size
         for j in range(rows):
             y  = j * cell_size
-            current_state = grid[i][j]
-            # fill(clr, 255, current_state * 255, 100) # translucent
-        
+            current_state = grid[i][j]        
             ngbs_alive = calc_ngbs_alive(i, j)
             result = rule(current_state, ngbs_alive)
             next_grid[i][j] = result  
             if current_state:
-                # circle(x, y, cell_size * 2) # overlapping circles
-                fill((clr+ next_grid[i][j]*128)%255, 255, current_state * 255)
-                square(x, y, cell_size)
-
-    
+                fill((clr + next_grid[i][j]*128) % 255, 255, 255)
+                square(x, y, cell_size)    
     if play:
         step()
 
