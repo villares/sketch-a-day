@@ -1,55 +1,52 @@
-cell_size = 10
 from random import choice
 
+cell_size = 10
 clr = 255
-
+play = False
 NEIGHBOURS = ((-2,  0), ( 2,  0),
-             (-1, -1), ( 0, -2),
-             ( 1, -1), (-1,  1),
-             ( 0,  2), ( 1,  1)) 
+              (-1, -1), ( 0, -2),
+              ( 1, -1), (-1,  1),
+              ( 0,  2), ( 1,  1))
 
-def rule(s, v):
-    if v < 2 or v > 3:
+def rule(current, ngbs):
+    if ngbs < 2 or ngbs > 3:
         return 0
-    elif v == 3:
+    elif ngbs == 3:
         return 1
     else:
-        return s
-
-play = False
+        return current
 
 def setup():
     global grid, next_grid, rows, cols
-    size(755, 500)
+    size(700, 700)
     colorMode(HSB)
+    noStroke()
+
     rows = height / cell_size
     cols = width / cell_size
     grid = empty_grid()
     next_grid = empty_grid()
-    noStroke()
+
+    println("Press 'space' to start/stop")
+    println("'e' to clear all cells")
+    println("'r' to randomize grid")
 
 def draw():
-    # background(0)
-
     for i in range(cols):
         x = i * cell_size
         for j in range(rows):
-            y  = j * cell_size
+            y = j * cell_size
             current_state = grid[i][j]
-            # fill(clr, 255, current_state * 255, 100) # translucent
-        
             ngbs_alive = calc_ngbs_alive(i, j)
             result = rule(current_state, ngbs_alive)
-            next_grid[i][j] = result  
+            next_grid[i][j] = result
             if current_state:
-                # circle(x, y, cell_size * 2) # overlapping circles
-                fill((clr+ next_grid[i][j]*128)%255, 255, 255)
+                fill((clr + next_grid[i][j] * 128) % 255, 255, 255)
             else:
-                fill(next_grid[i][j]*255, 128)
+                fill(next_grid[i][j] * 255, 128)
             square(x, y, cell_size)
 
-    
-    if play and frameCount % 5 == 0:
+    if play and frameCount % 3 == 0:
         step()
 
 def calc_ngbs_alive(i, j):
@@ -86,22 +83,22 @@ def keyPressed():
         global play
         play = not play
     if key == "s":
-        saveFrame("#####.png")        
-                
+        saveFrame("#####.png")
+
 def mouseReleased():
     invert_on_mouse()
 
-def mouseDragged():    
+def mouseDragged():
     invert_on_mouse()
-    
-def invert_on_mouse():    
+
+def invert_on_mouse():
     for i in range(cols):
         x = i * cell_size
         for j in range(rows):
-            y  = j * cell_size
+            y = j * cell_size
             current_state = grid[i][j]
             if mouse_over(x, y):
                 grid[i][j] = (1, 0)[current_state]
-                
+
 def mouse_over(x, y):
     return x < mouseX < x + cell_size and y < mouseY < y + cell_size

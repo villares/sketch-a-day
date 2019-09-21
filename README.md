@@ -18,7 +18,13 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+---
 
+![sketch_190921a](2019/sketch_190921a/sketch_190921a.png)
+
+[sketch_190921a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190921a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Removed accumulation and added another colour preview for next-gen alive cells
 
 ---
 
@@ -35,7 +41,13 @@ Some accumulation…
 [sketch_190919a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190919a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Modified neighbours form Conway!
- 
+```
+NEIGHBOURS = ((-2,  0), ( 2,  0),
+              (-1, -1), ( 0, -2),
+              ( 1, -1), (-1,  1),
+              ( 0,  2), ( 1,  1)) 
+
+``` 
 ---
 
 ![sketch_190918a](2019/sketch_190918a/sketch_190918a.gif)

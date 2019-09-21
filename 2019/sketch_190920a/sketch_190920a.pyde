@@ -2,43 +2,48 @@ from random import choice
 
 cell_size = 10
 clr = 255
+play = True
 NEIGHBOURS = ((-2,  0), ( 2,  0),
               (-1, -1), ( 0, -2),
               ( 1, -1), (-1,  1),
-              ( 0,  2), ( 1,  1)) 
+              ( 0,  2), ( 1,  1))
 
-def rule(s, v):
-    if v < 2 or v > 3:
+def rule(current, ngbs):
+    if ngbs < 2 or ngbs > 3:
         return 0
-    elif v == 3:
+    elif ngbs == 3:
         return 1
     else:
-        return s
-
-play = False
+        return current
 
 def setup():
     global grid, next_grid, rows, cols
-    size(755, 500)
+    size(700, 500)
     colorMode(HSB)
+    noStroke()
+
     rows = height / cell_size
     cols = width / cell_size
     grid = empty_grid()
     next_grid = empty_grid()
-    noStroke()
+    randomize_grid()  # also randomizes colour (global clr)
+
+    println("Press 'space' to start/stop")
+    println("'e' to clear all cells")
+    println("'r' to randomize grid")
 
 def draw():
     # background(0) # no background for accumulation
     for i in range(cols):
         x = i * cell_size
         for j in range(rows):
-            y  = j * cell_size
-            current_state = grid[i][j]        
+            y = j * cell_size
+            current_state = grid[i][j]
             ngbs_alive = calc_ngbs_alive(i, j)
             result = rule(current_state, ngbs_alive)
-            next_grid[i][j] = result  
+            next_grid[i][j] = result
             if current_state:
-                fill((clr + next_grid[i][j]*128) % 255, 255, 255)
+                fill((clr + next_grid[i][j] * 128) % 255, 255, 255)
             else:
                 fill(0, 10)
             square(x, y, cell_size)
@@ -79,22 +84,22 @@ def keyPressed():
         global play
         play = not play
     if key == "s":
-        saveFrame("#####.png")        
-                
+        saveFrame("#####.png")
+
 def mouseReleased():
     invert_on_mouse()
 
-def mouseDragged():    
+def mouseDragged():
     invert_on_mouse()
-    
-def invert_on_mouse():    
+
+def invert_on_mouse():
     for i in range(cols):
         x = i * cell_size
         for j in range(rows):
-            y  = j * cell_size
+            y = j * cell_size
             current_state = grid[i][j]
             if mouse_over(x, y):
                 grid[i][j] = (1, 0)[current_state]
-                
+
 def mouse_over(x, y):
     return x < mouseX < x + cell_size and y < mouseY < y + cell_size

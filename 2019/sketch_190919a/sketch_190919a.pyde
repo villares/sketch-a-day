@@ -2,30 +2,31 @@ from random import choice
 
 cell_size = 10
 clr = 255
+play = False
 NEIGHBOURS = ((-2,  0), ( 2,  0),
               (-1, -1), ( 0, -2),
               ( 1, -1), (-1,  1),
               ( 0,  2), ( 1,  1)) 
 
-def rule(s, v):
-    if v < 2 or v > 3:
-        return 0
-    elif v == 3:
-        return 1
+def rule(current, ngbs):
+    if ngbs < 2 or ngbs > 3:
+        return 0 # dead
+    elif ngbs == 3:
+        return 1 # alive
     else:
-        return s
-
-play = False
+        return current
 
 def setup():
     global grid, next_grid, rows, cols
     size(800, 500)
     colorMode(HSB)
+    noStroke()
+
     rows = height / cell_size
     cols = width / cell_size
     grid = empty_grid()
     next_grid = empty_grid()
-    noStroke()
+    
     println("Press 'space' to start/stop")
     println("'e' to clear all cells")
     println("'r' to randomize grid")
