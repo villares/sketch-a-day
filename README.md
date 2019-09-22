@@ -18,7 +18,7 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
-—
+---
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/%E3%81%A4%E3%81%B6%E3%82%84%E3%81%8DProcessing?src=hash&amp;ref_src=twsrc%5Etfw">#つぶやきProcessing</a> <a href="https://twitter.com/hashtag/Python?src=hash&amp;ref_src=twsrc%5Etfw">#Python</a><br>w,h=500,250<br>def setup():size(w,w)<br>def draw():<br> background(h/2,h/2,h);translate(h,h)<br> a,k=0,sin(frameCount/30.)<br> while a&lt;TWO_PI:<br> i,j=sin(a),cos(a)<br> n=noise((abs(i)+i+j),(abs(j)+j+i),k)<br> x,y=n*h*sin(a),n*h*cos(a)<br> line(0,0,x,y)<br> a+=.004 <a href="https://t.co/ygkwh2KKxG">pic.twitter.com/ygkwh2KKxG</a></p>&mdash; Alexandre B A Villares ☂ (@villares) <a href="https://twitter.com/villares/status/1175856215030665216?ref_src=twsrc%5Etfw">September 22, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
