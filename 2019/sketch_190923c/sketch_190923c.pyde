@@ -11,10 +11,10 @@ def draw():
  while a<TWO_PI:
   i,j=sin(a),cos(a)
   n=h*noise((abs(i)+i+j),(abs(j)+j+i),k)
-  circle(n*sin(a),n*cos(a),n/2)
+  circle(n*i,n*j,n/2)
   a+=.004
 
  if frameCount/30. < TWO_PI:
-    gif_export(GifMaker)
+    gif_export(GifMaker, filename="a")
  else:
     gif_export(GifMaker, finish=True)

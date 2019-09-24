@@ -7,8 +7,7 @@ def draw():
  while a<TWO_PI:
   i,j=sin(a),cos(a)
   n=noise((abs(i)+i+j),(abs(j)+j+i),k)
-  x,y=n*h*sin(a),n*h*cos(a)
-  line(0,0,x,y)
+  line(0,0,n*h*i,n*h*j)
   a+=.004
  # if frameCount/30. < TWO_PI:
  #      saveFrame("####.png")
