@@ -10,7 +10,7 @@ def draw():
  while a<TWO_PI:
   x,y=sin(a),cos(a)
   n=h*noise((abs(x)+x+y),(abs(y)+y+x),z)
-  ellipse(n*x,n*y,n*x/3,n*y/3)
+  ellipse(n*x,n*y,n*y/3,n*x/3)
   a+=.02
 
  if frameCount/30. < TWO_PI:
