@@ -13,24 +13,24 @@ def draw():
     
     noStroke()
     fill(128)
-    rect(300, 0, 300, 300)
+    rect(0, 300, 300, 300)
     fill(255)
     stroke(0)
     strokeWeight(15)
-    bandeirinha(450, 150, 200)
+    bandeirinha(150, 450, 200)
 
     noStroke()
     fill(200)
-    rect(0, 300, 300, 300)
+    rect(300, 300, 300, 300)
     stroke(0)
     strokeWeight(15)
     fill(255)
-    estrela(150, 450, 7, 100, 50)
+    estrela(450, 450, 7, 100, 50)
     
     noStroke()
     fill(0)
-    rect(300, 300, 300, 300)    
-    olho(450, 450, 200, color(100))
+    rect(300, 0, 300, 300)    
+    olho(450, 150, 200, color(100))
     
 
 def bandeirinha(x, y, tamanho):
