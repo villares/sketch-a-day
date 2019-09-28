@@ -20,6 +20,14 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_190927c](2019/sketch_190927c/desenho-sem-argumentos.png)
+
+[sketch_190927c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190927c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+"desenho" means drawing, so my zine will be "drawing without arguments" :)
+
+---
+
 ![sketch_190926c](2019/sketch_190926c/sketch_190926c.gif)
 
 [sketch_190926c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_190926c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]

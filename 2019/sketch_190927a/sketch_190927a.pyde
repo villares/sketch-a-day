@@ -1,11 +1,11 @@
-# desenho()
-
 def setup():
     size(600, 600)
     f = loadFont("Inconsolata-Bold-48.vlw")
     textFont(f)
+    desenho()
+    saveFrame("desenho-sem-argumentos.png")
     
-def draw():
+def desenho():
     background(255)
     textAlign(CENTER, CENTER)
     fill(0)
