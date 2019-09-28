@@ -6,32 +6,21 @@ def setup():
     saveFrame("desenho-sem-argumentos.png")
     
 def desenho():
-    background(255)
-    textAlign(CENTER, CENTER)
-    fill(0)
-    text("desenho()", 150, 150)
-    
     noStroke()
-    fill(128)
-    rect(0, 300, 300, 300)
-    fill(255)
-    stroke(0)
+    rect(0, 0, 300, 300) # fundo branco para o texto
+    textAlign(CENTER, CENTER)
+    fill(0) # preenchimento preto
+    text("desenho()", 150, 150)
+    rect(300, 0, 300, 300) # fundo preto para o olho
+    olho(450, 150, 200)
+    fill(100) # preenchimento cinza escuro
+    rect(0, 300, 300, 300) # fundo para bandeirinha
+    fill(255) # preenchimento branco
+    stroke(0) # traço preto
     strokeWeight(15)
     bandeirinha(150, 450, 200)
-
-    noStroke()
-    fill(200)
-    rect(300, 300, 300, 300)
-    stroke(0)
-    strokeWeight(15)
-    fill(255)
     estrela(450, 450, 7, 100, 50)
-    
-    noStroke()
-    fill(0)
-    rect(300, 0, 300, 300)    
-    olho(450, 150, 200, color(100))
-    
+
 
 def bandeirinha(x, y, tamanho):
     """ Bandeirinha na posição x, y com largura e altura 'tamanho' """
@@ -68,7 +57,7 @@ def estrela(x_centro, y_centro, num_pontas, raio_a, raio_b):
     endShape(CLOSE) # encerra uma forma fechada
     
     
-def olho(x, y, largura, cor):
+def olho(x, y, largura, cor=color(100)):
     """ Olho na posição x, y com largura e cor """
     pushStyle() # preserva os atributos gráficos atuais
     noStroke()
