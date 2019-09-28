@@ -24,7 +24,8 @@ def draw():
     rect(0, 300, 300, 300)
     stroke(0)
     strokeWeight(15)
-    estrela(150, 450, 7, 150, 100)
+    fill(255)
+    estrela(150, 450, 7, 100, 50)
     
     noStroke()
     fill(0)
