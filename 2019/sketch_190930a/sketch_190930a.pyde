@@ -10,7 +10,7 @@ def desenho():
     metade, quarto = width / 2, width / 4
     noStroke() # desliga o traço
     fill(100) # preenchimento cinza escuro
-    rect(0, metade, metade, metade) # fundo para casinha
+    rect(0, metade, metade, metade) # fundo para grade
     fill(0) # preenchimento preto
     rect(metade, 0, metade, metade) # fundo preto para o olho
     olho(metade + quarto, quarto, 200)
