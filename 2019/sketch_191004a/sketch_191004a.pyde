@@ -1,10 +1,10 @@
 from random import choice
-from elementos import casinha
+from elementos import casinha, estrela
 def setup():
     size(600, 600)
     noLoop()
     rectMode(CENTER)
-    noStroke()
+    strokeJoin(ROUND)
 
 def draw():
     background(255)
@@ -17,9 +17,9 @@ def grade(xo, yo, n, tw, e=None):
         x = xo + offset + cw * i
         for j in range(n):
             y = yo + offset + cw * j
-            o = (i + j) % 3
+            o = (i + j) % 10
             if e is not None:
-                element(x, y, cw * 3, e)
+                element(x, y, cw, e)
             elif cw > 20 and random(10) < 5:
                 grade(x, y, 3, cw)
             elif cw > 30:
@@ -28,11 +28,16 @@ def grade(xo, yo, n, tw, e=None):
 
 def element(x, y, w, option):
     noFill()
-    stroke(0, 32)
-    strokeWeight(10)
-    casinha(x, y, choice((w/2, w*.9, w*.6)))
+    stroke(0)
+    strokeWeight(3)
+    if option == 0:
+        p = choice((3, 5, 7))
+        estrela(x, y, p, choice((w/6, w*.1, w*.2)), w/3)
+    else:
+        casinha(x, y, choice((w/2, w*.9, w*.6)))
 
 
 def keyPressed():
-    saveFrame("####.png")
+    if key == 's':
+        saveFrame("####.png")
     redraw()
