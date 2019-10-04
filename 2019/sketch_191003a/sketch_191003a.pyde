@@ -21,9 +21,9 @@ def grade(xo, yo, n, tw, e=None):
             o = (i + j) % 3
             if e is not None:
                 element(x, y, cw * 3, e)
-            elif cw > 10 and random(10) < 5:
+            elif cw > 20 and random(10) < 5:
                 grade(x, y, 3, cw)
-            elif cw > 10:
+            elif cw > 30:
                 grade(x, y, 3, cw, o)
 
 
