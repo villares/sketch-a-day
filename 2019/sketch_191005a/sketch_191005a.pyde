@@ -1,5 +1,6 @@
 from random import choice
 from elementos import casinha, estrela
+
 def setup():
     size(780, 780)
     noLoop()
@@ -39,7 +40,6 @@ def element(x, y, w, option):
     else:
         # casinha(x, y, choice((w/2, w*.9, w*.6)))
         casinha(x, y, w)
-
 
 
 def keyPressed():
