@@ -9,25 +9,23 @@ def setup():
 def draw():
     background(0)
     noFill()
-    # c, r = 11 + int(10 * sin(frameCount/5.)), 11 + int(10 * cos(frameCount/5.))
-    # print(c, r)
-    g = list(grid(600, 20, 600, 20))
-    for _ in range(50):
+    g = list(grid(700, 20, 700, 20))
+    # println(g)
+    for _ in range(20):
         x, y = choice(g)
         stroke(x / 3, y / 3, 255)
+        circle(x, y, 10)
         poly_arrow(width / 2, width / 2, x, y)
-
-
 
 def grid(w, cols, h, rows):
     cw = w / cols
     rh = h / rows
-    for x in range(cw / 2, w + cw, cw):
-        for y in range(rh / 2, h + rh, rh):
+    for x in range(cw / 2, w, cw):
+        for y in range(rh / 2, h , rh):
             yield x, y
 
 def poly_arrow(x, y, w, h):
-    """ Casinha na posição x, y com largura e altura 'tamanho' """
+    """ Seta na posição x, y com largura w e altura h"""
     mw = w / 2
     mh = h / 2
     pushMatrix()  # preserva o sistema de coordenadas atual
@@ -43,7 +41,6 @@ def poly_arrow(x, y, w, h):
     endShape(CLOSE)  # encerra a forma a fechando no primeiro vértice
     popMatrix() # retorna o sistema de coordenadas anterior
     
-
 
 def keyPressed():
     if key == 's':
