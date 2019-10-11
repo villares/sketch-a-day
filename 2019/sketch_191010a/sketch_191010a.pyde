@@ -40,12 +40,13 @@ def element(x, y, w, option):
     translate(x, y)
     rotate(HALF_PI * p)
     if option == 0:
-        poly_arrow(0, 0, w)
+        poly_arrow(0, 0, w * 4)
         # estrela(x, y, p, choice((w/6, w*.1, w*.2)), w/3)
     else:
         # casinha(x, y, choice((w/2, w*.9, w*.6)))
         # fill(option * 32, 200, 200)
-        poly_arrow(0, 0, w * 2)
+        fill(0)
+        poly_arrow(0, 0, w)
     popMatrix()
 
 def keyPressed():
