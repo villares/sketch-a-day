@@ -7,12 +7,12 @@ def setup():
     strokeJoin(ROUND)
 
 def draw():
-    background(255)
-    poster(width / 2, width / 2, 4, width)
+    background(100)
+    grid(width / 2, width / 2, 4, width)
 
-def poster(xo, yo, n, tw, e=None):
+def grid(xo, yo, n, tw, e=None):
     """
-    Faça o desenho do poster baseado em uma subdivisão (grade) recursiva
+    Faça o desenho do grid baseado em uma subdivisão (grade) recursiva
     """
     cw = tw / n
     offset = (cw - tw) / 2.
@@ -20,19 +20,19 @@ def poster(xo, yo, n, tw, e=None):
         x = xo + offset + cw * i
         for j in range(n):
             y = yo + offset + cw * j
-            elif cw > 30 and random(10) < 8: # faz subdivisão recursiva
-                poster(x, y, 3, cw) 
+            if cw > 30 and random(10) < 8: # faz subdivisão recursiva
+                grid(x, y, 3, cw) 
             else:  # faz um elemento "sozinho"
-                element(x, y, cw)
+                poly_arrow(x, y, cw, i, j)
 
 
 
-def poly_arrow(x, y, s):
-    w = s / (1 + x / s)
-    h = s / (1 + y / s)
+def poly_arrow(x, y, s, i, j):
+    w = s / (1 + i) # x / s)
+    h = s / (1 + j ) # y / s)
     """ Seta na posição x, y com largura w e altura h"""
-    mw = w / 2
-    mh = h / 2
+    mw = w 
+    mh = h 
     pushMatrix()  # preserva o sistema de coordenadas atual
     translate(x, y)  # translada a origem do sistema de coordenadas
     r = choice((0, 1, 2, 4))
@@ -48,9 +48,6 @@ def poly_arrow(x, y, s):
     endShape(CLOSE)  # encerra a forma a fechando no primeiro vértice
     popMatrix() # retorna o sistema de coordenadas anterior
     
-
-
-
 
 def keyPressed():
     if key == 's':
