@@ -7,7 +7,7 @@ def setup():
     strokeJoin(ROUND)
 
 def draw():
-    background(100)
+    background(200)
     grid(width / 2, width / 2, 4, width)
 
 def grid(xo, yo, n, tw, e=None):
@@ -30,6 +30,7 @@ def grid(xo, yo, n, tw, e=None):
 def poly_arrow(x, y, s, i, j):
     w = s / (1 + i) # x / s)
     h = s / (1 + j ) # y / s)
+    fill(i * 64, j * 64, 128)
     """ Seta na posição x, y com largura w e altura h"""
     mw = w 
     mh = h 
