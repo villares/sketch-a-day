@@ -5,9 +5,10 @@ def setup():
     noLoop()
     rectMode(CENTER)
     strokeJoin(ROUND)
+    blendMode(MULTIPLY)
 
 def draw():
-    background(200)
+    background(255)
     grid(width / 2, width / 2, 4, width)
 
 def grid(xo, yo, n, tw, e=None):
@@ -30,7 +31,8 @@ def grid(xo, yo, n, tw, e=None):
 def poly_arrow(x, y, s, i, j):
     w = s / (1 + i) # x / s)
     h = s / (1 + j ) # y / s)
-    fill(i * 64, j * 64, 128)
+    noStroke()
+    fill(64 + i * 64, 64 + j * 64, 200)
     """ Seta na posição x, y com largura w e altura h"""
     mw = w 
     mh = h 
