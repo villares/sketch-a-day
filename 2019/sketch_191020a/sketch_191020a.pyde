@@ -31,8 +31,9 @@ def grid(xo, yo, n, tw, e=None):
 def poly_arrow(x, y, s, i, j):
     w = s / (1 + i) # x / s)
     h = s / (1 + j ) # y / s)
-    noStroke()
-    fill(64 + i * 64, 64 + j * 64, 200)
+    noFill()
+    strokeWeight(3)
+    stroke(64 + i * 64, 64 + j * 64, 200)
     """ Seta na posição x, y com largura w e altura h"""
     mw = w 
     mh = h 
