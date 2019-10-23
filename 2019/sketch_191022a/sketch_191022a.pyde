@@ -6,6 +6,7 @@ def setup():
     rectMode(CENTER)
     strokeJoin(ROUND)
     blendMode(MULTIPLY)
+    colorMode(HSB)
 
 def draw():
     background(255)
@@ -32,8 +33,8 @@ def poly_arrow(x, y, s, i, j):
     w = s / (1 + i) # x / s)
     h = s / (1 + j ) # y / s)
     noFill()
-    strokeWeight(3)
-    stroke(64 + i * 64, 64 + j * 64, 200)
+    strokeWeight(s / 5)
+    stroke((32 * j + i * 64) % 255, 200, 200)
     """ Seta na posição x, y com largura w e altura h"""
     mw = w 
     mh = h 
