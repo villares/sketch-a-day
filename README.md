@@ -20,10 +20,12 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
-<!--- ![sketch_191025a](2019/sketch_191025a/sketch_191025a.png)
-[sketch_191025a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191025a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+<iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_190706a/web06/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
+sketch_191025pybr2019 [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191025pybr2019) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191025pybr2019/)
 
---- -->
+O sketch da minha apresentação na Python Brasil 2019 rodando no navegador graças ao [pyp5js](https://github.com/berinhard/pyp5js) do Berin!
+
+--- 
 
 ![sketch_191024a](2019/sketch_191024a/sketch_191024a.png)
 [sketch_191024a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191024a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
