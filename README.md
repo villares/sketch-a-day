@@ -20,6 +20,10 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+Missed 2 days: Python Brasil 2019 conference.
+
+---
+
 <iframe src="https://abav.lugaralgum.com/sketch-a-day/2019/sketch_191025pybr2019/index.html" style="width: 500px; height: 500px; border: 0px"></iframe>
 sketch_191025pybr2019 [Py.Processing code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191025pybr2019) [pyp5js code](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191025pybr2019/)
 
