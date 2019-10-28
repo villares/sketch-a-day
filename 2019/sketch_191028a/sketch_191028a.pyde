@@ -12,8 +12,8 @@ def draw():
     
 def galho(tamanho):
     line(0, 0, 0, -tamanho)
-    angulo = radians(mouseX % 360)
-    encurtamento = 0.8 + 0.10 * rnd_mult * random(1) 
+    angulo = radians(map(mouseX, 0, width, 0, 360))
+    encurtamento = 0.8 + rnd_mult * random(.1) 
     if tamanho > 10:
         pushMatrix()
         translate(0, -tamanho)
