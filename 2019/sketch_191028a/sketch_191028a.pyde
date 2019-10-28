@@ -12,7 +12,7 @@ def draw():
     
 def galho(tamanho):
     line(0, 0, 0, -tamanho)
-    angulo = radians(mouseX)
+    angulo = radians(mouseX % 360)
     encurtamento = 0.8 + 0.10 * rnd_mult * random(1) 
     if tamanho > 10:
         pushMatrix()
@@ -24,7 +24,6 @@ def galho(tamanho):
         popMatrix()
         
 def keyPressed():
-    print(s, rnd_mult)
     global s, rnd_mult
     if keyCode == LEFT:
         s -= 1
@@ -34,3 +33,5 @@ def keyPressed():
         rnd_mult -= .01
     if keyCode == UP and rnd_mult < 1:
         rnd_mult += .01
+    if key == 's':
+        saveFrame("arvore{}-{}.png".format(s, mouseX % 360))

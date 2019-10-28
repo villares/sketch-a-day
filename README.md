@@ -18,6 +18,11 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+--- 
+
+![sketch_191028a](2019/sketch_191028a/sketch_191028a.png)
+[sketch_191024a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191028a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
 ---
 
 Missed 2 days: Python Brasil 2019 conference.
