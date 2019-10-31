@@ -3,19 +3,21 @@
 
 axiom = "F+G+G"
 sentence = axiom
-stroke_len = 300
-angle = radians(-120)
-rule_a = ("F",           "G")
-rule_b = ("F+G-F-G++FF", "GFG")
+stroke_len = 200
+angle = radians(-60)
+rules = (("F", "F[+G-F]-G+F"),
+         ("G", "GFG")
+         )
 
 def setup():
-    size (600, 600)
+    size(800, 800)
     background(220, 220, 200)
-    scale(.35)
-    translate(width - 400, height - 400)
+    scale(.25)
+    translate(800, height + 2200)
     strokeWeight(2)
-    generate(5)
+    generate(6)
     plot()
+    saveFrame("sketch_191030a.png")
 
 def generate(n):
     global stroke_len, sentence
@@ -24,7 +26,7 @@ def generate(n):
         nextSentence = ""
         for c in sentence:
             found = False
-            for c_a, c_b in zip(rule_a, rule_b):
+            for c_a, c_b in rules:
                 if c == c_a:
                     found = True
                     nextSentence += c_b
@@ -32,7 +34,7 @@ def generate(n):
             if not found:
                 nextSentence += c
         sentence = nextSentence
-    
+
 def plot():
     for c in sentence:
         if c == "F":
@@ -41,9 +43,11 @@ def plot():
             translate(0, -stroke_len)
          # ellipse(0, 0, 10, 10)
         elif c == "G":
-            stroke(0, 0, 255)
+            stroke(0, 0, 255, 20)
             line(0, 0, 0, -stroke_len)
             translate(0, -stroke_len)
+            noFill()
+            circle(0, 0, stroke_len * 20)
         elif c == "+":
             rotate(angle)
         elif c == "-":
