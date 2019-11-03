@@ -68,3 +68,17 @@ def plot(angle):
             pushMatrix()
         elif c == "]":
             popMatrix()
+            
+def settings():
+    """ print markdown to add at the sketch-a-day page"""
+    from os import path
+    global SKETCH_NAME, OUTPUT
+    SKETCH_NAME = path.basename(sketchPath())
+    OUTPUT = ".png"
+    println(
+        """
+![{0}]({2}/{0}/{0}{1})
+
+[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+""".format(SKETCH_NAME, OUTPUT, year())
+    )
