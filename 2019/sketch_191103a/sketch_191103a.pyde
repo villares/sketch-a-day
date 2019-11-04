@@ -1,5 +1,6 @@
 # Baseado no L-System apresentado pela Tatasz na
 # Noite de Processing
+# baseado no PentigreeLSystem do exemplo do Processing
 
 iterations = 5
 # axiom = "F"
