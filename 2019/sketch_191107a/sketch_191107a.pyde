@@ -1,7 +1,7 @@
 # Baseado no L-System apresentado pela Tatasz na
 # Noite de Processing
 
-iterations = 5 
+iterations = 6 
 # axiom = "F"
 axiom = "HGF"
 sentence = axiom
@@ -10,9 +10,9 @@ rules = (
          # ("F", "F-F++F-F"),
          ("F", "[+F]-F"),
          ("G", "[HG]HGF"),
-         # ("H", "F[-GH]+GH")
-         ,)
-a = 45
+         ("H", "F[-GH]+GH"),
+         )
+a = 90
 
 def setup():
     size(700, 700)
@@ -23,7 +23,7 @@ def setup():
 def draw():
     global a
     background(220, 220, 200)    
-    translate(width / 2, height / 3)
+    translate(width / 2, height / 2)
     global a    
     angle = radians(a)
     plot(angle)
