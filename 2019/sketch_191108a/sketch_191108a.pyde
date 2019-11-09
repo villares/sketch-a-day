@@ -7,8 +7,8 @@ axiom = "HGF"
 sentence = axiom
 stroke_len = 300
 rules = (
-         # ("F", "F-F++F-F"),
-         ("F", "[+F]-F"),
+         ("F", "F-F++F-F"),
+         # ("F", "[+F]-F"),
          ("G", "[HG]HGF"),
          ("H", "F[-GH]+GH"),
          )
@@ -22,8 +22,8 @@ def setup():
     
 def draw():
     global a
-    background(220, 220, 200)    
-    translate(width / 2, height / 2)
+    background(0)    
+    translate(width / 2, 250)
     global a    
     angle = radians(a)
     plot(angle)
@@ -51,19 +51,17 @@ def generate(n):
 
 def plot(angle):
     for c in sentence:
+        stroke(255)
         if c == "F":
-            stroke(200, 0, 0)
-            rect(0, 0, stroke_len/2, -stroke_len)
-            translate(stroke_len/2, -stroke_len)
+            line(0, 0, stroke_len/2, -stroke_len)
+            translate(0, -stroke_len)
          # ellipse(0, 0, 10, 10)
         elif c == "G":
-            stroke(0, 0, 200)
-            rect(0, 0, stroke_len/2, -stroke_len)
-            translate(stroke_len/2, -stroke_len)
+            line(0, 0, stroke_len/2, -stroke_len)
+            translate(0, -stroke_len)
         elif c == "H":
-            stroke(0, 200, 0)
-            rect(0, 0, stroke_len/2, -stroke_len)
-            translate(stroke_len/2, -stroke_len)
+            line(0, 0, stroke_len/2, -stroke_len)
+            translate(0, -stroke_len)
         elif c == "+":
             rotate(angle)
         elif c == "-":
@@ -74,6 +72,7 @@ def plot(angle):
             popMatrix()
   
 def keyPressed():
+    print(a)
     global a
     if keyCode == LEFT:
         a -= 5
