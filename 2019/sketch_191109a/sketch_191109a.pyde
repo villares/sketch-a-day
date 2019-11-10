@@ -5,14 +5,14 @@ iterations = 7
 # axiom = "F"
 axiom = "F"
 sentence = axiom
-stroke_len = 2000
+stroke_len = 1000
 rules = (
          # ("F", "F-F++F-F"),
-         ("G", "[+F]-F"),
-         ("F", "[FG]GF"),
+         ("G", "[+GFG]-GFG"),
+         ("F", "[+FG]-FG"),
          # ("H", "F[-GH]+GH"),
          )
-a = 15
+a = 85
 
 def setup():
     size(700, 700)
