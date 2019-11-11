@@ -2,13 +2,11 @@
 # Noite de Processing
 
 iterations = 6 
-# axiom = "F"
 axiom = "HGF"
 sentence = axiom
 stroke_len = 300
 rules = (
          ("F", "F-F++F-F"),
-         # ("F", "[+F]-F"),
          ("G", "[HG]HGF"),
          ("H", "F[-GH]+GH"),
          )
@@ -27,11 +25,6 @@ def draw():
     global a    
     angle = radians(a)
     plot(angle)
-    # if a <= 180:
-    #     saveFrame("sketch###.png")
-    #     print a
-    #     a += 2.5
-        
 
 def generate(n):
     global stroke_len, sentence
