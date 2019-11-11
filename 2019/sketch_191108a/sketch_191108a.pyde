@@ -2,15 +2,15 @@
 # Noite de Processing
 
 iterations = 6 
+stroke_len = 300
+angle_deg = 90
 axiom = "HGF"
 sentence = axiom
-stroke_len = 300
 rules = (
          ("F", "F-F++F-F"),
          ("G", "[HG]HGF"),
          ("H", "F[-GH]+GH"),
          )
-a = 90
 
 def setup():
     size(700, 700)
@@ -21,24 +21,23 @@ def setup():
 def draw():
     background(0)    
     translate(width / 2, 250)
-    angle = radians(a)
-    plot(angle)
+    plot(radians(angle_deg))
 
 def generate(n):
     global stroke_len, sentence
     for c in range(n):
         stroke_len *= 0.5
-        nextSentence = ""
+        next_sentence = ""
         for c in sentence:
             found = False
             for c_a, c_b in rules:
                 if c == c_a:
                     found = True
-                    nextSentence += c_b
+                    next_sentence += c_b
                     break
             if not found:
-                nextSentence += c
-        sentence = nextSentence
+                next_sentence += c
+        sentence = next_sentence
 
 def plot(angle):
     for c in sentence:
@@ -63,12 +62,12 @@ def plot(angle):
             popMatrix()
   
 def keyPressed():
-    print(a)
-    global a
+    print(angle_deg)
+    global angle_deg
     if keyCode == LEFT:
-        a -= 5
+        angle_deg -= 5
     if keyCode == RIGHT:
-        a += 5        
+        angle_deg += 5        
     if key == 's':
         saveFrame("####.png")
                       
