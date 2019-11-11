@@ -19,10 +19,8 @@ def setup():
     generate(iterations)
     
 def draw():
-    global a
     background(0)    
     translate(width / 2, 250)
-    global a    
     angle = radians(a)
     plot(angle)
 
