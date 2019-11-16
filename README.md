@@ -1,4 +1,4 @@
-----
+---
 # sketch-a-day
 #### one visual idea a day 
 
@@ -17,6 +17,12 @@ You may also support my artistic work, open teaching resources and research with
 ---
 
 ## 2019
+
+---
+
+![sketch_191116n](2019/sketch_191110c/sketch_191116n.png)
+
+[sketch_191116n](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191116n) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
