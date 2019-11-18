@@ -17,26 +17,28 @@ def draw():
     y += Y
     stroke(a % 255, 255, 255)
     if a % 40 == 0:
-        while a < 400:
+        while a < 800:
             X, Y = r(-1, 1), r(-1, 1)
-            xy = x+X*40, y+Y*40
-            if xy not in p:
-                p.append(xy)
-                break    
-        else:
-            x = int(random(-width, width) / 80) * 40
-            y = int(random(-height, height) / 80) * 40
+            x, y = x+X*40, y+Y*40
             if (x, y) not in p:
-                p.append((x, y))
-            else:
-                x, y = 0, 0 
-                return        
+                p.append((x,y))
+                break  
+                  
+        # else:
+        #     X, Y = r(-1, 1), r(-1, 1)
+        #     x = int(random(-width, width) / 80) * 40
+        #     y = int(random(-height, height) / 80) * 40
+        #     if (x, y) not in p:
+        #         p.append((x, y))
+        #     else:
+        #         x, y = 0, 0 
+        #         return        
         print(x, y)
         strokeWeight(5)
         point(x, y)
         strokeWeight(1)
     point(x, y)
-    if abs(x) > 200 or abs(y) > 200:
+    if abs(x) > width / 2 or abs(y) > height / 2:
         x = y = a = 0
 
 def keyPressed():
