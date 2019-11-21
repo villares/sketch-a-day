@@ -19,6 +19,15 @@ rules = {
          "H": "F[-GH]+GH",
          }
 
+def generate(n):
+    global stroke_len, sentence
+    for _ in range(n):
+        stroke_len *= 0.5
+        next_sentence = ""
+        for c in sentence:
+            next_sentence += rules.get(c, c)
+        sentence = next_sentence
+
 def setup():
     size(700, 700)
     strokeWeight(1)
@@ -30,14 +39,7 @@ def draw():
     translate(width / 2, 250)
     plot(radians(angle_deg))
 
-def generate(n):
-    global stroke_len, sentence
-    for _ in range(n):
-        stroke_len *= 0.5
-        next_sentence = ""
-        for c in sentence:
-            next_sentence += rules.get(c, c)
-        sentence = next_sentence
+
 
 def plot(angle):
     for c in sentence:
@@ -65,12 +67,13 @@ def plot(angle):
             popMatrix()
   
 def keyPressed():
-    print(angle_deg)
     global angle_deg
     if keyCode == LEFT:
         angle_deg -= 5
+        print(angle_deg)
     if keyCode == RIGHT:
-        angle_deg += 5        
+        angle_deg += 5  
+        print(angle_deg)
     if key == 's':
         saveFrame("####.png")
                       
