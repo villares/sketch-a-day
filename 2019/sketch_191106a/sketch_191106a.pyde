@@ -35,7 +35,7 @@ def draw():
 
 def generate(n):
     global stroke_len, sentence
-    for c in range(n):
+    for _ in range(n):
         stroke_len *= 0.5
         nextSentence = ""
         for c in sentence:
