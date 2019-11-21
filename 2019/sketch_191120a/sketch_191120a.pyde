@@ -1,6 +1,13 @@
 # Baseado no L-System apresentado pela Tatasz na
 # Noite de Processing
 
+
+"""
+Thanks @bbfontes! The right data structure makes it so much more elegant!
+As @ramalhoorg teaches us "elegance begets simplicity".
+A dictionary is perfect for #LSystem rules. #Processing #Python
+"""
+
 iterations = 6 
 stroke_len = 300
 angle_deg = 90
@@ -25,7 +32,7 @@ def draw():
 
 def generate(n):
     global stroke_len, sentence
-    for c in range(n):
+    for _ in range(n):
         stroke_len *= 0.5
         next_sentence = ""
         for c in sentence:
