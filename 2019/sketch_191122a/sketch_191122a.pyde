@@ -1,25 +1,25 @@
-# L-System 
+# L-System
 
-iterations = 5 
-stroke_len = 200
-angle_deg = 30
+iterations = 7
+stroke_len = 1000
+angle_deg = -15
 axiom = "HGF"
 sentence = axiom
 rules = {
-         # "F": "GFH",
-         "G": "[+HG]-HGG",
-         "H": "[-GH]+GHH",
-         }
+         "F": "FF",
+         "G": "[[+HG]F-HG]",
+         "H": "[-H+H]F++H--H",
+}
 
 def setup():
     size(700, 700)
     strokeWeight(1)
     noFill()
     generate(iterations)
-    
+
 def draw():
-    background(0)    
-    translate(width  *.75, 600)
+    background(0)
+    translate(width * .5, 350)
     plot(radians(angle_deg))
 
 def generate(n):
@@ -34,14 +34,14 @@ def generate(n):
 def plot(angle):
     for c in sentence:
         if c == "F":
-            line(0, 0, stroke_len/2, -stroke_len)
+            line(0, 0, stroke_len / 2, -stroke_len)
             translate(0, -stroke_len)
             # ellipse(0, 0, 10, 10)
         elif c == "G":
-            line(0, 0, stroke_len/2, -stroke_len)
+            line(0, 0, stroke_len / 2, -stroke_len)
             translate(0, -stroke_len)
         elif c == "H":
-            line(0, 0, stroke_len/2, -stroke_len)
+            line(0, 0, stroke_len / 2, -stroke_len)
             translate(0, -stroke_len)
         elif c == "+":
             stroke(255, 0, 255)
@@ -55,19 +55,19 @@ def plot(angle):
         elif c == "]":
             stroke(0, 0, 255)
             popMatrix()
-  
+
 def keyPressed():
     global angle_deg
     if keyCode == LEFT:
         angle_deg -= 5
         print(angle_deg)
     if keyCode == RIGHT:
-        angle_deg += 5  
+        angle_deg += 5
         print(angle_deg)
     if key == 's':
         saveFrame("####.png")
-                      
-                                          
+
+
 def settings():
     """ print markdown to add at the sketch-a-day page"""
     from os import path
