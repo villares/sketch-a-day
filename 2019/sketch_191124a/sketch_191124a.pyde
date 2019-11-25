@@ -1,25 +1,27 @@
 # L-System
 
 iterations = 7
-stroke_len = 1000
+stroke_len = 500
 angle_deg = 15
-axiom = "HGF"
+axiom = "H"
 sentence = axiom
 rules = {
          "F": "FF",
-         "G": "[[+HG]F-HG]",
-         "H": "[-H]+H",
-}
+         "G": "HFG++G--G",
+         "H": "[-HG]+HG",
+         }
 
 def setup():
     size(700, 700)
+    global xo, yo
+    xo, yo = width / 2, height / 2
     strokeWeight(1)
     noFill()
     generate(iterations)
 
 def draw():
     background(0)
-    translate(width * .5, 350)
+    translate(xo, yo)
     plot(radians(angle_deg))
 
 def generate(n):
@@ -34,40 +36,49 @@ def generate(n):
 def plot(angle):
     for c in sentence:
         if c == "F":
+            stroke(255)
             line(0, 0, stroke_len / 2, -stroke_len)
             translate(0, -stroke_len / 2)
             # ellipse(0, 0, 10, 10)
         elif c == "G":
+            stroke(0, 200, 0)
             line(0, 0, stroke_len / 2, -stroke_len)
             translate(0, -stroke_len)
         elif c == "H":
+            stroke(0, 0, 200)
             line(0, 0, stroke_len / 2, -stroke_len)
             translate(0, -stroke_len)
         elif c == "+":
-            stroke(255, 0, 255)
             rotate(angle)
         elif c == "-":
-            stroke(0, 255, 255)
             rotate(-angle)
         elif c == "[":
-            stroke(255, 255, 0)
             pushMatrix()
         elif c == "]":
-            stroke(0, 0, 255)
             popMatrix()
 
 def keyPressed():
-    global angle_deg
-    if keyCode == LEFT:
+    global angle_deg, xo, yo, stroke_len
+    if key == '-':
         angle_deg -= 5
         print(angle_deg)
-    if keyCode == RIGHT:
+    if str(key) in "=+":
         angle_deg += 5
         print(angle_deg)
     if key == 's':
         saveFrame("####.png")
-
-
+    if key == 'a':
+        stroke_len *= 2
+    if key == 'z':
+        stroke_len /= 2
+    if keyCode == LEFT:
+        xo -= 50
+    if keyCode == RIGHT:
+        xo += 50
+    if keyCode == UP:
+        yo -= 50
+    if keyCode == DOWN:
+        yo += 50
 def settings():
     """ print markdown to add at the sketch-a-day page"""
     from os import path
