@@ -22,7 +22,27 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
-[sketch_191124a](2019/sketch_191124a/sketch_191124a.png)
+![sketch_191125a](2019/sketch_191125a/sketch_191125a.png)
+
+[sketch_191125a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191125a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+```python
+iterations = 7
+stroke_len = 500
+angle_deg = 30
+axiom = "H"
+sentence = axiom
+rules = {
+         "F": "F[-FH][+FH]",
+         "G": "H++GF--GF",
+         "H": "[-HG][+HG]",
+         }
+```
+
+---
+
+![sketch_191124a](2019/sketch_191124a/sketch_191124a.png)
 
 [sketch_191124a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191124a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -41,7 +61,7 @@ rules = {
 
 ---
 
-[sketch_191123a](2019/sketch_191123a/sketch_191123a.png)
+![sketch_191123a](2019/sketch_191123a/sketch_191123a.png)
 
 [sketch_191123a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191123a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -60,7 +80,7 @@ rules = {
 
 ---
 
-[sketch_191122a](2019/sketch_191122a/sketch_191122a.png)
+![sketch_191122a](2019/sketch_191122a/sketch_191122a.png)
 
 [sketch_191122a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191122a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
