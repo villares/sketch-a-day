@@ -2,13 +2,13 @@
 
 iterations = 7
 stroke_len = 500
-angle_deg = 15
+angle_deg = 30
 axiom = "H"
 sentence = axiom
 rules = {
-         "F": "FF",
-         "G": "HFG++G--G",
-         "H": "[-HG]+HG",
+         "F": "F[-FH][+FH]",
+         "G": "H++GF--GF",
+         "H": "[-HG][+HG]",
          }
 
 def setup():
