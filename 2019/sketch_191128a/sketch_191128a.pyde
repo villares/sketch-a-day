@@ -1,12 +1,12 @@
 # L-System
 
 iterations = 7
-stroke_len = 300
-angle_deg = 30
+stroke_len = 600
+angle_deg = 45
 axiom = "G"
 sentence = axiom
 rules = {
-    "F": "F--F++F",
+         "F": "F--F++F",
          "G": "+GFH[-GF]",
          "H": "HH",
 }
