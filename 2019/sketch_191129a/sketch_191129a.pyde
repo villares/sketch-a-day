@@ -13,8 +13,10 @@ def novos_pontos():
     
 def draw():
     background(240, 250, 250)
+    strokeWeight(5)
     for i, (x0, y0) in enumerate(pontos):
         x1, y1 = pontos[i - 1]
+        noFill()
         curva(x0, y0, x1, y1)
     
 def curva(x1, y1, x2, y2):
@@ -26,8 +28,12 @@ def curva(x1, y1, x2, y2):
         translate(x1, y1)
         angle = atan2(x1 - x2, y2 - y1)
         rotate(angle)
-        line(0, 0, 0, L)
+        cx = L / 2
+        bezier(0, 0, -cx, L * .25, +cx, L * .75 , 0, L)
+        
         
 def keyPressed():
     if key == ' ':
         novos_pontos()
+    if key == 's':
+        saveFrame("####.png")
