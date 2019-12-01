@@ -26,9 +26,6 @@ def draw():
         circle(x0, y0, 10)
 
 def curva(x1, y1, x2, y2):
-    """
-    linha
-    """
     L = dist(x1, y1, x2, y2)
     with pushMatrix():
         translate(x1, y1)
@@ -36,13 +33,6 @@ def curva(x1, y1, x2, y2):
         rotate(angle)
         cx = (L / 2) * offset_curva / 10.
         bezier(0, 0, -cx, L * .25, +cx, L * .75, 0, L)
-
-
-def keyPressed():
-    if key == ' ':
-        novos_pontos()
-    if key == 's':
-        saveFrame("####.png")
 
 def mousePressed():
     global arrastando
@@ -61,3 +51,9 @@ def mouseDragged():
 def mouseWheel(e):
     global offset_curva
     offset_curva += e.getCount() / 5.
+    
+def keyPressed():
+    if key == ' ':
+        novos_pontos()
+    if key == 's':
+        saveFrame("####.png")
