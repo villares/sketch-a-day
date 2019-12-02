@@ -1,17 +1,19 @@
 
 pontos = []
+novos_pontos = []
 arrastando = -1
 offset_curva = 10
 
 def setup():
     size(500, 500)
-    novos_pontos()
+    novos_pontos[:] = pontos[:] = sorteia_pontos()
 
-def novos_pontos():
-    pontos[:] = []
+def sorteia_pontos():
+    pontos = []
     for _ in range(5):
         x, y = random(width * .2, width * .8), random(height * .2, height * .8)
         pontos.append((x, y))
+    return pontos
 
 def draw():
     background(240, 250, 250)
@@ -25,6 +27,11 @@ def draw():
             stroke(255, 0, 0)
         strokeWeight(1)
         circle(x0, y0, 10)
+        
+    for i, (x0, y0) in enumerate(pontos):
+        x1, y1 = novos_pontos[i]
+        if (x0, y0) != (x1, y1):
+            pontos[i] = ((x0 + x1) / 2, (y0 + y1) / 2)
 
 def curva(x1, y1, x2, y2):
     L = dist(x1, y1, x2, y2)
@@ -47,7 +54,7 @@ def mouseReleased():
 
 def mouseDragged():
     if arrastando >= 0:
-        pontos[arrastando] = (mouseX, mouseY)
+        novos_pontos[arrastando] = (mouseX, mouseY)
         
 def mouseWheel(e):
     global offset_curva
@@ -55,6 +62,6 @@ def mouseWheel(e):
     
 def keyPressed():
     if key == ' ':
-        novos_pontos()
+        novos_pontos[:] = sorteia_pontos()
     if key == 's':
         saveFrame("####.png")
