@@ -39,22 +39,27 @@ def draw_pontos(pontos, offset, handle=False):
         noFill()
         stroke(0)
         strokeWeight(2)
-        curva(x0, y0, x1, y1, offset)
+        curva(x0, y0, x1, y1, offset, d=True)
         if handle and dist(mouseX, mouseY, x0, y0) < 10:
             stroke(255, 0, 0)
             strokeWeight(1)
             circle(x0, y0, 10)
 
-
-def curva(x1, y1, x2, y2, offset=0):
+def curva(x1, y1, x2, y2, offset=0, d=False):
     L = dist(x1, y1, x2, y2)
-    with pushMatrix():
-        translate(x1, y1)
-        angle = atan2(x1 - x2, y2 - y1)
-        rotate(angle)
-        cx = (L / 2) * offset / 10.
-        bezier(0, 0, -cx, L * .50, +cx, L * .50, 0, L)
+    if not d or L < 10 + abs(offset * 10):
+        with pushMatrix():
+            translate(x1, y1)
+            angle = atan2(x1 - x2, y2 - y1)
+            rotate(angle)
+            cx = (L / 2) * offset / 10.
+            bezier(0, 0, -cx, L * .50, +cx, L * .50, 0, L)
+    else:
+        xm, ym = (x1 + x2) / 2, (y1 + y2) / 2
+        curva(x1, y1, xm, ym, offset, d=True)
+        curva(xm, ym, x2, y2, offset, d=True)
 
+    
 def mousePressed():
     global arrastando
     for i, (x0, y0) in enumerate(pontos):
