@@ -1,8 +1,8 @@
 sl = (
-    "sketch_191104a",
-    "sketch_191103a",
-    "sketch_191102a",
-    "sketch_191101a",
+    "sketch_191204a",
+    "sketch_191203a",
+    "sketch_191202a",
+    "sketch_191201a",
 )
 OUTPUT = ".gif"
 for s in sl:

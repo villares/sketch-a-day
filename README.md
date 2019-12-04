@@ -40,7 +40,7 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
-![sketch_191101a](2019/sketch_191101a/sketch_191101a.gif)
+![sketch_191101a](2019/sketch_191101a/sketch_191101a.png)
 
 [sketch_191101a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
