@@ -22,13 +22,11 @@ You may also support my artistic work, open teaching resources and research with
 
 [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_191203a](2019/sketch_191203a/sketch_191203a.gif)
 
 [sketch_191203a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191203a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -36,10 +34,9 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_191202a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191202a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
-![sketch_191101a](2019/sketch_191101a/sketch_191101a.png)
+![sketch_191201a](2019/sketch_191101a/sketch_191201a.png)
 
 [sketch_191201a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191201a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -137,7 +134,6 @@ rules = {
 
 [sketch_191122a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191122a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_191121a](2019/sketch_191121a/sketch_191121a.png)
@@ -204,7 +200,6 @@ rules = {
 
 [sketch_191111c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191111c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_191110c](2019/sketch_191110c/sketch_191110c.png)
@@ -265,23 +260,22 @@ rules = {
 
 [sketch_191101a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191101a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
---- 
+---
 
 ![sketch_191031a](2019/sketch_191031a/sketch_191031a.png)
 [sketch_191031a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191031a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
---- 
+---
 
 ![sketch_191030a](2019/sketch_191030a/sketch_191030a.png)
 [sketch_191030a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191030a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
---- 
+---
 
 ![sketch_191029a](2019/sketch_191029a/sketch_191029a.png)
 [sketch_191029a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191029a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
---- 
+---
 
 ![sketch_191028a](2019/sketch_191028a/sketch_191028a.png)
 [sketch_191028a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191028a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -297,7 +291,7 @@ sketch_191025pybr2019 [Py.Processing code](https://github.com/villares/sketch-a-
 
 O sketch da minha apresentação na Python Brasil 2019 rodando no navegador graças ao projeto [pyp5js](https://github.com/berinhard/pyp5js) do Berin!
 
---- 
+---
 
 ![sketch_191024a](2019/sketch_191024a/sketch_191024a.png)
 [sketch_191024a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191024a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -367,7 +361,6 @@ O sketch da minha apresentação na Python Brasil 2019 rodando no navegador gra�
 ![sketch_191011a](2019/sketch_191011a/sketch_191011a.png)
 [sketch_191011a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191011a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_191010a](2019/sketch_191010a/sketch_191010a.png)
@@ -429,7 +422,6 @@ O sketch da minha apresentação na Python Brasil 2019 rodando no navegador gra�
 
 [sketch_191001a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191001a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_190930a](2019/sketch_190930a/sketch_190930a.png)
@@ -488,7 +480,6 @@ O sketch da minha apresentação na Python Brasil 2019 rodando no navegador gra�
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/%E3%81%A4%E3%81%B6%E3%82%84%E3%81%8DProcessing?src=hash&amp;ref_src=twsrc%5Etfw">#つぶやきProcessing</a> <a href="https://twitter.com/hashtag/Python?src=hash&amp;ref_src=twsrc%5Etfw">#Python</a><br>w,h=500,250<br>def setup():size(w,w)<br>def draw():<br> background(h/2,h/2,h);translate(h,h)<br> a,k=0,sin(frameCount/30.)<br> while a&lt;TWO_PI:<br> i,j=sin(a),cos(a)<br> n=noise((abs(i)+i+j),(abs(j)+j+i),k)<br> x,y=n*h*sin(a),n*h*cos(a)<br> line(0,0,x,y)<br> a+=.004 <a href="https://t.co/ygkwh2KKxG">pic.twitter.com/ygkwh2KKxG</a></p>&mdash; Alexandre B A Villares ☂ (@villares) <a href="https://twitter.com/villares/status/1175856215030665216?ref_src=twsrc%5Etfw">September 22, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
-
 ---
 
 ![sketch_190921a](2019/sketch_190921a/sketch_190921a.png)
@@ -518,7 +509,7 @@ NEIGHBOURS = ((-2,  0), ( 2,  0),
               ( 1, -1), (-1,  1),
               ( 0,  2), ( 1,  1)) 
 
-``` 
+```
 ---
 
 ![sketch_190918a](2019/sketch_190918a/sketch_190918a.gif)
