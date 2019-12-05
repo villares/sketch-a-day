@@ -18,21 +18,19 @@ def sorteia_pontos():
     return pontos
 
 def draw():
-    # background(240, 250, 250)
-    fill(240, 250, 250, 10)
-    noStroke()
-    rect(0, 0, width, height)
-    draw_pontos(pontos, offset_curva, handle=True)
-    # draw_pontos(novos_pontos, novo_offset_curva, handle=True)
-
-    if frameCount % 2 == 0:
-        for i, (x0, y0) in enumerate(pontos):
+    global offset_curva
+    background(240, 250, 250)
+    backup_novos = []
+    backup_novos[:] = novos_pontos
+    for i, (x0, y0) in enumerate(pontos):
             x1, y1 = novos_pontos[i]
-            if (x0, y0) != (x1, y1):
-                pontos[i] = (lerp(x0, x1, .2), lerp(y0, y1, .2))
-        global offset_curva
-        offset_curva = lerp(novo_offset_curva, offset_curva, .8)
-
+            if (int(x0), int(y0)) != (int(x1), int(y1)):
+                novos_pontos[i] = (lerp(x0, x1, .2), lerp(y0, y1, .2))
+                draw_pontos(novos_pontos, offset_curva, handle=False)
+            else: novos_pontos[:] = backup_novos
+    draw_pontos(pontos, offset_curva, handle=True)
+    offset_curva = lerp(novo_offset_curva, offset_curva, .8)
+ 
 def draw_pontos(pontos, offset, handle=False):
     for i, (x0, y0) in enumerate(pontos):
         x1, y1 = pontos[i - 1]
@@ -56,8 +54,8 @@ def curva(x1, y1, x2, y2, offset=0, d=False):
             bezier(0, 0, -cx, L * .50, +cx, L * .50, 0, L)
     else:
         xm, ym = (x1 + x2) / 2, (y1 + y2) / 2
-        curva(x1, y1, xm, ym, offset, d=True)
-        curva(xm, ym, x2, y2, offset, d=True)
+        curva(x1, y1, xm, ym, offset)
+        curva(xm, ym, x2, y2, offset)
 
     
 def mousePressed():
@@ -75,11 +73,11 @@ def mouseDragged():
         novos_pontos[arrastando] = (mouseX, mouseY)
 
 def mouseWheel(e):
-    global novo_offset_curva
+    global novo_offset_curva 
     novo_offset_curva += e.getCount() / 5.
 
 def keyPressed():
     if key == ' ':
-        novos_pontos[:] = sorteia_pontos()
+        pontos[:] = sorteia_pontos()
     if key == 's':
         saveFrame("####.png")
