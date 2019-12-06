@@ -18,13 +18,13 @@ def sorteia_pontos():
     return pontos
 
 def draw():
-    # oc = offset_curva
+    oc = offset_curva
     
     background(240, 250, 250)
     for i in range(5):
         pts = lerp_pts(pontos, novos_pontos, i / 5.)
-        # oc = lerp(offset_curva, novo_offset_curva, i / 5.)
-        draw_pontos(pts, offset_curva, handle=not i)
+        oc = lerp(offset_curva, novo_offset_curva, i / 5.)
+        draw_pontos(pts, oc, handle=not i)
     
  
 def draw_pontos(pontos, offset, handle=False):
@@ -86,6 +86,6 @@ def mouseWheel(e):
 
 def keyPressed():
     if key == ' ':
-        pontos[:] = sorteia_pontos()
+        pontos[:] = novos_pontos[:] = sorteia_pontos()
     if key == 's':
         saveFrame("####.png")
