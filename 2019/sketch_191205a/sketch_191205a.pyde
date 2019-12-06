@@ -21,7 +21,7 @@ def draw():
     background(240, 250, 250)
     for i in range(5):
         pts = lerp_pts(pontos, novos_pontos, i / 5.)
-        draw_pontos(pts, offset_curva, handle=not i)    
+        draw_pontos(pts, novo_offset_curva, handle=not i)    
  
 def draw_pontos(pontos, offset, handle=False):
     for i, (x0, y0) in enumerate(pontos):
