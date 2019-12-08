@@ -67,11 +67,11 @@ def lerp_pts(pts1, pts2, a):
 
 def mousePressed():
     for i, (x0, y0) in enumerate(pontos[1]):
-        if dist(mouseX, mouseY, x0, y0) < 10:
+        if dist(mouseX, mouseY, x0, y0) < 50:
             arrastando[1] = i
             return
     for i, (x0, y0) in enumerate(pontos[0]):
-        if dist(mouseX, mouseY, x0, y0) < 10:
+        if dist(mouseX, mouseY, x0, y0) < 50:
             arrastando[0] = i
 
 def mouseReleased():
