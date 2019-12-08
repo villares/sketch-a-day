@@ -22,6 +22,12 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_191208a](2019/sketch_191207a/sketch_191208a.gif)
+
+[sketch_191208a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191208a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_191207a](2019/sketch_191207a/sketch_191207a.gif)
 
 [sketch_191207a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191207a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
