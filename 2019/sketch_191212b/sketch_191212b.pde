@@ -1,6 +1,5 @@
 void setup() { // executa só no começo
-  size(600, 500, P3D); // tamanho da área de desenho
-}
+  size(600, 500, P3D); // área de desenho 3D
 
 void draw() { // repete infinitamente
   background(255, 175, 0);
