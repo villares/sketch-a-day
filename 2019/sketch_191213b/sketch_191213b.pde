@@ -1,14 +1,41 @@
-void setup() { // executa só no começo
-  size(600, 500, P3D); // área de desenho 3D
+int seed;
 
-void draw() { // repete infinitamente
-  background(255, 175, 0);
-  translate(width / 2, height / 2);
+void setup() {
+  size(800, 300, P3D); 
+  frameRate(10);
+  seed = 26876; //novaSemente();
+}
+
+void draw() {
+  lights();
+  background(0);
+  randomSeed(seed);
+  translate(width/2, height/2);
   rotateY(radians(mouseX));
-  caixa(10, 10, 0, 200, 100, 40);
-  caixa(-100, 140, 50, 200, 100, 40);
-  caixa(140, -100, -50, 200, 100, 40);
+  translate(-width/2, -height/2);
+  for (int y=30; y<height; y+=30) {
+    for (int x=30; x<width; x+=30) {
+      float tamanho = random(5, 25);
+      fill(corSorteada());
+      caixa(x, y, 0, tamanho);
+    }
+  }
+}
 
+void keyPressed() {
+  if (key == ' ') {
+    seed = novaSemente();
+  }
+}
+
+int novaSemente() {
+  int s = int(random(1000000));
+  println("seed: " + s);
+  return s;
+}
+
+color corSorteada(){
+  return color(random(256), random(256), random(256));
 }
 
 void caixa(float x, float y, float z, 
