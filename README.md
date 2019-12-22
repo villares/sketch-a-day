@@ -99,14 +99,14 @@ You may also support my artistic work, open teaching resources and research with
 
 ![sketch_191213b](2019/sketch_191213b/sketch_191213b.png)
 
-[sketch_191213b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191213b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_191213b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191213b) [[Java](https://processing.org)]
 
 
 ---
 
 ![sketch_191212b](2019/sketch_191212b/sketch_191212b.png)
 
-[sketch_191212b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191212b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_191212b](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191212b) [[Java](https://processing.org)]
 
 
 ---
@@ -115,6 +115,7 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_191211d](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191211d) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Estudo/melhoria dos sliders
 
 ---
 
@@ -122,6 +123,7 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_191210a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191210a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Estudo do quarto movimento do Escuta Ativa
 
 ---
 
@@ -129,11 +131,9 @@ You may also support my artistic work, open teaching resources and research with
 
 [sketch_191209a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191209a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
-
 ---
 
-![sketch_191208a](2019/sketch_191207a/sketch_191208a.gif)
+![sketch_191208a](2019/sketch_191208a/sketch_191208a.gif)
 
 [sketch_191208a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191208a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
