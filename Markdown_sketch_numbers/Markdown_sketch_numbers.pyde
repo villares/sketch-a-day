@@ -1,10 +1,23 @@
 sl = (
-    "sketch_191204a",
-    "sketch_191203a",
-    "sketch_191202a",
-    "sketch_191201a",
+    "sketch_191222a",
+    "sketch_191221a",
+    "sketch_191220a",
+    "sketch_191219a",
+    "sketch_191218a",
+    "sketch_191217a",
+    "sketch_191216a",
+    "sketch_191215b",
+    "sketch_191214b",
+    "sketch_191213b", 
+    "sketch_191212b",
+    "sketch_191211d",
+    "sketch_191210a",
+    "sketch_191209a",
+
+
+
 )
-OUTPUT = ".gif"
+OUTPUT = ".png"
 for s in sl:
     SKETCH_NAME = s
     println(
