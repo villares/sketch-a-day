@@ -20,24 +20,27 @@ You may also support my artistic work, open teaching resources and research with
 
 ## 2019
 
+---
 
+![sketch_191224c](2019/sketch_191224c/sketch_191224c.gif)
 
+[sketch_191224c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191224c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Merry Christmas
 
+---
 
+![sketch_191223a](2019/sketch_191223a/sketch_191223a.png)
 
+[sketch_191223a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191223a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
-
-
-
+Port of the Picker library example to Python Mode
 
 ---
 
 ![sketch_191222a](2019/sketch_191222a/sketch_191222a.png)
 
 [sketch_191222a](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191222a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
