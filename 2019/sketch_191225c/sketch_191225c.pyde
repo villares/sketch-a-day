@@ -1,6 +1,6 @@
 from collections import namedtuple
 Ponto = namedtuple('Ponto', 'x y size, color')
-a, v, pontos = 0, 0.1, []
+a, v, pontos = 0, 1, []
 
 def setup():
     size(500, 500)
@@ -31,7 +31,7 @@ def mouseDragged():
 def keyPressed():
     global a, v
     if key == 'a':
-        a, v = 1, .1
+        a, v = 1, 1
     if key == ' ':
         background(0)
         pontos[:] = []
