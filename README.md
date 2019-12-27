@@ -22,6 +22,14 @@ You may also support my artistic work, open teaching resources and research with
 
 ---
 
+![sketch_191226c](2019/sketch_191226c/sketch_191226c.gif)
+
+[sketch_191226c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191226c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+"Lerping out" some gestures [deforming some hand drawn forms by using `lerp()` out of it's original 0 to 1 range]
+
+---
+
 ![sketch_191225c](2019/sketch_191225c/sketch_191225c.gif)
 
 [sketch_191225c](https://github.com/villares/sketch-a-day/tree/master/2019/sketch_191225c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
