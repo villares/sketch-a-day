@@ -47,3 +47,5 @@ def keyPressed():
         background(0)
         pontos[:] = []
         set_points()
+    if key == 's':
+        saveFrame("i####.png")
