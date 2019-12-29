@@ -17,5 +17,6 @@ def setup():
             if c != 0:
                 i = (i + 1) % 256
                 stroke(i, 255, 255)
-            else: stroke(32)
+            else:
+                stroke(32)
             point(x, y)
