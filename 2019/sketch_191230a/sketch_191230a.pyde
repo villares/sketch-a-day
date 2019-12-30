@@ -49,12 +49,11 @@ def draw():
         noStroke()
         circle(p_x, p_y, p_size)
 
-    videoExport.startMovie()
+    videoExport.saveFrame()
 
-    for _ in range(4):
-            l = len(pontos_draw)
-            if l < len(pontos):
-                pontos_draw.append(pontos[l])
+    l = len(pontos_draw)
+    if l < len(pontos):
+        pontos_draw.append(pontos[l])
 
 def keyPressed():
     if key == 'n':
@@ -65,6 +64,6 @@ def keyPressed():
     if key == 's':
         saveFrame("i####.png")
 
-    
     if key == 'q':
         videoExport.endMovie()
+        exit()
