@@ -11,7 +11,7 @@ def setup():
 def draw():
     global a, v
     background(0)
-    t = map(a, 0, 100, 0, 1)
+    t = map(a, 0, 100, -1, 1)
     for p0, p1 in zip(pontos, pontos[::-1]):
         p_x, p_y = lerp(p0.x, p1.x, t), lerp(p0.y, p1.y, t)
         p_size = lerp(p0.size, p1.size, t)
@@ -21,7 +21,7 @@ def draw():
 
     if a > 0:
         a += v
-    if a > 300:
+    if a > 200:
         v = -v
 
 def mouseDragged():
@@ -32,6 +32,8 @@ def keyPressed():
     global a, v
     if key == 'a':
         a, v = 1, 1
+    if key == 's':
+        saveFrame("a####.png")
     if key == ' ':
         background(0)
         pontos[:] = []
