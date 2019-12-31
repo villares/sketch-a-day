@@ -77,12 +77,7 @@ def set_points(p_graphics, bg_points=True):
     shuffle(pontos)
     return pontos
 
-def keyPressed():
-    global pontos_ini, pontos_fim
-    
-    if key == 's':
-        pontos_ini, pontos_fim = pontos_fim, pontos_ini
-        
+def keyPressed():        
     if key == 'q':
         videoExport.endMovie()
         exit()
