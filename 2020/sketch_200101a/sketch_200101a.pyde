@@ -5,15 +5,15 @@ Ponto = namedtuple('Ponto', 'x y size, color')
 pontos_ini, pontos_fim = [], []
 a = 0  # animation control
 
-add_library('VideoExport')
+# add_library('VideoExport')
 
 def setup():
     global videoExport
     size(400, 400)
     # background(0)
     colorMode(HSB)
-    videoExport = VideoExport(this)
-    videoExport.startMovie()
+    # videoExport = VideoExport(this)
+    # videoExport.startMovie()
     
     ini = createGraphics(500, 500)
     ini.beginDraw()
@@ -46,7 +46,7 @@ def draw():
         noFill()
         square(p_x, p_y, p_size)
 
-    videoExport.saveFrame()
+    # videoExport.saveFrame()
 
     if a < 100:
         a = lerp(a, 100.1, .05)
@@ -77,7 +77,7 @@ def set_points(p_graphics, bg_points=True):
     shuffle(pontos)
     return pontos
 
-def keyPressed():        
-    if key == 'q':
-        videoExport.endMovie()
-        exit()
+# def keyPressed():        
+#     if key == 'q':
+#         videoExport.endMovie()
+#         exit()
