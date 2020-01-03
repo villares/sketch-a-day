@@ -10,17 +10,19 @@ Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to u
 
 You may also support my artistic work, open teaching resources and research using [Gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
 
----
-
 ## [2018](2018.md)
-
----
 
 ## [2019](2019.md)
 
 ---
 
 ## 2020
+
+---
+
+![sketch_200102a](2020/sketch_200102a/sketch_200102a.png)
+
+[sketch_200102a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_200102a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
