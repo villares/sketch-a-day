@@ -7,27 +7,30 @@ a = 0  # animation control
 
 def setup():
     global videoExport, ini, fim
-    size(400, 400)
-    colorMode(HSB)
-       
-    ini = draw_text('SP', 200, 275, text_size=180)
-    pontos_ini[:] = set_points(ini, shuffle_points=True)
-    print(len(pontos_ini))
-    
-    fim = draw_text('PCD', 200, 75,text_size=100)    
-    pontos_fim[:] = set_points(fim, shuffle_points=True)
-    print(len(pontos_fim))
+    size(400, 400)       
+    ini = draw_text('SP', 200, 275, text_size=150)    
+    fim = draw_text('PCD', 200, 75,text_size=110)    
                         
             
 def draw():
     global a
-    background(128)
+    background(200, 0, 0)
+    # background(128)
+    
+    pontos_fim[:] = set_points(fim, shuffle_points=mousePressed)
+    # print(len(pontos_fim))
+    pontos_ini[:] = set_points(ini, shuffle_points=mousePressed)
+    # print(len(pontos_ini))
+    
     for i in range(0, 256, 10):    
-        t = map(i, 0, 256, 0, 1)
+        t = map(i, 0, 256, -.15, 1.15)
         for p0, p1 in zip(pontos_ini, pontos_fim):
             p_x, p_y = lerp(p0.x, p1.x, t), lerp(p0.y, p1.y, t)
             p_size = lerp(p0.size, p1.size, t)
-            a = 255 - i / 2
+            if i < 128:
+                a = 128 - i
+            else:
+                a = i - 128
             stroke(i, a)
             noFill()
             square(p_x, p_y, p_size)
