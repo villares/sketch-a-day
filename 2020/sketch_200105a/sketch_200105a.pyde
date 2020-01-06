@@ -1,7 +1,7 @@
 from random import shuffle
 from collections import namedtuple
 
-Ponto = namedtuple('Ponto', 'x y size, color')
+Ponto = namedtuple('Ponto', 'x y size')
 pontos_ini, pontos_fim = [], []
 a = 0  # animation control
 
@@ -36,8 +36,6 @@ def draw():
         for p0, p1 in zip(pontos_ini, pontos_fim):
             p_x, p_y = lerp(p0.x, p1.x, t), lerp(p0.y, p1.y, t)
             p_size = lerp(p0.size, p1.size, t)
-            p_color = lerpColor(p0.color, p1.color, t)
-            # stroke(p_color, 200)
             stroke(a, 255, 255, 100)
             noFill()
             square(p_x, p_y, p_size)
@@ -52,14 +50,10 @@ def set_points(p_graphics, bg_points=False,  shuffle_points=True):
         for x in range(0, width, step):
             bc = p_graphics.get(x, y)
             if bc != 0:
-                i = (i + 1) % 256
-                c = color(i, 255, 255)
-                # c = color(i)
-                pontos.append(Ponto(x, y, random(5, 10), c))
+                pontos.append(Ponto(x, y, random(5, 10)))
             else:
                 if bg_points:
-                    c = color(0, 32)
-                    pontos.append(Ponto(x, y, random(2, 7), c))
+                    pontos.append(Ponto(x, y, random(1, 5)))
     if  shuffle_points:
         shuffle(pontos)
     return pontos
