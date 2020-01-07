@@ -6,7 +6,7 @@ pontos_ini, pontos_fim = [], []
 a = 0  # animation control
 
 def setup():
-    global videoExport, ini, fim
+    global ini, fim
     size(400, 400)       
     ini = draw_text('SP', 200, 275, text_size=150)    
     fim = draw_text('PCD', 200, 75,text_size=110)    

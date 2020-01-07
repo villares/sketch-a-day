@@ -6,7 +6,7 @@ pontos_ini, pontos_fim = [], []
 a = 0  # animation control
 
 def setup():
-    global videoExport, ini, fim
+    global ini, fim
     size(400, 400)
     colorMode(HSB)
        
