@@ -18,6 +18,17 @@ You may also support my artistic work, open teaching resources and research usin
 
 ## 2020
 
+---
+
+![sketch_2020_01_09a](2020/sketch_2020_01_09a/sketch_2020_01_09a.gif)
+
+[sketch_2020_01_09a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_01_09a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2020_01_08f](2020/sketch_2020_01_08f/sketch_2020_01_08f.png)
+
+[sketch_2020_01_08f](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_01_08f) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
