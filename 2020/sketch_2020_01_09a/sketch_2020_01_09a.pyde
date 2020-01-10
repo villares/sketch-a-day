@@ -5,14 +5,16 @@ NODE_SIZE = 15
 nodes, edges = [], set()
 
 # NGBS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
-ONGBS = [(-1, 0), (0, 1), (0, -1), (1, 1)]  # (1, 0)]
+# ONGBS = [(-1, 0), (0, 1), (0, -1), (1, 0), (-1, -1)]
+
+ONGBS = [(0, 1), (1, 0), (-1, -1)]
 
 
 def setup():
     size(500, 500)
     global grid
     grid = make_grid(width, height, 40, margin=10)
-    strokeWeight(5)
+    strokeWeight(NODE_SIZE)
 
 def make_grid(w, h, s, margin=None):
     off = s / 2
@@ -28,15 +30,15 @@ def make_grid(w, h, s, margin=None):
 
 def draw():
     background(170, 170, 200)
-    for i, j in grid.keys():
-        x, y = grid[(i, j)]
-        noStroke()
-        fill(255)
-        circle(x, y, NODE_SIZE * 2)
-    for i, j in nodes:
-        x, y = grid[(i, j)]
-        fill(0)
-        circle(x, y, NODE_SIZE)
+    # for i, j in grid.keys():
+    #     x, y = grid[(i, j)]
+    #     noStroke()
+    #     fill(255)
+    #     circle(x, y, NODE_SIZE * 2)
+    # for i, j in nodes:
+    #     x, y = grid[(i, j)]
+    #     fill(0)
+    #     circle(x, y, NODE_SIZE)
     for a, b in edges:
         noFill()
         stroke(0)
