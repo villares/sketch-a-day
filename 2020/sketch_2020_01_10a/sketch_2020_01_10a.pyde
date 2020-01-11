@@ -15,24 +15,24 @@ def setup():
     global grid
     strokeWeight(2)
 
-    imagem = draw_text('PCD', 200, 100,text_size=100)    
+    imagem = draw_text('PCD', 250, 240, text_size=180)
+    grid = make_grid(imagem, width, height, 10, margin=20)
 
-    grid = make_grid(imagem, width, height, 20, margin=10)
-    # pontos_fim[:] = set_points(fim, shuffle_points=True)
-    
+    for _ in range(len(grid)):
+        add_connected(ONGBS)
 
 def draw():
     background(170, 170, 200)
 
     for i, j in nodes:
-        x, y = grid[(i, j)]
-        fill(0)
-        circle(x, y, NODE_SIZE)
+        x, y, c = grid[(i, j)]
+        fill(c)
+        # circle(x, y, NODE_SIZE)
     for a, b in edges:
         noFill()
-        stroke(0)
-        x0, y0 = grid[a]
-        x1, y1 = grid[b]
+        x0, y0, c1 = grid[a]
+        x1, y1, c2 = grid[b]
+        stroke(lerpColor(c1, c2, 0.5))
         line(x0, y0, x1, y1)
 
     add_connected(ONGBS)
@@ -61,6 +61,7 @@ def add_connected(nbs):
                 break
         else:
             if len(nodes) < len(grid):
+                # add_random_node()
                 nodes[:] = [nodes[-1]] + nodes[:-1]
                 println("ops!")
 
@@ -71,33 +72,18 @@ def add_random_node():
         while k in nodes:
             k = choice(grid.keys())
         nodes.append(k)
-        
 
-def draw_text(txt, x, y, text_size=120): 
+
+def draw_text(txt, x, y, text_size=120):
     img = createGraphics(width, height)
     img.beginDraw()
     img.textAlign(CENTER, CENTER)
     img.textSize(text_size)
+    # img.textFont(f)
     img.text(txt, x, y)
     img.endDraw()
     return img
-                
-                                
-# def set_points(p_graphics, bg_points=False,  shuffle_points=True):
-#     pontos = []
-#     step = 4
-#     i = 0
-#     for y in range(0, width, step):
-#         for x in range(0, width, step):
-#             bc = p_graphics.get(x, y)
-#             if bc != 0:
-#                 pontos.append(Ponto(x, y, random(5, 10)))
-#             else:
-#                 if bg_points:
-#                     pontos.append(Ponto(x, y, random(1, 5)))
-#     if  shuffle_points:
-#         shuffle(pontos)
-#     return pontos
+
 
 def make_grid(p_graphics, w, h, s, margin=None):
     off = s / 2
@@ -109,6 +95,8 @@ def make_grid(p_graphics, w, h, s, margin=None):
         for j in range(rows):
             y = off + j * s + margin
             bc = p_graphics.get(x, y)
-            if bc != 0:
-                points[(i, j)] = (x, y)
+            # if bc != 0:
+            points[(i, j)] = (x, y, bc)
+            # else:
+            #     points[(i, j)] = (x, y, 255)
     return points
