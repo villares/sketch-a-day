@@ -5,8 +5,6 @@ NODE_SIZE = 5
 nodes, edges = [], set()
 
 # NGBS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
-# ONGBS = [(-1, 0), (0, 1), (0, -1), (1, 0), (-1, -1)]
-
 ONGBS = [(0, 1), (1, 0), (0, -1), (-1, 0), (-1, -1)]
 
 
@@ -18,16 +16,9 @@ def setup():
     imagem = draw_text('PCD', 250, 240, text_size=180)
     grid = make_grid(imagem, width, height, 10, margin=20)
 
-    for _ in range(len(grid)):
-        add_connected(ONGBS)
-
 def draw():
     background(170, 170, 200)
 
-    for i, j in nodes:
-        x, y, c = grid[(i, j)]
-        fill(c)
-        # circle(x, y, NODE_SIZE)
     for a, b in edges:
         noFill()
         x0, y0, c1 = grid[a]
@@ -46,8 +37,7 @@ def keyPressed():
         add_random_node()
     if key == 's':
         saveFrame("s####.png")
-    # if key == 'm':
-    #     add_connected(NGBS)
+
 
 def add_connected(nbs):
     if nodes:
@@ -65,14 +55,12 @@ def add_connected(nbs):
                 nodes[:] = [nodes[-1]] + nodes[:-1]
                 println("ops!")
 
-
 def add_random_node():
     if len(nodes) < len(grid):
         k = choice(grid.keys())
         while k in nodes:
             k = choice(grid.keys())
         nodes.append(k)
-
 
 def draw_text(txt, x, y, text_size=120):
     img = createGraphics(width, height)
@@ -95,8 +83,6 @@ def make_grid(p_graphics, w, h, s, margin=None):
         for j in range(rows):
             y = off + j * s + margin
             bc = p_graphics.get(x, y)
-            # if bc != 0:
             points[(i, j)] = (x, y, bc)
-            # else:
-            #     points[(i, j)] = (x, y, 255)
+
     return points
