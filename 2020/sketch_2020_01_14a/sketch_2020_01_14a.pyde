@@ -11,9 +11,6 @@ def setup():
     global grid, f
     f = createFont("Free Sans Bold", 100)
     strokeWeight(1)
-    # fontList = PFont.list()
-    # for f in fontList:
-    #     print(f)
 
     imagem = draw_text('PCD', 250, 225, text_size=225)
     grid = make_grid(imagem, width, height, 25, margin=10)
@@ -34,11 +31,9 @@ def draw():
         
     for n in nodes:
         x, y, c = grid[n]
-        noStroke()
-        if c != 0:
-            c = 255
-        fill(c)
-        circle(x, y, NODE_SIZE)
+        stroke(c)
+        noFill()
+        circle(x, y, NODE_SIZE * 3)
 
     add_connected(ONGBS)
 
