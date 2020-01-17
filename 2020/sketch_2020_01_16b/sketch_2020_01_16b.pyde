@@ -23,7 +23,7 @@ def draw():
         fundo(nome)
         # shape(frente)
         textFont(f)
-        textSize(400 / len(nome))
+        textSize(50 + 200 / len(nome))
         fill(0)
         textAlign(CENTER, CENTER)
         text(nome, width / 2, height / 2)
