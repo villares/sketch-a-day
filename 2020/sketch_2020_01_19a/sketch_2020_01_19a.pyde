@@ -1,5 +1,6 @@
 from random import shuffle
 from collections import namedtuple
+add_library('VideoExport')
 
 Ponto = namedtuple('Ponto', 'x y size, color')
 pontos_ini, pontos_fim = [], []
