@@ -29,7 +29,8 @@ def setup():
     fim.endDraw()
     pontos_fim[:] = set_points(fim, bg_points=False, shuffle_points=True)
     print(len(pontos_fim))
-    
+    videoExport = VideoExport(this)
+    videoExport.startMovie()    
     background(0)
             
             
@@ -55,7 +56,7 @@ def draw():
         a = lerp(a, 300.1, .8)
     else:
         a += 05            
-
+    videoExport.saveFrame()
 
 def set_points(p_graphics, bg_points=True,  shuffle_points=True):
     pontos = []
@@ -79,3 +80,6 @@ def set_points(p_graphics, bg_points=True,  shuffle_points=True):
 def keyPressed():        
     if key == 's':
         saveFrame("s####.png")
+    if key == 'q':
+        videoExport.endMovie()
+        exit()
