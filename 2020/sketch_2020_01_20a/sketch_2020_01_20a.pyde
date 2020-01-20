@@ -9,12 +9,16 @@ def setup():
 def draw():
     background(240, 250, 250)
     translate(width / 2, height / 2)
-    num_points, radius = 360, 200
+    num_points, radius = 360, 0 + mouseX
     n_scale = .01
     a = TWO_PI / num_points
     x_off, y_off = 100, 50
+    beginShape()
     for i in range(num_points):
-        r = radius * noise(x * n_scale, y * n_scale)
-        y = r * sin(a * i) + x_off
-        x = r * cos(a * i) + y_off
-        point(x, y)
+        ny = radius * sin(a * i) + x_off
+        nx = radius * cos(a * i) + y_off
+        r = radius * noise(nx * n_scale, ny * n_scale)
+        y = r * sin(a * i)
+        x = r * cos(a * i)
+        vertex(x, y)
+    endShape(CLOSE)
