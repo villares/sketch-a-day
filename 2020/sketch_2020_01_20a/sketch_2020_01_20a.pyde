@@ -11,7 +11,7 @@ def draw():
     translate(width / 2, height / 2)
     num_points, radius = 360, 200
     n_scale = .01
-    a = TWO_PI / n
+    a = TWO_PI / num_points
     x_off, y_off = 100, 50
     for i in range(num_points):
         r = radius * noise(x * n_scale, y * n_scale)
