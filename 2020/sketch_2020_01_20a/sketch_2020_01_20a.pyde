@@ -9,10 +9,12 @@ def setup():
 def draw():
     background(240, 250, 250)
     translate(width / 2, height / 2)
-    n = 600
+    num_points, radius = 360, 200
+    n_scale = .01
     a = TWO_PI / n
-    r = 200
-    for i in range(n):
-        y = r * sin(a * i)
-        x = r * cos(a * i)
+    x_off, y_off = 100, 50
+    for i in range(num_points):
+        r = radius * noise(x * n_scale, y * n_scale)
+        y = r * sin(a * i) + x_off
+        x = r * cos(a * i) + y_off
         point(x, y)
