@@ -1,15 +1,11 @@
 from __future__ import division
 add_library('VideoExport')
 
-
-
 def setup():
     size(600, 600)
     global videoExport
     videoExport = VideoExport(this)
     videoExport.startMovie()    
-    # pixelDensity(2)
-    # strokeWeight(2)
     smooth(8)
     fill(255, 32)
 
@@ -33,7 +29,7 @@ def draw():
             x = r * cos(a * i)
             vertex(x, y)
         endShape(CLOSE)
-        
+
     videoExport.saveFrame()
     
 def keyPressed():        
