@@ -8,6 +8,7 @@ def setup():
     videoExport.startMovie()
     smooth(8)
     colorMode(HSB)
+    frameRate(30)
 
 def draw():
     background(240)
@@ -16,16 +17,16 @@ def draw():
     n_scale = .005
     a = TWO_PI / num_points
     x_off = y_off = z_off = width
-    for radius in range(500, 10, -30):
-        f = radians(frameCount)
-        fill(radius / 2, 200, 200, 100)
+    for radius in range(600, 10, -30):
+        f = radians(frameCount + radius / 3)
+        fill(radius / 2, 100)
 
         beginShape()
         for i in range(num_points):
-            ny = 100 * sin(a * i) + x_off
-            nx = 100 * cos(a * i) + y_off
-            nz = 100 * sin(f) - z_off
-            r = radius - radius * noise(nx * n_scale,
+            ny = 100 * sin(-f + a * i) + x_off
+            nx = 100 * cos(f + a * i) + y_off
+            nz = 100 * sin(f)
+            r = radius / 2 - radius / 2 * noise(nx * n_scale,
                                         ny * n_scale,
                                         nz * n_scale)
             y = r * sin(a * i)
@@ -33,7 +34,7 @@ def draw():
             vertex(x, y)
         endShape(CLOSE)
 
-    videoExport.saveFrame()
+    # videoExport.saveFrame()
     if frameCount == 360:
         videoExport.endMovie()
         exit()
