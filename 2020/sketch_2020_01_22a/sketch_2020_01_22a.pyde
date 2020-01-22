@@ -1,12 +1,12 @@
 from __future__ import division
-add_library('VideoExport')
+# add_library('VideoExport')
 
 def setup():
     size(600, 600)
-    global videoExport
-    videoExport = VideoExport(this)
-    videoExport.startMovie()
-    videoExport.setFrameRate(30)
+    # global videoExport
+    # videoExport = VideoExport(this)
+    # videoExport.startMovie()
+    # videoExport.setFrameRate(30)
     frameRate(30)
     noiseSeed(20200122)
 
@@ -33,7 +33,7 @@ def draw():
             vertex(x, y)
         endShape(CLOSE)
 
-    videoExport.saveFrame()
+    # videoExport.saveFrame()
     if frameCount == 360:
-        videoExport.endMovie()
+        # videoExport.endMovie()
         exit()
