@@ -1,7 +1,7 @@
-# add_library('VideoExport')
- 
-def setup():
- size(800,800)
+# Sigle tweet variation on 22a
+
+# add_library('VideoExport') 
+def setup():size(800,800)
  # global videoExport
  # videoExport = VideoExport(this)
  # videoExport.startMovie()
