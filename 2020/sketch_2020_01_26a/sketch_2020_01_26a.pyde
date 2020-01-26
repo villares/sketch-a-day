@@ -2,6 +2,7 @@
 Sphere math from David Pena's Esfera example.
 (Uniform random distribution on the surface of a sphere)
 """
+add_library('VideoExport')
 
 points = []
 num_points = 3200
@@ -9,6 +10,11 @@ off = rx = 0
 noise_scale = 0.001
 
 def setup():
+    global videoExport
+    videoExport = VideoExport(this)
+    videoExport.startMovie()
+    videoExport.setFrameRate(15)
+    
     global radius
     size(720, 720, P3D)
     radius = height * .60
@@ -29,9 +35,11 @@ def draw():
 
     for Point in points:
         Point.plot()
-        
-    # if rx >= TWO_PI:
-        # exit()
+
+    videoExport.saveFrame()
+    if rx >= TWO_PI:
+        videoExport.endMovie()
+        exit()        
 
 class Point():
     def __init__(self):
