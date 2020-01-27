@@ -1,24 +1,19 @@
-sl = (
-    "sketch_191222a",
-    "sketch_191221a",
-    "sketch_191220a",
-    "sketch_191219a",
-    "sketch_191218a",
-    "sketch_191217a",
-    "sketch_191216a",
-    "sketch_191215b",
-    "sketch_191214b",
-    "sketch_191213b", 
-    "sketch_191212b",
-    "sketch_191211d",
-    "sketch_191210a",
-    "sketch_191209a",
-
-
-
-)
-OUTPUT = ".png"
-for s in sl:
+sl = (("sketch_2020_01_27a", ".gif"),
+      ("sketch_2020_01_26a", ".gif"),
+      ("sketch_2020_01_25a", ".gif"),
+      ("sketch_2020_01_24a", ".gif"),
+      ("sketch_2020_01_23a", ".gif"),
+      ("sketch_2020_01_22a", ".gif"),
+      ("sketch_2020_01_21a", ".png"),
+      ("sketch_2020_01_20a", ".png"),
+      ("sketch_2020_01_19a", ".gif"),
+      ("sketch_2020_01_18c", ".png"),
+      ("sketch_2020_01_17b", ".png"),
+      ("sketch_2020_01_16b", ".png"),
+      ("sketch_2020_01_15a", ".png"),
+      ("sketch_2020_01_14a", ".png"),
+      )
+for s, OUTPUT in sl:
     SKETCH_NAME = s
     println(
         """
