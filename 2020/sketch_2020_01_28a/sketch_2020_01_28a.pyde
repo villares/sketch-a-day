@@ -22,7 +22,7 @@ def setup():
     colorMode(HSB)
     strokeWeight(3)
 
-    for theta in range(-90, 90, 5):
+    for theta in range(-90, 91, 5):
         r = 96 - abs(theta)
         for a in range(r):
             points.append(Point(radians(theta),
@@ -37,7 +37,7 @@ def draw():
     noise_offset += 0.02  # walks on noise space!
 
     for Point in points:
-        Point.plot()
+        Point.plot(noise_offset, noise_scale)
 
     videoExport.saveFrame()
     if rotation >= TWO_PI:
