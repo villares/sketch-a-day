@@ -18,7 +18,7 @@ def setup():
 
     global radius
     size(720, 720, P3D)
-    radius = int(height * .60)
+    radius = int(height * .65)
     colorMode(HSB)
     strokeWeight(3)
 
@@ -34,7 +34,7 @@ def draw():
     translate(width / 2, height / 2)
     rotation += 0.02  # simple rotation on Y axis
     rotateY(rotation)
-    noise_offset += 0.02  # walks on noise space!
+    noise_offset += 0.03  # walks on noise space!
 
     for Point in points:
         Point.plot(noise_offset, noise_scale)
