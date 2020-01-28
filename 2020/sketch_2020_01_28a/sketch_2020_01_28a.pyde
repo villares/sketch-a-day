@@ -1,5 +1,5 @@
 """
-Noise sphere
+Noise sphere mais regular
 """
 from __future__ import division
 
