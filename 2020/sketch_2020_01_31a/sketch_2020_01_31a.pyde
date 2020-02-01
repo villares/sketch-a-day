@@ -1,5 +1,5 @@
 """
-Number of possible triangles: 516
+Number of possible triangles on a 4x4 grid: 516
 Cols: 43 Rows: 12
 """
 
