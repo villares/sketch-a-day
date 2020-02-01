@@ -25,6 +25,7 @@ You may also support my artistic work, open teaching resources and research usin
 - Number of possible triangles on 3x3 grid: 76
 - Number of 2-triangle combinations: 2850
 - Combinations without overlapping points: 686
+- Each position then has 2 additional interpolated triangles (between the chosen 2-triangle combination)
 - Cols: 49 Rows: 14
 
 ---
