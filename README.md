@@ -18,11 +18,23 @@ You may also support my artistic work, open teaching resources and research usin
 
 ---
 
+![sketch_2020_02_01a](2020/sketch_2020_02_01a/sketch_2020_02_01a.png)
+
+[sketch_2020_02_01a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_01a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+- Number of possible triangles on 3x3 grid: 76
+- Number of 2-triangle combinations: 2850
+- Without overlaping points: 686
+- Cols: 49 Rows: 14
+
+---
+
 ![sketch_2020_01_31a](2020/sketch_2020_01_31a/sketch_2020_01_31a.png)
 
 [sketch_2020_01_31a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_01_31a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-516 possible triangles on a 4x4 grid
+- Number of possible triangles on a 4x4 grid: 516
+- Cols: 43 Rows: 12
 
 ---
 
