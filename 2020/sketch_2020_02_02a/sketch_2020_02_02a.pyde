@@ -1,5 +1,6 @@
 """
-Number of possible quads: 126
+Number of possible quads on 3x3: 126
+- have yet to filter colapsed quads :(
 Number of 2-quad combinations: 7875
 Without overlaping points: 315
 Cols: 21 Rows: 15
