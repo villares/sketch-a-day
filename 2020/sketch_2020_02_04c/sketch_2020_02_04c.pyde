@@ -1,7 +1,5 @@
 """
 Number of possible quads: 234
-Number of 2-quad combinations: 12090
-Without overlaping points: 444
 Cols: 18 Rows: 13
 """
 
