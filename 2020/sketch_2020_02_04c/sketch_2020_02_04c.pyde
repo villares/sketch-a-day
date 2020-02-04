@@ -34,21 +34,8 @@ def setup():
         quads.append((pt[0], pt[1], pt[2], pt[3]))
         quads.append((pt[0], pt[2], pt[1], pt[3]))
         quads.append((pt[0], pt[1], pt[3], pt[2]))
-    println("Number of possible non intersecting quads: {}"
+    println("Number of possible quads: {}"
             .format(len(quads)))
-    # Calculate the 2-quad combinations
-    two_quad_combos = list(combinations(quads, 2))
-    println("Number of 2-quad combinations: {}"
-            .format(len(two_quad_combos)))
-    # no superimposing points
-    quad_pairs = []
-    for t0, t1 in two_quad_combos:
-        num_points = len(set(t0 + t1))
-        if num_points == 8:
-            quad_pairs.append((t0, t1))
-    println("Without overlaping points: {}"
-            .format(len(quad_pairs)))
-
     # Maybe calculate display grid dimensions?
     #  columns = sqr(n)
     #  lines   = ceiling(n / columns)
@@ -126,26 +113,3 @@ def triangle_area(t):
     return (t[1][0] * (t[2][1] - t[0][1]) +
             t[2][0] * (t[0][1] - t[1][1]) +
             t[0][0] * (t[1][1] - t[2][1]))
-
-def line_instersect(p1, p2, p3, p4):
-    """
-    code adapted from Bernardo Fontes 
-    https://github.com/berinhard/sketches/
-    """
-    x1, y1 = p1
-    x2, y2 = p2
-    x3, y3 = p3
-    x4, y4 = p4
-    try:
-        uA = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / \
-            ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1))
-        uB = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / \
-            ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1))
-    except ZeroDivisionError:
-        return
-    if not(0 <= uA <= 1 and 0 <= uB <= 1):
-        return
-    x = p1[0] + uA * (p2[0] - p1[0])
-    y = p1[1] + uA * (p2[1] - p1[1])
-
-    return PVector(x, y)
