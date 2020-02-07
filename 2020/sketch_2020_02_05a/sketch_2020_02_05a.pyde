@@ -1,5 +1,5 @@
 """
-Number of possible non intersectings quads on 4x4 grid: 234
+Number of possible non intersecting quads on 4x4 grid: 234
 Cols: 293 Rows: 6
 """
 
