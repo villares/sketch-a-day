@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
-SKETCH_NAME = "s06a"  # 20181122
+SKETCH_NAME = "s06a"  
 OUTPUT = ".pdf"
 GRID_SIZE = 14
 MARGIN = .1
@@ -33,9 +33,8 @@ def draw():
         hires.background(240)
         hires.strokeWeight(.33)
         hires.scale(scaleFactor)
-        for t in range(5):
-            for c in Cell.cells:
-                c.plot() # c.plot(t / 4.)
+        for c in Cell.cells:
+            c.plot() 
                 
         hires.dispose()
         endRecord()
