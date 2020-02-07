@@ -1,5 +1,5 @@
 """
-Ppossible non self-intersecting quads on 3x3 grid: 94
+Possible non self-intersecting quads on 3x3 grid: 94
 Number of 2-quad combinations: 4371
 Without overlaping points: 191
 Cols: 14 Rows: 14
