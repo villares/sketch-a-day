@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
-SKETCH_NAME = "s09a"
+SKETCH_NAME = "s10a"
 OUTPUT = ".pdf"
 GRID_SIZE = 30
 MARGIN = .1
@@ -98,10 +98,9 @@ class Cell():
         self.can_change = True
 
     def plot(self, t=0):
-        if dist(self.px, self.py, mouseX, mouseY) < Cell.spacing:
-            fill(255, 100)
-        else:
-            fill(200, 100)
+        strokeJoin(ROUND)
+        noFill()
+        strokeWeight(5)
         beginShape()
         # stroke(255, 0, 0)
         for p in self.vers:
@@ -109,7 +108,7 @@ class Cell():
         endShape(CLOSE)
 
     def update(self):
-        Cell.cells.remove(self)
+        # Cell.cells.remove(self)
         if self.can_change:
             self.can_change = False
             r = random(100)
