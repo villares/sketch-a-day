@@ -1,6 +1,6 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
 
-SKETCH_NAME = "s06a"
+SKETCH_NAME = "s09a"
 OUTPUT = ".pdf"
 GRID_SIZE = 30
 MARGIN = .1
