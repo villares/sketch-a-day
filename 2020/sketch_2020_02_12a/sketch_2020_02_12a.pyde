@@ -8,14 +8,14 @@ from line_geometry import *
 NUM_POINTS = 6
 BORDER = 100
 SIZE = 100
-RDS = 50
+RDS = 25
 
 def setup():
     size(500, 500)
     global ensambles
-    ensambles = create_ensambles(create_points(), 25)
+    ensambles = create_ensambles(create_points(), RDS)
     
-def create_ensambles(polys, r=1):
+def create_ensambles(polys, r):
     ens = []
     for poly in polys:
         for i in range(64):
@@ -34,6 +34,8 @@ def create_ensambles(polys, r=1):
        crossing = b_poly_arc_augmented(e[0], e[1], check_intersection=True)
        if not crossing:
           non_crossing_ens.append(e)
+          
+    print("variantes arredondadas sem auto-cruzar: {}".format(len(non_crossing_ens)))
     return non_crossing_ens  
 
 def create_points():
@@ -42,6 +44,7 @@ def create_points():
                         range(BORDER, height - BORDER + 1, SIZE)))
     points = sample(grid, 6)
     total = list(combinations(grid, 6))
+    print(len(total))
     polys = list(permutations(points, NUM_POINTS))
     tested = set()
     for poly in polys[:]:
@@ -50,12 +53,11 @@ def create_points():
             tested.add(edges) 
         else:
             polys.remove(poly)
-    print("inicial: {}".format(len(polys)))
     ni_polys = []
     for poly in polys:
         if not intersecting(poly):
             ni_polys.append(poly) 
-    print("sem auto-cruzar: {}".format(len(ni_polys)))
+    print("caminhos sem auto-cruzar: {}".format(len(ni_polys)))
     return list(ni_polys)
 
 def draw():
