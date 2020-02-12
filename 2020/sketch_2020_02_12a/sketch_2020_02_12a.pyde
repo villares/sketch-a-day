@@ -66,8 +66,12 @@ def draw():
             translate(width * i, height * j)  
             if e < total:
                 noFill()
+                stroke(0)
                 strokeWeight(16)
                 b_poly_arc_augmented(ensambles[e][0], ensambles[e][1])
+                if keyPressed and keyCode == SHIFT:
+                    stroke(255)
+                    b_poly_arc_augmented(ensambles[e][0])
             popMatrix()
             e += 1
 
