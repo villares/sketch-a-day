@@ -30,7 +30,7 @@ def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False):
         else:
             # if abs(a) < 1:
             #     r_list[i1] = r_list[i1] * abs(a)
-            if a <= 0:
+            if a < 0:
                 r_list[i1] = -r_list[i1]
     # reduce radius that won't fit
     for i1, p1 in enumerate(p_list):
@@ -42,8 +42,8 @@ def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False):
     for i1, p1 in enumerate(p_list):
         i2 = (i1 + 1) % len(p_list)
         p2, r2, r1 = p_list[i2], r_list[i2], r_list[i1]
-        a = circ_circ_tangent(p1, p2, r1, r2)
-        a_list.append(a)
+        cct = circ_circ_tangent(p1, p2, r1, r2)
+        a_list.append(cct)
     # check intersection
     if check_intersection:
         pontos = []
@@ -64,9 +64,19 @@ def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False):
         # circle(p1[0], p1[1], 10)
         if a1 != None and a2 != None:
             start = a1 if a1 < a2 else a1 - TWO_PI
-            if r2 < 0:
+            if r2 <= 0:
                 a2 = a2 - TWO_PI
-            b_arc(p2[0], p2[1], r2 * 2, r2 * 2, start, a2, mode=2)
+            final_angle = abs(a2 - start)
+            if final_angle > TWO_PI:
+                if a2 < 0:
+                    a2 += TWO_PI # a2 = a2 + TWO_PI
+                else:
+                    a2 -= TWO_PI # a2 = a2 - TWO_PI
+            
+            if abs(a2 - start) != TWO_PI:                
+                b_arc(p2[0], p2[1], r2 * 2, r2 * 2, start, a2, mode=2)
+            textSize(32)
+            text(str(int(degrees(start - a2))), p2[0], p2[1])
         else:
             # when the the segment is smaller than the diference between
             # radius, circ_circ_tangent won't renturn the angle
