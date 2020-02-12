@@ -75,8 +75,8 @@ def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False):
             
             if abs(a2 - start) != TWO_PI:                
                 b_arc(p2[0], p2[1], r2 * 2, r2 * 2, start, a2, mode=2)
-            textSize(32)
-            text(str(int(degrees(start - a2))), p2[0], p2[1])
+            # textSize(32)
+            # text(str(int(degrees(start - a2))), p2[0], p2[1])
         else:
             # when the the segment is smaller than the diference between
             # radius, circ_circ_tangent won't renturn the angle
