@@ -29,7 +29,12 @@ def create_ensambles(polys, r=1):
             shuffle(rads)
             print(rads)
             ens.append((poly, rads))
-    return ens  
+    non_crossing_ens = []
+    for e in ens:
+       crossing = b_poly_arc_augmented(e[0], e[1], check_intersection=True)
+       if not crossing:
+          non_crossing_ens.append(e)
+    return non_crossing_ens  
 
 def create_points():
     """ non intersecting poly """
