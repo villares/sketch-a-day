@@ -1,3 +1,5 @@
+from line_geometry import intersecting
+
 def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False):
     if not op_list: return
     if or_list == None:
@@ -42,6 +44,16 @@ def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False):
         p2, r2, r1 = p_list[i2], r_list[i2], r_list[i1]
         a = circ_circ_tangent(p1, p2, r1, r2)
         a_list.append(a)
+    # check intersection
+    if check_intersection:
+        pontos = []
+        for ang, p1, p2 in a_list:
+            pontos.append(p1)
+            pontos.append(p2)
+        if intersecting(pontos):
+            return True
+        else:
+            return False
     # draw
     beginShape()
     for i1, ia in enumerate(a_list):
