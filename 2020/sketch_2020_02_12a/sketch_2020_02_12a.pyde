@@ -13,7 +13,7 @@ RDS = 50
 def setup():
     size(500, 500)
     global ensambles
-    ensambles = create_ensambles(create_points(), 30)
+    ensambles = create_ensambles(create_points(), 25)
     
 def create_ensambles(polys, r=1):
     ens = []
@@ -26,8 +26,8 @@ def create_ensambles(polys, r=1):
                     rads.append(-1 * r)
                 else:
                     rads.append(1 * r)
-            shuffle(rads)
-            print(rads)
+            # shuffle(rads)
+            # print(rads)
             ens.append((poly, rads))
     non_crossing_ens = []
     for e in ens:
@@ -62,21 +62,24 @@ def draw():
     background(200)
     # b_poly_arc_augmented(ens, [30] * 6)
     background(200)
-    scale(1/16.)
+    scale(1/4.)
     e = 0
     total = len(ensambles)
-    for j in range(16):
-        for i in range(16):
+    for j in range(4):
+        for i in range(4):
             pushMatrix()
             translate(width * i, height * j)  
             if e < total:
                 noFill()
                 stroke(0)
-                strokeWeight(16)
+                strokeWeight(8)
                 b_poly_arc_augmented(ensambles[e][0], ensambles[e][1])
                 if keyPressed and keyCode == SHIFT:
-                    stroke(255)
-                    b_poly_arc_augmented(ensambles[e][0])
+                    for p, r in zip(ensambles[e][0], ensambles[e][1]):
+                        if r > 0: fill(0, 0, 255)
+                        else: fill(255, 0, 0)
+                        noStroke()
+                        circle(p[0], p[1], 10)
             popMatrix()
             e += 1
 
