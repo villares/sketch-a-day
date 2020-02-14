@@ -1,4 +1,8 @@
-# Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+"""
+Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
+Explorando um experimento de geração de formas
+proposto por Leopoldo Leal
+"""
 
 from random import choice, sample, shuffle
 from itertools import product, permutations, combinations
@@ -108,7 +112,7 @@ def keyPressed():
         if len(points) == NUM_POINTS:
             ensambles[:] = create_ensambles(create_polys(points))
         else:
-            print("Só vale com {} pinos!".format(NUM_POINTS))   
+            print(u"Só vale com {} pinos!".format(NUM_POINTS))   
     if key == 'R':
         points[:] = sample(grid, NUM_POINTS)
         ensambles[:] = create_ensambles(create_polys(points))
