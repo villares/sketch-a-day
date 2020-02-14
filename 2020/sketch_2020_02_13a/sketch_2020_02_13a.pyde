@@ -9,7 +9,7 @@ NUM_POINTS = 6
 BORDER = 100
 SIZE = 100
 RDS = 25
-draw_mode = True
+select_mode = True
 points = []
 
 def setup():
@@ -28,24 +28,21 @@ def draw():
         for x in range(4):
             pushMatrix()
             translate(width * x, height * y)
-            if draw_mode:
-                draw_ensembles(i)
-            else:
+            draw_ensembles(i)
+            if select_mode:
                 draw_pins(i)
             popMatrix()
             i += 1
 
 def create_polys(points):
     """ non intersecting poly """
-    polys = list(permutations(points, NUM_POINTS))
-    tested = set()
-    for poly in polys[:]:
+    all_polys = list(permutations(points, NUM_POINTS))
+    tested, polys, ni_polys = set(), [], []
+    for poly in all_polys:
         edges = edges_as_sets(poly)
         if edges not in tested and edges:
             tested.add(edges)
-        else:
-            polys.remove(poly)
-    ni_polys = []
+            polys.append(poly)
     for poly in polys:
         if not intersecting(poly):
             ni_polys.append(poly)
@@ -55,15 +52,15 @@ def create_polys(points):
 def create_ensambles(polys):
     ens = []
     for poly in polys:
-        for i in range(64):
+        for i in range(2 ** NUM_POINTS):
             rads = []
-            rad_opts = num_to_base(i, 2, 6)
+            rad_opts = num_to_base(i, 2, NUM_POINTS)
             for c in rad_opts:
                 if c == "0":
                     rads.append(-1 * RDS)
                 else:
                     rads.append(1 * RDS)
-                ens.append((poly, rads))
+            ens.append((poly, rads))
     non_crossing_ens = []
     for e in ens:
         crossing = b_poly_arc_augmented(e[0], e[1], check_intersection=True)
@@ -74,14 +71,14 @@ def create_ensambles(polys):
         "variantes arredondadas sem auto-cruzar: {}".format(len(non_crossing_ens)))
     return non_crossing_ens
 
-def draw_ensembles(e):
-    if e < len(ensambles):
+def draw_ensembles(i):
+    if i < len(ensambles):
         noFill()
         stroke(0)
         strokeWeight(8)
-        b_poly_arc_augmented(ensambles[e][0], ensambles[e][1])
+        b_poly_arc_augmented(ensambles[i][0], ensambles[i][1])
         if keyPressed and keyCode == SHIFT:
-            for p, r in zip(ensambles[e][0], ensambles[e][1]):
+            for p, r in zip(ensambles[i][0], ensambles[i][1]):
                 if r > 0:
                     fill(0, 0, 255)
                 else:
@@ -90,23 +87,39 @@ def draw_ensembles(e):
                 circle(p[0], p[1], 10)
 
 def draw_pins(i):
-    if i < 6:
-        resetMatrix()
-        circle(points[i][0], points[i][1], RDS)
-
+    resetMatrix()
+    noStroke()
+    fill(255, 100)
+    if grid[i] in points:
+        fill(0, 100)
+    circle(grid[i][0],
+           grid[i][1], RDS * 2)
 
 def keyPressed():
-    global draw_mode
+    global select_mode
     if key == "p" or key == 'P':
         saveFrame("####.png")
     if key == ' ':
-        if draw_mode:
-            draw_mode = False
+        if select_mode:
+            select_mode = False
         else:
-            draw_mode = True
+            select_mode = True
     if key == 'r':
-        points[:] = sample(grid, 6)
+        if len(points) == NUM_POINTS:
+            ensambles[:] = create_ensambles(create_polys(points))
+        else:
+            print("Só vale com {} pinos!".format(NUM_POINTS))   
+    if key == 'R':
+        points[:] = sample(grid, NUM_POINTS)
         ensambles[:] = create_ensambles(create_polys(points))
+
+def mouseClicked():
+    for p in grid:
+        if dist(p[0], p[1], mouseX, mouseY) < RDS:
+            if p in points:
+                points.remove(p)
+            else:
+                points.append(p)
 
 
 def num_to_base(num, base, pad=0):
