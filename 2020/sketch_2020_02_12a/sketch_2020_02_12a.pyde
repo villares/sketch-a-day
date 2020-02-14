@@ -62,8 +62,6 @@ def create_points():
 
 def draw():
     background(200)
-    # b_poly_arc_augmented(ens, [30] * 6)
-    background(200)
     scale(1/4.)
     e = 0
     total = len(ensambles)
