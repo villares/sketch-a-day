@@ -18,25 +18,29 @@ points = []
 
 def setup():
     global grid, ensambles
-    size(500, 500)
-    grid = list(product(range(BORDER, width - BORDER + 1, SIZE),
+    size(1000, 500)
+    grid = list(product(range(BORDER, width / 2 - BORDER + 1, SIZE),
                         range(BORDER, height - BORDER + 1, SIZE)))
     points[:] = sample(grid, 6)
     ensambles = create_ensambles(create_polys(points))
 
 def draw():
     background(200)
+    translate(width / 2, 0)
     scale(1 / 4.)
     i = 0
     for y in range(4):
         for x in range(4):
             pushMatrix()
-            translate(width * x, height * y)
+            translate(width / 2 * x, height * y)
             draw_ensembles(i)
             if select_mode:
                 draw_pins(i)
             popMatrix()
             i += 1
+    resetMatrix()
+    for i in range(16):
+        draw_ensembles(i)
 
 def create_polys(points):
     """ non intersecting poly """
