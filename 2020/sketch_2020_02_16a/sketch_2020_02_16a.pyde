@@ -13,33 +13,37 @@ NUM_POINTS = 6
 BORDER = 100
 SIZE = 100
 RDS = 25
-select_mode = True
+selected_pin = -1
 points = []
 
 def setup():
     global grid, ensambles
-    size(1000, 500)
-    grid = list(product(range(BORDER, width / 2 - BORDER + 1, SIZE),
+    size(1050, 500)
+    grid = list(product(range(BORDER, height - BORDER + 1, SIZE),
                         range(BORDER, height - BORDER + 1, SIZE)))
     points[:] = sample(grid, 6)
     ensambles = create_ensambles(create_polys(points))
 
 def draw():
     background(200)
-    translate(width / 2, 0)
+    translate(width / 2 - 25, 0)
     scale(1 / 4.)
     i = 0
     for y in range(4):
         for x in range(4):
             pushMatrix()
             translate(width / 2 * x, height * y)
+            fill(0)
+            strokeWeight(8)
             draw_ensembles(i)
-            if select_mode:
-                draw_pins(i)
+            draw_pins(i)
             popMatrix()
             i += 1
     resetMatrix()
     for i in range(16):
+        noFill()
+        stroke(0)
+        strokeWeight(4)
         draw_ensembles(i)
 
 def create_polys(points):
@@ -81,9 +85,6 @@ def create_ensambles(polys):
 
 def draw_ensembles(i):
     if i < len(ensambles):
-        noFill()
-        stroke(0)
-        strokeWeight(8)
         b_poly_arc_augmented(ensambles[i][0], ensambles[i][1])
         if keyPressed and keyCode == SHIFT:
             for p, r in zip(ensambles[i][0], ensambles[i][1]):
@@ -107,11 +108,6 @@ def keyPressed():
     global select_mode
     if key == "p" or key == 'P':
         saveFrame("####.png")
-    if key == ' ':
-        if select_mode:
-            select_mode = False
-        else:
-            select_mode = True
     if key == 'r':
         if len(points) == NUM_POINTS:
             ensambles[:] = create_ensambles(create_polys(points))
@@ -120,6 +116,13 @@ def keyPressed():
     if key == 'R':
         points[:] = sample(grid, NUM_POINTS)
         ensambles[:] = create_ensambles(create_polys(points))
+
+    if key == '=':
+        global RDS
+        RDS += 5
+    if key == '-' and RDS > 10:
+        global RDS
+        RDS -= 5
 
 def mouseClicked():
     for p in grid:

@@ -12,35 +12,43 @@ from line_geometry import *
 NUM_POINTS = 6
 BORDER = 100
 SIZE = 100
-RDS = 25
-select_mode = True
+pin_size = 25
+selected_pin = -1
 points = []
 
 def setup():
     global grid, ensambles
-    size(1000, 500)
-    grid = list(product(range(BORDER, width / 2 - BORDER + 1, SIZE),
+    size(1050, 500)
+    grid = list(product(range(BORDER, height - BORDER + 1, SIZE),
                         range(BORDER, height - BORDER + 1, SIZE)))
     points[:] = sample(grid, 6)
     ensambles = create_ensambles(create_polys(points))
 
 def draw():
     background(200)
-    translate(width / 2, 0)
+    translate(width / 2 - 25, 0)
     scale(1 / 4.)
     i = 0
     for y in range(4):
         for x in range(4):
             pushMatrix()
             translate(width / 2 * x, height * y)
+            fill(0)
+            strokeWeight(8)
             draw_ensembles(i)
-            if select_mode:
-                draw_pins(i)
             popMatrix()
             i += 1
     resetMatrix()
     for i in range(16):
+        noFill()
+        stroke(0)
+        strokeWeight(4)
         draw_ensembles(i)
+        draw_pins(i)
+    for p in points:
+        fill(0, 100)
+        circle(p[0], p[1], pin_size * 2)
+        
 
 def create_polys(points):
     """ non intersecting poly """
@@ -65,9 +73,9 @@ def create_ensambles(polys):
             rad_opts = num_to_base(i, 2, NUM_POINTS)
             for c in rad_opts:
                 if c == "0":
-                    rads.append(-1 * RDS)
+                    rads.append(-1 * pin_size)
                 else:
-                    rads.append(1 * RDS)
+                    rads.append(1 * pin_size)
             ens.append((poly, rads))
     non_crossing_ens = []
     for e in ens:
@@ -81,9 +89,6 @@ def create_ensambles(polys):
 
 def draw_ensembles(i):
     if i < len(ensambles):
-        noFill()
-        stroke(0)
-        strokeWeight(8)
         b_poly_arc_augmented(ensambles[i][0], ensambles[i][1])
         if keyPressed and keyCode == SHIFT:
             for p, r in zip(ensambles[i][0], ensambles[i][1]):
@@ -95,39 +100,27 @@ def draw_ensembles(i):
                 circle(p[0], p[1], 10)
 
 def draw_pins(i):
-    resetMatrix()
     noStroke()
     fill(255, 100)
-    if grid[i] in points:
-        fill(0, 100)
     circle(grid[i][0],
-           grid[i][1], RDS * 2)
+           grid[i][1], pin_size * 2)
 
 def keyPressed():
     global select_mode
     if key == "p" or key == 'P':
         saveFrame("####.png")
-    if key == ' ':
-        if select_mode:
-            select_mode = False
-        else:
-            select_mode = True
     if key == 'r':
-        if len(points) == NUM_POINTS:
-            ensambles[:] = create_ensambles(create_polys(points))
-        else:
-            print(u"Só vale com {} pinos!".format(NUM_POINTS))   
+        recalc_ensambles()
     if key == 'R':
         points[:] = sample(grid, NUM_POINTS)
         ensambles[:] = create_ensambles(create_polys(points))
 
-def mouseClicked():
-    for p in grid:
-        if dist(p[0], p[1], mouseX, mouseY) < RDS:
-            if p in points:
-                points.remove(p)
-            else:
-                points.append(p)
+    if key == '=':
+        global pin_size
+        pin_size += 5
+    if key == '-' and pin_size > 10:
+        global pin_size
+        pin_size -= 5
 
 
 def num_to_base(num, base, pad=0):
@@ -141,3 +134,35 @@ def num_to_base(num, base, pad=0):
     while len(result) < pad:
         result = result + "0"
     return result[::-1]
+
+def mouseReleased():
+    global selected_pin
+    if selected_pin >= 0:
+        pin_x, pin_y = points[selected_pin]
+        for pt in grid:
+            if dist(pt[0], pt[1], pin_x, pin_y) < pin_size:
+                points[selected_pin] = pt
+                selected_pin = -1
+                recalc_ensambles()
+                return
+            else:
+                points[selected_pin] = d_pin
+ 
+def recalc_ensambles():
+    if len(points) == NUM_POINTS:
+        ensambles[:] = create_ensambles(create_polys(points))
+    else:
+        print(u"Só vale com {} pinos!".format(NUM_POINTS))   
+                               
+def mousePressed():
+    global d_pin, selected_pin
+    for i, pt in enumerate(points):
+        x, y = pt
+        if dist(mouseX, mouseY, x, y) < pin_size:
+           d_pin = pt
+           selected_pin = i
+        
+def mouseDragged():
+    if selected_pin >= 0:
+        points[selected_pin] = (mouseX, mouseY)
+        
