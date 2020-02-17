@@ -81,9 +81,10 @@ def create_ensambles(polys):
 def draw_ensembles(i):
     if i < len(ensambles):
         noFill()
-        strokeWeight(8)
+        strokeWeight(32)
         stroke(255)
         b_poly_arc_augmented(ensambles[i][0], ensambles[i][1], b=False)
+        strokeWeight(8)
         stroke(0)
         b_poly_arc_augmented(ensambles[i][0], ensambles[i][1])
         if keyPressed and keyCode == SHIFT:
