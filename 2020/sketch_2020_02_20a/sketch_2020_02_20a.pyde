@@ -88,8 +88,12 @@ def mid_ending(x, y, radius, angle, thickness):
     mp = mid_point(pa, pb)
     ep = point_on_arc(mp[0], mp[1], thickness / 2, angle + HALF_PI)
     vertex(*ep)
-    # circle(mp[0], mp[1], 15) # debug
-
+    # debug
+    pushStyle()
+    stroke(150)
+    line(mp[0], mp[1], ep[0], ep[1]) # debug
+    popStyle()
+    
 def mid_point(pa, pb):
     if len(pa) == 3 and len(pb) == 3:
         return ((pa[0] + pb[0]) / 2,
