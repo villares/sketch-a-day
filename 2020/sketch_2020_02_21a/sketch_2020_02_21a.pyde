@@ -12,7 +12,7 @@ def setup():
     
 def create_arrows():
     arrows[:] = []
-    for _ in range(6):
+    for _ in range(12):
         d = -1 if random(100) >= 50 else 1
         arrows.append((random(height * 0.04, height * 0.4),
                        random(TWO_PI),  # start
@@ -31,8 +31,8 @@ def draw():
         # if key == '2': mode = 2
         pushMatrix()
         translate(width / 2, height / 2)
-        r = thick * frameCount / 2000.
-        arc_arrow(0, 0, rad, start + r, sweep, thick, mode)
+        rotate(thick * frameCount / 2000.)
+        arc_arrow(0, 0, rad, start, sweep, thick, mode)
         popMatrix()
 
 def keyPressed():
