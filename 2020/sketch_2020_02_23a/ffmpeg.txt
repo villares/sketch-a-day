@@ -1,0 +1,49 @@
+ffmpeg version N-96145-g287620f59c-tessus  https://evermeet.cx/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple clang version 11.0.0 (clang-1100.0.33.16)
+  configuration: --cc=/usr/bin/clang --prefix=/opt/ffmpeg --extra-version=tessus --enable-avisynth --enable-fontconfig --enable-gpl --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libfreetype --enable-libgsm --enable-libmodplug --enable-libmp3lame --enable-libmysofa --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvmaf --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-version3 --pkg-config-flags=--static --disable-ffplay
+  libavutil      56. 36.101 / 56. 36.101
+  libavcodec     58. 65.100 / 58. 65.100
+  libavformat    58. 35.101 / 58. 35.101
+  libavdevice    58.  9.101 / 58.  9.101
+  libavfilter     7. 69.101 /  7. 69.101
+  libswscale      5.  6.100 /  5.  6.100
+  libswresample   3.  6.100 /  3.  6.100
+  libpostproc    55.  6.100 / 55.  6.100
+Input #0, rawvideo, from 'pipe:':
+  Duration: N/A, start: 0.000000, bitrate: 92160 kb/s
+    Stream #0:0: Video: rawvideo (RGB[24] / 0x18424752), rgb24, 400x400, 92160 kb/s, 24 tbr, 24 tbn, 24 tbc
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+[libx264 @ 0x7ff7fb00ca00] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.1 Cache64
+[libx264 @ 0x7ff7fb00ca00] profile High, level 2.1, 4:2:0, 8-bit
+[libx264 @ 0x7ff7fb00ca00] 264 - core 159 r2991 1771b55 - H.264/MPEG-4 AVC codec - Copyleft 2003-2019 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=3 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=24 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=15.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/Users/villares/sketch-a-day/2020/sketch_2020_02_23a/video.mp4':
+  Metadata:
+    comment         : Made with Video Export for Processing - https://git.io/vAXLk
+    encoder         : Lavf58.35.101
+    Stream #0:0: Video: h264 (libx264) (avc1 / 0x31637661), yuv420p, 400x400, q=-1--1, 24 fps, 12288 tbn, 24 tbc
+    Metadata:
+      encoder         : Lavc58.65.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=   14 fps=0.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   27 fps= 26 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   39 fps= 25 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   51 fps= 25 q=20.0 size=       0kB time=00:00:00.04 bitrate=   9.2kbits/s speed=0.0201x    frame=   63 fps= 24 q=20.0 size=       0kB time=00:00:00.54 bitrate=   0.7kbits/s speed=0.21x    frame=   74 fps= 24 q=20.0 size=       0kB time=00:00:01.00 bitrate=   0.4kbits/s speed=0.322x    frame=   84 fps= 23 q=20.0 size=     256kB time=00:00:01.41 bitrate=1480.5kbits/s speed=0.386x    frame=   95 fps= 22 q=20.0 size=     256kB time=00:00:01.87 bitrate=1118.6kbits/s speed=0.442x    frame=  107 fps= 23 q=20.0 size=     256kB time=00:00:02.37 bitrate= 883.1kbits/s speed= 0.5x    frame=  116 fps= 22 q=20.0 size=     512kB time=00:00:02.75 bitrate=1525.3kbits/s speed=0.522x    frame=  127 fps= 22 q=20.0 size=     512kB time=00:00:03.20 bitrate=1307.4kbits/s speed=0.548x    frame=  139 fps= 22 q=20.0 size=     512kB time=00:00:03.70 bitrate=1131.1kbits/s speed=0.583x    frame=  151 fps= 22 q=20.0 size=     512kB time=00:00:04.20 bitrate= 996.7kbits/s speed=0.614x    frame=  163 fps= 22 q=20.0 size=     768kB time=00:00:04.70 bitrate=1336.3kbits/s speed=0.64x    frame=  175 fps= 22 q=20.0 size=     768kB time=00:00:05.20 bitrate=1208.0kbits/s speed=0.662x    frame=  188 fps= 22 q=20.0 size=    1024kB time=00:00:05.75 bitrate=1458.9kbits/s speed=0.685x    frame=  200 fps= 22 q=20.0 size=    1024kB time=00:00:06.25 bitrate=1342.2kbits/s speed=0.702x    frame=  213 fps= 23 q=20.0 size=    1280kB time=00:00:06.79 bitrate=1544.0kbits/s speed=0.719x    frame=  225 fps= 23 q=20.0 size=    1280kB time=00:00:07.29 bitrate=1438.1kbits/s speed=0.733x    frame=  238 fps= 23 q=20.0 size=    1280kB time=00:00:07.83 bitrate=1338.6kbits/s speed=0.747x    frame=  250 fps= 23 q=20.0 size=    1536kB time=00:00:08.33 bitrate=1510.0kbits/s speed=0.758x    frame=  263 fps= 23 q=20.0 size=    1536kB time=00:00:08.87 bitrate=1417.8kbits/s speed=0.77x    frame=  275 fps= 23 q=20.0 size=    1536kB time=00:00:09.37 bitrate=1342.2kbits/s speed=0.779x    frame=  287 fps= 23 q=20.0 size=    1792kB time=00:00:09.87 bitrate=1486.6kbits/s speed=0.788x    frame=  299 fps= 23 q=20.0 size=    1792kB time=00:00:10.37 bitrate=1415.0kbits/s speed=0.796x    frame=  312 fps= 23 q=20.0 size=    2048kB time=00:00:10.91 bitrate=1536.9kbits/s speed=0.804x    frame=  325 fps= 23 q=20.0 size=    2048kB time=00:00:11.45 bitrate=1464.2kbits/s speed=0.812x    frame=  337 fps= 23 q=20.0 size=    2048kB time=00:00:11.95 bitrate=1403.0kbits/s speed=0.818x    frame=  349 fps= 23 q=20.0 size=    2048kB time=00:00:12.45 bitrate=1346.7kbits/s speed=0.824x    frame=  351 fps= 22 q=-1.0 Lsize=    2447kB time=00:00:14.50 bitrate=1382.5kbits/s speed=0.929x    
+video:2442kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.201339%
+[libx264 @ 0x7ff7fb00ca00] frame I:2     Avg QP: 7.44  size: 18528
+[libx264 @ 0x7ff7fb00ca00] frame P:107   Avg QP:14.00  size: 12267
+[libx264 @ 0x7ff7fb00ca00] frame B:242   Avg QP:19.49  size:  4754
+[libx264 @ 0x7ff7fb00ca00] consecutive B-frames:  5.1%  7.4%  4.3% 83.2%
+[libx264 @ 0x7ff7fb00ca00] mb I  I16..4: 63.7%  2.9% 33.4%
+[libx264 @ 0x7ff7fb00ca00] mb P  I16..4:  1.7%  1.2%  4.2%  P16..4:  8.9% 13.4% 17.8%  0.0%  0.0%    skip:52.8%
+[libx264 @ 0x7ff7fb00ca00] mb B  I16..4:  0.2%  0.2%  0.7%  B16..8: 15.2% 14.1% 12.4%  direct: 2.2%  skip:55.0%  L0:40.9% L1:37.3% BI:21.7%
+[libx264 @ 0x7ff7fb00ca00] 8x8 transform intra:14.9% inter:29.5%
+[libx264 @ 0x7ff7fb00ca00] coded y,uvDC,uvAC intra: 53.9% 71.5% 68.9% inter: 15.4% 28.0% 25.7%
+[libx264 @ 0x7ff7fb00ca00] i16 v,h,dc,p: 74% 16% 10%  0%
+[libx264 @ 0x7ff7fb00ca00] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 14% 17% 47%  3%  3%  3%  4%  5%  5%
+[libx264 @ 0x7ff7fb00ca00] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 20% 19% 16%  6%  9%  8%  9%  6%  6%
+[libx264 @ 0x7ff7fb00ca00] i8c dc,h,v,p: 55% 21% 20%  4%
+[libx264 @ 0x7ff7fb00ca00] Weighted P-Frames: Y:9.3% UV:7.5%
+[libx264 @ 0x7ff7fb00ca00] ref P L0: 57.4% 10.1% 18.4% 13.3%  0.8%
+[libx264 @ 0x7ff7fb00ca00] ref B L0: 79.1% 16.3%  4.6%
+[libx264 @ 0x7ff7fb00ca00] ref B L1: 91.3%  8.7%
+[libx264 @ 0x7ff7fb00ca00] kb/s:1367.56
+Exiting normally, received signal 15.
