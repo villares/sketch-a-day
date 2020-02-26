@@ -1,4 +1,6 @@
-add_library('VideoExport')
+add_library('gifAnimation')
+from gif_animation_helper import gif_export
+
 from arcs import *
 
 many_arrows = []
@@ -15,12 +17,6 @@ def setup():
     strokeJoin(ROUND)
     for _ in range(3):
         many_arrows.append(create_arrows())
-
-    # global videoExport
-    # videoExport = VideoExport(this, "video.mp4")
-    # videoExport.setFrameRate(24)
-    # videoExport.startMovie()
-    frameRate(24)
 
 def create_arrows():
     arrows = []
@@ -39,31 +35,32 @@ def draw():
     ini_arrows, fin_arrows = many_arrows[i], many_arrows[i - 1]
     for a, b in zip(ini_arrows, fin_arrows):
         rad, start, sweep, thick, h = lerp_arrow(b, a, tt)
-        fill(h, 255, 200, 200)
+        fill(h, 255, 200, 150)
         stroke(0)
         strokeWeight(2)
         display_arrow(rad, start, sweep, thick)
         
-    noFill()
-    stroke(255)
-    strokeWeight(5)
-    rad, start, sweep, thick, _ = player_arrow        
-    display_arrow(rad, start, sweep, thick)
+    # noFill()
+    # stroke(255)
+    # strokeWeight(5)
+    # rad, start, sweep, thick, _ = player_arrow        
+    # display_arrow(rad, start, sweep, thick)
         
-    # videoExport.saveFrame()
-
-    t += (1 + width - t) / 300.
-    t = lerp(t, width, .5)
+    # t += (1 + width - t) / 300.
     print t
-    if t > width:
-        t += 1
-    if t > 3 * width:
+    if t <= width:
+        t = lerp(t, width + 1, .1)
+    elif t > width:
+        t += 2
+    if t > 1.5 * width:
         t = 0
         i = (i + 1) % 3
-        # if i == 0:
-        #     videoExport.endMovie()
-        #     exit()
-
+        if i == 0:
+            gif_export(GifMaker, finish=True)
+    if frameCount % 2:
+        gif_export(GifMaker, filename="c")
+    
+    
 def lerp_arrow(a, b, t):
     c = []
     for c_a, c_b in zip(a, b):
@@ -81,7 +78,7 @@ def random_arrow():
     d = -1 if random(100) >= 50 else 1
     return (int(random(height * 0.008, height * 0.08)) * 5,
             random(TWO_PI),  # start
-            random(TWO_PI),  # sweep
+            random(QUARTER_PI / 4, TWO_PI - QUARTER_PI / 4),  # sweep
             int(random(2, height / 50)) * 5 * d,  # thickness
             random(255),  # hue
             )

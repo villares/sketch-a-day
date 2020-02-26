@@ -30,8 +30,8 @@ def create_arrows():
 def draw():
     background(200)
     # stroke(h, 255, 200, 200)
-    rad = 100 + mouseX
-    m = mouseX / TAU 
+    rad = 100 + (mouseX / 10.) ** 2
+    m = PI / 2 + mouseX / 50. 
     start, sweep, thick = -PI - HALF_PI/2 + m/2, PI + HALF_PI - m, 50
     pushMatrix()
     translate(width / 2, height / 2 + rad)
