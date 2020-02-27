@@ -6,9 +6,9 @@
 
 Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I try to make one small program (*sketch*) a day, and I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
 
-Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my sort-of-twice-a-month newsletter: [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]
+Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my newsletter: [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]
 
-You may also support my artistic work, open teaching resources and research using [Gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
+You may also support my artistic work, open educational resources and research using [Gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
 
 ## [2018](2018.md)
 
