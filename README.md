@@ -16,6 +16,15 @@ You may also support my artistic work, open educational resources and research u
 
 ## 2020
 
+
+---
+
+![sketch_2020_02_27a](2020/sketch_2020_02_27a/sketch_2020_02_27a.png)
+
+[sketch_2020_02_27a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Maybe this will be a game! Arrow hunter?
+
 ---
 
 ![sketch_2020_02_26a](2020/sketch_2020_02_26a/sketch_2020_02_26a.gif)
