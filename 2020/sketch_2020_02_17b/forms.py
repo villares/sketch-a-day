@@ -76,8 +76,8 @@ def b_poly_arc_augmented(op_list, or_list=None, check_intersection=False, b=True
             start = a1 if a1 < a2 else a1 - TWO_PI
             if r2 <= 0:
                 a2 = a2 - TWO_PI
-            final_angle = abs(a2 - start)
-            if final_angle > TWO_PI:
+            abs_angle = abs(a2 - start)
+            if abs_angle > TWO_PI:
                 if a2 < 0:
                     a2 += TWO_PI # a2 = a2 + TWO_PI
                 else:
