@@ -4,21 +4,24 @@ from gif_animation_helper import gif_export
 from arcs import *
 
 many_arrows = []
-i = 0
-t = 0
+num_arrows, num_transitions = 3, 4
+i, t = 0, 0
 
 def setup():
     size(400, 400)
     colorMode(HSB)
     strokeJoin(ROUND)
     frameRate(30)
-    # smooth(4)
-    for _ in range(3):
+    smooth(8)
+    for _ in range(num_transitions):
         many_arrows.append(create_arrows())
+    global starting_arrows
+    many_arrows.append(many_arrows[0][:])
+
 
 def create_arrows():
     arrows = []
-    for _ in range(5):
+    for _ in range(num_arrows):
         arrows.append(random_arrow())
     return arrows
 
@@ -30,31 +33,30 @@ def draw():
     else:
         tt = 1
 
-    ini_arrows, fin_arrows = many_arrows[i], many_arrows[i - 1]
+    ini_arrows, fin_arrows = many_arrows[i], many_arrows[i + 1]
     for a, b in zip(ini_arrows, fin_arrows):
-        mid_arrow = lerp_arrow(b, a, tt)
+        mid_arrow = lerp_arrow(a, b, tt)
         rad, start, sweep, thick, h = mid_arrow
         noFill()
-        strokeWeight(2)
+        strokeWeight(4)
         if mouse_on_arrow(mid_arrow):
             stroke(255)
         else:
             stroke(h, 255, 200)
+        if thick > 0:
+            start = TWO_PI * tt
+        else:
+            start = TWO_PI * -tt
         arc_arrow(width / 2, height / 2, rad, start, sweep, thick)            
-        update_arrow(a)
-    # t += (1 + width - t) / 300.
-    if t <= width:
-        t = lerp(t, width + 1, .05)
-    elif t > width:
-        t += 2
-    if t > 1.5 * width:
+                
+    if t < width:
+        t = lerp(t, width + 1, .1)
+    else:
         t = 0
-        i = (i + 1) % 3
+        i = (i + 1) % num_transitions
         if i == 0:
             gif_export(GifMaker, finish=True)
-    if frameCount % 2 == 0:
-        gif_export(GifMaker, filename="sketch")
-
+    gif_export(GifMaker, filename="sketch")
 
 def lerp_arrow(a, b, t):
     result = []
@@ -62,20 +64,12 @@ def lerp_arrow(a, b, t):
         result.append(lerp(c_a, c_b, t))
     return result
 
-def update_arrow(arrow):
-    rad, start, sweep, thick, h = arrow
-    # print(start, thick)
-    start += thick / 1000.
-    # if start > TWO_PI:
-    #     start -= TWO_PI
-    arrow[1] = start
-
 def random_arrow():
     d = -1 if random(100) >= 50 else 1
-    return [int(random(10, height / 12)) * 5 * d,
+    return [int(random(10, height / 12)) * 5,
             0,  # start
             int(6 * random(QUARTER_PI, TWO_PI - QUARTER_PI) / 6),  # sweep
-            int(random(2, height / 100)) * 10,  # thickness
+            int(random(2, height / 100)) * 10 * d,  # thickness
             random(256) # hue
             ]
 
