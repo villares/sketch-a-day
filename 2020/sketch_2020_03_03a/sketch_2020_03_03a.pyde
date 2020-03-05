@@ -39,10 +39,7 @@ def draw():
         rad, start, sweep, thick, h = mid_arrow
         noFill()
         strokeWeight(4)
-        if mouse_on_arrow(mid_arrow):
-            stroke(255)
-        else:
-            stroke(h, 255, 200)
+        stroke(h, 255, 200)
         if thick > 0:
             start = TWO_PI * tt
         else:
@@ -73,35 +70,10 @@ def random_arrow():
             random(256) # hue
             ]
 
-def mouse_on_arrow(a, precision=10):
-    mx, my = width / 2, height / 2
-    rad, start, sweep, thick, _ = a
-    start += thick * radians(frameCount % 361) / 10.
-    same_rad = abs(abs(rad) - dist(mouseX, mouseY, mx, my)) < precision
-    mouse_ang = atan2(mouseY - my, mouseX - mx)
-    # in_sweep = start < mouse_ang < degrees(start + sweep) % 360
-    return same_rad #and in_sweep           
-    
 
 def keyPressed():
-    if key == ' ':
-        many_arrows[:] = []
-        for _ in range(3):
-            many_arrows.append(create_arrows())
     if key == 's':
         saveFrame('#####.png')
-
-# def mouseWheel(e):
-#     w = e.getAmount()
-#     player_arrow[3] += int(w) * 10
-#     if player_arrow[3] < 10:
-#         player_arrow[3] = 10
-
-# def mouseDragged():
-#     dx = mouseX - pmouseX
-#     dy = mouseY - pmouseY
-#     player_arrow[2] += radians(dx)
-#     player_arrow[0] += dy
 
 def arc_arrow(x, y, radius, start_ang, sweep_ang,
               thickness=None, correction=1):
