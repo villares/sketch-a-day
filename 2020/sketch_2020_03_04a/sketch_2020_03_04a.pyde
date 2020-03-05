@@ -1,5 +1,5 @@
-add_library('gifAnimation')
-from gif_animation_helper import gif_export
+# add_library('GifAnimation')
+# from gif_animation_helper import gif_export
 
 from arcs import *
 
@@ -42,7 +42,7 @@ def draw():
         if mouse_on_arrow(mid_arrow):
             stroke(255)
         else:
-            stroke(h, 255, 200)
+            stroke(0)
         if thick > 0:
             start = TWO_PI * tt
         else:
@@ -50,13 +50,13 @@ def draw():
         arc_arrow(width / 2, height / 2, rad, start, sweep, thick)            
                 
     if t < width:
-        t = lerp(t, width + 1, .1)
+        t = lerp(t, width + 1, .01)
     else:
         t = 0
         i = (i + 1) % num_transitions
-        if i == 0:
-            gif_export(GifMaker, finish=True)
-    gif_export(GifMaker, filename="sketch")
+    #     if i == 0:
+    #         gif_export(GifMaker, finish=True)
+    # gif_export(GifMaker, filename="sketch")
 
 def lerp_arrow(a, b, t):
     result = []
@@ -67,7 +67,7 @@ def lerp_arrow(a, b, t):
 def random_arrow():
     d = -1 if random(100) >= 50 else 1
     return [int(random(10, height / 12)) * 5,
-            0,  # start
+            radians(int(random(60)) * 5),  # start
             int(6 * random(QUARTER_PI, TWO_PI - QUARTER_PI) / 6),  # sweep
             int(random(2, height / 100)) * 10 * d,  # thickness
             random(256) # hue
@@ -84,10 +84,7 @@ def mouse_on_arrow(a, precision=10):
     
 
 def keyPressed():
-    if key == ' ':
-        many_arrows[:] = []
-        for _ in range(3):
-            many_arrows.append(create_arrows())
+
     if key == 's':
         saveFrame('#####.png')
 
