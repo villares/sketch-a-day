@@ -1,5 +1,5 @@
-# add_library('gifAnimation')
-# from gif_animation_helper import gif_export
+add_library('gifAnimation')
+from gif_animation_helper import gif_export
 
 from arcs import *
 
@@ -51,9 +51,9 @@ def draw():
     else:
         t = 0
         i = (i + 1) % num_transitions
-    #     if i == 0:
-    #         gif_export(GifMaker, finish=True)
-    # gif_export(GifMaker, filename="sketch")
+        if i == 0:
+            gif_export(GifMaker, finish=True)
+    gif_export(GifMaker, filename="sketch")
 
 def lerp_arrow(a, b, t):
     result = []
