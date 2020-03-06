@@ -4,7 +4,7 @@ from gif_animation_helper import gif_export
 from arcs import *
 
 many_arrows = []
-num_arrows, num_transitions = 5, 3
+num_arrows, num_transitions = 5, 2
 i, t = 0, 0
 
 def setup():
