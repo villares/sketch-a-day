@@ -9,7 +9,7 @@ i, t = 0, 0
 
 def setup():
     size(400, 400)
-    colorMode(HSB)
+    # colorMode(HSB)
     strokeJoin(ROUND)
     frameRate(30)
     smooth(8)
@@ -39,16 +39,18 @@ def draw():
         rad, start, sweep, thick, h = mid_arrow
         noFill()
         strokeWeight(4)
-        if mouse_on_arrow(mid_arrow):
-            stroke(255)
-        else:
-            stroke(0)
         if thick > 0:
             start = TWO_PI * tt
         else:
             start = TWO_PI * -tt
-        arc_arrow(width / 2, height / 2, rad, start, sweep, thick)            
-                
+        mid_arrow[1] = start
+        if mouse_on_arrow(mid_arrow):
+            stroke(255, 150)
+        else:
+            stroke(0, 150)
+        noFill()
+        arc_arrow(width / 2, height / 2, rad, start, sweep, thick)
+
     if t < width:
         t = lerp(t, width + 1, .01)
     else:
@@ -70,18 +72,27 @@ def random_arrow():
             radians(int(random(60)) * 5),  # start
             int(6 * random(QUARTER_PI, TWO_PI - QUARTER_PI) / 6),  # sweep
             int(random(2, height / 100)) * 10 * d,  # thickness
-            random(256) # hue
+            random(256)  # hue
             ]
 
 def mouse_on_arrow(a, precision=10):
     mx, my = width / 2, height / 2
     rad, start, sweep, thick, _ = a
-    start += thick * radians(frameCount % 361) / 10.
+    # start += thick * radians(frameCount % 361) / 10.
     same_rad = abs(abs(rad) - dist(mouseX, mouseY, mx, my)) < precision
     mouse_ang = atan2(mouseY - my, mouseX - mx)
-    # in_sweep = start < mouse_ang < degrees(start + sweep) % 360
-    return same_rad #and in_sweep           
-    
+    line(mouseX, mouseY, mx, my)
+    textSize(14)
+    fill(255, 0, 0)
+    text(str(int(degrees(mouse_ang))), mouseX, mouseY)
+    in_sweep = start < mouse_ang < degrees(start + sweep)
+    x, y = point_on_arc(mx, my, abs(rad), start)
+    text(str(int(degrees(start))), x, y)
+    x, y = point_on_arc(mx, my, abs(rad), start + sweep)
+    text(str(int(degrees(start+sweep))), x, y)
+    # return same_rad and in_sweep
+    return in_sweep
+
 
 def keyPressed():
 
