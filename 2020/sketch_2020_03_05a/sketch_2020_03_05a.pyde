@@ -1,15 +1,14 @@
-# add_library('GifAnimation')
-# from gif_animation_helper import gif_export
+add_library('GifAnimation')
+from gif_animation_helper import gif_export
 
 from arcs import *
 
 many_arrows = []
-num_arrows, num_transitions = 3, 4
+num_arrows, num_transitions = 5, 3
 i, t = 0, 0
 
 def setup():
     size(400, 400)
-    # colorMode(HSB)
     strokeJoin(ROUND)
     frameRate(30)
     smooth(8)
@@ -27,7 +26,8 @@ def create_arrows():
 
 def draw():
     global t, i
-    background(200)
+    colorMode(RGB)
+    background(235, 230, 235)
     if t <= width:
         tt = map(t, 0, width, 0, 1)
     else:
@@ -37,34 +37,29 @@ def draw():
     for a, b in zip(ini_arrows, fin_arrows):
         mid_arrow = lerp_arrow(a, b, tt)
         rad, start, sweep, thick, h = mid_arrow
-        noFill()
-        strokeWeight(4)
-        if thick > 0:
-            start = TWO_PI * tt
-        else:
-            start = TWO_PI * -tt
+        strokeWeight(2)
+        for m in range(10):
+            ta = tt * m
+            if thick > 0:
+                start = TWO_PI * ta 
+            else:
+                start = TWO_PI * -ta            
+            mid_arrow[1] = start
             
-        while start > TWO_PI:
-            start -= TWO_PI
-        while start < -TWO_PI:
-            start += TWO_PI
-            
-        mid_arrow[1] = start
-        if mouse_on_arrow(mid_arrow):
-            stroke(255, 150)
-        else:
-            stroke(0, 150)
-        noFill()
-        arc_arrow(width / 2, height / 2, rad, start, sweep, thick)
+            noFill()
+            colorMode(HSB)
+            stroke(h, 200, 200)
+            arc_arrow(width / 2, height / 2, rad * ta / 5., start, sweep, thick)
 
     if t < width:
-        t = lerp(t, width + 1, .01)
+        t = lerp(t, width + 1, .02)
     else:
         t = 0
         i = (i + 1) % num_transitions
-    #     if i == 0:
-    #         gif_export(GifMaker, finish=True)
-    # gif_export(GifMaker, filename="sketch")
+        if i == 0:
+            gif_export(GifMaker, finish=True)
+    if frameCount % 2:
+        gif_export(GifMaker, filename="sketch")
 
 def lerp_arrow(a, b, t):
     result = []
@@ -80,24 +75,6 @@ def random_arrow():
             int(random(2, height / 100)) * 10 * d,  # thickness
             random(256)  # hue
             ]
-
-def mouse_on_arrow(a, precision=10):
-    mx, my = width / 2, height / 2
-    rad, start, sweep, thick, _ = a
-    # start += thick * radians(frameCount % 361) / 10.
-    same_rad = abs(abs(rad) - dist(mouseX, mouseY, mx, my)) < precision
-    mouse_ang = atan2(mouseY - my, mouseX - mx)
-    line(mouseX, mouseY, mx, my)
-    textSize(14)
-    fill(255, 0, 0)
-    text(str(int(degrees(mouse_ang))), mouseX, mouseY)
-    in_sweep = start < mouse_ang < degrees(start + sweep)
-    x, y = point_on_arc(mx, my, abs(rad), start)
-    text(str(int(degrees(start))), x, y)
-    x, y = point_on_arc(mx, my, abs(rad), start + sweep)
-    text(str(int(degrees(start+sweep))), x, y)
-    # return same_rad and in_sweep
-    return in_sweep
 
 
 def keyPressed():
