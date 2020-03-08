@@ -41,15 +41,16 @@ def draw():
         for m in range(10):
             ta = tt * m
             if thick > 0:
-                start = TWO_PI * ta 
+                start = TWO_PI * tt 
             else:
-                start = TWO_PI * -ta            
+                start = TWO_PI * -tt            
             mid_arrow[1] = start
             
             noFill()
             colorMode(HSB)
             stroke(h, 200, 200)
-            arc_arrow(width / 2, height / 2, rad * ta / 5., start, sweep, thick)
+            arc_arrow(width / 2, height / 2,
+                      rad, start, sweep, thick * ta)
 
     if t < width:
         t = lerp(t, width + 1, .02)
@@ -69,30 +70,17 @@ def lerp_arrow(a, b, t):
 
 def random_arrow():
     d = -1 if random(100) >= 50 else 1
-    return [int(random(10, height / 12)) * 5,
+    return [int(random(20, height / 15)) * 5,
             radians(int(random(60)) * 5),  # start
             int(6 * random(QUARTER_PI, TWO_PI - QUARTER_PI) / 6),  # sweep
             int(random(2, height / 100)) * 10 * d,  # thickness
             random(256)  # hue
             ]
 
-
 def keyPressed():
 
     if key == 's':
         saveFrame('#####.png')
-
-# def mouseWheel(e):
-#     w = e.getAmount()
-#     player_arrow[3] += int(w) * 10
-#     if player_arrow[3] < 10:
-#         player_arrow[3] = 10
-
-# def mouseDragged():
-#     dx = mouseX - pmouseX
-#     dy = mouseY - pmouseY
-#     player_arrow[2] += radians(dx)
-#     player_arrow[0] += dy
 
 def arc_arrow(x, y, radius, start_ang, sweep_ang,
               thickness=None, correction=1):
@@ -116,8 +104,7 @@ def arc_arrow(x, y, radius, start_ang, sweep_ang,
     endShape(CLOSE)
 
 def mid_ending(x, y, radius, angle, thickness, correction):
-    if radius == 0:
-        radius = 1
+    radius = 1 if not radius else radius
     half_thick = thickness / 2.
     pa = point_on_arc(x, y, radius + half_thick, angle)
     pb = point_on_arc(x, y, radius - half_thick, angle)
