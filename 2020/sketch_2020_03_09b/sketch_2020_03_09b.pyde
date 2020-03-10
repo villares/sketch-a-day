@@ -5,14 +5,15 @@ template = ((-1, -1), (-1, 1), (1, 1), (1, -1))
 def setup():
     size(500, 500)
     noFill()
+    colorMode(HSB)
     strokeJoin(ROUND)
     for _ in range(5):
         ens.append(create_points())
                
 def create_points():
+    w = random(25, 75)
     pts = []
     for x, y in template:
-        w = random(25, 75)
         pts.append((x * w, y * w))
     return pts
 
@@ -20,13 +21,16 @@ def draw():
     background(240)
     translate(width / 2 - 50, height / 2)
     offsets = ens[0]
+    dp = 0
     for offset, pts in zip(offsets, ens[1:]):
+        dp += 1
         pushMatrix()
         translate(*offset)
         for dx in range(10):
+            fill(dx * 25, 255, 255, 32)
             pts_copy = pts[:]
             translate(10, 0)
-            fc = 5 * dx + frameCount
+            fc = 5 * dx + dp + frameCount
             pts_copy[2] = lerpPoint(pts_copy[2],
                                     pts_copy[3],
                                     (1 + cos(fc/20.))/2)
