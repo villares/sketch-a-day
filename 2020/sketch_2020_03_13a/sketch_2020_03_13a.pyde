@@ -56,6 +56,9 @@ def draw():
 
 
 def mousePressed():
+    global x, y, zr, zi, zr2, zi2, cr, ci, n
+    global zmx1, zmx2, zmy1, zmy2, f, di, dj
+    global fn1, fn2, fn3, re, gr, bl, xt, yt, i, j
     background(200)
     xt, yt = mouseX, mouseY
     di = di + xt - width / 2.
