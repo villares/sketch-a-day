@@ -1,11 +1,11 @@
 """
- * Koch Curve
- * https:#www.rosettacode.org/wiki/Koch_curve#Processing
- * Processing 3.4
- * 2020-02-26 Noel
- * 2020-03-03 Jeremy Douglass
- * 2020-03-12 Alexandre Villares
- * Task: Draw a Koch curve. See details: https:#en.wikipedia.org/wiki/Koch_snowflake
+Koch Curve
+https://www.rosettacode.org/wiki/Koch_curve#Processing
+Processing 3.4
+2020-02-26 Noel
+2020-03-03 Jeremy Douglass
+2020-03-12 Alexandre Villares (Python Mode)
+Task: Draw a Koch curve. See details: https:#en.wikipedia.org/wiki/Koch_snowflake
 """
 
 l = 300
