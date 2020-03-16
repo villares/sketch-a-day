@@ -1,13 +1,13 @@
 """
- * MandelbrotSet
- * https://rosettacode.org/wiki/Mandelbrot_set#Processing
- * Processing 3.4
- * 2017-09-23 Noel
- *
- * Task: Generate and draw the Mandelbrot set.
- * Note that there are many algorithms to draw Mandelbrot set
- * and there are many functions which generate it .
- """
+MandelbrotSet
+https://rosettacode.org/wiki/Mandelbrot_set#Processing
+Processing 3.4
+2017-09-23 Noel
+2020-03-13 Alexandre (Python Mode)
+Task: Generate and draw the Mandelbrot set.
+Note that there are many algorithms to draw Mandelbrot set
+and there are many functions which generate it .
+"""
 
 # Click on an area to zoom in.
 # Choose areas with multiple colors for interesting zooming.
