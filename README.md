@@ -18,6 +18,38 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_03_19a](2020/sketch_2020_03_19a/sketch_2020_03_19a.png)
+
+[sketch_2020_03_19a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_19a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Studies for a shuffled grid (I don't like/undertand the [shoebot shuffled grid](https://github.com/shoebot/shoebot/blob/752532e1d78b5474af435b2fdeea692737761b22/shoebot/grammar/bot.py))
+
+```python
+def shuffled_grid(cols, rows, colSize=1, rowSize=1):
+    from random import shuffle
+    sg = list(grid(cols, rows, colSize, rowSize))
+    shuffle(sg)
+    return sg
+
+def grid(cols, rows, colSize=1, rowSize=1):
+    """
+    Returns an iterator that contains coordinate tuples.
+    As seen in Shoebot & Nodebox (minus 'shuffled mode')
+    A common way to use is:
+    #    for x, y in grid(10, 10, 12, 12):
+    #        rect(x, y, 10, 10)
+    """
+    rowRange = range(int(rows))
+    colRange = range(int(cols))
+    for y in rowRange:
+        for x in colRange:
+            yield (x * colSize, y * rowSize)
+
+```
+
+
+---
+
 ![sketch_2020_03_18a](2020/sketch_2020_03_18a/sketch_2020_03_18a.png)
 
 [sketch_2020_03_18a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_18a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
