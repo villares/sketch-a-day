@@ -22,11 +22,15 @@ You may also support my artistic work, open educational resources and research u
 
 [sketch_2020_03_18a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_18a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Sin color diagonal made on my live coding streaming session :)
+
 ---
 
 ![sketch_2020_03_17a](2020/sketch_2020_03_17a/sketch_2020_03_17a.png)
 
 [sketch_2020_03_17a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_17a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+PythagorasTree for Rosetta Code project https://rosettacode.org/wiki/Pythagoras_tree#Processing
 
 ---
 
@@ -34,17 +38,23 @@ You may also support my artistic work, open educational resources and research u
 
 [sketch_2020_03_16a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_16a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Draw a clock for Rosetta Code project https://rosettacode.org/wiki/Draw_a_clock#Processing
+
 ---
 
 ![sketch_2020_03_15a](2020/sketch_2020_03_15a/sketch_2020_03_15a.png)
 
 [sketch_2020_03_15a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_15a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+ImageNoise for Rosetta Code project
+https://rosettacode.org/wiki/Image_noise#Processing
 ---
 
 ![sketch_2020_03_14a](2020/sketch_2020_03_14a/sketch_2020_03_14a.png)
 
 [sketch_2020_03_14a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_14a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Archimedean spiral for Rosetta Code project https://rosettacode.org/wiki/Archimedean_spiral#Processing
 
 ---
 
@@ -52,11 +62,15 @@ You may also support my artistic work, open educational resources and research u
 
 [sketch_2020_03_13a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_13a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Zoomable Mandelbrot set for Rosetta Code project https://www.rosettacode.org/wiki/Mandelbrot_set#Processing
+
 ---
 
 ![sketch_2020_03_12a](2020/sketch_2020_03_12a/sketch_2020_03_12a.png)
 
 [sketch_2020_03_12a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_12a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Koch curve for Rosetta Code project https://www.rosettacode.org/wiki/Koch_curve#Processing
 
 ---
 
@@ -64,11 +78,15 @@ You may also support my artistic work, open educational resources and research u
 
 [sketch_2020_03_11a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_11a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Animation for Rosetta Code project https://rosettacode.org/wiki/Animation#Processing
+
 ---
 
 ![sketch_2020_03_10a](2020/sketch_2020_03_10a/sketch_2020_03_10a.png)
 
 [sketch_2020_03_10a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_10a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Dragon curve for Rosetta Code project https://rosettacode.org/wiki/Dragon_curve#Processing
 
 ---
 

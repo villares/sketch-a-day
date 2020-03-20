@@ -23,6 +23,7 @@ def setup():
         rotate(radians(120))
         translate(-l, 0)
 
+    save_image()
 
 def kcurve(x1, x2):
     s = (x2 - x1) / 3.0
@@ -51,3 +52,10 @@ def kcurve(x1, x2):
     rotate(radians(-120))
     kcurve(0, s)
     popMatrix()
+    
+def save_image():
+    from os import path
+    sketch = sketchPath()
+    name = path.basename(sketch)
+    print(name)
+    saveFrame(name + '.png')

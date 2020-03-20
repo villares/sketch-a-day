@@ -1,6 +1,6 @@
 """
 Archimedean Spiral -- Points
-https:#rosettacode.org/wiki/Archimedean_spiral#Processing
+https://rosettacode.org/wiki/Archimedean_spiral#Processing
 Processing 3.4
 2019-12-19 Jeremy Douglass
 2019-04-12 Cdr6934 
@@ -34,6 +34,14 @@ def draw():
     theta = theta + rotation
     # check restart
     if x > width / 2.0:
+        # save_image()
+        # exit()
         background(255)
         theta = 0
         
+def save_image():
+    from os import path
+    sketch = sketchPath()
+    name = path.basename(sketch)
+    print(name)
+    saveFrame(name + '.png')

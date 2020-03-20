@@ -37,3 +37,10 @@ def drawClock():
 
 # One of the official Processing language examples is a more graphically
 # detailed Clock example: https://processing.org/examples/clock.html
+
+def keyPressed():
+    from os import path
+    sketch = sketchPath()
+    name = path.basename(sketch)
+    print(name)
+    saveFrame(name + '.png')

@@ -18,7 +18,7 @@ def setup():
     background(255)
     stroke(0, 255, 0)
     tree(width / 2.3, height, width / 1.8, height, 10)
-
+    save_image()
 
 def tree(x1, y1, x2, y2, depth):
     if depth <= 0: return
@@ -53,3 +53,12 @@ def tree(x1, y1, x2, y2, depth):
 
     tree(x4, y4, x5, y5, depth - 1)
     tree(x5, y5, x3, y3, depth - 1)
+    
+    
+    
+def save_image():
+    from os import path
+    sketch = sketchPath()
+    name = path.basename(sketch)
+    print(name)
+    saveFrame(name + '.png')

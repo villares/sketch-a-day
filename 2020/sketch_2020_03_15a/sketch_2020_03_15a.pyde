@@ -30,3 +30,10 @@ def draw():
     rect(0, 0, 60, 20)
     fill(255)
     text(frameRate, 5, 15)
+    
+def keyPressed():
+    from os import path
+    sketch = sketchPath()
+    name = path.basename(sketch)
+    print(name)
+    saveFrame(name + '.png')

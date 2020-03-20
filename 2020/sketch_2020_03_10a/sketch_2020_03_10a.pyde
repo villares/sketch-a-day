@@ -18,6 +18,7 @@ def setup():
   stroke(255)
   turn_left(l, ints)
   turn_right(l, ints)
+  save_image()
 
 def turn_right(l, ints):
     if ints == 0:
@@ -36,3 +37,11 @@ def turn_left(l, ints):
         turn_left(l, ints - 1)
         rotate(radians(-90))
         turn_right(l, ints - 1)
+        
+        
+def save_image():
+    from os import path
+    sketch = sketchPath()
+    name = path.basename(sketch)
+    print(name)
+    saveFrame(name + '.png')
