@@ -3,11 +3,11 @@ def setup():
     background(0)
     noStroke()
     colorMode(HSB)
-    i = 1
+    i = 50
     offset_x, offset_y = 20, 20 
     for x, y in grid(10, 10, 40, 40):
         fill(i * 2.5 % 256, 255, 200)
-        s = 5 + abs(35 - (.7 * i))
+        s = 5 + abs(35 - (.7 * (i % 100)))
         ellipse(x + offset_x, y + offset_y, s, s)
         i += 1
     i = 1
