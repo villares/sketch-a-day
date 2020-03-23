@@ -10,7 +10,7 @@ def setup():
 
 def draw():
     background(0)
-    g = lerp_grid(grids[0], grids[2],
+    g = lerp_grid(grids[0], grids[1],
                   0.5 + sin(radians(frameCount)) / 2)
     plot_a_grid(g)
 
