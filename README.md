@@ -1,6 +1,5 @@
 
 ---
-
 # sketch-a-day
 #### one visual idea a day 
 
@@ -16,6 +15,13 @@ You may also support my artistic work, open educational resources and research u
 
 ## 2020
 
+---
+
+![sketch_2020_03_22a](2020/sketch_2020_03_22a/sketch_2020_03_22a.gif)
+
+![sketch_2020_03_22b](2020/sketch_2020_03_22b/sketch_2020_03_22b.gif)
+
+[sketch_2020_03_22a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_21a) & [sketch_2020_03_22b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_21b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
@@ -61,7 +67,6 @@ def grid(cols, rows, colSize=1, rowSize=1):
             yield (x * colSize, y * rowSize)
 
 ```
-
 
 ---
 
@@ -158,7 +163,6 @@ Dragon curve for Rosetta Code project https://rosettacode.org/wiki/Dragon_curve#
 ![sketch_2020_03_06a](2020/sketch_2020_03_06a/sketch_2020_03_06a.gif)
 
 [sketch_2020_03_06a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -294,7 +298,6 @@ Maybe this will be a game! Arrow hunter?
 
 [sketch_2020_02_13a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_13a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_2020_02_12a](2020/sketch_2020_02_12a/sketch_2020_02_12a.png)
@@ -306,7 +309,6 @@ Maybe this will be a game! Arrow hunter?
 ![sketch_2020_02_11a](2020/sketch_2020_02_11a/sketch_2020_02_11a.png)
 
 [sketch_2020_02_11a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_11a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -326,20 +328,17 @@ Maybe this will be a game! Arrow hunter?
 
 [sketch_2020_02_08a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_08a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_2020_02_07a](2020/sketch_2020_02_07a/sketch_2020_02_07a.png)
 
 [sketch_2020_02_07a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_07a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_2020_02_06a](2020/sketch_2020_02_06a/sketch_2020_02_06a.png)
 
 [sketch_2020_02_06a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_02_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -397,7 +396,6 @@ Maybe this will be a game! Arrow hunter?
 ![sketch_2020_01_29a](2020/sketch_2020_01_29a/sketch_2020_01_29a.gif)
 
 [sketch_2020_01_29a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_01_29a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -536,7 +534,6 @@ Maybe this will be a game! Arrow hunter?
 ![sketch_2020_01_06b](2020/sketch_2020_01_06b/sketch_2020_01_06b.gif)
 
 [sketch_2020_01_06b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_01_06b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
