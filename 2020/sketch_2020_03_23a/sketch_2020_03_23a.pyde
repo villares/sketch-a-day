@@ -4,14 +4,15 @@ from gif_animation_helper import gif_export
 grids = []
 
 def setup():
+    global gi, gf
     size(600, 600)
-    for function in (grid, shuffled_grid, shoebot_shuffled):
-        grids.append(make_a_grid(function, 50))
+    gi = make_a_grid(shuffled_grid, 50)
+    gf = make_a_grid(shuffled_grid, 50)
+
 
 def draw():
     background(0)
-    g = lerp_grid(grids[0], grids[1],
-                  0.5 + sin(radians(frameCount)) / 2)
+    g = lerp_grid(gi, gf, 0.5 + cos(radians(frameCount)) / 2)
     plot_a_grid(g)
 
     gif_export(GifMaker, sketch_name())
@@ -60,7 +61,7 @@ def make_a_grid(grid_function, i_offset=50):
     a_grid = []
     offset_x, offset_y = 30, 30
     for x, y in grid_function(10, 10, 60, 60):
-        c = color(i * 2.5 % 256, 255, 200)
+        c = color(i * 2.5 % 256, i * 2.5 % 256, 200)
         s = 10 + abs(40 - (.8 * i))
         a_grid.append((x + offset_x, y + offset_y, s, c))
         i = (i + 1) % 101
