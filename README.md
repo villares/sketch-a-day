@@ -17,6 +17,28 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_03_24a](2020/sketch_2020_03_24a/sketch_2020_03_24a.png)
+
+[sketch_2020_03_24a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_24a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+L-System with rules for a Hilbert Curve. Studies for Rosetta Code.
+
+```
+axiom = "L"
+rules = {
+    'L': '+RF-LFL-FR+',
+    'R': '-LF+RFR+FL-',
+}
+```
+
+---
+
+![sketch_2020_03_23a](2020/sketch_2020_03_23a/sketch_2020_03_23a.gif)
+
+[sketch_2020_03_23a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_23a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_03_22a](2020/sketch_2020_03_22a/sketch_2020_03_22a.gif)
 
 ![sketch_2020_03_22b](2020/sketch_2020_03_22b/sketch_2020_03_22b.gif)
