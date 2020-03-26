@@ -29,12 +29,12 @@ def setup():
 
 def draw():
     global ns
-    fill(0, 2)
+    fill(0, 4)
     noStroke()
     rect(0, 0, width, height)
     if frameCount % 1000 == 0:
         ns = random(10000)
-        background(0, 0, 0)
+        background(0)
     noiseSeed(int(ns))
 
     for m in movers:
