@@ -1,13 +1,12 @@
 # Based on https://www.openprocessing.org/sketch/862451
-# by @takawo https://www.openprocessing.org/user/6533
-# Missing drawingContext shadowColor shadowBlur :(
+# by @takawo https://twitter.com/takawo
 
 from random import choice
 
 movers = []
 mover_num = 350
-pallete = ["#DAFFDA", "#DEFF0C", "#3AFFA8", "#A8FFCC",
-           "#0A1DFF", "#CD46FF", "#C0AEFF", "#838CFF"]
+pallete = ["#DA00DA", "#DE000C", "#3A00A8", "#A800CC",
+           "#0A1D00", "#CD4600", "#C0AE00", "#838C00"]
 
 def setup():
     global ns, offset
@@ -30,7 +29,7 @@ def setup():
 
 def draw():
     global ns
-    fill(0, 10)
+    fill(0, 2)
     noStroke()
     rect(0, 0, width, height)
     if frameCount % 1000 == 0:
@@ -66,7 +65,7 @@ class Mover:
         self.vel = PVector(cos(angle) * self.len, sin(angle) * self.len)
         self.pos.add(self.vel)
         isBorder = False
-        if not (offset < self.pos.x < width - offset or
+        if not (offset < self.pos.x < width - offset and
                 offset < self.pos.y < height - offset):
             isBorder = True
 
