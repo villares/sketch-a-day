@@ -1,4 +1,4 @@
-# L-System - Hilbert Curve
+# L-System based implementation of Hilbert Curve
 
 iterations = 7
 stroke_len = 600
