@@ -17,6 +17,24 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_03_28a](2020/sketch_2020_03_28a/sketch_2020_03_28a.png)
+
+[sketch_2020_03_28a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_28a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+```python
+iterations = 7
+stroke_len = 2600
+angle_deg = 45
+axiom = 'L'
+sentence = axiom
+rules = {
+    'L': '+RF-LFL+',
+    'R': '-LF+RFR-',
+}
+```
+
+---
+
 ![sketch_2020_03_27a](2020/sketch_2020_03_27a/sketch_2020_03_27a.png)
 
 [sketch_2020_03_27a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
