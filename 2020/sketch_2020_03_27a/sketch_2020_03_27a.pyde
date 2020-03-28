@@ -1,21 +1,22 @@
 # Other L-System
 
 iterations = 7
-stroke_len = 600
-angle_deg = 90
+stroke_len = 2600
+angle_deg = 45
 axiom = 'L'
 sentence = axiom
 rules = {
-    'L': '+RF-LFL-FR+',
-    # 'R': '-LF+RFR+FLL-',
-    'R': '-LF+RFR+FFL-',
+    # 'L': '+RF-LFL-FR+',
+    # 'R': '-LF+RFR+FL-',
+    'L': '+RF[-RFR]-FR+',
+    'R': '-LF[+LFL]+FL-',
 }
 
 def setup():
     size(700, 700)
     global xo, yo
-    xo, yo = 50, height - 50
-    strokeWeight(1)
+    xo, yo = width / 2, height / 2 - 20
+    strokeWeight(0.2)
     noFill()
     generate(iterations)
 
