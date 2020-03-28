@@ -6,14 +6,8 @@ angle_deg = 105
 axiom = 'L'
 sentence = axiom
 rules = {
-    # 'L': '+RF-LFL-FR+',
-    # 'R': '-LF+RFR+FL-',
     'L': '+RF-LFL+',
     'R': '-LF+RFR-',
-    
-    
-    # 'L': '[+RF]-RFR[-FR]+',
-    # 'R': '[-LF]+LFL[+FL]-',
 }
 
 def setup():
@@ -56,7 +50,7 @@ def plot(angle):
 def keyPressed():
     global angle_deg, xo, yo, stroke_len, iterations, sentence
     if key == '-':
-        angle_deg -= 1
+        angle_deg -= 1.
         print("angle:" + str(angle_deg))
     if str(key) in "=+":
         angle_deg += 1
