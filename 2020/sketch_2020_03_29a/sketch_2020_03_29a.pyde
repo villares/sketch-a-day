@@ -3,12 +3,7 @@
 iterations = 8
 base_len = 350
 angle_deg = 15
-axiom = 'L'
-sentence = axiom
-rules = {
-    'L': '+FR-LFL+',
-    'R': '-FL+RFR-',
-}
+
 
 def setup():
     size(700, 700)
@@ -45,22 +40,17 @@ def plot(angle):
     for c in sentence:
         if c == 'F':
             stroke(255)
-            line(0, 0, 0, -stroke_len)
-            translate(0, -stroke_len)
-        if c == 'L':
+            line(0, 0, 0, -stroke_len) # draw white line
+            translate(0, -stroke_len) # move
+        elif c == 'L':
             stroke(255, 0, 0)
-            line(0, 0, 0, -stroke_len)
-        if c == 'R':
+            line(0, 0, 0, -stroke_len) # red does not move!
+        elif c == 'R':
             stroke(0, 0, 255)
-            line(0, 0, 0, -stroke_len)
-
+            line(0, 0, 0, -stroke_len) # blue does not move!
         elif c == '+':
             rotate(angle)
-            # stroke(255, 0, 0)
-            # circle(0, 0, 5)
         elif c == '-':
-            # stroke(0, 0, 255)
-            # circle(0, 0, 5)
             rotate(-angle)
         elif c == '[':
             pushMatrix()
