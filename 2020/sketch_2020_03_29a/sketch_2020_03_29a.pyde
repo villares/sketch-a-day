@@ -2,7 +2,7 @@
 
 iterations = 8
 base_len = 350
-angle_deg = 15
+angle_deg = 45
 axiom = 'L'
 sentence = axiom
 rules = {
