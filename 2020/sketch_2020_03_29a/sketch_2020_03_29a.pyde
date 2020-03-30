@@ -3,6 +3,12 @@
 iterations = 8
 base_len = 350
 angle_deg = 15
+axiom = 'L'
+sentence = axiom
+rules = {
+    'L': '+FR-LFL+',
+    'R': '-FL+RFR-',
+}
 
 
 def setup():
