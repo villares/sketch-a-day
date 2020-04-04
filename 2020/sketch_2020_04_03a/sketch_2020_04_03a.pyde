@@ -21,15 +21,13 @@ permitDrag = [False] * 4
 def setup() :
     size(300, 300)
     smooth()
-    #    startpocoordinates
+    # startpoint coordinates
     x[0] = x[1] = 50
     y[0] = 50
     y[1] = y[2] = 150
     x[2] = x[3] = 250
     y[3] = 250
- 
-
- 
+  
 def draw() :
     background(255)
     noFill()
@@ -51,32 +49,26 @@ def draw() :
         else:
             fill(0)
             ellipse(x[i], y[i], 5, 5)
-        
-    
- 
     # permit dragging 
     for i in range(4):
         if permitDrag[i]:
             x[i] = mouseX
-            y[i] = mouseY
-        
+            y[i] = mouseY    
  
 def mouseReleased () :
     for i in range(4):
         permitDrag[i] = False
     
-
- 
 def mousePressed () :
     for i in range(4):
         if (x[i]-5 <= mouseX <= x[i]+10 and 
             y[i]-5 <= mouseY <= y[i]+10):
             permitDrag[i] = True
         
-# hand curser when over dragging over points
+# hand cursor when over dragging over points
 def mouseMoved () :
     cursor(ARROW)
     for i in range(4):
-        if (mouseX>=x[i]-5 and mouseX<=x[i]+10 and mouseY>=y[i]-5 and mouseY<=y[i]+10) :
+        if (x[i]-5 <= mouseX <= x[i]+10 and 
+            y[i]-5 <= mouseY <= y[i]+10):
             cursor(HAND)
-        
