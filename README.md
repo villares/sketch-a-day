@@ -16,6 +16,38 @@ You may also support my artistic work, open educational resources and research u
 
 ## 2020
 
+---
+
+![sketch_2020_04_06a](2020/sketch_2020_04_06a/sketch_2020_04_06a.gif)
+
+[sketch_2020_04_06a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+2020_04_04a revisited
+
+```python
+axiom = 'L'
+rules = {
+    'L': '-RF[-L]',
+    'R': '+LF[+R]',
+}
+```
+
+
+---
+
+![sketch_2020_04_05a](2020/sketch_2020_04_05a/sketch_2020_04_05a.gif)
+
+[sketch_2020_04_05a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_05a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Added the gif export code and brought back the 'auto-center and zoom' shortcut
+
+```python
+axiom = 'L'
+rules = {
+    'L': '[-RF[-LF+]]',
+    'R': '[+LF[+RF-]]',
+}
+```
 
 ---
 
@@ -23,6 +55,13 @@ You may also support my artistic work, open educational resources and research u
 
 [sketch_2020_04_04a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_04a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+```python
+axiom = 'L'
+rules = {
+    'L': '-RF[-L]',
+    'R': '+LF[+R]',
+}
+```
 
 ---
 
