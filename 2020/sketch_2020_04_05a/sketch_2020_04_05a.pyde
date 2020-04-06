@@ -3,9 +3,9 @@ from gif_animation_helper import gif_export
 
 # Other L-System
 
-iterations = 10
-base_len = 350
-angle_deg = 45
+iterations = 11
+base_len = 3500
+angle_deg = 15
 axiom = 'L'
 sentence = axiom
 
