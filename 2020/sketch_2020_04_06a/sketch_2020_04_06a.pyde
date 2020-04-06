@@ -25,10 +25,13 @@ def draw():
     translate(xo, yo)
     plot(radians(angle_deg))
     resetMatrix()
+    
     # debug
     # rectMode(CORNERS)
     # rect(min_x, min_y, max_x, max_y)
-    rectMode(CORNER)
+    # rectMode(CORNER)
+    
+    # draw text with rules & other infos
     fill(0, 200); noStroke()
     rect(0, height - 80, width, 80)
     fill(255)
@@ -38,18 +41,21 @@ def draw():
     text(t, 10, height - 50)
 
 def generate(n):
+    """ Main L-System rule application function """
     global stroke_len, sentence
     sentence = axiom
     for _ in range(n):
-        # stroke_len *= 0.5
+        # stroke_len *= 0.5  # make stroke_len shorter (old method)
         next_sentence = ''
         for c in sentence:
-            next_sentence += rules.get(c, c)
+            next_sentence += rules.get(c, c)  # apply substitution rule from dict
         sentence = next_sentence
+    # make stroke_len shorter (new method)
     stroke_len = base_len * 2. / sqrt(len(sentence) + iterations + 10) 
         
 def plot(angle):
-    record_limits(reset=True)        
+    """ Draw sentence - 'drawing rules' """
+    record_limits(reset=True)  # init zoom limits       
     for c in sentence:
         if c == 'F':
             stroke(255)
