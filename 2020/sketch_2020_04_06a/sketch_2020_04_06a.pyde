@@ -1,11 +1,10 @@
 # add_library('GifAnimation')
 # from gif_animation_helper import gif_export
 
-# Other L-System
-
+# Yet Another L-System!
 iterations = 11
 base_len = 350
-angle_deg = 0
+angle_deg = 15
 axiom = 'L'
 rules = {
     'L': '-RF[-L]',
@@ -25,7 +24,6 @@ def draw():
     translate(xo, yo)
     plot(radians(angle_deg))
     resetMatrix()
-    
     # debug
     # rectMode(CORNERS)
     # rect(min_x, min_y, max_x, max_y)
@@ -138,18 +136,17 @@ def keyPressed():
                 yo -= 25
             elif min_y < 0:
                 yo += 25
-            
-        
-def settings():
-    """ print markdown to add at the sketc-a-day page"""
-    from os import path
-    global SKETCH_NAME
-    SKETCH_NAME = path.basename(sketchPath())
-    OUTPUT = ".png"
-    println(
-        """
-![{0}]({2}/{0}/{0}{1})
+                    
+# def settings():
+#     """ print markdown to add at the sketc-a-day page"""
+#     from os import path
+#     global SKETCH_NAME
+#     SKETCH_NAME = path.basename(sketchPath())
+#     OUTPUT = ".png"
+#     println(
+#         """
+# ![{0}]({2}/{0}/{0}{1})
 
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-""".format(SKETCH_NAME, OUTPUT, year())
-    )
+# [{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+# """.format(SKETCH_NAME, OUTPUT, year())
+#     )
