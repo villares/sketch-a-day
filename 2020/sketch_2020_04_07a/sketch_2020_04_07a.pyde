@@ -5,7 +5,7 @@ COLORS = [color(200, 255, 0),
           ]
 
 def setup():
-    size(500, 500)
+    size(400, 400)
     blendMode(ADD) # DIFFERENCE # ECVLUSION
     rectMode(CENTER)
     init()
