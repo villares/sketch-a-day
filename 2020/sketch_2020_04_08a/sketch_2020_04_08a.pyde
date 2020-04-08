@@ -1,6 +1,6 @@
 # inspired by https://twitter.com/beesandbombs/status/1247567578802855938?s=20
-add_library('GifAnimation')
-from gif_animation_helper import gif_export
+# add_library('GifAnimation')
+# from gif_animation_helper import gif_export
 
 s_size = 50
 COLORS = [color(200, 255, 0),
@@ -42,11 +42,11 @@ def draw():
         square(0, 0, s)
         popMatrix()
         
-    if frameCount < 1080:
-        if frameCount % 2:
-           gif_export(GifMaker, "animation")
-    else:
-        gif_export(GifMaker, "animation", finish=True)
+    # if frameCount < 1080:
+    #     if frameCount % 2:
+    #        gif_export(GifMaker, "animation")
+    # else:
+    #     gif_export(GifMaker, "animation", finish=True)
     
     if frameCount % 360 == 0:
         init()
