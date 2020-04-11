@@ -24,9 +24,11 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
-![sketch_2020_04_09a](2020/sketch_2020_04_09a/sketch_2020_04_09a.gif)
+![sketch_2020_04_09a](2020/sketch_2020_04_09a/sketch_2020_04_09a.gif) ![sketch_2020_04_09b](2020/sketch_2020_04_09b/sketch_2020_04_09b.gif)
 
-[sketch_2020_04_09a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_07a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+[sketch_2020_04_09a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_09a)</br>
+[sketch_2020_04_09b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_09b)</br> [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
