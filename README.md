@@ -2,7 +2,7 @@
 ---
 
 # sketch-a-day
-#### one visual idea a day 
+#### [one visual idea a day](https://abav.lugaralgum.com/sketch-a-day)
 
 Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I try to make one small program (*sketch*) a day, and I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
 
@@ -18,7 +18,7 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
-<iframe src="https://abav.lugaralgum.com/sketch-a-day/2020/sketch_2020_04_11a/pyp5js/"></iframe>
+<iframe src="https://abav.lugaralgum.com/sketch-a-day/2020/sketch_2020_04_11a/pyp5js/"  width="510" height="510"></iframe>
 
 [sketch_2020_04_11a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_11a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
