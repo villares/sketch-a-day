@@ -1,5 +1,3 @@
-# Vamos começar imaginando uma coluna de retângulos
-
 def setup():  
     size(400, 400)
     colorMode(HSB)
@@ -7,8 +5,11 @@ def setup():
 def draw():
     background(0)
     noStroke()
-    offset_x, offset_y = 20, 20 
-    for x, y in grid(10, 10, 40, 40):
+    colunas, filas = 10, 10    
+    tam_coluna, tam_fila = width / colunas, height / filas
+    offset_x, offset_y = tam_coluna / 2., tam_fila / 2. 
+    for x, y in grid(colunas, filas, tam_coluna, tam_fila):
+        # desenho do elemento em x, y
         s = 25 + 15 * cos(radians(x + y))
         h = 128 + 128 * sin(x - y)
         c = color(h, 255, 200)
