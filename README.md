@@ -18,6 +18,15 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_04_15a](2020/sketch_2020_04_15a/sketch_2020_04_15a.gif)
+
+[sketch_2020_04_15a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_15a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+"Based on traditional Japanese stitching, this is a riff on hitomezashi patterns."
+-- Annie Perikins @anniek_p https://twitter.com/anniek_p/status/1244220881347502080?s=20
+
+---
+
 ![sketch_2020_04_14a](2020/sketch_2020_04_14a/sketch_2020_04_14a.gif)
 
 [sketch_2020_04_14a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_14a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
