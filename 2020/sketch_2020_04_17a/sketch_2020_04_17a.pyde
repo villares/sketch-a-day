@@ -13,6 +13,7 @@ def setup():
     global cols, rows
     size(400, 400)
     cols, rows = width / mtm - 1, height / tam
+    init()
 
 def init():
     for y in range(rows):
@@ -38,26 +39,16 @@ def ngbs(x, y):
     for nx, ny in nb_list:
         nb = x + nx, y + ny
         if grid.get(nb, 'no') != 'no':
-            nbs.append.(nb)
+            nbs.append(nb)
+    return nbs
             
 def draw():
     background(200)
-    noLoop()
-    init()
 
     for i in range(cols):
         x = i * mtm + mtm
         for j in range(rows):
             y = j * tam + mtm
-            nbs = ngbs(i, j)
-            if dist(x, y, mouseX, mouseY) < tam:
-                for n in nbs:
-                    ni, nj = n
-                    nx =  ni * mtm + mtm
-                    ny =  nj * tam + mtm
-                    circle(nx, ny, 4)
-                    
-            
             if grid[(i, j)]:
                 if i % 2 == 0:
                     line(x, y - mtm, x, y + mtm)
@@ -66,5 +57,5 @@ def draw():
 
 
 def mouseReleased():
-    loop()
     saveFrame("####.png")
+    init()
