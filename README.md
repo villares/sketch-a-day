@@ -18,6 +18,23 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_04_17b](2020/sketch_2020_04_17b/sketch_2020_04_17b.png)
+
+[sketch_2020_04_17b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_17b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Working on "Caneta automatica" a very simple Logo/turtle/pen for Processing Python Mode
+https://github.com/villares/material-aulas/tree/master/caneta_automatica
+
+---
+
+![sketch_2020_04_16a](2020/sketch_2020_04_16a/sketch_2020_04_16a.png)
+
+[sketch_2020_04_16a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_16a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Rewriting the previous sketch with a dictionary based grid in order to try some neighbour finding tricks later...
+
+---
+
 ![sketch_2020_04_15a](2020/sketch_2020_04_15a/sketch_2020_04_15a.gif)
 
 [sketch_2020_04_15a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_15a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
