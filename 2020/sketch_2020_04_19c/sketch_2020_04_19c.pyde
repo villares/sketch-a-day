@@ -30,9 +30,9 @@ def botao(x, y, w, h, _text):
     text(_text, x + w / 2, y + h / 2)
     if mouse_over:
         if mousePressed:
-            botao.__dict__[(x, y)] = True
+            botao.__dict__[(x, y)] = True  # o botão foi apertado
             return False
-        elif botao.__dict__.get((x, y)):
+        elif botao.__dict__.get((x, y)):   # o botão foi solto após estar apertado
             botao.__dict__[(x, y)] = False
             return True
     botao.__dict__[(x, y)] = False
