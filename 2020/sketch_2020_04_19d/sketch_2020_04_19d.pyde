@@ -27,9 +27,9 @@ def draw():
             y = j * tam + mtm
             chain = in_chains(i, j)
             if chain >= 0:
-                stroke((chain * 16) % 256, 200, 200)
+                stroke((chain * 16) % 256, 255, 200)
             else:
-                stroke(100)
+                stroke(150)
             if grid[(i, j)]:
                 if i % 2 == 0:
                     line(x, y - mtm, x, y + mtm)
@@ -66,10 +66,11 @@ def keyPressed():
     if key == 'a':
         pick_one()
         add_to_chains()
-        print(chains)
+        print(len(chains))
+        
     if key == 'p':
         saveFrame("####.png")
-    if key == 'p':
+    if key == ' ':
         init()
         chains[:] = []
 
