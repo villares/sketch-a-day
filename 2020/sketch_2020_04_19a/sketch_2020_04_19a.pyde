@@ -3,8 +3,8 @@ estado_inicial = True
 def setup():
     global b1, b2
     size(400, 400)
-    b1 = Botao(100, 150, 200, 50, "clique aqui")
-    b2 = Botao(100, 200, 200, 50, "de novo!")
+    b1 = Botao(100, 125, 200, 50, "clique aqui")
+    b2 = Botao(100, 225, 200, 50, "de novo!")
 
 def draw():
     if estado_inicial:
@@ -18,8 +18,7 @@ def draw():
     if resultado1 or resultado2:
             print('clique')
             estado_inicial = not estado_inicial
-
-    
+            
 
 class Botao():
 
