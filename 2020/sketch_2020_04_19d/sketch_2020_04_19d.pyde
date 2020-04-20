@@ -27,7 +27,7 @@ def draw():
             y = j * tam + mtm
             chain = in_chains(i, j)
             if chain >= 0:
-                stroke((chain * 8) % 256, 200, 200)
+                stroke((chain * 16) % 256, 200, 200)
             else:
                 stroke(100)
             if grid[(i, j)]:
