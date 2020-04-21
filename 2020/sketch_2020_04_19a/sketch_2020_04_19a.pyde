@@ -7,18 +7,20 @@ def setup():
     b2 = Botao(100, 225, 200, 50, "de novo!")
 
 def draw():
+    global estado_inicial
+
     if estado_inicial:
         background(200)
     else:
         background(10)
         
-    global estado_inicial
     resultado1 = b1.display()
     resultado2 = b2.display()
     if resultado1 or resultado2:
             print('clique')
             estado_inicial = not estado_inicial
-            
+
+    # saveFrame('sketch_2020_04_19a.png')            
 
 class Botao():
 
