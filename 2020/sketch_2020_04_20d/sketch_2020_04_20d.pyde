@@ -8,14 +8,14 @@ from random import choice
 add_library('GifAnimation')
 from gif_animation_helper import gif_export
 
-tam = 10
+tam = 8
 mtm = tam / 2  # meio tamanho
 grid = dict()
 chains = []
 
 def setup():
     global cols, rows
-    size(400, 400)
+    size(320, 320)
     colorMode(HSB)
     cols, rows = width / mtm - 1, height / tam
     init()
@@ -40,7 +40,7 @@ def draw():
                     line(x - mtm, y - mtm, x + mtm, y - mtm)
     pick_one()
     add_to_chains()
-    gif_export(GifMaker, "animation")
+    # gif_export(GifMaker, "animation")
 
 def pick_one():
     found = False
