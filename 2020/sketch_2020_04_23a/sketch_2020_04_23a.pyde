@@ -7,7 +7,7 @@ from random import choice
 
 add_library('GifAnimation')
 from gif_animation_helper import gif_export
-sketch_name = 'sketch_2020_04_22a'
+sketch_name = 'sketch_2020_04_23aa'
 
 tam = 8
 mtm = tam / 2  # meio tamanho
@@ -18,14 +18,13 @@ def setup():
     global cols, rows
     size(320, 320)
     colorMode(HSB)
-    strokeWeight(2)
+    noStroke()
     cols, rows = width / mtm - 1, height / tam
     init()
 
 
 def draw():
     background(0)
-    noFill() 
     for i in range(cols):
         x = i * mtm + mtm
         for j in range(rows):
@@ -33,23 +32,26 @@ def draw():
             chain_i = in_chains(i, j)
             if chain_i >= 0:
                 ln = len(chains[chain_i]) / 2
-                stroke((ln * 4) % 220, 200, 200)
+                fill((chain_i * 8) % 256, 255, 128 + ln * 2)
             else:
-                stroke(255)
+                fill(255)
             if grid[(i, j)]:
                 rectMode(CENTER)
                 if i % 2 == 0:
                     # line(x, y - mtm, x, y + mtm)
-                    square(x, y, mtm)
+                    square(x, y, mtm * 2)
                 else:
                     # line(x - mtm, y - mtm, x + mtm, y - mtm)
-                    square(x, y - mtm, mtm)
+                    square(x, y - mtm, mtm * 2)
                 #     line(x - mtm, y - mtm, x + mtm, y - mtm)
                 # else:
                 #     line(x, y + mtm, x, y - mtm)
+
+    gif_export(GifMaker, sketch_name)
+
     for _ in range(10):
-      pick_one()
-      add_to_chains()
+        pick_one()
+        add_to_chains()
 
 def pick_one():
     found = False
@@ -86,8 +88,8 @@ def keyPressed():
         pick_one()
         add_to_chains()
         print(len(chains))
-    if key == 'p':
-        gif_export(GifMaker, sketch_name)
+    # if key == 'p':
+    #     gif_export(GifMaker, sketch_name)
     if key == 'q':
         gif_export(GifMaker, "animation", finish=True)
     if key == ' ':
