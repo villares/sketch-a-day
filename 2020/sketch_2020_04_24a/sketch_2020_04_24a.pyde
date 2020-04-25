@@ -61,7 +61,7 @@ def draw():
                 else:
                     line(x - mtm, y - mtm, x + mtm, y - mtm)
 
-    gif_export(GifMaker, sketch_name)
+    # gif_export(GifMaker, sketch_name)
 
     for _ in range(10):
         pick_one()
@@ -109,18 +109,7 @@ def keyPressed():
     if key == ' ':
         init()
         chains[:] = []
-    if key == 's':
-        shuff()
 
-
-def shuff():
-    for y in range(0, rows, 2):
-        on = choice((True, False))
-        for x in range(cols):
-            if x % 2 == 1:
-                if x % 4:
-                    on = not on
-                grid[(x, y)] = on
 
 def init():
     for y in range(rows):
