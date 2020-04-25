@@ -7,7 +7,7 @@ from random import choice
 
 add_library('GifAnimation')
 from gif_animation_helper import gif_export
-sketch_name = 'sketch_2020_04_24a'
+sketch_name = 'sketch_2020_04_24b'
 
 tam = 8
 mtm = tam / 2  # meio tamanho
@@ -58,9 +58,10 @@ def draw():
                 #     line(x, y - mtm, x, y + mtm)
                 # else:
                 #     line(x - mtm, y - mtm, x + mtm, y - mtm)
-                    line(x - mtm, y - mtm, x + mtm, y - mtm)
+                    line(x - mtm, y, x + mtm, y)
+                    # line(x - mtm, y - mtm, x + mtm, y - mtm)
                 else:
-                    line(x, y + mtm, x, y - mtm)
+                    line(x, y, x, y - mtm * 2)
                     
     # gif_export(GifMaker, sketch_name)
 
