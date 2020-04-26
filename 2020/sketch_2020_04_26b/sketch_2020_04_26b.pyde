@@ -62,21 +62,20 @@ def draw():
                 else:
                     line(x, y, x, y - mtm * 2)
                     
-    gif_export(GifMaker, sketch_name)
+    # gif_export(GifMaker, sketch_name)
 
     for _ in range(20):
-        pick_one()
-        add_to_chains()
+        if pick_one():
+            add_to_chains()
 
 def pick_one():
-    found = False
-    tested = []
     for y in range(rows):
         for x in range(cols):
             if grid[(x, y)] and in_chains(x, y) == -1:
                 t = x, y
                 chains.append(set([t]))
-                return
+                return True
+    return False
 
 def print_chains():
     for c in chains:
