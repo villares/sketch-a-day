@@ -1,7 +1,5 @@
 """
-"Based on traditional Japanese stitching,
-this is a riff on hitomezashi patterns." Annie Perikins @anniek_p
-https://twitter.com/anniek_p/status/1244220881347502080?s=20
+https://discourse.processing.org/t/porting-a-3d-brownian-motion-to-python-mode/20144
 """
 
 from collections import deque
