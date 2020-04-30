@@ -18,9 +18,19 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_04_29a](2020/sketch_2020_04_29a/sketch_2020_04_29a.gif)
+
+[sketch_2020_04_29a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_29a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Variation of 28a
+
+---
+
 ![sketch_2020_04_28a](2020/sketch_2020_04_28a/sketch_2020_04_28a.gif)
 
 [sketch_2020_04_28a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_04_28a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Inspired by this https://discourse.processing.org/t/porting-a-3d-brownian-motion-to-python-mode/20144
 
 ---
 
