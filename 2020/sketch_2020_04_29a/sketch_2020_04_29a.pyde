@@ -10,13 +10,11 @@ from gif_animation_helper import gif_export
 sketch_name = 'sketch_2020_04_28a'
 points = deque(maxlen=200)
 paused = False
-DIM = 30
+DIM = 60
 
 def setup():
-    size(300, 300, P3D)
+    size(500, 500, P3D)
     colorMode(HSB)
-    noFill()
-    strokeWeight(2)
     points.append((PVector(DIM, 0, 0), PVector(0, 0, DIM)))
     
 def draw():
@@ -25,21 +23,13 @@ def draw():
     rotateY(frameCount / 100.)
     
     for i, (pa, pb) in enumerate(points):
-        stroke((frameCount + i) % 256, 255, 255)
-        line(pa.x, pa.y, pa.z, pb.x, pb.y, pb.z)
-    
-    beginShape()
-    for i, (pa, pb) in enumerate(points):
-        stroke(255, 100) #((frameCount + i) % 256, 255, 255)
-        curveVertex(pa.x, pa.y, pa.z) #, pb.x, pb.y, pb.z)
-    endShape()
-
-    beginShape()
-    for i, (pa, pb) in enumerate(points):
-        stroke(255, 100) #((frameCount + i) % 256, 255, 255)
-        curveVertex(pb.x, pb.y, pb.z) #, pb.x, pb.y, pb.z)
-    endShape()
-   
+        fill((frameCount + i) % 256, 255, 255)
+        bar(pa.x, pa.y, pa.z, pb.x, pb.y, pb.z, 3)
+        if i > 0:
+            ppa, ppb = points[i - 1]
+            bar(pa.x, pa.y, pa.z, ppa.x, ppa.y, ppa.z, 5)
+            bar(pb.x, pb.y, pb.z, ppb.x, ppb.y, ppb.z, 5)
+           
     if not paused:
         va, vb = points[-1]
         na = PVector()
@@ -70,3 +60,18 @@ def mousePressed():
 
     if key == 'q':
         gif_export(GifMaker, "animation", finish=True)
+        
+        
+def bar(x1, y1, z1, x2, y2, z2, weight=10):
+    """Draw a box rotated in 3D like a bar/edge."""
+    p1, p2 = PVector(x1, y1, z1), PVector(x2, y2, z2)
+    v1 = p2 - p1
+    rho = sqrt(v1.x ** 2 + v1.y ** 2 + v1.z ** 2)
+    phi, the  = acos(v1.z / rho), atan2(v1.y, v1.x)
+    v1.mult(0.5)
+    pushMatrix()
+    translate(x1 + v1.x, y1 + v1.y, z1 + v1.z)
+    rotateZ(the)
+    rotateY(phi)
+    box(weight, weight, p1.dist(p2))
+    popMatrix()
