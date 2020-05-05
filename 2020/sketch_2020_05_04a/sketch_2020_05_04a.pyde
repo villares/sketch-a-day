@@ -1,4 +1,4 @@
-from __future__ import unicode_literals , division
+from __future__ import unicode_literals, division
 
 imagens = []
 w, h = 80, 55
@@ -8,7 +8,7 @@ def setup():
     size(880, 550)
     colunas, linhas = width // w, height // h
     print('Posições na grade: ' + str(colunas * linhas))
-    
+
 def draw():
     background(0)
     contador = 0
@@ -22,7 +22,7 @@ def draw():
                 fator = h / img.height
                 image(img, x, y, img.width * fator, img.height * fator)
                 contador += 1
-    
+
 def keyPressed():
     if key == 'o':
         selectFolder("Selecine uma pasta:", "adicionar_imagens")
@@ -65,14 +65,12 @@ def lista_imagens(dir=None):
     return f_list
 
 def imgext(file_name):
-    extensions = ('.jpg',
-                  '.png',
-                  '.jpeg',
-                  '.gif',
-                  '.tif',
-                  '.tga',
-                  )
-    for ext in extensions:
-        if file_name.endswith(ext):
-            return True
-    return False
+    ext = file_name.split('.')[-1]
+    valid_ext = ('jpg',
+                 'jpeg',
+                 'png',
+                 'gif',
+                 'tif',
+                 'tga',
+                 )
+    return ext.lower() in valid_ext
