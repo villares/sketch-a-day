@@ -25,7 +25,7 @@ def keyPressed():
     if key == ' ':
         circulos[:] = []
     if key == 's':
-        saveFrame("sketch_2020_01_03a.png")
+        saveFrame("sketch_2020_05_03a.png")
 
 def salvar_circulos(arquivo):
     if arquivo == None:
