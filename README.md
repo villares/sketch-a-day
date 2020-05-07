@@ -18,9 +18,19 @@ You may also support my artistic work, open educational resources and research u
 
 ---
 
+![sketch_2020_05_06a](2020/sketch_2020_05_06a/sketch_2020_05_06a.gif)
+
+[sketch_2020_05_06a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Noise 1D, 2D (& 3D with time)
+
+---
+
 ![sketch_2020_05_05a](2020/sketch_2020_05_05a/sketch_2020_05_05a.png)
 
 [sketch_2020_05_05a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_05a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Simetric drawing revisited
 
 ---
 
