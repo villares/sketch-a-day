@@ -2,8 +2,8 @@
 Yet another noise fielf
 """
 
-add_library('GifAnimation')
-from gif_animation_helper import gif_export
+# add_library('GifAnimation')
+# from gif_animation_helper import gif_export
 sketch_name = 'sketch_2020_05_7a'
 
 escala = 0.002
@@ -50,7 +50,7 @@ def draw():
         
                                         
 def keyPressed():
-    gif_export(GifMaker, "animation", quality=10, delay=120)
+    # gif_export(GifMaker, "animation", quality=10, delay=120)
 
     global xo, yo, zo, s_len, escala
     if key == 'd':
@@ -74,6 +74,6 @@ def keyPressed():
     if keyCode == LEFT:
         xo -=10
         
-    if key == 'q':
-        gif_export(GifMaker, "animation", finish=True)
+    # if key == 'q':
+    #     gif_export(GifMaker, "animation", finish=True)
         
