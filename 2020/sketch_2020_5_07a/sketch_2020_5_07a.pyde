@@ -1,5 +1,5 @@
 """
-Yet another noise fielf
+Yet another noise field
 """
 
 add_library('GifAnimation')
