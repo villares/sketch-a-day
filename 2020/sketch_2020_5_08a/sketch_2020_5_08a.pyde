@@ -1,10 +1,10 @@
 """
-Yet another noise fielf
+Yet another noise field
 """
 
 # add_library('GifAnimation')
 # from gif_animation_helper import gif_export
-sketch_name = 'sketch_2020_05_7a'
+sketch_name = 'sketch_2020_05_8a'
 
 escala = 0.002
 xo = yo = zo = 0 
