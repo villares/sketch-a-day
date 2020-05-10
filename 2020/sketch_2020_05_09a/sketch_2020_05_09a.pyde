@@ -2,16 +2,15 @@
 Yet another noise field
 """
 
-add_library('GifAnimation')
-from gif_animation_helper import gif_export
-sketch_name = '2020_05_09a'
+# add_library('GifAnimation')
+# from gif_animation_helper import gif_export
+# sketch_name = '2020_05_09a'
 
 escala = 0.002
 xo = yo = zo = 0 
 s_len = 18
 def setup():
     size(500, 500)
-    strokeJoin(MITER)
     
 def draw():
     a = TWO_PI / 360 * frameCount
@@ -54,10 +53,10 @@ def draw():
             # line(-s, 0, s, 0)
             # popMatrix()
 
-    if frameCount % 2:
-         gif_export(GifMaker, sketch_name, quality=32, delay=220)
-    if frameCount > 360:
-        gif_export(GifMaker, finish=True)            
+    # if frameCount % 2:
+    #      gif_export(GifMaker, sketch_name, quality=32, delay=220)
+    # if frameCount > 360:
+    #     gif_export(GifMaker, finish=True)            
 
 def keyPressed():
     global xo, yo, zo, s_len, escala
@@ -83,6 +82,6 @@ def keyPressed():
     # if keyCode == LEFT:
     #     xo -=10
         
-    if key == 'q':
-        gif_export(GifMaker, "animation", finish=True)
+    # if key == 'q':
+    #     gif_export(GifMaker, "animation", finish=True)
         
