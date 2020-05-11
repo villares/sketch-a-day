@@ -35,5 +35,5 @@ def botao(x, y, w, h, _text):
         elif botao.__dict__.get((x, y)):   # o botão foi solto após estar apertado
             botao.__dict__.pop((x, y))
             return True
-    botao.__dict__.pop((x, y))
+        botao.__dict__[(x, y)] = False
     return False
