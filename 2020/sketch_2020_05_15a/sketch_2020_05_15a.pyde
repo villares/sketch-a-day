@@ -4,9 +4,8 @@ NUM_CIRCULOS = 5
 
 def setup():
     size(400, 400)
-    strokeWeight(3)
     colorMode(HSB)
-    noFill()
+    fill(255, 32)
     sorteia_circulos(NUM_CIRCULOS)
 
 def draw():
@@ -20,7 +19,8 @@ def draw():
         circ_line(xa, ya, da, xb, yb, db)
 
 def circ_line(xa, ya, da, xb, yb, db):
-        n = 36
+        d = dist(xa, ya, xb, yb)
+        n = int(d / min(da, db))
         for t in range(n):
             tc = t / float(n)
             xc = lerp(xa, xb, tc)
