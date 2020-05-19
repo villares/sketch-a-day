@@ -6,7 +6,6 @@ def setup():
     size(400, 400)
     colorMode(HSB)
     rectMode(CENTER)
-    noFill()
     sorteia_formas(NUM_FORMAS)
 
 def draw():
@@ -34,7 +33,7 @@ def f_line(xa, ya, da, xb, yb, db, a1, a2):
             yc= lerp(ya, yb, tc)
             dc= lerp(da, db, tc)
             a = lerp(a1, a2, tc)
-            stroke(0)
+            fill(255, 64)
             with pushMatrix():
                 translate(xc, yc)
                 rotate(a)
