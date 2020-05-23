@@ -16,6 +16,15 @@ You may also support my artistic work, open educational resources and research u
 
 ## 2020
 
+
+---
+
+![sketch_2020_05_22a](2020/sketch_2020_05_22a/sketch_2020_05_22a.gif)
+
+[sketch_2020_05_22a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_22a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+`lerp()` and `lerpColor()` example
+
 ---
 
 ![sketch_2020_05_21a](2020/sketch_2020_05_21a/sketch_2020_05_21a.gif)
