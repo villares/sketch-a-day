@@ -1,9 +1,9 @@
-# Explorihttps://easings.net/
+# Exploring https://easings.net/
 # https://gist.github.com/zeffii/c1e14dd6620ad855d81ec2e89a859719
 i = 0
 
 def setup():
-    size(500, 400)
+    size(600, 400)
     background(0)
     strokeWeight(5)
     stroke(255)
@@ -11,7 +11,8 @@ def setup():
     global easing
     easing = (
         CubicEaseIn, QuadraticEaseIn,
-        SineInOut, QuadraticEaseInOut, CubicEaseInOut, ExponentialInOut,
+        SineInOut, QuadraticEaseInOut,
+        CubicEaseInOut, ExponentialInOut,
         QuadraticEaseOut, CubicEaseOut,
     )
     f = createFont("DejaVu Sans Mono Bold", 24)
@@ -21,10 +22,11 @@ def setup():
         
 def draw():
     global i
-
-    x = (2 * frameCount) % height + 3
-    t = map(x, 0, height, 0, 1)
+    w = 480
+    x = (2 * frameCount) % w + 3
+    t = map(x, 0, w, 0, 1)
     y = height - height * easing[i](t)
+    
     stroke(i * 32, 255, 255)
     point(x, y)
 
@@ -34,7 +36,7 @@ def draw():
     fill(i * 32, 255, 255)
     circle(width - 50, y, 50)
 
-    if x >= height:
+    if x >= w:
         fill(0)
         noStroke()
         circle(width - 50, 0, 100)
@@ -71,7 +73,7 @@ def CubicEaseInOut(p):
     y = (1/2)((2x)^3)       ; [0, 0.5)
     y = (1/2)((2x-2)^3 + 2) ; [0.5, 1]
     """
-    if (p < 0.5):
+    if p < 0.5:
         return 4 * p * p * p
     else:
         f = ((2 * p) - 2)
@@ -88,10 +90,10 @@ def CubicEaseOut(p):
 def draw_name():
     noStroke()
     fill(0)
-    rect(0, 0, 180, 30)
+    rect(0, 0, 240, 44)
     fill(i * 32, 255, 255)
     textSize(18)
-    text(easing[i].__name__, 8, 21)
+    text(easing[i].__name__, 28, 40)
 
 def keyPressed():
     background(0)
