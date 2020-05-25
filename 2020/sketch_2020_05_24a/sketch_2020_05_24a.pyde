@@ -39,10 +39,10 @@ def draw():
         if i == 0: noLoop()
 
 def register(lst):
-    def deco(f):
+    def wrapper(f):
         lst.append(f)
         return f
-    return deco
+    return wrapper
 
 @register(easing_func)
 def CubicEaseIn(p):
@@ -99,7 +99,7 @@ def draw_name():
     rect(0, 0, 240, 44)
     fill(i * 32, 255, 255)
     textSize(18)
-    text(easing[i].__name__, 28, 40)
+    text(easing_func[i].__name__, 28, 40)
 
 def keyPressed(): 
     background(0)
