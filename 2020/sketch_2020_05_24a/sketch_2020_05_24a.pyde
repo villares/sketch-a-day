@@ -1,7 +1,7 @@
 # Exploring https://easings.net/
 # https://gist.github.com/zeffii/c1e14dd6620ad855d81ec2e89a859719
 i = 0
-easing_func = []
+easing_func = []  # easing functions
 
 def setup():
     size(600, 400)
