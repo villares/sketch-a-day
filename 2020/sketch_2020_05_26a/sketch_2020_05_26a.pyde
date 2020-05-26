@@ -1,4 +1,5 @@
-# Based on idea by John @introscopia
+# Based on idea from John @introscopia
+# + arrowhead by John
 
 X1, X2 = 133, 266
 drag = -1
@@ -84,7 +85,12 @@ def bar(x1, y1, x2, y2, t1=None, t2=None, a1=None, a2=None):
     circle(x1, y1, 10)
     if a1 == RIGHT and a2 == LEFT:
         fill(0)
-        circle(x2, y2, 5)
+        translate(x2, y2)
+        a = atan2(y2 - y1, x2 - x1)
+        rotate(a)
+        strokeJoin(ROUND)
+        strokeWeight(1)
+        triangle(0, 0, -12, -5, -12, 5)
     else:
         circle(x2, y2, 10)
     pop()
