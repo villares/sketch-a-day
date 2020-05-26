@@ -11,38 +11,38 @@ def setup():
     f = createFont('Inconsolata Bold', 10)
     textFont(f)
     init_pts()
-             
+
 def init_pts():
     global pts
-    pts = [120, 75, 150, 30, 230]  # a, si, sf, ti, tf
+    pts = [80, 40, 120, 5, 250]  # a, si, sf, ti, tf
 
 def draw():
     background(240)
     translate(0, y_off)
     a = pts[0]
     b = map(a, pts[1], pts[2], pts[3], pts[4])
-    
+
     if names:
-        txt = ('a0', 'a1', 'b0', 'b1')
+        txt = ('a', 'a0', 'a1', 'b0', 'b1')
         ta = 'a'
         tb = 'b'
     else:
-        ta = 'a = {}'.format(a) 
+        ta = 'a:{}'.format(a)
         tb = 'b:{:.4f}'.format(b)
-        txt = pts[1:]
+        txt = pts
 
     fill(0)
     stroke(0, 200, 0)
-    bar(X1, pts[1], X1, pts[2], txt[0], txt[1], RIGHT, RIGHT)
+    bar(X1, pts[1], X1, pts[2], txt[1], txt[2], RIGHT, RIGHT)
     stroke(100, 0, 100)
-    bar(X2, pts[3], X2, pts[4], txt[2], txt[3], LEFT, LEFT)
+    bar(X2, pts[3], X2, pts[4], txt[3], txt[4], LEFT, LEFT)
     stroke(0)
     bar(X1, a, X2, b, ta, tb, RIGHT, LEFT)
 
     textAlign(CENTER)
-    caption = 'b = map(a, {}, {}, {}, {})'.format(*txt)
+    caption = 'b = map({}, {}, {}, {}, {})'.format(*txt)
     textSize(18)
-    text(caption, width / 2, 30 - y_off)
+    text(caption, width / 2, 40 - y_off)
 
 def mousePressed():
     global drag
@@ -88,4 +88,3 @@ def bar(x1, y1, x2, y2, t1=None, t2=None, a1=None, a2=None):
     else:
         circle(x2, y2, 10)
     pop()
-    
