@@ -1,4 +1,4 @@
-# Based on ide by John @introscopia
+# Based on idea by John @introscopia
 
 X1, X2 = 133, 266
 drag = -1
