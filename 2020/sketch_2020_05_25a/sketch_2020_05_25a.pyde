@@ -27,7 +27,7 @@ def setup():
 def draw():
     global i
     background(0)
-    h, w = 400, 500
+    h, w = 380, 500
     x = (2 * frameCount) % w
     t = map(x, 0, w, 0, 1)
     y = height - (height - h) / 2 - h * easing_func[i](t)
@@ -52,8 +52,12 @@ def draw():
 
     if x + 2 >= w:
         i = (i + 1) % len(easing_func)
-        delay(500)
+        delay(1000)
         if i == 0:
+            background(0)
+            draw_func_names(l2, all=True)
+            image(l1, 0, 0)
+            image(l2, 0, 0)
             noLoop()
 
 def keyPressed():
@@ -66,13 +70,13 @@ def register(lst):
         return f
     return wrapper
 
-@register(easing_func)
-def cubic_ease_in(p):
-    return p ** 3
+# @register(easing_func)
+# def cubic_ease_in(p):
+#     return p ** 3
 
-@register(easing_func)
-def quadratic_ease_in(p):
-    return p ** 2
+# @register(easing_func)
+# def quadratic_ease_in(p):
+#     return p ** 2
 
 # @register(easing_func)
 # def sine_in_out(p):
@@ -82,7 +86,7 @@ def quadratic_ease_in(p):
 def quadratic_ease_in_out(p):
     if p < 0.5:
         return 2 * p ** 2
-    return (-2 * p ** 2) + (4 * p) - 1
+    return -2 * p ** 2 + (4 * p) - 1
 
 @register(easing_func)
 def cubic_ease_in_out(p):
@@ -101,27 +105,28 @@ def exponential_in_out(p):
     if p == 0.0 or p == 1.0:
         return p
     if p < 0.5:
-        return 2 ** ((20 * p) - 10) / 2
+        r = 2 ** ((20 * p) - 10) / 2
     else:
-        return -0.5 * 2 ** ((-20 * p) + 10) + 1
+        r = -0.5 * 2 ** ((-20 * p) + 10) + 1
+    return r
 
 @register(easing_func)
 def linear(p):
     return p
 
-# @register(easing_func)
-# def quadratic_ease_out(p):
-#     return -(p * (p - 2))
+@register(easing_func)
+def quadratic_ease_out(p):
+    return -(p * (p - 2))
 
-# @register(easing_func)
-# def cubic_ease_out(p):
-#     """
-#     y = (x - 1)³ + 1
-#     """
-#     f = (p - 1)
-#     return f ** 3 + 1
+@register(easing_func)
+def cubic_ease_out(p):
+    """
+    y = (x - 1)³ + 1
+    """
+    f = (p - 1)
+    return f ** 3 + 1
 
-# @register(easing_func)
+@register(easing_func)
 def circular_ease_out(p):
     return sqrt((2 - p) * p)
 
@@ -142,15 +147,20 @@ def draw_def(pg):
     pg.beginDraw()
     pg.fill(255)
     pg.textFont(f2)
-    pg.textSize(12)
-    pg.text(a_def, 15, 180)
+    pg.textSize(10)
+    pg.text(a_def, 280 , 280)
     pg.endDraw()
 
-def draw_func_names(pg):
+def draw_func_names(pg, all=False):
     pg.beginDraw()
+    if all:
+        n = len(easing_func)
+        pg.clear()
+    else:
+        n = i + 1
     pg.textFont(f1)
-    pg.textSize(14)
-    for ic in range(i + 1):
+    pg.textSize(12)
+    for ic in range(n):
         pg.fill(ic * 32, 255, 255)
         pg.text(easing_func[ic].__name__, 15, 25 + ic * 22)
     pg.endDraw()
