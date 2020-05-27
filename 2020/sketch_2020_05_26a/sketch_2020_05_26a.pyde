@@ -1,4 +1,5 @@
-# Based on idea from John @introscopia
+# A Processing map() demo!
+# Based on an idea from John @introscopia
 # + arrowhead by John
 
 X1, X2 = 133, 266
