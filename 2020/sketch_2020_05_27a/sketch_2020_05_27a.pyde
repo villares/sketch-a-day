@@ -1,9 +1,6 @@
 # A Processing lerp() demo!
 # Based on an idea from John @introscopia
 # + arrowhead by John
-# A Processing map() demo!
-# Based on an idea from John @introscopia
-# + arrowhead by John
 
 X1, X2 = 133, 266
 drag = -1
@@ -19,7 +16,7 @@ def setup():
 
 def init_pts():
     global pts
-    pts = [70, 50, 150, 10, 220]  # a, si, sf, ti, tf
+    pts = [70, 50, 150, 10, 220]
 
 def draw():
     background(240)
@@ -27,18 +24,19 @@ def draw():
     a = map(pts[0], pts[1], pts[2], 0, 1)
 
     b = lerp(pts[3], pts[4], a)
-    txt = ['a', '(0%) 0', '(100%) 1', 'b0', 'b1']
+    txt = ['t', '(0%) 0', '(100%) 1', 'v0', 'v1', 'v']
     if names:
-        ta = 'a'
-        tb = 'b'
+        ta = 't'
+        tb = 'v'
     else:
-        ta = 'a:{:.2f}'.format(a)
-        tb = 'b:{:.2f}'.format(b)
-        txt = ['{:.2f}'.format(a), txt[1], txt[2], pts[3], pts[4]]
+        ta = 't:{:.2f}'.format(a)
+        tb = 'v:{:.2f}'.format(b)
+        txt[0] = '{:.2f}'.format(a)
+        txt[3:5] = pts[3], pts[4]
 
     near_a = .1
     near_b = abs(pts[3] - pts[4]) * near_a / 2
-    
+
     a0 = '' if abs(a) < near_a else txt[1]
     a1 = '' if abs(a - 1) < near_a else txt[2]
     b0 = '' if abs(b - pts[3]) < near_b else txt[3]
@@ -53,7 +51,7 @@ def draw():
     bar(X1, pts[0], X2, b, ta, tb, RIGHT, LEFT)
 
     textAlign(CENTER)
-    caption = 'b = lerp({}, {}, {})'.format(txt[3], txt[4], txt[0])
+    caption = '{} = lerp({}, {}, {})'.format(txt[5], txt[3], txt[4], txt[0])
     textSize(18)
     text(caption, width / 2, 40 - y_off)
 
@@ -81,7 +79,7 @@ def keyPressed():
         init_pts()
     if keyCode == SHIFT:
         names = not names
-        
+
     if key == 'z':
         pts[0] += 1
     if key == 'a':
@@ -90,7 +88,7 @@ def keyPressed():
         pts[3] += 1
     if key == 's':
         pts[3] -= 1
-        
+
 
 def bar(x1, y1, x2, y2, t1=None, t2=None, a1=None, a2=None):
     push()
