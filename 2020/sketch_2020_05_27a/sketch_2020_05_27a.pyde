@@ -1,12 +1,14 @@
 # A Processing lerp() demo!
 # Based on an idea from John @introscopia
 # + arrowhead by John
+# A Processing map() demo!
+# Based on an idea from John @introscopia
+# + arrowhead by John
 
 X1, X2 = 133, 266
 drag = -1
 y_off = 100
 names = True
-mpde = 0
 
 def setup():
     size(400, 400)
@@ -17,44 +19,51 @@ def setup():
 
 def init_pts():
     global pts
-    pts = [.80, 5, 250]  # a, start, end
+    pts = [70, 50, 150, 10, 220]  # a, si, sf, ti, tf
 
 def draw():
     background(240)
     translate(0, y_off)
-    a = pts[0]
-    b = lerp(a, pts[1], pts[2])
+    a = map(pts[0], pts[1], pts[2], 0, 1)
 
-    a_screen = map(a, 0, 1, X1, X2) - y_off
+    b = lerp(pts[3], pts[4], a)
+    txt = ['a', '(0%) 0', '(100%) 1', 'b0', 'b1']
     if names:
-        txt = ('a', 'start', 'end')
         ta = 'a'
         tb = 'b'
     else:
-        txt = pts
-        ta = 'a:{:%}'.format(a)
-        tb = 'b:{:.4f}'.format(b)
+        ta = 'a:{:.2f}'.format(a)
+        tb = 'b:{:.2f}'.format(b)
+        txt = ['{:.2f}'.format(a), txt[1], txt[2], pts[3], pts[4]]
+
+    near_a = .1
+    near_b = abs(pts[3] - pts[4]) * near_a / 2
+    
+    a0 = '' if abs(a) < near_a else txt[1]
+    a1 = '' if abs(a - 1) < near_a else txt[2]
+    b0 = '' if abs(b - pts[3]) < near_b else txt[3]
+    b1 = '' if abs(b - pts[4]) < near_b else txt[4]
 
     fill(0)
     stroke(0, 200, 0)
-    bar(X1, X1 - y_off, X1, X2 - y_off, '0% ', '100% ', RIGHT, RIGHT)
+    bar(X1, pts[1], X1, pts[2], a0, a1, RIGHT, RIGHT)
     stroke(100, 0, 100)
-    bar(X2, pts[1], X2, pts[2], txt[1], txt[2], LEFT, LEFT)
+    bar(X2, pts[3], X2, pts[4], b0, b1, LEFT, LEFT)
     stroke(0)
-    bar(X1, a_screen, X2, b, ta, tb, RIGHT, LEFT)
+    bar(X1, pts[0], X2, b, ta, tb, RIGHT, LEFT)
 
     textAlign(CENTER)
-    caption = 'b = lerp({}, {}, {})'.format(*txt)
+    caption = 'b = lerp({}, {}, {})'.format(txt[3], txt[4], txt[0])
     textSize(18)
     text(caption, width / 2, 40 - y_off)
 
 def mousePressed():
     global drag
     for i, pt in enumerate(pts):
-        if i < 3 and dist(X1, pt, mouseX, mouseY - y_off) < 5:
+        if i == 0 and dist(X1, pt, mouseX, mouseY - y_off) < 5:
             drag = i
             return
-        elif dist(X2, pt, mouseX, mouseY - y_off) < 5:
+        elif i > 2 and dist(X2, pt, mouseX, mouseY - y_off) < 5:
             drag = i
             return
 
@@ -72,6 +81,16 @@ def keyPressed():
         init_pts()
     if keyCode == SHIFT:
         names = not names
+        
+    if key == 'z':
+        pts[0] += 1
+    if key == 'a':
+        pts[0] -= 1
+    if key == 'x':
+        pts[3] += 1
+    if key == 's':
+        pts[3] -= 1
+        
 
 def bar(x1, y1, x2, y2, t1=None, t2=None, a1=None, a2=None):
     push()
@@ -85,7 +104,8 @@ def bar(x1, y1, x2, y2, t1=None, t2=None, a1=None, a2=None):
             textAlign(a2, CENTER)
         text(' {} '.format(t2), x2, y2)
     fill(255)
-    circle(x1, y1, 10)
+    d = 3 if a1 == RIGHT and a2 == RIGHT else 10
+    circle(x1, y1, d)
     if a1 == RIGHT and a2 == LEFT:
         fill(0)
         translate(x2, y2)
@@ -95,5 +115,5 @@ def bar(x1, y1, x2, y2, t1=None, t2=None, a1=None, a2=None):
         strokeWeight(1)
         triangle(0, 0, -12, -5, -12, 5)
     else:
-        circle(x2, y2, 10)
+        circle(x2, y2, d)
     pop()
