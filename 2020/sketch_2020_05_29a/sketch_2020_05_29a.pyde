@@ -29,7 +29,7 @@ def draw():
     txt = ['t', '(0%) 0', '(100%) 1', 'c0', 'c1', 'c']
     if names:
         ta = 't'
-        tb = 'c'
+        tb = '   c'
     else:
         ta = 't:{:.2f}'.format(a)
         tb = '    c:color({:.0f}, {:.0f}, {:.0f})'.format(
@@ -51,6 +51,7 @@ def draw():
     fill(0)
     stroke(100)
     bar(X1, pts[1], X1, pts[2], a0, a1, RIGHT, RIGHT)
+    right_labels(X2+26, pts[1], X2+26, pts[2], b0, b1)
     stroke(0)
     fill(pts[3])
     circle(X2, pts[1], 50)
@@ -62,8 +63,7 @@ def draw():
     fill(0)
     if names:
         textAlign(CENTER)
-        caption = ('{} = lerpColor({}, {}, {})'
-                   .format(txt[5], txt[3], txt[4], txt[0]))
+        caption = '{} = lerpColor(c0, c1, t)'
         text(caption, width / 2, 40 - y_off)
     else:
         textSize(14)
@@ -121,3 +121,12 @@ def bar(x1, y1, x2, y2, t1, t2, a1, a2):
     else:
         circle(x2, y2, d)
     pop()
+    
+def right_labels(x1, y1, x2, y2, t1, t2):
+    fill(0)
+    textAlign(LEFT, CENTER)
+    if not names:
+        textSize(12)
+    text(' {} '.format(t1), x1, y1)
+    text(' {} '.format(t2), x2, y2)
+    
