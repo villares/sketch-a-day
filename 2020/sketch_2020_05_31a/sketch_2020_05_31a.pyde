@@ -121,11 +121,6 @@ def double_exponential_sigmoid(x, const=.7):
         y = 1.0 - ((2.0 * (1.0 - x)) ** (1.0 / a)) / 2.0
     return y
 
-def sigmoid_easing(p, const=12):
-    """ from John @introscopia """
-    m = lerp(p, 0, 1, -const, const)
-    return 1 / (1 + exp(-m))
-
 @register(easing_func)
 def sigmoid_easing(p, const=6):
     """ from John @introscopia """
@@ -188,7 +183,7 @@ def sigmoidMap(value, start1, stop1, start2, stop2, const=6):
 
 # @register(easing_func)
 # def circular_ease_out(p):
-# return sqrt((2 - p) * p)
+#    return sqrt((2 - p) * p)
 
 # @register(easing_func)
 # def back_ease_in_out(p):
