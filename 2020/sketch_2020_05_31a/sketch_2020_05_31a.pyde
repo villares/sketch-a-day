@@ -57,7 +57,7 @@ def draw():
     if frameCount % 4 == 0:
         gif_export(GifMaker,
                    "sketch_2020_05_31a",
-                   quality=100,
+                   quality=90,
                    delay=100)
 
     if x + 2 >= w:
@@ -132,10 +132,9 @@ def sigmoid_easing(p, const=6):
     m = lerp(-const, const, p)
     return 1 / (1 + exp(-m))
 
-# From John @introscopia
-def sigmoidMap(value, start1, stop1, start2, stop2):
-    c = 10
-    m = map(value, start1, stop1, -c, c)
+def sigmoidMap(value, start1, stop1, start2, stop2, const=6):
+    """ from John @introscopia """
+    m = map(value, start1, stop1, -const, const)
     return ((stop2 - start2) * (1 / (1 + exp(-m)))) + start2
 
 # @register(easing_func)
