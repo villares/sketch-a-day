@@ -54,7 +54,12 @@ def draw():
     image(l1, 0, 0)
     image(l2, 0, 0)
 
-    gif_export(GifMaker, "filename")
+    if frameCount % 4 == 0:
+        gif_export(GifMaker,
+                   "sketch_2020_05_31a",
+                   quality=100,
+                   delay=100)
+
     if x + 2 >= w:
         i = (i + 1) % len(easing_func)
         delay(1000)
@@ -76,8 +81,8 @@ def draw_def(pg):
     pg.beginDraw()
     pg.fill(0)
     pg.textFont(f2)
-    pg.textSize(12)
-    pg.text(a_def, 330, 200)
+    pg.textSize(10)
+    pg.text(a_def, 15, 100)
     pg.endDraw()
 
 def draw_func_names(pg, all=False):
@@ -101,14 +106,14 @@ def register(lst):
     return wrapper
 
 @register(easing_func)
-def double_exponential_sigmoid(x, a=.7):
+def double_exponential_sigmoid(x, const=.7):
     """ 
     from Golan Levin
     https://github.com/golanlevin/Pattern_Master
     """
-    min_param_a = 0.0 + EPSILON
-    max_param_a = 1.0 - EPSILON
-    a = 1 - constrain(a, min_param_a, max_param_a)
+    min_param = 0.0 + EPSILON
+    max_param = 1.0 - EPSILON
+    a = 1 - constrain(const, min_param, max_param)
     y = 0
     if x <= 0.5:
         y = ((2.0 * x) ** (1.0 / a)) / 2.0
@@ -118,13 +123,13 @@ def double_exponential_sigmoid(x, a=.7):
 
 def sigmoid_easing(p, const=12):
     """ from John @introscopia """
-    m = map(p, 0, 1, -const, const)
+    m = lerp(p, 0, 1, -const, const)
     return 1 / (1 + exp(-m))
 
 @register(easing_func)
 def sigmoid_easing(p, const=6):
     """ from John @introscopia """
-    m = map(p, 0, 1, -const, const)
+    m = lerp(-const, const, p)
     return 1 / (1 + exp(-m))
 
 # From John @introscopia
