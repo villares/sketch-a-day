@@ -6,12 +6,14 @@ Download from https://github.com/villares/processing-play/blob/master/export_GIF
 This helper was inspired by an example by Art Simon https://github.com/APCSPrinciples/AnimatedGIF/
 
 v2019_09_23
+v2020_05_31 doctring fixes
 
 # add at the start of your sketch:
-  add_library('gifAnimation')
-  from gif_animation_helper import gif_export
+add_library('GifAnimation')
+from gif_animation_helper import gif_export
+
 # add at the end of draw():
-  gif_export(GifMaker, "filename")
+gif_export(GifMaker, "filename")
 """
 
 def gif_export(GifMaker,             # gets a reference to the library
