@@ -1,4 +1,4 @@
-&#8239;
+<div ></div>
 ---
 
 # sketch-a-day
