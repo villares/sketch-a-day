@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Alexandre B A Villares http://abav.lugaralgum.com - v2020_05_31 - Licensed under GPL v3
+Alexandre B A Villares http://abav.lugaralgum.com - v2020_06_01 - Licensed under GPL v3
 Inspired by an example by Art Simon https://github.com/APCSPrinciples/AnimatedGIF/
 
 This is a helper for the Processing gifAnimation library https://github.com/extrapixel/gif-animation/tree/3.0
@@ -23,9 +23,10 @@ gif_export(GifMaker, "filename")
 def gif_export(GifMaker,             # gets a reference to the library
                filename="exported",  # .gif will be added
                repeat=0,             # 0 makes it an "endless" animation
-               quality=255,          # quality range 0 - 255
+               quality=100,          # quality range 0 - 255 test yourself,my guess is 0 best/high 255 worst/low
                delay=170,            # this is quick
                frames=0,             # 0 will stop only if 'e' key pressed
+               transparent=None,     # set a transparent color
                finish=False):        # force stop
     global gifExporter
     try:
@@ -35,6 +36,8 @@ def gif_export(GifMaker,             # gets a reference to the library
         gifExporter.setRepeat(repeat)
         gifExporter.setQuality(quality)
         gifExporter.setDelay(delay)
+        if transparent is not None:
+            gifExporter.setTransparent(transparent)
         print("gif recording started")
 
     gifExporter.addFrame()
