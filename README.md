@@ -1,7 +1,8 @@
-
+&#8239;
 ---
 
 # sketch-a-day
+
 #### [one visual idea a day](https://abav.lugaralgum.com/sketch-a-day)
 
 <sub>Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I try to make one small program (*sketch*) a day, and I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).</sub>
@@ -18,12 +19,27 @@
 
 ## 2020
 
+---
+
+![sketch_2020_05_31a](2020/sketch_2020_05_31a/sketch_2020_05_31a.gif)
+
+[sketch_2020_05_31a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_31a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+John´s sigmoid as easing + Golan Levin's sigmoid
+
+---
+
+![sketch_2020_05_30a](2020/sketch_2020_05_30a/sketch_2020_05_30a.gif)
+
+[sketch_2020_05_30a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_30a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+John's `sigmoidMap()`
 
 ---
 
 ![sketch_2020_05_29a](2020/sketch_2020_05_29a/sketch_2020_05_29a.gif)
 
-[sketch_2020_05_29a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_2020_05_29a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_29a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 `lerpColor()`
 
@@ -31,7 +47,7 @@
 
 ![sketch_2020_05_28b](2020/sketch_2020_05_28b/sketch_2020_05_28b.gif)
 
-[sketch_2020_05_28b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_2020_05_28b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_28b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 `PVector.lerp()`
 
@@ -39,7 +55,7 @@
 
 ![sketch_2020_05_27a](2020/sketch_2020_05_27a/sketch_2020_05_27a.gif)
 
-[sketch_2020_05_26a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_2020_05_27a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 Explaining `lerp()` in Processing
 
@@ -178,7 +194,6 @@ Looping now :)
 ![sketch_2020_05_08a](2020/sketch_2020_05_08a/sketch_2020_05_08a.gif)
 
 [sketch_2020_05_08a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_05_08a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
 
 ---
 
@@ -417,7 +432,6 @@ rules = {
     'R': '+LF[+R]',
 }
 ```
-
 
 ---
 
