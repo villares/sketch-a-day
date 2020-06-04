@@ -3,9 +3,6 @@ via https://twitter.com/ntsutae/status/1267834176381702148?s=20
 ntsutae metioned to be inspired by  https://dwitter.net/d/18851
 """
 
-halfWidth = None
-halfHeight = None
-tex = None
 rotx = PI / 4
 roty = PI / 4
 t = 0
@@ -15,10 +12,7 @@ def setup():
     global halfWidth, halfHeight, tex
     halfWidth = width / 2.0
     halfHeight = height / 2.0
-    tex = loadImage("berlin-1.jpg")
     textureMode(NORMAL)
-    fill(255)
-    stroke(color(44, 48, 32))
 
 def draw():
     background(0)
