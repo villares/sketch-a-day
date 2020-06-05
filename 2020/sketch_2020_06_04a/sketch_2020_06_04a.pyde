@@ -1,13 +1,5 @@
-# t=0;w=720#つぶやきProcessing d'aprés @ntsutae
-# def setup():size(w,w)
-# def draw():
-
-# d'aprés @ntsutae つぶやきProcessing 
+# D'aprés @ntsutae つぶやきProcessing 
 # https://twitter.com/ntsutae/status/1268432505356513280?s=20
-#  global t;t+=1;scale(3);background(-1)
-#  for y in range(240):
-#   for x in range(240):
-#    (t+abs((x+y-t)^(x-y+t))**3)%1023<109 and point(x,y)
 
 t = 0
 w = 400  
@@ -40,3 +32,12 @@ def keyPressed():
         c +=1
     if key == 'c' and c > 1:
         c -=1
+
+# First ported from @ntsutae code for a single tweet                
+# t=0;w=720#つぶやきProcessing d'aprés @ntsutae
+# def setup():size(w,w)
+# def draw():
+#  global t;t+=1;scale(3);background(-1)
+#  for y in range(240):
+#   for x in range(240):
+#    (t+abs((x+y-t)^(x-y+t))**3)%1023<109 and point(x,y)
