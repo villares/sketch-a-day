@@ -2,21 +2,20 @@
 # https://twitter.com/ntsutae/status/1268432505356513280?s=20
 
 t = 0
-w = 400  
-a, b, c = 2, 1023, 512
+a, b, c = 2, 1024, 256
 def setup():
-    size(w, w)
-    strokeWeight(1.5)
+    size(400, 400)
     noSmooth()
 def draw():
     global t
     t += 1
     # scale(2)
-    background(-1)
-    for y in range(400):
-        for x in range(400):
+    background(255)
+    for y in range(width):
+        for x in range(width):
             (t + abs((x + y - t) ^ (x - y + t)
                      ) ** a) % b < c and point(x, y)
+            
 def keyPressed():
     global a, b, c
     print(a, b, c)
