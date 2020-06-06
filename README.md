@@ -39,6 +39,22 @@ Most wonderful pattern generator copied from [@ntsutae](https://twitter.com/ntsu
 
 ---
 
+![sketch_2020_06_03a](2020/sketch_2020_06_03a/sketch_2020_06_03a.gif)
+
+[sketch_2020_06_03a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_03a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Based on tweets by @ntsutae
+
+---
+
+![sketch_2020_06_02a](2020/sketch_2020_06_02a/sketch_2020_06_02a.gif)
+
+[sketch_2020_06_02a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_02a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Based on tweets by @ntsutae
+
+---
+
 ![sketch_2020_06_01a](2020/sketch_2020_06_01a/sketch_2020_06_01a.gif)
 
 [sketch_2020_06_01a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_01a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
