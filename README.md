@@ -19,6 +19,24 @@
 
 ## 2020
 
+
+---
+
+![sketch_2020_06_05a](2020/sketch_2020_06_05a/sketch_2020_06_05a.gif)
+
+[sketch_2020_06_05a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_05a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Adding some HSB color :)
+(still the [@nstutae](https://twitter.com/ntsutae/status/1268432505356513280?s=20) pattern)
+
+---
+
+![sketch_2020_06_04a](2020/sketch_2020_06_04a/sketch_2020_06_04a.gif)
+
+[sketch_2020_06_04a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_04a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Most wonderful pattern generator copied from [@ntsutae](https://twitter.com/ntsutae/status/1268432505356513280?s=20)
+
 ---
 
 ![sketch_2020_06_01a](2020/sketch_2020_06_01a/sketch_2020_06_01a.gif)
