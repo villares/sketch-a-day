@@ -20,6 +20,17 @@
 ## 2020
 
 
+
+---
+
+![sketch_2020_06_06a](2020/sketch_2020_06_06a/sketch_2020_06_06a.gif)
+
+[sketch_2020_06_06a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Removed the scaling.
+Now walking +.1 on the 'a' of:
+`(t + abs((x + y - t) ^ (x - y + t)) ** a) % b < c`
+
 ---
 
 ![sketch_2020_06_05a](2020/sketch_2020_06_05a/sketch_2020_06_05a.gif)
