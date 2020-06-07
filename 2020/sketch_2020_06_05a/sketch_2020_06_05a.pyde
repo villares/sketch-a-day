@@ -28,7 +28,6 @@ def draw():
                     set(ix, iy, px)
 def keyPressed():
     global a, b, c
-    print(a, b, c)
     if key == 'a':
         a += 1
     if key == 'z' and a > 1:
@@ -41,6 +40,7 @@ def keyPressed():
         c += 1
     if key == 'c' and c > 1:
         c -= 1
+    print(a, b, c)
 
 # First ported from @ntsutae code for a single tweet
 # t=0;w=720#つぶやきProcessing d'aprés @ntsutae
