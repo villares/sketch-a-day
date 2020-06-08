@@ -2,7 +2,7 @@
 # https://twitter.com/ntsutae/status/1268432505356513280?s=20
 
 t = 0
-a, b, c = 1, 10, 128
+a, b, c = 1, 256, 128
 def setup():
     size(512, 512)
     noSmooth()
