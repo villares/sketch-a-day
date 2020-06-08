@@ -20,6 +20,15 @@
 ## 2020
 
 
+---
+
+![sketch_2020_06_07a](2020/sketch_2020_06_07a/sketch_2020_06_07a.gif)
+
+[sketch_2020_06_07a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_07a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Diagonal serpinsky-like 
+
+`(-t + abs((x + y) | (x - y + t * 2)) ** a) % b < c`
 
 ---
 
