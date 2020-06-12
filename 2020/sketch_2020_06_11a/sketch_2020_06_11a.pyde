@@ -17,7 +17,7 @@ def draw():
           d=31)
 
     if frameCount < 360:
-       if frameCount % 2:
+       if frameCount % 3 == 0:
            gif_export(GifMaker, "filename")
     else:
         gif_export(GifMaker, finish=True)
