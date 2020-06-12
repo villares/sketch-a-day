@@ -1,13 +1,27 @@
+add_library('gifAnimation')
+from gif_export import gif_export
+
 def setup():
     size(500, 500)
     noStroke()
 
 def draw():
+    f = radians(frameCount - 1)
+
     background(240)
     noStroke()
-    tc = poly_points(250, 250, 100, n=24)
+    tc = poly_points(250, 250, 100, n=6)
     for i, p in enumerate(tc):
-        t(p[0], p[1], 100, 5 * i * radians(210))
+        t(p[0], p[1], 150,
+          4 * i * radians(60) + f,
+          d=31)
+
+    if frameCount < 360:
+       if frameCount % 2:
+           gif_export(GifMaker, "filename")
+    else:
+        gif_export(GifMaker, finish=True)
+
 
 def t(x, y, s, rot=0, d=71):
     pp = poly_points(x, y, s, 3, rot + PI)
