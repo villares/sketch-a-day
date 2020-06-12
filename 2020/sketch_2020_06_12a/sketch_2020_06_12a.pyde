@@ -1,5 +1,5 @@
-add_library('gifAnimation')
-from gif_export import gif_export
+# add_library('gifAnimation')
+# from gif_export import gif_export
 
 def setup():
     size(400, 400)
@@ -9,27 +9,25 @@ def setup():
 
 def draw():
     f = radians(frameCount - 1)
-
     background(0)
     noStroke()
     tc = poly_points(200, 200, 80, n=12, rot=-f)
-    
     for i, p in enumerate(tc):
         fill(i *21, 255, 255)
         t(p[0], p[1], 120,
           1 * i * radians(60) + f,
           d=61)
 
-    if frameCount < 360:
-       if frameCount % 2 == 0:
-           gif_export(GifMaker,
-                      "sketch_2020_06_12b",
-                      quality=0,  # compression 0
-                      # I used gifsicle aftewards:
-                      # -03 -- colors 51
-                      )
-    else:
-        gif_export(GifMaker, finish=True)
+    # if frameCount < 360:
+    #    if frameCount % 2 == 0:
+    #        gif_export(GifMaker,
+    #                   "sketch_2020_06_12b",
+    #                   quality=0,  # compression 0
+    #                   # I used gifsicle aftewards:
+    #                   # -03 -- colors 51
+    #                   )
+    # else:
+    #     gif_export(GifMaker, finish=True)
 
 
 def t(x, y, s, rot=0, d=71):
