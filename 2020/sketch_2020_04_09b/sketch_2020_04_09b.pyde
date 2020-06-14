@@ -1,6 +1,7 @@
 # inspired by https://twitter.com/beesandbombs/status/1247567578802855938?s=20
-add_library('GifAnimation')
-from gif_animation_helper import gif_export
+#
+# add_library('GifAnimation')
+# from gif_animation_helper import gif_export
 
 s_size = 50
 COLORS = [color(255, 255, 0),
@@ -10,7 +11,7 @@ COLORS = [color(255, 255, 0),
 
 def setup():
     size(400, 400)
-    blendMode(ADD)  # DIFFERENCE # ECVLUSION
+    blendMode(ADD)  # DIFFERENCE # EXCLUSION
     rectMode(CENTER)
     init()
 
@@ -50,12 +51,12 @@ def draw():
         circle(0, 0, s)
         popMatrix()
 
-    if frameCount < 360:
-        if frameCount % 2:
-           gif_export(GifMaker, "animation")
-    else:
-        gif_export(GifMaker, "animation", finish=True)
-
+    # if frameCount < 360:
+    #     if frameCount % 2:
+    #        gif_export(GifMaker, "animation")
+    # else:
+    #     gif_export(GifMaker, "animation", finish=True)
+    #
     # if frameCount % 360 == 0:
     #     init()
 
