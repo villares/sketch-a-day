@@ -28,28 +28,21 @@
 
 ---
 
-![sketch_2020_06_13a](2020/sketch_2020_06_13a/sketch_2020_06_13a.png)
-
-[sketch_2020_06_13a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_13a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
-
----
-
-![sketch_2020_06_12a](2020/sketch_2020_06_12a/sketch_2020_06_12a.png)
+![sketch_2020_06_12a](2020/sketch_2020_06_12a/sketch_2020_06_12a.gif)
 
 [sketch_2020_06_12a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_12a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 
-![sketch_2020_06_11a](2020/sketch_2020_06_11a/sketch_2020_06_11a.png)
+![sketch_2020_06_11a](2020/sketch_2020_06_11a/sketch_2020_06_11a.gif)
 
 [sketch_2020_06_11a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_11a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 
 ---
 
-![sketch_2020_06_11b](2020/sketch_2020_06_11b/sketch_2020_06_11b.png)
+![sketch_2020_06_11b](2020/sketch_2020_06_11b/sketch_2020_06_11b.gif)
 
 [sketch_2020_06_11b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_11b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
@@ -77,10 +70,12 @@
 
 ---
 
-![sketch_2020_06_08b](2020/sketch_2020_06_08b/sketch_2020_06_08b.png)
+![sketch_2020_06_08b](2020/sketch_2020_06_08b/schotter.png)
 
 [sketch_2020_06_08b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_08b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Recreating a classic in class today: Georg Nees' Schotter
+https://collections.vam.ac.uk/item/O221321/s 
 
 ---
 
