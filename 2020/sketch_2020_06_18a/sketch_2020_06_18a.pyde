@@ -36,13 +36,13 @@ def draw():
 
     for fa, fb in zip(ga['c'], gb['c']):
         x, y, w = lerp_g(fa, fb, m)
-        stroke((fb[2] * 8) % 256, 255, 255)
+        stroke((w * 8) % 256, 255, 255)
         circle(x, y, w)
 
     for fa, fb in zip(ga['s'], gb['s']):
         x, y, w = lerp_g(fa, fb, m)
         square(x, y, w)
-        stroke((fa[2] * 8) % 256, 255, 255)
+        stroke((w * 8) % 256, 255, 255)
 
     if frameCount in (2, 181, 361):
         delay(2000)
