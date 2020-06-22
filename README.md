@@ -19,6 +19,37 @@
 
 ## 2020
 
+
+---
+
+![sketch_2020_06_21c](2020/sketch_2020_06_21c/sketch_2020_06_21c.gif)
+
+[sketch_2020_06_21c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_21c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Animation for teaching `atan2()` in [material-aulas](github.com/villares/material-aulas)
+
+---
+
+![sketch_2020_06_20a](2020/sketch_2020_06_20a/sketch_2020_06_20a.gif)
+
+[sketch_2020_06_20a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_20a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Invitatio dor Noite de Processing
+
+---
+
+![sketch_2020_06_19a](2020/sketch_2020_06_19a/sketch_2020_06_19a.gif)
+
+[sketch_2020_06_19a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_19a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Animation for teaching an alternative to `input()` in [material-aulas](github.com/villares/material-aulas)
+ 
+```python
+def input(message=''):
+    from javax.swing import JOptionPane
+    return JOptionPane.showInputDialog(frame, message)
+```
+
 ---
 
 ![sketch_2020_06_18a](2020/sketch_2020_06_18a/sketch_2020_06_18a.gif)
