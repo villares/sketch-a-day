@@ -34,7 +34,7 @@ Animation for teaching `atan2()` in [material-aulas](github.com/villares/materia
 
 [sketch_2020_06_20a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_06_20a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Invitatio dor Noite de Processing
+Invitation for [Noite de Processing](https://garoa.net.br/wiki/Noite_de_Processing) :)
 
 ---
 
