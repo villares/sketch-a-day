@@ -57,13 +57,10 @@ def mousePressed():
             if(distance < closest):
                 closest = distance
                 closestIndex = i
-            
         
         if(closestIndex>=0):
             draggable.insert(closestIndex+1, PVector(mouseX, mouseY))
         
-    
-
  
 # def mouseReleased():
 #     dragMouseReleased()
