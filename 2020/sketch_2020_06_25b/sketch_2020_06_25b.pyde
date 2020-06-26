@@ -60,7 +60,7 @@ def mousePressed():
             
         
         if(closestIndex>=0):
-            draggable.append(PVector(mouseX, mouseY)) #, closestIndex+1)
+            draggable.insert(closestIndex+1, PVector(mouseX, mouseY))
         
     
 
