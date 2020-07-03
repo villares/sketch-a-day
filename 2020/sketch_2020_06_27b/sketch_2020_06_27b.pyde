@@ -19,8 +19,7 @@ def draw():
             a = y + frameCount
             b = y - frameCount
             c = (frameCount + a ^ b) ** 2
-            bf = left_padded_bin(n)
-            bv = bf(c)
+            bv = left_padded_bin(c, n)
             if bv[x] == '0':
                 fill(0)
             else:
@@ -28,6 +27,6 @@ def draw():
             rect(x * s, y * s, s, s)
 
 
-def left_padded_bin(n):
+def left_padded_bin(v, n):
     f = '{{:0{}b}}'.format(n)
-    return f.format
+    return f.format(v)
