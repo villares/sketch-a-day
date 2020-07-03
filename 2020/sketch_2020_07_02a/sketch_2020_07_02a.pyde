@@ -1,17 +1,16 @@
-n, t = 64, 0
+n,s,t=64,5,0
 def setup():
-    noStroke()
-    frameRate(2)
-    size(320, 320)
-    colorMode(HSB)
+ noStroke()
+ frameRate(2)
+ size(320, 320)
+ colorMode(HSB)
 def draw():
-    s = width / n
-    for x in range(n):
-        for y in range(n):
-            c = (frameCount ** y)
-            bv = '{:064b}'.format(c)
-            if bv[x] == '0':
-                fill(0)
-            else:
-                fill(c % 255, 255, 255)
-            rect(x * s, y * s, s, s)
+ clear()
+ for x in range(n):
+  for y in range(n):
+   c=frameCount**y
+   bv='{:064b}'.format(c)
+   fill(c%255,255,255)
+   if bv[x]=='1':rect(x*s,y*s,s,s)
+
+    
