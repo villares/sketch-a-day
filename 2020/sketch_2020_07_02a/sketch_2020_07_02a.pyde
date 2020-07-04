@@ -1,4 +1,4 @@
-n,s,t=64,5,0
+n,s=64,5
 def setup():
  noStroke()
  frameRate(2)
