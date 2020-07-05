@@ -1,7 +1,12 @@
 from os import listdir
 from os.path import isfile, join
 
-def name_image_files(base, folder):
+def get_image_files(base, folder):
+    """
+    returns a list of image files from
+    a directory named folder at base/folder
+    but only if name contains the folder name        
+    """    
     contents = listdir(join(base, folder))
     image_files = [f for f in contents
                    if is_img_ext(f)
@@ -9,8 +14,11 @@ def name_image_files(base, folder):
     return image_files
 
 def is_img_ext(file_name):
+    """
+    checks if file_name ends with
+    one of the valid_ext extensions
+    """ 
     ext = file_name.split('.')[-1]
-    # extensões dos formatos de imagem que o Processing aceita!
     valid_ext = ('jpg',
                  'png',
                  'jpeg',
@@ -21,6 +29,11 @@ def is_img_ext(file_name):
     return ext.lower() in valid_ext
 
 def build_entry(image, year):
+    """
+    returns a string with markdown formated
+    for the sketch-a-day index page entry
+    of image (for a certain year)
+    """ 
     name, ext = image.split('.')
     return """
 ---
