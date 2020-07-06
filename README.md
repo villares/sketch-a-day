@@ -18,7 +18,12 @@
 ## [2019](2019.md)
 
 ## 2020
+
 ---
+
+![sketch_2020_07_06a](2020/sketch_2020_07_06a/sketch_2020_07_06a.gif)
+
+[sketch_2020_07_06a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
