@@ -6,7 +6,9 @@ def draw():
  clear();f=frameCount;noStroke()
  for x in range(n):
   c=long(abs(-s*f%n+x^4*f%n-x)**7.9)
-  for y in range(n):fill((c+y)%m,m,m);bin(c)[2:].zfill(n)[y]=='1'and square(x*s,y*s,s*2)
+  
+  for y in range(n):fill((c+y)%m,m,m);format(c,'064b')[y]=='1'and square(x*s,y*s,s*2)
+  # for y in range(n):fill((c+y)%m,m,m);bin(c)[2:].zfill(n)[y]=='1'and square(x*s,y*s,s*2)
   # for y in range(n):b=bin(c)[2:].zfill(64);fill((c+y)%m,m,m);b[y]=='1'and square(x*s,y*s,s*2)
 
 # n,s=64,8#;l=long(2**n) #つぶやきProcessing
