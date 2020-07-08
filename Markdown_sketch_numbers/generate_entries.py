@@ -16,12 +16,17 @@ YEAR = "2020"
 base_path = "/media/villares/VolumeD/GitHub/sketch-a-day"
 year_path = join(base_path,YEAR)
 folders = listdir(year_path)
+readme_path = join(base_path, 'README.md')
 
-with open(join(base_path, 'README.md')) as readme:
-    imagens = (line[line.find(YEAR):line.find(']')]
-               for line in readme.readlines()
+# open the readme markdown index
+with open(readme_path, 'rt') as readme:
+    lines = readme.readlines()
+    
+# find date of the first image    
+imagens = (line[line.find(YEAR):line.find(']')]
+               for line in lines
                if '![' in line)
-    last_done = next(imagens)[:10]
+last_done = next(imagens)[:10]
     
 # find folders after the last_done
 new_folders = []
@@ -31,9 +36,21 @@ for f in reversed(folders):
     else:
         new_folders.append(f)
 
-for f in new_folders:
-    imgs = get_image_files(year_path, f)
-    if imgs:
-        print(build_entry(imgs[0], YEAR))
+# find insert_point
+for insert_point, line in enumerate(lines):
+    if last_done in line:
+        break
 
+# iterate on new folders
+for f in new_folders[::-1]:
+    imgs = get_image_files(year_path, f)
+    if imgs:  # if matching image found
+        # insert entry
+        lines.insert(insert_point - 3,
+                     build_entry(imgs[0], YEAR))
+
+# overwrite the readme markdown index
+with open(readme_path, 'wt') as readme:
+    content = "".join(lines)
+    readme.write(content)
     
