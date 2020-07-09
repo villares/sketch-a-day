@@ -4,7 +4,7 @@
 # build markdown for entries
 ## TO DO:
 # [X] find last entry for me
-# [ ] insert new entries in propper place
+# [X] insert new entries in propper place
 # [ ] insert docstrings as text on .md file
 
 from os import listdir
@@ -31,26 +31,22 @@ last_done = next(imagens)[:10]
 # find folders after the last_done
 new_folders = []
 for f in reversed(folders):
-    if last_done in f:
-        break
+    if last_done not in f:
+        new_folders.append(f)        
     else:
-        new_folders.append(f)
-
-# find insert_point
+        break
+# find insertion point
 for insert_point, line in enumerate(lines):
     if last_done in line:
         break
-
 # iterate on new folders
-for f in new_folders[::-1]:
-    imgs = get_image_files(year_path, f)
-    if imgs:  # if matching image found
-        # insert entry
+for name in reversed(new_folders):
+    imgs = get_image_files(year_path, name)
+    if imgs:  # insert entry if matching image found
         lines.insert(insert_point - 3,
                      build_entry(imgs[0], YEAR))
-
+        print('adding: '+ name)
 # overwrite the readme markdown index
 with open(readme_path, 'wt') as readme:
     content = "".join(lines)
-    readme.write(content)
-    
+    readme.write(content)    
