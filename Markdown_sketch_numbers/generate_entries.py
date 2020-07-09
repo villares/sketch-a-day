@@ -20,14 +20,12 @@ readme_path = join(base_path, 'README.md')
 
 # open the readme markdown index
 with open(readme_path, 'rt') as readme:
-    lines = readme.readlines()
-    
+    lines = readme.readlines()   
 # find date of the first image    
 imagens = (line[line.find(YEAR):line.find(']')]
                for line in lines
                if '![' in line)
 last_done = next(imagens)[:10]
-    
 # find folders after the last_done
 new_folders = []
 for f in reversed(folders):
