@@ -21,6 +21,17 @@
 
 ---
 
+![sketch_2020_07_10a](2020/sketch_2020_07_10a/sketch_2020_07_10a.gif)
+
+[sketch_2020_07_10a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_10a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Based on work by André Burnier, ported from Processing Java to Python
+by Thiago Bellotti and Alexandre Villares.
+Playing with the Tomorrow font by Tony de Marco e Monica Rizzolli.
+Using geomerative, a library by Ricard Marxer.
+
+---
+
 ![sketch_2020_07_09a](2020/sketch_2020_07_09a/sketch_2020_07_09a.gif)
 
 [sketch_2020_07_09a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_09a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
