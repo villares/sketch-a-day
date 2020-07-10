@@ -44,15 +44,16 @@ def draw():
             fill(255)
             stroke(0)
             vx, vy = x + v.x, y + v.y + linha.ly # ajusta para x, y e 'y da linha'
-            dif = PVector(vx, vy) - PVector(mouseX, mouseY)
-            d = dif.mag()
+            dif = PVector(vx, vy) - PVector(mouseX, mouseY) # vetor entre mouse e v
+            d = dif.mag()  # distância do mouse ao vértice (eu ia usar depois...)
             if d < RAIO:
                 fill(255, 0, 0)
                 ellipse(vx, vy, 5, 5)
-                dif.normalize()
+                dif.normalize()  # encurta para 1 o PVector
+                # só não dá pra fazer v += dif pq v é um RG Point e não PVector
                 v.x += dif.x 
                 v.y += dif.y 
-        # fazendo os pontos voltarem para casa
+        # fazendo os vertices voltarem para casa (base)
         linha.voltaVertices()              
 
 
