@@ -32,26 +32,26 @@ def draw():
                 r += v
             # c = map(r.heading(), -PI, PI, 0, 255)
             # stroke(c, 255, 255)
-            vetor(x, y, r)
+            seta_vetor(x, y, r)
 
-def vetor(xa, ya, v):
-    # xb, yb = v.x, v.y
-    push()
-    tam = v.mag()
+def seta_vetor(xo, yo, v):
+    """Desenhe uma seta na posição xo, yo usando o vetor v."""
+    body = v.mag()
     ang = v.heading()
-    tam_ponta = max(5, tam / 5)
-    xp = xa + cos(ang) * tam
-    yp = ya + sin(ang) * tam
-    line(xa, ya, xp, yp)  # corpo com tamanho fixo
-    fill(g.strokeColor)  # gets current stroke!
+    head_size = max(5, body / 5)
+    xh = xo + cos(ang) * body
+    yh = yo + sin(ang) * body
+    line(xo, yo, xh, yh)  # corpo com tamanho fixo
+    push()  # preserva os atributos gráficos atuais
+    fill(g.strokeColor)  # usa a cor de traço como preenchimento!
     noStroke()
     beginShape()
-    xpe = xp + cos(ang + QUARTER_PI / 2 + PI) * tam_ponta
-    ype = yp + sin(ang + QUARTER_PI / 2 + PI) * tam_ponta
-    xpd = xp + cos(ang - QUARTER_PI / 2 + PI) * tam_ponta
-    ypd = yp + sin(ang - QUARTER_PI / 2 + PI) * tam_ponta
-    vertex(xpe, ype)  # parte esquerda da ponta
-    vertex(xp, yp)
-    vertex(xpd, ypd)  # parte direita da ponta
+    xha = xh + cos(ang + QUARTER_PI / 2 + PI) * head_size
+    yha = yh + sin(ang + QUARTER_PI / 2 + PI) * head_size
+    xhb = xh + cos(ang - QUARTER_PI / 2 + PI) * head_size
+    yhb = yh + sin(ang - QUARTER_PI / 2 + PI) * head_size
+    vertex(xha, yha)  
+    vertex(xh, yh)
+    vertex(xhb, yhb)
     endShape(CLOSE)
-    pop()
+    pop()  # devolve os atributos ao que eram antes
