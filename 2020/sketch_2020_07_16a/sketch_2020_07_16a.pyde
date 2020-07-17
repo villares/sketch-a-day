@@ -23,23 +23,23 @@ def setup():
     strokeWeight(3)
 
 def draw():
-    for v in grid.keys():
-        xa, ya = grid[v]
+    for v in pos.keys():
+        xa, ya = pos[v]
         for e in graph[v]:
-            xb, yb = grid[e]
+            xb, yb = pos[e]
             line(xa, ya, xb, yb)
 
-    for v in grid.keys():
-        x, y = grid[v]
+    for v in pos.keys():
+        x, y = pos[v]
         text(v, x, y)
 
     saveFrame("sketch_2020_07_16a.png")
 
 def setup_graph(g):
-    global cols, rows, grid
+    global cols, rows, pos
     n = len(g)
 
-    grid = {}
+    pos = {}
     v_list = g.vertices()
     v_list.sort(key=g.vertex_degree)
     b = n // 2
@@ -50,14 +50,14 @@ def setup_graph(g):
         v = v_list[i]
         x = cos(ang * i) * width * .4 + width / 2
         y = sin(ang * i) * height * .4 + height / 2
-        grid[v] = (x, y)
+        pos[v] = (x, y)
 
     ang = TWO_PI / b
     for i in range(a, a + b):
         v = v_list[i]
         x = cos(ang * i) * width * .2 + width / 2
         y = sin(ang * i) * height * .2 + height / 2
-        grid[v] = (x, y)
+        pos[v] = (x, y)
 
 
 
