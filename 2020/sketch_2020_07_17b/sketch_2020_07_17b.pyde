@@ -18,8 +18,8 @@ def draw():
     particleSystem.addParticle()
     particleSystem.run()
     fill(0)
-    # text(len(particleSystem.particles), 20, 380)
-    text(frameRate, 20, 380)
+    text(len(particleSystem.particles), 20, 380)
+    # text(frameRate, 20, 390)
 
 
 class Repeller:
@@ -64,9 +64,7 @@ class Particle:
         self.display()
 
     def applyForce(self, force):
-        f = force.copy()
-        f.div(self.mass)
-        self.acceleration.add(f)
+        self.acceleration.add(force / self.mass)
 
     def update(self):
         self.velocity.add(self.acceleration)
@@ -89,7 +87,7 @@ class Particle:
 class ParticleSystem():
 
     def __init__(self, position):
-        self.origin = position.copy()
+        self.origin = position
         self.particles = []
 
     def addParticle(self):
@@ -101,9 +99,7 @@ class ParticleSystem():
 
     def applyGravity(self):
         for p in self.particles:
-            particleG = gravity.copy()
-            particleG.mult(p.mass)
-            p.applyForce(particleG)
+            p.applyForce(gravity * p.mass)
 
     def applyRepeller(self, r):
         for p in self.particles:
