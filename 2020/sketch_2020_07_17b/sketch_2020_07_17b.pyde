@@ -45,8 +45,8 @@ class Repeller:
         d = constrain(d, 1, 100)
         # Repelling force is inversely proportional to distance
         force = -1 * self.power / (d * d)
-        # Get force vector -= 1> magnitude * direction
-        dir.mult(force)
+        # Get force vector -= 1: magnitude * direction
+        dir *= force
         return dir
 
 
@@ -67,9 +67,9 @@ class Particle:
         self.acceleration.add(force / self.mass)
 
     def update(self):
-        self.velocity.add(self.acceleration)
-        self.position.add(self.velocity)
-        self.acceleration.mult(0)
+        self.velocity += self.acceleration
+        self.position += self.velocity
+        self.acceleration.setMag(0)
         self.timeToLive -= 1
 
     def display(self):
@@ -90,12 +90,13 @@ class ParticleSystem():
         self.origin = position
         self.particles = []
 
-    def addParticle(self):
-        self.particles.append(Particle(self.origin))
+    def addParticle(self, pos=None):
+        pos = pos or self.origin
+        self.particles.append(Particle(pos))
 
-    def applyForce(self, f):
+    def applyForce(self, force):
         for p in self.particles:
-            p.applyForce(f)
+            p.applyForce(force)
 
     def applyGravity(self):
         for p in self.particles:
