@@ -5,9 +5,9 @@
 def setup():
     global gravity, particleSystem, repeller
     size(400, 400)
-    gravity = PVector(0, 0.2)
+    gravity = PVector(0, 0.1)
     particleSystem = ParticleSystem(PVector(width / 2, 50))
-    repeller = Repeller(width / 2, 280)
+    repeller = Repeller(width / 2, 280, power=20000)
     colorMode(HSB)
 
 
@@ -16,7 +16,7 @@ def draw():
     particleSystem.applyGravity()
     particleSystem.applyRepeller(repeller)
     repeller.display()
-    for x in range(180, width- 180, 10):
+    for x in range(180, width - 180, 10):
         if frameCount % 5 == 0:
             particleSystem.addParticle(PVector(x, 0))
     particleSystem.run()
@@ -28,8 +28,8 @@ def draw():
 
 class Repeller:
 
-    def __init__(self, x, y):
-        self.power = 598.0
+    def __init__(self, x, y, power=300):
+        self.power = power
         self.position = PVector(x, y)
 
     def display(self):
@@ -46,12 +46,13 @@ class Repeller:
         # Normalize direction vector
         dir.normalize()
         # Keep distance within a reasonable range
-        # d = constrain(d, 1, 100)
+        d = constrain(d, 1, 100)
         # Repelling force is inversely proportional to distance
         force = 1 * self.power / (d * d)
-        print force
-        force = constrain(force, 0, 5)
-        print force
+        # print force
+        force = constrain(force, 0, 50)
+        if force > 10:
+            print force
         # Get force vector -= 1: magnitude * direction
         dir *= -force
         return dir
@@ -64,7 +65,7 @@ class Particle:
         self.velocity = PVector(random(-1, 1) / 5, 0)
         self.position = position.copy()
         self.timeToLive = 255.0
-        self.mass = random(5, 20)
+        self.mass = random(5, 50)
 
     def run(self):
         self.update()
@@ -83,7 +84,7 @@ class Particle:
         # stroke(0, 0, 0, self.timeToLive)
         # strokeWeight(2)
         noStroke()
-        fill(self.mass * 12, 200, 200, self.timeToLive)
+        fill(self.mass * 5, 200, 200, self.timeToLive)
         ellipse(self.position.x, self.position.y, self.mass, self.mass)
 
     def isDead(self):
