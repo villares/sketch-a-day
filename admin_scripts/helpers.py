@@ -1,16 +1,17 @@
 from os import listdir
 from os.path import isfile, join
 
-def get_image_files(base, folder):
+def get_image_names(base, folder, word=None):
     """
-    returns a list of image files from
-    a directory named folder at base/folder
-    but only if name contains the folder name        
-    """    
+    Return a list of image names from a directory
+    named folder at base/folder by default only
+    if name contains the folder name.        
+    """
+    word = word or folder
     contents = listdir(join(base, folder))
     image_files = [f for f in contents
                    if is_img_ext(f)
-                   and folder in f]
+                   and word in f]
     return image_files
 
 def is_img_ext(file_name):

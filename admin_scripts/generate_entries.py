@@ -38,8 +38,8 @@ for insert_point, line in enumerate(lines):
     if last_done in line:
         break
 # iterate on new folders
-for name in reversed(new_folders):
-    imgs = get_image_files(year_path, name)
+for folder in reversed(new_folders):
+    imgs = get_image_names(year_path, folder)
     if imgs:  # insert entry if matching image found
         lines.insert(insert_point - 3,
                      build_entry(imgs[0], YEAR))
