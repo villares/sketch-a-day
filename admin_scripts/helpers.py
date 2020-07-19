@@ -16,8 +16,8 @@ def get_image_names(base, folder, word=None):
 
 def is_img_ext(file_name):
     """
-    checks if file_name ends with
-    one of the valid_ext extensions
+    Return True if file_name ends with
+    one of the valid_ext extensions.
     """ 
     ext = file_name.split('.')[-1]
     valid_ext = ('jpg',
@@ -31,9 +31,9 @@ def is_img_ext(file_name):
 
 def build_entry(image, year):
     """
-    returns a string with markdown formated
+    Return a string with markdown formated
     for the sketch-a-day index page entry
-    of image (for a certain year)
+    of image (for a certain year).
     """ 
     name, ext = image.split('.')
     return """
