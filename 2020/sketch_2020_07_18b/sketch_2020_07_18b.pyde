@@ -8,10 +8,11 @@ def setup():
     gravity = PVector(0, 0.2)
     particleSystem = ParticleSystem(PVector(width / 2, 50))
     repeller = Repeller(width / 2, 280)
+    colorMode(HSB)
 
 
 def draw():
-    background(214, 255, 171)
+    background(240)
     particleSystem.applyGravity()
     particleSystem.applyRepeller(repeller)
     repeller.display()
@@ -79,9 +80,10 @@ class Particle:
         self.timeToLive -= 1
 
     def display(self):
-        stroke(0, 0, 0, self.timeToLive)
-        strokeWeight(2)
-        fill(255, 0, 0, self.timeToLive)
+        # stroke(0, 0, 0, self.timeToLive)
+        # strokeWeight(2)
+        noStroke()
+        fill(self.mass * 12, 200, 200, self.timeToLive)
         ellipse(self.position.x, self.position.y, self.mass, self.mass)
 
     def isDead(self):
