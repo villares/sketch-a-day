@@ -14,7 +14,7 @@ from helpers import get_image_names, build_entry
 
 YEAR = "2020"
 base_path = "/media/villares/VolumeD/GitHub/sketch-a-day"
-year_path = join(base_path,YEAR)
+year_path = join(base_path, YEAR)
 folders = listdir(year_path)
 readme_path = join(base_path, 'README.md')
 
