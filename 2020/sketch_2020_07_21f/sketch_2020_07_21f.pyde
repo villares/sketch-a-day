@@ -2,7 +2,7 @@
 Simple Real-Time Slit-Scan Program.  By Golan Levin.
 
 Ported to Python mode.
-
+h
 This demonstration depends on the canvas height being equal 
 to the video capture height. If you would prefer otherwise, 
 consider using the image copy() def rather than the 
