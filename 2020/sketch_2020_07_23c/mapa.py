@@ -28,23 +28,34 @@ class Quadrado():
         self.cor = CORES[self.tipo]
 
     def desenha(self):
-        posX, posY = self.coluna * self.tamanho, self.fila * self.tamanho
+        tam = self.tamanho
+        posX, posY = self.coluna * tam, self.fila * tam
         with pushMatrix():
             translate(posX, posY)
             noStroke()
             fill(self.cor)
-            pushMatrix()
-            translate(0, 0, self.altura)
-            rect(0, 0, self.tamanho, self.tamanho)
-            popMatrix()
-            fill(255)       # branco
+
+            pos = ((-1, -1), (1, -1), (1, 1), (-1, 1))
+            for i, c in enumerate(self.cantos):
+                pc = self.cantos[i - 1]
+                ipos, ppos = pos[i], pos[i - 1]
+                beginShape()
+                vertex(ipos[0] * tam/2, ipos[1] * tam/2, c)
+                vertex(ppos[0] * tam/2, ppos[1] * tam/2, pc)
+                vertex(0, 0, self.altura)
+                endShape(CLOSE)
+            # translate(0, 0, self.altura)
+            # rect(0, 0, self.tamanho, self.tamanho)
+
             textSize(20)  # para escrever o tipo se o mouse estiver perto
             textAlign(CENTER, CENTER)
             if (dist(posX, posY, mouseX, mouseY) < self.tamanho * 2):
-                text(self.tipo, self.tamanho / 2,
-                     self.tamanho / 2, self.altura + 5)
+                fill(0)
+                text(self.tipo, self.tamanho / 2, self.tamanho / 2, 35)
+                fill(255)
+                text(self.tipo, self.tamanho / 2 - 2, self.tamanho / 2 - 2, 36)
 
-    def media_cantos(self):
+    def calcula_cantos(self):
         """
         Devolva uma lista dos cantos nesta ordem:
         0 --- 1
@@ -57,14 +68,14 @@ class Quadrado():
         BL = ((-1, +1), (0, +1), (-1, 0), (0, 0))
         BR = ((+1, +1), (0, +1), (+1, 0), (0, 0))
 
-        result = []
-        for corner in (TL, TR, BR, BL):
+        self.cantos = []
+        for canto in (TL, TR, BR, BL):
             alturas = [self.mapa[(self.coluna + i, self.fila + j)].altura
-                       for i, j in corner
+                       for i, j in canto
                        if self.mapa.get((self.coluna + i, self.fila + j))]
             print(alturas)
             media = sum(alturas) / len(alturas)
-            result.append(media)
+            self.cantos.append(media)
 
     @staticmethod
     def sorteiaAltura(tipo):
