@@ -18,6 +18,7 @@ def setup():
     colunas = width / Quadrado.tamanho
     filas = height / Quadrado.tamanho
     setup_mapa()
+    textMode(SHAPE)
     
 def setup_mapa():
     global mapa
