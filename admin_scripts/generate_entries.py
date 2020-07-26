@@ -21,7 +21,6 @@ folders = listdir(year_path)
 readme_path = join(base_path, 'README.md')
 
 if __name__ == "__main__":
-    print("generated entries!")
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
         lines = readme.readlines()   
@@ -30,6 +29,7 @@ if __name__ == "__main__":
                    for line in lines
                    if '![' in line)
     last_done = next(imagens)[:10]
+    print("Last entry: " + last_done)
     # find folders after the last_done
     new_folders = []
     for f in reversed(folders):
@@ -47,7 +47,7 @@ if __name__ == "__main__":
         if imgs:  # insert entry if matching image found
             lines.insert(insert_point - 3,
                          build_entry(imgs[0], YEAR))
-            print('adding: '+ folder)
+            print('Adding: '+ folder)
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
         content = "".join(lines)
