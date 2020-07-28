@@ -21,6 +21,12 @@
 
 ---
 
+![sketch_2020_07_27c](2020/sketch_2020_07_27c/sketch_2020_07_27c.gif)
+
+[sketch_2020_07_27c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_27c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_07_26c](2020/sketch_2020_07_26c/sketch_2020_07_26c.gif)
 
 [sketch_2020_07_26c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_26c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
