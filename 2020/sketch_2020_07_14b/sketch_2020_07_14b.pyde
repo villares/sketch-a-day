@@ -23,6 +23,7 @@ def setup():
     strokeWeight(3)
 
 def draw():
+    background(200)
     for v in grid.keys():
         xa, ya = grid[v]
         for e in graph[v]:
@@ -33,7 +34,7 @@ def draw():
         x, y = grid[v]
         text(v, x, y)
 
-    saveFrame("sketch_2020_07_14a.png")
+#    saveFrame("sketch_2020_07_14b.png")
 
 def setup_graph(g):
     global cols, rows, grid
@@ -45,8 +46,8 @@ def setup_graph(g):
         for r in range(rows):
             if v_list:
                 v = v_list.pop()
-                grid[v] = (w /2 + c * w,
-                           h /2 + r * h)
+                grid[v] = (w /2 + c * w + random(-10, 10),
+                           h /2 + r * h + random(-10, 10))
                 
 
 def dimensionar_grade(n):
@@ -56,11 +57,3 @@ def dimensionar_grade(n):
         b += 1
     print(u'{}: {} × {} ({})'.format(n, a, b, a * b))
     return a, b
-
-def keyPressed():
-    global n
-    redraw()
-    if str(key) in '+=':
-        n += 1
-    if key == '-' and n > 2:
-        n -= 1
