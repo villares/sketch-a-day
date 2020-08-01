@@ -25,11 +25,15 @@
 
 [sketch_2020_07_31a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_31a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Combining a very rudimentary particle system with a force from the average "optical flow" vector from OpenCV.
+
 ---
 
 ![sketch_2020_07_30d](2020/sketch_2020_07_30d/sketch_2020_07_30d.gif)
 
 [sketch_2020_07_30d](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_30d) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Porting to Python and making a minimal "optical flow" OpenCV example
 
 ---
 
@@ -37,11 +41,15 @@
 
 [sketch_2020_07_29b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_29b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Still playing with a "frame difference" Video Capture example from the standard Video library.
+
 ---
 
 ![sketch_2020_07_28b](2020/sketch_2020_07_28b/sketch_2020_07_28b.gif)
 
 [sketch_2020_07_28b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_28b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Playing with a "frame difference" Video Capture example from the standard Video library (porting to Python mode as usual).
 
 ---
 
@@ -49,11 +57,15 @@
 
 [sketch_2020_07_27c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_27c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Took a step back and placed boxes (to make it easier to see the section view on top)
+
 ---
 
 ![sketch_2020_07_26c](2020/sketch_2020_07_26c/sketch_2020_07_26c.gif)
 
 [sketch_2020_07_26c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_26c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Fiddling with the probability dictionary for map generation.
 
 ---
 
@@ -73,11 +85,15 @@
 
 [sketch_2020_07_23c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_23c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Added nice triangles going to the average heights of square corners.
+
 ---
 
 ![sketch_2020_07_22c](2020/sketch_2020_07_22c/sketch_2020_07_22c.gif)
 
 [sketch_2020_07_22c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_22c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Refactoring ugly and old code.
 
 ---
 
@@ -85,11 +101,15 @@
 
 [sketch_2020_07_21f](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_21f) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Porting Video Capture examples to Python Mode (from the standard Processing Video)
+
 ---
 
 ![sketch_2020_07_20e](2020/sketch_2020_07_20e/sketch_2020_07_20e.gif)
 
 [sketch_2020_07_20e](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_20e) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Porting Video Capture examples to Python Mode (from the standard Processing Video)
 
 ---
 
@@ -97,11 +117,15 @@
 
 [sketch_2020_07_19b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_19b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Added some gravity (particle-particle atraction) but I'm not really pleased.
+
 ---
 
 ![sketch_2020_07_18b](2020/sketch_2020_07_18b/sketch_2020_07_18b.gif)
 
 [sketch_2020_07_18b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_18b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+I ported a Khan Academy version of a Nature of Code example to [p5js here](https://www.openprocessing.org/sketch/933835) and then to Python mode.
 
 ---
 
@@ -115,18 +139,17 @@
 
 [sketch_2020_07_15a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_15a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Porting a Jeremy Douglass example to Python mode. I want to use this with "graph walking" latter on.
+
 ---
 
 ![sketch_2020_07_14a](2020/sketch_2020_07_14a/sketch_2020_07_14a.png)
 ![sketch_2020_07_14b](2020/sketch_2020_07_14b/sketch_2020_07_14b.png)
 ![sketch_2020_07_14c](2020/sketch_2020_07_14c/sketch_2020_07_14c.png)
 
-[sketch_2020_07_14a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_14a) | 
-[sketch_2020_07_14b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_14b) |
-[sketch_2020_07_14c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_14c) 
+[sketch_2020_07_14a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_14a) | [sketch_2020_07_14b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_14b) | [sketch_2020_07_14c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_14c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
-[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+Trying to visualize a graph with a naïve implementation.
 
 ---
 
@@ -152,10 +175,9 @@
 
 [sketch_2020_07_10a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_10a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Based on work by André Burnier, ported from Processing Java to Python
-by Thiago Bellotti and Alexandre Villares.
+Based on work by André Burnier, ported from Processing Java to Python by Thiago Bellotti and Alexandre Villares.
 Playing with the Tomorrow font by Tony de Marco e Monica Rizzolli.
-Using geomerative, a library by Ricard Marxer.
+Using *geomerative*, a library by Ricard Marxer.
 
 ---
 
