@@ -46,20 +46,3 @@ def setup_graph(g):
         x = cos(ang * i) * width * .4 + width / 2
         y = sin(ang * i) * height * .4 + height / 2
         grid[v] = (x, y)
-
-
-def dimensionar_grade(n):
-    a = int(sqrt(n))
-    b = n / a
-    if a * b < n:
-        b += 1
-    print(u'{}: {} × {} ({})'.format(n, a, b, a * b))
-    return a, b
-
-def keyPressed():
-    global n
-    redraw()
-    if str(key) in '+=':
-        n += 1
-    if key == '-' and n > 2:
-        n -= 1
