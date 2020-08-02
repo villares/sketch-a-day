@@ -84,7 +84,7 @@ def keyPressed():
     names = "abcdefghijkl"
     for v in names:
         graph.add_vertex(v)
-        if random(100) < 80:
+        if random(100) < 90:
             graph.add_edge((v, choice(names)))
 
     setup_grid(graph)
