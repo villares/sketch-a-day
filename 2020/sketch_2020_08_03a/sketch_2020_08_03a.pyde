@@ -32,7 +32,7 @@ def draw():
         pop()
         text(v.upper(), x - z, y - z - 2)
 
-    saveFrame('sketch_2020_08_02a.png')
+    saveFrame('sketch_2020_08_03a.png')
 
 def setup_grid(graph):
     cols, rows = dimensionar_grade(len(graph))
