@@ -85,7 +85,7 @@ def dimensionar_grade(n):
 
 def keyPressed():
     setup_graph()
-    saveFrame('##_sketch_2020_08_04a.png')
+    # saveFrame('##_sketch_2020_08_04a.png')
 
         
 def mousePressed():
