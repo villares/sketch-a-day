@@ -48,7 +48,7 @@ def grid_swap(graph, grid):
         new_grid[a], new_grid[b] = new_grid[b], new_grid[a] 
         n = measure_graph_grid(graph, new_grid)
         if m > n:
-            print("at: {}".format(fail))
+            print("{} at: {} tries".format(n - m, fail + 1))
             return new_grid
         else:
             fail += 1
