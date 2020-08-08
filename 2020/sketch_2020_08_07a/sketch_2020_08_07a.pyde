@@ -27,14 +27,15 @@ def draw():
     noFill()
     stroke(255)
     strokeWeight(4)
-    for v in grid.keys():
-        xa, ya, za = grid[v]
-        for e in graph[v]:
-            if e != v:
-                xb, yb, zb = grid[e]
-                line(xa, ya, xb, yb)
-            else:
-                circle(20 + xa, ya, 30)
+    for e in graph.edges():
+        va = e.pop()
+        xa, ya, za = grid[va]
+        if len(e) == 1:
+            vb = e.pop()
+            xb, yb, zb = grid[vb]
+            line(xa, ya, xb, yb)
+        else:
+             circle(20 + xa, ya, 30)
 
     for v in grid.keys():
         x, y, z = grid[v]
