@@ -44,10 +44,6 @@ def draw():
         fill(0)
         text(v.upper(), x - 15, y - 3)
         
-    noStroke()
-    fill(255, 0, 0)
-    x, y, _ = grid[sel_v]
-    circle(x, y, 10)    
     walker()
         
 def walker():        
@@ -61,6 +57,12 @@ def walker():
             t_walker += .01
         else:
             path_walker = []
+    else:
+        noStroke()
+        fill(255, 0, 0)
+        x, y, _ = grid[sel_v]
+        circle(x, y, 10)    
+    
     
 def setup_grid(graph):
     cols, rows = dimensionar_grade(len(graph))

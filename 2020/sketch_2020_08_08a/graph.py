@@ -5,6 +5,8 @@ A simple Python graph class, demonstrating the essential facts and functionaliti
 based on https://www.python-course.eu/graphs_python.php and https://www.python.org/doc/essays/graphs/
 """
 
+from random import choice
+
 class Graph(object):
 
     def __init__(self, graph_dict=None):
@@ -67,7 +69,12 @@ class Graph(object):
             else:
                 self.__graph_dict[vertex1] = [vertex1]        
 
-  
+
+    def remove_vertex(self, vert):
+        raise NotImplemented
+      
+    def remove_edge(self, vert):
+        raise NotImplemented
     
     def __generate_edges(self):
         """
@@ -269,3 +276,21 @@ class Graph(object):
                     dist[next] = dist[at]+[next]   # less efficient but nicer output
                     q.append(next)
         return dist.get(end)
+    
+    
+    def get_random_vertex(self):
+        return choice(self.vertices())
+    
+    @staticmethod            
+    def random_graph(names, connect_rate=.9, allow_loops=True):
+        vertices = set(names)
+        graph = Graph()
+        for v in vertices:
+            graph.add_vertex(v)
+            if random(1) < connect_rate:
+                if allow_loops:
+                    names = list(vertices)
+                else:
+                    names = list(vertices - set(v))
+                graph.add_edge({v, choice(names)})    
+        return graph
