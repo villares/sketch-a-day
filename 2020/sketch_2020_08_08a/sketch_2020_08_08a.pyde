@@ -77,8 +77,6 @@ def keyTyped():
     if key == 's':
         global grid
         grid = grid_swap(graph, grid)
-        print(measure_graph_grid(graph, grid))
-
         
 def mousePressed():
     global path_walker, t_walker, sel_v
