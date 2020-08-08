@@ -289,8 +289,8 @@ class Graph(object):
             graph.add_vertex(v)
             if random(1) < connect_rate:
                 if allow_loops:
-                    names = list(vertices)
+                    pool = list(vertices)
                 else:
-                    names = list(vertices - set(v))
-                graph.add_edge({v, choice(names)})    
+                    pool = list(vertices - set((v,)))
+                graph.add_edge({v, choice(pool)})    
         return graph
