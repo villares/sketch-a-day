@@ -41,7 +41,7 @@ def draw():
         fill(255)
         circle(x, y, 10)
         fill(0)
-        text(v.upper(), x - 15, y - 3)
+        text(str(v).upper(), x - 15, y - 3)
 
     walker()   
 
