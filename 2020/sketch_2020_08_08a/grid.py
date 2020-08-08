@@ -43,7 +43,7 @@ def grid_swap(graph, grid):
     n = m = measure_graph_grid(graph, grid)
     while m <= n and fail < len(graph) ** 2:
         new_grid= dict(grid)
-        a, b = sample(graph, 2)     
+        a, b = sample(graph.vertices(), 2)     
         new_grid[a], new_grid[b] = new_grid[b], new_grid[a] 
         n = measure_graph_grid(graph, new_grid)
         if m > n:
