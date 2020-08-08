@@ -1,6 +1,5 @@
 #*- coding: utf-8 -*-
 
-
 def setup_grid(graph, margin=None):
     margin = margin or width / 40
     cols, rows = dim_grid(len(graph))
