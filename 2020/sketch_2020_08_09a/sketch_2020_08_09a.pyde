@@ -82,7 +82,7 @@ def keyTyped():
 def swapping():
     global grid, thread_count
     thread_count += 1
-    print("Starting thread {}.".format(thread_count))
+    print("Starting thread {}: {}".format(thread_count, key))
     if key == 's':
         for _ in range(len(graph)):
             grid = grid_swap(graph, grid)
