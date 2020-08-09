@@ -112,7 +112,6 @@ def swapping():
         if n < m:
             gy -= gy * (m - n) / m
             m = n
-            
     print("\nEnding thread :{}".format(this_thread), end="")
                             
                                                 
