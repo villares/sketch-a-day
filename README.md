@@ -28,8 +28,7 @@
 
 ---
 
-![sketch_2020_08_09a](2020/sketch_2020_08_09a/sketch_2020_08_09a.gif)
-![sketch_2020_08_09a](2020/sketch_2020_08_09a/sketch_2020_08_09b.gif)
+![sketch_2020_08_09b](2020/sketch_2020_08_09b/sketch_2020_08_09b.gif)
 
 [sketch_2020_08_09a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_09a) | 
 [sketch_2020_08_09b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_09b)
