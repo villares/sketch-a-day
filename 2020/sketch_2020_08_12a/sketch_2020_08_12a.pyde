@@ -10,6 +10,7 @@ gx, gy = 0, 100
 
 def setup():
     size(400, 500)
+    colorMode(HSB)
     textAlign(CENTER, CENTER)
     f = createFont("Source Code Pro Bold", 12)
     textFont(f)
@@ -43,8 +44,8 @@ def draw():
         if len(e) == 1:
             vb = e.pop()
             xb, yb, zb = grid[vb]
-            stroke(0)
-            strokeWeight(2)
+            noStroke()
+            fill(((za + zb) / 2) * 16, 255, 255, 100)
             var_bar(xa, ya, xb, yb, za, zb)
 
     for v in grid.keys():
