@@ -26,17 +26,23 @@
 
 [sketch_2020_08_12a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_12a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Still somewhat broken, but I'm very happy with adding my "var bars"
+
 ---
 
 ![sketch_2020_08_11b](2020/sketch_2020_08_11b/sketch_2020_08_11b.png)
 
 [sketch_2020_08_11b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_11b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Very broken! The neighbourhood thing is a mess, and now loses grid-points on shuffle.
+
 ---
 
 ![sketch_2020_08_10b](2020/sketch_2020_08_10b/sketch_2020_08_10b.gif)
 
 [sketch_2020_08_10b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_10b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Nice drawing from the thread on a offscreen buffer!
 
 ---
 
