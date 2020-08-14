@@ -57,7 +57,6 @@ def draw():
             text("{}".format(v).upper(), x - 15, y - 5)    
 
     walker()
-    this.surface.setResizable(False)
     if viz_stat:
         image(d, 0, height - 100)
         fill(0)
@@ -67,7 +66,7 @@ def draw():
         fill(255)
         text('\n'.join(display_text[-2:]), 20, height - 40)
     
-def display():
+def offscreen_draw():
     d.beginDraw()
     d.stroke(0)
     d.strokeWeight(1)
@@ -139,7 +138,7 @@ def swapping():
         if n < m:
             gy -= gy * (m - n) / m
             m = n
-        display()
+        offscreen_draw()
         if key == 'k':
             break
     t = "Ending thread: {}".format(this_thread)
@@ -159,6 +158,6 @@ def mousePressed():
                 sel_v = v
                 
 # TODO IDEAS: 
-# Show what "nearby" sample means
+# Show what "nearby" sample means (It was horrible!)
 # Find distance outliers and try to shuffle them closer
 # Run many times without visualisation on Python 3 to get some huge samples
