@@ -22,15 +22,28 @@
 
 ---
 
+![sketch_2020_08_15a](2020/sketch_2020_08_15a/sketch_2020_08_15a.gif)
+
+[sketch_2020_08_15a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_15a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Added a method to the graph object to detect cycles, now I can have non-cycling graphs!
+(I removed the  offscreen buffer viz code) 
+
+---
+
 ![sketch_2020_08_14a](2020/sketch_2020_08_14a/sketch_2020_08_14a.gif)
 
 [sketch_2020_08_14a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_14a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Drag to swap nodes!
 
 ---
 
 ![sketch_2020_08_13a](2020/sketch_2020_08_13a/sketch_2020_08_13a.gif)
 
 [sketch_2020_08_13a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_13a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Now diameters are proportional to the number of connections (vertex degree)
 
 ---
 
