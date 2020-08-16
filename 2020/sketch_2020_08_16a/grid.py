@@ -3,7 +3,6 @@
 from __future__ import division, print_function
 from random import sample, choice
 
-
 def setup_grid(graph, width, height, margin=None, mode=0):
     """
     mode 0: heavy center
