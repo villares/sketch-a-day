@@ -35,17 +35,17 @@ def setup_graph(mode=0):
     print("Cyclic: " + str(graph.is_cyclic()))
 
 def draw():
-    background(100)
+    background(255)
     for e in graph.edges():
         va = e.pop()
         xa, ya, za = grid[va]
         if len(e) == 1:
             vb = e.pop()
             xb, yb, zb = grid[vb]
-            stroke(0, 128)
+            fill(100, 100)
             strokeWeight(5)
             degree = ((za + zb) / 2) / d
-            fill(map(degree, 1.5, 5, 0, 255), 255, 255, 180)
+            stroke(map(degree, 1.5, 5, 0, 200))
             var_bar(xa, ya, xb, yb, za, zb)
 
     for v in grid.keys():
@@ -66,8 +66,8 @@ def draw():
 
     if selected_v:
         x, y, _ = grid[selected_v]
-        stroke(0, 64)
-        strokeWeight(10)
+        stroke(0)
+        strokeWeight(5)
         line(x, y, mouseX, mouseY)
 
 
