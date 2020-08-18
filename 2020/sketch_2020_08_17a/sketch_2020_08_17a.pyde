@@ -25,7 +25,7 @@ def setup_graph(mode=0):
                                allow_loops=False,
                                connected=True,
                                allow_cyclic=False)
-    grid = setup_grid(graph,
+    grid = Grid(graph,
                       width=width,
                       height=width,
                       margin=10,
@@ -99,9 +99,9 @@ def swapping():
     multiple = 1 if mousePressed else 100
     for _ in range(multiple):
         if key == 's':
-            grid = grid_swap(graph, grid, num=len_graph)
+            grid.swap(num=len_graph)
         if key in '234556789':
-            grid = grid_swap(graph, grid, num=int(key))
+            grid.swap(num=int(key))
         n = edge_distances(graph, grid)
         gx += 1
         if n < m:
