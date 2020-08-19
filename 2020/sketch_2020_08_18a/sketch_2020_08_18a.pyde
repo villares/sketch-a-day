@@ -42,9 +42,9 @@ def draw():
         if len(e) == 1:
             vb = e.pop()
             xb, yb, zb = grid[vb]
-            fill(240)
+            fill(255, 200)
             degree = ((za + zb) / 2) / d
-            strokeWeight(map(degree, 1.5, 5, 5, 1))
+            strokeWeight(map(degree, 1.5, 5, 1, 5))
             var_bar(xa, ya, xb, yb, za, zb)
 
     for v in grid.keys():
