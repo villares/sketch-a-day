@@ -98,6 +98,16 @@ class Grid():
                 d = dist(xa, ya, xb, yb)
                 total += d
         return total
+    def edges(self):     
+        edgs = []
+        for e in  self.graph.edges():
+            if len(e) == 2:
+                a, b = tuple(e)
+                (xa, ya, za) = self.grid[a]
+                (xb, yb, zb) = self.grid[b]
+                deg = ((za + zb) / 2) / (Grid.w / 10)
+                edgs.append((xa, ya, xb, yb, za, zb, deg))
+        return sorted(edgs, key=lambda e:e[6])    
 
 def dim_grid(n):
     a = int(sqrt(n))

@@ -1,9 +1,9 @@
 from __future__ import print_function, division
-from random import choice
-from graph import Graph
-from grid import *  # setup_grid, grid_swap, edge_distances
-from arcs import var_bar
 import pickle
+
+from graph import Graph
+from grid import Grid  
+from arcs import var_bar
 
 thread_running = False
 gx, gy = 0, 100
@@ -20,7 +20,7 @@ def setup():
 
 def setup_graph(mode=0):
     # create a random graph and a dict of grid postions for its vertices
-    global graph, grid, m, d
+    global graph, grid, m
     graph = Graph.random_graph(range(100),
                                connect_rate=.95,
                                allow_loops=False,
@@ -37,16 +37,11 @@ def setup_graph(mode=0):
 def draw():
     # scale(.5)
     background(0)
-    for e in graph.edges():
-        va = e.pop()
-        xa, ya, za = grid[va]
-        if len(e) == 1:
-            vb = e.pop()
-            xb, yb, zb = grid[vb]
-            fill(255, 200)
-            degree = ((za + zb) / 2) / (Grid.w / 10)
-            strokeWeight(map(degree, 1.5, 5, 1, 5))
-            var_bar(xa, ya, xb, yb, za, zb)
+    for e in reversed(grid.edges()):
+        xa, ya, xb, yb, za, zb, deg = e
+        strokeWeight(map(deg, 1.5, 5, 4, 1))
+        fill(255, 200)
+        var_bar(xa, ya, xb, yb, za, zb)
 
     for v in grid.keys():
         x, y, z = grid[v]
@@ -59,7 +54,7 @@ def draw():
         strokeWeight(1)
         circle(x, y, 10)
         if viz_stat:
-            fill(255)
+            fill(255, 0, 0)
             text("{}:{}".format(v, graph.vertex_degree(v)).upper(),
                  x - 15, y - 5)
     fill(100)
@@ -73,7 +68,7 @@ def draw():
 
 
 def keyTyped():
-    global gx, gy, viz_stat, grid
+    global gx, gy, viz_stat, grid, graph
     if key == 'r':
         setup_graph(mode=0)
         gx, gy = 0, 100
@@ -89,22 +84,25 @@ def keyTyped():
         saveFrame("####.png")    
     elif key == 'd':
         with open("data/grid.data", "w") as f:
-            pickle.dump(grid, f)
+            pickle.dump((graph, grid), f)
             print("dump grid.data")
     elif key == 'l':
-        import encodings
         with open("data/grid.data", "rb") as f2:
-            grid = pickle.load(f2)
+            graph, grid = pickle.load(f2)
             print("load grid.data")
     else:
         if not thread_running:
             thread("swapping")
+        else:
+            print("\nalready swapping")
 
 def swapping():
     global grid, thread_running, gx, gy, m
-    if str(key) not in 'sc23456789':
+    if str(key) not in 's23456789':
+        print("wrong key!")
         return
     thread_running = True
+    print("starting thread.", end="")
     m = grid.edge_distances()
     len_graph = len(graph)
     multiple = 1 if mousePressed else 100
@@ -119,6 +117,7 @@ def swapping():
             gy -= gy * (m - n) / m
             m = n
     thread_running = False
+    print("\nending thread.")
 
 def mouse_near(v):
     x, y, _ = grid[v]
