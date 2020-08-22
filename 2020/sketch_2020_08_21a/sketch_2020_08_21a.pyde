@@ -13,7 +13,6 @@ animate = False
 
 def setup():
     size(600, 600)
-    # colorMode(HSB)
     textAlign(CENTER, CENTER)
     f = createFont("Source Code Pro Bold", 12)
     textFont(f)
@@ -40,12 +39,13 @@ def setup_grid(cols, rows, mode=0):
 
 def draw():
     global t
-    # scale(.5)
+    colorMode(RGB)
     background(32, 0, 64)
     for e in reversed(grid.edges(t)):
         xa, ya, xb, yb, za, zb, deg = e
         strokeWeight(map(deg, 1.5, 5, 4, 1))
-        fill(255, 200)
+        colorMode(HSB)
+        fill(map(deg, 1, 5, 0, 255), 200, 200, 200)
         var_bar(margin + w / 2 + xa * w,
                 margin + h / 2 + ya * w,
                 margin + w / 2 + xb * w,
@@ -86,7 +86,7 @@ def draw():
              margin + h / 2 + y * h, mouseX, mouseY)
 
     if animate:
-        t = (1 + cos(radians(frameCount))) / 2
+        t = (1 + cos(radians(frameCount/2))) / 2
 
 
 def keyTyped():
