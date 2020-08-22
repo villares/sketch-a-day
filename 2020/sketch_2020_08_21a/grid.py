@@ -16,15 +16,13 @@ class Grid():
         self.graph = graph
         self.grid = self.generate_points(mode)
         self.other_grid = self.generate_points(mode)
-        self.recalculate_d()
 
     def generate_points(self, mode):
         points = []
         for i in range(self.cols * self.rows):
             x = i % self.cols
             y = i // self.rows
-            z = 0
-            points.append([x, y, z])
+            points.append([x, y])
         p_dist = lambda p: dist(p[0], p[1], self.cols / 2, self.rows / 2)
         points = sorted(points, key=p_dist)
         if mode == 0:
@@ -78,16 +76,10 @@ class Grid():
                     .format((n - m) / m, fail + 1, num)
                 print("\n" + t, end="")
                 self.grid = new_grid
-                self.recalculate_d()
             else:
                 fail += 1
         print(".", end='')
 
-    def recalculate_d(self):
-        for k in self.graph.vertices():
-            d = self.graph.vertex_degree(k)
-            self.other_grid[k][2] = d
-            self.grid[k][2] = d
 
     def edge_distances(self, ng=None):
         grid = ng or self.grid
@@ -95,8 +87,8 @@ class Grid():
         for edge in self.graph.edges():
             if len(edge) == 2:
                 a, b = edge
-                xa, ya, _ = grid[a]
-                xb, yb, _ = grid[b]
+                xa, ya = grid[a]
+                xb, yb = grid[b]
                 d = dist(xa, ya, xb, yb)
                 total += d
         return total
@@ -115,12 +107,12 @@ class Grid():
         for e in self.graph.edges():
             if len(e) == 2:
                 a, b = tuple(e)
-                (xa, ya, za) = grid[a]
-                (xb, yb, zb) = grid[b]
+                xa, ya = grid[a]
+                xb, yb  = grid[b]
                 da = self.graph.vertex_degree(a)
                 db = self.graph.vertex_degree(b)
                 deg = ((da + db) / 2)  # r / (Grid.w / 10)
-                edgs.append((xa, ya, xb, yb, za, zb, deg))
+                edgs.append((xa, ya, xb, yb, da, db, deg))
         return sorted(edgs, key=lambda e: e[6])
 
 def dim_grid(n):

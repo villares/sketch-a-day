@@ -8,7 +8,7 @@ from arcs import var_bar
 thread_running = False
 viz_stat = False
 selected_v = None
-t, v = 0, 0.01
+t = 0
 animate = False
 
 def setup():
@@ -58,7 +58,7 @@ def draw():
                margin + h / 2 + yb * h, 10)
         
     for v in grid.keys():
-        x, y, z = grid[v]
+        x, y = grid[v]
         # if v == selected_v:
         #     fill(0)
         # elif mouse_near(v):
@@ -79,23 +79,23 @@ def draw():
     text(int(m), 30, 20)
 
     if selected_v:
-        x, y, _ = grid[selected_v]
+        x, y = grid[selected_v]
         stroke(0)
         strokeWeight(5)
         line(margin + w / 2 + x * w,
              margin + h / 2 + y * h, mouseX, mouseY)
 
-    if animate and 0 < t < 1:
-        t += v
+    if animate:
+        t = (1 + cos(radians(frameCount))) / 2
+
 
 def keyTyped():
     global gx, gy, viz_stat, grid, graph, animate, t, v
     if key == 'x':
         grid.grid, grid.other_grid = grid.other_grid, grid.grid
     elif key  == 'a':
-        animate != animate
-    elif key == ' ':
-        v = -v
+        animate = not animate
+        print(animate)
     elif key == 'r':
         setup_grid(cols, rows, mode=0)
     elif key == 'e':
@@ -144,7 +144,7 @@ def swapping():
     print("\nending thread.")
 
 def mouse_near(v):
-    x, y, _ = grid[v]
+    x, y = grid[v]
     return dist(margin + w / 2 + x * w,
                 margin + h / 2 + y * h, mouseX, mouseY) < 12
 
@@ -161,7 +161,6 @@ def mouseReleased():
         for v in grid.keys():
             if mouse_near(v):
                 grid[selected_v], grid[v] = grid[v], grid[selected_v]
-                grid.recalculate_d()
     selected_v = None
 
 
