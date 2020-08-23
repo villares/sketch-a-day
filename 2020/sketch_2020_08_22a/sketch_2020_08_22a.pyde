@@ -46,7 +46,7 @@ def draw():
         strokeWeight(map(deg, 1.5, 5, 1, 5))
         colorMode(HSB)
         noFill()
-        stroke(map(deg, 1, 5, 0, 255), 200, 200, 200)
+        stroke(map(deg, 1, 5, 0, 255), 200, 200)
         var_bar(margin + w / 2 + xa * w,
                 margin + h / 2 + ya * w,
                 margin + w / 2 + xb * w,
