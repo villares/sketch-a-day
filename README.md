@@ -22,6 +22,15 @@
 
 ---
 
+![sketch_2020_08_23d](2020/sketch_2020_08_23d/sketch_2020_08_23d.png)
+
+[sketch_2020_08_23d](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_23d) [[p5js](https://p5js.org)]
+
+Based on work by Carlos [@vamoss](https://www.openprocessing.org/user/65884) in homage to one the first Brazilian Designers:
+Eduardo Lopes, inspired by his work shown in this paper from 1971, https://www.scielo.br/scielo.php?script=sci_arttext&pid=S0034-75901971000100008&lang=pt
+
+---
+
 ![sketch_2020_08_22a](2020/sketch_2020_08_22a/sketch_2020_08_22a.gif)
 
 [sketch_2020_08_22a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_22a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
