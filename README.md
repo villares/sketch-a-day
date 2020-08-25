@@ -22,6 +22,17 @@
 
 ---
 
+![sketch_2020_08_25c](2020/sketch_2020_08_25c/sketch_2020_08_25c.gif)
+
+[sketch_2020_08_25c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_25c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+And there is a looping version posted as #つぶやきProcessing:
+
+<blockquote class="twitter-tweet"><p lang="ht" dir="ltr"><a href="https://twitter.com/hashtag/%E3%81%A4%E3%81%B6%E3%82%84%E3%81%8DProcessing?src=hash&amp;ref_src=twsrc%5Etfw">#つぶやきProcessing</a> <a href="https://twitter.com/hashtag/Python?src=hash&amp;ref_src=twsrc%5Etfw">#Python</a><br>w,h = 500,250<br>def setup():size(w,w)<br>def draw():<br> fill(0,0,200,8)<br> rect(0,0,w,w)<br> translate(h,h)<br> a,k=0,sin(frameCount/12.)<br> while a&lt;TWO_PI:<br> i,j=w+sin(a),h+cos(a)<br> n=noise(i,j,k)<br> x,y=n*h*sin(a),n*h*cos(a)<br> point(x,y)<br> a+=.01 <a href="https://t.co/zNIfWNHOvo">pic.twitter.com/zNIfWNHOvo</a></p>&mdash; Alexandre B A Villares☂ (@villares) <a href="https://twitter.com/villares/status/1298270635940966400?ref_src=twsrc%5Etfw">August 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+---
+
 ![sketch_2020_08_24f](2020/sketch_2020_08_24f/sketch_2020_08_24f.png)
 
 [sketch_2020_08_24f](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_24f) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
