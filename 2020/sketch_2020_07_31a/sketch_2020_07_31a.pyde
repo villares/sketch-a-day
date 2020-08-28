@@ -25,7 +25,7 @@ def draw():
     opencv.calculateOpticalFlow()
     ave_flow = PVector().set(opencv.getAverageFlow())
     print ave_flow
-    if not ave_flow.x != ave_flow.x:
+    if ave_flow.x == ave_flow.x: # to avoid NaN :)
         particles.run(ave_flow)
 
     stroke(255)
