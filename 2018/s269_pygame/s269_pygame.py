@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s268"  # 20180923
+SKETCH_NAME = "s269"  # 20180923
 
 import pygame  # install Pygame https://www.pygame.org
 from random import choice
@@ -55,8 +55,8 @@ def rect(x, y, w, h):
 
 def ellipse(x, y, w, h):
     pygame.draw.ellipse(screen, current_fill, [x, y, w, h], 0)
-        if _stroke_weight:
-            pygame.draw.ellipse(screen, current_stroke, [x, y, w, h], _stroke_weight)
+    if _stroke_weight:
+        pygame.draw.ellipse(screen, current_stroke, [x, y, w, h], _stroke_weight)
 
 def background(r, g=None, b=None):
     if g and b:
