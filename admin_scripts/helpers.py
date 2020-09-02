@@ -1,6 +1,7 @@
 from os import listdir
 from os.path import isfile, join
 
+
 def get_image_names(base, folder, word=None):
     """
     Return a list of image names from a directory
@@ -14,11 +15,12 @@ def get_image_names(base, folder, word=None):
                    and word in f]
     return image_files
 
+
 def is_img_ext(file_name):
     """
     Return True if file_name ends with
     one of the valid_ext extensions.
-    """ 
+    """
     ext = file_name.split('.')[-1]
     valid_ext = ('jpg',
                  'png',
@@ -30,20 +32,26 @@ def is_img_ext(file_name):
                  )
     return ext.lower() in valid_ext
 
-def build_entry(image, year):
+
+def build_entry(image, year, kind='pyde'):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
     of image (for a certain year).
-    """ 
+    """
     name, ext = image.split('.')
+    lib = {'pyde': "[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]",
+           'flat': "[[Python + flat](https://xxyxyz.org/flat)]",
+           }
+
     return """
 ---
 
 ![{0}]({2}/{0}/{0}.{1})
 
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-""".format(name, ext, year)
+[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) {3}
+""".format(name, ext, year, lib[kind])
+
 
 def remove_transparency(im, bg_colour=(255, 255, 255)):
     from PIL import Image
@@ -62,4 +70,3 @@ def remove_transparency(im, bg_colour=(255, 255, 255)):
 
     else:
         return im
-    
