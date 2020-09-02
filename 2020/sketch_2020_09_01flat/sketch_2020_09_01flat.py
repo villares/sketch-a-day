@@ -12,7 +12,6 @@ def setup():
     fill(0, 0, 200, 100)
     grid(400, 400., 5, 150, ensamble, 5) # ensamble of 5 , on grid also order=5
     # grid(width/4.*3, height/2., 4, 150, ensamble, 5) # ensamble of 5 , on grid also order=5
-    page.image(ppi=92, kind="rgb").png(__file__[-24:-3]+'.png')
     page.svg(__file__[-24:-3]+'.svg')
     # d.pdf("sketch.pdf")
     #page.image(ppi=92, kind="rgb").png("sketch_2020_08_29.png")
