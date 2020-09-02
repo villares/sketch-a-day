@@ -43,10 +43,14 @@ if __name__ == "__main__":
             break
     # iterate on new folders
     for folder in reversed(new_folders):
+        if folder.endswith('flat'):
+            kind = 'flat'
+        else:
+            kind = 'pyde'
         imgs = get_image_names(year_path, folder)
         if imgs:  # insert entry if matching image found
             lines.insert(insert_point - 3,
-                         build_entry(imgs[0], YEAR))
+                         build_entry(imgs[0], YEAR, kind))
             print('Adding: '+ folder)
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
