@@ -23,6 +23,12 @@
 
 ---
 
+![sketch_2020_09_02flat](2020/sketch_2020_09_02flat/sketch_2020_09_02flat.svg)
+
+[sketch_2020_09_02flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_02flat) [[Python + flat](https://xxyxyz.org/flat)]
+
+---
+
 ![sketch_2020_09_01flat](2020/sketch_2020_09_01flat/sketch_2020_09_01flat.svg)
 
 [sketch_2020_09_01flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_01flat) [[Python + flat](https://xxyxyz.org/flat)]
