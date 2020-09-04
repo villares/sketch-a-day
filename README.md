@@ -23,6 +23,14 @@
 
 ---
 
+![sketch_2020_09_03flat](2020/sketch_2020_09_03flat/sketch_2020_09_03flat.gif)
+
+[sketch_2020_09_03flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_03flat) [[Python + flat](https://xxyxyz.org/flat)]
+
+My first glitch.com based sketch, visit https://sketch-2020-09-03a.glitch.me/ for new grids!
+
+---
+
 ![sketch_2020_09_02flat](2020/sketch_2020_09_02flat/sketch_2020_09_02flat.svg)
 
 [sketch_2020_09_02flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_02flat) [[Python + flat](https://xxyxyz.org/flat)]
