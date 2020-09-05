@@ -19,7 +19,24 @@
 ## [2019](2019.md)
 
 ## 2020
+---
 
+![sketch_2020_09_05flat](2020/sketch_2020_09_05flat/sketch-2020-09-05flat.svg)
+
+[sketch_2020_09_05flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_05flat) [[Python + flat](https://xxyxyz.org/flat)]
+
+My first glitch.com based sketch, visit https://sketch-2020-09-03a.glitch.me/ for new grids!
+The base for this "glitch" is a fork of (@aparrish) Allison Parrish's amazing example using Flat + Bezmerizing to draw SVG.
+
+I'm using a bizarre set of functions in flat_processing.py to make flat look like Processing Python mode I'm more used to.
+
+---
+
+![sketch_2020_09_04sliders](2020/sketch_2020_09_04sliders/sketch_2020_09_04sliders.gif)
+
+[sketch_2020_09_04sliders](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_04sliders) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Fiddling with ControlP5, a Processing lib for GUI, but on Python mode.
 
 ---
 
