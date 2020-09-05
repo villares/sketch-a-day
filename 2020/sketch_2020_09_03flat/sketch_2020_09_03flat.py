@@ -1,6 +1,14 @@
+"""
+My first glitch.com based sketch, visit https://sketch-2020-09-03a.glitch.me/ for new grids!
+The base for this "glitch" is a fork of (@aparrish) Allison Parrish's amazing example using Flat + Bezmerizing to draw SVG.
+
+I'm using a bizarre set of functions in flat_processing.py to make flat look like Processing Python mode I'm more used to.
+"""
+
 from flask import Flask
 from random import choice, randint
 from flat_processing import *
+
 
 def ensamble(ex, ey, eo):
     noStroke()
@@ -10,12 +18,12 @@ def ensamble(ex, ey, eo):
         else:
             fill(50, 150, 0, 150)
         order, spacing, side = randint(3, 6), 14, 7
-        x, y = (1 + randint(-5, 4)) * side, (1 + randint(-5, 4)) * side   
+        x, y = (1 + randint(-5, 4)) * side, (1 + randint(-5, 4)) * side
         grid(ex+x, ey+y, order, spacing, choice(gliphs), side)
 
 
 def grid(x, y, order, spacing, function, *args):
-    if  type(order) is tuple:
+    if type(order) is tuple:
         cols, rows = order
     else:
         cols = rows = order
@@ -25,6 +33,7 @@ def grid(x, y, order, spacing, function, *args):
         for j in range(rows):
             gy = spacing/2 + j * spacing
             function(xo + gx, yo + gy, *args)
+
 
 gliphs = [lambda x, y, s: rect(x, y, s, s),
           lambda x, y, s: ellipse(x, y, s, s),
@@ -51,6 +60,3 @@ if __name__ == '__main__':
     # app.run()
     draw()
     page.svg(__file__[-24:-3]+'.svg')
-    
-  
-
