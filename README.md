@@ -25,10 +25,9 @@
 
 [sketch_2020_09_05flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_05flat) [[Python + flat](https://xxyxyz.org/flat)]
 
-My first glitch.com based sketch, visit https://sketch-2020-09-03a.glitch.me/ for new grids!
-The base for this "glitch" is a fork of (@aparrish) Allison Parrish's amazing example using Flat + Bezmerizing to draw SVG.
+This one, with lots of help from Marco Macarena, adds some HTML input.
 
-I'm using a bizarre set of functions in flat_processing.py to make flat look like Processing Python mode I'm more used to.
+Check it out at https://sketch-2020-09-05flat.glitch.me/?colunas=8&seed=10&sf=12
 
 ---
 
