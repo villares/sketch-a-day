@@ -1,9 +1,5 @@
-import random
 from bezmerizing import Polyline, Path
 from flat import document, shape, rgb, rgba, command, path
-import numpy as np
-from numpy.random import uniform, normal, choice
-from scipy.stats import truncnorm
 
 import builtins
 

@@ -6,9 +6,17 @@ I'm using a bizarre set of functions in flat_processing.py to make flat look lik
 """
 
 from flask import Flask
-from random import choice, randint
+import random
 from flat_processing import *
 
+SEED = 1
+
+
+def randint(a, b):
+    return random.randint(a, b)
+
+def choice(col):
+    return col[int(randint(0, len(col)-1))]
 
 def ensamble(ex, ey, eo):
     noStroke()
@@ -49,14 +57,17 @@ def draw():
     size(1400, 700)
     background(240)
 
+    random.seed(SEED)
+
     grid(width / 2, height / 2, (8, 4), 150, ensamble, 5)
     return page.svg()
 
 
-draw()
-page.svg(__file__[-24:-3]+'.svg')
+# draw()
+# page.svg(__file__[-24:-3]+'-s{}.svg'.format(SEED))
 
 if __name__ == '__main__':
     # app.run()
     draw()
-    page.svg(__file__[-24:-3]+'.svg')
+    # page.svg(__file__[-24:-3]+f'-s{SEED}.svg')
+    page.svg(__file__[-24:-3]+f'.svg')
