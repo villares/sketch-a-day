@@ -19,6 +19,13 @@
 ## [2019](2019.md)
 
 ## 2020
+
+---
+
+![sketch_2020_09_06flat](2020/sketch_2020_09_06flat/sketch_2020_09_06flat.png)
+
+[sketch_2020_09_06flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_06flat) [[Python + flat](https://xxyxyz.org/flat)]
+
 ---
 
 ![sketch_2020_09_05flat](2020/sketch_2020_09_05flat/sketch-2020-09-05flat.svg)

@@ -1,0 +1,21 @@
+{
+  "install": "pip3 install --no-cache-dir --compile --user -r requirements.txt",
+  "start": "PYTHONUNBUFFERED=true python3 server.py",
+  "watch": {
+    "ignore": [
+      "\\.pyc$"
+    ],
+    "install": {
+      "include": [
+        "^requirements\\.txt$"
+      ]
+    },
+    "restart": {
+      "include": [
+        "\\.py$",
+        "^start\\.sh"
+      ]
+    },
+    "throttle": 1000
+  }
+}
