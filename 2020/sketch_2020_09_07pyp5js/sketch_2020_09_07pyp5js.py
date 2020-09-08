@@ -16,12 +16,12 @@ colors = ((0, 50, 50, 150),
           )
 
 def setup():
-    createCanvas(600, 400)
+    createCanvas(1200, 600)
 
 def draw():
     randomSeed(seed_value)
     background(240, 240, 240)
-    grid(width / 2, height / 2, 5, 150 * sf, ensamble, 5)
+    grid(width / 2, height / 2, (8, 4), 150 * sf, ensamble, 5)
 
     if frameCount % 100 == 0: shuffle(gliphs)
 
