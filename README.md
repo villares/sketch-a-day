@@ -22,6 +22,12 @@
 
 ---
 
+![sketch_2020_09_07pyp5js](2020/sketch_2020_09_07pyp5js/sketch_2020_09_07pyp5js.gif)
+
+[sketch_2020_09_07pyp5js](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_07pyp5js) [[pyp5js](https://berinhard.github.io/pyp5js)]
+
+---
+
 ![sketch_2020_09_06flat](2020/sketch_2020_09_06flat/sketch_2020_09_06flat.png)
 
 [sketch_2020_09_06flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_06flat) [[Python + flat](https://xxyxyz.org/flat)]
