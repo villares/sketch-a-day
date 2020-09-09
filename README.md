@@ -1,6 +1,3 @@
-<br>
-
----
 
 # sketch-a-day
 
