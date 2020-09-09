@@ -22,9 +22,19 @@
 
 ---
 
+![sketch_2020_09_08pyp5js](2020/sketch_2020_09_08pyp5js/sketch_2020_09_08pyp5js.png)
+
+[sketch_2020_09_08pyp5js](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_08pyp5js) [[pyp5js](https://berinhard.github.io/pyp5js)]
+
+[Check the sketch online!](https://abav.lugaralgum.com/sketch-a-day/2020/sketch_2020_09_08pyp5js/)
+
+---
+
 ![sketch_2020_09_07pyp5js](2020/sketch_2020_09_07pyp5js/sketch_2020_09_07pyp5js.gif)
 
 [sketch_2020_09_07pyp5js](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_07pyp5js) [[pyp5js](https://berinhard.github.io/pyp5js)]
+
+[Check the sketch online!](https://abav.lugaralgum.com/sketch-a-day/2020/sketch_2020_09_07pyp5js/)
 
 ---
 
