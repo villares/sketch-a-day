@@ -19,6 +19,12 @@
 
 ---
 
+![sketch_2020_09_09_walker3D](2020/sketch_2020_09_09_walker3D/sketch_2020_09_09_walker3D.gif)
+
+[sketch_2020_09_09_walker3D](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_09_walker3D) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_09_08pyp5js](2020/sketch_2020_09_08pyp5js/sketch_2020_09_08pyp5js.png)
 
 [sketch_2020_09_08pyp5js](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_08pyp5js) [[pyp5js](https://berinhard.github.io/pyp5js)]
