@@ -19,6 +19,27 @@
 
 ---
 
+![sketch_2020_09_13a](2020/sketch_2020_09_13a/sketch_2020_09_13a.gif)
+![sketch_2020_09_13b](2020/sketch_2020_09_13b/sketch_2020_09_13b.gif)
+
+[sketch_2020_09_13a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_13a)
+[sketch_2020_09_13b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_13b)
+ [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+```
+V=PVector;t=translate;w=512;m=256;l=[V()];c=1e2
+def setup():size(w,w,P3D)
+def draw():u=l[-1];M=lambda m:5-5*(int(noise(m+len(l)/c)*c)%3);clear();t(*[m]*3);rotateX(len(l)/c);[(fill(c+b.x%c,c+b.y%c,c+b.x%c),t(*b),box(5),t(*b*-1),b.sub(u/9))for b in l];l[:]+=[u+V(M(1),M(2),M(3))]
+```
+
+```python
+V=PVector;t=translate;w=512;m=256;l=[V()];c=1e2
+def setup():size(w,w,P3D)
+def draw():u=l[-1];M=lambda r:[-5+5*(int(noise(m+b.magSq()/w)*c)%r)for m in range(3)];clear();t(*[m]*3);rotateX(len(l)/c);[(fill(*M(52)),t(*b),box(5),t(*b*-1),b.sub(u/9))for b in l];l[:]+=[u+M(3)]
+```
+
+---
+
 ![sketch_2020_09_12flat](2020/sketch_2020_09_12flat/sketch_2020_09_12flat.gif)
 
 [sketch_2020_09_12flat](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_12flat) [[Python + flat](https://xxyxyz.org/flat)]
