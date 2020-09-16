@@ -1,7 +1,11 @@
+from collections import namedtuple
+
+Square = namedtuple('Square', 'x y') 
+
 class Polyomino(object):
 
     def __init__(self, iterable):
-        self.squares = tuple(sorted(iterable))
+        self.squares = tuple([Square(*s) for s in sorted(iterable)])
 
     def __repr__(self):
         return "%s(%s)" % (self.__class__.__name__, repr(self.squares))
@@ -16,16 +20,17 @@ class Polyomino(object):
         return hash(self) == hash(other)
 
     def __hash__(self):
-        """Determine the one-sided key for this Poylomino"""
+        """
+        Determine the hash (an integer "key/id" number) 
+        it is the smaller number (hash) of the square tuples
+        of itself and its 3 rotated siblings
+        """
         p = self.translate()
-        k = p.key()
+        h = hash(p.squares)
         for _ in range(3):
             p = p.rotate().translate()
-            k = min(k, p.key())
-        return k
-
-    def key(self):
-        return hash(self.squares)
+            h = min(h, hash(p.squares))
+        return h
 
     def rotate(self):
         """Return a Polyomino rotated clockwise"""
@@ -33,19 +38,19 @@ class Polyomino(object):
 
     def translate(self):
         """Return a Polyomino Translated to 0,0"""
-        minX = min(s[0] for s in self)
-        minY = min(s[1] for s in self)
+        minX = min(s.x for s in self)
+        minY = min(s.y for s in self)
         return Polyomino((x-minX, y-minY) for x, y in self)
 
     def raise_order(self):
         """Return a list of higher order Polyonominos evolved from self"""
         polyominoes = []
-        for square in self:
+        for s in self:
             adjacents = (adjacent for adjacent in (
-                (square[0] + 1, square[1]),
-                (square[0] - 1, square[1]),
-                (square[0], square[1] + 1),
-                (square[0], square[1] - 1),
+                (s.x + 1, s.y),
+                (s.x - 1, s.y),
+                (s.x, s.y + 1),
+                (s.x, s.y - 1),
             ) if adjacent not in self)
             for adjacent in adjacents:
                 polyominoes.append(
