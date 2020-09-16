@@ -23,6 +23,11 @@
 
 [sketch_2020_09_15polyominoes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_15polyominoes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Code from a talk by Hamish Campbell on Kiwi Pycon 2013, I just added some silly drawing code.
+https://pyvideo.org/kiwi-pycon-2013/polyominoes-an-exploration-in-problem-solving-w.html
+
+For a clever obfuscated very short ominoe-counter: https://gist.github.com/hamishcampbell/6472043 (sent by Hamish Campbell, @polemic on twitter)
+
 ---
 
 ![sketch_2020_09_14vpython](2020/sketch_2020_09_14vpython/sketch_2020_09_14vpython.gif)
