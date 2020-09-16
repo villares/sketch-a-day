@@ -19,6 +19,12 @@
 
 ---
 
+![sketch_2020_09_16a_deque_randomwalk](2020/sketch_2020_09_16a_deque_randomwalk/sketch_2020_09_16a_deque_randomwalk.gif)
+
+[sketch_2020_09_16a_deque_randomwalk](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_16a_deque_randomwalk) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_09_15polyominoes](2020/sketch_2020_09_15polyominoes/sketch_2020_09_15polyominoes.png)
 
 [sketch_2020_09_15polyominoes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_15polyominoes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
