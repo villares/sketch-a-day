@@ -71,7 +71,5 @@ class Polyomino(object):
         """
         p = self.translate()
         order = len(p)
-        for x in range(order):
-            for y in range(order):
-                if (x, y) in p.squares:
-                    rect(x * w, y *w, w, w) 
+        for x, y in p.squares:
+            rect(x * w, y *w, w, w) 
