@@ -19,6 +19,12 @@
 
 ---
 
+![sketch_2020_09_15polyominoes](2020/sketch_2020_09_15polyominoes/sketch_2020_09_15polyominoes.png)
+
+[sketch_2020_09_15polyominoes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_15polyominoes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_09_14vpython](2020/sketch_2020_09_14vpython/sketch_2020_09_14vpython.gif)
 
 [sketch_2020_09_14vpython](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_14vpython) [[VPython](https://vpython.org/)]
