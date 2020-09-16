@@ -4,12 +4,12 @@ https://pyvideo.org/kiwi-pycon-2013/polyominoes-an-exploration-in-problem-solvin
 """
 from polyomino import Polyomino
 
-x, y, w = 5, 5, 5
+x, y, w = 5, 3, 3
 
 def setup():
-    size(640, 480)
+    size(750, 550)
     background(0)
-    print(count_polys(10))
+    print(count_polys(8))
     
 def count_polys(target):
     global x, y
@@ -33,6 +33,4 @@ def count_polys(target):
             x = 0
             y += len(p) * w
     
-
-
     return len(polyominoes)
