@@ -1,26 +1,31 @@
 
-# sketch-a-day
+# [sketch-a-day](https://abav.lugaralgum.com/sketch-a-day)
 
-#### [one visual idea a day](https://abav.lugaralgum.com/sketch-a-day)
+#### one visual idea a day
 
-<sub>Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I try to make one smally program (*sketch*) a day, and I usually put the code here: [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).</sub>
+Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I try to make one small program (*sketch*) a day, and I usually put the code on the same repository that stores this page:  [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
 
-<sub>Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.</sub>
+Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)].
 
-<sub>Get updates from my newsletter: [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)].</sub>
+You may also support my artistic work, open educational resources and research using [Gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
 
-<sub>You may also support my artistic work, open educational resources and research using [Gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)</sub>
+Some of the tools I have used:
+- [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Processing Python mode
+- [[Processing Java](https://processing.org]) Processing Java or "standard" mode
+- [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
+- [[pyp5js](https://berinhard.github.io/pyp5js/)] a Python to p5js trancriptor
+- [[Python + flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python
+- [[p5py](https://github.com/p5py/p5)] A new Python implementation of Processing ideas
+- [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
 
-## [2018](2018.md)
+---
 
-## [2019](2019.md)
-
-## 2020
+## [2018](2018.md) | [2019](2019.md) | 2020
 
 ---
 
 ![sketch_2020_09_18polycubes](2020/sketch_2020_09_18polycubes/sketch_2020_09_18polycubes.gif)
-
+;;;;;;;;
 [sketch_2020_09_18polycubes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_18polycubes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
@@ -538,7 +543,8 @@ Trying to visualize a graph with a naïve implementation.
 
 [sketch_2020_07_10a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_07_10a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-Based on work by André Burnier, ported from Processing Java to Python by Thiago Bellotti and Alexandre Villares.
+Based on work by André Burnier, ported from Processing 
+to Python by Thiago Bellotti and Alexandre Villares.
 Playing with the Tomorrow font by Tony de Marco e Monica Rizzolli.
 Using *geomerative*, a library by Ricard Marxer.
 
