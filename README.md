@@ -29,11 +29,26 @@
 
 [sketch_2020_09_17deque](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_17deque) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+```python
+
+import collections as c;s=255;h=c.deque([(0,0)],s)
+def setup():size(s*2,s*2);noStroke();colorMode(3)
+def draw():background(51);[(fill(i,s,s,s/2),circle(x,y,i/5))for i, (x, y) in enumerate(h)];h.append(h.popleft())
+def mouseDragged():h.append((mouseX,mouseY))#つぶやきProcessing
+```
+
 ---
 
 ![sketch_2020_09_16a_deque_randomwalk](2020/sketch_2020_09_16a_deque_randomwalk/sketch_2020_09_16a_deque_randomwalk.gif)
 
 [sketch_2020_09_16a_deque_randomwalk](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_16a_deque_randomwalk) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+```python
+import collections as c;h=256;d=c.deque([PVector()],h);t=translate;R=lambda:int(random(-2,2))*9#つぶやきProcessing
+def setup():size(h*2,h*2,P3D);colorMode(3)
+def draw():clear();t(h,h);u=d[-1];[(t(*p.sub(u/9)),fill(p.z%h,h,h),box(9),t(*p*-1))for p in d];d.append(u+(R(),R(),R()))
+
+```
 
 ---
 
