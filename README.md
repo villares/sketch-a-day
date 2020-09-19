@@ -3,7 +3,9 @@
 
 #### one visual idea a day
 
-Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I try to make one small program (*sketch*) a day, and I usually put the code on the same repository that stores this page:  [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
+Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! On this ongoing projetc I try to make one small program (*sketch*) a day, and I usually put the code on the same repository that stores this page:  [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
+
+These results are mostly tentative, exploratory, and I don't feel like they need to be relevant or meaningful in any particular day, but they do give rise to ideas that I consider worthy, like those I have put on [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), and the collection became "a thing" in itself. 
 
 Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)].
 
