@@ -1,7 +1,4 @@
-from java.lang import System 
-System.setProperty("jogl.disable.openglcore", "false") 
-
-
+import villares.ubuntu_jogl_fix  # you probably don't need this
 """
 From a talk by Hamish Campbell
 https://pyvideo.org/kiwi-pycon-2013/polycubes-an-exploration-in-problem-solving-w.html
@@ -10,12 +7,12 @@ https://pyvideo.org/kiwi-pycon-2013/polycubes-an-exploration-in-problem-solving-
 from polycube import Polycube
 
 w = 10
-N = 6
+N = 7
 
 def setup():
     global sorted_polycubes
     size(800, 650, P3D)
-    
+    print("calculating...")
     polycubes = generate_polycubes(N)
     sorted_polycubes = sorted(polycubes, key=lambda x:x.squares)
 
