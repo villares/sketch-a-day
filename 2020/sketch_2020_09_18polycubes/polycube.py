@@ -15,7 +15,7 @@ class Polycube(object):
     hash_count = 0 
 
     def __init__(self, iterable):
-        self.squares = Polycube.translate(tuple(sorted(iterable)))
+        self.squares = Polycube.translate(tuple(iterable))
 
     def __repr__(self):
         return "%s(%s)" % (self.__class__.__name__, repr(self.squares))
@@ -35,11 +35,10 @@ class Polycube(object):
         """
         Determine the hash (an integer "key/id" number) 
         it is the smaller number (hash) of the square tuples
-        of itself and its 3 rotated siblings
+        of itself and its rotated siblings
         """
         p = self
         h = hash(p.squares)
-        tested = [p]
         for _ in range(3):
             p = p.rotate()
             h = min(h, hash(p.squares))
@@ -59,7 +58,6 @@ class Polycube(object):
     def rotateX(self):
         """Return a Polycube rotated on X"""
         return Polycube((x, -z, y) for x, y, z in self)
-
 
     def rotateY(self):
         """Return a Polycube rotated on Y """
@@ -88,12 +86,8 @@ class Polycube(object):
         return polycubes
 
     def draw(self, w):
-        """
-        draw
-        """
-        p = self
-        order = len(p)
-        for x, y, z in p.squares:
+        order = len(self)
+        for x, y, z in self.squares:
             push()
             translate(x * w, y * w, z * w)
             box(w)
@@ -106,6 +100,6 @@ class Polycube(object):
         minX = min(s[0] for s in squares)
         minY = min(s[1] for s in squares)
         minZ = min(s[2] for s in squares)
-        return tuple((x - minX, y - minY, z - minZ)
-                     for x, y, z in squares)
+        return tuple(sorted((x - minX, y - minY, z - minZ)
+                     for x, y, z in squares))
         
