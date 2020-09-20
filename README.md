@@ -26,8 +26,14 @@ Some of the tools I have used:
 
 ---
 
+![sketch_2020_09_19polycubes](2020/sketch_2020_09_19polycubes/sketch_2020_09_19polycubes.gif)
+
+[sketch_2020_09_19polycubes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_19polycubes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_09_18polycubes](2020/sketch_2020_09_18polycubes/sketch_2020_09_18polycubes.gif)
-;;;;;;;;
+
 [sketch_2020_09_18polycubes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_18polycubes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
