@@ -1,8 +1,10 @@
 import villares.ubuntu_jogl_fix
 
 """
-From a talk by Hamish Campbell
-https://pyvideo.org/kiwi-pycon-2013/polycubes-an-exploration-in-problem-solving-w.html
+Polycubes searching
+
+Based on Polyominoes code from a talk by Hamish Campbell
+https://pyvideo.org/kiwi-pycon-2013/polyominoes-an-exploration-in-problem-solving-w.html
 """
 
 from polycube import Polycube
