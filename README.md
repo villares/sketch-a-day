@@ -16,7 +16,8 @@ Some of the tools I have used:
 - [[Processing Java](https://processing.org]) Processing Java or "standard" mode
 - [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
 - [[pyp5js](https://berinhard.github.io/pyp5js/)] a Python to p5js trancriptor
-- [[Python + flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python
+- [[shoebot](https://shoebot.github.io/shoebot/)] Generate vector graphics with Python
+- [[flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python
 - [[p5py](https://github.com/p5py/p5)] A new Python implementation of Processing ideas
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
 
@@ -26,15 +27,27 @@ Some of the tools I have used:
 
 ---
 
+![sketch_2020_09_20polycubes_p5py](2020/sketch_2020_09_20polycubes_p5py/sketch_2020_09_20polycubes_p5py.gif)
+
+[sketch_2020_09_20polycubes_p5py](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_20polycubes_p5py) [[p5py](https://github.com/p5py/p5)]]
+
+A first attempt at p5py with 3D, porting the previous sketch.
+
+---
+
 ![sketch_2020_09_19polycubes](2020/sketch_2020_09_19polycubes/sketch_2020_09_19polycubes.gif)
 
 [sketch_2020_09_19polycubes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_19polycubes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Tried with the 6922 octacubes.
 
 ---
 
 ![sketch_2020_09_18polycubes](2020/sketch_2020_09_18polycubes/sketch_2020_09_18polycubes.gif)
 
 [sketch_2020_09_18polycubes](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_18polycubes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+From polyominoes to polycubes.
 
 ---
 
