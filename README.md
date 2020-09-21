@@ -4,11 +4,11 @@
 #### one visual idea a day
 
 
-Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! Here I'm trying to make one small program (*sketch*) a day, and I usually put the code on the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
+Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I'm trying to make one small program (*sketch*) a day, and I usually put the source code in the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
 
-The results are mostly tentative, exploratory, and I don't feel like they need to be relevant or meaningful for any particular day, but they do give rise to ideas that I consider interesting or worthy of further exploration, like those I've put at [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), and this collection itself became "an interesting thing" for me. 
+The results are mostly tentative, exploratory, also, I don't feel like they need to be relevant, or meaningful, in any particular day, but they do give rise to ideas that I consider interesting, worthy of further exploration, like those I've put at [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), and this collection itself became "an interesting thing" for me. 
 
-Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]. You may also support my artistic work, open educational resources and research using [gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2)
+Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]. You may also support my artistic work, research and open educational resources I publish online, using [gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2).
 
 Some of the tools I have used:
 - [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Processing Python mode
