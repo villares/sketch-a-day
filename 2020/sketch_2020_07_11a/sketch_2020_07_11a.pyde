@@ -1,9 +1,7 @@
 """
-Baseado em exemplo de André Burnier
-portado do Processing Java para Python
-por Thiago Bellotti e Alexandre Villares
-Brincando com vértices da fonte Tomorrow
-de Tony de Marco e Monica Rizzolli
+Baseado em exemplo de André Burnier portado do Processing Java para Python
+por Thiago Bellotti e Alexandre Villares (https://abav.lugaralgum.com)
+Brincando com vértices da fonte Tomorrow de Tony de Marco e Monica Rizzolli
 """
 
 add_library('geomerative')
