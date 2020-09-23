@@ -75,13 +75,8 @@ def area(p0, p1, p2):
 # def mouseReleased():
 #     dragg[:] = []
 
-
 def make_points():
     pontos[:] = []
     for x, y in sample(grid, 6):
         pontos.append(Ponto(x, y))
         
-def make_points():
-    pontos[:] = []
-    for x, y in sample(grid, 6):
-        pontos.append(Ponto(x, y))
