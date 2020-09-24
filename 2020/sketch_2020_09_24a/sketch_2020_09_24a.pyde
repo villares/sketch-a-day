@@ -6,7 +6,7 @@ from ponto import Ponto
 
 BORDER = 50
 SIZE = 150
-r_list = [10, 20, 30, 40,]# -10, -20, -30, -40]
+r_list = [10, 20, 30, 40, -10, -20, -30, -40]
 p_list = []
 dragg = []
 
