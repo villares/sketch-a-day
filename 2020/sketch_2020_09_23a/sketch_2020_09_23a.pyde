@@ -4,8 +4,6 @@ from villares.line_geometry import * # github.com/villares/villares
 from arc_filleted_poly import arc_filleted_poly 
 from ponto import Ponto
 
-
-
 BORDER = 50
 SIZE = 150
 r_list = [10, 20, 30, 40, -10, -20, -30, -40]
