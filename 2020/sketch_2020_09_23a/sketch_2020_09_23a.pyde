@@ -17,25 +17,16 @@ def setup():
     size(400, 400)
     grid = list(product(range(BORDER, height - BORDER + 1, SIZE),
                         range(BORDER, height - BORDER + 1, SIZE)))
-    make_points(8)
+    make_points(len(r_list))
 
 def draw():
     background(200)
-    
-    if len(dragg) == 2:   
-        d_line = Line(*dragg)
-        strokeWeight(0.5)
-        d_line.draw() 
-        lines = inter_lines(d_line, p_list)
-        for inter_line in lines:
-            strokeWeight(2)
-            inter_line.draw()
-
 
     noFill()
     strokeWeight(1)
     stroke(255)
-    poly(map(tuple, p_list))
+    poly(p_list)
+
     stroke(0)
     fill(100, 100)
     arc_filleted_poly(p_list, map(abs, r_list))
@@ -49,11 +40,21 @@ def draw():
         else:
             p.f = 255
         p.draw()
-  
+
+    if len(dragg) == 2:   
+        d_line = Line(*dragg)
+        strokeWeight(0.5)
+        d_line.draw() 
+        lines = inter_lines(d_line, p_list)
+        for inter_line in lines:
+            strokeWeight(2)
+            inter_line.draw()
+
         
 def keyPressed(): 
-    if key == ' ': make_points(8); saveFrame("###.png")  
-    if key == 'm': move_points()  
+    if key == ' ':
+        make_points(len(r_list))
+        # saveFrame("###.png")  
                         
 def mousePressed():
     dragg[:] = [(mouseX, mouseY)]
@@ -69,10 +70,6 @@ def area(p0, p1, p2):
          p2[0] * (p0[1] - p1[1]) +
          p0[0] * (p1[1] - p2[1]))
     return a
-
-# def mouseReleased():
-#     dragg[:] = []
-
 
 def make_points(num):
     p_list[:] = []
