@@ -1,10 +1,15 @@
 # -*- coding: UTF-8 -*-
-from villares.arcs import p_arc
+from villares.arcs import p_arc, b_arc
 
-def arc_filleted_poly(p_list, r_list, open_poly=False):
+DEBUG = True
+
+def arc_filleted_poly(p_list,
+                      r_list,
+                      open_poly=False,
+                      arc_func=p_arc):
     """
     draws a 'filleted' polygon with variable radius
-    dependent on roundedCorner()
+    dependent on arc_corner()
     """
     p_list = list(p_list)
     r_list = list(r_list)
@@ -17,7 +22,7 @@ def arc_filleted_poly(p_list, r_list, open_poly=False):
                                 ):
             m1 = (PVector(p0.x, p0.y) + PVector(p1.x, p1.y)) / 2
             m2 = (PVector(p2.x, p2.y) + PVector(p1.x, p1.y)) / 2
-            roundedCorner(p1, m1, m2, r)
+            arc_corner(p1, m1, m2, r, arc_func)
         endShape(CLOSE)
     else:
         for p0, p1, p2, r in zip(p_list[:-1],
@@ -27,15 +32,15 @@ def arc_filleted_poly(p_list, r_list, open_poly=False):
                                 ):
             m1 = (PVector(p0.x, p0.y) + PVector(p1.x, p1.y)) / 2
             m2 = (PVector(p2.x, p2.y) + PVector(p1.x, p1.y)) / 2
-            roundedCorner(p1, m1, m2, r)
+            arc_corner(p1, m1, m2, r, arc_func)
         endShape()        
 
-def roundedCorner(pc, p1, p2, r):
+def arc_corner(pc, p1, p2, r, arc_func=b_arc):
     """
     Based on Stackoverflow C# rounded corner post 
     https://stackoverflow.com/questions/24771828/algorithm-for-creating-rounded-corners-in-a-polygon
     """    
-    def GetProportionPoint(pt, segment, L, dx, dy):
+    def proportion_point(pt, segment, L, dx, dy):
         factor = float(segment) / L if L != 0 else segment
         return PVector((pt.x - dx * factor), (pt.y - dy * factor))
 
@@ -59,37 +64,37 @@ def roundedCorner(pc, p1, p2, r):
         max_r = r
     # Points of intersection are calculated by the proportion between
     # length of vector and the length of the segment.
-    p1Cross = GetProportionPoint(pc, segment, length1, dx1, dy1)
-    p2Cross = GetProportionPoint(pc, segment, length2, dx2, dy2)
+    p1Cross = proportion_point(pc, segment, length1, dx1, dy1)
+    p2Cross = proportion_point(pc, segment, length2, dx2, dy2)
     # Calculation of the coordinates of the circle
     # center by the addition of angular vectors.
     dx = pc.x * 2 - p1Cross.x - p2Cross.x
     dy = pc.y * 2 - p1Cross.y - p2Cross.y
     L = sqrt(dx * dx + dy * dy)
     d = sqrt(segment * segment + max_r * max_r)
-    circlePoint = GetProportionPoint(pc, d, L, dx, dy)
-    # StartAngle and EndAngle of arc
-    startAngle = atan2(p1Cross.y - circlePoint.y, p1Cross.x - circlePoint.x)
-    endAngle = atan2(p2Cross.y - circlePoint.y, p2Cross.x - circlePoint.x)
+    arc_center = proportion_point(pc, d, L, dx, dy)
+    # start_angle and end_angle of arc
+    start_angle = atan2(p1Cross.y - arc_center.y, p1Cross.x - arc_center.x)
+    end_angle = atan2(p2Cross.y - arc_center.y, p2Cross.x - arc_center.x)
     # Sweep angle
-    sweepAngle = endAngle - startAngle
+    sweep_angle = end_angle - start_angle
     # Some additional checks
-    ns = False
-    if sweepAngle < 0:
-        startAngle, endAngle = endAngle, startAngle
-        sweepAngle = -sweepAngle
-        circle(circlePoint.x, circlePoint.y, max_r/2)
-        ns = True
-    ls = False
-    if sweepAngle > PI:
-        startAngle, endAngle = endAngle, startAngle
-        sweepAngle = TWO_PI - sweepAngle
-        circle(circlePoint.x, circlePoint.y, max_r)
-        ls = True
-    if (ls and ns) or not (ls or ns):   
-    # if not ((ls or ns) and not (ls and ns)):
-        startAngle, endAngle = endAngle, startAngle
-        sweepAngle = -sweepAngle 
-
-    p_arc(circlePoint.x, circlePoint.y, 2 * max_r, 2 * max_r,
-        startAngle, startAngle + sweepAngle, mode=2)    
+    nsa = False # negative sweep angle
+    if sweep_angle < 0:
+        start_angle, end_angle = end_angle, start_angle
+        sweep_angle = -sweep_angle
+        nsa = True
+        if DEBUG: circle(arc_center.x, arc_center.y, max_r/2)
+    lsa = False # large sweep angle
+    if sweep_angle > PI:
+        start_angle, end_angle = end_angle, start_angle
+        sweep_angle = TWO_PI - sweep_angle
+        lsa = True
+        if DEBUG: circle(arc_center.x, arc_center.y, max_r)
+    if (lsa and nsa) or not (lsa or nsa):  
+        # reverse sweep direction 
+        start_angle, end_angle = end_angle, start_angle
+        sweep_angle = -sweep_angle 
+    # draw "naked" arc (without beginShape & endShape)
+    arc_func(arc_center.x, arc_center.y, 2 * max_r, 2 * max_r,
+        start_angle, start_angle + sweep_angle, mode=2)    
