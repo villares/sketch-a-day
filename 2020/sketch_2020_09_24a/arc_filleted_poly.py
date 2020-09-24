@@ -8,7 +8,7 @@ def arc_filleted_poly(p_list,
                       open_poly=False,
                       arc_func=p_arc):
     """
-    draws a 'filleted' polygon with variable radius
+    Draws a 'filleted' polygon with variable radius
     dependent on arc_corner()
     """
     p_list = list(p_list)
@@ -37,8 +37,8 @@ def arc_filleted_poly(p_list,
 
 def arc_corner(pc, p1, p2, r, arc_func=b_arc):
     """
-    Based on Stackoverflow C# rounded corner post 
-    https://stackoverflow.com/questions/24771828/algorithm-for-creating-rounded-corners-in-a-polygon
+    Draw an arc that 'rounds' the point pc between p1 and p2 using arc_func
+    Based on '...rounded corners in a polygon' from https://stackoverflow.com/questions/24771828/
     """    
     def proportion_point(pt, segment, L, dx, dy):
         factor = float(segment) / L if L != 0 else segment
@@ -91,7 +91,7 @@ def arc_corner(pc, p1, p2, r, arc_func=b_arc):
         sweep_angle = TWO_PI - sweep_angle
         lsa = True
         if DEBUG: circle(arc_center.x, arc_center.y, max_r)
-    if (lsa and nsa) or not (lsa or nsa):  
+    if (lsa and nsa) or (not lsa and not nsa):  
         # reverse sweep direction 
         start_angle, end_angle = end_angle, start_angle
         sweep_angle = -sweep_angle 
