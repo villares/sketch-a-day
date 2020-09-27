@@ -30,6 +30,8 @@ Some of the tools I have used:
 
 [sketch_2020_09_26a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_09_26a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+More at [villares/arc_tangents_and_bezier_studies](https://github.com/villares/arc_tangents_and_bezier_studies)
+
 ---
 
 ![sketch_2020_09_25a](2020/sketch_2020_09_25a/sketch_2020_09_25a.gif)
