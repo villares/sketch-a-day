@@ -30,10 +30,12 @@ def grade(xg, yg, wxg, wyg, n=None):
             y += wy
         x += wx
 
-def special_range(n, wg):
-    precalc = [noise(i * 1 + wg, t) for i in range(n)]
-    pretotal = sum(precalc)
-    return [map(precalc[i], 0, pretotal, 0, wg)
+def special_range(n, target):
+    """ Return a list of n float numbers that add up to target."""
+    precalc = [noise(i * 1 + target, t)
+               for i in range(n)]
+    total = sum(precalc)
+    return [map(precalc[i], 0, total, 0, target)
             for i in range(n)]
 
 # def keyPressed():
