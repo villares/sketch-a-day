@@ -1,11 +1,11 @@
 from random import choice, sample
 
 new_origin = PVector()
+elements = []
 
 def setup():
     size(600, 600)
     noFill()
-    generate()
 
 def generate(n=60):
     global elements
