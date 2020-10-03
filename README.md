@@ -30,6 +30,8 @@ Some of the tools I have used:
 
 [sketch_2020_10_03c](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_10_03c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Inspired by [@inconvergent](https://twitter.com/inconvergent) and Manfred Mohr(obviously mine is not a 10th as good).
+
 ---
 
 ![sketch_2020_10_02c](2020/sketch_2020_10_02c/sketch_2020_10_02c.gif)
