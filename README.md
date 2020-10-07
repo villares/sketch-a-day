@@ -26,6 +26,12 @@ Some of the tools I have used:
 
 ---
 
+![sketch_2020_10_07sel_sort](2020/sketch_2020_10_07sel_sort/sketch_2020_10_07sel_sort.gif)
+
+[sketch_2020_10_07sel_sort](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_10_07sel_sort) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_10_06sel_sort](2020/sketch_2020_10_06sel_sort/sketch_2020_10_06sel_sort.gif)
 
 [sketch_2020_10_06sel_sort](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_10_06sel_sort) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
