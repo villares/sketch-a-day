@@ -1,12 +1,11 @@
-import villares.ubuntu_jogl_fix  # intel video linux bug
+# import villares.ubuntu_jogl_fix  # intel video linux bug
+# from villares.gif_export import gif_export
+# add_library('gifAnimation')
+# add_library('peasycam')
 
-from villares.gif_export import gif_export
-
-add_library('gifAnimation')
-add_library('peasycam')
 import random 
 
-NAME = "sketch_2020_10_09a"
+NAME = "sketch_2020_10_08a"
 random.seed(10080)
 choice = random.choice
 
@@ -33,15 +32,15 @@ def draw():
     rotateY(r)
     draw_e(elements)
 
-    if r < TWO_PI:
-        if frameCount % 2:
-            gif_export(GifMaker,
-                       NAME,
-                       delay=100,
-                       quality=0)
-    else:
-        gif_export(GifMaker, finish=True)
-        noLoop()
+    # if r < TWO_PI:
+    #     if frameCount % 2:
+    #         gif_export(GifMaker,
+    #                    NAME,
+    #                    delay=100,
+    #                    quality=0)
+    # else:
+    #     gif_export(GifMaker, finish=True)
+    #     noLoop()
 
 
 def draw_e(els):
