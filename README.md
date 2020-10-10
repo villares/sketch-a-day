@@ -1,16 +1,16 @@
 
 # [sketch-a-day](https://abav.lugaralgum.com/sketch-a-day)
 
-#### one visual idea a day
+#### coding a visual idea a day
 
 
-Hi! I'm [Alexandre](https://abav.lugaralgum.com), welcome! I'm trying to make one small program (*sketch*) a day, and I usually put the source code in the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
+Welcome! My name is [Alexandre Villares](https://abav.lugaralgum.com) and since January, 2018 I have been coding *sketches* everyday, publishing the source code in the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
 
-The results are mostly tentative, exploratory, also, I don't feel like they need to be relevant, or meaningful, in any particular day, but they do give rise to ideas that I consider interesting, worthy of further exploration, like those I've put at [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), and this collection itself became "an interesting thing" for me. 
+The results are mostly tentative, exploratory, and I don’t feel like they need to be relevant or meaningful on any particular day. The everyday practice leads to the emergence of ideas that I consider interesting, worthy of further exploration. Some of those have been added to [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), this collection itself became valuable for me, and I share it with pleasure with everyone willing to explore coding as a creative and expressive medium.
 
-Feel free to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Get updates from my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]. You may also support my artistic work, research and open educational resources I publish online, using [gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2).
+Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Moreover, I kindly invite you to subscribe to my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]. and if you appreciate what I have been doing, you may support my artistic work, research and open educational resources I publish on-line using [gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2).
 
-Some of the tools I have used:
+Here are listed some of the tools I have been using:
 - [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Processing Python mode
 - [[Processing Java](https://processing.org]) Processing Java or "standard" mode
 - [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
@@ -482,7 +482,7 @@ Nice drawing from the thread on a offscreen buffer!
 
 [sketch_2020_08_09a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_09a) | 
 [sketch_2020_08_09b](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_08_09b)
- 
+
 [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
