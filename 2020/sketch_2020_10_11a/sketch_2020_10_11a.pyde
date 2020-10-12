@@ -1,12 +1,12 @@
-import villares.ubuntu_jogl_fix  # intel video linux bug
-from villares.gif_export import gif_export
-add_library('gifAnimation')
+# import villares.ubuntu_jogl_fix  # intel video linux bug
+# from villares.gif_export import gif_export
+# add_library('gifAnimation')
 # add_library('peasycam')
 
 import random 
 
 NAME = "sketch_2020_10_11a"
-random.seed(10110)
+random.seed(101101)
 
 elements = []
 
@@ -28,12 +28,15 @@ def draw():
     background(240, 240, 220)
     translate(width / 2, # disable if using PeasyCam
               height / 2,
-              -100) 
+              -200) 
 
     r = frameCount / 100.
     rotateY(r)
     draw_e(elements)
 
+    # export_frame(r)
+
+def export_frame(r):
     if r < TWO_PI:
         if frameCount % 2:
             gif_export(GifMaker,
