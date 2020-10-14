@@ -42,9 +42,9 @@ def draw():
         # text(str(i), pts[2][0], pts[2][1])
 
 
-def distorter(inter):
+def distorter(col):
     return (([distort(pt) for pt in pts], c)
-            for pts, c in slabs)
+            for pts, c in col)
 
 def distort(pt):
     s = 0.002
