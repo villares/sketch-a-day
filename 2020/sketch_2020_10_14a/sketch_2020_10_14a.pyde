@@ -24,10 +24,16 @@ def draw():
     stroke(0, 255, 0)
     for li in lines:
         li.draw()
+        
+        # if li.point_over(mouseX, mouseY):
+        #     print("yep!")
+        #     break
+        int_count = 0
         for other_li in lines:
-            if (other_li.point_over(li.a) or
-                other_li.point_over(li.b)):
-                break
+            if li.intersect(other_li):
+                int_count += 1
+            if int_count > 1:
+                break    
         else:
             v = PVector(*li.a) - PVector(*li.b)
             v.normalize()
