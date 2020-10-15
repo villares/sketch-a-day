@@ -13,7 +13,7 @@ def generate_lines():
     while len(lines) < 20:
         li = Line((rw(), rw()), (rw(), rw()))
         for other_li in lines:
-            if line_intersect(li, other_li):
+            if li.intersect(other_li):
                 break
         else:
             lines.append(li)
@@ -24,12 +24,9 @@ def draw():
     stroke(0, 255, 0)
     for li in lines:
         li.draw()
-        int_count = 0
         for other_li in lines:
-            line_ints = line_intersect(li, other_li)
-            if line_ints:
-                int_count += 1
-            if int_count > 2:
+            if (other_li.point_over(li.a) or
+                other_li.point_over(li.b)):
                 break
         else:
             v = PVector(*li.a) - PVector(*li.b)
