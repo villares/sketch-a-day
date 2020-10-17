@@ -1,6 +1,8 @@
-from villares.line_geometry import Line
+# Inspired by Eduardo Omine's line animations
+# Added a GrowingLine class that inherits from Line
 
 from random import choice
+from villares.line_geometry import Line, point_in_screen
 
 def setup():
     size(400, 400)
@@ -9,10 +11,6 @@ def setup():
 def generate_lines():
     global glines
     rw = lambda: choice(range(10, width, 10))
-    # glines = [GrowingLine((-width, -height), (width * 2, -height)),
-    #          GrowingLine((-width, -height), (-width, height * 2)),
-    #          GrowingLine((-width, height * 2), (width * 2, height * 2)),
-    #          GrowingLine((width * 2, -height), (width * 2, height * 2)),]
     glines = []
     while len(glines) < 60:
         gl = GrowingLine((rw(), rw()), (rw(), rw()))
@@ -24,28 +22,21 @@ def generate_lines():
 
 def draw():
     background(0)
-    # lines.sort(key = lambda li : li.dist())
     for gl in glines:
         for other_gl in glines:
             gl.check_collision(other_gl)
-        # red line
+        strokeWeight(2)
+        gl.stroke_from_growth()
+        # # red line
         # if gl.point_over(int(frameCount) % width, height / 2):
         #     stroke(255, 0, 0)
-        # else:
-        #     stroke(0, 0, 200)
-        strokeWeight(2)
         gl.draw()
         gl.check_screen_limit()
         gl.grow()
 
-
 def keyPressed():
     if key == ' ':
         generate_lines()
-
-
-def point_in_screen(p):
-    return 0 <= v[0] <= width and 0 <= p[1] <= height
 
 class GrowingLine(Line):
 
@@ -54,9 +45,8 @@ class GrowingLine(Line):
         self.grow_a = True
         self.grow_b = True
 
-    def draw(self):
+    def stroke_from_growth(self):
         stroke(200 * self.grow_a, 128, 200 * self.grow_b)        
-        Line.draw(self)
 
     def grow(self):
         v = PVector(*self.a) - PVector(*self.b)
@@ -85,7 +75,7 @@ class GrowingLine(Line):
                 self.grow_b = False
                 
     def check_screen_limit(self):
-            if not point_in_screen(self.a):
+            if self.grow_a and not point_in_screen(self.a):
                 self.grow_a = False
-            if not point_in_screen(self.b):
+            if self.grow_b and not point_in_screen(self.b):
                 self.grow_b = False
