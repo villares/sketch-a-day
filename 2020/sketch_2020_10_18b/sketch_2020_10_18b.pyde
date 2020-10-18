@@ -1,8 +1,5 @@
-# Inspired by Eduardo Omine's line animations
-# Added a GrowingLine class that inherits from Line
 
 from random import choice
-# github.com/villares/villares
 from villares.line_geometry import Line, point_in_screen
 
 def setup():
@@ -11,18 +8,24 @@ def setup():
 
 def generate_lines():
     global glines
-    rw = lambda: choice(range(10, width, 10))
+    rw = lambda: choice(range(-width / 2, width / 2, 10))
     glines = []
     while len(glines) < 60:
         gl = GrowingLine((rw(), rw()), (rw(), rw()))
         for other_gl in glines:
-            if gl.intersect(other_gl):
+            if gl.intersect(other_gl) or gl.a == gl.b:
                 break
         else:
             glines.append(gl)
 
 def draw():
-    background(0)
+    fill(0, 10)
+    rect(0, 0, width, height)
+
+    translate(width / 2, height / 2)
+    # scale(.5)
+    rotate(frameCount / 200.0)
+    # background(0)
     for gl in glines:
         for other_gl in glines:
             gl.check_collision(other_gl)
@@ -32,6 +35,7 @@ def draw():
         # if gl.point_over(int(frameCount) % width, height / 2):
         #     stroke(255, 0, 0)
         gl.draw()
+
         gl.check_screen_limit()
         gl.grow()
 
@@ -64,19 +68,25 @@ class GrowingLine(Line):
         #     circle(self.b.x, self.b.y, 3)
 
     def check_collision(self, other):
-        if self is not other:
+        if self != other:
             if self.grow_a and other.contains_point(self.a.x,
                                                     self.a.y,
                                                     tolerance=0.01):
                 self.grow_a = False
-
+                # glines.remove(other)
+                # glines.append(GrowingLine(self.a, other.b))
             if self.grow_b and other.contains_point(self.b.x,
                                                     self.b.y,
                                                     tolerance=0.01):
                 self.grow_b = False
+                # if other in glines: glines.remove(other)
+                # glines.append(GrowingLine(other.a, self.b))
+        # else:
+        #     glines.remove(self)
 
     def check_screen_limit(self):
-        if self.grow_a and not point_in_screen(self.a):
+        sp = lambda p: PVector(screenX(p.x, p.y), screenY(p.x, p.y))
+        if self.grow_a and not point_in_screen(sp(self.a)):
             self.grow_a = False
-        if self.grow_b and not point_in_screen(self.b):
+        if self.grow_b and not point_in_screen(sp(self.b)):
             self.grow_b = False
