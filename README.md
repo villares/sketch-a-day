@@ -1507,7 +1507,7 @@ rules = {
 [sketch_2020_03_29a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_29a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ```python
-axiom = 'L'
+axiom = 'L'8
 rules = {
     'L': '+FR-LFL+',
     'R': '-FL+RFR-',
@@ -1537,9 +1537,9 @@ rules = {
 [sketch_2020_03_28a](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_03_28a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ```python
-iterations = 7
+iterations = 9
 stroke_len = 2600
-angle_deg = 45
+angle_deg = 60
 axiom = 'L'
 sentence = axiom
 rules = {

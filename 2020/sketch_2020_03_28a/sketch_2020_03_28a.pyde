@@ -1,8 +1,8 @@
 # Other L-System
 
-iterations = 8
+iterations = 9 #8
 stroke_len = 2600
-angle_deg = 105
+angle_deg = 60 #105
 axiom = 'L'
 sentence = axiom
 rules = {
