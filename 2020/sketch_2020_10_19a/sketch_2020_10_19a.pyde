@@ -9,8 +9,8 @@ def setup():
 def generate_lines():
     global glines
     rw = lambda: choice(range(-width / 2, width / 2, 10))
-    # step = lambda n: n + choice((-21, 5))
-    step = lambda n: n + choice((-5,-15))
+    step = lambda n: n + choice((-21, 5))
+    # step = lambda n: n + choice((-5,-15))
 
     glines = []
     while len(glines) < 100:
