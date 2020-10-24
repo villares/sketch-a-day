@@ -4,35 +4,39 @@ from villares import ubuntu_jogl_fix
 count = 0
 iterations = 8
 stroke_len = 1100
-angle_deg = 90
+angle_deg = 85
 axiom = 'L'
 sentence = axiom
 rules = {
-    'L': '+RF[-LFL]+',
-    'R': '[-LF]+RFR-',
+    'L': '+RF-LFL+',
+    'R': '-LF+RFR-',
 }
 
-fs = 2
+fs = 5
 
 def setup():
     size(600, 600, P3D)
     global xo, yo, png
     png = createGraphics(width * fs, height * fs)
+    png.beginDraw()
+
+
     xo, yo = 360, 210  # width / 2, height / 2 - 20
     generate(iterations)
 
 def draw():
-    beginRecord(png)
+    beginRaw(png)
+    png.scale(fs)
+    png.background(0)
     smooth(4)
     noFill()
     colorMode(HSB)
-    png.scale(fs)
     # strokeWeight(.2)
     background(0)
     translate(xo, yo)
     rotateY(frameCount / 20.)
     plot(radians(angle_deg))
-    endRecord()
+    endRaw()
 
 def generate(n):
     global stroke_len, sentence
@@ -53,6 +57,7 @@ def plot(angle):
             translate(0, -stroke_len)
         elif c == '+':
             rotate(angle)
+            rotateY(angle)
         elif c == '-':
             rotate(-angle)
         elif c == '[':
@@ -60,10 +65,8 @@ def plot(angle):
         elif c == ']':
             popMatrix()
         elif c == 'L':
-            rotateY(angle)
             circle(0, 0, stroke_len / 10.0)
         elif c == 'R':
-            rotateY(-angle)
             circle(0, 0, stroke_len / 5.0)
 
 def keyPressed():
@@ -92,7 +95,7 @@ def keyPressed():
         iterations -= 1
         sentence = axiom
         generate(iterations)
-        print("iterations:" + str(interations))
+        print("iterations:" + str(iterations))
     if key == 'x':
         stroke_len *= 1.5
     if key == 'z':
