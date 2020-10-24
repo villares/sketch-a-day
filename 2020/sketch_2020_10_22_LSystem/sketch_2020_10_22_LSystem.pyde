@@ -91,7 +91,7 @@ def keyPressed():
         iterations -= 1
         sentence = axiom
         generate(iterations)
-        print("iterations:" + str(interations))
+        print("iterations:" + str(iterations))
     if key == 'x':
         stroke_len *= 1.5
     if key == 'z':
