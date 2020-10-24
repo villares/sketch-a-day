@@ -12,7 +12,7 @@ rules = {
     'R': '-LF+RFR-',
 }
 
-fs = 5
+fs = 1
 
 def setup():
     size(600, 600, P3D)
