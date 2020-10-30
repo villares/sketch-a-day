@@ -1,0 +1,1464 @@
+	Título: ensino de programação em contexto visual
+	Autor: Alexandre B A Villares
+	Palavras chave: 
+	Cobertura: Este tesauro foi produzido na pesquisa de mestrado "Taxonomia de temas para o ensino de programação em contexto visual"
+	cuja dissertação foi defendida em 25/02/2019 no pograma de pós-graduação Arquitetura, Tecnologia e Cidade - FEC/Unicamp
+	Mais informações em: https://abav.lugaralgum.com/mestrado/
+	URI: http://www.lugaralgum.com/tematres/vocab/
+	Criado por: TemaTres 3.0
+	__________________________________________________________________________
+
+3D graphics 
+	(teaching programming on a visual context)
+	EQ: gráficos tridimensionais
+
+abstração
+	Código: csc.abt
+	TG: ciência da computação
+	TR: algoritmos
+	TR: recursão
+	EQ: abstraction (teaching programming on a visual context) 
+
+abstraction (teaching programming on a visual context)
+	EQ: abstração
+
+aleatoriedade
+	Código: mat.rnd
+	UP: aleatório
+	UP: pseudo-aleatório
+	TG: matemática
+	TE: distribuições aleatórias
+	TE: ruído Perlin
+	EQ: random (teaching programming on a visual context) 
+
+aleatório
+
+	USE: aleatoriedade
+
+algorithm analysis (teaching programming on a visual context)
+	EQ: análise de algoritmos
+
+algorithms (teaching programming on a visual context)
+	EQ: algoritmos
+
+algoritmos
+	Código: csc.alg
+	TG: ciência da computação
+	TE: algoritmos de ordenação
+	TE: análise de algoritmos
+	TE: notação "O"
+	TR: abstração
+	TR: algoritmos genéticos
+	TR: recursão
+	EQ: algorithms (teaching programming on a visual context) 
+
+algoritmos de ordenação
+	Código: csc.alg.ord
+	TG: algoritmos
+	TR: algoritmos genéticos
+	TR: análise de algoritmos
+	EQ: sorting algorithms (teaching programming on a visual context) 
+
+algoritmos genéticos
+	Código: exa.mga
+	TG: exemplos de aplicação
+	TR: algoritmos
+	TR: algoritmos de ordenação
+	TR: aplicativos móveis
+	TR: áudio
+	TR: autômatos celulares
+	TR: computação física
+	TR: formas parametrizadas
+	TR: simulações
+	TR: visão computacional
+	EQ: genetic algorithms (teaching programming on a visual context) 
+
+alternate execution (teaching programming on a visual context)
+	EQ: execução alternativa
+
+ambiente de desenvolvimento
+	Código: dev.ide
+	TG: engenharia de software
+	EQ: development environment (teaching programming on a visual context) 
+	EQ: IDE (teaching programming on a visual context) 
+
+análise de algoritmos
+	Código: csc.alg.ana
+	TG: algoritmos
+	TR: algoritmos de ordenação
+	TR: notação "O"
+	EQ: algorithm analysis (teaching programming on a visual context) 
+
+animações
+
+	USE: gráficos em movimento
+
+aplicativos móveis
+	Código: exa.mob
+	UP: apps
+	TG: exemplos de aplicação
+	TR: algoritmos genéticos
+	TR: áudio
+	TR: autômatos celulares
+	TR: computação física
+	TR: formas parametrizadas
+	TR: simulações
+	TR: visão computacional
+	EQ: mobile applications (teaching programming on a visual context) 
+
+application examples (teaching programming on a visual context)
+	EQ: exemplos de aplicação
+
+application programming interface (teaching programming on a visual context)
+	EQ: interface de programação de aplicação
+
+apps
+
+	USE: aplicativos móveis
+
+apresentação
+	Código: gra.ren
+	TG: gráficos
+	TE: buffer de apresentação
+	TE: shaders
+	EQ: rendering (teaching programming on a visual context) 
+
+aproximações sucessivas
+	Código: dev.tec.suc
+	TG: estratégias de desenvolvimento
+	EQ: incrementalism (teaching programming on a visual context) 
+
+argument passing (teaching programming on a visual context)
+	EQ: passagem de argumentos
+
+arranjo
+	Código: dat.str.arr
+	TG: estruturas de dados
+	EQ: array (teaching programming on a visual context) 
+
+array (teaching programming on a visual context)
+	EQ: arranjo
+
+ASCII
+
+	USE: codificação de caracteres
+
+assignment (teaching programming on a visual context)
+	EQ: atribuição
+
+atribuição
+	Código: dat.var.asg
+	TG: variáveis
+	TR: escopo de variáveis
+	EQ: assignment (teaching programming on a visual context) 
+
+atributos de objetos
+	Código: pst.oop.atr
+	TG: orientação a objetos
+	EQ: fields (teaching programming on a visual context) 
+
+atributos gráficos
+	Código: gra.atr
+	TG: gráficos
+	TE: preenchimento
+	TE: traço
+	TR: cor
+	EQ: graphic attributes (teaching programming on a visual context) 
+
+áudio
+	Código: exa.snd
+	UP: som
+	TG: exemplos de aplicação
+	TE: entrada sonora
+	TE: saída sonora
+	TR: algoritmos genéticos
+	TR: aplicativos móveis
+	TR: computação física
+	TR: visão computacional
+	EQ: sound (teaching programming on a visual context) 
+
+autômatos celulares
+	Código: exa.oca
+	TG: exemplos de aplicação
+	TR: algoritmos genéticos
+	TR: aplicativos móveis
+	TR: computação física
+	TR: visão computacional
+	EQ: cellular autmata (teaching programming on a visual context) 
+
+banco de dados
+	Código: dat.dba
+	TG: dados
+	TR: texto
+	EQ: database (teaching programming on a visual context) 
+
+big "O" notation
+
+big O notation (teaching programming on a visual context)
+	EQ: notação "O"
+
+binary numbers (teaching programming on a visual context)
+	EQ: números binários
+
+biological simulation (teaching programming on a visual context)
+	EQ: simulações biológicas
+
+bitmap images (teaching programming on a visual context)
+	EQ: gráficos raster
+
+bitmaps
+
+	USE: gráficos raster
+
+booleans (teaching programming on a visual context)
+	EQ: valores booleanos
+
+browser interaction (teaching programming on a visual context)
+	EQ: interação com o navegador
+
+buffer de apresentação
+	Código: gra.ren.off
+	TG: apresentação
+	EQ: offscreen buffer (teaching programming on a visual context) 
+
+câmera
+
+	USE: visão do observador
+
+camera settings (teaching programming on a visual context)
+	EQ: visão do observador
+
+cellular autmata (teaching programming on a visual context)
+	EQ: autômatos celulares
+
+chained conditionals (teaching programming on a visual context)
+	EQ: condicionais encadeadas
+
+ciência da computação
+	Código: csc
+	TE: abstração
+	TE: algoritmos
+	TE: recursão
+	EQ: computer science concepts (teaching programming on a visual context) 
+
+ciência de dados
+	Código: exa.dat
+	TG: exemplos de aplicação
+	TE: visualização de dados
+	EQ: data science (teaching programming on a visual context) 
+
+codificação de caracteres
+	Código: dat.txt.enc
+	UP: ASCII
+	UP: Unicode
+	TG: texto
+	EQ: text encoding (teaching programming on a visual context) 
+
+colour (teaching programming on a visual context)
+	EQ: cor
+
+colour spaces (teaching programming on a visual context)
+	EQ: espaços de cor
+
+comentários
+	Código: pst.tok.com
+	TG: símbolos
+	EQ: comments (teaching programming on a visual context) 
+
+comments (teaching programming on a visual context)
+	EQ: comentários
+
+comparações
+	Código: pst.ope.cmp
+	TG: operadores
+	EQ: comparison (teaching programming on a visual context) 
+
+comparison (teaching programming on a visual context)
+	EQ: comparações
+
+computação física
+	Código: exa.ele
+	UP: microcontroladores
+	TG: exemplos de aplicação
+	TR: algoritmos genéticos
+	TR: aplicativos móveis
+	TR: áudio
+	TR: autômatos celulares
+	TR: formas parametrizadas
+	TR: simulações
+	TR: visão computacional
+	EQ: physical computing (teaching programming on a visual context) 
+
+computer science concepts (teaching programming on a visual context)
+	EQ: ciência da computação
+
+computer vision (teaching programming on a visual context)
+	EQ: visão computacional
+
+comunicação em rede
+	Código: exa.net
+	UP: redes
+	TG: exemplos de aplicação
+	EQ: networking (teaching programming on a visual context) 
+
+condicionais
+	Código: pst.cnd
+	UP: condicional
+	TG: estruturas de programação
+	TE: condicionais aninhadas
+	TE: condicionais encadeadas
+	TE: execução alternativa
+	EQ: conditionals (teaching programming on a visual context) 
+
+condicionais aninhadas
+	Código: pst.cnd.nes
+	TG: condicionais
+	EQ: nested conditionals (teaching programming on a visual context) 
+
+condicionais encadeadas
+	Código: pst.cnd.cha
+	TG: condicionais
+	EQ: chained conditionals (teaching programming on a visual context) 
+
+condicional
+
+	USE: condicionais
+
+conditionals (teaching programming on a visual context)
+	EQ: condicionais
+
+convenções de nomenclatura
+	Código: dev.tec.nam
+	TG: estratégias de desenvolvimento
+	EQ: naming conventions (teaching programming on a visual context) 
+
+conversão de dados
+	Código: dat.typ.con
+	TG: tipagem
+	TR: texto
+	EQ: type conversion (teaching programming on a visual context) 
+
+coordinate systems (teaching programming on a visual context)
+	EQ: sistemas de coordenadas
+
+cor
+	Código: gra.clr
+	TG: gráficos
+	TE: espaços de cor
+	TR: atributos gráficos
+	EQ: colour (teaching programming on a visual context) 
+
+curvas matemáticas
+	Código: mat.cur
+	TG: matemática
+	EQ: curves (teaching programming on a visual context) 
+
+curves (teaching programming on a visual context)
+	EQ: curvas matemáticas
+
+dados
+	Código: dat
+	TE: banco de dados
+	TE: entrada de dados
+	TE: estruturas de dados
+	TE: saída de dados
+	TE: texto
+	TE: tipagem
+	TE: variáveis
+	EQ: data (teaching programming on a visual context) 
+
+dados externos
+
+	USE: entrada de dados
+
+data (teaching programming on a visual context)
+	EQ: dados
+
+data science (teaching programming on a visual context)
+	EQ: ciência de dados
+
+data structures (teaching programming on a visual context)
+	EQ: estruturas de dados
+
+data visualization (teaching programming on a visual context)
+	EQ: visualização de dados
+
+database (teaching programming on a visual context)
+	EQ: banco de dados
+
+debugging (teaching programming on a visual context)
+	EQ: depuração
+
+declaração de funções
+	Código: pst.fun.def
+	TG: funções
+	EQ: function definition (teaching programming on a visual context) 
+
+deployment (teaching programming on a visual context)
+	EQ: implantação de software
+
+depuração
+	Código: dev.deb
+	TG: engenharia de software
+	TR: estratégias de desenvolvimento
+	TR: sistemas operacionais
+	EQ: debugging (teaching programming on a visual context) 
+
+desenvolvimento
+
+	USE: engenharia de software
+
+development environment (teaching programming on a visual context)
+	EQ: ambiente de desenvolvimento
+
+development strategies (teaching programming on a visual context)
+	EQ: estratégias de desenvolvimento
+
+dispositivos de interface humana
+	Código: dat.inp.hid
+	UP: interface de interação humana
+	UP: interface humana de interação
+	TG: entrada de dados
+	TE: mouse
+	TE: teclado
+	TR: leitura de arquivos
+	EQ: HID (teaching programming on a visual context) 
+
+distribuições aleatórias
+	Código: mat.rnd.dis
+	TG: aleatoriedade
+	EQ: random distributions (teaching programming on a visual context) 
+
+drawing order (teaching programming on a visual context)
+	EQ: ordem de desenho
+
+engenharia de software
+	Código: dev
+	UP: desenvolvimento
+	TE: ambiente de desenvolvimento
+	TE: depuração
+	TE: estratégias de desenvolvimento
+	TE: implantação de software
+	TE: interface de programação de aplicação
+	TE: sistemas operacionais
+	TE: uso de bibliotecas
+	EQ: software development (teaching programming on a visual context) 
+
+entrada de dados
+	Código: dat.inp
+	UP: dados externos
+	TG: dados
+	TE: dispositivos de interface humana
+	TE: importação de arquivos gráficos
+	TE: leitura de arquivos
+	TE: mouse
+	TE: teclado
+	TE: tempo
+	TR: estruturas de dados
+	TR: saída de dados
+	TR: texto
+	TR: tipagem
+	TR: variáveis
+	EQ: input (teaching programming on a visual context) 
+
+entrada sonora
+	Código: exa.snd.inp
+	TG: áudio
+	EQ: sound input (teaching programming on a visual context) 
+
+escala
+	Código: gra.tra.sca
+	TG: transformações gráficas
+	EQ: scale (teaching programming on a visual context) 
+
+escopo de variáveis
+	Código: dat.var.sco
+	TG: variáveis
+	TR: atribuição
+	EQ: variable scope (teaching programming on a visual context) 
+
+escrita em arquivos
+	Código: dat.out.fil
+	UP: sáida em arquivos textuais
+	TG: saída de dados
+	EQ: write to file (teaching programming on a visual context) 
+
+espaços de cor
+	Código: gra.clr.spa
+	TG: cor
+	EQ: colour spaces (teaching programming on a visual context) 
+
+estratégias de desenvolvimento
+	Código: dev.tec
+	TG: engenharia de software
+	TE: aproximações sucessivas
+	TE: convenções de nomenclatura
+	TE: sketching
+	TR: depuração
+	TR: implantação de software
+	TR: interface de programação de aplicação
+	EQ: development strategies (teaching programming on a visual context) 
+
+estruturas de dados
+	Código: dat.str
+	TG: dados
+	TE: arranjo
+	TE: lista
+	TE: matriz
+	TE: registro
+	TR: entrada de dados
+	TR: saída de dados
+	TR: texto
+	TR: tipagem
+	TR: variáveis
+	EQ: data structures (teaching programming on a visual context) 
+
+estruturas de programação
+	Código: pst
+	UP: sintaxe
+	TE: condicionais
+	TE: funções
+	TE: iteração
+	TE: operadores
+	TE: orientação a objetos
+	TE: símbolos
+	EQ: programming structures (teaching programming on a visual context) 
+
+event oriented programming (teaching programming on a visual context)
+	EQ: programação orientada a eventos
+
+execução alternativa
+	Código: pst.cnd.alt
+	TG: condicionais
+	EQ: alternate execution (teaching programming on a visual context) 
+
+exemplos de aplicação
+	Código: exa
+	TE: algoritmos genéticos
+	TE: aplicativos móveis
+	TE: áudio
+	TE: autômatos celulares
+	TE: ciência de dados
+	TE: computação física
+	TE: comunicação em rede
+	TE: formas auto-similares
+	TE: formas parametrizadas
+	TE: interfaces gráficas
+	TE: simulações
+	TE: visão computacional
+	EQ: application examples (teaching programming on a visual context) 
+
+exportação de arquivos gráficos
+	Código: dat.out.gra
+	TG: saída de dados
+	EQ: graphic export (teaching programming on a visual context) 
+
+fields (teaching programming on a visual context)
+	EQ: atributos de objetos
+
+file reading (teaching programming on a visual context)
+	EQ: leitura de arquivos
+
+fill (teaching programming on a visual context)
+	EQ: preenchimento
+
+floating point numbers (teaching programming on a visual context)
+	EQ: números de ponto flutuante
+
+formas
+	Código: gra.shp
+	TG: gráficos
+	TE: polilinhas
+	EQ: shape (teaching programming on a visual context) 
+
+formas auto-similares
+	Código: exa.ssf
+	TG: exemplos de aplicação
+	TE: fractais
+	TE: Sistema-L
+	EQ: self-similarity (teaching programming on a visual context) 
+
+formas parametrizadas
+	Código: exa.pfo
+	TG: exemplos de aplicação
+	TR: algoritmos genéticos
+	TR: aplicativos móveis
+	TR: computação física
+	EQ: parametric shapes (teaching programming on a visual context) 
+
+fractais
+	Código: exa.ssf.fra
+	TG: formas auto-similares
+	EQ: fractals (teaching programming on a visual context) 
+
+fractals (teaching programming on a visual context)
+	EQ: fractais
+
+função
+
+	USE: funções
+
+funções
+	Código: pst.fun
+	UP: função
+	TG: estruturas de programação
+	TE: declaração de funções
+	TE: parâmetros em funções
+	TE: passagem de argumentos
+	TE: procedimentos
+	TE: retorno de funções
+	EQ: functions (teaching programming on a visual context) 
+
+function definition (teaching programming on a visual context)
+	EQ: declaração de funções
+
+function parameters (teaching programming on a visual context)
+	EQ: parâmetros em funções
+
+function return value (teaching programming on a visual context)
+	EQ: retorno de funções
+
+functions (teaching programming on a visual context)
+	EQ: funções
+
+genetic algorithms (teaching programming on a visual context)
+	EQ: algoritmos genéticos
+
+geometria
+	Código: mat.geo
+	TG: matemática
+	TE: sistemas de coordenadas
+	TE: trigonometria
+	TE: vértices
+	TE: vetores
+	EQ: geometry (teaching programming on a visual context) 
+
+geometry (teaching programming on a visual context)
+	EQ: geometria
+
+gráficos
+	Código: gra
+	TE: apresentação
+	TE: atributos gráficos
+	TE: cor
+	TE: formas
+	TE: gráficos em movimento
+	TE: gráficos raster
+	TE: gráficos tridimensionais
+	TE: gráficos vetoriais
+	TE: ordem de desenho
+	TE: tipografia
+	TE: transformações gráficas
+	EQ: graphics (teaching programming on a visual context) 
+
+gráficos em movimento
+	Código: gra.mov
+	UP: animações
+	TG: gráficos
+	EQ: motion graphics (teaching programming on a visual context) 
+
+gráficos raster
+	Código: gra.img
+	UP: bitmaps
+	TG: gráficos
+	TE: pixels
+	EQ: bitmap images (teaching programming on a visual context) 
+
+gráficos tridimensionais
+	Código: gra.tri
+	TG: gráficos
+	TE: luzes
+	TE: projeções
+	TE: texturas
+	TE: visão do observador
+	EQ: 3D graphics (teaching programming on a visual context) 
+
+gráficos vetoriais
+	Código: gra.vec
+	TG: gráficos
+	EQ: vector graphics (teaching programming on a visual context) 
+
+graphic attributes (teaching programming on a visual context)
+	EQ: atributos gráficos
+
+graphic export (teaching programming on a visual context)
+	EQ: exportação de arquivos gráficos
+
+graphic import (teaching programming on a visual context)
+	EQ: importação de arquivos gráficos
+
+graphic transformations (teaching programming on a visual context)
+	EQ: transformações gráficas
+
+graphics (teaching programming on a visual context)
+	EQ: gráficos
+
+GUI (teaching programming on a visual context)
+	EQ: interfaces gráficas
+
+herança
+	Código: pst.oop.inh
+	TG: orientação a objetos
+	EQ: inheritance (teaching programming on a visual context) 
+
+hexadecimal numbers (teaching programming on a visual context)
+	EQ: números hexadecimais
+
+HID (teaching programming on a visual context)
+	EQ: dispositivos de interface humana
+
+IDE (teaching programming on a visual context)
+	EQ: ambiente de desenvolvimento
+
+implantação de software
+	Código: dev.dep
+	TG: engenharia de software
+	TR: estratégias de desenvolvimento
+	TR: sistemas operacionais
+	EQ: deployment (teaching programming on a visual context) 
+
+importação de arquivos gráficos
+	Código: dat.inp.gra
+	TG: entrada de dados
+	EQ: graphic import (teaching programming on a visual context) 
+
+incrementalism (teaching programming on a visual context)
+	EQ: aproximações sucessivas
+
+inheritance (teaching programming on a visual context)
+	EQ: herança
+
+input (teaching programming on a visual context)
+	EQ: entrada de dados
+
+integers (teaching programming on a visual context)
+	EQ: números inteiros
+
+interação com o navegador
+	Código: dev.api.web
+	TG: interface de programação de aplicação
+	EQ: browser interaction (teaching programming on a visual context) 
+
+interface de interação humana
+
+	USE: dispositivos de interface humana
+
+interface de programação de aplicação
+	Código: dev.api
+	TG: engenharia de software
+	TE: interação com o navegador
+	TR: estratégias de desenvolvimento
+	TR: sistemas operacionais
+	EQ: application programming interface (teaching programming on a visual context) 
+
+interface humana de interação
+
+	USE: dispositivos de interface humana
+
+interfaces gráficas
+	Código: exa.gui
+	TG: exemplos de aplicação
+	TE: programação orientada a eventos
+	EQ: GUI (teaching programming on a visual context) 
+
+interpolação
+	Código: mat.irp
+	TG: matemática
+	TE: Interpolação linear
+	EQ: interpolation (teaching programming on a visual context) 
+
+Interpolação linear
+	Código: mat.irp.lrp
+	TG: interpolação
+	EQ: linear interpolation (teaching programming on a visual context) 
+
+interpolation (teaching programming on a visual context)
+	EQ: interpolação
+
+iteração
+	Código: pst.ite
+	TG: estruturas de programação
+	TE: laço principal
+	TE: laços aninhados
+	EQ: iteration (teaching programming on a visual context) 
+
+iteration (teaching programming on a visual context)
+	EQ: iteração
+
+keyboard (teaching programming on a visual context)
+	EQ: teclado
+
+L-System (teaching programming on a visual context)
+	EQ: Sistema-L
+
+laço principal
+	Código: pst.ite.sml
+	UP: loop principal
+	TG: iteração
+	EQ: main loop (teaching programming on a visual context) 
+
+laços aninhados
+	Código: pst.ite.nes
+	TG: iteração
+	EQ: nested loops (teaching programming on a visual context) 
+
+leitura de arquivos
+	Código: dat.inp.fil
+	TG: entrada de dados
+	TR: dispositivos de interface humana
+	EQ: file reading (teaching programming on a visual context) 
+
+lights (teaching programming on a visual context)
+	EQ: luzes
+
+linear interpolation (teaching programming on a visual context)
+	EQ: Interpolação linear
+
+list (teaching programming on a visual context)
+	EQ: lista
+
+lista
+	Código: dat.str.lst
+	TG: estruturas de dados
+	EQ: list (teaching programming on a visual context) 
+
+logic operators (teaching programming on a visual context)
+	EQ: operadores lógicos
+
+loop principal
+
+	USE: laço principal
+
+luzes
+	Código: gra.tri.lig
+	TG: gráficos tridimensionais
+	EQ: lights (teaching programming on a visual context) 
+
+main loop (teaching programming on a visual context)
+	EQ: laço principal
+
+matemática
+	Código: mat
+	TE: aleatoriedade
+	TE: curvas matemáticas
+	TE: geometria
+	TE: interpolação
+	TE: operações matemáticas
+	TE: sistemas de numeração
+	EQ: mathematics (teaching programming on a visual context) 
+
+mathematical operations (teaching programming on a visual context)
+	EQ: operações matemáticas
+
+mathematics (teaching programming on a visual context)
+	EQ: matemática
+
+matrix (teaching programming on a visual context)
+	EQ: matriz
+
+matriz
+	Código: dat.str.mtr
+	TG: estruturas de dados
+	EQ: matrix (teaching programming on a visual context) 
+
+methods (teaching programming on a visual context)
+	EQ: métodos
+
+métodos
+	Código: pst.oop.met
+	TG: orientação a objetos
+	EQ: methods (teaching programming on a visual context) 
+
+microcontroladores
+
+	USE: computação física
+
+mobile applications (teaching programming on a visual context)
+	EQ: aplicativos móveis
+
+motion graphics (teaching programming on a visual context)
+	EQ: gráficos em movimento
+
+mouse
+	Código: dat.inp.mou
+	TG: dispositivos de interface humana
+	TG: entrada de dados
+	EQ: mouse (teaching programming on a visual context) 
+
+mouse (teaching programming on a visual context)
+	EQ: mouse
+
+naming conventions (teaching programming on a visual context)
+	EQ: convenções de nomenclatura
+
+nested conditionals (teaching programming on a visual context)
+	EQ: condicionais aninhadas
+
+nested loops (teaching programming on a visual context)
+	EQ: laços aninhados
+
+networking (teaching programming on a visual context)
+	EQ: comunicação em rede
+
+neural networks (teaching programming on a visual context)
+	EQ: redes neurais
+
+notação "O"
+	Código: csc.alg.bon
+	UP: notação grande-"O"
+	TG: algoritmos
+	TR: análise de algoritmos
+	EQ: big O notation (teaching programming on a visual context) 
+
+notação grande-"O"
+
+	USE: notação "O"
+
+number system (teaching programming on a visual context)
+	EQ: sistemas de numeração
+
+números binários
+	Código: mat.num.bin
+	TG: sistemas de numeração
+	EQ: binary numbers (teaching programming on a visual context) 
+
+números de ponto flutuante
+	Código: dat.tyo.flo
+	TG: tipagem
+	EQ: floating point numbers (teaching programming on a visual context) 
+
+números hexadecimais
+	Código: mat.num.hex
+	TG: sistemas de numeração
+	EQ: hexadecimal numbers (teaching programming on a visual context) 
+
+números inteiros
+	Código: dat.typ.int
+	TG: tipagem
+	EQ: integers (teaching programming on a visual context) 
+
+object orientation (teaching programming on a visual context)
+	EQ: orientação a objetos
+
+offscreen buffer (teaching programming on a visual context)
+	EQ: buffer de apresentação
+
+operações matemáticas
+	Código: mat.ope
+	TG: matemática
+	EQ: mathematical operations (teaching programming on a visual context) 
+
+operadores
+	Código: pst.ope
+	TG: estruturas de programação
+	TE: comparações
+	TE: operadores lógicos
+	TE: precedência de operadores
+	EQ: operators (teaching programming on a visual context) 
+
+operadores lógicos
+	Código: pst.ope.log
+	TG: operadores
+	EQ: logic operators (teaching programming on a visual context) 
+
+operating system (teaching programming on a visual context)
+	EQ: sistemas operacionais
+
+operator precedence (teaching programming on a visual context)
+	EQ: precedência de operadores
+
+operators (teaching programming on a visual context)
+	EQ: operadores
+
+ordem de desenho
+	Código: gra.dro
+	TG: gráficos
+	EQ: drawing order (teaching programming on a visual context) 
+
+orientação a objetos
+	Código: pst.oop
+	TG: estruturas de programação
+	TE: atributos de objetos
+	TE: herança
+	TE: métodos
+	EQ: object orientation (teaching programming on a visual context) 
+
+output (teaching programming on a visual context)
+	EQ: saída de dados
+
+palavras reservadas
+	Código: pst.tok,res
+	TG: símbolos
+	EQ: reserved keywords (teaching programming on a visual context) 
+
+parametric shapes (teaching programming on a visual context)
+	EQ: formas parametrizadas
+
+parâmetros em funções
+	Código: pst.fun.par
+	TG: funções
+	EQ: function parameters (teaching programming on a visual context) 
+
+passagem de argumentos
+	Código: pst.fun.arg
+	TG: funções
+	EQ: argument passing (teaching programming on a visual context) 
+
+Perlin noise (teaching programming on a visual context)
+	EQ: ruído Perlin
+
+physical computing (teaching programming on a visual context)
+	EQ: computação física
+
+physical simulation (teaching programming on a visual context)
+	EQ: simulações físicas
+
+pixels (teaching programming on a visual context)
+	EQ: pixels
+
+pixels
+	Código: gra.imp.pix
+	TG: gráficos raster
+	EQ: pixels (teaching programming on a visual context) 
+
+polilinhas
+	Código: gra.shp.ply
+	TG: formas
+	EQ: polylines (teaching programming on a visual context) 
+
+polylines (teaching programming on a visual context)
+	EQ: polilinhas
+
+precedência de operadores
+	Código: pst.ope.ord
+	TG: operadores
+	EQ: operator precedence (teaching programming on a visual context) 
+
+preenchimento
+	Código: gra.atr.fll
+	TG: atributos gráficos
+	EQ: fill (teaching programming on a visual context) 
+
+procedimentos
+	Código: pst.fun.prc
+	TG: funções
+	EQ: procedures (teaching programming on a visual context) 
+
+procedures (teaching programming on a visual context)
+	EQ: procedimentos
+
+programação orientada a eventos
+	Código: exa.gui.eve
+	TG: interfaces gráficas
+	EQ: event oriented programming (teaching programming on a visual context) 
+
+programming structures (teaching programming on a visual context)
+	EQ: estruturas de programação
+
+projeções
+	Código: gra.tri.prj
+	TG: gráficos tridimensionais
+
+prototipagem
+
+	USE: sketching
+
+pseudo-aleatório
+
+	USE: aleatoriedade
+
+random (teaching programming on a visual context)
+	EQ: aleatoriedade
+
+random distributions (teaching programming on a visual context)
+	EQ: distribuições aleatórias
+
+record (teaching programming on a visual context)
+	EQ: registro
+
+recursão
+	Código: csc.rcr
+	UP: recursividade
+	TG: ciência da computação
+	TR: abstração
+	TR: algoritmos
+	EQ: recursion (teaching programming on a visual context) 
+
+recursion (teaching programming on a visual context)
+	EQ: recursão
+
+recursividade
+
+	USE: recursão
+
+redes
+
+	USE: comunicação em rede
+
+redes neurais
+	Código: exa.sim.neu
+	TG: simulações
+	EQ: neural networks (teaching programming on a visual context) 
+
+registro
+	Código: dat.str.rcd
+	UP: tupla
+	TG: estruturas de dados
+	EQ: record (teaching programming on a visual context) 
+
+rendering (teaching programming on a visual context)
+	EQ: apresentação
+
+reserved keywords (teaching programming on a visual context)
+	EQ: palavras reservadas
+
+retorno de funções
+	Código: pst.fun.rtn
+	TG: funções
+	EQ: function return value (teaching programming on a visual context) 
+
+rotação
+	Código: gra.tra.rot
+	TG: transformações gráficas
+	EQ: rotation (teaching programming on a visual context) 
+
+rotation (teaching programming on a visual context)
+	EQ: rotação
+
+ruído Perlin
+	Código: mat.rnd.pno
+	TG: aleatoriedade
+	EQ: Perlin noise (teaching programming on a visual context) 
+
+saída de dados
+	Código: dat.out
+	TG: dados
+	TE: escrita em arquivos
+	TE: exportação de arquivos gráficos
+	TR: entrada de dados
+	TR: estruturas de dados
+	TR: texto
+	TR: tipagem
+	TR: variáveis
+	EQ: output (teaching programming on a visual context) 
+
+sáida em arquivos textuais
+
+	USE: escrita em arquivos
+
+saída sonora
+	Código: exa.snd.out
+	TG: áudio
+	EQ: sound output (teaching programming on a visual context) 
+
+scale (teaching programming on a visual context)
+	EQ: escala
+
+self-similarity (teaching programming on a visual context)
+	EQ: formas auto-similares
+
+shaders
+	Código: gra.ren.gls
+	TG: apresentação
+	EQ: shaders (teaching programming on a visual context) 
+
+shaders (teaching programming on a visual context)
+	EQ: shaders
+
+shape (teaching programming on a visual context)
+	EQ: formas
+
+símbolos
+	Código: pst.tok
+	TG: estruturas de programação
+	TE: comentários
+	TE: palavras reservadas
+	EQ: tokens (teaching programming on a visual context) 
+
+simulações
+	Código: exa.sim
+	TG: exemplos de aplicação
+	TE: redes neurais
+	TE: simulações biológicas
+	TE: simulações físicas
+	TR: algoritmos genéticos
+	TR: aplicativos móveis
+	TR: computação física
+	TR: visão computacional
+	EQ: simulation (teaching programming on a visual context) 
+
+simulações biológicas
+	Código: exa.sim.bio
+	TG: simulações
+	EQ: biological simulation (teaching programming on a visual context) 
+
+simulações físicas
+	Código: exa.sim.phy
+	TG: simulações
+	EQ: physical simulation (teaching programming on a visual context) 
+
+simulation (teaching programming on a visual context)
+	EQ: simulações
+
+sintaxe
+
+	USE: estruturas de programação
+
+sistema de Lindenmayer
+
+	USE: Sistema-L
+
+Sistema-L
+	Código: exa.ssf.lsy
+	UP: sistema de Lindenmayer
+	TG: formas auto-similares
+	EQ: L-System (teaching programming on a visual context) 
+
+sistemas de coordenadas
+	Código: mat.geo.coo
+	TG: geometria
+	EQ: coordinate systems (teaching programming on a visual context) 
+
+sistemas de numeração
+	Código: mat.num
+	TG: matemática
+	TE: números binários
+	TE: números hexadecimais
+	EQ: number system (teaching programming on a visual context) 
+
+sistemas operacionais
+	Código: dev.sys
+	TG: engenharia de software
+	TE: variáveis de sistema
+	TR: depuração
+	TR: implantação de software
+	TR: interface de programação de aplicação
+	EQ: operating system (teaching programming on a visual context) 
+
+sketching (teaching programming on a visual context)
+	EQ: sketching
+
+sketching
+	Código: dev.tec.ske
+	UP: prototipagem
+	TG: estratégias de desenvolvimento
+	EQ: sketching (teaching programming on a visual context) 
+
+software development (teaching programming on a visual context)
+	EQ: engenharia de software
+
+som
+
+	USE: áudio
+
+sorting algorithms (teaching programming on a visual context)
+	EQ: algoritmos de ordenação
+
+sound (teaching programming on a visual context)
+	EQ: áudio
+
+sound input (teaching programming on a visual context)
+	EQ: entrada sonora
+
+sound output (teaching programming on a visual context)
+	EQ: saída sonora
+
+stroke (teaching programming on a visual context)
+	EQ: traço
+
+system variables (teaching programming on a visual context)
+	EQ: variáveis de sistema
+
+teclado
+	Código: dat.inp.kbd
+	TG: dispositivos de interface humana
+	TG: entrada de dados
+	EQ: keyboard (teaching programming on a visual context) 
+
+tempo
+	Código: dat.inp.tim
+	TG: entrada de dados
+	EQ: time (teaching programming on a visual context) 
+
+text encoding (teaching programming on a visual context)
+	EQ: codificação de caracteres
+
+text output
+
+text strings (teaching programming on a visual context)
+	EQ: texto
+
+texto
+	Código: dat.txt
+	TG: dados
+	TE: codificação de caracteres
+	TR: banco de dados
+	TR: conversão de dados
+	TR: entrada de dados
+	TR: estruturas de dados
+	TR: saída de dados
+	TR: tipagem
+	EQ: text strings (teaching programming on a visual context) 
+
+texturas
+	Código: gra.tri.tex
+	TG: gráficos tridimensionais
+	EQ: textures (teaching programming on a visual context) 
+
+textures (teaching programming on a visual context)
+	EQ: texturas
+
+time (teaching programming on a visual context)
+	EQ: tempo
+
+tipagem
+	Código: dat.typ
+	TG: dados
+	TE: conversão de dados
+	TE: números de ponto flutuante
+	TE: números inteiros
+	TE: valores booleanos
+	TR: entrada de dados
+	TR: estruturas de dados
+	TR: saída de dados
+	TR: texto
+	TR: variáveis
+	EQ: type (teaching programming on a visual context) 
+
+tipografia
+	Código: gra.tyg
+	TG: gráficos
+	EQ: typography (teaching programming on a visual context) 
+
+tokens (teaching programming on a visual context)
+	EQ: símbolos
+
+traço
+	Código: gra.atr.stk
+	TG: atributos gráficos
+	EQ: stroke (teaching programming on a visual context) 
+
+transformações de coordenadas
+
+	USE: transformações gráficas
+
+transformações gráficas
+	Código: gra.tra
+	UP: transformações de coordenadas
+	TG: gráficos
+	TE: escala
+	TE: rotação
+	TE: transĺação
+	EQ: graphic transformations (teaching programming on a visual context) 
+
+transĺação
+	Código: gra.tra.trn
+	TG: transformações gráficas
+	EQ: translate (teaching programming on a visual context) 
+
+translate (teaching programming on a visual context)
+	EQ: transĺação
+
+trigonometria
+	Código: mat.geo.trg
+	TG: geometria
+	EQ: trigonometry (teaching programming on a visual context) 
+
+trigonometry (teaching programming on a visual context)
+	EQ: trigonometria
+
+tupla
+
+	USE: registro
+
+type (teaching programming on a visual context)
+	EQ: tipagem
+
+type conversion (teaching programming on a visual context)
+	EQ: conversão de dados
+
+typography (teaching programming on a visual context)
+	EQ: tipografia
+
+Unicode
+
+	USE: codificação de caracteres
+
+use of libraries (teaching programming on a visual context)
+	EQ: uso de bibliotecas
+
+uso de bibliotecas
+	Código: dev.lib
+	TG: engenharia de software
+	EQ: use of libraries (teaching programming on a visual context) 
+
+valores booleanos
+	Código: dat.typ.boo
+	TG: tipagem
+	EQ: booleans (teaching programming on a visual context) 
+
+variable scope (teaching programming on a visual context)
+	EQ: escopo de variáveis
+
+variables (teaching programming on a visual context)
+	EQ: variáveis
+
+variáveis
+	Código: dat.var
+	TG: dados
+	TE: atribuição
+	TE: escopo de variáveis
+	TR: entrada de dados
+	TR: estruturas de dados
+	TR: saída de dados
+	TR: tipagem
+	EQ: variables (teaching programming on a visual context) 
+
+variáveis de sistema
+	Código: dev.sys.var
+	TG: sistemas operacionais
+	EQ: system variables (teaching programming on a visual context) 
+
+vector graphics (teaching programming on a visual context)
+	EQ: gráficos vetoriais
+
+vectors (teaching programming on a visual context)
+	EQ: vetores
+
+vertices (teaching programming on a visual context)
+	EQ: vértices
+
+vértices
+	Código: mat.geo.ver
+	TG: geometria
+	EQ: vertices (teaching programming on a visual context) 
+
+vetores
+	Código: mat.geo.vec
+	TG: geometria
+	EQ: vectors (teaching programming on a visual context) 
+
+visão computacional
+	Código: exa.ocv
+	TG: exemplos de aplicação
+	TR: algoritmos genéticos
+	TR: aplicativos móveis
+	TR: áudio
+	TR: autômatos celulares
+	TR: computação física
+	TR: simulações
+	EQ: computer vision (teaching programming on a visual context) 
+
+visão do observador
+	Código: gra.tri.cam
+	UP: câmera
+	TG: gráficos tridimensionais
+	EQ: camera settings (teaching programming on a visual context) 
+
+visualização de dados
+	Código: exa.dat.viz
+	TG: ciência de dados
+	EQ: data visualization (teaching programming on a visual context) 
+
+write to file (teaching programming on a visual context)
+	EQ: escrita em arquivos
