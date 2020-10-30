@@ -1,7 +1,7 @@
 """ Tags? """
 
 def setup():
-    global tag_names, categorias, tags
+    global tags
     size(600, 600)
     textSize(14)
     tags = setup_tags()
@@ -35,26 +35,26 @@ def mouse_over_ele(tag):
     return (x < mouseX < x + w
             and y < mouseY < y + h)
 
-def pos(i, t):
-    pos.w = textWidth(t) + pos.gap
-    if pos.x + pos.w > width:
-        pos.x = pos.gap
-        pos.y += pos.h
+def pos(i, t, lw, lh=25, wgap=20):
+    # set pos.x, pos.xo, pox.y before you call this
+    pos.tw = textWidth(t) + wgap
+    if pos.x + pos.tw > lw:
+        pos.x = pos.xo
+        pos.y += lh
     x = pos.x
-    pos.x += pos.w
+    pos.x += pos.tw
     return x
 
 def setup_tags():
-    pos.x = pos.xo = 20
-    pos.y, pos.h, pos.gap = 20, 25, 20
     lines = loadStrings("tags.txt")
     tag_names = [term for term in lines
                  if term and not '(' in term
                  and not term.startswith('\t')]
+    pos.x = pos.xo = pos.y = 20  # initial x and y
     return {tag: {'state': False,
-                  'x': pos(i, tag),
+                  'x': pos(i, tag, width),
                   'y': pos.y,
-                  'w': pos.w,
+                  'w': pos.tw,
                   'h': 20,
                   }
             for i, tag in enumerate(tag_names)}
