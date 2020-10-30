@@ -37,12 +37,12 @@ def mouse_over_ele(tag):
 
 def pos(i, t, lw, lh=25, wgap=20):
     # set pos.x, pos.xo, pox.y before you call this
-    pos.tw = textWidth(t) + wgap
+    pos.tw = textWidth(t)
     if pos.x + pos.tw > lw:
         pos.x = pos.xo
         pos.y += lh
     x = pos.x
-    pos.x += pos.tw
+    pos.x += pos.tw + wgap
     return x
 
 def setup_tags():
