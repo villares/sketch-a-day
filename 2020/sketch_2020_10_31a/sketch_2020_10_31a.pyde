@@ -10,7 +10,7 @@ def draw():
     if keyPressed:
         background(0, 100, 200)        
     else:
-        background(0, 200, 100)
+        background(100, 200, 0)
     draw_terms()
 
 def draw_terms():
