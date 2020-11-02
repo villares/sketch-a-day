@@ -1,7 +1,9 @@
 """ Random choices """
-
+from __future__ import unicode_literals
 from random import choice, sample
 from copy import deepcopy
+from collections import Counter
+import csv
 
 cards = []
 
@@ -93,3 +95,32 @@ def setup_terms(n=77):
              }
     println(len(terms))
     return terms
+
+def keyPressed():
+    if key == 's':
+        export_csv(cards)
+        
+        
+def export_csv(cards):
+    import io
+    import codecs
+    
+    c = Counter()
+    for card in cards:
+        cor, names = card
+        for name in names.keys():
+            if names[name]['state']:
+                c[name] += 1
+        # selected = [term for term in names if names[term]['state']]
+        # print(selected)
+
+    with open('names.csv', 'w') as csvfile:
+        fieldnames = list(c.keys())
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, dialect='excel')
+        writer.writeheader()
+        writer.writerow(c)
+        
+        # print cards[0][1]
+        # for c, names in cards:        
+        #     writer.writerow(names)
+        
