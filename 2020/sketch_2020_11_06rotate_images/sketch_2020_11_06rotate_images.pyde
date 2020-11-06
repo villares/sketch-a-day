@@ -16,20 +16,20 @@ def image_rot(img, rot, x, y, w=None, h=None):
     w = w or img.width
     h = h or img.height
     pushMatrix()
-    if rot == 0:
-        image(img, x, y, w, h)
     if rot == 1:
         translate(x + h, y)
         rotate(HALF_PI)
         image(img, 0, 0, w, h)
-    if rot == 2:
+    elif rot == 2:
         translate(x + w, y + h)
         rotate(PI)
         image(img, 0, 0, w, h)    
-    if rot == 3:
+    elif rot == 3:
         translate(x, y + w)
         rotate(HALF_PI + PI)
-        image(img, 0, 0, w, h)    
+        image(img, 0, 0, w, h)
+    else:
+        image(img, x, y, w, h)    
     popMatrix()      
     
 def rotate_image(img):    
