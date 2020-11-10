@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2020_11_07](2020/sketch_2020_11_07/sketch_2020_11_07.gif)
+
+
+[sketch_2020_11_07](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_11_07) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Based on truchet code by Bernado Fontes during the Python Brasil 2020 tutorial!
+[running on pyodide!](https://abav.lugaralgum.com/sketch-a-day/2020/sketch_2020_11_07pyodide/)
+
+---
+
 ![sketch_2020_11_06rotate_images](2020/sketch_2020_11_06rotate_images/sketch_2020_11_06rotate_images.gif)
 
 [sketch_2020_11_06rotate_images](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_11_06rotate_images) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
