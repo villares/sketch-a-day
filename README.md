@@ -26,6 +26,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2020_11_10reduce_images](2020/sketch_2020_11_10reduce_images/sketch_2020_11_10reduce_images.gif)
+
+[sketch_2020_11_10reduce_images](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_11_10reduce_images) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2020_11_09arcs_for_pyp5js](2020/sketch_2020_11_09arcs_for_pyp5js/sketch_2020_11_09arcs_for_pyp5js.jpg)
 
 [sketch_2020_11_09arcs_for_pyp5js](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_11_09arcs_for_pyp5js) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -38,7 +44,7 @@ Here are listed some of the tools I have been using:
 
 ---
 
-![sketch_2020_11_07](2020/sketch_2020_11_07/sketch_2020_11_07.gif)
+![sketch_2020_11_07a](2020/sketch_2020_11_07a/sketch_2020_11_07a.gif)
 
 
 [sketch_2020_11_07](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_11_07) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
