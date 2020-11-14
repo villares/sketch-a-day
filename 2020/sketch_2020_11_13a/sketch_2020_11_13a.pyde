@@ -38,7 +38,6 @@ class Cell:
         self.edges = edges_as_sets(pts, frozen=False)
         
     def draw(self):
-        # draw_poly(self.pts)
         for a, b in self.edges:
             line(a[0], a[1], b[0], b[1])
             
