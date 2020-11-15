@@ -79,9 +79,11 @@ def sorted_edges(edges_set, enum=False):
     edges = list(edges_set)
     result = [edges.pop()]
     while edges:
-        print(edges[-1] | result[-1])
-        if True: #len(edges[-1] | result[-1]) == 3:
-            result.append(edges.pop())    
+        e0 = edges.pop(0)
+        if len(e0 | result[-1]) == 3:
+            result.append(e0)
+        else:
+            edges.append(e0)    
     if enum:
         return enumerate(result)
     else:
