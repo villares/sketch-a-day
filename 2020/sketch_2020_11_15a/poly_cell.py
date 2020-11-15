@@ -31,13 +31,12 @@ class Cell:
                 text("{}".format(i), p[0], p[1])
 
     def __add__(self, other):
-        new_edges = self.edges ^ other.edges
+        new_edges = sorted_edges(set(self.edges) ^ set(other.edges))
         pts = []
-        # for a, b in self.edges | other.edges:
         for a, b in new_edges:
             pts.append(a)
             pts.append(b)
-        new_cell = Cell(list(set(pts)))
+        new_cell = Cell(set(pts))
         new_cell.edges = new_edges
         return new_cell
 
@@ -49,6 +48,7 @@ class Cell:
         return False
 
     def edges_intersect(self):
+        intersection_pt = None
         for edge in self.edges:
             for other in self.edges:
                 if len(edge | other) == 4:
@@ -57,8 +57,8 @@ class Cell:
                         shuffle(self.pts)
                         self.edges = self.recalc_edges()
                         circle(pt.x, pt.y, 10)
-                    # return pt
-        return False
+                        intersection_pt = pt
+        return intersection_pt
     
     @classmethod
     def draw_cells(cls):
@@ -84,6 +84,7 @@ def sorted_edges(edges_set, enum=False):
             result.append(e0)
         else:
             edges.append(e0)    
+    assert len(result) == len(edges_set)
     if enum:
         return enumerate(result)
     else:
