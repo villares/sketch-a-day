@@ -1,6 +1,6 @@
 
 from random import shuffle
-from villares.line_geometry import edges_as_sets, line_intersect, triangle_area
+from villares.line_geometry import edges_as_sets, line_intersect, Line
 from villares.colors import random_hue_saturated
 
 class Cell:
@@ -15,15 +15,19 @@ class Cell:
     def recalc_edges(self):
         return edges_as_sets(self.pts, frozen=False)
 
-    def draw(self):
-        for a, b in self.edges:
+    def draw(self, debug=False):
+        for i, (a, b) in sorted_edges(self.edges, enum=True):
             stroke(self.colour)
             line(a[0], a[1], b[0], b[1])
+            if debug:
+                mid = Line(a, b).midpoint()
+                names = "ABCDEFGHIJKLMNIOPQ"
+                text("{}".format(names[i]), mid.x, mid.y)
 
         for i, p in enumerate(self.pts):
             fill(0)
             textSize(12)
-            if self == Cell.cells[0]:
+            if debug:
                 text("{}".format(i), p[0], p[1])
 
     def __add__(self, other):
@@ -60,7 +64,7 @@ class Cell:
     def draw_cells(cls):
         for cell in cls.cells:
             translate(6, 3)
-            cell.draw()
+            cell.draw(debug=(cell==cls.cells[-1]))
             cell.edges_intersect()
     
     @classmethod
@@ -71,3 +75,14 @@ class Cell:
             if cell.move_point(mouseX, mouseY, dx, dy):
                 break
     
+def sorted_edges(edges_set, enum=False):
+    edges = list(edges_set)
+    result = [edges.pop()]
+    while edges:
+        print(edges[-1] | result[-1])
+        if True: #len(edges[-1] | result[-1]) == 3:
+            result.append(edges.pop())    
+    if enum:
+        return enumerate(result)
+    else:
+        return result
