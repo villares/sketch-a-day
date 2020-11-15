@@ -25,11 +25,14 @@ def draw():
         else:
             strokeWeight(3)
         cell.draw()
-    noLoop()
+    # noLoop()
 
 def mouseDragged():
+    dx, dy = (mouseX - pmouseX), (mouseY - pmouseY)
+    print "dragged {}, {}".format(dx, dy)
+
     for cell in cells:
-        cell.move_point(mouseX, mouseY, (mouseX - pmouseX), (mouseY - pmouseY))
+        cell.move_point(mouseX, mouseY, dx, dy)
 
 class Cell:
 
@@ -62,18 +65,19 @@ class Cell:
 
     def move_point(self, mx, my, dx, dy):
         for i, (x, y, z) in enumerate(self.pts):
-            if dist(x, y, mx, my) < 20:
+            if dist(x, y, mx, my) < 30:
+                print "ha"
                 self.pts[i].set(x + dx, y + dy)
                 break
 
     def edges_intersect(self):
         for edge in self.edges:
             for other in self.edges:
-                print(len(set(edge | other)))
-                # if len(edge ^ other) == 0:
-                    # continue
-                pt = line_intersect(tuple(edge), tuple(other))
-                if pt:
-                    circle(pt.x, pt.y, 100)
+                # print(len(set(edge | other)))
+                if len(edge | other) == 4:
+                # print len(edge | other)  
+                    pt = line_intersect(tuple(edge), tuple(other))
+                    if pt:
+                        circle(pt.x, pt.y, 10)
                     # return True
         return False
