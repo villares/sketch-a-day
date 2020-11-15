@@ -20,6 +20,7 @@ def setup():
 def draw():
     background(240)
     Cell.draw_cells()
+    # noLoop()
     
 def mouseDragged():
     Cell.drag_cells()
