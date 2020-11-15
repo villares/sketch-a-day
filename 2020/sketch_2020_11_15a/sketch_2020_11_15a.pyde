@@ -1,5 +1,3 @@
-
-
 from poly_cell import Cell
 
 def setup():
