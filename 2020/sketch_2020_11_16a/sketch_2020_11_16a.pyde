@@ -7,26 +7,26 @@ def setup():
     size(400, 400)
     grid = [[PVector(x, y) for y in range(100, 400, 100)]
             for x in range(100, 400, 100)]
-    oi, oj = 0, 0
-    p1 = [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
-    oi, oj = 1, 0
-    p2 = [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
+    p1 = four_from_grid(0, 0)
+    p2 = four_from_grid(1, 0)
+    oi, oj = 1, 1
+    p3 = [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
     c1 = Cell(p1)
     c2 = Cell(p2)
-    c3 = c1 + c2
-    Cell.cells = (c1, c2, c3)
+    c3 = Cell(p3)
+    c4 = c1 + c2 + c3
+    Cell.cells = (c1, c2, c3, c4)
 
 def draw():
     background(240)
     Cell.draw_cells()
 
-    # for row in grid:
-    #     for p in row:
-    for p in p1:
-        circle(p.x, p.y, 5)
+    for row in grid:
+        for p in row:
+            circle(p.x, p.y, 5)
 
 def mouseDragged():
     Cell.drag_cells()
 
-def offset(positions, ox, oy):
-    return [(x + ox, y + oy) for x, y in positions]
+def four_from_grid(oi, oj):
+    return [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
