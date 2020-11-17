@@ -3,26 +3,27 @@ from poly_cell import Cell
 
 
 def setup():
-    global cells
+    global cells, grid, p1
     size(400, 400)
-    grid = [[PVector(x, y) for x in range(100, 400, 100)]
-                           for y in range(100, 400, 100)]
-    base_pos = product(range(2), repeat=2)
-    p1 = [grid[i][j] for i, j in base_pos]
-    Cell.cells.append(Cell(p1))
-
-    pos2 = offset(base_pos, 0, 1)
-    p2 = [grid[i][j] for i, j in pos2]
-    Cell.cells.append(Cell(p2))
-                      
-    Cell.cells.append(Cell(p1) + Cell(p2))
-
-
+    grid = [[PVector(x, y) for y in range(100, 400, 100)]
+            for x in range(100, 400, 100)]
+    oi, oj = 0, 0
+    p1 = [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
+    oi, oj = 1, 0
+    p2 = [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
+    c1 = Cell(p1)
+    c2 = Cell(p2)
+    c3 = c1 + c2
+    Cell.cells = (c1, c2, c3)
 
 def draw():
     background(240)
     Cell.draw_cells()
-    # noLoop()
+
+    # for row in grid:
+    #     for p in row:
+    for p in p1:
+        circle(p.x, p.y, 5)
 
 def mouseDragged():
     Cell.drag_cells()
