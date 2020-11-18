@@ -9,7 +9,8 @@ def setup():
     grid = [[PVector(x, y) for x in range(cell_size, 600, cell_size)]
             for y in range(cell_size, 600, cell_size)]
     rows = len(grid) - 2
-    Cell.cells = [Cell(four_from_grid(i, j)) for i, j in product(range(rows), repeat=2)]
+    Cell.cells = [Cell(four_from_grid(i, j))
+                  for i, j in product(range(rows), repeat=2)]
     a = Cell.cells.pop()
     b = Cell.cells.pop()
     Cell.cells.append(a + b)
@@ -26,4 +27,6 @@ def mouseDragged():
     Cell.drag_cells()
 
 def four_from_grid(oi, oj):
-    return [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
+    four = [grid[i + oi][j + + oj] for i, j in product(range(2), repeat=2)]
+    four[2], four[3] = four[3], four[2]
+    return four
