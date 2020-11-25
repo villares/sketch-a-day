@@ -19,12 +19,13 @@ def draw():
             for ang in angs}
     # text(str(angs), 30, 30)
     for ang in angs:
-        hatch_poly(r, radians(ang), spacing=5, function=circ_line)
+        hatch_poly(r, radians(ang), spacing=5, function=circ_line2)
         
     # I have modifierd Line .plot method to accept a custom drawing function
     # and also also the hatch_poly, both at github.com/villares/villares    
         
-def circ_line(xa, ya, xb, yb, divisions=12.5):
+def circ_line2(xa, ya, xb, yb, spacing=12):
+    divisions = int(dist(xa, ya, xb, yb) / spacing)
     for i in range(0, int(divisions * 2), 2):
         ts = i / float(divisions * 2)
         te = (i + 1) / float(divisions * 2)
