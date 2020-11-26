@@ -1,4 +1,5 @@
-from villares.line_geometry import * #draw_poly, poly_edges, Line, min_max, 
+from villares.line_geometry import draw_poly, poly_edges, Line, min_max, rect_points, rotate_point, inter_lines
+
 def setup():
     size(400, 400)
     strokeWeight(2)
@@ -19,14 +20,12 @@ def draw():
             for ang in angs}
     # text(str(angs), 30, 30)
     for ang in angs:
-        hatch_poly2(r, radians(ang), spacing=8,
-                    function=fixed_dash_line, args=(8,))
+        hatch_poly2(r, radians(ang), spacing=8, function=fixed_dash_line)
         # hatch_poly(r, radians(ang), spacing=5, function=dash_line2)
 
 def hatch_poly2(points, angle, **kwargs):
     spacing = kwargs.get('spacing', 5)
-    function = kwargs.get('function', fixed_dash_line)
-    args = kwargs.get('args', [])
+    function = kwargs.pop('function', None)
     bound = min_max(points)
     diag = Line(bound)
     d = diag.dist()
@@ -41,9 +40,14 @@ def hatch_poly2(points, angle, **kwargs):
         abp = ab.line_point(i / float(num) + EPSILON)
         cdp = cd.line_point(i / float(num) + EPSILON)
         base_line = Line(abp, cdp)
-        for hli in inter_lines(base_line, points):
-                base_line.plot(function, hli, *args)
-                
+        if function:
+            kwargs['function'] = function
+            for hli in inter_lines(base_line, points):
+                kwargs['inside'] = hli
+                base_line.plot(**kwargs)
+        else:
+            for hli in inter_lines(base_line, points):
+                hli.plot(**kwargs)
                 
 def fixed_dash_line(xa, ya, xb, yb, inside=None, spacing=12):
     inside = inside or Line(xa, ya, xb, yb)
