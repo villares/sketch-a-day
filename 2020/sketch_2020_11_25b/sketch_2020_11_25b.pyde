@@ -47,7 +47,7 @@ def hatch_poly2(points, angle, **kwargs):
                 base_line.plot(**kwargs)
         else:
             for hli in inter_lines(base_line, points):
-                hli.plot(**kwargs)
+                hli.plot()
                 
 def fixed_dash_line(xa, ya, xb, yb, inside=None, spacing=12):
     inside = inside or Line(xa, ya, xb, yb)
