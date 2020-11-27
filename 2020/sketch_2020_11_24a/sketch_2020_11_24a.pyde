@@ -19,7 +19,7 @@ def draw():
             for ang in angs}
     # text(str(angs), 30, 30)
     for ang in angs:
-        hatch_poly(r, radians(ang), spacing=5, function=circ_line2)
+        hatch_poly(r, radians(ang), spacing=12, function=circ_line2)
         
     # I have modifierd Line .plot method to accept a custom drawing function
     # and also also the hatch_poly, both at github.com/villares/villares    
