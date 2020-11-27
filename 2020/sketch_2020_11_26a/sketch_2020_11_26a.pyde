@@ -74,17 +74,17 @@ def fixed_dash_line(xa, ya, xb, yb, base_line=None, spacing=20, proportion=0.5):
         start_in, end_in = inside.contains_point(
             xs, ys), inside.contains_point(xe, ye)
         if start_in and end_in:
-            stroke(0)
+            # stroke(0)
             line(xs, ys, xe, ye)
         elif end_in:
             ending = Line(xe, ye, inside[1][0], inside[1][1])
             if ending.dist() <= v.mag() + 1:
-                stroke(0, 255, 0)
+                # stroke(0, 255, 0)
                 ending.plot()
         elif start_in:
             starting = Line(xs, ys, inside[0][0], inside[0][1])
             if starting.dist() <= v.mag() + 1:
-                stroke(255, 0, 0)
+                # stroke(255, 0, 0)
                 starting.plot()
         xs += v.x
         ys += v.y
