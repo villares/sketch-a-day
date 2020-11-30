@@ -6,21 +6,21 @@ from villares.line_geometry import hatch_poly, hatch_rect, rect_points
 from villares import ubuntu_jogl_fix
 
 def setup():
-    size(500, 600)
+    size(500, 500)
     global ang_pairs
     angs = (0, 45, 90, 135) #122.5, 135, 147.5)
-    ang_pairs = list(set(frozenset((a, b)) for a, b in  product(angs, repeat=2)))
-
+    ang_pairs = list(set(frozenset((a, b)) for a, b in  product(angs, repeat=2) if a != b))
+    ang_pairs.extend((ang,) for ang in angs)
     textSize(8)
         
 
 def draw():
-    background(130, 50, 50)
+    background(130, 50, 100)
     print frameRate
     stroke(0)
     fill(255)
     s = 100
-    i = 0
+    i = 1
     for x, y in grid(5, 6, s, s):
         r = rect_points(5 + x, 5 + y, s - 10, s - 10)
         rect(6 + x, 6 + y, s - 12, s - 12)
