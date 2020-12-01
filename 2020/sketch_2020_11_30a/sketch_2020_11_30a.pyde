@@ -12,7 +12,7 @@ def setup():
                          for a, b, c in product(angs, repeat=3)))
     # ang_pairs.extend((ang,) for ang in angs)
     textSize(8)
-        
+
 def draw():
     background(130, 150, 150)
     print(frameRate)
@@ -35,7 +35,7 @@ def draw():
                            function=None,
                            )
             if h:
-               shape(h)
+                shape(h)
         fill(0)
         text(str(tuple(ang_pair)), x + 10, y + 5)
         i += 1
@@ -43,7 +43,7 @@ def draw():
 
 def keyPressed():
     saveFrame(sketch_name() + '.png')
-    
+
 def sketch_name():
     from os import path
     sketch = sketchPath()
@@ -84,13 +84,13 @@ def hatch_rect(*args, **kwargs):
         abp = ab.line_point(i / float(num) + EPSILON)
         cdp = cd.line_point(i / float(num) + EPSILON)
         for hli in inter_lines(Line(abp, cdp), r):
-                if not ps:
-                    hli.plot()
-                else:
-                    li = createShape(
-                        LINE, hli[0][0], hli[0][1], hli[1][0], hli[1][1])
-                    ps.addChild(li)
-                    shape(li)
+            if not ps:
+                hli.plot()
+            else:
+                li = createShape(LINE,
+                                 hli[0][0], hli[0][1], hli[1][0], hli[1][1])
+                ps.addChild(li)
+                shape(li)
     return ps
 
 
