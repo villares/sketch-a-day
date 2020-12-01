@@ -2,7 +2,7 @@ from __future__ import division
 from itertools import product
 
 from villares.line_geometry import draw_poly, poly_edges, Line
-from villares.line_geometry import hatch_poly, hatch_rect, rect_points
+from villares.line_geometry import rect_points, rotate_point, inter_lines
 from villares import ubuntu_jogl_fix
 
 def setup():
@@ -99,3 +99,38 @@ def sketch_name():
     from os import path
     sketch = sketchPath()
     return path.basename(sketch)
+
+def hatch_rect(*args, **kwargs):
+    if len(args) == 2:
+        r, angle = args
+    else:
+        x, y, w, h, angle = args
+        r = rect_points(x, y, w, h, kwargs.get('mode', CORNER))
+    spacing = kwargs.get('spacing', 10)
+    function = kwargs.pop('function', None)
+    base = kwargs.pop('base', False)
+    d = dist(r[0][0], r[0][1], r[2][0], r[2][1])
+    cx = (r[0][0] + r[1][0]) / 2.0
+    cy = (r[1][1] + r[2][1]) / 2.0
+    num = int(d / spacing)
+    rr = [rotate_point(x, y, angle, cx, cy)
+          for x, y in rect_points(cx, cy, d, d, mode=CENTER)]
+    # stroke(255, 0, 0)   # debug mode
+    ab = Line(rr[0], rr[1])  # ;ab.plot()  # debug mode
+    cd = Line(rr[3], rr[2])  # ;cd.plot()  # debug mode
+    for i in range(num + 1):
+        abp = ab.line_point(i / float(num) + EPSILON)
+        cdp = cd.line_point(i / float(num) + EPSILON)
+        if not function:
+            for hli in inter_lines(Line(abp, cdp), r):
+                hli.plot()
+        else:
+            kwargs['function'] = function
+            if base == True:
+                # add back base kwarg as a line
+                kwargs['base_line'] = Line(abp, cdp)
+                for hli in inter_lines(Line(abp, cdp), r):
+                    hli.plot(**kwargs)
+            else:
+                for hli in inter_lines(Line(abp, cdp), r):
+                    hli.plot(**kwargs)
