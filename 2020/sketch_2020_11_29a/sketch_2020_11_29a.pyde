@@ -3,7 +3,6 @@ from itertools import product
 
 from villares.line_geometry import draw_poly, poly_edges, Line
 from villares.line_geometry import rect_points, rotate_point, inter_lines
-from villares import ubuntu_jogl_fix
 
 def setup():
     size(500, 500)
