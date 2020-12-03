@@ -2,7 +2,7 @@ from __future__ import division
 from itertools import product
 
 from villares.line_geometry import draw_poly, poly_edges, Line
-from villares.line_geometry import hatch_poly, rect_points, rotate_point, inter_lines
+from villares.line_geometry import hatch_rect, rect_points, rotate_point, inter_lines
 
 def setup():
     size(700, 600)
@@ -100,13 +100,16 @@ def sketch_name():
     return path.basename(sketch)
 
 
-def hatch_rect(*args, **kwargs):
+def ahatch_rect(*args, **kwargs):
     if len(args) == 2:
         r, angle = args
     else:
         x, y, w, h, angle = args
         r = rect_points(x, y, w, h, kwargs.get('mode', CORNER))
     spacing = kwargs.get('spacing', 10)
+    function = kwargs.pop('function', None)
+    base = kwargs.pop('base', False)
+    ps = createShape(GROUP) if kwargs.get('ps', False) else None
     d = dist(r[0][0], r[0][1], r[2][0], r[2][1])
     cx = (r[0][0] + r[1][0]) / 2.0
     cy = (r[1][1] + r[2][1]) / 2.0
@@ -120,4 +123,11 @@ def hatch_rect(*args, **kwargs):
         abp = ab.line_point(i / float(num) + EPSILON)
         cdp = cd.line_point(i / float(num) + EPSILON)
         for hli in inter_lines(Line(abp, cdp), r):
-            hli.plot()
+            if not ps:
+                hli.plot()
+            else:
+                li = createShape(LINE,
+                                 hli[0][0], hli[0][1], hli[1][0], hli[1][1])
+                ps.addChild(li)
+                shape(li)
+    return ps
