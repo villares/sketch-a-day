@@ -1,10 +1,10 @@
 from __future__ import division
+
 from itertools import product
 
 from villares.line_geometry import draw_poly, poly_edges, Line, min_max
 from villares.line_geometry import rect_points, rotate_point, inter_lines
-from villares.file_helpers import sketch_name
-from villares.grids import grid
+from villares.helpers import sketch_name, grid
 
 def setup():
     size(500, 500)
