@@ -91,9 +91,9 @@ def hatch_poly(*args, **kwargs):
     cd = Line(rr[3], rr[2])   #;cd.plot()  # debug mode
     for i in range(num + 1):
         if odd_function is not False and i % 2:
-            kwargs['funtion'] = odd_function 
+            kwargs['function'] = odd_function 
         else:
-            kwargs['funtion'] = function
+            kwargs['function'] = function
         abp = ab.line_point(i / float(num) + EPSILON)
         cdp = cd.line_point(i / float(num) + EPSILON)
         if base == True:
