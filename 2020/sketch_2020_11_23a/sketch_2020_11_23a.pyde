@@ -1,4 +1,4 @@
-from villares.line_geometry import hatch_poly, draw_poly, poly_edges, Line
+from villares.line_geometry import draw_poly, poly_edges, Line
 def setup():
     size(400, 400)
     strokeWeight(2)
@@ -48,4 +48,43 @@ def dash_line(xa, ya, xb, yb, divisions=12.5):
         # circle(xe, ye, 5)
         # circle(xs, ys, 5)
 
+def hatch_poly(*args, **kwargs):
+    if len(args) == 2:
+        points, angle = args
+    else:
+        x, y, w, h, angle = args
+        points = rect_points(x, y, w, h, kwargs.pop('mode', CORNER))
+    spacing = kwargs.get('spacing', 5)
+    function = kwargs.pop('function', None)
+    base = kwargs.pop('base', False)
+    odd_function = kwargs.pop('odd_function', False)
+
+    kwargs['ps'] = ps =  createShape(GROUP) if kwargs.get('ps', False) else False  
+    if len(args) == 2:
+        d = dist(points[0][0], points[0][1], points[2][0], points[2][1]) + EPSILON
+        cx = (points[0][0] + points[1][0]) / 2.0
+        cy = (points[1][1] + points[2][1]) / 2.0
+    else:
+        bound = min_max(points)
+        diag = Line(bound) 
+        d = diag.dist() + EPSILON
+        cx, cy, _ = diag.midpoint()
+    num = int(d / spacing)
+    rr = [rotate_point(x, y, angle, cx, cy)
+          for x, y in rect_points(cx, cy, d, d, mode=CENTER)]
+    # stroke(255, 0, 0)   # debug mode
+    ab = Line(rr[0], rr[1])   #;ab.plot()  # debug mode
+    cd = Line(rr[3], rr[2])   #;cd.plot()  # debug mode
+    for i in range(num + 1):
+        if odd_function is not False and i % 2:
+            kwargs['function'] = odd_function 
+        else:
+            kwargs['function'] = function
+        abp = ab.line_point(i / float(num) + EPSILON)
+        cdp = cd.line_point(i / float(num) + EPSILON)
+        if base == True:
+            kwargs['base_line'] = Line(abp, cdp)
+        for hli in inter_lines(Line(abp, cdp), points):
+            hli.plot(**kwargs)
+    return ps
             

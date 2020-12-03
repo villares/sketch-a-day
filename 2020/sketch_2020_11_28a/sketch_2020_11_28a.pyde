@@ -2,18 +2,16 @@ from __future__ import division
 from itertools import product
 
 from villares.line_geometry import draw_poly, poly_edges, Line
-from villares.line_geometry import hatch_poly, hatch_rect, rect_points
+from villares.line_geometry import hatch_poly, rect_points, rotate_point, inter_lines
 
 def setup():
     size(700, 600)
     # noSmooth()
     # rectMode(CENTER)
     global ang_pairs
-    angs = (0, 15, 45, 60, 90, 135) #122.5, 135, 147.5)
-    ang_pairs = list(set(frozenset((a, b)) for a, b in  product(angs, repeat=2)))
-
+    angs = (0, 15, 45, 60, 90, 135)  # 122.5, 135, 147.5)
+    ang_pairs = list(set(frozenset((a, b)) for a, b in product(angs, repeat=2)))
     textSize(8)
-        
 
 def draw():
     background(130, 50, 50)
@@ -26,14 +24,15 @@ def draw():
         r = rect_points(5 + x, 5 + y, s - 10, s - 10)
         rect(6 + x, 6 + y, s - 12, s - 12)
         # strokeWeight(3)
-        ang_pair = ang_pairs[i % len(ang_pairs)] 
+        ang_pair = ang_pairs[i % len(ang_pairs)]
         # if i >= len(ang_pairs): strokeWeight(2)
         # else: strokeWeight(1)
         for ang in ang_pair:
             hatch_rect(r, radians(ang),
                        spacing=6.0,
-                       function=fixed_dash_line if i >= len(ang_pairs) else None,
-                       dash_spacing=6.0,
+                       function=fixed_dash_line if i >= len(
+                           ang_pairs) else None,
+                       dash_spacing=1.0,
                        # element_spacing=10.0,
                        # element_size=4,
                        # element_function=lambda x, y, _: point(x, y),
@@ -44,7 +43,7 @@ def draw():
 
 def fixed_dash_line(xa, ya, xb, yb, **kwargs):
     proportion = kwargs.pop('dash_proportion', kwargs.pop('proportion', 0.5))
-    spacing = kwargs.pop('dash_spacing', kwargs.pop('spacing', 20))
+    spacing = kwargs.pop('dash_spacing', kwargs.pop('spacing', 10))
     base_line = kwargs.pop('base_line', None)
     inside = Line(xa, ya, xb, yb)
     base_line = base_line or inside
@@ -70,12 +69,11 @@ def fixed_dash_line(xa, ya, xb, yb, **kwargs):
         xs += v.x
         ys += v.y
 
-
 # def element_line(xa, ya, xb, yb, **kwargs):
 #     spacing = kwargs.pop('element_spacing', kwargs.pop('spacing', 20))
 #     element_size = kwargs.pop('element_size', 5)
 #     element_function = kwargs.pop('element_function', square)
-#     divisions = int(dist(xa, ya, xb, yb) / spacing) + 1  # + keyPressed
+# divisions = int(dist(xa, ya, xb, yb) / spacing) + 1  # + keyPressed
 #     for i in range(1, divisions):
 #         t = i / float(divisions)
 #         x, y, _ = Line(xa, ya, xb, yb).line_point(t)
@@ -95,8 +93,31 @@ def grid(cols, rows, colSize=1, rowSize=1):
 
 def keyPressed():
     saveFrame(sketch_name() + '.png')
-    
+
 def sketch_name():
     from os import path
     sketch = sketchPath()
     return path.basename(sketch)
+
+
+def hatch_rect(*args, **kwargs):
+    if len(args) == 2:
+        r, angle = args
+    else:
+        x, y, w, h, angle = args
+        r = rect_points(x, y, w, h, kwargs.get('mode', CORNER))
+    spacing = kwargs.get('spacing', 10)
+    d = dist(r[0][0], r[0][1], r[2][0], r[2][1])
+    cx = (r[0][0] + r[1][0]) / 2.0
+    cy = (r[1][1] + r[2][1]) / 2.0
+    num = int(d / spacing)
+    rr = [rotate_point(x, y, angle, cx, cy)
+          for x, y in rect_points(cx, cy, d, d, mode=CENTER)]
+    # stroke(255, 0, 0)   # debug mode
+    ab = Line(rr[0], rr[1])  # ;ab.plot()  # debug mode
+    cd = Line(rr[3], rr[2])  # ;cd.plot()  # debug mode
+    for i in range(num + 1):
+        abp = ab.line_point(i / float(num) + EPSILON)
+        cdp = cd.line_point(i / float(num) + EPSILON)
+        for hli in inter_lines(Line(abp, cdp), r):
+            hli.plot()
