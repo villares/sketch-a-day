@@ -1,22 +1,20 @@
 add_library('mesh')
 
+points = []
+
 def setup():
     size(400, 400)
+    for _ in range(30):
+        points.append((random(width), random(height)))
 
 def draw():
-    points = []
-    points.append((mouseX, mouseY))  # first point
-    points.append((150, 105))  # second point
-    points.append((320, 113))  # third point
+    background(200)
+    points[0] = (mouseX, mouseY)  # first point
 
-    myVoronoi = Voronoi(points)
-    # getRegions() returns an array of MPolygons,
-    # the order of which correspond to the order of
-    # the points entered. MPolygon contains the points
-    # of the polygon, and can be drawn to the stage.)
-    myRegions = myVoronoi.getRegions()
-    for i, region in enumerate(myRegions):
-    # an array of points
-        regionCoordinates = region.getCoords()
-        fill(64 + i * 64, 0, 0)
-        region.draw(this)  # draw this shape
+    myDelaunay = Delaunay(points)
+
+    edges = myDelaunay.getEdges()
+    for i, edge in enumerate(edges):
+        stroke(8 + i * 8, 0, 0)
+        startX, startY, endX, endY = edge
+        line(startX, startY, endX, endY)
