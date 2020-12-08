@@ -60,7 +60,6 @@ def z_circle(x, y, radius, num_points=8):
         yield((sx, y, sz))
         ang += passo  # aumente o ângulo um passo
 
-
 def keyPressed():
     global rot_x
     if keyCode == UP:
