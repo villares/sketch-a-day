@@ -52,13 +52,8 @@ def mouseClicked():
             n.sel = not n.sel  # inverte status de seleção
 
 def keyPressed():   # Quando uma tecla é pressionada
-    print("key")
-
     if key == 'r':  # Se a tecla 'r' for pressionada
-        print("r")
-
         for n in nodes:
-            print("for")
             # sorteia nova posição
             x = random(width * .25, width * .75)
             y = random(height * .25, height * .75)
