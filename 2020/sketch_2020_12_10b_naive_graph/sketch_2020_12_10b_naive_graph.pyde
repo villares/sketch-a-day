@@ -73,7 +73,7 @@ class Node(PVector):
     """
 
     V_MAX = 2  # velocnameade máxima nas ortogonais vx e vy
-    V_MIN = .6
+    V_MIN = .55
 
     def __init__(self, x, y, name):
         self.name = name
@@ -125,10 +125,12 @@ class Node(PVector):
             self.y += self.v.y
 
     def ajust(self, other):
-        dir = PVector.sub(self, other)
-        ms = dir.magSq() / 20 + EPSILON
-        # dir.normalize()
-        self.v += dir.div(ms)
+        dir = PVector.sub(self, other)     
+        d = dir.mag()
+        delta = EDGE_SIZE * 0.95 - d
+        if delta > 0:
+            dir.mult(delta / 1000)
+            self.v += dir
 
     def limit_v(self):
         """ limita à velocidade máxima e para se estiver devagar"""
