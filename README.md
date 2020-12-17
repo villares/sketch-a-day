@@ -30,7 +30,7 @@ Here are listed some of the tools I have been using:
 
 [sketch_2020_12_17a_3D_revolve](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_12_17a_3D_revolve) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-3D studies with [Julio Mariutti](), inspired by: https://seoi.net/peni3d/
+3D studies with [Julio Mariutti](http://estudiologos.com.br/projetos/), inspired by: https://seoi.net/peni3d/
 
 
 ---
