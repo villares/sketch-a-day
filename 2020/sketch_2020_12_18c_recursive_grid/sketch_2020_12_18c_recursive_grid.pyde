@@ -1,7 +1,7 @@
-from villares import ubuntu_jogl_fix
-from villares.gif_export import gif_export
+from villares import ubuntu_jogl_fix  # you probably won't need thi
+# from villares.gif_export import gif_export
 
-add_library('gifAnimation')
+# add_library('gifAnimation')
 
     
 def setup():
@@ -21,17 +21,16 @@ def draw():
     translate(width / 2, height / 2, 0)
     rotateX(QUARTER_PI * (1 + cos(f + PI))/ 2 )
     rotateZ(QUARTER_PI * (1 + cos(f + PI)) / 2)
-    # rotateX(QUARTER_PI)
-    # rotateZ(QUARTER_PI)
     draw_grid(grid)
-    if frameCount % 2:
-        gif_export(GifMaker, "a", finish=False, delay=170)
-    if f >= TWO_PI:
-        # noSmooth()
-        gif_export(GifMaker, "a", finish=False)
-        gif_export(GifMaker, "a", finish=False)
-        gif_export(GifMaker, "a", finish=False)
-        exit()
+    
+    # if frameCount % 2:
+    #     gif_export(GifMaker, "a", finish=False, delay=170)
+    # if f >= TWO_PI:
+    #     # noSmooth()
+    #     gif_export(GifMaker, "a", finish=False)
+    #     gif_export(GifMaker, "a", finish=False)
+    #     gif_export(GifMaker, "a", finish=False)
+    #     exit()
     
 def keyPressed():
     redraw()

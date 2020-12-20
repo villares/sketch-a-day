@@ -30,11 +30,13 @@ Here are listed some of the tools I have been using:
 
 [sketch_2020_12_19c_recursive_grid](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_12_19c_recursive_grid) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+sketch_2020_12_20 is kind of "wrong" (my merge cell function is broken) but I like it "wrong".
+
 ---
 
-![sketch_2020_12_18c_recursive_grid_](2020/sketch_2020_12_18c_recursive_grid_/sketch_2020_12_18c_recursive_grid_.gif)
+![sketch_2020_12_18c_recursive_grid](2020/sketch_2020_12_18c_recursive_grid/sketch_2020_12_18c_recursive_grid.gif)
 
-[sketch_2020_12_18c_recursive_grid_](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_12_18c_recursive_grid_) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_2020_12_18c_recursive_grid](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_12_18c_recursive_grid) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
