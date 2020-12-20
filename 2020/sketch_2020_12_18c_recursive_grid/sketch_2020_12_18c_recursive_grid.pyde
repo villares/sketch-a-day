@@ -1,8 +1,8 @@
-from villares import ubuntu_jogl_fix  # you probably won't need thi
+from villares import ubuntu_jogl_fix  # you probably won't need this
 # from villares.gif_export import gif_export
 
 # add_library('gifAnimation')
-
+ox, oy = 0, 0
     
 def setup():
     global grid
@@ -43,11 +43,9 @@ def draw_grid(grid):
             sbox(x, y, cw * cos(f + PI), cw)
         else:
             draw_grid(cell)
-  
-        
+    
 def rec_grid(x, y, n, tw):
-    pushMatrix()
-    translate(x, y)
+    otranslate(x, y)
     cw = float(tw) / n
     margin = (cw - tw) / 2.0
     cells = []
@@ -59,11 +57,15 @@ def rec_grid(x, y, n, tw):
                 cs = rec_grid(nx, ny, 2, cw)
                 cells.append(cs)
             else:
-                cells.append((screenX(nx, ny), screenY(nx, ny), cw-2))
-    popMatrix()
+                cells.append((ox + nx, oy + ny, cw - 2))
+    otranslate(-x, -y)
     return cells
     
-    
+def otranslate(x, y):
+    global ox, oy
+    ox += x
+    oy += y
+        
 def sbox(x, y, s, s2):
     pushMatrix()
     translate(x , y, -abs(s * s2) / 4  + (s * s2) /4)
