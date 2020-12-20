@@ -1,7 +1,4 @@
-from villares import ubuntu_jogl_fix
-from villares.gif_export import gif_export
-
-add_library('gifAnimation')
+# from villares import ubuntu_jogl_fix  # you probably won't need this
 
 ox, oy = 0, 0
 
@@ -20,19 +17,9 @@ def draw():
     background(0)
     ortho()
     translate(width / 2, height / 2, 0)
-    # scale(.2)
-    # rotateX(QUARTER_PI * (1 + cos(f + PI))/ 2 )
-    # rotateZ(QUARTER_PI * (1 + cos(f + PI)) / 2)
 
     draw_grid(grid)
-    # if frameCount % 2:
-    #     gif_export(GifMaker, "a", finish=False, delay=170)
-    # if f >= TWO_PI:
-    # noSmooth()
-    #     gif_export(GifMaker, "a", finish=False)
-    #     gif_export(GifMaker, "a", finish=False)
-    #     gif_export(GifMaker, "a", finish=False)
-    #     exit()
+
 
 def keyPressed():
     if key == 's':
@@ -57,10 +44,10 @@ def merge_cells(grid):
             merge_cells(cell)
 
 def check_equal_cells(cells):
-    return (
-            cells[0][-3] == cells[1][-3] and
-            cells[1][-3] == cells[2][-3] and
-            cells[2][-3] == cells[3][-3])
+    return len(cells[-1]) == 3
+    # return (cells[0][-3] == cells[1][-3] and
+    #         cells[1][-3] == cells[2][-3] and
+    #         cells[2][-3] == cells[3][-3])
 
 
 def draw_grid(grid):
