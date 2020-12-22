@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 B_RADIUS = 0
 
 class Button():
@@ -21,12 +23,14 @@ class Button():
                 self.y < mouseY < self.y + self.h)
 
     def display(self, mp):
-        pushStyle()
         mouse_over = self.mouse_over()
+        pushStyle()
+        strokeWeight(1)
+        stroke(0)
         fill(self.calc_fill(mouse_over))
         rectMode(CORNER)
         rect(self.x, self.y, self.w, self.h, B_RADIUS)
-        fill(0)
+        fill(self.txt_color)
         textAlign(CENTER, CENTER)
         text(self.txt,
              self.x + self.w / 2,
