@@ -1,3 +1,5 @@
+B_RADIUS = 0
+
 class Button():
     
     button_list = []
@@ -21,7 +23,7 @@ class Button():
         else:
             fill(240)
         rectMode(CORNER)
-        rect(self.x, self.y, self.w, self.h, 5)
+        rect(self.x, self.y, self.w, self.h, B_RADIUS)
         fill(0)
         textAlign(CENTER, CENTER)
         text(self.t,
