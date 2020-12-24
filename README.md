@@ -30,6 +30,8 @@ Here are listed some of the tools I have been using:
 
 [sketch_2020_12_23d_ntsutae](https://github.com/villares/sketch-a-day/tree/master/2020/sketch_2020_12_23d_ntsutae) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Based on [a sketch by @ntsutae](https://twitter.com/ntsutae/status/1337921503552102400?s=20). Check out [my tweet with a recorded gif](https://twitter.com/villares/status/1341939285545656321) .
+
 ---
 
 ![sketch_2020_12_22a](2020/sketch_2020_12_22a/sketch_2020_12_22a.gif)
