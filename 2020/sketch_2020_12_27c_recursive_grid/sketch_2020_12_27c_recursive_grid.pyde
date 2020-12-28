@@ -1,10 +1,8 @@
 from __future__ import division
 from villares import ubuntu_jogl_fix  # you probably won't need this
 
-from copy import deepcopy
-
 def setup():
-    global grid, other_grid
+    global grid
     size(640, 640, P3D)
     rectMode(CENTER)
     fill(0)
@@ -27,7 +25,6 @@ def draw():
         else:
             merge_cells(grid)
 
-
 def draw_grid(grid):
     if grid is None:
         return
@@ -41,26 +38,6 @@ def draw_grid(grid):
             sbox(x, y, cw)  # * (1 + cos(f + PI)) / 2)
         else:
             draw_grid(cell)
-
-def draw_grid2(grid, other_grid):
-    for i, cell in enumerate(grid):
-        other_cell = other_grid[i]
-        if cell == other_cell:
-            if cell[-1] in (None, -1):
-                x, y, cw, flag = cell
-                if flag is None:
-                    stroke(8 + 2 * (cw + 2), 255, 255)
-                else:
-                    stroke(255)
-                sbox(x, y, cw)  # * (1 + cos(f + PI)) / 2)
-            else:
-                draw_grid2(cell, other_grid[i])
-        else:
-            t = sin(f)  # 0map(mouseX, 0, width, 0, 1)
-            flat = flatten_grid(cell)
-            flat_o = flatten_grid(other_cell)
-            flat_l = lerp_grid(flat, flat_o, t)
-            draw_grid(flat_l)
 
 def keyPressed():
     if key == 's':
@@ -89,11 +66,6 @@ def merge_cells(grid):
                                cw * 2 + 2, flag)
             else:
                 merge_cells(cell)
-
-def mangle_cell(cells):
-    return [(x, y, cw, -1)
-            for x, y, cw, flag in cells]
-
 
 def check_valid_cells(cells):
     if cells[-1] in (None, -1):
@@ -141,19 +113,3 @@ def flatten_grid(grid):
             if down:
                 cells.extend(down)
     return [cell for cell in cells if len(cell)]
-
-def lerp_grid(a, b, t):
-    if len(a) == 0 or len(b) == 0:
-        return
-    na, nb = a, b
-    if len(a) > len(b):
-        nb = b + a[: (len(a) - len(b))]
-    if len(a) < len(b):
-        na = a + b[:1] * (len(b) - len(a))
-
-    return [(lerp(xa, xb, t),
-             lerp(ya, yb, t),
-             lerp(cwa, cwb, t),
-             flag)
-            for (xa, ya, cwa, flag),
-            (xb, yb, cwb, _) in zip(na, nb)]
