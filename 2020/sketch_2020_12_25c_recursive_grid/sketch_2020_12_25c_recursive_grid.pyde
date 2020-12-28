@@ -2,8 +2,6 @@
 
 from copy import deepcopy
 
-ox, oy = 0, 0
-
 def setup():
     global grid, other_grid
     size(640, 640)
@@ -104,39 +102,21 @@ def check_valid_cells(cells):
         return all(cell[-1] is None and cell[-2] == cw
                    for cell in cells)
 
-
-def otranslate(x, y):
-    global ox, oy
-    ox += x
-    oy += y
-
 def rec_grid(x, y, n, tw):
-    otranslate(x, y)
     cw = float(tw) / n
     margin = (cw - tw) / 2.0
     cells = []
     for i in range(n):
-        nx = cw * i + margin
+        nx = x + cw * i + margin
         for j in range(n):
-            ny = cw * j + margin
+            ny = y + cw * j + margin
             if cw > 8 and random(10) < 5:
                 cs = rec_grid(nx, ny, 2, cw)
                 cells.append(cs)
             else:
-                cells.append((ox + nx,
-                              oy + ny,
+                cells.append((nx, ny,
                               cw - 2, None))
-    otranslate(-x, -y)
     return cells
-
-
-# def sbox(x, y, s, s2):
-#     pushMatrix()
-#     translate(x, y, -s2)
-#     rotateX(PI * cos(f + PI))
-#     rotateY(PI * cos(f + PI))
-#     box(s, s, s2)
-#     popMatrix()
 
 def flat_grid(grid):
     cells = []
