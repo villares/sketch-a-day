@@ -3,8 +3,6 @@ from villares import ubuntu_jogl_fix  # you probably won't need this
 
 from copy import deepcopy
 
-ox, oy = 0, 0
-
 def setup():
     global grid, other_grid
     size(640, 640, P3D)
@@ -13,7 +11,6 @@ def setup():
     colorMode(HSB)
     noSmooth()
     grid = rec_grid(0, 0, 8, width)
-    other_grid = deepcopy(grid)
 
 def draw():
     global f
@@ -32,7 +29,8 @@ def draw():
 
 
 def draw_grid(grid):
-    if grid is None: return
+    if grid is None:
+        return
     for cell in grid:
         if cell[-1] in (None, -1):
             x, y, cw, flag = cell
@@ -58,7 +56,7 @@ def draw_grid2(grid, other_grid):
             else:
                 draw_grid2(cell, other_grid[i])
         else:
-            t = sin(f) #0map(mouseX, 0, width, 0, 1)
+            t = sin(f)  # 0map(mouseX, 0, width, 0, 1)
             flat = flatten_grid(cell)
             flat_o = flatten_grid(other_cell)
             flat_l = lerp_grid(flat, flat_o, t)
@@ -105,31 +103,20 @@ def check_valid_cells(cells):
         return all(cell[-1] is None and cell[-2] == cw
                    for cell in cells)
 
-
-def otranslate(x, y):
-    global ox, oy
-    ox += x
-    oy += y
-
 def rec_grid(x, y, n, tw, shallow=None):
-    otranslate(x, y)
     cw = float(tw) / n
     margin = (cw - tw) / 2.0
     cells = []
     for i in range(n):
-        nx = cw * i + margin
+        nx = x + cw * i + margin
         for j in range(n):
-            ny = cw * j + margin
+            ny = y + cw * j + margin
             if cw > 8 and random(10) < 5 and not shallow:
                 cs = rec_grid(nx, ny, 2, cw)
                 cells.append(cs)
             else:
-                cells.append((ox + nx,
-                              oy + ny,
-                              cw - 2, None))
-    otranslate(-x, -y)
+                cells.append((nx, ny, cw - 2, None))
     return cells
-
 
 def sbox(x, y, s):
     pushMatrix()
@@ -169,4 +156,4 @@ def lerp_grid(a, b, t):
              lerp(cwa, cwb, t),
              flag)
             for (xa, ya, cwa, flag),
-                (xb, yb, cwb, _) in zip(na, nb)]
+            (xb, yb, cwb, _) in zip(na, nb)]
