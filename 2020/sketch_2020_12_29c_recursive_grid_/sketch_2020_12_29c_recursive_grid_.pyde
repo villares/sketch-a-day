@@ -1,7 +1,7 @@
 from __future__ import division
 
-add_library('gifAnimation')
-from villares.gif_export import gif_export
+# add_library('gifAnimation')
+# from villares.gif_export import gif_export
 
 def setup():
     global grid
@@ -19,14 +19,14 @@ def draw():
     translate(width / 2, height / 2)
     grid.plot()
     
-    if f <= TWO_PI:
-        if frameCount % 2:
-            gif_export(GifMaker, "output")
-    else:
-        gif_export(GifMaker)
-        gif_export(GifMaker)
-        gif_export(GifMaker)
-        gif_export(GifMaker, finish=True)
+    # if f <= TWO_PI:
+    #     if frameCount % 2:
+    #         gif_export(GifMaker, "output")
+    # else:
+    #     gif_export(GifMaker)
+    #     gif_export(GifMaker)
+    #     gif_export(GifMaker)
+    #     gif_export(GifMaker, finish=True)
 
 
 class Cell():
