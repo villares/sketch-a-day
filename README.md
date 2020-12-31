@@ -26,7 +26,7 @@ Here are listed some of the tools I have been using:
 
 ---
 
-![sketch_2020_12_30c_recursive_grid](2020/sketch_2020_12_27c_recursive_grid/sketch_2020_12_30c_recursive_grid.png)
+![sketch_2020_12_30c_recursive_grid](2020/sketch_2020_12_30c_recursive_grid/sketch_2020_12_30c_recursive_grid.png)
 
 
 Check the animated [GIF](https://raw.githubusercontent.com/villares/sketch-a-day/master/2020/sketch_2020_12_30c_recursive_grid/output.gif)!
