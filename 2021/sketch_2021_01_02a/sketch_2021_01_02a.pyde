@@ -30,7 +30,8 @@ def nova_geracao():
         centro = matrix[i][geracao % filas]
         dir = matrix[(i + 1) % cols][geracao % filas]
         result = checagem[(esq, centro, dir)]
-        cor = color(esq * 255, centro * 255, dir * 255)
+        # cor = color(esq * 200, centro * 200, dir * 200)
+        cor = color(55 + esq * 200, 55 + centro * 200, 55 + dir * 200)
         matrix[i][(geracao + 1) % filas] =  result 
         c_matrix[i][(geracao + 1) % filas] =  cor             
     geracao += 1
