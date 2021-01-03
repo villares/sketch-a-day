@@ -14,7 +14,7 @@ from os.path import isfile, join
 
 from helpers import get_image_names, build_entry
 
-YEAR = "2020"
+YEAR = "2021"
 base_path = "/media/villares/VolumeD/GitHub/sketch-a-day"
 # base_path = "/Users/villares/sketch-a-day" # 01046-10
 year_path = join(base_path, YEAR)
