@@ -12,7 +12,7 @@ i = 0
 def setup():
     global w, unicode_glyphs
     size(512, 512)
-    frameRate(10)
+    frameRate(2)
     w = width / 32
     unicode_glyphs = u''.join(
         unichr(c)
@@ -25,5 +25,5 @@ def draw():
     background(0)   
     for x in range(32):
         for y in range(32):
-            text(unicode_glyphs[i], x * w, w + y * w)
+            text(unicode_glyphs[i], 4 + x * w, 12 + y * w)
             i = (i + 1) % len(unicode_glyphs)
