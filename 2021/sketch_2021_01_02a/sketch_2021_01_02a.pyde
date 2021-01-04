@@ -12,16 +12,16 @@ regras_legais = [    # Algumas regras de que gostamos
 ]
 ruleset = regras_legais[2]
 
-checagem = {
-  (1, 1, 1): ruleset[7],
-  (1, 1, 0): ruleset[6],
-  (1, 0, 1): ruleset[5],
-  (1, 0, 0): ruleset[4],
-  (0, 1, 1): ruleset[3],
-  (0, 1, 0): ruleset[2],
-  (0, 0, 1): ruleset[1],
-  (0, 0, 0): ruleset[0],
-  }
+# checagem = {
+#   (1, 1, 1): ruleset[7],
+#   (1, 1, 0): ruleset[6],
+#   (1, 0, 1): ruleset[5],
+#   (1, 0, 0): ruleset[4],
+#   (0, 1, 1): ruleset[3],
+#   (0, 1, 0): ruleset[2],
+#   (0, 0, 1): ruleset[1],
+#   (0, 0, 0): ruleset[0],
+#   }
 
 def nova_geracao():
     global geracao
@@ -29,7 +29,7 @@ def nova_geracao():
         esq = matrix[(i + cols - 1) % cols][geracao % filas]
         centro = matrix[i][geracao % filas]
         dir = matrix[(i + 1) % cols][geracao % filas]
-        result = checagem[(esq, centro, dir)]
+        result = ruleset[esq  * 4 +  centro * 2 +  dir * 1]
         # cor = color(esq * 200, centro * 200, dir * 200)
         cor = color(55 + esq * 200, 55 + centro * 200, 55 + dir * 200)
         matrix[i][(geracao + 1) % filas] =  result 
