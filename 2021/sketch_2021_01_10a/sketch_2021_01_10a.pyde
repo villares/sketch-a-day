@@ -1,16 +1,11 @@
 """
-Based PythagorasTree
+Based on PythagorasTree Task: Construct a Pythagoras tree of order 7
+using only vectors (no rotation or trigonometric functions). 
 https://rosettacode.org/wiki/Pythagoras_tree#Processing
-Processing 3.5.4
+Related task: Fractal tree (https://rosettacode.org/wiki/Fractal_tree)
 2016-06-08 Trizen
 2020-03-02 da8
-2020-03-17 Alexandre Villares (Python Mode)
-
-Task: Construct a Pythagoras tree of order 7 using only vectors (no rotation or trigonometric functions).
-
-Related tasks
- 
-Fractal tree (https://rosettacode.org/wiki/Fractal_tree)
+2020-03-17 Alexandre Villares (porting to Python Mode)
 """
 
 def setup():
