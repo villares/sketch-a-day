@@ -26,6 +26,18 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_01_14c_recursive_grid](2021/sketch_2021_01_14c_recursive_grid/sketch_2021_01_14c_recursive_grid.gif)
+
+[sketch_2021_01_14c_recursive_grid](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_01_14c_recursive_grid) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_01_13a](2021/sketch_2021_01_13a/sketch_2021_01_13a.gif)
+
+[sketch_2021_01_13a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_01_13a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_01_12a](2021/sketch_2021_01_12a/sketch_2021_01_12a.jpeg)
 
 [sketch_2021_01_12a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_01_12a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
