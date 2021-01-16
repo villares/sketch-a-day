@@ -30,6 +30,12 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_01_15a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_01_15a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+ #genuary prompt: Let someone else decide the general rules of your piece.
+
+@HenryJo20974294: "If you draw something, erase one part of it randomly"& 
+
+@mgmalheiros: "Let the universe entropy (or its proxy, random() ) pick a few rule parts for you…"
+
 ---
 
 ![sketch_2021_01_14c_recursive_grid](2021/sketch_2021_01_14c_recursive_grid/sketch_2021_01_14c_recursive_grid.gif)
