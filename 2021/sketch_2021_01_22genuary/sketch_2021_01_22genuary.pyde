@@ -5,7 +5,7 @@ Now with multi-line doctstrings also in white!
 import tokenize
 from os import path
 
-font_size, line_size = 14, 15
+font_size, line_step, margin = 14, 15, 20
 
 def setup():
     """Load fonts, read code from sketch file and find comments."""
@@ -25,28 +25,28 @@ def setup():
 def draw():
     """Draw the text."""
     doc_string = None
-    for line_y, ln in enumerate(lines, 1):
+    for i, ln in enumerate(lines, 1):
         fill(0)
         textFont(fr)
-        for comm in comments:
-            c_pos = ln.find(comm)
+        for comment in comments:
+            c_pos = ln.find(comment)
             if c_pos >= 0:
                 code = ln[:c_pos]
                 c_x = textWidth(code)
-                text(code, 10, line_y * line_size)
+                text(code, margin, i * line_step)
                 fill(255)
                 textFont(fb)
-                text(comm, 10 + c_x , line_y * line_size)
+                text(comment, margin + c_x , i * line_step)
                 break
         else: # Lines with no comments (no break on comm in comments loop)
             # Deal with the docstring lines, also in white
             if ln.strip().startswith('"""') and not doc_string:
-                doc_string = line_y
+                doc_string = i
             if doc_string:
                 fill(255)  
                 textFont(fb)         
-            if doc_string < line_y and ln.strip().endswith('"""') or ln.count('"""') == 2:
+            if doc_string < i and ln.strip().endswith('"""') or ln.count('"""') == 2:
                 doc_string = None     
             # Draw the line
-            text(ln, 10, line_y * line_size)
+            text(ln, margin, i * line_step)
     saveFrame(sn + '.png') #genuary2021
