@@ -15,7 +15,7 @@ from os.path import isfile, join
 from helpers import get_image_names, build_entry
 
 YEAR = "2021"
-base_path = "/media/villares/VolumeD/GitHub/sketch-a-day"
+base_path = "/home/villares/GitHub/sketch-a-day"
 # base_path = "/Users/villares/sketch-a-day" # 01046-10
 year_path = join(base_path, YEAR)
 folders = listdir(year_path)
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     print("Last entry: " + last_done)
     # find folders after the last_done
     new_folders = []
-    for f in reversed(folders):
+    for f in reversed(sorted(folders)):
         if last_done not in f:
             new_folders.append(f)        
         else:
