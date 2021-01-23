@@ -24,7 +24,6 @@ Here are listed some of the tools I have been using:
 
 ## [2018](2018.md) | [2019](2019.md) | [2020](2020.md) | 2021
 
--
 ---
 
 ![sketch_2021_01_21a](2021/sketch_2021_01_21a/sketch_2021_01_21a.gif)
