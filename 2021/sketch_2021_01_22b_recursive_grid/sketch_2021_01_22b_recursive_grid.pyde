@@ -26,16 +26,16 @@ from villares.gif_export import gif_export
 
 def setup():
     global grid
-    size(512 + 128, 512 + 128, FX2D)
+    size(512, 512, FX2D)
     pixelDensity(2)
     rectMode(CENTER)
     # colorMode(HSB, 255)
     # noSmooth()
-    grid = Cell(0, 0, width  - 128, height - 128, 8, 8, deep=True)
+    grid = Cell(0, 0, width  - 128, height - 128, 4, 4, deep=True)
 
 def draw():
     global f
-    f = millis() / 5000.0
+    f = frameCount / 40.0
     background(240)
     translate(width / 2, height / 2)
     grid.plot()
