@@ -1,5 +1,5 @@
 """
-Triangle interpolations
+Possible non-self-intersecting polygons on a grid of points
 """
 import pickle
 
