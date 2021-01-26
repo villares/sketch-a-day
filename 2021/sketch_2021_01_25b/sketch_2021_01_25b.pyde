@@ -14,15 +14,19 @@ def setup():
               hex_color('#f4a261'),
               hex_color('#e76f51'))
 
-    perms = list(permutations(colors, 4))
+    # perms = list(permutations(colors, 4))
+    perms = list(permutations(colors, 5))
+    # perms = list(permutations(colors, 3))
     print(len(perms), len(grid))
     
     for i, (x, y) in enumerate(grid):
         if i < len(perms):
             for j, c in enumerate(perms[i]):
                 fill(c); noStroke()
-                circle(x, y, SIZE - j * 12 - 12)
-        
+                # circle(x, y, SIZE - j * 12 - 12) # 4
+                # circle(x, y, SIZE - j * 15 - 10) # 3
+                circle(x, y, SIZE - j * 10 - 10) # 5
+
 def hex_color(s):
     """
     This function allows you to create color from a string with hex notation in Python mode.
