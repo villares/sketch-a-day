@@ -1,11 +1,11 @@
 from itertools import product, permutations
 
-BORDER = 100
+BORDER = 50
 SIZE = 60
 
 def setup():
-    global grid
-    size(680, 680)
+    size(760, 640)
+    background(0)
     grid = list(product(range(BORDER, width - BORDER + 1, SIZE),
                         range(BORDER, height - BORDER + 1, SIZE)))    
     colors = (hex_color('#264653'),
@@ -13,17 +13,15 @@ def setup():
               hex_color('#9c46a'), 
               hex_color('#f4a261'),
               hex_color('#e76f51'))
-    
 
-    
-    perms = list(permutations(colors, 3))
-    print(len(perms))
+    perms = list(permutations(colors, 4))
+    print(len(perms), len(grid))
     
     for i, (x, y) in enumerate(grid):
         if i < len(perms):
             for j, c in enumerate(perms[i]):
-                fill(c)
-                circle(x, y, SIZE - j * 10)
+                fill(c); noStroke()
+                circle(x, y, SIZE - j * 12 - 12)
         
 def hex_color(s):
     """
