@@ -1,13 +1,5 @@
 """
-Explorando um experimento de geração de formas proposto por Leopoldo Leal
-
-USE 'R' pre-calc poly paths for shape-maker pins
-    (non self-intersecting polys from 6 points in a grid)
-
-OK - salvar em disco
-OK - implementar no outro sketch pickle para ler os polígonos
-OK - regra da exclusão de lines_shown ou colunas cheias
-OK - exclusão de duplicaçoes com menos de 4 linhas ou 4 colunas
+Possible non-self-intersecting polygons on a grid of points
 """
 import pickle
 
