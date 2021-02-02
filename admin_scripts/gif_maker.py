@@ -1,21 +1,22 @@
+#! /usr/bin/python3
 
 from os import listdir
 from os.path import isfile, join
 
 from PIL import Image, GifImagePlugin
 
-from helpers import get_image_files, remove_transparency
+from helpers import get_image_names, remove_transparency
 
-YEAR = "2019"
-base_path = "/media/villares/VolumeD/GitHub/sketch-a-day"
+YEAR = "2020"
+base_path = "/home/villares/GitHub/sketch-a-day/"
 year_path = join(base_path,YEAR)
 folders = listdir(year_path)
 
 
 images = []
-for folder in folders:
+for folder in sorted(folders):
     folder_path = join(year_path, folder)
-    f_images = get_image_files(year_path, folder)
+    f_images = get_image_names(year_path, folder)
     if f_images:
         img_path = join(folder_path, f_images[0])
         images.append(Image.open(img_path))
