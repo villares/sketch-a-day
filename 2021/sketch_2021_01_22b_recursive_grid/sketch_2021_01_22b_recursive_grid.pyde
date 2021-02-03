@@ -1,7 +1,5 @@
 """
-This is a variant of the work submited to PCD Porto!
-
-Recursive grid PCD Porto 2021 / Grade recursiva PCD Porto 2021
+Recursive grid 2021_01_22b / Grade recursiva 2021_01_22b
 Alexandre B A Villares - https://abav.lugaralgum.com/
 
 This work started by exploring a series of recursive grids from my sketch-a-day project, 
@@ -14,6 +12,7 @@ I'm using Processing Python mode, but a version of this code can run on the brow
 the pyodide WASM interpreter, adapted for drawing with p5js, this tool can be explored
 with  the p5pyjs project (https://github.com/berinhard/pyp5js). 
 
+This is a variant of the work submited to PCD Porto 2021:
 I'd like to dedicate this work to the memory of my father, Alberto Siciliano Villares
 who passed away recently. He loved Portugal and would have enjoyed to engage with the 
 PCD Porto community and the exhibition works.
