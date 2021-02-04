@@ -22,12 +22,12 @@ def draw():
         for y in xrange(ystart, yend, siz):
             loc = x + y * img.width
             c = img.pixels[loc]
-            b = brightness(c) / 255.0 * 10
+            b = brightness(c) / 255.0 * siz
             h = hue(c)
             colorMode(HSB)
             fill(h, 255, 255)
-            circle(x, y, siz )            
-            fill(255)
+            # circle(x, y, siz )            
+            # fill(0)
             circle(x, y, b)
 
 
