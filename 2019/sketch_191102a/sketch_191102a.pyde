@@ -5,10 +5,10 @@ iterations = 7
 axiom = "F"
 sentence = axiom
 stroke_len = 500
-rules = (("F", "[+G-F]-G+F"),
-         ("G", "GHG"),
-         ("H", "H-FH")
-         )
+rules = {"F": "[+G-F]-G+F",
+         "G": "GHG",
+         "H": "H-FH"
+         }
 a = 0
 
 def setup():
@@ -35,14 +35,7 @@ def generate(n):
         stroke_len *= 0.5
         nextSentence = ""
         for c in sentence:
-            found = False
-            for c_a, c_b in rules:
-                if c == c_a:
-                    found = True
-                    nextSentence += c_b
-                    break
-            if not found:
-                nextSentence += c
+            nextSentence += rules.get(c, c)
         sentence = nextSentence
 
 def plot(angle):
