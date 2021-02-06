@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/sketch-a-day
-SKETCH_NAME = "s279"  # 20181004
+SKETCH_NAME = "2021_01_04" # based on "s279"  # 20181004
 OUTPUT = ".gif"
 
 add_library('peasycam')
@@ -7,8 +7,6 @@ from random import seed
 from random import choice
 from random import randint
 
-ascii = """ .`:,';-_*"~!i|/\rI^)+(l?{><=}tc[]sjvJL7f1xzTyYF5e23onuaV4$SkC#EPhZX96U0pqKdbGA%gH8wRBmODN&Q@WM"""
-#ascii = """ .`:'-_*"~|/\^)+{><=}[]#"""
 rnd_seed = 1000
 
 def setup():
@@ -20,7 +18,7 @@ def setup():
     textMode(SHAPE)
     
     cam = PeasyCam(this, 400)
-    f = createFont("SourceCodePro-Bold", 14)
+    f = createFont("Tomorrow Bold", 14)
     textFont(f)
     textSize(14)
     global mi, ma
@@ -53,7 +51,6 @@ def ensamble(ex, ey, order):
         gliph = lambda x, y, l: text(l, x, y)
         for _ in range(order): 
             # rotate(QUARTER_PI)
-            c = choice(ascii)
             order = randint(mi, ma)
             spacing, side = 14, 14
             x, y = int(random(-5, 5)) * side, int(random(-5, 5)) * side 
@@ -61,8 +58,10 @@ def ensamble(ex, ey, order):
             # grid(x, y, order, spacing, gliph, c)
             colorMode(HSB)
             fill(x % 255, 255, 255)
-            grade(x, y, 6, 500)
-            # text("HELLO!", x, y)
+            push()
+            # translate(x - order * spacing / 2, y- order * spacing / 2)
+            face(x, y, 3, 500)
+            pop()
 
 
 def grid(x, y, order, spacing, function, *args):
@@ -88,7 +87,7 @@ def random_seed(renew=False):
         randomSeed(rnd_seed)
         
         
-def grade(xo, yo, n, tw, e=None):
+def face(xo, yo, n, tw, e=None):
     cw = tw / n
     offset = (cw - tw) / 2.
     for i in range(n):
@@ -99,18 +98,18 @@ def grade(xo, yo, n, tw, e=None):
             if e is not None:
                 element(x, y, cw, e)
             elif cw > 20 and random(10) < 5:
-                grade(x, y, 3, cw)
+                face(x, y, 3, cw)
             elif cw > 30:
-                grade(x, y, 3, cw, o)
+                face(x, y, 3, cw, o)
 
 
 def element(x, y, w, option):
-    fill(0)
+    # fill(0)
     if option == 0:
         t = choice(('a', 'b', 'c'))
         textSize(w/3)
         text(t, x, y)
     else:
-        t = choice(('1', '2', '3'))
-        textSize(w)
+        t = choice(('1A', '2B', '3C'))
+        textSize(w / 3)
         text(t, x, y)
