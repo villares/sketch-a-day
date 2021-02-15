@@ -11,17 +11,15 @@ def setup():
     strokeWeight(5)
     noFill()
     colorMode(HSB)
+    blendMode(ADD)
     global lista_formas, lista_proximos
     lista_formas = cria_formas()
     lista_proximos = cria_formas()
     
     
-def cria_formas(n=3):
+def cria_formas(n=2):
     lista_formas = []
     while len(lista_formas) < n:
-        # if len(lista_formas) < 3:
-        #     cor = cores[len(lista_formas)]
-        # else:
         cor = choice(cores)
         x = choice(range(200, width - 200, 25))
         y = choice(range(200, width - 200, 25))
@@ -35,9 +33,7 @@ def cria_formas(n=3):
             if dist(pobx, poby, px, py) < 50:
                 forma_bom = False
         if forma_bom:
-            lista_formas.append((cor, x, y, w, h, ang, px, py))
-
-            
+            lista_formas.append((cor, x, y, w, h, ang, px, py))    
     return lista_formas
 
 def draw():
@@ -58,29 +54,11 @@ def draw():
                             h * (1 - 0.20 * t * j), angle=ang)
             arc_augmented_poly(pts, [50] * len(pts))
 
-    # for b in lista_formas:  
-    #     cor, x, y, w, h, ang, px, py = b
-    #     for ob in lista_formas:
-    #         pobx, poby = ob[-2], ob[-1]
-    #         stroke(0, 0, 200)
-    #         strokeWeight(3)
-    #         line(pobx, poby, px, py)
-    #         print(dist(pobx, poby, px, py)) 
-    #     stroke(255)
-    #     strokeWeight(5)
-    #     pontos_forma = forma(x, y, w, h, angle=ang)
-    #     draw_poly(pontos_forma) 
-    #     textSize(24)
-    #     fill(0)
-    #     for i, (pbx, pby) in enumerate(pontos_forma):
-    #         text(str(i), pbx, pby)        
-    #     noFill()
-
-
     global lista_formas, lista_proximos
     if f % 180 == 0: 
         lista_formas = cria_formas()
     f += 0.5
+    # print(f, t)
 
 
 def lerp_forma(a, b, t):
