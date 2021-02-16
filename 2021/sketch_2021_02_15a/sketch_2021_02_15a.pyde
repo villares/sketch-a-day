@@ -37,6 +37,7 @@ def cria_formas(n=2):
     return lista_formas
 
 def draw():
+    global lista_formas, lista_proximos
     global f
     background(0)
     t = 1 - abs(sin(radians(f)))
@@ -49,14 +50,13 @@ def draw():
         stroke(cor)
         for j in range(4):
             stroke((cor + j * 64) % 255, 200, 200)
-            pts = forma(x  * (1 - 0.00 * j), y  * (1 - 0.00 * j),
-                            w * (1 - 0.20 * t * j),
-                            h * (1 - 0.20 * t * j), angle=ang)
+            pts = forma(x, y,
+                        # x  * (1 - 0.00 * j), y  * (1 - 0.00 * j),
+                        w * (1 - 0.20 * t * j),
+                        h * (1 - 0.20 * t * j), angle=ang)
             arc_augmented_poly(pts, [50 - 25 * t * j] * len(pts))
             # arc_filleted_poly(pts, [100] * len(pts))
 
-
-    global lista_formas, lista_proximos
     if f % 180 == 0: 
         lista_formas = cria_formas()
     f += 0.5
