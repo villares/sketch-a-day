@@ -26,6 +26,30 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_02_18a](2021/sketch_2021_02_18a/sketch_2021_02_18a.png)
+
+[sketch_2021_02_18a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_18a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_02_17_aspas](2021/sketch_2021_02_17_aspas/sketch_2021_02_17_aspas.png)
+
+[sketch_2021_02_17_aspas](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_17_aspas) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+I have to produce lighter gif files!
+(check on repo...)
+
+sketch_2021_02_16
+
+sketch_2021_02_15
+
+sketch_2021_02_14
+
+---
+
 ![sketch_2021_02_13a_cores](2021/sketch_2021_02_13a_cores/sketch_2021_02_13a_cores.png)
 
 [sketch_2021_02_13a_cores](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_13a_cores) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
@@ -35,6 +59,15 @@ Here are listed some of the tools I have been using:
 ![sketch_2021_02_13_shoebot](2021/sketch_2021_02_13_shoebot/sketch_2021_02_13_shoebot.gif)
 
 [sketch_2021_02_13_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_13_shoebot) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
+---
+
+![sketch_2021_02_12a_other_sphere](2021/sketch_2021_02_12a_other_sphere/sketch_2021_02_12a_other_sphere.gif)
+
+[sketch_2021_02_12a_other_sphere](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_12a_other_sphere) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+
 
 ---
 
