@@ -3,8 +3,6 @@ def setup():
     background (0, 0, 0)
     blendMode(ADD)
 
-  
-  
 def draw():
     if mousePressed and mouseButton == LEFT:
         fill(mouseX / 2, mouseY / 2, 0)
