@@ -13,19 +13,45 @@ def draw():
         s = 0
 
 def keyPressed():
-    print input("Text Area")
+    print(input('Text Area', default='Some Text\ngoes here'))
 
 
-def input(title=''):
+def input(title='', default=''):
     from javax.swing import JOptionPane, JScrollPane, JTextArea
     ta = JTextArea(20, 20)
-    ta.setText('default text')
+    ta.setText(default)
     result = JOptionPane.showConfirmDialog(None,
                                            JScrollPane(ta),
                                            title,
-                                           # 2:OK/Cancel 0:Yes/No  1:Y/N/Cancel
-                                           # -1:OK
-                                           2,
-                                           -1,  # -1:Plain message (no icon)
+                                           JOptionPane.OK_CANCEL_OPTION,
+                                           JOptionPane.PLAIN_MESSAGE,
+                                           # JOptionPane.QUESTION_MESSAGE
                                            )
-    return (result, ta.getText())
+    if result == JOptionPane.OK_OPTION:
+        return ta.getText()
+    else: 
+        return default
+
+"""
+messageType - Defines the style of the message. The Look and Feel manager may lay out the dialog differently depending on this value, and will often provide a default icon. The possible values are:
+
+JOptionPane.ERROR_MESSAGE
+JOptionPane.INFORMATION_MESSAGE
+JOptionPane.WARNING_MESSAGE
+JOptionPane.QUESTION_MESSAGE # question mark
+JOptionPane.PLAIN_MESSAGE  # No icon
+
+optionType - Defines the set of option buttons that appear at the bottom of the dialog box:
+JOptionPane.DEFAULT_OPTION
+JOptionPane.YES_NO_OPTION
+JOptionPane.YES_NO_CANCEL_OPTION
+JOptionPane.OK_CANCEL_OPTION 
+# 2:OK/Cancel 0:Yes/No  1:Y/N/Cancel -1:OK
+
+Results:
+JOptionPane.YES_OPTION
+JOptionPane.NO_OPTION
+JOptionPane.CANCEL_OPTION
+JOptionPane.OK_OPTION
+JOptionPane.CLOSED_OPTION 
+"""
