@@ -1,5 +1,3 @@
-
-
 # [sketch-a-day](https://abav.lugaralgum.com/sketch-a-day)
 
 #### coding a visual idea a day
@@ -11,6 +9,7 @@ The results are mostly tentative, exploratory, and I don’t feel like they need
 Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Moreover, I kindly invite you to subscribe to my newsletter, [[sketch-mail](https://abav.lugaralgum.com/sketch-mail)]. If you appreciate what I have been doing, you may support my artistic work, research and open educational resources I publish on-line using [gumroad.com/villares](https://gumroad.com/villares) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HCGAKACDMVNV2).
 
 Here are listed some of the tools I have been using:
+
 - [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Processing Python mode
 - [[Processing Java](https://processing.org]) Processing Java or "standard" mode
 - [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
@@ -26,9 +25,15 @@ Here are listed some of the tools I have been using:
 
 ---
 
-![_sketch_2021_02_21_derangements_D](2021/_sketch_2021_02_21_derangements_D/_sketch_2021_02_21_derangements_D.png)
+![sketch_2021_02_22_selfie](2021/sketch_2021_02_22_selfie/sketch_2021_02_22_selfie.png)
 
-[_sketch_2021_02_21_derangements_D](https://github.com/villares/sketch-a-day/tree/master/2021/_sketch_2021_02_21_derangements_D) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+[sketch_2021_02_22_selfie](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_22_selfie) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![_sketch_2021_02_21_derangements_D](2021/sketch_2021_02_21_derangements/sketch_2021_02_21_derangements.png)
+
+[_sketch_2021_02_21_derangements](/2021/sketch_2021_02_21_derangements) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
 ---
 
@@ -54,7 +59,6 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_02_17_aspas](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_17_aspas) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 I have to produce lighter gif files!
@@ -78,14 +82,11 @@ sketch_2021_02_14
 
 [sketch_2021_02_13_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_13_shoebot) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-
 ---
 
 ![sketch_2021_02_12a_other_sphere](2021/sketch_2021_02_12a_other_sphere/sketch_2021_02_12a_other_sphere.gif)
 
 [sketch_2021_02_12a_other_sphere](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_02_12a_other_sphere) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
-
 
 ---
 
@@ -365,5 +366,3 @@ sketch_2021_02_14
 ![sketch_2021_01_01a](2021/sketch_2021_01_01a/sketch_2021_01_01a.gif)
 
 [sketch_2021_01_01a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_01_01a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
-
-
