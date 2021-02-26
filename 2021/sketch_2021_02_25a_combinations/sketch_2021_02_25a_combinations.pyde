@@ -1,12 +1,7 @@
 from itertools import permutations, combinations, product
 colorMode(HSB)
-
-# things = ("A", "B", "C",
-#           "D", "E", "F",
-#           "G", "H", "I",)
-# p = permutations(things, 3)
-
-grid = product((-1, 1, 2), repeat=3)
+noStroke()
+grid = product((-1, 0.5, 2), repeat=3)
 combs = (p for p in combinations(grid, 3)
               if p[0][0] != p[1][0] != p[2][0] and
                  p[0][1] != p[1][1] != p[2][1] and
@@ -30,3 +25,9 @@ for i, (a, b, c) in enumerate(comb_l):
     vertex(*c)
     endShape(CLOSE)
  
+
+ 
+# things = ("A", "B", "C",
+#           "D", "E", "F",
+#           "G", "H", "I",)
+# p = permutations(things, 3)
