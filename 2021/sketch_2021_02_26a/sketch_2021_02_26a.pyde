@@ -10,12 +10,12 @@ def setup():
     
 def draw():
     translate(width / 2, height / 2)
-    for x, y in reversed(walkers):
-        if random(100) > 99:
+    for x, y in list(walkers):
+        if random(100) > 99.5:
             walkers.append([x, y])
         
     for i, w in enumerate(walkers):
-        stroke(i * 16 % 255, 200, 200)    
+        stroke(i * 32 % 255, 200, 200)    
         x, y = w
         circle(x, y, 3)
         w[0] += choice((-10, 0, 10))
