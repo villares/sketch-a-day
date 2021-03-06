@@ -66,7 +66,8 @@ def draw():
             text(c, x + siz / 2, y + siz / 2)
             i = (i + 1) % len(is_this_a_man)
 
-    gif_export(GifMaker)
+    if frameCount % 2:
+        gif_export(GifMaker)
     if frameCount / 1.0 > 360:
         gif_export(GifMaker, finish=True)
     
