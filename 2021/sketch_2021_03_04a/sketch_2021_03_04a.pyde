@@ -7,10 +7,6 @@ def setup():
     global img, fontes
     size(808, 808)
     smooth()
-    # textMode(MODEL)
-    # img = loadImage("1.png")
-    # this.surface.setResizable(True)
-    # this.surface.setSize(img.width, img.height)
     noStroke()
     fontes = (
               createFont("Inconsolata ExtraLight", font_size),
@@ -23,7 +19,6 @@ def setup():
               createFont("Inconsolata Black", font_size),
     )
     textAlign(CENTER, CENTER)
-    # colorMode(HSB)
 
 
 def draw():
@@ -39,8 +34,6 @@ def draw():
     for y in xrange(0, yend - siz, siz):
         # xc = 0
         for x in xrange(0, xend - siz / 2, siz / 2):
-            # bc = 128 * noise(x * noise_scale, y * noise_scale, f * noise_scale)
-            # h = 16 + (255 + 16) * noise(y * noise_scale, f * noise_scale, x * noise_scale, )
             bc = 255 * noise((x + g) * noise_scale, f * noise_scale, y * noise_scale, )
             bc2 = 255 * noise((x + of + g) * noise_scale, f * noise_scale, (y + of) * noise_scale, )        
             w = int(map(bc, 80, 150, 0, len(fontes)-1))
@@ -52,12 +45,8 @@ def draw():
             text(c, x + siz / 2 + bc2 / 80, y + siz / 2 + bc2 / 80)
             fill(0)
             text(c, x + siz / 2, y + siz / 2)
-            
-    
             i = (i + 1) % len(is_this_a_man)
-            # if c != " ":
-            #     xc += textWidth(c) * 1.2
-            # xc += siz
+
 
 def keyPressed():
     if key == 's':
