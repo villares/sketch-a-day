@@ -53,38 +53,40 @@ def delete(picked_item):
             repack_menu(main_menu)
             return
     
-def repack_menu(menu):
-    y = menu[0]['y']
-    for menu_item in menu[1:]:
+def repack_menu(menu_items):
+    y = 20
+    for item in menu_items:
+        item['y'] = y
         y += 20
-        menu_item['y'] = y
 
 
 def mouse_over(x, y, e):
     return (x + e['x'] < mouseX < x + e['x'] + textWidth(e['name']) and
             y + e['y'] < mouseY < y + e['y'] + 20)
 
-def draw_interface_elements(ies, x=0, y=0):
-    for item in ies:
+def draw_interface_elements(menu_items, x_offset=0, y_offset=0):
+    for item in menu_items:
         if item_disabled(item):
-            fill(128)
-        elif mouse_over(x, y, item):
-            fill(255)
+            fill(128)  # Dark grey for diabled
+        elif mouse_over(x_offset, y_offset, item):
+            fill(255)  # White for mouse over
         elif context_menu_clicked and context_menu_clicked[-1] == item:
-            fill(240)
+            fill(240)  # Light grey if picked with right button
         else:
-            fill(0)
-        text(item['name'], x + item['x'], y + item['y'])
+            fill(0)    # otherwise black
+        text(item['name'], x_offset + item['x'], y_offset + item['y'])
   
 def item_disabled(item):
     if context_menu_clicked:
         picked_item = context_menu_clicked[-1]
         if item['name'] == 'create':
-            return False
+            return False  # Create is always available
         elif picked_item == None:
-            return True
+            return True   # Other items unavailable if nothing picked
         else:
-            return False
+            return False  # otherwise they are available
+    else:
+        return False # nothing is disabled if context_menu_clicked is False
             
 def mouseClicked():
     global context_menu_clicked
