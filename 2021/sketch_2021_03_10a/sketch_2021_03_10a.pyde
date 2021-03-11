@@ -42,7 +42,8 @@ def create(item):
 
 def rename(picked_item):
     if picked_item:
-        new_name = "OOOO"
+        new_name = input(question='Rename {} to?'.format(picked_item['name']),
+                         suggestion=picked_item['name'])
         if new_name: 
             picked_item['name'] = new_name
     
@@ -109,3 +110,7 @@ def check_click(menu_items, x_offset=0, y_offset=0):
                 return item
         else:
             return None
+        
+def input(question='', suggestion=''):
+    from javax.swing import JOptionPane
+    return JOptionPane.showInputDialog(None, question, suggestion)
