@@ -21,3 +21,5 @@ def setup():
             y = s / 2 + iy * s
             circle(x, y, s)
             # point(x, y)
+            
+    # saveFrame('a.png')
