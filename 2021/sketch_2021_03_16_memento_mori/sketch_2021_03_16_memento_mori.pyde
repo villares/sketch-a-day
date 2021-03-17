@@ -6,7 +6,7 @@ iterations = 7 #6
 axiom = "F"
 sentence = axiom
 # stroke_len = 900
-stroke_len = 1600   #a=120 sl=1200
+stroke_len = 1300   #a=120 sl=1200
 
 rules = {"F": "[+G-F]-G+F",
          "G": "GHG",
@@ -30,7 +30,7 @@ def setup():
     size(750, 750)
     strokeWeight(1)
     generate(iterations)
-    fonte = createFont("Tomorrow Bold",18)
+    fonte = createFont("Tomorrow Light",18)
     textFont(fonte)
     
 def draw():
@@ -41,7 +41,8 @@ def draw():
     angle = radians(a)
     plot(angle)
     if a <= 180:
-        gif_export(GifMaker, "grow", delay=1200)
+        delay(400)
+        gif_export(GifMaker, "grow", delay=2200)
 
     # #     saveFrame("sketch###.png")        print a
         a += 5
