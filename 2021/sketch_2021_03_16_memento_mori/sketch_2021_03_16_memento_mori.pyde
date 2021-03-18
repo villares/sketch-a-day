@@ -41,11 +41,9 @@ def draw():
     angle = radians(a)
     plot(angle)
     if a <= 180:
-        delay(400)
-        gif_export(GifMaker, "grow", delay=2200)
-
-    # #     saveFrame("sketch###.png")        print a
-        a += 5
+        # delay(400)
+        gif_export(GifMaker, "grow", delay=200) # try less!
+        a += 0.5  # try 1!
     else:
           gif_export(GifMaker, finish=True)
         
