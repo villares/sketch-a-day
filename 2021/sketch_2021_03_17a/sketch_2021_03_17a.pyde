@@ -6,7 +6,7 @@ from villares.gif_export import gif_export
 points = [] 
 
 def setup():
-    global bgd, linhas
+    global bgd, linhas, colors
     size(600, 600, P3D)
     textAlign(CENTER)
     textMode(SHAPE)
@@ -14,7 +14,16 @@ def setup():
     textFont(fonte)
     linhas =[l for l in sumario.split('\n') if l.strip()]    
     points[:] = choose_points()
-    
+    colors = sorted([color(250, 50, 0),
+                     color(150, 0, 0),
+                     color(250, 0, 0),
+                     color(0, 150, 0),
+                     color(50, 50, 250),
+                     color(0, 50, 150),
+                     color(150, 50, 250),
+                     color(50, 150, 250)
+                    ], key=hue)
+
 def choose_points():
     points = []
     points.append(PVector.random3D() * 128)
@@ -40,8 +49,9 @@ def draw():
         x = -textWidth(l) / 2
         for j, w in enumerate(l.split(' ')):
             with push():
-                fill(colors[j % len(colors)])
-                translate(0, 0, 100 * noise(i * 0.1, j*0.1))
+                c =  100 * noise(i * 0.01, j*0.01)
+                fill(colors[int(c) % len(colors)])
+                translate(0, 0, 100 * noise(i * 0.05, j*0.05))
                 text(w, x, i * 10)
             x += textWidth(w) + 0
         # text(linhas[i], 10, i * 10)
@@ -57,15 +67,7 @@ def keyPressed():
         saveFrame("######.png")
 
                                 
-colors = (color(250, 50, 0),
-          color(150, 0, 0),
-          color(250, 0, 0),
-          color(0, 150, 0),
-          color(50, 50, 250),
-          color(0, 50, 150),
-          color(150, 50, 250),
-          color(50, 150, 250)
-          )
+
 
 sumario = u"""
 Article 1.
