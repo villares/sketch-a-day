@@ -3,10 +3,14 @@ tam_tabuleiro = 10
 tam_casa = 54
 meia_casa = tam_casa / 2
 borda = 36
-tabuleiro_a = {}
+tabuleiro_a = {(1, 1): 1,
+               (2, 1): 1,
+               (3, 1): 1,
+               (6, 6): 3,
+               }
 
 def setup():
-    size(1200, 600)
+    size(600, 600)
     textAlign(CENTER, CENTER)
     
 def draw():
@@ -42,4 +46,4 @@ def label(n, vertical=False):
     if vertical:
         text(n, meia_casa, pos)
     else:
-        text(n, pos, meia_casa)
+        text(n, pos, height - meia_casa / 2)
