@@ -29,10 +29,11 @@ def mouseClicked():
     i = (mouseX - borda) / tam_casa 
     j = (mouseY - borda) / tam_casa 
     c = tabuleiro_a.get((i, j))
-    if not c:
-        tabuleiro_a[(i, j)] = 1
-    else:
-        tabuleiro_a[(i, j)] = (c + 1) % 4
+    if 0 <= i < tam_tabuleiro and 0 <= j < tam_tabuleiro:
+        if not c:
+            tabuleiro_a[(i, j)] = 1
+        else:
+            tabuleiro_a[(i, j)] = (c + 1) % 4
     print(tabuleiro_a)
      
 def label(n, vertical=False):
