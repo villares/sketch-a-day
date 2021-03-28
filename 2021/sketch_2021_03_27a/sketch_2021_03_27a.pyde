@@ -45,15 +45,27 @@ def draw_tabuleiro(tabuleiro, visivel):
 
         
 def mouseClicked():
-    i = (mouseX - borda) / tam_casa 
-    j = (mouseY - borda) / tam_casa 
+    mnta = mouse_no_tabuleiro(mouseX, mouseY)    
+    if mnta in visivel_a:
+        visivel_a.remove(mnta)
+    else:
+        visivel_a.append(mnta)
+        
+    mntb = mouse_no_tabuleiro(mouseX - 600, mouseY)    
+    if mntb in visivel_b:
+        visivel_b.remove(mntb)
+    else:
+        visivel_b.append(mntb)
+
+
+def mouse_no_tabuleiro(x, y):
+    i = (x - borda) / tam_casa 
+    j = (y - borda) / tam_casa 
     if 0 <= i < tam_tabuleiro and 0 <= j < tam_tabuleiro:
-        if (i, j) in visivel_a:
-            visivel_a.remove((i, j))
-        else:
-            visivel_a.append((i, j))
-    # print(tabuleiro_a)
-     
+        return (i, j)
+    else:
+        return None
+         
 def label(n, vertical=False):
     fill(0)
     pos =  n * tam_casa + borda + meia_casa 
