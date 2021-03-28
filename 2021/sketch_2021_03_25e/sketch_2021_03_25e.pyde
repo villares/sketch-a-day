@@ -1,22 +1,23 @@
-
 tam_tabuleiro = 15
 tam_casa = 35
 meia_casa = tam_casa / 2
 borda = 36
-tabuleiro_a = {(1, 1): "C",
-                (2, 1): "C",
-                (3, 1): "C",
-                (4, 1): "C",
-                (6, 6): "S",
-                (10, 6): "H",
-                (11, 7): "H",
-                (12, 6): "H",
-               }
+tabuleiro_a = {
+    (1, 1): "C",
+    (2, 1): "C",
+    (3, 1): "C",
+    (4, 1): "C",
+    (6, 6): "S",
+    (10, 6): "H",
+    (11, 7): "H",
+    (12, 6): "H",
+   }
 
-cores = {"C": color(100, 0, 0),
-         "S": color(0, 0, 100),
-         "H": color(0, 100, 0),
-         }
+cores = {
+    "C": color(100, 0, 0),
+    "S": color(0, 0, 100),
+    "H": color(0, 100, 0),
+    }
 
 def setup():
     size(600, 600)
@@ -34,14 +35,23 @@ def draw():
             else:
                 fill(cores[c])
             square(i * tam_casa + borda, 
-                       j * tam_casa + borda, 
-                       tam_casa)
+                   j * tam_casa + borda, 
+                   tam_casa)
             if c:
                 fill(255)
-                text(c, i * tam_casa + borda + meia_casa, 
-                        j * tam_casa + borda + meia_casa) 
+                text(c,
+                     i * tam_casa + borda + meia_casa, 
+                     j * tam_casa + borda + meia_casa) 
+     
+def label(n, vertical=False):
+    fill(0)
+    pos =  n * tam_casa + borda + meia_casa 
+    if vertical:
+        text(n, meia_casa, pos)
+    else:
+        text(n, pos, height - meia_casa)
 
-        
+
 def mouseClicked():
     i = (mouseX - borda) / tam_casa 
     j = (mouseY - borda) / tam_casa 
@@ -54,11 +64,3 @@ def mouseClicked():
         else:
             tabuleiro_a[(i, j)] = None 
     print(tabuleiro_a)
-     
-def label(n, vertical=False):
-    fill(0)
-    pos =  n * tam_casa + borda + meia_casa 
-    if vertical:
-        text(n, meia_casa, pos)
-    else:
-        text(n, pos, height - meia_casa)
