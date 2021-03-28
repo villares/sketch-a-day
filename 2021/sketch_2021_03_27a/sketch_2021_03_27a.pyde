@@ -43,20 +43,17 @@ def draw_tabuleiro(tabuleiro, visivel):
                    j * tam_casa + borda, 
                    tam_casa)
 
-        
 def mouseClicked():
     mnta = mouse_no_tabuleiro(mouseX, mouseY)    
-    if mnta in visivel_a:
-        visivel_a.remove(mnta)
-    else:
-        visivel_a.append(mnta)
-        
+    modifica_tabuleiro(mnta, visivel_a)     
     mntb = mouse_no_tabuleiro(mouseX - 600, mouseY)    
-    if mntb in visivel_b:
-        visivel_b.remove(mntb)
+    modifica_tabuleiro(mntb, visivel_b)
+        
+def modifica_tabuleiro(pos, visivel):
+    if pos in visivel:
+        visivel.remove(pos)
     else:
-        visivel_b.append(mntb)
-
+        visivel.append(pos)
 
 def mouse_no_tabuleiro(x, y):
     i = (x - borda) / tam_casa 
