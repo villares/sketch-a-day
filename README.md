@@ -79,6 +79,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_03_20b_java_sort](2021/sketch_2021_03_20b_java_sort/sketch_2021_03_20b_java_sort.png)
+
+[sketch_2021_03_20b_java_sort](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_03_20b_java_sort) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_03_19a_sorting](2021/sketch_2021_03_19a_sorting/sketch_2021_03_19a_sorting.png)
 
 [sketch_2021_03_19a_sorting](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_03_19a_sorting) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
