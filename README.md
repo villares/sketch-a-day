@@ -132,11 +132,15 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_03_12b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_03_12b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+I hate this one. I was very tired and couln't get myself to do any better (I was trying to improve on the previous day's disaster) .
+
 ---
 
 ![sketch_2021_03_11b](2021/sketch_2021_03_11b/sketch_2021_03_11b.png)
 
 [sketch_2021_03_11b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_03_11b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+This is a very bad one. Tried a silly idea and couldn't get the energy to improve it.
 
 ---
 
