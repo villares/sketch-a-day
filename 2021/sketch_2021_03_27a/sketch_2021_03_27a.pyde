@@ -29,9 +29,7 @@ def draw():
     
 def draw_tabuleiro(tabuleiro, visivel):
     for i in range(tam_tabuleiro):
-        label(i)
         for j in range(tam_tabuleiro):
-            label(j, vertical=True)
             if (i, j) in visivel:
                 if (i, j) in tabuleiro:
                     fill(0)
@@ -42,7 +40,13 @@ def draw_tabuleiro(tabuleiro, visivel):
             square(i * tam_casa + borda, 
                    j * tam_casa + borda, 
                    tam_casa)
-
+            
+    for n in range(tam_tabuleiro):
+        fill(0)
+        pos =  n * tam_casa + borda + meia_casa 
+        text(n, meia_casa, pos)
+        text(n, pos, height - meia_casa * 1.2)
+    
 def mouseClicked():
     mnta = mouse_no_tabuleiro(mouseX, mouseY)    
     modifica_tabuleiro(mnta, visivel_a)     
@@ -62,11 +66,3 @@ def mouse_no_tabuleiro(x, y):
         return (i, j)
     else:
         return None
-         
-def label(n, vertical=False):
-    fill(0)
-    pos =  n * tam_casa + borda + meia_casa 
-    if vertical:
-        text(n, meia_casa, pos)
-    else:
-        text(n, pos, height - meia_casa * 1.2)
