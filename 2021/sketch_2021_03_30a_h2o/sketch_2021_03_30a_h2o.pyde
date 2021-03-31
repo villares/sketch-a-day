@@ -14,13 +14,15 @@ def draw():
     stroke(255, 100)    
     for molecula in moleculas:
         for outra in reversed(moleculas):
-                xa, ya = molecula
-                xb, yb = outra 
-                d = dist(xa, ya, xb, yb)
-                a = int(degrees(atan2(ya -yb, xa - xb)))
-                if d < 80 and (a == 30 or a == 90 or a == -30):
-                    line(xa, ya, xb, yb)
-        
+            if molecula is outra:
+                break
+            xa, ya = molecula
+            xb, yb = outra 
+            d = dist(xa, ya, xb, yb)
+            a = int(degrees(atan2(ya -yb, xa - xb)))
+            if d < 80 and (a == 30 or a == 90 or a == -30):
+                line(xa, ya, xb, yb)
+    
     for x, y in moleculas:
         noStroke()
         circle(x, y, 3)
