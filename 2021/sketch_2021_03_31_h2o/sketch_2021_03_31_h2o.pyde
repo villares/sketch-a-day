@@ -19,7 +19,11 @@ def draw():
         m[0] +=  5 - 10 *noise(x, y,  frameCount * ns )
         m[1] += 5 - 10 * noise(x + 1, y + 1, frameCount * ns)
         circle(m[0], m[1], 3)
-         # m = [nx, ny] 
+        # h = 360 * noise(x, y,  frameCount * ns )
+        # v = 10 * PVector.fromAngle(radians(h))
+        # m[0] += v.x
+        # m[1] += v.y
+        # circle(m[0], m[1], 3)
          
     for molecula in moleculas:
         for outra in reversed(moleculas):
@@ -29,14 +33,14 @@ def draw():
             xb, yb = outra 
             d = dist(xa, ya, xb, yb)
             a = int(degrees(atan2(ya -yb, xa - xb)))
-            if d < 80 and (a == 30 or a == 90 or a == -30):
+            if d < 80 and (a == 30 or a == 90 or  
+                             a == -30):
                 stroke(255, 100)    
                 line(xa, ya, xb, yb)
                 # circle(xa, ya, 3)
       
                         
-def keyPressed():
-    saveFrame("agua.png")
+    if frameCount < 5:    saveFrame("##.png")
 
         
 # def H2O(x, y, tamanho=6):
