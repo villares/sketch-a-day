@@ -25,6 +25,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_04_06a_wordcram](2021/sketch_2021_04_06a_wordcram/sketch_2021_04_06a_wordcram.png)
+
+[sketch_2021_04_06a_wordcram](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_04_06a_wordcram) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_04_04curve2](2021/sketch_2021_04_04curve2/sketch_2021_04_04curve2.gif)
 
 [sketch_2021_04_04curve2](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_04_04curve2) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
