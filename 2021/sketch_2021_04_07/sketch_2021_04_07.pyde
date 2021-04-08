@@ -22,7 +22,7 @@ def choose_points():
     points = []
     points.append(tuple(PVector.random2D() * 128))
     while len(points) < len(linhas):
-        r = width / 4
+        r = width / 6
         p = PVector.random2D() * r
         if r - 30 < PVector.dist(p, PVector(*points[-1])) < r + 30:
             points.append((p.x, p.y, p.z))
