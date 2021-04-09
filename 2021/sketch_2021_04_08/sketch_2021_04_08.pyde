@@ -32,7 +32,7 @@ def draw():
     background(240)
     # background(255, 229, 0)
     strokeWeight(5)
-    translate(width / 4, height , 128)
+    translate(width / 4, height , 200)
     scale(-1)
     rotateY(mouseX / 100.0)
     for i, (xa, ya, za) in enumerate(points):
