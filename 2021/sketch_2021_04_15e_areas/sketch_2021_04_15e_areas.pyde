@@ -45,17 +45,16 @@ def in_area(xm, ym, wm, hm, xa, ya, wa, ha):
     return (xa < xm < xa + wa - wm and
             ya < ym < ya + ha - hm)
 
-def rect_in_rect(r1x, r1y, r1w, r1h,
-                 r2x, r2y, r2w, r2h):
+def rect_on_rect(r1x, r1y, r1w, r1h, r2x, r2y, r2w, r2h):
     # via http://jeffreythompson.org/collision-detection/rect-rect.php
     return (r1x + r1w >= r2x and    # r1 right edge past r2 left
-      r1x <= r2x + r2w and          # r1 left edge past r2 right
-      r1y + r1h >= r2y and          # r1 top edge past r2 bottom
-      r1y <= r2y + r2h) 
+            r1x <= r2x + r2w and          # r1 left edge past r2 right
+            r1y + r1h >= r2y and          # r1 top edge past r2 bottom
+            r1y <= r2y + r2h) 
 
 def sobrepondo_na_colecao(x, y, w, h, colecao):
     for ox, oy, ow, oh in colecao:
-        if rect_in_rect(x, y, w, h,
+        if rect_on_rect(x, y, w, h,
                         ox, oy, ow, oh):
             return True
     return False
