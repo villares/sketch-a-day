@@ -1,6 +1,6 @@
 # Inspired by a chat with twitter.com/arturched
 
-wm, hm = 20, 20 # dimensoes elemento    
+wm, hm = 20, 20 # dimensões elemento    
 num_areas = 7
 num_elementos = 200
 
@@ -10,10 +10,10 @@ def setup():
     size(700, 700)
     fill(255)
     noStroke()
-    areas_a = sorted(sorteia_areas(), key=lambda a:a[1])
-    areas_b = sorted(sorteia_areas(), key=lambda a:a[1])
-    elementos_a = sorted(sorteia_elementos(areas_a), key=lambda a:a[1])
-    elementos_b = sorted(sorteia_elementos(areas_b), key=lambda a:a[1])
+    areas_a = sorted(sorteia_areas(), key=segundo_componente) # key=lambda s:s[1]
+    areas_b = sorted(sorteia_areas(), key=segundo_componente)
+    elementos_a = sorted(sorteia_elementos(areas_a), key=segundo_componente)
+    elementos_b = sorted(sorteia_elementos(areas_b), key=segundo_componente)
     
 def draw():
     background(200)
@@ -68,9 +68,9 @@ def in_area(xm, ym, wm, hm, xa, ya, wa, ha):
 
 def rect_on_rect(r1x, r1y, r1w, r1h, r2x, r2y, r2w, r2h):
     # via http://jeffreythompson.org/collision-detection/rect-rect.php
-    return (r1x + r1w >= r2x and    # r1 right edge past r2 left
-            r1x <= r2x + r2w and          # r1 left edge past r2 right
-            r1y + r1h >= r2y and          # r1 top edge past r2 bottom
+    return (r1x + r1w >= r2x and  # r1 right edge past r2 left
+            r1x <= r2x + r2w and  # r1 left edge past r2 right
+            r1y + r1h >= r2y and  # r1 top edge past r2 bottom
             r1y <= r2y + r2h) 
 
 def sobrepondo_na_colecao(x, y, w, h, colecao):
@@ -80,5 +80,6 @@ def sobrepondo_na_colecao(x, y, w, h, colecao):
             return True
     return False
 
-
+def segundo_componente(sequencia):
+    return sequencia[1]
             
