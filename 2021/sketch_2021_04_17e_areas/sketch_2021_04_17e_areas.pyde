@@ -16,13 +16,19 @@ def setup():
     elementos_b = sorted(sorteia_elementos(areas_b), key=chave_ordem)
     
 def draw():
+    global areas_a, elementos_a
     background(200)
     # desenha_areas(areas_a)
     # desenha_elementos(elementos_a)
-    if frameCount % 360 < 180:
+    if frameCount * 0.5 % 360 < 180:
         t = abs(cos(radians(frameCount / 2.0)))
+    elif frameCount / 2 % 360 == 180:
+        t = abs(cos(radians(frameCount / 2.0)))
+        areas_a = sorted(sorteia_areas(), key=chave_ordem) 
+        elementos_a = sorted(sorteia_elementos(areas_a), key=chave_ordem)
     else:
-        t = 1 + sin(radians(frameCount  / 2.0))
+        t = 1 + sin(radians(frameCount / 2.0))
+        print(t)
     areas = lerp_multiplo(areas_a, areas_b, t)
     elementos = lerp_multiplo(elementos_a, elementos_b, t)
     desenha_areas(areas)
