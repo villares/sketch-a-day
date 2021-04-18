@@ -20,9 +20,9 @@ def draw():
     # desenha_areas(areas_a)
     # desenha_elementos(elementos_a)
     if frameCount % 360 < 180:
-        t = abs(cos(radians(frameCount)))
+        t = abs(cos(radians(frameCount / 2.0)))
     else:
-        t = abs(sin(radians(frameCount - 90)))
+        t = 1 + sin(radians(frameCount  / 2.0))
     areas = lerp_multiplo(areas_a, areas_b, t)
     elementos = lerp_multiplo(elementos_a, elementos_b, t)
     desenha_areas(areas)
