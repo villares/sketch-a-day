@@ -1,5 +1,3 @@
-
-
 moleculas = []
 
 def setup():
@@ -29,16 +27,3 @@ def draw():
         
 def keyPressed():
     saveFrame("agua.png")
-
-        
-# def H2O(x, y, tamanho=6):
-#     deslocamento = tamanho * 0.66
-#     pushMatrix()    
-#     translate(x, y)
-#     rotate(x + y)
-#     fill(0, 0, 200)
-#     circle(0, 0, tamanho)
-#     fill(255)        
-#     circle(tamanho / 2.0, -deslocamento, deslocamento)
-#     circle( tamanho / 2.0, +deslocamento, deslocamento)
-#     popMatrix()
