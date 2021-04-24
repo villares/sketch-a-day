@@ -8,8 +8,8 @@ def draw():
     grid_elem = 10
     spac_size = width / (grid_elem + 1)
     elem_size = spac_size
-    v = spac_size * sqrt(3) / 1.5
-    h = spac_size * sqrt(3) 
+    v = spac_size * 1.5 / 2
+    h = spac_size * sqrt(3)
     for ix in range(-1, grid_elem + 1):
         for iy in range(-1, grid_elem + 1):
             if iy % 2:
@@ -17,13 +17,12 @@ def draw():
             else:
                 x = ix * h - h / 4.0
             if ix % 2:
-                es = spac_size * (0.9 + 0.1 * cos(radians(frameCount)))
+                es = spac_size / 2 #* (0.9 + 0.1 * cos(radians(frameCount)))
             else:
-                es = -elem_size
+                es = elem_size / 2
             y = iy * v
-            hexagon(x, y,es ,
-                    sin(radians(frameCount / 2.0)))agon(x, y, spac_size, 1)
-            
+            tri(x, y +h, es , 0)
+            tri(x, y +v, es , 2 * cos(radians(frameCount)))
             
 def hexagon(x, y, r, rot=0):
     with pushMatrix():
