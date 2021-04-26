@@ -22,8 +22,8 @@ def draw():
             else:
                 y = iy * 3 * r / 2 - r / 2
                 rot = PI * sin(radians(frameCount / 2))
-            fill(ix * 16, iy * 16, (rot / PI) * 128)    
-            tri(x, y, r, rot)
+            fill(255 , 64 + (rot / PI) * 64)    
+            hexagon(x, y, r, rot)
     
     if frameCount % 2:
         saveFrame("###.png")
