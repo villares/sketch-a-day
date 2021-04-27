@@ -29,7 +29,7 @@ def draw():
             hexagon(x, y, r, rot)
     
     if frameCount % 2:
-        gif_export(GifMaker, "filename")
+        gif_export(GifMaker, "filename", quality=255)
     if frameCount > 360:
         gif_export(GifMaker, finish=True)
             
