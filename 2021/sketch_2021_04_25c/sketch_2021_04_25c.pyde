@@ -1,5 +1,8 @@
 from __future__ import division
 
+add_library('gifAnimation')
+from villares.gif_export import gif_export
+
 def setup():
     size(600, 600)
     noStroke()
@@ -18,17 +21,17 @@ def draw():
                 x = ix * hl
             if ix % 2:
                 y = iy * 3 * r / 2
-                rot = PI * cos(radians(frameCount / 2))
+                rot = PI * cos(radians(frameCount))
             else:
                 y = iy * 3 * r / 2 - r / 2
-                rot = PI * sin(radians(frameCount / 2))
+                rot = PI * sin(radians(frameCount))
             fill(255 , 64 + (rot / PI) * 64)    
             hexagon(x, y, r, rot)
     
     if frameCount % 2:
-        saveFrame("###.png")
-    if frameCount / 2 > 360:
-        exit()
+        gif_export(GifMaker, "filename")
+    if frameCount > 360:
+        gif_export(GifMaker, finish=True)
             
 def tri(x, y, r, rot=0):
     ang = -HALF_PI + rot
