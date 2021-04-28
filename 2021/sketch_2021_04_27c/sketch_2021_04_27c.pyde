@@ -4,9 +4,10 @@ regras = {"X": "F+[[X]-X]-F[-FX]+X",
           "F": "FF"
           }          
 tamanho = 5
-angulo = 120
+angulo = 90
 iteracoes = 5  # repeticoes (voltas na aplicação das regras)
 xo, yo = 300, 500
+seed = 1
 
 def setup():
     global frase
@@ -21,7 +22,7 @@ def draw():
     noLoop()
             
 def keyPressed():
-    global tamanho, angulo, iteracoes, frase
+    global tamanho, angulo, iteracoes, frase, seed
     if key == 'z':
         tamanho -= 1 # tamanho = tamanho - 1
     if key == 'x':
@@ -41,6 +42,9 @@ def keyPressed():
     if keyCode == LEFT:  # RIGHT, UP, DOWN
         pass
     redraw()
+    if key == '1':
+        seed = int(random(10000000))
+        print(seed)
 
             
 def desenha_sistema(simbolos):
@@ -48,6 +52,7 @@ def desenha_sistema(simbolos):
     Recebe uma frase e desenha de acordo com
     as "regras de desenho".
     """
+    randomSeed(seed)
     tamanho_variavel = tamanho
     for simbolo in simbolos:
         if simbolo == "F":
@@ -55,10 +60,10 @@ def desenha_sistema(simbolos):
             line(0, 0, 0, -tamanho_variavel)
             translate(0, -tamanho_variavel)
             fill(255)
-            circle(0, 0, tamanho / 3)
+            circle(0, 0, 2)
         if simbolo == "X":
             fill(0)
-            circle(0, 0, tamanho / 3) 
+            circle(0, 0, 2) 
         if simbolo == "+":
             rotate(radians(angulo))
         if simbolo == "-":
