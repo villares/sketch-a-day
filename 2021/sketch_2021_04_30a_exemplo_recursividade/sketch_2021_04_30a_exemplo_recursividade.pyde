@@ -1,14 +1,14 @@
 def setup():
     size(800, 400)
-    background(255)
-    desenha_retangulos(0, 0, 399, 10)
+    background(240)
+    r(0, 0, 400, 10)
     saveFrame("sketch_2021_04_30a_exemplo_recursividade.png")
 
-def desenha_retangulos(x, y, tamamho, nivel):
-    fill(nivel * 24)
-    rect(x, y, tamamho, tamamho)
-    if nivel > 1:
-        desenha_retangulos(x, y, tamamho / 2, nivel - 1)
-        desenha_retangulos(x + tamamho, y, tamamho / 2, nivel - 1)
-    # o caso base aqui é quando nível (`nivel') chega a 1 (nivel > 1 se torna falso)
+def r(x, y, s, level):
+    fill(level * 24, 100)
+    rect(x, y, s, s)
+    if level > 1:
+        r(x, y + height / 8, s / 2 + random(-20, 20), level - 1)
+        r(x + s, y, s / 2, level - 1)
+    # o caso base aqui é quando nível (`level') chega a 1 (level > 1 se torna falso)
     # e então apenas um retângulo é desenhado
