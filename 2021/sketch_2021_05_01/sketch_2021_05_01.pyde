@@ -1,4 +1,5 @@
-
+add_library('gifAnimation')
+from villares.gif_export import gif_export
 
 grids = []
 
@@ -16,7 +17,7 @@ def draw():
     g = lerp_grid(grids[1], grids[2 if frameCount % 720 < 360 else 0],
                   0.5 + cos(radians(frameCount)) / 2)
     plot_a_grid(g)
-
+    if frameCount % 2: gif_export(GifMaker, "filename", frames=720, delay=100)
 
 def plot_a_grid(a_grid):
     noStroke()
