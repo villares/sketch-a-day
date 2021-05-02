@@ -25,6 +25,24 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_05_02a_zen_scroll](2021/sketch_2021_05_02a_zen_scroll/sketch_2021_05_02a_zen_scroll.gif)
+
+[sketch_2021_05_02a_zen_scroll](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_05_02a_zen_scroll) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_05_01](2021/sketch_2021_05_01/sketch_2021_05_01.gif)
+
+[sketch_2021_05_01](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_05_01) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_04_30a_exemplo_recursividade](2021/sketch_2021_04_30a_exemplo_recursividade/sketch_2021_04_30a_exemplo_recursividade.png)
+
+[sketch_2021_04_30a_exemplo_recursividade](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_04_30a_exemplo_recursividade) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_04_29f](2021/sketch_2021_04_29f/sketch_2021_04_29f.png)
 
 [sketch_2021_04_29f](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_04_29f) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
