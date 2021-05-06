@@ -1,4 +1,3 @@
-# sketch_2021_05_04 #Processing #Python based on a conversation with a student that will present sin() cos() to the class next week (it could become a "for with continue" example, missing from my examples...)      
 
 def setup():
     size(600, 600)
