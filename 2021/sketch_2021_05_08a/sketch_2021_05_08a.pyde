@@ -29,12 +29,12 @@ def setup():
             
 def plot_color(c):
     fill(c)
-    r1, g1, b1 = as_rgb(c)
-    x1, y1 = pos(r1, g1, b1)
+    r, g, b = as_rgb(c)
+    x1, y1 = pos(r, g, b)
     circle(50 + x1, 50 + y1, 10)
-    h1, s1, br1 = as_hsb(c)
-    xb1, yb1 = pos(h1, s1, br1)
-    circle(650 + xb1, 50 + yb1, 10)
+    h, s, bri = as_hsb(c)
+    x2, y2 = pos(h, s, bri)
+    circle(650 + x2, 50 + y2, 10)
 
 def as_rgb(c):
     return red(c), green(c), blue(c)
