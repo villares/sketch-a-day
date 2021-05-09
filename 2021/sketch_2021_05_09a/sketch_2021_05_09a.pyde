@@ -1,6 +1,6 @@
-drag = None
-rgb1 = [32, 32, 32]
-rgb2 = [1, 64, 200]
+hsb_mode = True
+rgb1 = [200, 50, 200]
+rgb2 = [50, 200, 200]
 
 def setup():
     size(1200, 600)
@@ -24,22 +24,33 @@ def setup():
                 x, y = pos(h, s, b)
                 circle(650 + x, 50 + y, 4)
     endRecord()
+    textAlign(CENTER)
+    textSize(20)
     
 def draw():
     background(bg)
     stroke(255)
-    # plot_color(rgb1)
-    # plot_color(rgb2)
-    for i in range(9):
+    colorMode(RGB)
+    c1 = color(*rgb1)
+    plot_color(c1)
+    c2 =  color(*rgb2)
+    plot_color(c2)
+    fill(255)
+    if hsb_mode:
+        colorMode(HSB)
+        text("HSB mode", width / 2, 30)
+    else:
+        colorMode(RGB)
+        text("RGB mode", width / 2, 30)
+    
+    for i in range(10):
         t = (i + 1) / 9.0
-        c = lerpColor(color(*rgb1), color(*rgb2), t)
-        plot_color(as_rgb(c))
-    # saveFrame("sketch_2021_05_08a.png")
+        c3 = lerpColor(c1, c2, t)
+        plot_color(c3)
             
-def plot_color(rgb):
-    r, g, b = rgb
-    c = color(r, g, b)
+def plot_color(c):
     fill(c)
+    r, g, b = as_rgb(c)
     x1, y1 = pos(r, g, b)
     circle(50 + x1, 50 + y1, 10)
     h, s, bri = as_hsb(c)
@@ -59,3 +70,17 @@ def r_color():
     
 def pos(a, b, c):
     return b * 1.7 + c * 0.3, a * 1.3 + c * 0.7
+
+
+def mouseDragged():
+    if mouseButton == LEFT:
+        rgb1[1] = (-50 + mouseX - rgb1[2] * 0.3) / 1.7
+        rgb1[0] = (-50 + mouseY - rgb1[2] * 0.7) / 1.3
+    else:
+        rgb2[1] = (-50 + mouseX - rgb2[2] * 0.3) / 1.7
+        rgb2[0] = (-50 + mouseY - rgb2[2] * 0.7) / 1.3
+    
+
+def keyPressed():
+    global hsb_mode
+    hsb_mode = not hsb_mode
