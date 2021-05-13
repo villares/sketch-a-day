@@ -13,8 +13,10 @@ def setup():
       
 def draw():
     # background(0)
-    fill(0, 10) # preto muito transparente
+    blendMode(SUBTRACT)
+    fill(100, 100)
     rect(0, 0, width, height)
+    blendMode(BLEND)
     for bola in reversed(bolinhas):
         bola.update(bolinhas)
     println(len(bolinhas))
