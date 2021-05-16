@@ -38,7 +38,6 @@ class Element:
                 break
             for p in self.points :
                 fill(0)
-                noStroke
                 circle(p.x, p.y, 3)
                 for ep in e.points:
                     d = dist(p.x, p.y, ep.x, ep.y)
