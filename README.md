@@ -25,6 +25,18 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_05_17c](2021/sketch_2021_05_17c/sketch_2021_05_17c.png)
+
+[sketch_2021_05_17c](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_05_17c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_05_17b](2021/sketch_2021_05_17b/sketch_2021_05_17b.png)
+
+[sketch_2021_05_17b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_05_17b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_05_15b](2021/sketch_2021_05_15b/sketch_2021_05_15b.png)
 
 [sketch_2021_05_15b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_05_15b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
