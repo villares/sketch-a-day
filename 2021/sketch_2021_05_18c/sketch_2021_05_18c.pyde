@@ -3,10 +3,11 @@ from random import sample
 
 
 def setup():
-    global grid, elements
+    global grid, elements, other_elements
     size(700, 700)
     grid = list(product(range(100, width, 125), repeat=2))
     elements = generate()
+    other_elements = generate()
 
 def generate():
     elements = []
@@ -22,7 +23,7 @@ def generate():
 def draw():
     background(240)
     for e in elements:
-        e.display()
+        e.display(elements)
 
 def keyPressed():
     if key  == 's':
@@ -38,7 +39,7 @@ class Element:
         divs = lambda i: PVector.lerp(self.p1, self.p2, i / float(n))
         self.points = [divs(i) for i in range(n)] + [self.p2]
         
-    def display(self):
+    def display(self, elements):
         for p in self.points :
             for e in reversed(elements):
                 if e == self:
