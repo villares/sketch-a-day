@@ -10,12 +10,10 @@ def setup():
     generate()
 
 def generate():
-    elements[:] =[]
+    elements[:] = []
     points = set()
     while len(points) < 24:
         a, b = sample(grid, 2)
-        # if (a, b) not in points:
-        #     points.add((a, b))
         if a not in points and b not in points:
             points.add(a)
             points.add(b)
