@@ -1,7 +1,6 @@
 from itertools import product
 from random import sample
 
-
 def setup():
     global grid, elements, other_elements
     size(700, 700)
@@ -10,15 +9,8 @@ def setup():
     other_elements = generate()
 
 def generate():
-    elements = []
-    points = set()
-    while len(points) < 24:
-        a, b = sample(grid, 2)
-        if a not in points and b not in points:
-            points.add(a)
-            points.add(b)
-            elements.append(Element(a, b))
-    return elements
+    points = iter(sample(grid, 24))
+    return [Element(a, next(points)) for a in points]
        
 def draw():
     background(240)
