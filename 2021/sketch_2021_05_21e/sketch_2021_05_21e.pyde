@@ -2,14 +2,13 @@ from itertools import combinations, product
 from random import shuffle
 from villares.arcs import arc_augmented_poly
 
-
 def setup():
     global lerped_triangles,points, grid
-    size(800, 800)
+    size(600, 600)
     colorMode(HSB)
     background(200)
     strokeWeight(3)
-    grid = list(product(range(220, width-100, 180), repeat=2))
+    grid = list(product(range(20, width-100, 180), repeat=2))
     tri_combo = combinations(grid, 3)
     points = [(a, b, c) for a, b, c in tri_combo
               if area(a, b, c)]
@@ -32,9 +31,9 @@ def draw():
     translate(5, 5)
     image(bckgnd, 0, 0)
     translate(-5, -5)
-    for x, y in grid:
-        fill(128)
-        circle(x, y, 15)
+    # for x, y in grid:
+    #     fill(128)
+    #     circle(x, y, 15)
     va, vb, vc, h = lerped_triangles[frameCount % len(lerped_triangles)]
     draw_triangle(va, vb, vc, h)
     
