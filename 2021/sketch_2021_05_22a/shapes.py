@@ -1,6 +1,5 @@
 from villares import line_geometry
 
-
 class Shape:
     
     shapes = []
