@@ -74,7 +74,7 @@ class Shape:
             
     def afei(self): 
         a, b, c, d = self.points
-        e = self.midpoint(a, c, 0.3)
+        e = self.midpoint(a, c)
         f = self.midpoint(a, b)
         g = self.midpoint(b, c)
         h = self.midpoint(d, c)
@@ -92,7 +92,7 @@ class Shape:
 
     def mqpr(self):
         o, m, n = self.points
-        p = self.midpoint(o, n, 0.6)
+        p = self.midpoint(o, n)
         q = self.midpoint(m, n)
         r = self.midpoint(o, m)
         Shape(m, q, p, r)
@@ -111,7 +111,7 @@ class Shape:
                     
                                         
     @staticmethod
-    def midpoint(a, b, t=0.5):
+    def midpoint(a, b, t=0.4):
         return (lerp(a[0], b[0], t),
                 lerp(a[1], b[1], t))
            
