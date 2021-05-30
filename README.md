@@ -13,11 +13,12 @@ Here are listed some of the tools I have been using:
 - [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Processing Python mode
 - [[Processing Java](https://processing.org]) Processing Java or "standard" mode
 - [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
-- [[pyp5js](https://berinhard.github.io/pyp5js/)] a Python to p5js trancriptor
-- [[shoebot](https://shoebot.github.io/shoebot/)] Generate vector graphics with Python
+- [[pyp5js](https://berinhard.github.io/pyp5js/)] initially a Python to p5js trancriptor, now a pyodide + p5js tool
+- [[shoebot](https://shoebot.github.io/shoebot/)] Generate 2D vector graphics with Python
 - [[flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python
-- [[p5py](https://github.com/p5py/p5)] A new Python implementation of Processing ideas
+- [[p5py](https://github.com/p5py/p5)] A new, experimental, Python implementation of Processing ideas
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
+- [[FreeCAD](https://freecadweb.org)] A wonderful 3D modeling tool, CAD & more, Python infused.
 
 ---
 
