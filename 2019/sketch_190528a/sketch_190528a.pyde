@@ -4,7 +4,7 @@
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
 from gif_exporter import gif_export
-add_library('GifAnimation')
+# add_library('gifAnimation')
 
 space, border = 10, 40
 position = 0  # initial position
