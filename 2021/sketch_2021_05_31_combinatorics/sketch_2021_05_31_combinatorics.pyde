@@ -8,11 +8,11 @@ from villares.line_geometry import (is_poly_self_intersecting,
                                     edges_as_sets,
                                     poly_area
                                     )
-from villares.gif_export import gif_export
-add_library('gifAnimation')
+# from villares.gif_export import gif_export
+# add_library('gifAnimation')
 
 def setup():
-    global grade, combos
+    global grade, paralelograms
     size(500, 500)
     grade = list(product(range(100, 500, 100), repeat=2))    
     frameRate(2)
@@ -25,15 +25,16 @@ def setup():
         if edges not in tested and edges:
             tested.add(edges)
             polys.append(poly)
-    combos = [p for p in polys
+            
+    paralelograms = [p for p in polys
               if is_poly_para(p)
               and not is_poly_self_intersecting(p)
               and is_poly_good(p)
               ]
     
     print(millis() - t)
-    # shuffle(combos)
-    print(len(combos))
+    # shuffle(paralelograms)
+    print(len(paralelograms))
     
         
 def draw():
@@ -45,8 +46,8 @@ def draw():
         circle(x, y, 5)
     fill(255, 100)
     
-    polys = (combos[(frameCount + i) % len(combos)] for i in range(4))
-    for p in polys:
+    four_paras = (paralelograms[(frameCount + i) % len(paralelograms)] for i in range(4))
+    for p in four_paras:
         fill(poly_color(p), 100)
         beginShape()
         for x, y in p:
@@ -55,11 +56,11 @@ def draw():
         fill(poly_color(p))
         for x, y in p:
             circle(x, y, 10)
-    if frameCount % len(combos) == 0:
-        gif_export(GifMaker, finish='True')
-        exit()
-    else:
-        gif_export(GifMaker, 'output', delay=400, quality=0)
+    # if frameCount % len(paralelograms) == 0:
+    #     gif_export(GifMaker, finish='True')
+    #     exit()
+    # else:
+    #     gif_export(GifMaker, 'output', delay=400, quality=0)
 
 def poly_color(p):
     return color(poly_area(p) % 256, 200, 200)
