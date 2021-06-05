@@ -26,6 +26,30 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_06_05c](2021/sketch_2021_06_05c/sketch_2021_06_05c.gif)
+
+[sketch_2021_06_05c](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_05c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_06_03c](2021/sketch_2021_06_03c/sketch_2021_06_03c.png)
+
+[sketch_2021_06_03c](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_03c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_06_03brutal_sigmoid](2021/sketch_2021_06_03brutal_sigmoid/sketch_2021_06_03brutal_sigmoid.gif)
+
+[sketch_2021_06_03brutal_sigmoid](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_03brutal_sigmoid) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_06_02c](2021/sketch_2021_06_02c/sketch_2021_06_02c.gif)
+
+[sketch_2021_06_02c](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_02c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_06_01b_combinatorics](2021/sketch_2021_06_01b_combinatorics/sketch_2021_06_01b_combinatorics.gif)
 
 [sketch_2021_06_01b_combinatorics](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_01b_combinatorics) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
