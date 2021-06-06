@@ -17,8 +17,8 @@ def setup():
         
 def draw():
     global change_b
-    colorMode(RGB)
-    background(200, 200, 180)
+    colorMode(HSB)
+    # background(200, 200, 180)
     fill(0)
     for x, y in grade:
         circle(x, y, 5)
@@ -60,7 +60,7 @@ def special_sample():
            return s
 
 def poly_color(p):
-    return color(poly_area(p) % 256, 200, 200)
+    return color(poly_area(p) / 100.0 % 256, 200, 200)
 
 def lerp_tuple(a, b, t):   
     return tuple(lerp_tuple(ca, cb, t) if isinstance(ca, tuple)
