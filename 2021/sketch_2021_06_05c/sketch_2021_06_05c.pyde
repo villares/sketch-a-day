@@ -1,9 +1,9 @@
 from itertools import product
 from random import  sample
 from villares.line_geometry import min_max, is_poly_convex, poly_area
-from villares.gif_export import gif_export
+# from villares.gif_export import gif_export
 
-add_library('gifAnimation')
+# add_library('gifAnimation')
 
 NUM_ELS = 12
 change_b = False
