@@ -8,6 +8,8 @@ def setup():
     frameRate(10)
     grade = list(product(range(50, 500, 75), repeat=2))    
     polys = list(combinations(grade, 3))
+    for a, b, c in polys[:]:
+        polys.append((a, c, b))
     print(len(polys))
 
     # tested, polys = set(), []
@@ -18,8 +20,8 @@ def setup():
     #         polys.append(poly)
 
     quads = [(a, b, (c[0], b[1]), c) for a, b, c in polys if 
-           corner_angle(a, b, c) == HALF_PI #and
-           # corner_angle(a, b, d) == HALF_PI and
+           corner_angle(a, b, c) == HALF_PI and
+           poly_area((a, b, (c[0], b[1]), c)) #and
            # corner_angle(d, c, a) == HALF_PI 
            ]
     quads.sort(key=poly_area)
