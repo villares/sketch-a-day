@@ -30,8 +30,8 @@ def draw():
             vertex(x, y)
         endShape(CLOSE)
     
-    if frameCount % 2 == 0:
-        gif_export(GifMaker, 'output', delay=200)
+    # if frameCount % 2 == 0:
+    #     gif_export(GifMaker, 'output', delay=200)
     if t == 0 and change_b:
         elements_b[:] = generate(NUM_ELS)
         change_b = False
