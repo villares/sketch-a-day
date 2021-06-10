@@ -56,11 +56,11 @@ def draw():
         vertex(x, y)
     endShape(CLOSE)
 
-    if frameCount % len(quads) == 0:
-        gif_export(GifMaker, finish='True')
-        exit()
-    else:
-        gif_export(GifMaker, 'output', delay=200, quality=1000)
+    # if frameCount % len(quads) == 0:
+    #     gif_export(GifMaker, finish='True')
+    #     exit()
+    # else:
+    #     gif_export(GifMaker, 'output', delay=200, quality=100)
 
 
 def poly_area(points):
