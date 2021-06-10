@@ -57,9 +57,9 @@ def poly_area(points):
         area -= bx * ay
     return abs(area) / 2.0
 
-def corner_angle(corner, a, b):
-    ac = atan2(a[1] - corner[1], a[0] - corner[0])
-    bc = atan2(b[1] - corner[1], b[0] - corner[0])
-    return abs(ac - bc)           
-  
+def corner_angle(c, a, b):  
+    ac = (c[0] - a[0]) ** 2 + (c[1] - a[1]) ** 2
+    bc = (c[0] - b[0]) ** 2 + (c[1] - b[1]) ** 2
+    ab = (b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2
+    return acos((bc + ac - ab) / sqrt(4 * bc * ac))
   
