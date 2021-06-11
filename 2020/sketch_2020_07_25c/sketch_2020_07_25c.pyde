@@ -3,8 +3,8 @@ Prova de conceito para mapa em 3D
 """
 
 # Para pau com placa Intel HD
-from java.lang import System
-System.setProperty("jogl.disable.openglcore", "false")
+# from java.lang import System
+# System.setProperty("jogl.disable.openglcore", "false")
 
 from mapa import Quadrado
 
