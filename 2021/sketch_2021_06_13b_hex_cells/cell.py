@@ -1,11 +1,10 @@
 class Cell():
+    
     W = 30
     H = sin(radians(60)) * W
-
     def __init__(self, i, j):
         self.i = i
         self.j = j
-
         self.state = int(random(2))
         self.x = i * self.W * 1.5 + self.W
         if i % 2 == 0:
