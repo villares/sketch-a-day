@@ -26,6 +26,18 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_06_13a_hex_cells](2021/sketch_2021_06_13a_hex_cells/sketch_2021_06_13a_hex_cells.png)
+
+[sketch_2021_06_13a_hex_cells](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_13a_hex_cells) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_06_12a_shake](2021/sketch_2021_06_12a_shake/sketch_2021_06_12a_shake.png)
+
+[sketch_2021_06_12a_shake](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_12a_shake) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_06_11a](2021/sketch_2021_06_11a/sketch_2021_06_11a.png)
 
 [sketch_2021_06_11a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_11a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
