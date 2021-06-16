@@ -1,6 +1,3 @@
-# Inspired by an example of hex grid from The Nature of Code example repository
-# by Daniel Shiffman http://natureofcode.com
-
 from cell import Cell
 
 def setup():
