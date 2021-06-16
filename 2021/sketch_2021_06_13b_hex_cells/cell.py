@@ -13,9 +13,6 @@ class Cell():
             self.y = j * self.H * 2 + self.H * 2
 
     def display(self):
-
-        fill(self.state * 255)
-        stroke(0)
         fill((self.i * 15) % 256, (self.j * 16) % 256, 128 + 128 * self.state)
         with pushMatrix():
             translate(self.x, self.y)
