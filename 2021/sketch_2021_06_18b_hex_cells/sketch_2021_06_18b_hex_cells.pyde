@@ -1,11 +1,13 @@
 from cell import Cell
 
+play = former_play_state = False
+
 def setup():
     global cols, rows, board
-    size(800, 800)
+    size(790, 790)
     # noSmooth()
-    cols = width / int(Cell.W * 1.533)
-    rows = height / int(Cell.H * 2)
+    cols = width / int(Cell.W * 1.5)
+    rows = height / int(Cell.H * 2) - 1
     init_board()
 
 def draw():
@@ -14,22 +16,30 @@ def draw():
     background(0)
     for cell in Cell.board.values():
         cell.display()
+    if play and frameCount % 8 == 0:
+        next_board()
 
 def keyPressed():
-    if key == ' ':
+    global play
+    if key == 'e':
         init_board()
     elif key == 'r':
         init_board(rnd=True)
-    elif key == 'n':
-        next_board()
+    elif key == ' ':
+        play = not play
     
 def mouseDragged():
     toggle()
 
 def mousePressed():
+    global play, former_play_state
+    former_play_state = play
+    play = False
     toggle()
     
 def mouseReleased():
+    global play
+    play = former_play_state
     Cell.last_clicked = None
    
 def next_board():
