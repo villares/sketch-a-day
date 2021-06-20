@@ -1,4 +1,4 @@
-from villares import ubuntu_jogl_fix
+# from villares import ubuntu_jogl_fix
 
 # 3D studies with Julio Mariutti
 # inspired by: https://seoi.net/peni3d/
@@ -29,16 +29,16 @@ def draw():
     paralelos = []
     mx, my = 0, 0  # middle
     for a, b in zip(points[:pm], points[-1:pm - 1:-1]):
-        d = dist(a[0], a[1], b[0], b[1])
+        d = dist(a[0], a[1], b[0], b[1])  # diameter
         mx, my = (a[0] + b[0]) / 2.0, (a[1] + b[1]) / 2.0
         ang = atan2(b[1] - a[1], b[0] - a[0]) + PI
         circulo = [rotate_p(x, y, ang, mx, my) + (z, )
                    for x, y, z in z_circle(mx, my,
                                            d / 2.0,
                                            num_points=meridians)]
-        paralelos.append((d, circulo))
+        paralelos.append((d, circulo))  # diameter will be used later for stroke color
 
-    for d, circulo in paralelos:
+    for d, circulo in paralelos:    # diameter, circle_points
         stroke(d % 256, 255, 255)
         beginShape()
         for x, y, z in circulo:
@@ -48,7 +48,7 @@ def draw():
     stroke(128)
     for i in range(meridians):
         beginShape()
-        for d, circulo in paralelos:
+        for _, circulo in paralelos:
             x, y, z = circulo[i]
             vertex(x, y, z)
         vertex(mx, my, 0)
@@ -69,7 +69,6 @@ def mouseDragged():
             points[-1][0], points[-1][1]) > 15:
         points.append((tmouseX, tmouseY))
 
-
 def keyPressed():
     global rot_y
     if keyCode == LEFT:
@@ -80,15 +79,9 @@ def keyPressed():
         rot_y = 0
 
 def z_circle(x, y, radius, num_points=16):
-    passo = TWO_PI / num_points
-    ang = 0
-    pts = []
-    while ang < TWO_PI:  # enquanto o ângulo for menor que 2 * PI:
-        sx = x + cos(ang) * radius
-        sz = 0 + sin(ang) * radius
-        pts.append((sx, y, sz))
-        ang += passo  # aumente o ângulo um passo
-    return pts
+    a = TWO_PI / num_points
+    return tuple((x + cos(a * i) * radius, y, sin(a * i) * radius)
+                  for i in range(num_points))
 
 def rotate_p(xp, yp, angle, x0=0, y0=0):
     x, y = xp - x0, yp - y0  # translate to origin
