@@ -1,4 +1,4 @@
-from villares import ubuntu_jogl_fix
+# from villares import ubuntu_jogl_fix
 
 points = []
 rot_x = 0
@@ -28,7 +28,7 @@ def draw():
         op = (-p[0], p[1])
         radius = p[0]
         pts = z_circle(0, p[1], radius, num_points=SIDES)
-        circles.append(tuple(pts))
+        circles.append(pts)
         
     for c in circles:
         beginShape()
@@ -51,14 +51,10 @@ def mouseDragged():
             points[-1][0], points[-1][1]) > 10:
         points.append((tmouseX, tmouseY))
 
-def z_circle(x, y, radius, num_points=8):
-    passo = TWO_PI / num_points
-    ang = 0
-    while ang < TWO_PI:  # enquanto o ângulo for menor que 2 * PI:
-        sx = cos(ang) * radius
-        sz = sin(ang) * radius
-        yield((sx, y, sz))
-        ang += passo  # aumente o ângulo um passo
+def z_circle(x, y, radius, num_points=16):
+    a = TWO_PI / num_points
+    return tuple((x + cos(a * i) * radius, y, sin(a * i) * radius)
+                  for i in range(num_points))
 
 def keyPressed():
     global rot_x
