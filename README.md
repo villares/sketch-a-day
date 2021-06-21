@@ -26,6 +26,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_06_21c_noise_terrain](2021/sketch_2021_06_21c_noise_terrain/sketch_2021_06_21c_noise_terrain.gif)
+
+[sketch_2021_06_21c_noise_terrain](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_21c_noise_terrain) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_06_20c](2021/sketch_2021_06_20c/sketch_2021_06_20c.gif)
 
 [sketch_2021_06_20c](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_06_20c) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
