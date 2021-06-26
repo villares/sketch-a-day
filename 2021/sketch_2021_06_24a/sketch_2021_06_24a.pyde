@@ -20,7 +20,7 @@ def setup():
     
 def generate_quads(n=10):
     quads = set()
-    while len(quads) < 10:
+    while len(quads) < n:
         a, b = choice(pairs)
         c = (a[0], a[1], a[2] + 200)
         d = (b[0], b[1], b[2] + 200) 
