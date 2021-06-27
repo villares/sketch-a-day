@@ -44,7 +44,9 @@ class Cell():
         stroke(0, 0, 250)
         strokeWeight(3)
         for cell in self.links:
-            line(cell.x, cell.y, 0, self.x, self.y, 0)
+            mid_point_x = (cell.x + self.x) / 2.0
+            mid_point_y = (cell.y + self.y) / 2.0
+            line(cell.x, cell.y, 0, mid_point_x, mid_point_y, 0)
 
     def find_nbs(self):
         self.nbs = []
@@ -65,6 +67,7 @@ class Cell():
             if self.unvisited_nbs:
                 rnd_choice = choice(self.unvisited_nbs)
                 rnd_choice.current = True
+                rnd_choice.links.append(self)
                 self.links.append(rnd_choice)
                 self.current = False
             else:
