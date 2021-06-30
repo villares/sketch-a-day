@@ -1,5 +1,6 @@
-add_library('peasycam')
 from random import choice
+
+add_library('peasycam')
 
 def setup():
     size(800, 800, P3D)
@@ -46,7 +47,7 @@ class Cell():
         for cell in self.links:
             mid_point_x = (cell.x + self.x) / 2.0
             mid_point_y = (cell.y + self.y) / 2.0
-            line(cell.x, cell.y, 0, mid_point_x, mid_point_y, 0)
+            line(self.x, self.y, 0, mid_point_x, mid_point_y, 0)
 
     def find_nbs(self):
         self.nbs = []
