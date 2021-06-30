@@ -1,6 +1,7 @@
 from cell import Cell
 
 play = former_play_state = False
+sample_rate = 2
 
 def setup():
     global cols, rows, board
@@ -16,7 +17,7 @@ def draw():
     background(0)
     for cell in Cell.board.values():
         cell.display()
-    if play and frameCount % 8 == 0:
+    if play and frameCount % sample_rate == 0:
         next_board()
 
 def keyPressed():
