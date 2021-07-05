@@ -14,7 +14,9 @@ def draw():
     fill(200, 0, 0, 128)
     
     # plot(points)
-    for tri in triangulate(points):
+    triangles = triangulate(points) 
+    print(len(triangles))
+    for tri in triangles:
         plot(tri)
     
     other_points = []
@@ -34,7 +36,7 @@ def draw():
         
 def triangulate(points):
     triangles = [(points[0], points[1], points[-1])] 
-    for a in range(1, len(points) // 2):
+    for a in range(1, len(points) // 2 - 1):
         triangles.append((points[a + 1], points[a], points[-a]))
         triangles.append((points[a + 1], points[-a], points[-(a + 1)]))
     return triangles
