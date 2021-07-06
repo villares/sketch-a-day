@@ -9,13 +9,13 @@ def draw():
     background(200)
     translate(-200, -200)
     s = 50
-    points = ((100, 100, 30), (200, 50, 0), (300, 100, 0),
+    points = ((100, 100, 30), (200, 50, 0), (300, 100, 0), # (350, 150, 0),
               (300, 250, 0), (150, 300, -30), (100, 250, 0))
     fill(200, 0, 0, 128)
     
     # plot(points)
     triangles = triangulate(points) 
-    print(len(triangles))
+    # print(len(triangles))
     for tri in triangles:
         plot(tri)
     
@@ -36,9 +36,10 @@ def draw():
         
 def triangulate(points):
     triangles = [(points[0], points[1], points[-1])] 
-    for a in range(1, len(points) // 2 - 1):
+    for a in range(1, len(points) // 2):
         triangles.append((points[a + 1], points[a], points[-a]))
-        triangles.append((points[a + 1], points[-a], points[-(a + 1)]))
+        if len(points) % 2 or a != len(points) // 2 - 1:
+            triangles.append((points[a + 1], points[-a], points[-(a + 1)]))
     return triangles
                                                                                                                                                                                                                             
 
