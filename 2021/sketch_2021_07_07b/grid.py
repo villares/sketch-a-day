@@ -27,6 +27,8 @@ class Grid():
         return self.grid[k]
 
     def __setitem__(self, k, v):
+        if k not in self.graph:
+            self.graph.add_vertex(k)
         self.grid[k] = v
 
     def __len__(self):
