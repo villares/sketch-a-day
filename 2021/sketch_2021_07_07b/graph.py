@@ -56,17 +56,17 @@ class Graph(object):
             if vertex1 in self.__graph_dict:
                 self.__graph_dict[vertex1].add(vertex2)
             else:
-                self.__graph_dict[vertex1] = [vertex2]
+                self.__graph_dict[vertex1] = {vertex2}
             if vertex2 in self.__graph_dict:
                 self.__graph_dict[vertex2].add(vertex1)
             else:
-                self.__graph_dict[vertex2] = [vertex1]
+                self.__graph_dict[vertex2] = {vertex1}
         else:
             # a loop
             if vertex1 in self.__graph_dict:
                 self.__graph_dict[vertex1].add(vertex1)
             else:
-                self.__graph_dict[vertex1] = [vertex1]
+                self.__graph_dict[vertex1] = {vertex1}
 
     def remove_vertex(self, vert):
         del self.__graph_dict[vert]
