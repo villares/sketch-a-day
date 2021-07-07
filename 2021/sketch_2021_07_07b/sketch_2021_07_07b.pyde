@@ -100,6 +100,9 @@ def keyTyped():
         mode = (mode + 1) % len(modes)
     elif key == 'r':
         setup_grid(cols, rows)
+    elif key == 'R':
+        grid.graph = Graph.random_graph(grid.graph.vertices())
+        
     elif key == 'v':
         viz_stat = not viz_stat
         print(grid.graph)
