@@ -161,7 +161,10 @@ def mouseReleased():
         
         print(len(grid)) 
 
-    
+    if  mode == 6:  # remove
+        for v in grid.keys():
+            if mouse_near(v):
+                grid.remove_vertex(v)
     
     
     
