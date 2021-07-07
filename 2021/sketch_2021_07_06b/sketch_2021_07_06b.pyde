@@ -15,7 +15,7 @@ def setup():
     textAlign(CENTER, CENTER)
     f = createFont("Source Code Pro Bold", 12)
     textFont(f)
-    global graph, margin, w, h
+    global graph, margin, w, h, cols, rows
     graph = Graph.empty_graph(range(NUM))
     margin = width / 40
     cols, rows = dim_grid(len(graph))
