@@ -39,10 +39,10 @@ def draw():
     for xa, ya, xb, yb, za, zb in grid.edge_coords():
         stroke(2)
         line(margin + w / 2 + xa * w,
-        margin + h / 2 + ya * w,
-        margin + w / 2 + xb * w,
-        margin + h / 2 + yb * w,
-        )
+             margin + h / 2 + ya * w,
+             margin + w / 2 + xb * w,
+             margin + h / 2 + yb * w,
+             )
         strokeWeight(1)
         colorMode(HSB)
         fill(za * 8, 255, 255)
