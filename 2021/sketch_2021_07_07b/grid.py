@@ -38,6 +38,9 @@ class Grid():
         if v in self.graph:
             self.graph.remove_vertex(v)
             del self.grid[v]
+            return True
+        else:
+            return False
 
 
     def keys(self):
