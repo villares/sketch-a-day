@@ -1,5 +1,12 @@
 from __future__ import print_function, division
-import pickle
+
+# TO DO:
+#  imagem no fundo  
+#       pensar sistema de coordenadas tela / base-planta
+#  adicionar e remover pontos
+#  salvar e carregar planilha
+#  Perguntar ao Yorik sobre ler DXF... 
+
 
 from graph import Graph
 from grid import Grid, dim_grid
@@ -98,14 +105,6 @@ def keyTyped():
         print(grid.graph)
     elif key == 'p':
         saveFrame("####.png")
-    elif key == 'd':
-        with open("data/grid.data", "w") as f:
-            pickle.dump((graph, grid), f)
-            print("dump grid.data")
-    elif key == 'l':
-        with open("data/grid.data", "rb") as f2:
-            graph, grid = pickle.load(f2)
-            print("load grid.data")
 
 
 def mouse_near(v):
