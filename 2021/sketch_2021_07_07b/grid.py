@@ -34,6 +34,12 @@ class Grid():
     def __len__(self):
         return len(self.grid)
 
+    def remove_vertex(self, v):
+        if v in self.graph:
+            self.graph.remove_vertex(v)
+            del self.grid[v]
+
+
     def keys(self):
         return self.grid.keys()
 
