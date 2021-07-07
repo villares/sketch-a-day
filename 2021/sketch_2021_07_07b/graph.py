@@ -22,6 +22,10 @@ class Graph(object):
     def __len__(self):
         return len(self.__graph_dict)
 
+    def __iter__(self):
+        return self.vertices()
+        
+
     def vertices(self):
         """Return the vertices of graph."""
         return list(self.__graph_dict.keys())
