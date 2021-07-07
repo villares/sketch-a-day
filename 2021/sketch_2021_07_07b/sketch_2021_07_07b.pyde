@@ -15,7 +15,7 @@ thread_running = False
 viz_stat = False
 selected_v = None
 mode = 0
-modes = ("move", "connect", "disconnect", "path", "swap")
+modes = ('move', 'connect', 'disconnect', 'path', 'swap', 'add', 'remove')
 found_path = []
 NUM = 4 * 4
 
@@ -120,7 +120,7 @@ def mousePressed():
             return
 
 def mouseDragged():
-    if selected_v and mode == 0: # move
+    if selected_v is not None and mode == 0: # move
         dx = mouseX - pmouseX
         dy = mouseY - pmouseY
         i, j = grid[selected_v]
@@ -132,28 +132,34 @@ def mouseDragged():
 
 def mouseReleased():
     global selected_v
-    if selected_v and mode == 1:  # connect
+    if selected_v is not None and mode == 1:  # connect
         for v in grid.keys():
             if mouse_near(v):
                 grid.graph.add_edge((v, selected_v))
                 
-    if selected_v and mode == 2:  # disconnect
+    if selected_v is not None and mode == 2:  # disconnect
         for v in grid.keys():
             if mouse_near(v):
                 grid.graph.remove_edge((v, selected_v))
 
-    if selected_v and mode == 3:  # path
+    if selected_v is not None and mode == 3:  # path
         for v in grid.keys():
             if mouse_near(v):
                 path = grid.graph.find_shortest_path(v, selected_v)
-                if path:
-                    found_path[:] = path
+                found_path[:] = path if path else []
                 
                                                 
-    if selected_v and mode == 4:  # swap
+    if selected_v is not None and mode == 4:  # swap
         for v in grid.keys():
             if mouse_near(v):
                 grid[selected_v], grid[v] = grid[v], grid[selected_v]
+
+    if  mode == 5:  # add
+        i = mouseX / float(w) - margin
+        j = mouseY / float(h) - margin
+        grid[len(grid)]  = (i, j)
+        
+        print(len(grid)) 
 
     
     
