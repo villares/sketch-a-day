@@ -23,7 +23,7 @@ class Graph(object):
         return len(self.__graph_dict)
 
     def __iter__(self):
-        return self.vertices()
+        return iter(self.__graph_dict.keys())
         
 
     def vertices(self):
@@ -76,7 +76,7 @@ class Graph(object):
 
     def remove_edge(self, edge, check_first=True):
         edge = set(edge)
-        if check_first and edge not in  self.__generate_edges():
+        if check_first and edge not in self.__generate_edges():
             return False
         vertex1 = edge.pop()
         if edge:
