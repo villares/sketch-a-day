@@ -53,18 +53,12 @@ class Cell():
     def calc_next_state(self):
         from random import choice
         nbs = self.calc_live_nbs()
-        if nbs == 1:
+        if nbs == 2:
             self.next_state = 1
-        elif nbs > 3:
+        elif nbs > 4:
             self.next_state = 0
         else:
            self.next_state = self.state
-        # if nbs == 2:
-        #     self.next_state = 1
-        # elif nbs > 4:
-        #     self.next_state = 0
-        # else:
-        #    self.next_state = self.state
 
 
     def check_click(self):
