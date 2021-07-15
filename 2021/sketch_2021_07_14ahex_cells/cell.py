@@ -68,27 +68,6 @@ class Cell():
 
     def calc_next_state(self):
         self.nbs = nbs = self.calc_live_nbs()
-        
-        # if nbs == 1 or nbs == 2 and self.state == 0:
-        #     self.next_state = 1      
-        #     lnbs = self.get_live_nbs()
-        #     if lnbs:
-        #         self.gen = lnbs[0].gen + 1
-        # elif nbs > 4:
-        #     self.next_state = 0
-        # else:
-        #    self.next_state = self.state
-        
-        # # # muito bom
-        # if nbs == 2 and self.state == 0:
-        #     self.next_state = 1      
-        #     lnbs = self.get_live_nbs()
-        #     if lnbs:
-        #         self.gen = lnbs[-1].gen + 1
-        # elif nbs > 4:
-        #     self.next_state = 0
-        # else:
-        #    self.next_state = self.state
 
         if nbs == 1 and self.state == 0:
             self.next_state = 1
