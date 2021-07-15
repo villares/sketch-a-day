@@ -37,7 +37,7 @@ def setup_grid(cols, rows):
     grid = Grid(graph, cols, rows)
     print("Cyclic: " + str(graph.is_cyclic()))
     global gx, gy
-    gx, gy = 0, 100
+    # gx, gy = 0, 100
 
 
 def draw():
@@ -98,8 +98,8 @@ def keyTyped():
     global gx, gy, viz_stat, grid, graph, mode
     if key  == ' ':
         mode = (mode + 1) % len(modes)
-    elif key == 'r':
-        setup_grid(cols, rows)
+    # elif key == 'r':
+    #     setup_grid(cols, rows)
     elif key == 'R':
         grid.graph = Graph.random_graph(grid.graph.vertices())
         
