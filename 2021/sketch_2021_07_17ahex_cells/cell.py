@@ -1,7 +1,7 @@
 SIN_60 = sqrt(3) * 0.5 # sin(radians(60))
 
 class MockCell:
-    state = 0
+    state = 1
     gen = 0
 
 class Cell():
