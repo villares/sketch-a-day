@@ -31,6 +31,8 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_07_23pymunk_on_py5](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_07_23pymunk_on_py5) [[py5](https://py5.ixora.io/)]
 
+Based on an example by Tristan Bunn: https://tabreturn.github.io/code/python/thonny/2021/06/21/thonny_and_py5.html
+
 ---
 
 ![sketch_2021_07_22a_lines](2021/sketch_2021_07_22a_lines/sketch_2021_07_22a_lines.gif)
