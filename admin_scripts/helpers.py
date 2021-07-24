@@ -32,30 +32,6 @@ def is_img_ext(file_name):
                  )
     return ext.lower() in valid_ext
 
-
-def build_entry(image, year, kind='pyde'):
-    """
-    Return a string with markdown formated
-    for the sketch-a-day index page entry
-    of image (for a certain year).
-    """
-    name, ext = image.split('.')
-    lib = {'pyde': "[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]",
-           'flat': "[[Python + flat](https://xxyxyz.org/flat)]",
-           'pyp5js': "[[pyp5js](https://berinhard.github.io/pyp5js/)]",
-           'py5': "[[py5](https://py5.ixora.io/)]",
-           'shoebot': "[[shoebot](http://shoebot.net/)]",
-           }
-
-    return """
----
-
-![{0}]({2}/{0}/{0}.{1})
-
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) {3}
-""".format(name, ext, year, lib[kind])
-
-
 def remove_transparency(im, bg_colour=(255, 255, 255)):
     from PIL import Image
     # Only process if image has transparency (http://stackoverflow.com/a/1963146)
