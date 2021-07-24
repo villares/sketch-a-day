@@ -12,7 +12,7 @@
 from os import listdir
 from os.path import isfile, join
 
-from helpers import get_image_names, build_entry
+from helpers import get_image_names
 
 YEAR = "2021"
 base_path = "/home/villares/GitHub/sketch-a-day"
@@ -21,21 +21,21 @@ year_path = join(base_path, YEAR)
 folders = listdir(year_path)
 readme_path = join(base_path, 'README.md')
 
-if __name__ == "__main__":
+
+def main():
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
-        lines = readme.readlines()   
-    # find date of the first image    
-    imagens = (line[line.find(YEAR):line.find(']')]
-                   for line in lines
-                   if '![' in line)
+        lines = readme.readlines()
+    # find date of the first image
+    imagens = (line[line.find(YEAR) : line.find(']')]
+               for line in lines if '![' in line)
     last_done = next(imagens)[:10]
     print("Last entry: " + last_done)
     # find folders after the last_done
     new_folders = []
     for f in reversed(sorted(folders)):
         if last_done not in f:
-            new_folders.append(f)        
+            new_folders.append(f)
         else:
             break
     # find insertion point
@@ -44,22 +44,43 @@ if __name__ == "__main__":
             break
     # iterate on new folders
     for folder in reversed(new_folders):
-        if 'flat' in folder:
-            kind = 'flat'
-        elif 'py5' in folder:
-            kind = 'py5'
-        elif 'pyp5js' in folder:
-            kind = 'pyp5js'
-        elif 'shoebot' in folder:
-            kind = 'shoebot'
-        else:
-            kind = 'pyde'
         imgs = get_image_names(year_path, folder)
         if imgs:  # insert entry if matching image found
-            lines.insert(insert_point - 3,
-                         build_entry(imgs[0], YEAR, kind))
-            print('Adding: '+ folder)
+            lines.insert(insert_point - 3, build_entry(imgs[0], YEAR))
+            print("Adding: " + folder)
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
         content = "".join(lines)
-        readme.write(content)    
+        readme.write(content)
+
+
+def build_entry(image, year, kind='pyde'):
+    """
+    Return a string with markdown formated
+    for the sketch-a-day index page entry
+    of image (for a certain year).
+    """
+    name, ext = image.split('.')
+    tools = {
+        'pyde': "[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]",
+        'flat': "[[Python + flat](https://xxyxyz.org/flat)]",
+        'pyp5js': "[[pyp5js](https://berinhard.github.io/pyp5js/)]",
+        'py5': "[[py5](https://py5.ixora.io/)]",
+        'shoebot': "[[shoebot](http://shoebot.net/)]",
+    }
+    tools_mentioned = matches = (t for t in tools.keys() if t in name)
+    try:
+        tool = next(tools_mentioned)
+    except StopIteration:
+        tool = 'pyde'
+    return """
+---
+
+![{0}]({2}/{0}/{0}.{1})
+
+[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) {3}
+""".format(name, ext, year, tools[tool])
+
+
+if __name__ == "__main__":
+    main()
