@@ -50,4 +50,4 @@ def create_ball(x, y):
 def mouse_pressed():
     create_ball(py5.mouse_x, py5.mouse_y)
 
-py5.run_sketch()g
+py5.run_sketch()
