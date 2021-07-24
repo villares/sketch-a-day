@@ -42,6 +42,9 @@ def build_entry(image, year, kind='pyde'):
     name, ext = image.split('.')
     lib = {'pyde': "[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]",
            'flat': "[[Python + flat](https://xxyxyz.org/flat)]",
+           'pyp5js': "[[pyp5js](https://berinhard.github.io/pyp5js/)]",
+           'py5': "[[py5](https://py5.ixora.io/)]",
+           'shoebot': "[[shoebot](http://shoebot.net/)]",
            }
 
     return """
