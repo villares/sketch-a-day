@@ -1,3 +1,5 @@
+# Based on an example by Tristan Bunn: https://tabreturn.github.io/code/python/thonny/2021/06/21/thonny_and_py5.html
+
 import py5
    
 import pymunk
