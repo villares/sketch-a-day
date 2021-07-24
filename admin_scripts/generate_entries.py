@@ -44,8 +44,14 @@ if __name__ == "__main__":
             break
     # iterate on new folders
     for folder in reversed(new_folders):
-        if folder.endswith('flat'):
+        if 'flat' in folder:
             kind = 'flat'
+        elif 'py5' in folder:
+            kind = 'py5'
+        elif 'pyp5js' in folder:
+            kind = 'pyp5js'
+        elif 'shoebot' in folder:
+            kind = 'shoebot'
         else:
             kind = 'pyde'
         imgs = get_image_names(year_path, folder)
