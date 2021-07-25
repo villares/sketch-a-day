@@ -10,8 +10,6 @@ from random import randint
 space = pymunk.Space()
 space.gravity = (0, 900)
 
-objects = []
-
 def setup():
     py5.size(500, 500)
     py5.color_mode(py5.HSB)
@@ -29,15 +27,13 @@ def setup():
 
 #     objects.extend((segment1, segment2, segment3))
 #     space.add(segment1, segment2, segment3)
-    objects.extend((segment1,))
     space.add(segment1)
-    print(type(segment1))
 
 def draw():
     py5.background(150)
 
     # render all of the objects
-    for obj in objects:
+    for obj in space.shapes:
         if isinstance(obj, pymunk.shapes.Segment):
             py5.stroke(255)    
             py5.stroke_weight(obj.radius*2)
@@ -62,9 +58,6 @@ def draw():
             py5.end_shape(py5.CLOSE)
             #py5.square(0, 0, 50)
             py5.pop_matrix()
-#             py5.circle(obj.body.position.x, obj.body.position.y,10)
-            
-            
 
     # advance the simulation one step
     space.step(1/py5.get_frame_rate())
@@ -77,7 +70,6 @@ def create_ball(x, y):
     shape = pymunk.Circle(body, radius=randint(5, 25))
     shape.elasticity = 0.01
     shape.friction = 0.6
-    objects.append(shape)
     space.add(body, shape)
 
 def create_box(x, y, size=50):
@@ -87,7 +79,6 @@ def create_box(x, y, size=50):
     shape = pymunk.Poly.create_box(body, (size, size))
     shape.elasticity = 0.01
     shape.friction = 0.6
-    objects.append(shape)
     space.add(body, shape)
 
 def mouse_pressed():
