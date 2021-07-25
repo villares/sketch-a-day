@@ -1,10 +1,8 @@
 # Based on an example by Tristan Bunn: https://tabreturn.github.io/code/python/thonny/2021/06/21/thonny_and_py5.html
 
 import py5
-   
 import pymunk
 from random import randint
-
 
 # create a new space for your simulation
 space = pymunk.Space()
@@ -18,13 +16,10 @@ def setup():
     segment1 = pymunk.Segment(space.static_body, (0, 450), (500, 450), 15)
     segment1.elasticity = 0.1
     segment1.friction = 0.8
-
-    segment2 = pymunk.Segment(space.static_body, (450, 150), (400, 450), 15)
-    segment2.elasticity = 0.1
-
-    segment3 = pymunk.Segment(space.static_body, (50, 150), (100, 450), 15)
-    segment3.elasticity = 0.1
-
+#     segment2 = pymunk.Segment(space.static_body, (450, 150), (400, 450), 15)
+#     segment2.elasticity = 0.1
+#     segment3 = pymunk.Segment(space.static_body, (50, 150), (100, 450), 15)
+#     segment3.elasticity = 0.1
 #     objects.extend((segment1, segment2, segment3))
 #     space.add(segment1, segment2, segment3)
     space.add(segment1)
