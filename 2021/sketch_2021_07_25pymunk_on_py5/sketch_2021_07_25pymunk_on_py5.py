@@ -11,7 +11,7 @@ space.gravity = (0, 900)
 def setup():
     py5.size(500, 500)
     py5.color_mode(py5.HSB)
-    py5.rect_mode(py5.CENTER)
+#    py5.rect_mode(py5.CENTER)
 
     segment1 = pymunk.Segment(space.static_body, (0, 450), (500, 450), 15)
     segment1.elasticity = 0.1
@@ -31,7 +31,7 @@ def draw():
     for obj in space.shapes:
         if isinstance(obj, pymunk.shapes.Segment):
             py5.stroke(255)    
-            py5.stroke_weight(obj.radius*2)
+            py5.stroke_weight(30)
             py5.line(obj.a.x, obj.a.y, obj.b.x, obj.b.y)
         elif isinstance(obj, pymunk.shapes.Circle):
             py5.no_stroke()            
