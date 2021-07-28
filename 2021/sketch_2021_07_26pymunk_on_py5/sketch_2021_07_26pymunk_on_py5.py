@@ -4,8 +4,6 @@
 This example is also used in the Get Started Tutorial. 
 """
 
-__docformat__ = "reStructuredText"
-
 import random
 import sys
 
