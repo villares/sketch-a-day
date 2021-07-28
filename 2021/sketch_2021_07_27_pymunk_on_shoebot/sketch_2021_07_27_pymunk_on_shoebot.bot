@@ -1,7 +1,7 @@
-# use Python from Thonny Env
+# using Python "blimp" conda enb, from Atom IDE with shoebot package
 """
 A L shape attached with a joint and constrained to not tip over.
-This example is also used in the Get Started Tutorial.
+This example is also used in the pymunk Get Started Tutorial.
 """
 
 import random
