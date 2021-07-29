@@ -27,6 +27,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_07_28shoebot](2021/sketch_2021_07_28shoebot/sketch_2021_07_28shoebot.png)
+
+[sketch_2021_07_28shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_07_28shoebot) [[shoebot](http://shoebot.net/)]
+
+---
+
 ![sketch_2021_07_27_pymunk_on_shoebot](2021/sketch_2021_07_27_pymunk_on_shoebot/sketch_2021_07_27_pymunk_on_shoebot.gif)
 
 [sketch_2021_07_27_pymunk_on_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_07_27_pymunk_on_shoebot) [[shoebot](http://shoebot.net/)]

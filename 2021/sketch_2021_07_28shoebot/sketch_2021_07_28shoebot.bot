@@ -1,0 +1,24 @@
+# Y = .299 R + .587 G + .114 B
+
+from itertools import product
+
+def setup():
+    size(350, 400)
+    # colormode(HSB)
+    # colorrange(255)
+
+def draw():
+    background(200)
+
+    R = (0, 0.33, 0.66, 1)
+    G = (0, 0.16, 0.33, 0.5, 0.66, 0.83, 1)
+    B = (0, 1)
+
+    color_tuples = list(product(R, G, B))
+    print(len(color_tuples))
+    i = 0
+    for y in range(8):
+        for x in range(7):
+            fill(*color_tuples[i])
+            rect(x * 50, y * 50, 50, 50)
+            i += 1
