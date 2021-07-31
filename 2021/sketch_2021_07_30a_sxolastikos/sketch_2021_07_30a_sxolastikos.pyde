@@ -1,5 +1,6 @@
-# zadgy5534 @sxolastikos https://twitter.com/sxolastikos/status/1421277279456350208
-t=0#つぶやきProcessing
+# Port of tweet by zadgy5534 @sxolastikos #つぶやきProcessing
+# https://twitter.com/sxolastikos/status/1421277279456350208
+t=0
 w=400
 def setup():size(w,w)
 def draw():
@@ -10,7 +11,7 @@ def draw():
  while i<TAU:
   beginShape(QUADS)
   n=cos(i*t)*9
-  stroke(n,99,99);
+  stroke(n,99,99)
   for j in range(8):
    vertex(200+j%w*n,200+j%w*sin(i-t)*19)
   endShape()
