@@ -27,6 +27,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_07_31a_shoebot](2021/sketch_2021_07_31a_shoebot/sketch_2021_07_31a_shoebot.gif)
+
+[sketch_2021_07_31a_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_07_31a_shoebot) [[shoebot](http://shoebot.net/)]
+
+---
+
 ![sketch_2021_07_30a_sxolastikos](2021/sketch_2021_07_30a_sxolastikos/sketch_2021_07_30a_sxolastikos.gif)
 
 [sketch_2021_07_30a_sxolastikos](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_07_30a_sxolastikos) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
