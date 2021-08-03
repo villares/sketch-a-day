@@ -27,6 +27,18 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_08_02a_shoebot](2021/sketch_2021_08_02a_shoebot/sketch_2021_08_02a_shoebot.gif)
+
+[sketch_2021_08_02a_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_02a_shoebot) [[shoebot](http://shoebot.net/)]
+
+---
+
+![sketch_2021_08_01a_shoebot](2021/sketch_2021_08_01a_shoebot/sketch_2021_08_01a_shoebot.gif)
+
+[sketch_2021_08_01a_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_01a_shoebot) [[shoebot](http://shoebot.net/)]
+
+---
+
 ![sketch_2021_07_31a_shoebot](2021/sketch_2021_07_31a_shoebot/sketch_2021_07_31a_shoebot.gif)
 
 [sketch_2021_07_31a_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_07_31a_shoebot) [[shoebot](http://shoebot.net/)]
