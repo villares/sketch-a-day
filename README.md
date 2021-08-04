@@ -27,6 +27,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_08_03a_pyxel](2021/sketch_2021_08_03a_pyxel/sketch_2021_08_03a_pyxel.gif)
+
+[sketch_2021_08_03a_pyxel](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_03a_pyxel) [[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]
+
+---
+
 ![sketch_2021_08_02a_shoebot](2021/sketch_2021_08_02a_shoebot/sketch_2021_08_02a_shoebot.gif)
 
 [sketch_2021_08_02a_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_02a_shoebot) [[shoebot](http://shoebot.net/)]

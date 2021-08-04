@@ -67,6 +67,7 @@ def build_entry(image, year, kind='pyde'):
         'pyp5js': "[[pyp5js](https://berinhard.github.io/pyp5js/)]",
         'py5': "[[py5](https://py5.ixora.io/)]",
         'shoebot': "[[shoebot](http://shoebot.net/)]",
+        'pyxel': "[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]"
     }
     tools_mentioned = matches = (t for t in tools.keys() if t in name)
     try:
