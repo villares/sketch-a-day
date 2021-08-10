@@ -1,5 +1,5 @@
 def setup():
-    global offscreen, clip_mask
+    global offscreen
     size(800, 500)
     # vamos usar uma área de desenho fora da tela "offscreen buffer"
     offscreen = createGraphics(400, height) 
