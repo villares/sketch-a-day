@@ -49,10 +49,12 @@ def main():
     for folder in reversed(new_folders):
         imgs = get_image_names(year_path, folder)
         # insert entry if matching image found
-        if imgs and imgs[0].split('.')[0] == folder:
-            entry_text = build_entry(imgs[0], YEAR)
-            lines.insert(insert_point - 3, entry_text)
-            print('Adding: ' + folder)
+        for img in imgs:
+            if img.split('.')[0] == folder:
+                entry_text = build_entry(img, YEAR)
+                lines.insert(insert_point - 3, entry_text)
+                print('Adding: ' + folder)
+                break
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
         content = ''.join(lines)
