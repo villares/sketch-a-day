@@ -10,7 +10,7 @@
 # [ ] insert docstrings as text on .md file
 
 from os import listdir
-from os.path import isfile, join
+from os.path import join
 
 from helpers import get_image_names
 
@@ -42,6 +42,7 @@ def main():
         else:
             break
     # find insertion point
+    insert_point = 3 # in case lines is empty
     for insert_point, line in enumerate(lines):
         if last_done in line:
             break
@@ -61,7 +62,7 @@ def main():
         readme.write(content)
 
 
-def build_entry(image, year, kind='pyde'):
+def build_entry(image, year):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
@@ -76,7 +77,7 @@ def build_entry(image, year, kind='pyde'):
         'shoebot': '[[shoebot](http://shoebot.net/)]',
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
     }
-    tools_mentioned = matches = (t for t in tools.keys() if t in name)
+    tools_mentioned = (t for t in tools.keys() if t in name)
     try:
         tool = next(tools_mentioned)
     except StopIteration:
