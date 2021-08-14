@@ -6,10 +6,7 @@ This example is also used in the Get Started Tutorial.
 
 import random
 import sys
-
-# import pygame
 import py5
-
 import pymunk
 # import pymunk.pygame_util
 
