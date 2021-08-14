@@ -27,6 +27,24 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_08_13b_py5](2021/sketch_2021_08_13b_py5/sketch_2021_08_13b_py5.gif)
+
+[sketch_2021_08_13b_py5](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_13b_py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2021_08_12b](2021/sketch_2021_08_12b/sketch_2021_08_12b.png)
+
+[sketch_2021_08_12b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_12b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_08_11b](2021/sketch_2021_08_11b/sketch_2021_08_11b.png)
+
+[sketch_2021_08_11b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_11b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_08_10b_clip_mask2](2021/sketch_2021_08_10b_clip_mask2/sketch_2021_08_10b_clip_mask2.png)
 
 [sketch_2021_08_10b_clip_mask2](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_10b_clip_mask2) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
