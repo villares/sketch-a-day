@@ -21,9 +21,8 @@ if imagens_boas:
     print('Não precisei fazer nada!')
 elif nomes_imagens:
     nome_imagem = nomes_imagens[0]
-    if nome_imagem:
-        ext = nome_imagem.split('.')[-1]
-        novo_nome = nome_pasta + '.' + ext
-        os.rename(nome_imagem, novo_nome)
+    ext = nome_imagem.split('.')[-1]
+    novo_nome = nome_pasta + '.' + ext
+    os.rename(nome_imagem, novo_nome)
 else:
     print('Não encontrei imagens!')
