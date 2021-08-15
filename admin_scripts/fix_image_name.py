@@ -17,7 +17,7 @@ nomes_imagens = [file_name for file_name in nomes_arquivos
                 if is_img_ext(file_name)]
 # Imagens boas são as que tem o mesmo nome da pasta!
 imagens_boas = [nome_imagem for nome_imagem in nomes_imagens
-                if nome_pasta in nome_imagem]
+                if nome_imagem.startswith(nome_pasta)]
 if imagens_boas:
     print('Não precisei fazer nada!')
 elif nomes_imagens:
