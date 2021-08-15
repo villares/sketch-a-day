@@ -62,7 +62,7 @@ def main():
         readme.write(content)
 
 
-def build_entry(image, year):
+def build_entry(image, folder, year):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
@@ -85,11 +85,11 @@ def build_entry(image, year):
     return """
 ---
 
-![{0}]({2}/{0}/{0}.{1})
+![{0}]({3}/{0}/{1}.{2})
 
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{2}/{0}) {3}
+[{0}](https://github.com/villares/sketch-a-day/tree/master/{3}/{0}) {4}
 """.format(
-        name, ext, year, tools[tool]
+        folder, name, ext, year, tools[tool]
     )
 
 
