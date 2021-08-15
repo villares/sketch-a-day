@@ -51,8 +51,8 @@ def main():
         imgs = get_image_names(year_path, folder)
         # insert entry if matching image found
         for img in imgs:
-            if img.split('.')[0] == folder:
-                entry_text = build_entry(img, YEAR)
+            if img.split('.')[0].startswith(folder):
+                entry_text = build_entry(img, folder, YEAR)
                 lines.insert(insert_point - 3, entry_text)
                 print('Adding: ' + folder)
                 break
