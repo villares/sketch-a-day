@@ -7,8 +7,9 @@ def get_image_names(base, folder, word=None):
     Return a list of image names from a directory
     named folder at base/folder by default only
     if name contains the folder name.
+    Use word='' to get any images, irrespective of name.
     """
-    word = word or folder
+    word = word if word is not None else folder
     contents = listdir(join(base, folder))
     image_files = [f for f in contents if is_img_ext(f) and word in f]
     return image_files
