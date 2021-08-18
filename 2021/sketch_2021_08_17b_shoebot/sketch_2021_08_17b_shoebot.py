@@ -19,7 +19,6 @@ def create_points():
         xo = randint(r, WIDTH - r)
         yo = randint(r, HEIGHT - r)
         for a in range(36):
-            
             x = xo + r * sin(radians(a * 10))
             y = yo + r * cos(radians(a * 10))
             pontos.append((x, y))
@@ -42,13 +41,8 @@ def draw():
                 stroke(0, 128, 0)
                 line(xa, ya, xb, yb)
 
-
-#     frame_count += 1
-
-
 def lerp(a, b, t):
     return a * (1 - t) + b * t
-
 
 def lerp_tuple(a, b, t):
     return tuple(
