@@ -10,7 +10,7 @@ def setup():
     colorrange(255)
     pts_a = create_points()
     pts_b = create_points()
-
+    var('t', NUMBER, 0.0, 0.0, 100.0)
 
 def create_points():
     pontos = []
@@ -28,7 +28,6 @@ def draw():
     global frame_count
     background(200)
     stroke(0)
-    var('t', NUMBER, 0.0, 0.0, 100.0)
     pontos = lerp_tuple(pts_a, pts_b, t / 100.0)
 
     for xa, ya in pontos:
