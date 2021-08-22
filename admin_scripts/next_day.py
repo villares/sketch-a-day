@@ -27,14 +27,16 @@ src_folder = os.path.join(base_path, last_folder)
 new_folder = os.path.join(base_path, new_folder_name)
 # Create a new folder, copy of the most recent one, but with new name
 copytree(src_folder, new_folder)
+print(f'{new_folder_name} folder created')
 # Go through the new folder, remove images, rename files to new date
 for file_name in os.listdir(new_folder):
     if is_img_ext(file_name):
         os.remove(os.path.join(new_folder, file_name))
+        print(f'{file_name} image removed')
     elif previous_date_string in file_name:
         file_path = os.path.join(new_folder, file_name)
         if os.path.isfile(file_path):
             new_name = file_path.replace(previous_date_string, new_date_string)
             os.rename(file_path, new_name)
-print(f'{new_folder} created!')
+            print(f'{file_name} file renamed')
 
