@@ -11,6 +11,7 @@
 
 from os import listdir
 from os.path import join
+from itertools import takewhile
 
 from helpers import get_image_names
 
@@ -18,32 +19,35 @@ YEAR = '2021'
 base_path = '/home/villares/GitHub/sketch-a-day'
 # base_path = "/Users/villares/sketch-a-day" # 01046-10
 year_path = join(base_path, YEAR)
-folders = listdir(year_path)
+sketch_folders = listdir(year_path)
 readme_path = join(base_path, 'README.md')
 
 
+def most_recent_entry(readme_as_lines):
+    entry_images = (
+        line[line.find(YEAR) : line.find(']')]
+        for line in readme_as_lines
+        if '![' in line
+    )
+    try:
+        return next(entry_images)[:10]
+    except StopIteration:
+        return 'Something wrong. No dated images found!'
+    
 def main():
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
-        lines = readme.readlines()
-    # find date of the first image
-    imagens = (
-        line[line.find(YEAR) : line.find(']')]
-        for line in lines
-        if '![' in line
-    )
-    last_done = next(imagens)[:10]
+        readme_as_lines = readme.readlines()
+    # find date of the first image seen in the readme
+    last_done = most_recent_entry(readme_as_lines)
     print('Last entry: ' + last_done)
-    # find folders after the last_done
-    new_folders = []
-    for f in reversed(sorted(folders)):
-        if last_done not in f:
-            new_folders.append(f)
-        else:
-            break
+    # find folders after the last_done one (folders start with ISO date)
+    rev_sorted_folders = sorted(sketch_folders, reverse=True)
+    not_done = lambda f: last_done not in f
+    new_folders = [folder for folder in takewhile(not_done, rev_sorted_folders)]
     # find insertion point
     insert_point = 3 # in case lines is empty
-    for insert_point, line in enumerate(lines):
+    for insert_point, line in enumerate(readme_as_lines):
         if last_done in line:
             break
     # iterate on new folders
@@ -53,12 +57,12 @@ def main():
         for img in imgs:
             if img.split('.')[0].startswith(folder):
                 entry_text = build_entry(img, folder, YEAR)
-                lines.insert(insert_point - 3, entry_text)
+                readme_as_lines.insert(insert_point - 3, entry_text)
                 print('Adding: ' + folder)
                 break
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
-        content = ''.join(lines)
+        content = ''.join(readme_as_lines)
         readme.write(content)
 
 
