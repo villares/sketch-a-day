@@ -14,8 +14,8 @@ def setup():
 def draw():
     background(0)
     k = 0
-    for i in range(10):
-        for j in range(10):
+    for j in range(10):
+        for i in range(10):
             push()
             translate(i * W, j * W)
             if keyPressed:
@@ -27,7 +27,7 @@ def draw():
             pop()
             k += 1
     
-def draw_module(module, o=5):
+def draw_module(module, o=4):
     w = W / 3
     for segment in module:
         for i in range(-2, 3):
@@ -61,3 +61,23 @@ def generate_modules():
     modules['f'] = h_flip((a[0], a[-1]))
     modules['g'] = h_flip((a[0], a[-1])) + (a[0], a[-1])
             
+hor = {
+    'a': ['f', 'b'],
+    'b': ['c', 'a'],
+    'c': ['f', 'b'],
+    'd': ['g', 'd', 'e'],
+    'e': ['g', 'd', 'e'],
+    'f': ['c', 'a'],
+    'g': ['g', 'd', 'e'],
+    }
+          
+ver = {
+    'a': ['a', 'b', 'g'],
+    'b': ['a', 'b', 'g'],
+    'c': ['f', 'e'],
+    'd': ['f', 'e'],
+    'e': ['c', 'd'],
+    'f': ['c', 'd'],
+    'g': ['a', 'b', 'g'],
+    }
+       
