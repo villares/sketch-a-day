@@ -10,18 +10,22 @@
 # [ ] insert docstrings as text on .md file
 
 from os import listdir
-from os.path import join
+from os.path import join, exists
 from itertools import takewhile
 
 from helpers import get_image_names
 
-YEAR = '2021'
+# YEAR and base_path to sketch-a-day folder are set manually, hard-coded
+YEAR = '2021'   
+# base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = '/home/villares/GitHub/sketch-a-day'
-# base_path = "/Users/villares/sketch-a-day" # 01046-10
 year_path = join(base_path, YEAR)
-sketch_folders = listdir(year_path)
+if not exists(year_path):
+    sketch_folders = []  # for the benefit of next_day.py
+    print(f"{__file__}: Couldn't find the sketc-a-day year folder!")
+else:
+    sketch_folders = listdir(year_path)
 readme_path = join(base_path, 'README.md')
-
 
 def most_recent_entry(readme_as_lines):
     entry_images = (
