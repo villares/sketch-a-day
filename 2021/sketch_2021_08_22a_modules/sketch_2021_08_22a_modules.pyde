@@ -1,38 +1,42 @@
+from __future__ import division
 from random import choice
 
-W = 90
+W = 100
 grid = []
 modules = dict()
-ROWS = COLS = 10
+ROWS = COLS = 8
+OFFSET = 13
 
 def setup():
-    size(900, 900)
+    size(800, 800)
     noFill()
-    strokeWeight(2)
+    strokeWeight(3)
     generate_modules()
     check_connetions()
     generate_grid()
     
 def generate_grid():
     grid[:] = []
-    escape = 0
-    while len(grid) < ROWS * COLS:
-        i, j = index_to_grid(len(grid)) # me
-        one_up = grid_to_index(i, j - 1)
-        one_left = grid_to_index(i - 1, j)
-        new_element = choice(choice(modules.keys()))
-        horizontal_good = one_left < 0 or new_element in good_right_options[grid[one_left]]
-        vertical_good = one_up < 0 or new_element in good_down_options[grid[one_up]]
-        if horizontal_good and vertical_good:
-           grid.append(new_element)
-           escape = 0
-        elif escape > 1000:
-            print one_left, one_up, new_element
-            print frameCount
-            break
-        else:
-            escape += 1
-            
+    while len(grid) != ROWS * COLS:
+        grid[:] = [choice(modules.keys())]
+        escape = 0
+        mmm = list(modules.keys())
+        while len(grid) < ROWS * COLS:
+            i, j = index_to_grid(len(grid)) # me
+            one_up = grid_to_index(i, j - 1)
+            one_left = grid_to_index(i - 1, j)
+            new_element = choice(modules.keys())
+            # new_element = mmm[escape % len(mmm)]
+            horizontal_good = i == 0 or new_element in good_right_options[grid[one_left]]
+            vertical_good = j == 0 or new_element in good_down_options[grid[one_up]]
+            if horizontal_good and vertical_good:
+                grid.append(new_element)
+                escape = 0
+            if escape > 10000:
+                break
+            else:
+                escape += 1
+                
 def draw():
     # print(frameCount)
     background(0)
@@ -47,7 +51,7 @@ def draw():
                     strokeWeight(0.5)
                     rect(0, 0, W, W)
                     text(grid[k], W / 2, W / 2)
-                draw_module(modules[grid[k]])
+                draw_module(modules[grid[k]], OFFSET)
             pop()
             k += 1
             
@@ -55,7 +59,7 @@ def keyPressed():
     if key == ' ':
         generate_grid()
     
-def draw_module(module, o=12):
+def draw_module(module, o=5):
     w = W / 3
     for segment in module:
         for i in range(-2, 3):
@@ -93,9 +97,22 @@ def generate_modules():
         ((1, 3), (3, 2)),
         )    
     modules['h'] = h
+    modules['dh'] = d_flip(h)
     modules['i'] = h_flip(h)
+    modules['di'] = d_flip(h_flip(h))
+        
     modules['j'] = (a[0], a[-1], ((0, 2), (2, 0)))
+    modules['dj'] = d_flip((a[0], a[-1], ((0, 2), (2, 0))))
+    modules['hj'] = h_flip((a[0], a[-1], ((0, 2), (2, 0))))
+    modules['dhj'] = d_flip(h_flip((a[0], a[-1], ((0, 2), (2, 0)))))
+    
     modules['k'] = (a[0], a[-1], ((2, 0), (3, 1)))
+    modules['l'] = h_flip((a[0], a[-1], ((2, 0), (3, 1))))
+    modules['m'] = h_flip((a[0], a[-1], ((2, 0), (3, 1))))
+    modules['n'] = d_flip((a[0], a[-1], ((2, 0), (3, 1))))
+    modules['o'] = d_flip((a[0], a[-1], ((2, 0), (3, 1))))
+    modules['n'] = h_flip(d_flip((a[0], a[-1], ((2, 0), (3, 1)))))
+    modules['o'] = h_flip(d_flip((a[0], a[-1], ((2, 0), (3, 1)))))
     
                                                                                 
 def grid_to_index(i, j):
