@@ -26,7 +26,9 @@ def generate_grid():
         if horizontal_good and vertical_good:
            grid.append(new_element)
            escape = 0
-        if escape > 100:
+        elif escape > 1000:
+            print one_left, one_up, new_element
+            print frameCount
             break
         else:
             escape += 1
@@ -108,63 +110,34 @@ def index_to_grid(k):
 def check_connetions():
     global good_right_options, good_down_options
     good_right_options = {}
-    # good_down_options = {}
+    good_down_options = {}
     for m in modules.keys():
         good_right_options[m] = []
-        # good_down_options[m] = []
+        good_down_options[m] = []
         for om in modules.keys():
-            reys = right_edge_ys(modules[m])
-            leys = left_edge_ys(modules[om])
+            reys = edge_ys(modules[m], 3)  # right edge Ys
+            leys = edge_ys(modules[om], 0)  # left edge Ys
             if reys == leys:
                 good_right_options[m].append(om)
-            # if bottom_edge_xs(m) == top_edge_xs(om):
-            #     good_down_options[m].append(om)
+            bexs = edge_xs(modules[m], 3)  # bottom edge Xs
+            texs = edge_xs(modules[om], 0)  # top edge Xs
+            if bexs == texs:
+                good_down_options[m].append(om)
+    print good_right_options
+    print good_right_options
                 
-def right_edge_ys(m):
-    reys = []
+def edge_ys(m, ex):
+    ys = []
     for segment in m:
         for x, y in segment:
-            if x == 3:
-                reys.append(y)
-    return tuple(reys)   
+            if x == ex:
+                ys.append(y)
+    return tuple(ys)   
 
-def left_edge_ys(m):
-    leys = []
+def edge_xs(m, ey):
+    xs = []
     for segment in m:
         for x, y in segment:
-            if x == 0:
-                leys.append(y)
-    return tuple(leys)   
-
-
-
-            
-good_right_options = {
-    'a': ['f', 'b', 'i'],
-    'b': ['c', 'a', 'h', 'k'],
-    'c': ['f', 'b', 'i'],
-    'd': ['g', 'd', 'e', 'j'],
-    'e': ['g', 'd', 'e', 'j'],
-    'f': ['c', 'a', 'h', 'k'],
-    'g': ['g', 'd', 'e', 'j'],
-    'h': ['b', 'i', 'f'],
-    'i': ['a', 'h', 'c'],
-    'j': ['i', 'f', 'b'] ,
-    'k': ['j', 'd', 'e', 'g'],
-    }
-          
-good_down_options = {
-    'a': ['a', 'b', 'g', 'j', 'k'],
-    'b': ['a', 'b', 'g', 'j', 'k'],
-    'c': ['f', 'e', 'h'],
-    'd': ['f', 'e', 'h'],
-    'e': ['c', 'd', 'i'],
-    'f': ['c', 'd', 'i'],
-    'g': ['a', 'b', 'g', 'j', 'k'],
-    'h': ['c', 'i', 'd'],
-    'i': ['f', 'h', 'e'],
-    'j': ['f', 'e', 'h'],
-    'k': ['f', 'e', 'h'],
-    } 
-       
-       
+            if y == ey:
+                xs.append(x)
+    return tuple(xs)   
