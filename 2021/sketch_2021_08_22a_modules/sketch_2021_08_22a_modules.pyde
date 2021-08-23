@@ -10,6 +10,7 @@ def setup():
     noFill()
     strokeWeight(2)
     generate_modules()
+    check_connetions()
     generate_grid()
     
 def generate_grid():
@@ -31,6 +32,7 @@ def generate_grid():
             escape += 1
             
 def draw():
+    # print(frameCount)
     background(0)
     k = 0
     for j in range(ROWS):
@@ -102,6 +104,41 @@ def index_to_grid(k):
     j = k // COLS
     return i, j
             
+
+def check_connetions():
+    global good_right_options, good_down_options
+    good_right_options = {}
+    # good_down_options = {}
+    for m in modules.keys():
+        good_right_options[m] = []
+        # good_down_options[m] = []
+        for om in modules.keys():
+            reys = right_edge_ys(modules[m])
+            leys = left_edge_ys(modules[om])
+            if reys == leys:
+                good_right_options[m].append(om)
+            # if bottom_edge_xs(m) == top_edge_xs(om):
+            #     good_down_options[m].append(om)
+                
+def right_edge_ys(m):
+    reys = []
+    for segment in m:
+        for x, y in segment:
+            if x == 3:
+                reys.append(y)
+    return tuple(reys)   
+
+def left_edge_ys(m):
+    leys = []
+    for segment in m:
+        for x, y in segment:
+            if x == 0:
+                leys.append(y)
+    return tuple(leys)   
+
+
+
+            
 good_right_options = {
     'a': ['f', 'b', 'i'],
     'b': ['c', 'a', 'h', 'k'],
@@ -129,4 +166,5 @@ good_down_options = {
     'j': ['f', 'e', 'h'],
     'k': ['f', 'e', 'h'],
     } 
+       
        
