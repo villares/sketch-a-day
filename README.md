@@ -27,6 +27,24 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_08_24a_modules](2021/sketch_2021_08_24a_modules/sketch_2021_08_24a_modules.png)
+
+[sketch_2021_08_24a_modules](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_24a_modules) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_08_23a_modules](2021/sketch_2021_08_23a_modules/sketch_2021_08_23a_modules.png)
+
+[sketch_2021_08_23a_modules](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_23a_modules) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_08_22a_modules](2021/sketch_2021_08_22a_modules/sketch_2021_08_22a_modules.gif)
+
+[sketch_2021_08_22a_modules](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_22a_modules) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_08_21b_shoebot](2021/sketch_2021_08_21b_shoebot/sketch_2021_08_21b_shoebot.png)
 
 [sketch_2021_08_21b_shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_08_21b_shoebot) [[shoebot](http://shoebot.net/)]
