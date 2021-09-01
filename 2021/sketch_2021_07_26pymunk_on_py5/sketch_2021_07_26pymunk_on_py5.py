@@ -1,7 +1,7 @@
 # use Python from Thonny Env
-"""A L shape attached with a joint and constrained to not tip over.
+"""An L-shape attached with a joint and constrained to not tip over.
 
-This example is also used in the Get Started Tutorial. 
+This example is also used in the pymunk Get Started Tutorial. 
 """
 
 import random
@@ -22,14 +22,14 @@ def add_ball(space):
     body = pymunk.Body(mass, inertia)
     x = random.randint(120, 420)
     body.position = x, -50
-    shape = pymunk.Circle(body, radius, (0, 0))
-    shape.friction = 1
-    space.add(body, shape)
-    return shape
+    obj_shape= pymunk.Circle(body, radius, (0, 0))
+    obj_shape.friction = 1
+    space.add(body, obj_shape)
+    return obj_shape
 
 
 def add_L(space):
-    """Add a inverted L shape with two joints"""
+    """Add a inverted L obj_shapewith two joints"""
     rotation_center_body = pymunk.Body(body_type=pymunk.Body.STATIC)
     rotation_center_body.position = (300, 300)
 
@@ -54,11 +54,11 @@ def add_L(space):
 
 def setup():
     py5.size(600, 600)
-    global space, lines
+    global space, struts
     print("Joints. Just wait and the L will tip over")
     space = pymunk.Space()
     space.gravity = (0.0, 700.0)
-    lines = add_L(space)
+    struts = add_L(space)
     py5.color_mode(py5.HSB)
     
     
@@ -67,7 +67,7 @@ def draw():
     ticks_to_next_ball -= 1
     if ticks_to_next_ball <= 0:
         ticks_to_next_ball = 25
-        ball_shape = add_ball(space)
+        ball_obj_shape= add_ball(space)
 
     for obj in reversed(space.shapes):
         if is_ball(obj) and obj.body.position.y > 600:
