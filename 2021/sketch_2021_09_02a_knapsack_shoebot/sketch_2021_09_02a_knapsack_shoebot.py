@@ -14,17 +14,18 @@ def knapsack(target_price, items):
         ]
     return inner(target_price, len(items) - 1)
 
-elements = [(i, i) for i in range(1, 27)]
+elements = [(n, n) for n in range(1, 27)]
 
 def setup():
-    size(520, 660)
+    size(520, 990)
     colorrange(255)
     stroke(0)
     solutions = knapsack(26, elements)
     print(len(solutions))
     for i, s in enumerate(solutions):
         x = 0
-        for c, w in s:
-            fill(i * 9, 255 - i * 9, 255)
-            rect(x, i * 4, w * 20, 4)
+        for n, w in s:
+            fill(128 * (w  % 3), w * 24 % 256, 64 * (w % 5))
+            # fill(random(255), random(255), random(255))
+            rect(x, i * 6, w * 20, 6)
             x += w * 20
