@@ -1,38 +1,44 @@
+"""
+A reboot of a simple poly / linerar glyphs editor
+"""
 
 from glyphs import Glyph
-
+import interface
 
 def setup():
+    global half_grid_h
     size(600, 600)
-    Glyph.grid_size = 25    
+    strokeJoin(ROUND)
+    # interface.grid_size = 20    
+    half_grid_h = height // interface.grid_size // 2
 
 def draw():
     background(200)
-    Glyph.draw_grid()
-    gs = Glyph.grid_size
-    gc = Glyph.current
+    interface.draw_grid()
+    gs = interface.grid_size
+    gc = interface.current_glyph
     if gc:
         fill(0)
         textSize(20)
-        text(gc.name, 25, 25)
+        text(gc.name, gs, gs)
+        textSize(8)
         gc.plot()
+        text(str(gc.paths), gs, gs * half_grid_h)
     
-    translate(0, gs * 10)        
+    translate(0, gs * half_grid_h)        
     for gl in Glyph.glyphs.values():
         gl.plot()
         translate(gl.width, 0)
         
-def mousePressed():
-    Glyph.mouse_pressed(mouseButton)
+def mousePressed(): interface.mouse_pressed(mouseButton)
     
-# def mouseDragged():
-#     Glyph.mouse_dragged(mouseButton)
-# def mouseReleased():
-#     Glyph.mouse_released(mouseButton)
+def mouseDragged(): interface.mouse_dragged(mouseButton)
+
+def mouseReleased(): interface.mouse_released(mouseButton)
 
 def keyPressed():
-    Glyph.key_pressed[key if key != CODED else keyCode] = True
+    interface.keys_pressed[key if key != CODED else keyCode] = True
 
 def keyReleased():
-    Glyph.key_released()
-    Glyph.key_pressed[key if key != CODED else keyCode] = False
+    interface.key_released()
+    interface.keys_pressed[key if key != CODED else keyCode] = False
