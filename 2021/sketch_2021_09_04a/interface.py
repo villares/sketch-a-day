@@ -1,8 +1,8 @@
 from __future__ import division
-
+import pickle
 import glyphs
 
-ADD, SELECT, EDIT = range(3)
+ADD, SELECT, EDIT = ("add", "select", "edit")
 mode = ADD
 current_glyph = None
 keys_pressed = {}
@@ -49,16 +49,47 @@ def draw_grid():
             strokeWeight(2)
             point(x, y)
     pop()
+    # print(check_keys(CONTROL))
+ 
+def show_mode():
+    fill(0)
+    textSize(20)
+    text(mode, width - grid_size * 5, grid_size)
     
+             
 def check_keys(*args, **kwargs):
     if kwargs.get('ANY'):
         return any(keys_pressed.get(k, False) for k in args)
     else:
         return all(keys_pressed.get(k, False) for k in args)
 
-def key_released():
-    print(keys_pressed)
-    if check_keys(BACKSPACE, DELETE, ANY=True):
+def key_released(k, kc):
+    global current_glyph
+    if check_keys(ALT) and kc != ALT:
+        glyphs_dict = glyphs.Glyph.glyphs
+        if k in glyphs_dict:
+            current_glyph = glyphs_dict[k]
+        else:
+            current_glyph = glyphs.Glyph(k)
+        keys_pressed.pop(ALT)
+        
+    elif k == 's':
+        with open("data.pickle", "w") as f:
+            pickle.dump(glyphs.Glyph.glyphs, f)
+            print('data saved')
+    elif k == 'l':
+        with open("data.pickle") as f:
+            glyphs.Glyph.glyphs = pickle.load(f)
+            print('data loaded')
+                                                                    
+                                                                                                                                                                                                  
+    # print(keys_pressed)
+    elif mode == ADD and check_keys(CONTROL, '\x05'): # ctrl + e
+        cps = current_glyph.paths if current_glyph else None
+        if cps:
+            cps[:] = [[]]
+
+    elif mode == ADD and check_keys(BACKSPACE, DELETE, ANY=True):
         cps = current_glyph.paths if current_glyph else None
         cp =  current_glyph.current_path if cps else None 
         if cp is not None and cps[cp]:
