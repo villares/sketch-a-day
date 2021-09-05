@@ -4,9 +4,9 @@ import glyphs
 
 ADD, MOVE, EDIT = modes = ("add", "move", "edit")
 mode = ADD
-current_glyph = None
-current_path = None
-current_vertex = None
+current_glyph = None  # None or Glyph object
+current_path = None   # None or index to path
+current_vertex = None # index to vertex in path for EDIT or (px, py) for MOVE
 
 keys_pressed = {}
 grid_size = 20
@@ -29,10 +29,10 @@ def mouse_pressed(mb):
         if current_glyph:
             for i, path in enumerate(current_glyph.paths):
                 for j, (x, y, _) in enumerate(path):
-                    if dist(mx * grid_size, my * grid_size,
-                            x, y) < grid_size:
-                        curent_path = i
+                    if (mx, my) == (x, y):
+                        current_path = i
                         current_vertex = (mx, my)
+                        print(i, current_vertex)
                         return
     elif mode == EDIT:
         if current_glyph:
@@ -41,12 +41,11 @@ def mouse_pressed(mb):
                     if (mx, my) == (x, y):
                         current_path = i
                         current_vertex = j
-                        print(i, j)
                         return                        
 
 def mouse_dragged(mb):
+    global current_vertex
     mx, my = grid_mouse()
-
     if mode == EDIT and current_vertex is not None:
         cps = current_glyph.paths[current_path]
         x, y, d = cps[current_vertex]
@@ -55,15 +54,13 @@ def mouse_dragged(mb):
         cps = current_glyph.paths[current_path]
         px, py = current_vertex # position where mouse was pressed
         dx, dy = mx - px, my - py
-        for i, (x, y, d) in cps:
+        current_vertex = mx, my
+        for i, (x, y, d) in enumerate(cps):
             cps[i] =  (x + dx, y + dy, d)
-            
-            
-            
+                
 def mouse_released(mb):
     global current_vertex
-    current_vertex = None
-                            
+    current_path = None                        
                                                               
 def grid_mouse():
     gs = grid_size
@@ -119,11 +116,12 @@ def key_released(k, kc):
         cps = current_glyph.paths if current_glyph else None
         if cps:
             cps[:] = [[]]
+        current_path = None
     elif k == 'm':
         global mode
         mode = modes[modes.index(mode) - 1]
 
-    elif mode == ADD and check_keys(BACKSPACE, DELETE, ANY=True):
+    elif check_keys(BACKSPACE, DELETE, ANY=True):
         cps = current_glyph.paths if current_glyph else None
         if cps and current_path is None:
                 current_path = -1
