@@ -7,6 +7,7 @@ class Glyph:
         self.name = name
         self.glyphs[name] = self
         self.paths = []
+        self.current_path = None
         self.width = 4
         
     def plot(self):
