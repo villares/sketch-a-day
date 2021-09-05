@@ -15,6 +15,7 @@ def setup():
 def draw():
     background(200)
     interface.draw_grid()
+    interface.show_mode()
     gs = interface.grid_size
     gc = interface.current_glyph
     if gc:
@@ -28,7 +29,7 @@ def draw():
     translate(0, gs * half_grid_h)        
     for gl in Glyph.glyphs.values():
         gl.plot()
-        translate(gl.width, 0)
+        translate(gl.width * gs, 0)
         
 def mousePressed(): interface.mouse_pressed(mouseButton)
     
@@ -40,5 +41,5 @@ def keyPressed():
     interface.keys_pressed[key if key != CODED else keyCode] = True
 
 def keyReleased():
-    interface.key_released()
+    interface.key_released(key, keyCode)
     interface.keys_pressed[key if key != CODED else keyCode] = False
