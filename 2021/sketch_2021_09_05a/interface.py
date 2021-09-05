@@ -2,35 +2,69 @@ from __future__ import division
 import pickle
 import glyphs
 
-ADD, SELECT, EDIT = ("add", "select", "edit")
+ADD, MOVE, EDIT = modes = ("add", "move", "edit")
 mode = ADD
 current_glyph = None
+current_path = None
+current_vertex = None
+
 keys_pressed = {}
 grid_size = 20
 
 def mouse_pressed(mb):
-    global current_glyph
+    global current_glyph, current_path, current_vertex
     mx, my = grid_mouse()
-
     if current_glyph is None:
         current_glyph = glyphs.Glyph('a')
             
     if mode == ADD:
-        cp = current_glyph.current_path
-        if cp is None:
+        if current_glyph and current_path is None:
             current_glyph.paths.append([(mx, my, {})])
-            current_glyph.current_path = -1
-        elif mb == LEFT:
-            current_glyph.paths[cp].append((mx, my, {}))
+            current_path = -1
+        elif mb == LEFT and current_path is not None:
+            current_glyph.paths[current_path].append((mx, my, {}))
         else:
-            current_glyph.current_path = None
-    
-def mouse_dragged(mb):
-    pass
+            current_path = None
+    elif mode == MOVE:
+        if current_glyph:
+            for i, path in enumerate(current_glyph.paths):
+                for j, (x, y, _) in enumerate(path):
+                    if dist(mx * grid_size, my * grid_size,
+                            x, y) < grid_size:
+                        curent_path = i
+                        current_vertex = (mx, my)
+                        return
+    elif mode == EDIT:
+        if current_glyph:
+            for i, path in enumerate(current_glyph.paths):
+                for j, (x, y, _) in enumerate(path):
+                    if (mx, my) == (x, y):
+                        current_path = i
+                        current_vertex = j
+                        print(i, j)
+                        return                        
 
+def mouse_dragged(mb):
+    mx, my = grid_mouse()
+
+    if mode == EDIT and current_vertex is not None:
+        cps = current_glyph.paths[current_path]
+        x, y, d = cps[current_vertex]
+        cps[current_vertex] = (mx, my, d)
+    elif mode == MOVE and current_path is not None:
+        cps = current_glyph.paths[current_path]
+        px, py = current_vertex # position where mouse was pressed
+        dx, dy = mx - px, my - py
+        for i, (x, y, d) in cps:
+            cps[i] =  (x + dx, y + dy, d)
+            
+            
+            
 def mouse_released(mb):
-    pass
+    global current_vertex
+    current_vertex = None
                             
+                                                              
 def grid_mouse():
     gs = grid_size
     mx = round(mouseX / gs)
@@ -64,7 +98,7 @@ def check_keys(*args, **kwargs):
         return all(keys_pressed.get(k, False) for k in args)
 
 def key_released(k, kc):
-    global current_glyph
+    global current_glyph, current_path
     if check_keys(ALT) and kc != ALT:
         glyphs_dict = glyphs.Glyph.glyphs
         if k in glyphs_dict:
@@ -81,17 +115,18 @@ def key_released(k, kc):
         with open("data.pickle") as f:
             glyphs.Glyph.glyphs = pickle.load(f)
             print('data loaded')
-                                                                    
-                                                                                                                                                                                                  
-    # print(keys_pressed)
-    elif mode == ADD and check_keys(CONTROL, '\x05'): # ctrl + e
+    elif k == 'e':
         cps = current_glyph.paths if current_glyph else None
         if cps:
             cps[:] = [[]]
+    elif k == 'm':
+        global mode
+        mode = modes[modes.index(mode) - 1]
 
     elif mode == ADD and check_keys(BACKSPACE, DELETE, ANY=True):
         cps = current_glyph.paths if current_glyph else None
-        cp =  current_glyph.current_path if cps else None 
-        if cp is not None and cps[cp]:
-            cps[cp].pop()
+        if cps and current_path is None:
+                current_path = -1
+        if cps is not None and cps[current_path]:
+            cps[current_path].pop()
         
