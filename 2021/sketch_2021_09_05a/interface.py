@@ -12,6 +12,7 @@ keys_pressed = {}
 grid_size = 20
 
 def mouse_pressed(mb):
+    print(current_glyph, current_path, current_vertex)
     global current_glyph, current_path, current_vertex
     mx, my = grid_mouse()
     if current_glyph is None:
@@ -95,7 +96,7 @@ def check_keys(*args, **kwargs):
         return all(keys_pressed.get(k, False) for k in args)
 
 def key_released(k, kc):
-    global current_glyph, current_path
+    global current_glyph, current_path, current_vertex
     if check_keys(ALT) and kc != ALT:
         glyphs_dict = glyphs.Glyph.glyphs
         if k in glyphs_dict:
@@ -103,6 +104,7 @@ def key_released(k, kc):
         else:
             current_glyph = glyphs.Glyph(k)
         keys_pressed.pop(ALT)
+        current_path = None
         
     elif k == 's':
         with open("data.pickle", "w") as f:
