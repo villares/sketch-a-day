@@ -1,6 +1,5 @@
 from random import randint
 
-stands = []
 letras = 'ABCDEFGHIJKLMNOPQRST'
 
 def setup():
