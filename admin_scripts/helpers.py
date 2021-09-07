@@ -28,7 +28,7 @@ def is_img_ext(file_name):
         'gif',
         'tif',
         'tga',
-        #'svg',
+        'svg',
     )
     return ext.lower() in valid_extensions
 
