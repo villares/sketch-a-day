@@ -28,6 +28,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_09_08_glypheditor](2021/sketch_2021_09_08_glypheditor/sketch_2021_09_08_glypheditor.png)
+
+[sketch_2021_09_08_glypheditor](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_09_08_glypheditor) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_09_07shoebot](2021/sketch_2021_09_07shoebot/sketch_2021_09_07shoebot.svg)
 
 [sketch_2021_09_07shoebot](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_09_07shoebot) [[shoebot](http://shoebot.net/)]
