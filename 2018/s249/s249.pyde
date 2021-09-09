@@ -10,6 +10,7 @@ def setup():
     noStroke()
     blendMode(MULTIPLY)
     strokeCap(SQUARE)
+    print('Press "s" to save frame and any other key to generate curves')
     
 def keyPressed():
     if key == "s":
@@ -17,8 +18,9 @@ def keyPressed():
     else: 
         curvas[:] = []
         for i in range(n):
-            curvas.append((random(-height/7,height/7),
-                  random(-height/7, height/7),
+            curvas.append((
+                  random(-height / 7, height / 7),
+                  random(-height / 7, height / 7),
                   random(.33, 3),
                   random(.33, 3),
                   random(.33, 3),
@@ -31,14 +33,14 @@ def draw():
         if i % 3 == 0:
             stroke(100, 0, 200)
         elif i % 3 == 1:
-            stroke(0, 100,200)
+            stroke(0, 100, 200)
         else:
             stroke(200, 0, 100)
         beginShape()
         strokeWeight(5 + abs(h) / 5)
         for x in range(width):
-            ang = frameCount/30. + x/30.
-            ang2 = frameCount/15. + x/30.
+            ang = (frameCount +  x) / 30.0
+            ang2 = (frameCount * 2 + x) / 30.0
             s = sin(ang * f1) + sin(ang2 * f2) + sin(ang2 * f3) 
             vertex(x, h + s * a)
         endShape()
