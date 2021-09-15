@@ -22,7 +22,7 @@ base_path = '/home/villares/GitHub/sketch-a-day'
 year_path = join(base_path, YEAR)
 if not exists(year_path):
     sketch_folders = []  # for the benefit of next_day.py
-    print(f"{__file__}: Couldn't find the sketc-a-day year folder!")
+    print(f"{__file__}: Couldn't find the sketch-a-day year folder!")
 else:
     sketch_folders = listdir(year_path)
 readme_path = join(base_path, 'README.md')
@@ -84,6 +84,7 @@ def build_entry(image, folder, year):
         'py5': '[[py5](https://py5.ixora.io/)]',
         'shoebot': '[[shoebot](http://shoebot.net/)]',
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
+        'tk': '[tkinter]'
     }
     tools_mentioned = (t for t in tools.keys() if t in name)
     try:
