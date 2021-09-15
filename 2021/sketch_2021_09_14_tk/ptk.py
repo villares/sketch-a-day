@@ -1,15 +1,12 @@
 import tkinter as tk
+import __main__
 
-height = width = 600
-
-def size(w=height, h=width):
-    global tk_window, tk_canvas, height, width
-    width, height, w, h
+def size(w, h):
+    global tk_window, tk_canvas
+    __main__.width = w
+    __main__.height = h
     tk_window = tk.Tk()
     tk_canvas = tk.Canvas(tk_window, bg="lightgray", height=w, width=h)
-
-
-#arc = tk_canvas.create_arc(coord, start=0, extent=150, fill="red")
 
 def poly(*args, **kwargs):
     return tk_canvas.create_polygon(
@@ -21,6 +18,8 @@ def rect(x, y, w, h, *args, **kwargs):
         x, y, x + w, y + h, 
         *args, **kwargs
         )
+#arc = tk_canvas.create_arc(coord, start=0, extent=150, fill="red")
+
 def background(*args):
     tk_canvas.config(bg=color(*args))
 
