@@ -14,7 +14,7 @@ def setup():
     #size(512 + 256 + 128, 512 + 256 + 128)
     background(32)
     grid(0, 0, width * 2)
-    saveFrame('sketch_2021_09_18b.png')
+    # saveFrame('sketch_2021_09_18b.png')
    
 def grid(xo, yo, w):
     qw = w // 4
