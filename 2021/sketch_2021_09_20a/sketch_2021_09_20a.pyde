@@ -1,50 +1,43 @@
-axioma = 'X'
-regras = {
+axiom = 'X'
+rules = {
     'X': 'F+[[X]-X]-F[-FX]+X',
     'F': 'S',  
     'S': 'SF'    
     }
-passo = 15
-angulo = 25 # angulo em graus
-iteracoes = 5
+step = 15
+angle = 25 # angle in degrees
+iterations = 5
 
 def setup():
-    global frase_resultado
+    global result
     size(600, 600, P3D)
     strokeWeight(2)
-    frase_inicial = axioma
-    for _ in range(iteracoes):
-        frase_resultado = ''
-        for simbolo in frase_inicial:
-            substituir = regras.get(simbolo, simbolo)
-            frase_resultado = frase_resultado + substituir
-        #print(frase_inicial, frase_resultado)
-        frase_inicial = frase_resultado    
-    print(len(frase_resultado))
+    starting_phrase = axiom
+    for _ in range(iterations):
+        result = ''
+        for symbol in starting_phrase:
+            replacement = rules.get(symbol, symbol)
+            result = result + replacement
+        #print(starting_phrase, result)
+        starting_phrase = result    
+    print(len(result))
     
 def draw():
     background(200, 200, 150)
-    angulo = 25
-    translate(width / 2, height * 0.95)
-    rotateY(frameCount / 100.0)
-    for simbolo in frase_resultado:
-        if simbolo == 'X':   # se simbolo for igual a 'X'
+    translate(0, height * 0.45)  # 3d in p5js starts centered
+    rotateY(frameCount / 50.0)
+    for symbol in result:
+        if symbol == 'X':   # se symbol for igual a 'X'
             pass
-        elif simbolo in 'FS':   # else if (senão se) o simbolo é F
-                line(0, 0, 0, -passo)
-                translate(0, -passo)
-                rotateY(radians(-angulo))
-        elif simbolo == '+':
-            rotate(radians(-angulo)) # + random(-5, 5)))
-        elif simbolo == '-':
-            rotate(radians(+angulo)) # + random(-5, 5)))
-        elif simbolo == '[':
+        elif symbol in 'FS':   # else if 
+                line(0, 0, 0, -step)
+                translate(0, -step)
+                rotateY(radians(-angle))
+        elif symbol == '+':
+            rotate(radians(-angle)) # + random(-5, 5)))
+        elif symbol == '-':
+            rotate(radians(+angle)) # + random(-5, 5)))
+        elif symbol == '[':
             pushMatrix()
-        elif simbolo == ']':
+        elif symbol == ']':
             popMatrix()
-
-                
-    
-    
-    
-    
