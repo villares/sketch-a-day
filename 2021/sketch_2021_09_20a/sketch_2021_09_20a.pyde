@@ -24,7 +24,8 @@ def setup():
     
 def draw():
     background(200, 200, 150)
-    translate(0, height * 0.45)  # 3d in p5js starts centered
+    translate(width / 2, height * 0.90)
+    # translate(0, height * 0.45)  # 3d in p5js starts centered
     rotateY(frameCount / 50.0)
     for symbol in result:
         if symbol == 'X':   # se symbol for igual a 'X'
