@@ -7,11 +7,11 @@ inside = lambda x, y, w, h: randint(0, w) < dist((x, y), (w / 2, h / 2))
 outside = lambda x, y, w, h: randint(0, w) > dist((x, y), (w / 2, h / 2))
 
 def setup():
-    py5.size(960, 960)
+    py5.size(1024, 1024)
     py5.background(32)
     py5.scale(0.25)
-    grid(0, 0, py5.width * 4)
-    py5.saveFrame('sketch_2021_09_25a.png')
+    grid(128, 128, py5.width * 4 - 256)
+    py5.save_frame('sketch_2021_09_25a.png')
    
 def grid(xo, yo, w):
     qw = w // 4
