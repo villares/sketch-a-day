@@ -29,10 +29,10 @@ def grid(xo, yo, w):
                 py5.stroke(255)
                 region(x, y, qw, qw, outside)
 
-def region(xo, yo, w, h, rule, ooutsidelap=0.25):
-    o = int(w * ooutsidelap)
+def region(xo, yo, w, h, rule, overlap=0.25):
+    o = int(w * overlap)
     for x, y in product(range(xo - o, xo + w + o), range(yo - o, yo + h + o)):
         if rule(x - xo, y - yo, w, h):
             py5.point(x, y)
-            
+          
 py5.run_sketch()
