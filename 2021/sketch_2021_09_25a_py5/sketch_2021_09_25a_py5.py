@@ -3,9 +3,8 @@ from math import sin, cos, pi, dist
 from itertools import product
 from random import randint, random
 
-hor = lambda x, y, w, h: randint(0, w) < dist((x, y), (w / 2, h / 2))
-# ver = lambda x, y, w, h: randint(0, h * 2) < h - h * cos(y / h * 2 * pi)    
-ver = lambda x, y, w, h: randint(0, w) > dist((x, y), (w / 2, h / 2))
+inside = lambda x, y, w, h: randint(0, w) < dist((x, y), (w / 2, h / 2))
+outside = lambda x, y, w, h: randint(0, w) > dist((x, y), (w / 2, h / 2))
 
 def setup():
     py5.size(960, 960)
@@ -25,14 +24,14 @@ def grid(xo, yo, w):
                 grid(x, y, qw)
             elif r == 2:
                 py5.stroke(255)
-                region(x, y, qw, qw, hor)
+                region(x, y, qw, qw, inside)
             else:
                 py5.stroke(255)
-                region(x, y, qw, qw, ver)
+                region(x, y, qw, qw, outside)
 
-def region(xo, yo, w, h, rule, overlap=0.25):
-    o = int(w * overlap)
-    for x, y in product(range(xo - o, xo + w + o), range(yo - o, yo + h )):
+def region(xo, yo, w, h, rule, ooutsidelap=0.25):
+    o = int(w * ooutsidelap)
+    for x, y in product(range(xo - o, xo + w + o), range(yo - o, yo + h + o)):
         if rule(x - xo, y - yo, w, h):
             py5.point(x, y)
             
