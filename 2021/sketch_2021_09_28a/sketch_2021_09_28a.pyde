@@ -1,7 +1,7 @@
 
 def setup():
     size(500, 500)
-    noCursor()
+    # noCursor()
 
 def draw():
     background(230)
@@ -23,13 +23,13 @@ def draw():
         endShape()
     fill(0, 100)
     beginShape()
-    o = 20 + 20 * sin(degrees(frameCount / 5000.0))
+    o = 30 + 10 * sin(degrees(frameCount / 5000.0))
     for x, y in offset_path(path, o):
         vertex(x, y) 
     endShape(CLOSE)
 def offset_path(path, offset):
-    a = calc_offset(path, offset=offset)
-    b = calc_offset(tuple(reversed(path)), offset=offset)
+    a = calc_offset(path, offset)
+    b = calc_offset(path[::-1], offset)
     return a + b
                         
 def calc_offset(path, offset):
@@ -54,14 +54,12 @@ def calc_offset(path, offset):
             # line(first_seg[1][0], first_seg[1][1], ip[0], ip[1])
             # if not point_inside_poly(ip[0], ip[1], (first_offset[1], first_offset[1], second_offset[0])):
             #     ip = point_offset(first_seg[1], offset, half_angle + PI)
-        #         circle(ip[0], ip[1], 3)    
         else:
-        #     circle(ip[0], ip[1], 5) 
             new_path.append(ip)
         # prepare for next loop    
         first_seg = second_seg
         first_offset = second_offset
-    new_path.append(second_offset[1])
+    new_path.append(second_offset[1]) # final offset point
     return new_path 
    
 def draw_seg(seg):
