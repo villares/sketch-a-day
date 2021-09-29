@@ -1,6 +1,8 @@
+from villares.arcs import *
 
 def setup():
     size(500, 500)
+    noCursor()
 
 def draw():
     background(230)
@@ -10,6 +12,7 @@ def draw():
         # (300, 450),
         (mouseX, mouseY),
         (450, 450),
+        (450, 100),
     )
     with pushStyle():
         noFill()
@@ -19,33 +22,53 @@ def draw():
         for x, y in path:
             vertex(x, y)
         endShape()
-    offset = 20
-    segments = []
-    for (xa, ya), (xb, yb) in zip(path[:-1], path[1:]):
-        angle = atan2(yb - ya, xb - xa)
-        v = PVector.fromAngle(angle + HALF_PI) * offset 
-        ro = (xa + v.x, ya + v.y, xb + v.x, yb + v.y)
-        lo = (xa - v.x, ya - v.y, xb - v.x, yb - v.y)
-        line(*ro)
-        line(*lo)
-        segments.append((xa, ya, xb, yb, ro, lo, angle))
+    stroke(0, 0, 100)
+    draw_offset(path, offset=20)
+    stroke(0, 100, 0)
+    draw_offset(tuple(reversed(path)), offset=20)
         
-    for sa, sb in zip(segments[:-1], segments[1:]):
-        angle_m = (sa[-1] + sb[-1]) / 2
-        v = PVector.fromAngle(angle_m + HALF_PI) * offset
-        xa, ya = sa[2:4]
-        line(xa - v.x, ya - v.y, xa + v.x, ya + v.y)
-        roa = sa[4]
-        rob = sb[4]
-        p = line_intersect(*(roa + rob), in_segment=False)
-        if p:
-            circle(p[0], p[1], 5)
-        loa = sa[5]
-        lob = sb[5]
-        p = line_intersect((loa[:2], loa[2:]), (lob[:2], lob[2:]), in_segment=False)
-        if p:
-            circle(p[0], p[1], 5)
-            
+def draw_offset(path, offset):
+    first_seg = path[:2]  # first segment
+    first_offset = seg_offset(first_seg, 20)
+    draw_seg(first_offset)
+    for p in path[2:]:
+        second_seg = (first_seg[1], p)
+        second_offset = seg_offset(second_seg, 20)
+        draw_seg(second_offset)
+        ip = line_intersect(first_offset, second_offset, in_segment=True)
+        if not ip:
+            half_angle = (seg_angle(first_seg) + seg_angle(second_seg)) / 2 + HALF_PI
+           #half_angle = half_angle + PI if half_angle < 0 else half_angle 
+            # ip = point_offset(first_seg[1], offset, half_angle)
+            ip = line_intersect(first_offset, second_offset, in_segment=False)
+            # fill(0)
+            # line(first_seg[1][0], first_seg[1][1], ip[0], ip[1])
+            if ip:
+                text(degrees(seg_angle(first_seg)), ip[0], ip[1])
+                beginShape()       
+                arc_corner(ip, first_offset[1], second_offset[0], 100)
+                endShape()                
+        else:
+            circle(ip[0], ip[1], 5) 
+
+        # prepare for next loop    
+        first_seg = second_seg
+        first_offset = second_offset
+        
+def draw_seg(seg):
+    (xa, ya), (xb, yb) = seg
+    line(xa, ya, xb, yb)
+        
+def seg_offset(seg, offset):
+    angle = seg_angle(seg) + HALF_PI  # angle perpendiculat to seg
+    return point_offset(seg[0], offset, angle), point_offset(seg[1], offset, angle)    
+    
+def point_offset(p, offset, angle):
+    return p[0] + offset * cos(angle), p[1] + offset * sin(angle)    
+                
+def seg_angle(seg):
+    (xa, ya), (xb, yb) = seg
+    return atan2(yb - ya, xb - xa)
             
 def line_intersect(*args, **kwargs):
     in_segment = kwargs.get('in_segment', True)
