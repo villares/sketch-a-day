@@ -1,7 +1,6 @@
 from itertools import product
 from random import sample
 
-
 def setup():
     global grid
     size(650, 650)
@@ -17,8 +16,8 @@ def draw():
     stroke(255)
     for x, y in grid:
         point(x, y) 
-    arrow = None
-    while not arrow or is_poly_self_intersecting(arrow):
+    path = arrow = None
+    while not path or is_poly_self_intersecting(arrow):
         path = sample(grid, 6)
         arrow = offset_path(path, 50)
     noStroke()
@@ -54,8 +53,6 @@ def remove_loops(path):
     #     circle(x, y, 20 - i * 2)
     return tuple(path)
                                   
-def c_remove_loops(path):
-    return (path[0],) + remove_loops(path[1:])
                                                                                                                                                                                                 
 def calc_offset(path, offset, inside=False):
     first_seg = path[:2]  # first segment
