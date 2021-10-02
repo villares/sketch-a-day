@@ -1,11 +1,13 @@
 from __future__ import division
 from helpers import line_intersect, point_inside_poly, ccw, poly_edges
+from collections import deque
 
 def setup():
     size(500, 500)
     noCursor()
     
 def draw():
+    global t1, t2
     background(200)
     scale(2)
     noFill()
@@ -15,16 +17,48 @@ def draw():
     t1 = [(mouseX + (r if  a % 2 else r / 2) * cos(radians(a)),
            mouseY + (r if  a % 2 else r / 2) * sin(radians(a)))
           for a in range(0, 360, 15) ]; draw_poly(t1)
-    
-    split_t1, split_t2 = split_both_shapes(t1, t2)
-                  
-    stroke(255, 0, 0)     
-    t1e_in_t2 = edges_inside_poly(split_t1, t2)
-    draw_edges(t1e_in_t2)
+                          
     stroke(0, 0, 200)
-    t2e_in_t1 = edges_inside_poly(split_t2, t1)
-    draw_edges(t2e_in_t1)
+    draw_edges(int_edges(union_edges(t1, t2)))
+    stroke(200, 0, 0)
+    draw_polys(join_edges(union_edges(t1, t2)))
     
+def keyPressed():
+    print(join_edges(union_edges(t1, t2))),  
+    
+def join_edges(edges):
+    result = []
+    if edges:
+        poly = fail = 0
+        edges_left = deque(int_edges(edges))
+        start = edges_left.popleft()
+        result.append(list(start))
+        while edges_left and poly < len(edges) / 3:
+            edge = edges_left.popleft()
+            if edge[0] == result[poly][-1]:
+                result[poly].extend(edge)
+            elif edge[1] == result[poly][-1]:
+                result[poly].extend(reversed(edge))
+            else:
+               fail += 1
+               if fail > len(edges):
+                   poly += 1
+                   fail = 0
+                   result.append(list(edge))
+               else:
+                   edges_left.append(edge)
+    return result
+  
+def int_edges(edges):
+    return [(tuple(map(int, edge[0])),
+            tuple(map(int, edge[1]))) for edge in edges] 
+        
+def union_edges(shape_a, shape_b):
+    split_a, split_b = split_both_shapes(shape_a, shape_b)
+    a_edges_in_b = edges_inside_poly(split_a, shape_b)
+    b_edges_in_a = edges_inside_poly(split_b, shape_a)
+    return a_edges_in_b + b_edges_in_a
+        
 def edges_inside_poly(edges, poly):
     return [edge for edge in edges if edge_in_poly(edge, poly)]
     
@@ -65,13 +99,6 @@ def sq_dist(a, b):
     (xa, ya), (xb, yb) = a, b
     return (xa - xb) * (xa - xb) + (ya - yb) * (ya - yb)
             
-def draw_edges(edges):
-    push()
-    translate(2, 2) # debug hack!
-    for (xa, ya), (xb, yb) in edges:
-        line(xa, ya, xb, yb)
-    pop()
-
 def edge_in_poly(edge, poly):
     x, y = midpoint(edge)
     return point_inside_poly(x, y, poly)
@@ -85,3 +112,16 @@ def draw_poly(points):
     for x, y in points:
         vertex(x, y)
     endShape(CLOSE)
+
+def draw_polys(polys):
+    for poly in polys:
+        draw_poly(poly)
+        
+def draw_edges(edges):
+    push()
+    textSize(8)
+    translate(2, 2) # debug hack!
+    for i, ((xa, ya), (xb, yb)) in enumerate(edges):
+        line(xa, ya, xb, yb)
+        text(i, xa, ya)
+    pop()
