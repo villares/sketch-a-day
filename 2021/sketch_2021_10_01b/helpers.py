@@ -72,7 +72,6 @@ def poly_edges(poly_points):
     """
     return pairwise(poly_points) + [(poly_points[-1], poly_points[0])]
 
-
 def pairwise(iterable):
     from itertools import tee
     "s -> (s0, s1), (s1, s2), (s2, s3), ..."
