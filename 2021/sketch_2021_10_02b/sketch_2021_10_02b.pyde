@@ -19,7 +19,8 @@ def draw():
            mouseY + (r if  a % 2 else r / 2) * sin(radians(a)))
           for a in range(0, 360, 15) ]; draw_poly(t1)                    
     stroke(0, 0, 200)
-    draw_edges(int_edges(intersection_edges(t1, t2)))
+    fill(0, 100)
+    #draw_polys(join_edges(union_edges(t1, t2)))
     stroke(200, 0, 0)
     fill(255, 100)
     draw_polys(join_edges(intersection_edges(t1, t2)))
@@ -31,20 +32,20 @@ def join_edges(edges):
     result = []
     if edges:
         poly = fail = 0
-        edges_left = deque(int_edges(edges))
+        edges_left = deque((edges))
         start = edges_left.popleft() 
         result.append(list(start))
         while edges_left and poly < len(edges) / 3:
             edge = edges_left.popleft()
-            if edge[0] == result[poly][-1]:
+            if is_close(edge[0], result[poly][-1]):
                 result[poly].append(edge[1])  #;print(edge, result[poly][-1])
-            elif edge[1] == result[poly][-1]:
+            elif is_close(edge[1], result[poly][-1]):
                 result[poly].append(edge[0]) #;print(edge[1], result[poly][-1], 'i')
             else:
                fail += 1
-               if fail > len(edges) * 8:
+               if fail > len(edges) * 10:
                    poly += 1
-                   print(fail)
+                   # print(fail, edges_left)
                    fail = 0
                    result.append(list(edge))
                else:
@@ -68,10 +69,14 @@ def union_edges(shape_a, shape_b):
     b_edges_in_a = edges_inside_poly(split_b, shape_a)
     union = set(split_a + split_b) - set(a_edges_in_b + b_edges_in_a)
     return union
-      
+  
+def is_close(a, b):
+    tol = 1
+    return abs(a[0] - b[0]) < tol and abs(a[1] - b[1]) < tol
+              
 def int_edges(edges):
     return [(tuple(map(int, edge[0])),
-            tuple(map(int, edge[1]))) for edge in edges] 
+            tuple(map(int, edge[1]))) for edge in edges]
                     
 def edges_inside_poly(edges, poly):
     return [edge for edge in edges if edge_in_poly(edge, poly)]
