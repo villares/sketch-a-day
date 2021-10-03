@@ -14,51 +14,65 @@ def draw():
     stroke(0)
     t2 = [(50, 50), (200, 100), (150, 150)] ; draw_poly(t2)
     r = 50
+    stroke(255)
     t1 = [(mouseX + (r if  a % 2 else r / 2) * cos(radians(a)),
            mouseY + (r if  a % 2 else r / 2) * sin(radians(a)))
-          for a in range(0, 360, 15) ]; draw_poly(t1)
-                          
+          for a in range(0, 360, 15) ]; draw_poly(t1)                    
     stroke(0, 0, 200)
-    draw_edges(int_edges(union_edges(t1, t2)))
+    draw_edges(int_edges(intersection_edges(t1, t2)))
     stroke(200, 0, 0)
-    draw_polys(join_edges(union_edges(t1, t2)))
+    fill(255, 100)
+    draw_polys(join_edges(intersection_edges(t1, t2)))
     
 def keyPressed():
-    print(join_edges(union_edges(t1, t2))),  
+    print(join_edges(intersection_edges(t1, t2))),  
     
 def join_edges(edges):
     result = []
     if edges:
         poly = fail = 0
         edges_left = deque(int_edges(edges))
-        start = edges_left.popleft()
+        start = edges_left.popleft() 
         result.append(list(start))
         while edges_left and poly < len(edges) / 3:
             edge = edges_left.popleft()
             if edge[0] == result[poly][-1]:
-                result[poly].extend(edge)
+                result[poly].append(edge[1])  #;print(edge, result[poly][-1])
             elif edge[1] == result[poly][-1]:
-                result[poly].extend(reversed(edge))
+                result[poly].append(edge[0]) #;print(edge[1], result[poly][-1], 'i')
             else:
                fail += 1
-               if fail > len(edges):
+               if fail > len(edges) * 8:
                    poly += 1
+                   print(fail)
                    fail = 0
                    result.append(list(edge))
                else:
                    edges_left.append(edge)
+    # for i, poly in reversed(list(enumerate(result))):
+    #     if poly[0] == poly[-1]:
+    #         poly.pop()
+    #     if len(poly) <= 2:
+    #         del result[i]
     return result
-  
-def int_edges(edges):
-    return [(tuple(map(int, edge[0])),
-            tuple(map(int, edge[1]))) for edge in edges] 
-        
-def union_edges(shape_a, shape_b):
+      
+def intersection_edges(shape_a, shape_b):
     split_a, split_b = split_both_shapes(shape_a, shape_b)
     a_edges_in_b = edges_inside_poly(split_a, shape_b)
     b_edges_in_a = edges_inside_poly(split_b, shape_a)
     return a_edges_in_b + b_edges_in_a
-        
+
+def union_edges(shape_a, shape_b):
+    split_a, split_b = split_both_shapes(shape_a, shape_b)
+    a_edges_in_b = edges_inside_poly(split_a, shape_b)
+    b_edges_in_a = edges_inside_poly(split_b, shape_a)
+    union = set(split_a + split_b) - set(a_edges_in_b + b_edges_in_a)
+    return union
+      
+def int_edges(edges):
+    return [(tuple(map(int, edge[0])),
+            tuple(map(int, edge[1]))) for edge in edges] 
+                    
 def edges_inside_poly(edges, poly):
     return [edge for edge in edges if edge_in_poly(edge, poly)]
     
@@ -114,8 +128,13 @@ def draw_poly(points):
     endShape(CLOSE)
 
 def draw_polys(polys):
-    for poly in polys:
+    for i, poly in enumerate(polys):
         draw_poly(poly)
+        push()
+        fill(0)
+        x, y = poly[0]
+        text(i, x, y)
+        pop()
         
 def draw_edges(edges):
     push()
@@ -123,5 +142,5 @@ def draw_edges(edges):
     translate(2, 2) # debug hack!
     for i, ((xa, ya), (xb, yb)) in enumerate(edges):
         line(xa, ya, xb, yb)
-        text(i, xa, ya)
+        # text(i, xa, ya)
     pop()
