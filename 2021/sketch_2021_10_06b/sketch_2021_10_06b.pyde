@@ -1,7 +1,8 @@
   
 from itertools import product
 from random import sample, seed
-from helpers import line_intersect, is_poly_self_intersecting, union_shapes, draw_polys
+from helpers import line_intersect, is_poly_self_intersecting, union_shapes
+from helpers import draw_poly, draw_polys
 
 def setup():
     global grid
@@ -25,7 +26,7 @@ def draw():
     path = sample(grid, 6)
     path.pop()
     path.append((mouseX, mouseY))
-    arrow = union_shapes(offset_path(path, 40), [(0, 0), (1, 1), (0, 1)])
+    arrow = offset_path(path, 40)
     # noStroke()
     fill(255, 100)
     strokeWeight(1)
@@ -34,14 +35,13 @@ def draw():
     # for x, y in arrow:
     #     vertex(x, y) 
     # endShape(CLOSE)
-    draw_polys(arrow)
+    draw_poly(arrow)
     
     
 def offset_path(path, offset):
     a = calc_offset(path, offset, True)
     b = calc_offset(path[::-1], offset)
-    return a + b
-                              
+    return a + b                    
                                                                                                                                                                                                 
 def calc_offset(path, offset, inside=False):
     first_seg = path[:2]  # first segment
