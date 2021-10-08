@@ -7,7 +7,7 @@ from glyphs import Glyph
 import interface
 
 def setup():
-    size(500 , 500)
+    size(550 , 500)
     strokeJoin(ROUND)
     # interface.grid_size = 20    
     with open("glyphs.pickle") as f:
@@ -16,6 +16,7 @@ def setup():
     # for g in Glyph.glyphs:
     #     if g not in "abcdefghijklmnopqrstuvwxyz":
     #         print(ord( g))
+    interface.phrase = "alexandre villares    wxxvwmw  ttrillifonjifg"
 
 def draw():
     background(200)
@@ -23,28 +24,27 @@ def draw():
     gs = interface.grid_size = 10
     t = interface.phrase
     ox, oy = interface.OX, interface.OY 
-    interface.draw_grid()
+    # interface.draw_grid()
     push()
     x = y = 0
     for c in t:
         gl = glyphs.get(c)
         if gl:
-            gl.plot(ox + x, oy + y, gs)
-            x += gl.width
+            gl.plot(ox + x, oy + y, gs, stroke_weight=4)
+            x += gl.width + 0.5
         else:
             x += 5
         if x * gs > width:
             x = 0
             y += 12   
-        
     pop()
-    translate(0, height / 2) 
+    translate(0, height / 2 - 10) 
     x, y = 2 * gs, 2 * gs      
     for gl in Glyph.glyphs.values():
         push()
         translate(x, y)
         s = 0.25
-        gl.plot(module_size=gs * s, stroke_weight=1)
+        gl.plot(module_size=gs * s, stroke_weight=2)
         pop()
         x += (gl.width + 1) * gs * s
         if x > width - 40:
