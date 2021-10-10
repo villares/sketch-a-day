@@ -28,6 +28,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_10_09a_images](2021/sketch_2021_10_09a_images/sketch_2021_10_09a_images.gif)
+
+[sketch_2021_10_09a_images](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_10_09a_images) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Example for loading all images from a folder. Made for [material-aulas](http://abav.lugaralgum.com/material-aulas) using a collection of medieval images made by [Daniel Seda](https://twitter.com/danielseda).
+
+---
+
 ![sketch_2021_10_08_glyph](2021/sketch_2021_10_08_glyph/sketch_2021_10_08_glyph.png)
 
 [sketch_2021_10_08_glyph](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_10_08_glyph) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
