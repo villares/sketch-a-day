@@ -3,7 +3,7 @@ steps = deque((2, 3, 4, 5, 6, 8, 9, 10, 12, 15))
 
 def setup():
     size(500, 500)
-    frameRate(1)
+    frameRate(3)
     
 def draw():
     background(0)
@@ -22,5 +22,5 @@ def draw():
             x = r * cos(radians(a + i * 2))
             y = r * sin(radians(a + i * 2)) 
             circle(x, y, step)
-    if frameCount < 10:
-        saveFrame('##.png')
+    # if frameCount < 11:
+    #     saveFrame('##.png')
