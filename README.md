@@ -38,6 +38,9 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_10_11a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_10_11a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+Made during a chat at Python Brasil 2021
+Online here: https://abav.lugaralgum.com/pyp5js/pyodide/circles.html
+
 ---
 
 ![sketch_2021_10_10a](2021/sketch_2021_10_10a/sketch_2021_10_10a.png)
