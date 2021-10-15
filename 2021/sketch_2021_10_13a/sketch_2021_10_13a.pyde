@@ -18,3 +18,5 @@ def draw():
             y = r * sin(radians(a + i * 2)) 
             s = TWO_PI * r / (360 / step)
             circle(x, y, s)
+    if frameCount < 361 and frameCount % 2:
+        saveFrame("###.png")
