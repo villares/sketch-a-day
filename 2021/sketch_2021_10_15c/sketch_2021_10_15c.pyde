@@ -20,10 +20,11 @@ def draw():
         endShape(CLOSE)
     
 def mouseDragged():
-    
     ox, oy = width /2 , height / 2
-    unvisited_tris.add(((mouseX - ox, mouseY - oy),
-                        (pmouseX - ox, pmouseY - oy)))
+    drag = ((mouseX - ox, mouseY - oy),
+            (pmouseX - ox, pmouseY - oy))
+    unvisited_tris.add(drag)
+    tris.append(drag)
     
 def keyPressed():
     for t in list(unvisited_tris):
