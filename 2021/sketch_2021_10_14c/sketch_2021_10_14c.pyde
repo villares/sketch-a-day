@@ -21,7 +21,7 @@ def draw():
     
     
 def keyPressed():
-    for t in unvisited_tris:
+    for t in list(unvisited_tris):
         grow(t)
         unvisited_tris.remove(t)
     print len(tris)#, len(visited_tris)
