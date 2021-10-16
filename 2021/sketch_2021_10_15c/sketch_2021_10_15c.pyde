@@ -35,18 +35,20 @@ def keyPressed():
 def grow(t):        
     edges = get_edges(t)
     for e in edges:
+        e0, e1 = e[0], e[1]
         a = edge_angle(e)
         m = midpoint(e)
         d = edge_dist(e) * 0.87 
         p = point_offset(m, d, a - HALF_PI)
         if not point_in_tris(p):
-            n = (e[0],  p, e[1])
+            n = (e0,  p, e1)
             tris.append(n)
             unvisited_tris.add(n)
                                                 
 def get_edges(t):
+    t0 = t[0]
     return [((xa, ya), (xb, yb)) for (xa, ya), (xb, yb)
-             in zip(t, t[1:] + (t[0],))]
+             in zip(t, t[1:] + (t0,))]
         
 def edge_angle(edge):
     (xa, ya), (xb, yb) = edge
@@ -57,8 +59,9 @@ def point_offset(p, offset, angle):
             int(p[1] + offset * sin(angle)))  
 
 def point_in_tris(p):
+    x, y = p
     for t in tris:
-        if point_inside_poly(p[0], p[1], t):
+        if point_inside_poly(x, y, t):
             return True
     return False
     
