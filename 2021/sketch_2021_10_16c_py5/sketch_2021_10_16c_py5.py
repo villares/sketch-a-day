@@ -32,9 +32,8 @@ def key_pressed():
     growall()
     
 def growall():    
-#     for t in list(unvisited_tris):
-#         grow(t)
-    map(grow,  list(unvisited_tris))
+    for t in list(unvisited_tris):
+         grow(t)
     print(len(tris))  # , len(visited_tris)
 
 
@@ -56,7 +55,6 @@ def grow(t):
             n = (e0, p, e1)
             tris.append(n)
             unvisited_tris.add(n)
-
 
 def get_edges(t):
     t0 = t[0]
