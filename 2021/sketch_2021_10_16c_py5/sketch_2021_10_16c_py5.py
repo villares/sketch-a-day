@@ -4,9 +4,7 @@ unvisited_tris = set()
 
 def setup():
     size(600, 600)
-    inicial = ((0, -10), (0, 10), (15, 0))
-    #profile_growall()
-
+    profile_functions(['key_pressed'])
 
 
 def draw():
