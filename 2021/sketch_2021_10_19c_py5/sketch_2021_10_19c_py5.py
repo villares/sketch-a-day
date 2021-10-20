@@ -6,17 +6,17 @@ from shapely.ops import unary_union
 
 import numpy as np
 
+Vertex = np.dtype([('x','f4'), ('y','f4')])
+Edge = np.dtype([('va', Vertex), ('vb',Vertex)])
+Triangle = np.dtype([('va', Vertex), ('vb', Vertex), ('vc', Vertex)])
 
 tris = [
     ((10, 0), (0, 10), (10, 10)),
     ((20, 10), (10, 20), (20, 20)),
     ]
 
-Vertex = np.dtype([('x','f4'), ('y','f4')])
-Edge = np.dtype([('va', Vertex), ('vb',Vertex)])
-Triangle = np.dtype([('va', Vertex), ('vb', Vertex), ('vc', Vertex)])
-
 unvisited_tris = tris[:]
+edges_drag = []
 
 def setup():
     py5.size(600, 600)
@@ -33,19 +33,23 @@ def draw():
         for x, y in t:
             py5.vertex(x, y)
         py5.end_shape(py5.CLOSE)
-#     for u in unvisited_tris:
-#         py5.begin_shape()
-#         for x, y in u:
-#             py5.vertex(x, y)
-#         py5.end_shape(py5.CLOSE)
+#     for e in edges_drag:
+#         (xa, ya), (xb, yb) = e
+#         py5.line(xa, ya, xb, yb)
 
 
 def mouse_dragged():
     ox, oy = py5.width / 2, py5.height / 2
-    drag = ((py5.mouse_x - ox, py5.mouse_y - oy),
-            (py5.pmouse_x - ox, py5.pmouse_y - oy))
-    unvisited_tris.append(drag)
-    
+    mt = (py5.mouse_x - ox, py5.mouse_y - oy) 
+    pmt =(py5.pmouse_x - ox, py5.pmouse_y - oy) 
+    if mt != pmt:
+        edges_drag.append((pmt, mt))
+ 
+
+def mouse_released():
+    np_edges = np.array(edges_drag, dtype=Edge)
+    process_edge(np_edges)
+ 
 # my in point
 #     loop          10   32877669.0 3287766.9    100.0      grow_all()
 #     map           10   30474387.0 3047438.7    100.0      grow_all()
@@ -54,7 +58,8 @@ def mouse_dragged():
 #                   10   18337830.0 1833783.0     80.8      list(map(grow, unvisited))
 # todo: vectorize
 #vv        63        10     959033.0  95903.3     99.9      grow(nptris)
-
+#         63        13   14289123.0 1099163.3    100.0      grow(nptris)
+#        67         4   83578108.0 20894527.0    100.0 
 def key_pressed():
     global nptris
     unvisited = unvisited_tris[:]
@@ -65,22 +70,25 @@ def key_pressed():
 @np.vectorize
 def grow(t):
     (xa, ya), (xb, yb), (xc, yc) = t
-    edges = (
+    edges =  np.array([
         ((xa, ya), (xb, yb)),
         ((xb, yb), (xc, yc)),
         ((xc, yc), (xa, ya)),
-             )
-    for e in edges:
-        e0, e1 = e[0], e[1]
-        a = edge_angle(e)
-        m = midpoint(e)
-        d = edge_dist(e) * 0.87
-        p = point_offset(m, d, a - pi / 2)
-        if not point_in_tris(p):
-            #n = np.array((e0, p, e1), dtype=Triangle)
-            n = (e0, p, e1)
-            tris.append(n)
-            unvisited_tris.append(n)
+    ], dtype=Edge)
+    process_edge(edges)
+        
+@np.vectorize        
+def process_edge(e):
+    e0, e1 = e
+    a = edge_angle(e)
+    m = midpoint(e)
+    d = edge_dist(e) * 0.87
+    p = point_offset(m, d, a - pi / 2)
+    if not point_in_tris(p):
+        #n = np.array((e0, p, e1), dtype=Triangle)
+        n = (e0, p, e1)
+        tris.append(n)
+        unvisited_tris.append(n)
 
 def mouse_pressed():
     if py5.mouse_button == py5.RIGHT:
