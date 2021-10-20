@@ -44,11 +44,12 @@ def mouse_dragged():
     pmt =(py5.pmouse_x - ox, py5.pmouse_y - oy) 
     if mt != pmt:
         edges_drag.append((pmt, mt))
- 
 
 def mouse_released():
     np_edges = np.array(edges_drag, dtype=Edge)
     process_edge(np_edges)
+    tris.extend(unvisited_tris)
+ 
  
 # my in point
 #     loop          10   32877669.0 3287766.9    100.0      grow_all()
@@ -60,12 +61,17 @@ def mouse_released():
 #vv        63        10     959033.0  95903.3     99.9      grow(nptris)
 #         63        13   14289123.0 1099163.3    100.0      grow(nptris)
 #        67         4   83578108.0 20894527.0    100.0 
+
+
 def key_pressed():
     global nptris
     unvisited = unvisited_tris[:]
     unvisited_tris[:] = [] 
     nptris = np.array(tris, dtype=Triangle)
     grow(nptris)
+    tris.extend(unvisited_tris)
+
+
 
 @np.vectorize
 def grow(t):
@@ -87,7 +93,6 @@ def process_edge(e):
     if not point_in_tris(p):
         #n = np.array((e0, p, e1), dtype=Triangle)
         n = (e0, p, e1)
-        tris.append(n)
         unvisited_tris.append(n)
 
 def mouse_pressed():
