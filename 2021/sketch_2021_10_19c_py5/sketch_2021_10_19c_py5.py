@@ -67,7 +67,7 @@ def key_pressed():
     global nptris
     unvisited = unvisited_tris[:]
     unvisited_tris[:] = [] 
-    nptris = np.array(tris, dtype=Triangle)
+    nptris = np.array(unvisited, dtype=Triangle)
     grow(nptris)
     tris.extend(unvisited_tris)
 
