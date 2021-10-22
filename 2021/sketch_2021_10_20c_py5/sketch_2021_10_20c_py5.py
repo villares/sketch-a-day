@@ -140,7 +140,6 @@ def point_inside_tri(pt, tri):
     return not (pos and neg)
 
 
-
 def edge_dist(edge):
     return dist(*edge) # math.dist 
 
