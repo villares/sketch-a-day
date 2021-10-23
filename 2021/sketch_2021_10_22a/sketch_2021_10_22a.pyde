@@ -9,12 +9,12 @@ def setup():
     
 def draw():
     ortho()
-    translate(width / 2, 0)
-    rotateY(radians(a))
-    translate(-width / 2, 0)
     background(200)
-    for x, y, z in gesture:
+    for x, y, z, r in gesture:
         push()
+        translate(width / 2, 0)
+        rotateY(radians(r - a))
+        translate(-width / 2, 0)
         translate(x, y, z)
         fill(abs(z), 255, 128)
         noStroke()
@@ -22,7 +22,7 @@ def draw():
         pop()
         
 def mouseDragged():
-    gesture.append((mouseX, mouseY, z))
+    gesture.append((mouseX, mouseY, z, a))
     
 def keyPressed():
     global z, a
