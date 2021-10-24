@@ -9,7 +9,7 @@ def setup():
 def draw():
     background(220)
     global t
-    t += 0.01  # faz o papel do temp0 passando
+    t += 0.01  # faz o papel do tempo passando
     i = 0
     while i < TAU:   # TAU = 2 * PI = 360 graus em radianos 
         beginShape(QUADS)  # teoricamente para desenhar quadriláteros
