@@ -28,6 +28,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_10_27polyominoes](2021/sketch_2021_10_27polyominoes/sketch_2021_10_27polyominoes.png)
+
+[sketch_2021_10_27polyominoes](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_10_27polyominoes) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_10_26a](2021/sketch_2021_10_26a/sketch_2021_10_26a.gif)
 
 [sketch_2021_10_26a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_10_26a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
