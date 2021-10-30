@@ -1,5 +1,7 @@
 from grid_shapes import Shape
 
+# SQUARE_SIZE = 40
+# GRID_SIZE = 3
 SQUARE_SIZE = 5
 GRID_SIZE = 4
 
