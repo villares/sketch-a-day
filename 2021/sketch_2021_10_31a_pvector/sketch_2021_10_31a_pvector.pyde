@@ -26,7 +26,10 @@ class Particle:
             self.vel += acel
         self.pos += self.vel
         self.vel = self.vel * 0.995 # slow down
-
+         
+        stroke(max(0, 255 - d * 5,), 0, 0)    
+        point(self.pos.x, self.pos.y)
+        
         if self.pos.x < 0:
             self.pos.x = width
         elif self.pos.x > width:
@@ -34,11 +37,4 @@ class Particle:
         if self.pos.y < 0:
             self.pos.y = height
         elif self.pos.y > height:
-            self.pos.y = 0
-         
-        stroke(max(0, 255 - d * 5,), 0, 0)    
-        point(self.pos.x, self.pos.y)
-        
-        
-        
-        
+            self.pos.y = 0 
