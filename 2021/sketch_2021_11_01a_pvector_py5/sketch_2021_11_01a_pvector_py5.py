@@ -4,6 +4,7 @@ particles = []
 
 def setup():
     size(400, 400)
+    baclground(0)
     stroke_weight(5)
     for i in range(200):
         particles.append(Particle(random(width),random(height)))
@@ -26,7 +27,7 @@ class Particle:
         d = delta.mag()
         if 0 < d < 50:
             delta.normalize()
-            acel = delta * 0.01 / d * d
+            acel = delta * 0.01
             self.vel += acel
         self.pos += self.vel
         self.vel = self.vel * 0.995 # slow down
