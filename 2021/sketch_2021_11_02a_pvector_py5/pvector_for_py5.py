@@ -1,7 +1,9 @@
 # A quick proof of concept, PVector-like class for use with my py5 sketches
 # based on a previous versions for pyp5js: https://gist.github.com/villares/5c476cbc44c1153fed159eae36fc016b
+# Note: this version removed, does not implement, the Java class methods behavior like PVector.add(PVector: a, PVector: b) -> Pvector: c
 
 import math
+from random import random as py_random
 from numbers import Number
 
 TWO_PI = math.tau
@@ -218,18 +220,19 @@ class PVector:
 
     @classmethod
     def random2D(cls):  
-        import random
-        return PVector.fromAngle(random.random() * TWO_PI) 
+        return PVector.fromAngle(py_random() * TWO_PI) 
 
     @classmethod
-    def random3D(cls):
-        import random
-        angle = random.random() * TWO_PI
-        vz = random.random() * 2 - 1
-        mult = sqrt(1 - vz * vz)
+    def random3D(cls, target=None):
+        angle = py_random() * TWO_PI
+        vz = py_random() * 2 - 1
+        mult = math.sqrt(1 - vz * vz)
         vx = mult * math.cos(angle)
         vy = mult * math.sin(angle)
-        return PVector(vx, vy, vz)
+        if target is None:
+            return PVector(vx, vy, vz)
+        else:
+            return target.set(vx, vy, vz)
 
     @classmethod
     def angleBetween(cls, a, b):
@@ -393,7 +396,7 @@ def test():
     assert -10 <= r.y <= 10
     assert r.z == 0
 
-#     PVector.random3D(r)
+#     PVector.random3D(r) #????
 #     r += (1, 1, 1)
 #     assert 0 <= r.x <= 2
 #     assert 0 <= r.y <= 2
