@@ -1,4 +1,4 @@
-from random import sample, seed
+from random import sample, seed, shuffle
 
 nodes = {}
 step = 10
@@ -32,8 +32,8 @@ def draw():
 
 def keyPressed():
     global nbs
-    nbs = sample(NBS, 4)
     if key == ' ':
+        nbs = sample(NBS, 4)
         c =  color(random(128) * 2, 0, 255)
         for _ in range(5):
             grow(c)
@@ -42,12 +42,10 @@ def keyPressed():
         nodes.clear()
         nodes[(0, 0)] = (0, 0, 0)
                 
-def grow(c):
-    nk =  nodes.keys()[:]
-    shuffle(nk)
-    # nk.sort()
-    
-    for x, y in nk:
+def grow(c):    
+    nks = nodes.keys()
+    shuffle(nks)
+    for x, y in nodes.keys():
         for nx, ny in nbs:
             xnx, yny = x + nx, y + ny
             if (xnx, yny) not in nodes:
