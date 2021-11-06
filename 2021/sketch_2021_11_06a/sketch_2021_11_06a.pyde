@@ -23,9 +23,8 @@ def draw():
         xb, yb, c = v
         stroke(c)
         line(xa * step, ya * step, xb * step, yb * step)
-    for n, v in nodes.items():
+    for n, _ in nodes.items():
         xa, ya = n
-        xb, yb, c = v
         noStroke()
         fill(0)
         circle(xa * step, ya * step, n_size)
