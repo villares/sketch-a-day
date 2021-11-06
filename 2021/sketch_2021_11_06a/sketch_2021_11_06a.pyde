@@ -1,6 +1,6 @@
 from random import sample, seed, shuffle
 
-nodes = {}
+nodes = {(0, 0): (0, 0, 0)}
 step = 10
 n_size = 4
 NBS = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))
@@ -9,13 +9,10 @@ nbs = NBS
 def setup():
     size(600, 600)
     strokeWeight(2)
-    setup_seed(14220)
-    nodes.clear()
-    nodes[(0, 0)] = (0, 0, 0)
+    setup_seed(1)
             
 def draw():
     background(240)
-    # background(40, 140, 240)
     translate(width / 2, height / 2)
     
     for n, v in nodes.items():
@@ -33,17 +30,20 @@ def keyPressed():
     global nbs
     if key == ' ':
         nbs = sample(NBS, 4)
-        c =  color(random(128) * 2, 0, 255)
+        c = color(random(32) * 8, 0, 255)
         for _ in range(5):
             grow(c)
     elif key == ENTER:
         setup_seed()
         nodes.clear()
         nodes[(0, 0)] = (0, 0, 0)
+    elif key == 's':
+        saveFrame("######.png")
                 
 def grow(c):    
     nks = nodes.keys()
     shuffle(nks)
+    # nks.sort()
     for x, y in nodes.keys():
         for nx, ny in nbs:
             xnx, yny = x + nx, y + ny
