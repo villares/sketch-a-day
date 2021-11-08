@@ -58,7 +58,6 @@ def grow(c):
     # nks.sort()  # hmmm. not that nice
     shuffle(nks)
     for i, (x, y) in enumerate(nodes.keys()):
-        nx, ny = nbs[i % len(nbs)]
         for nx, ny in nbs:
             xnx, yny = x + nx, y + ny
             if (xnx, yny) not in nodes:
