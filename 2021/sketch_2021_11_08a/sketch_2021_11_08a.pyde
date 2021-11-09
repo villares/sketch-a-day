@@ -37,12 +37,13 @@ def draw():
             continue
         stroke(c)
         line(xa * step, ya * step, xb * step, yb * step)
-    for n, _ in nodes.items():
-        xa, ya = n
-        noStroke()
-        # fill(50, 50, 255)
-        fill(0)
-        circle(xa * step, ya * step, n_size)
+    # for n, _ in nodes.items():
+    #     print(n)
+    #     xa, ya = n
+    #     noStroke()
+    #     # fill(50, 50, 255)
+    #     fill(0)
+    #     circle(xa * step, ya * step, n_size)
     
 def keyPressed():
     global nbs
