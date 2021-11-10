@@ -56,9 +56,8 @@ def keyPressed():
 def grow():    
     nks = nodes.keys()
     shuffle(nks)
-    for j, (x, y) in enumerate(nodes.keys()):
+    for x, y in nodes.keys():
         for i, (nx, ny) in enumerate(nbs):
-            # if j % 100 == 0: print i
             c = color(0, i * 10, 128 - i * 16)
             xnx, yny = x + nx, y + ny
             visible = (abs(xnx * step) < width / 2 - step and
