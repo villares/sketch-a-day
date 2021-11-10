@@ -52,9 +52,7 @@ def keyPressed():
         saveFrame('{}.png'.format(random_seed))
                 
 def grow():    
-    nks = nodes.keys()
-    shuffle(nks)
-    for x, y in nodes.keys():
+    for x, y in nodes.keys():  # maybe I should shuffle these...
         for i, (nx, ny) in enumerate(nbs):
             c = color(0, i * 10, 128 - i * 16)
             xnx, yny = x + nx, y + ny
