@@ -12,21 +12,15 @@ def setup():
     size(1600, 800)
     w = width / 2 / step - 1
     h = height / 2 / step - 1
-
     strokeWeight(2)
     setup_seed(15406)  # 23698  
     start()
     
 def start():
     nodes.clear()
-    # a = 20
-    # nodes[(-a, -a)] = (-a, -a, 0)
-    # nodes[(-a, a)] = (-a, a, 0)
-    # nodes[(a, -a)] = (a, -a, 0)
-    # nodes[(a, a)] = (a, a, 0)
-    nodes.update({(int(random(-w, w)), int(random(-h, h))): None for _ in range(10)})
+    initial_nodes = {(int(random(-w, w)), int(random(-h, h))): None for _ in range(10)} 
+    nodes.update(initial_nodes)
         
-            
 def draw():
     background(240)
     # background(40, 140, 240)
@@ -34,10 +28,10 @@ def draw():
     
     for n, v in nodes.items():
         xa, ya = n
-        if v:
+        if v:        # v is origin + color
             xb, yb, c = v
-        else:
-            continue
+        else:        # v is None
+            continue # skip inital nodes 
         stroke(c)
         line(xa * step, ya * step, xb * step, yb * step)
         noStroke()
@@ -61,7 +55,6 @@ def keyPressed():
                 
 def grow():    
     nks = nodes.keys()
-    # nks.sort()  # hmmm. not that nice
     shuffle(nks)
     for j, (x, y) in enumerate(nodes.keys()):
         for i, (nx, ny) in enumerate(nbs):
