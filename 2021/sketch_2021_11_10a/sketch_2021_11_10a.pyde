@@ -29,14 +29,13 @@ def start():
        
 def draw():
     background(240)
-    # background(40, 140, 240)
     translate(width / 2, height / 2)
     for n, v in nodes.items():
         xa, ya = n
-        if v:
+        if v:        # v is origin + color
             xb, yb, c = v
-        else:
-            continue
+        else:        # v is None
+            continue # skip inital nodes 
         stroke(c)
         line(xa * step, ya * step, xb * step, yb * step)
         noStroke()
