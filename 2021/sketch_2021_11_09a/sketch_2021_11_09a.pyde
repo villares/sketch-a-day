@@ -23,9 +23,7 @@ def start():
         
 def draw():
     background(240)
-    # background(40, 140, 240)
     translate(width / 2, height / 2)
-    
     for n, v in nodes.items():
         xa, ya = n
         if v:        # v is origin + color
