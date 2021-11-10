@@ -47,7 +47,7 @@ def keyPressed():
         nbs[:] = NBS         # refresh, full neighbourhood
         for _ in range(8):   # 8 times 5 iteration steps
             nbs[:] = sample(NBS, max(2, len(nbs) - 1))
-            for i in range(5):
+            for _ in range(5):
                 grow()
     elif key == ENTER:      
         setup_seed()
@@ -57,9 +57,8 @@ def keyPressed():
                 
 def grow():    
     nks = nodes.keys()
-    # nks.sort()  # hmmm. not that nice
     shuffle(nks)
-    for x, y in nodes.keys():
+    for x, y in nks:
         for nx, ny in nbs:            
             xnx, yny = x + nx, y + ny
             visible = (abs(xnx * step) < width / 2 - step * 5 and
