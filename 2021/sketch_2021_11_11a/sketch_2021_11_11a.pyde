@@ -1,3 +1,4 @@
+from itertools import product
 from random import sample, seed, shuffle
 
 nodes = {}
@@ -5,13 +6,13 @@ step = 8
 n_size = 2
 NBS = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))
 nbs = list(NBS)
-dir_color = {}
+color_dict = {}
 sample_size = 3
 
 def setup():
     global w, h
-    # noSmooth()
     size(1600, 800)
+    colorMode(HSB)
     w = width / 2 / step - 5
     h = height / 2 / step - 5
     strokeWeight(4)
@@ -21,24 +22,27 @@ def setup():
 def start():
     nbs[:] = NBS
     shuffle(nbs)
-    dir_color.update({nb: i for i, nb in enumerate(nbs)})  
+    color_dict.update({nb:  color(i * 32, 255, 128)  # HSB color dict
+                      for i, nb in enumerate(nbs)})  # for shuffled nbs
     nodes.clear()
-    nodes.update({(int(random(-w, w)), int(random(-h, h))): None for _ in range(10)})
-        
+    # initial_nodes = {(int(random(-w, w)), int(random(-h, h))): None for _ in range(10)} 
+    grid = product(range(2 - w, w, 20), range(2 - h, h, 30)) 
+    initial_nodes = {(i, j): None for i, j in grid} 
+    
+    nodes.update(initial_nodes)     
+       
 def draw():
     background(240)
-    # background(40, 140, 240)
     translate(width / 2, height / 2)
-    
-    for n, v in sorted(nodes.items()):
+    for n, v in nodes.items():
         xa, ya = n
-        if v:
+        if v:        # v is origin + color
             xb, yb, c = v
-        else:
-            continue
+        else:        # v is None
+            continue # skip inital nodes 
         stroke(c)
         line(xa * step, ya * step, xb * step, yb * step)
-    for n, v in sorted(nodes.items()):
+    for n, v in nodes.items():
         xa, ya = n
         noStroke()
         fill(0)
@@ -46,30 +50,30 @@ def draw():
     
 def keyPressed():
     if key == ' ':
-        nbs[:] = NBS
-        for _ in range(8):
-            nbs[:] = sample(NBS, max(2, len(nbs) - 1))
-            for i in range(5):
-                grow()
+        nbs[:] = NBS         # refresh, full neighbourhood
+        for i in range(10):   # 10 times 5 iteration steps
+            s = int(random(10000))
+            for _ in range(5):
+                grow(s)
     elif key == ENTER:      
         setup_seed()
         start()
     elif key == 's':
         saveFrame('{}.png'.format(random_seed))
                 
-def grow():    
+def grow(s):    
     nks = nodes.keys()
-    # nks.sort()  # hmmm. not that nice
     shuffle(nks)
-    for j, (x, y) in enumerate(nodes.keys()):
-        for (nx, ny) in nbs:
-            i = dir_color[(nx, ny)]
-            colorMode(HSB)
-            c = color(i * 32, 255, 128)
+    for x, y in nks:
+        # seed(s + int(x / 20) + y / 20)
+        seed(s + int(y / 20))
+        xnbs = sample(NBS, int(map(x, -w, w, 2, 7)))
+        for nx, ny in xnbs:            
             xnx, yny = x + nx, y + ny
             visible = (abs(xnx * step) < width / 2 - step * 5 and
                        abs(yny * step) < height / 2 - step * 5 )
             if visible and (xnx, yny) not in nodes:
+                c = color_dict[(nx, ny)]
                 nodes[(xnx, yny)] = (x, y, c)
     
 def setup_seed(s=None):
@@ -81,5 +85,3 @@ def setup_seed(s=None):
     seed(random_seed)       # Python's random
     randomSeed(random_seed) # Processing's random
     print(random_seed)
-    
-       
