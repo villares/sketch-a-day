@@ -21,7 +21,7 @@ def setup():
     setup_seed(1)   
     start()
     
-def start(clean=False):
+def start(seeds=False):
     nbs[:] = NBS
     shuffle(nbs)
     color_dict.update({nb:  color(i * 32, 255, 128)  # HSB color dict
@@ -29,8 +29,12 @@ def start(clean=False):
     # color_dict.update({(i, j):  color(128 + (i + j) * 16, 200, 100)  # HSB color dict
     #                   for n, (i, j) in enumerate(NBS)})  # for shuffled nbs
     nodes.clear()
-    if clean:
+    if seeds:
+        unvisited_nodes[:] = [(int(random(-w, w)), int(random(-h, h)))
+                              for _ in range(4)]
+    else:
         unvisited_nodes[:] = []
+        
        
 def draw():
     background(240)
@@ -47,8 +51,10 @@ def draw():
     
 def keyPressed():
     if key == ' ':
-        start(clean=True)
         setup_seed()
+        start(seeds=True)
+    if key == ENTER:
+        start()
     elif key == 's':
         saveFrame('{}.png'.format(random_seed))
                 
