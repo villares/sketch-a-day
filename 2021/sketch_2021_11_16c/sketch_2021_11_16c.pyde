@@ -28,7 +28,7 @@ def start(seeds=False):
     if seeds:
         x1, y1 = int(random(-w, w)), int(random(-h, h)) 
         x2, y2 = int(random(-w, w)), int(random(-h, h))
-        while not (x1 % 2 != x2 % 2) ^ (y1 % 2 != y2 % 2):
+        while not (x1 % 2 == x2 % 2) ^ (y1 % 2 == y2 % 2):
             x2, y2 = int(random(-w, w)), int(random(-h, h))
         unvisited_nodes[:] = [(x1, y1), (x2, y2)]
     else:
@@ -84,7 +84,6 @@ def mouseDragged():
     i = (mouseX - width / 2) // step
     j = (mouseY - height / 2) // step
     if (i, j) not in nodes:
-        nodes.update({(i, j): None})     
         unvisited_nodes.append((i, j))
       
 def setup_seed(s=None):
