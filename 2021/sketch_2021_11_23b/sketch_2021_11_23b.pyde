@@ -3,7 +3,7 @@
 # https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
 
 """
-polygons on a 3 x 3, grid
+Hexagons on a 3 x 3, grid
 """
 
 add_library('pdf')
@@ -20,9 +20,7 @@ def setup():
     # 1000 450 FOR 8 (126)
     size(1400, 750)
     grid = product((-1, 0, 1), (-1, 0, 1))  # 3X3
-    # all triple point combinations on a grid
     points = list(grid)
-
     polys = create_polys(points, 6)
     print(len(polys))
     W = (width - border * 2) // space
