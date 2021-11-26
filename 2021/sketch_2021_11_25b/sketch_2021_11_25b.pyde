@@ -38,7 +38,7 @@ def setup():
                 translate(border / 2 + space + space * x,
                           border / 2 + space + space * y)
                 fill(0)
-                draw_segs(scale_segs(segs[i], space * 0.38))
+                draw_segs(scale_segs(segs[i], space * 0.30))
                 popMatrix()
                 i += 1
     # end PDF export
