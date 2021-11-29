@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
-active_category_name = '',
+active_category_name = ''
+selected_flags = []
 
 def setup():
     size(900, 450)
@@ -55,10 +56,12 @@ def draw_items(menu_items, x_offset=0, y_offset=0):
 def mousePressed():
     # categories, like radio buttons    
     cat_selection = check_selection(categories)
-    treat_category_selection(cat_selection)
+    if cat_selection:
+        treat_category_selection(cat_selection)
     # flags, like checkboxes    
     flag_selection = check_selection(flags)
-    treat_flag_selection(flag_selection)
+    if flag_selection:
+        treat_flag_selection(flag_selection)
     print(active_category_name, selected_flags)
 
     
@@ -71,21 +74,19 @@ def check_selection(menu_items, x_offset=0, y_offset=0):
     
 def treat_category_selection(selection):
     global active_category_name
-    if selection:
-        if selection['name'].startswith('-'):
-            return # click on category separator
-        elif selection['state'] == True:
-            selection['state'] = False
-            active_category_name = ''
-        else:
-            for cat in categories:
-                cat['state'] = False
-            selection['state'] = True
-            active_category_name = selection['name']
-            
+    if selection['name'].startswith('-'):
+        return # click on category separator
+    elif selection['state'] == True:
+        selection['state'] = False
+        active_category_name = ''
+    else:
+        for cat in categories:
+            cat['state'] = False
+        selection['state'] = True
+        active_category_name = selection['name']
+        
 def treat_flag_selection(selection):
     global selected_flags
-    if selection:
-        selection['state'] = not selection['state'] 
+    selection['state'] = not selection['state'] 
     selected_flags = [flag['name'] for flag in flags
                       if flag['state']]   # state == True
