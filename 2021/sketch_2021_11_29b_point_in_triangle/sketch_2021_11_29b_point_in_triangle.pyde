@@ -10,9 +10,9 @@ def draw():
         fill(0, 200, 0)
     else:
         fill(0, 0, 200)
-    (xa, ya), (xb, yb), (xc, yx) = tri
+    (xa, ya), (xb, yb), (xc, yc) = tri
     noStroke()
-    triangle(xa, ya, xb, yb, xc, yx)
+    triangle(xa, ya, xb, yb, xc, yc)
     stroke(0)
     point(mouseX, mouseY)
 
