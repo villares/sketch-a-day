@@ -28,6 +28,12 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_11_29b_point_in_triangle](2021/sketch_2021_11_29b_point_in_triangle/sketch_2021_11_29b_point_in_triangle.gif)
+
+[sketch_2021_11_29b_point_in_triangle](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_11_29b_point_in_triangle) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_11_28b_menus](2021/sketch_2021_11_28b_menus/sketch_2021_11_28b_menus.gif)
 
 [sketch_2021_11_28b_menus](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_11_28b_menus) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
