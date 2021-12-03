@@ -21,7 +21,7 @@ def point_in_triangle(_x, _y, tri):  # ~3 to 4 seconds
     pbc = abs(_x * (by - cy) + bx * (cy - _y) + cx * (_y - by))
     apc = abs(ax * (_y - cy) + _x * (cy - ay) + cx * (ay - _y))
     abp = abs(ax * (by - _y) + bx * (_y - ay) + _x * (ay - by))
-    return not (pbc + apc + abp) > abc
+    return  (pbc + apc + abp) == abc
 
 def point_in_triangle2(x, y, tri):
     (ax, ay), (bx, by), (cx, cy) = tri
