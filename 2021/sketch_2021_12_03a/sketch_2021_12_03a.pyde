@@ -1,17 +1,20 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/
-# More explorations of combinations in grids based on sketch-a-day sketch_190602a
 # To run this you will need Processing 3.5.4 + Python mode, instructions at: 
 # https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
+
+"""
+Triangle pairs (with no edges in common), on a 3x3 grid
+"""
 
 add_library('pdf')
 from itertools import product, combinations, permutations
 from villares.line_geometry import edges_as_sets
 
-space, border = 30, 20
+space, border = 30, 15
 
 def setup():
     global tri_combos, W, H, position, num
-    size(490 * 3 + 40, 140 * 3 + 40) # 49 x 14 
+    size(1470 + 30, 970 + 30) # 97 x 16 
     strokeJoin(ROUND)
     strokeWeight(2)
     grid = product(range(-1, 2), repeat=2)  # 3X3
@@ -29,6 +32,7 @@ def setup():
     all_combos = list(combinations(triangles, 2))
     tri_combos = [(ta, tb) for ta, tb in all_combos
                   if len(edges_as_sets(ta) | edges_as_sets(tb)) == 6
+                  and len(set(ta) | set(tb)) == 5
                   ]
     
     println("Number of triangle combinations: {}".format(len(tri_combos)))
@@ -51,12 +55,13 @@ def setup():
                 popMatrix()
                 i += 1
 
+    saveFrame('combos.png')
+
 def draw_combo(n):
     noFill()
     siz = space / 3
     for i, sl in enumerate(tri_combos[n]):
-        # c = (color(128, 0, 0), color(0, 0, 128))[i]
-        colors = (color(128, 0, 0), color(0, 50, 128))
+        colors = (color(0, 128, 0), color(0, 50, 128))
         stroke(colors[i])
         (x0, y0), (x1, y1), (x2, y2) = sl[0], sl[1], sl[2]
         poly(((x0 * siz, y0 * siz),
