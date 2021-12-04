@@ -24,7 +24,7 @@ def setup():
     println("Number of possible triangles: {}".format(len(triangles)))
     all_combos = list(combinations(triangles, 2))
     tri_combos = [(ta, tb) for ta, tb in all_combos
-                  if no_same_angles(ta, tb)]
+                  if not same_angles(ta, tb)]
     # tri_combos.sort(key=lambda c: area(c[0]) + area(c[1]))
     println("Number of triangle combinations: {}".format(len(tri_combos)))
     ## Ucomment the following lines to shuffle!
@@ -53,19 +53,17 @@ def area(p):
               p[2][0] * (p[0][1] - p[1][1]) +
               p[0][0] * (p[1][1] - p[2][1]))
 
-def no_same_angles(ta, tb):
+def same_angles(ta, tb):
     for ea in edges_as_sets(ta):
         for eb in edges_as_sets(tb):
-            pa1, pa2 = ea
-            aa = int(degrees(atan2(pa1[1] - pa2[1], pa1[0] - pa2[0])))
-            pb1, pb2 = eb
-            ab = int(degrees(atan2(pb1[1] - pb2[1], pb1[0] - pb2[0])))
-            if aa < 0: aa = aa + 180
-            if ab < 0: ab = ab + 180
-            # print(aa, ab)
-            if aa % 180 == ab % 180:
-                return False
-    return True
+            if edge_degrees(ea) == edge_degrees(eb):
+                return True
+    return False
+
+def edge_degrees(edge):
+        pa, pb = edge
+        ea = int(degrees(atan2(pa[1] - pb[1], pa[0] - pb[0])))
+        return ea + 180 if ea < 0 else ea % 180
         
 def draw_combo(n):
     noStroke()
