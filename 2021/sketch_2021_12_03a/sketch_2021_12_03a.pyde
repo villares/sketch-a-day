@@ -59,10 +59,10 @@ def area(p):
 def draw_combo(n):
     noFill()
     siz = space / 3
-    for i, sl in enumerate(tri_combos[n]):
-        colors = (color(0, 128, 0), color(0, 50, 128))
-        stroke(colors[i])
-        (x0, y0), (x1, y1), (x2, y2) = sl[0], sl[1], sl[2]
+    colors = (color(0, 128, 0), color(0, 50, 128))
+    for tri, c in zip(tri_combos[n], colors):
+        stroke(c)
+        (x0, y0), (x1, y1), (x2, y2) = tri[0], tri[1], tri[2]
         triangle(x0 * siz, y0 * siz,
                  x1 * siz, y1 * siz,
                  x2 * siz, y2 * siz)
