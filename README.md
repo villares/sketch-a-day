@@ -25,12 +25,13 @@ Here are listed some of the tools I have been using:
 
 ## [2018](2018.md) | [2019](2019.md) | [2020](2020.md) | 2021
 
-
 ---
 
 ![sketch_2021_12_02a](2021/sketch_2021_12_02a/sketch_2021_12_02a.png)
 
 [sketch_2021_12_02a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_02a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+628 triangle pairs (with no points in common), on a 3x3 grid
 
 ---
 
