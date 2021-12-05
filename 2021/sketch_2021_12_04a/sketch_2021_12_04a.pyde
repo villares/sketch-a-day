@@ -3,11 +3,11 @@
 # https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
 
 """
-1552 triangle pairs with one point in common but no edges in common, on a 3x3 grid
+184 triangle pairs with no edges with same orientation in common, on a 3x3 grid
 """
 
 from itertools import product, combinations, permutations
-from villares.line_geometry import edges_as_sets
+from villares.line_geometry import poly_edges
 
 space, border = 60, 60
 
@@ -23,8 +23,11 @@ def setup():
                  if area(pts) != 0] # removes 3 colinear points
     println("Number of possible triangles: {}".format(len(triangles)))
     all_combos = list(combinations(triangles, 2))
+    
     tri_combos = [(ta, tb) for ta, tb in all_combos
                   if not same_angles(ta, tb)]
+    # tri_combos = [(ta, tb) for i, (ta, tb) in enumerate(tri_combos[:19])  # for debug!
+    #               if not same_angles(ta, tb, i)]
     # tri_combos.sort(key=lambda c: area(c[0]) + area(c[1]))
     println("Number of triangle combinations: {}".format(len(tri_combos)))
     ## Ucomment the following lines to shuffle!
@@ -53,18 +56,19 @@ def area(p):
               p[2][0] * (p[0][1] - p[1][1]) +
               p[0][0] * (p[1][1] - p[2][1]))
 
-def same_angles(ta, tb):
-    for ea in edges_as_sets(ta):
-        for eb in edges_as_sets(tb):
-            if edge_degrees(ea) == edge_degrees(eb):
+def same_angles(ta, tb, i=None):
+    for ea in poly_edges(ta):
+        for eb in poly_edges(tb):
+            if i: print i, edge_degrees(ea) == edge_degrees(eb), edge_degrees(ea), edge_degrees(eb)  # for debug
+            if abs(edge_degrees(ea) - edge_degrees(eb)) < 0.1:
                 return True
     return False
 
 def edge_degrees(edge):
         pa, pb = edge
-        ea = int(degrees(atan2(pa[1] - pb[1], pa[0] - pb[0])))
-        return ea + 180 if ea < 0 else ea % 180
-        
+        ea = atan2(pa[1] - pb[1], pa[0] - pb[0])
+        return ea + PI if ea < 0 else ea % PI
+    
 def draw_combo(n):
     noStroke()
     siz = space / 3
