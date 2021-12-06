@@ -3,17 +3,17 @@
 # https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
 
 """
-1394 triangle pairs with at least 2 parallel edges on a 3x3 grid
+158 triangle pairs on a 3x3 grid with all edges parallel to another edge fo the pair
 """
 
 from itertools import product, combinations, permutations
 from villares.line_geometry import poly_edges, edges_as_sets
 
-space, border = 25, 25
+space, border = 50, 50
 
 def setup():
     global tri_combos, W, H, position, num
-    size(16 * 25 + 50, 10 * 25 + 50) #41 x 34 
+    size(16 * 50 + 100, 10 * 50 + 100) #16 x 10 
     strokeJoin(ROUND)
     grid = product(range(-1, 2), repeat=2)  # 3X3
     # all triple point combinations on a grid
@@ -23,20 +23,17 @@ def setup():
                  if area(pts) != 0] # removes 3 colinear points
     all_2tri_combos = list(combinations(triangles, 2))
     tri_combos = [(ta, tb) for ta, tb in all_2tri_combos
-                  if  same_angles(ta, tb) == 3]
+                  if same_angles(ta, tb) == 3]
     # tri_combos = [(ta, tb) for i, (ta, tb) in enumerate(tri_combos[:19])  # for debug!
     #               if not same_angles(ta, tb, i)]
     # tri_combos.sort(key=lambda c: c[1])
-    tri_combos.sort(key=lambda c: area(c[0]) * area(c[1]))
-    tri_combos = [()] + tri_combos 
+    tri_combos.sort(key=lambda c: area(c[0]) - area(c[1]))
     println("Number of triangle combinations: {}".format(len(tri_combos)))
-    ## Ucomment the following lines to shuffle!
-    # from random import shuffle
     # shuffle(tri_combos)
     W = (width - border * 2) // space
     H = (height - border * 2) // space
     println("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))
-
+    tri_combos = [()] + tri_combos # to add a space in the 1st grid position
     background(240)
     i = 0
     for y in range(H):
@@ -72,7 +69,7 @@ def edge_degrees(edge):
     
 def draw_combo(n):
     noStroke()
-    siz = space / 2.2
+    siz = space / 2.5
     colors = (color(0, 200, 0), color(0, 0, 200, 128))
     for tri, c in zip(tri_combos[n], colors):
         fill(c)
