@@ -31,11 +31,15 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_12_06a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_06a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+158 triangle pairs on a 3x3 grid with all edges parallel to another edge fo the pair
+
 ---
 
 ![sketch_2021_12_05a](2021/sketch_2021_12_05a/sketch_2021_12_05a.png)
 
 [sketch_2021_12_05a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_05a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+2666 triangle pairs with at least one parallel edge between them, on a 3x3 grid
 
 ---
 
@@ -43,11 +47,15 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_12_04a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_04a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
+184 triangle pairs with no edges with same orientation in common, on a 3x3 grid
+
 ---
 
 ![sketch_2021_12_03a](2021/sketch_2021_12_03a/sketch_2021_12_03a.png)
 
 [sketch_2021_12_03a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_03a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+1552 triangle pairs with one point in common but no edges in common, on a 3x3 grid
 
 ---
 
@@ -55,13 +63,15 @@ Here are listed some of the tools I have been using:
 
 [sketch_2021_12_02a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_02a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
 
-628 triangle pairs (with no points in common), on a 3x3 grid
+628 triangle pairs with no points in common, on a 3x3 grid
 
 ---
 
 ![sketch_2021_12_01a](2021/sketch_2021_12_01a/sketch_2021_12_01a.gif)
 
 [sketch_2021_12_01a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_01a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+Triangle-triangle collision study
 
 ---
 
