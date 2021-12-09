@@ -91,16 +91,28 @@ def build_entry(image, folder, year):
         tool = next(tools_mentioned)
     except StopIteration:
         tool = 'pyde'
+        
+    docstring = search_docstring(join(year_path, folder))
+    if docstring:
+        comment = '\n\n' + docstring
+    else:
+        comment = ''
+        
     return """
 ---
 
 ![{0}]({3}/{0}/{1}.{2})
 
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{3}/{0}) {4}
+[{0}](https://github.com/villares/sketch-a-day/tree/master/{3}/{0}) {4}{5}
 """.format(
-        folder, name, ext, year, tools[tool]
+        folder, name, ext, year, tools[tool], comment
     )
 
+def search_docstring(folder):
+    print(listdir(folder))
+    return None
+
+    
 
 if __name__ == '__main__':
     main()
