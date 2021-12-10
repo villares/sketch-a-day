@@ -86,11 +86,11 @@ class TriCombo:
         r = self
         h = hash(self.triangles)        
         for _ in range(5):
-            r = r.rotate()
+            r = r.rotated()
             rh = hash(r.triangles)
             h = min(h, rh)
         return h
     
-    def rotate(self):
+    def rotated(self):
         return TriCombo(((a + 1) % 6, (b + 1) % 6, (c + 1) % 6)
                         for a, b, c in self)
