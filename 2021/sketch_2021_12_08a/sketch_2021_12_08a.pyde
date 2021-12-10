@@ -43,7 +43,7 @@ def setup():
                 pushMatrix()
                 translate(border / 2 + space + space * x,
                           border / 2 + space + space * y)
-                draw_combo(i)
+                draw_combo(tri_combos[i])
                 popMatrix()
                 i += 1
 
@@ -79,11 +79,11 @@ def edge_angle(edge):
         ea = atan2(pa[1] - pb[1], pa[0] - pb[0])
         return ea + PI if ea < 0 else ea % PI
     
-def draw_combo(n):
+def draw_combo(combo):
     noStroke()
     siz = space / 2.5
     colors = (color(0, 200, 0), color(0, 0, 200, 128))
-    for tri, c in zip(tri_combos[n], colors):
+    for tri, c in zip(combo, colors):
         fill(c)
         (x0, y0), (x1, y1), (x2, y2) = tri[0], tri[1], tri[2]
         triangle(x0 * siz, y0 * siz,
