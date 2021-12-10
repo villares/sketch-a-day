@@ -3,7 +3,7 @@
 # https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
 
 """
-triangle pairs on 6 hexagon vertices with no more than 1 point in common: 100
+3 non-intersecting triangles on 6 hexagon vertices: 46
 """
 
 from itertools import product, combinations, permutations
@@ -13,22 +13,15 @@ space, border = 50, 50
 
 def setup():
     global tri_combos, W, H, position, num
-    size(600, 600)
+    size(1250, 200)
     strokeJoin(ROUND)
     points = hex_points(0, 0, 1)
-    # all triple point combinations on a grid
     triangles = list(combinations(points, 3))
-    # filter out colinear triples
-    # triangles = [pts for pts in point_combinations
-    #              if area(pts) != 0] # removes 3 colinear points
-    all_4tri_combos = list(combinations(triangles, 4))
-    tri_combos = [(ta, tb, tc, _) for ta, tb, tc, _ in all_4tri_combos
+    all_3tri_combos = list(combinations(triangles, 3))
+    tri_combos = [(ta, tb, tc) for ta, tb, tc in all_3tri_combos
                   # if  len(set(ta) | set(tb) | set(tc)) > 4 
                   if not triangle_intersection((ta, tb, tc))
                   ]
-    # tri_combos = [(ta, tb) for i, (ta, tb) in enumerate(tri_combos[:19])  # for debug!
-    #               if not same_angles(ta, tb, i)]
-    # tri_combos.sort(key=lambda c: c[1])
     tri_combos.sort(key=lambda c: area(c[0]) - area(c[1]))
     println("Number of triangle combinations: {}".format(len(tri_combos)))
     W = (width - border * 2) // space
@@ -43,7 +36,7 @@ def setup():
                 pushMatrix()
                 translate(border / 2 + space + space * x,
                           border / 2 + space + space * y)
-                draw_combo(i)
+                draw_combo(tri_combos[i])
                 popMatrix()
                 i += 1
 
@@ -67,23 +60,17 @@ def triangle_intersection(ts):
                     return True
     return False
 
-
 def shrink(seg):
     (xa, ya), (xb, yb) = seg
     new_a = lerp(xa, xb, 0.1), lerp(ya, yb, 0.1)
     new_b = lerp(xa, xb, 0.9), lerp(ya, yb, 0.9)
     return (new_a, new_b)
-
-def edge_angle(edge):
-        pa, pb = edge
-        ea = atan2(pa[1] - pb[1], pa[0] - pb[0])
-        return ea + PI if ea < 0 else ea % PI
     
-def draw_combo(n):
+def draw_combo(combo):
     noStroke()
     siz = space / 2.5
     colors = (color(0, 200, 0), color(0, 0, 200, 128), color(200, 0,0, 128), color(240))
-    for tri, c in zip(tri_combos[n], colors):
+    for tri, c in zip(combo, colors):
         fill(c)
         (x0, y0), (x1, y1), (x2, y2) = tri[0], tri[1], tri[2]
         triangle(x0 * siz, y0 * siz,
