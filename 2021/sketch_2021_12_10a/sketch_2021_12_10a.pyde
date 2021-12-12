@@ -14,18 +14,18 @@ def setup():
     size(100 + 16 * 50, 100 + 12* 50)
     global hex_coords
     hex_coords = calc_hex_points(0, 0, 1)
-    points = list(range(6))    
+    points = list(range(6)) # an index to the hex_coords list...
     triangles = list(combinations(points, 3))
-
     tri_combos = set(map(TriCombo, combinations(triangles, 3)))
     tri_combos = sorted(tri_combos,
                         key=lambda c: sum(map(tri_on_hex_area, c)),
                         reverse=True
                         )
-    println("Number of triangle combinations: {}".format(len(tri_combos)))
     W = (width - border * 2) // space
     H = (height - border * 2) // space
+    println("Number of triangle combinations: {}".format(len(tri_combos)))
     println("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))
+    
     background(200)
     for y in range(H):
         for x in range(W):
@@ -38,12 +38,16 @@ def setup():
 
     saveFrame('combos.png')
 
-def calc_hex_points(x, y, tamanho):
-    return [(x + tamanho * cos(PI / 180 * 60 * i),
-            y + tamanho * sin(PI / 180 * 60 * i))
+def calc_hex_points(x, y, radius):
+    return [(x + radius * cos(PI / 180 * 60 * i),
+             y + radius * sin(PI / 180 * 60 * i))
             for i in range(6)]    
     
 def tri_on_hex_area(t):
+    """
+    From a collection of 3 hexagon points represented as integers,
+    get the coordinates and calculate the triangle area.
+    """
     a, b, c = t
     ax, ay = hex_coords[a]
     bx, by = hex_coords[b]
