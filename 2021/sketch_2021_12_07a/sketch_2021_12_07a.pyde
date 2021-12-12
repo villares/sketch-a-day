@@ -3,7 +3,9 @@
 # https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
 
 """
-triangle pairs on a 3x3 grid with with no intersections"""
+Triangle pairs on a 3x3 grid with with no edge-edge intersections
+(some overlapping and some intersections through a vertex).
+"""
 
 from itertools import product, combinations, permutations
 from villares.line_geometry import poly_edges, simple_intersect
