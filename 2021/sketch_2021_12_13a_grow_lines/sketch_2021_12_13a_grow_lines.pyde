@@ -1,6 +1,5 @@
 from random import choice
 
-
 def setup():
     size(800, 800)
     generate_lines()
@@ -17,9 +16,7 @@ def generate_lines():
             if gl.simple_intersect(other_gl):
                 break
         else:
-            glines.append(gl)
-            
-
+            glines.append(gl)    
 
 def draw():
     background(255)
