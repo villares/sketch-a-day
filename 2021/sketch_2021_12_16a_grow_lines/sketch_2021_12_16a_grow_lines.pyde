@@ -66,17 +66,17 @@ class GrowingLine():
                                                     self.a.y,
                                                     tolerance=0.05):
                 self.grow_a = False
-                self.new_line()
+                # self.new_line()
             if self.grow_b and other.contains_point(self.b.x,
                                                     self.b.y,
                                                     tolerance=0.05):
                 self.grow_b = False
-                # self.new_line()
+                self.new_line()
                 
     def new_line(self, t=None, invert=None):
         invert = invert if invert is not None else choice((True, False))
-        t = t or random(0.1, 0.9)
-        if self.generation >= 0 and self.tamanho() > 1:
+        t = t or 0.33# random(1)
+        if self.generation >= 0 and self.tamanho() > 2:
             p = self.ponto_na_linha(1 - t if invert else t)
             p2 = self.ponto_fora(p, invert)
             gl = GrowingLine(p, p2, self.generation - 1)
@@ -109,7 +109,7 @@ class GrowingLine():
         return atan2(by-ay, bx-ax) 
     
     def ponto_fora(self, p, invert=False):
-        d = 25 
+        d = 25
         if invert:
             a = self.angulo() - PI
         else: 
