@@ -62,8 +62,8 @@ class GrowingLine():
             self.b -= self.v #/ 2.0  
             
         if self.spawn > 0 and random(1000) < 1:
-            self.new_line(invert=self.spawn % 2 == 0)
-            self.spawn -=1
+            self.new_line(invert=gself.spawn % 2 == 0)
+            self.spawn -= 1
 
         
 
