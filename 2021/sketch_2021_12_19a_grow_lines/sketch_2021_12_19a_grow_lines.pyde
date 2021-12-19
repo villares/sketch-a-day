@@ -24,11 +24,13 @@ def generate_lines():
 def draw():
     background(0)
     for gl in reversed(glines):
-        for other_gl in glines:
-            if gl is not other_gl:
-                gl.check_collision(other_gl)
+        if gl.grow_a or gl.grow_b:
+            for other_gl in glines:
+                if gl is not other_gl:
+                    gl.check_collision(other_gl)
+            gl.grow()
         gl.draw()
-        gl.grow()
+
 
 def keyPressed():
     if key == ' ':
