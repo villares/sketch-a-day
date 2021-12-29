@@ -27,6 +27,48 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2021_12_29a](2021/sketch_2021_12_29a/sketch_2021_12_29a.gif)
+
+[sketch_2021_12_29a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_29a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_12_28a](2021/sketch_2021_12_28a/sketch_2021_12_28a.gif)
+
+[sketch_2021_12_28a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_28a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_12_27a](2021/sketch_2021_12_27a/sketch_2021_12_27a.gif)
+
+[sketch_2021_12_27a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_27a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_12_26a](2021/sketch_2021_12_26a/sketch_2021_12_26a.gif)
+
+[sketch_2021_12_26a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_26a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_12_25a](2021/sketch_2021_12_25a/sketch_2021_12_25a.gif)
+
+[sketch_2021_12_25a](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_25a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_12_24b](2021/sketch_2021_12_24b/sketch_2021_12_24b.gif)
+
+[sketch_2021_12_24b](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_24b) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2021_12_23](2021/sketch_2021_12_23/sketch_2021_12_23.gif)
+
+[sketch_2021_12_23](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_23) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ![sketch_2021_12_22a_grow_lines](2021/sketch_2021_12_22a_grow_lines/sketch_2021_12_22a_grow_lines.png)
 
 [sketch_2021_12_22a_grow_lines](https://github.com/villares/sketch-a-day/tree/master/2021/sketch_2021_12_22a_grow_lines) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
