@@ -16,7 +16,7 @@ from itertools import takewhile
 from helpers import get_image_names
 
 # YEAR and base_path to sketch-a-day folder are set manually, hard-coded
-YEAR = '2021'   
+YEAR = '2022'   
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = '/home/villares/GitHub/sketch-a-day'
 year_path = join(base_path, YEAR)
