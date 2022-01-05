@@ -21,16 +21,16 @@ def draw():
 def split_quad(q):
     return q[:3], q[2:] + q[:1]
 
-# def split_tri(t):
-#     a, c, b = t
-#     ab = centroid((a, b))
-#     bc = centroid((b, c))
-#     ca = centroid((c, a))
-#     return (
-#         (ab, a, ca),
-#         (ab, b, bc),
-#         (ab, bc, c, ca),
-#         )
+def split_tri(t):
+    a, c, b = t
+    ab = centroid((a, b))
+    bc = centroid((b, c))
+    ca = centroid((c, a))
+    return (
+        (ab, a, ca),
+        (ab, b, bc),
+        (ab, bc, c, ca),
+        )
 
 def centroid(s):
     xs, ys = zip(*s)
@@ -64,13 +64,13 @@ def split_shapes():
 #         (ca, ab, bc, c),
 #         )
     
-def split_tri(t):
-    c, a, b = t
-    ab = centroid((a, b))
-    bc = centroid((b, c))
-    ca = centroid((c, a))
-    return (
-        (a, ab, ca),
-        (ab, b, bc),
-        (ab, bc, c, ca),
-        )
+# def split_tri(t):
+#     c, a, b = t
+#     ab = centroid((a, b))
+#     bc = centroid((b, c))
+#     ca = centroid((c, a))
+#     return (
+#         (a, ab, ca),
+#         (ab, b, bc),
+#         (ab, bc, c, ca),
+#         )
