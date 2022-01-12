@@ -19,12 +19,10 @@ def create_boxes():
 
 def draw():
     background(0)
-    translate(width / 2, height / 2, - height)
+    translate(width / 2, height / 2, -height)
     rotateY(frameCount / 100.0)
     for b in boxes:
         b.plot()    
-        # if keyPressed:
-        #     b.plot_points()
 
 def keyPressed():
     create_boxes()
