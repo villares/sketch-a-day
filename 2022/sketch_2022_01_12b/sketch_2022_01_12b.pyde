@@ -65,9 +65,9 @@ class Box():
     @property
     def color(self):
         return color(
-            128 + self.w ** 2 / 2 % 128,
-            128 + self.h ** 2 / 2 % 128,
-            128 + self.d ** 2 / 2 % 128,
+            128 + self.w % 128,
+            128 + self.h % 128,
+            128 + self.d % 128,
         )
         
     def calc_points(self):
