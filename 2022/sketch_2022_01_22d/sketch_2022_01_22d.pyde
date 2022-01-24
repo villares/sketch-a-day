@@ -4,7 +4,7 @@ shapes = [( (-300, 300), (-300, -300), (300, -300), (300, 300))]
 
 def setup():
     global img, f, t
-    size(900, 900, P3D)
+    size(900, 900)
     # noStroke()
     strokeWeight(0.5)
     stroke(100)
@@ -33,7 +33,7 @@ def draw():
     img.endDraw()
     
     background(0)
-    translate(width / 2, height / 2, 0)
+    translate(width / 2, height / 2)
     scale(1.5)
     for i, s in enumerate(shapes):
         xc, yc = centroid(s)
@@ -46,15 +46,12 @@ def draw():
                 fill(200)
             else:
                 fill(0, 100, 200)
-            
-        push() 
-        # translate(0, 0, z)
+        
         beginShape()
         d = (1 - t) / 2.0
         for x, y in s:
             vertex(x + xc * d, y + yc * d)
         endShape(CLOSE)
-        pop()
             
 def split_quad(q):
     return q[:3], q[2:] + q[:1]
