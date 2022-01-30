@@ -12,10 +12,9 @@ random.seed(1)
 ticks_to_next_ball = 10
 balls = []
 
-
 def setup():
-    size(600, 600)
     global space, wires
+    size(600, 600)
     print("Joints. Just wait and the L will tip over")
     space = pm.Space()
     space.gravity = (0.0, 700.0)
