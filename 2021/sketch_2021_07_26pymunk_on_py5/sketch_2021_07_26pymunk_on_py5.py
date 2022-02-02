@@ -53,8 +53,8 @@ def add_L(space):
     
 
 def setup():
-    py5.size(600, 600)
     global space, struts
+    py5.size(600, 600)
     print("Joints. Just wait and the L will tip over")
     space = pymunk.Space()
     space.gravity = (0.0, 700.0)
