@@ -3,7 +3,7 @@ import pymunk
 from random import randint, sample, choice
 
 space = pymunk.Space() # create a new space for your simulation
-space.gravity = (0, 900)
+space.gravity = (0, 400)
 BOX_NUMBER = 30
 
 def setup():
@@ -18,8 +18,12 @@ def setup():
         ((0, 0), (0, mh)), 
         ((mw, 0), (mw, mh)),
         ((0, mh), (mw, mh)),
-    ] + [((x, mh), (x, mh * 0.75)) for x in range(25, mw, 25)]
+    ] 
     for point_a, point_b in segments:
+        s = pymunk.Segment(space.static_body, point_a, point_b, 5)
+        s.elasticity = 1
+        space.add(s)
+    for point_a, point_b in (((x, mh), (x, mh * 0.75)) for x in range(25, mw, 25)):
         s = pymunk.Segment(space.static_body, point_a, point_b, 1)
         s.elasticity = 1
         space.add(s)
@@ -44,7 +48,7 @@ def draw():
 def populate_boxes():
     while len(space.shapes) < initial_shape_count + BOX_NUMBER:
         x, y = randint(0, py5.width), randint(100, py5.height * 0.70)
-        if all(map(lambda obj:  obj.point_query((x, y)).distance > 30,
+        if all(map(lambda obj:  obj.point_query((x, y)).distance > 40,
                    space.shapes)):
             create_box(x, y)
    
