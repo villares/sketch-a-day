@@ -37,7 +37,6 @@ def draw():
     for obj in objects: # space.shapes:
         if is_box(obj):
             py5.no_stroke()
-            py5.begin_shape()
             xo, yo = obj.body.position
             py5.push_matrix()
             py5.translate(xo, yo)

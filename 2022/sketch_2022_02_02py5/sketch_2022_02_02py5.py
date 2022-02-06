@@ -29,7 +29,6 @@ def create_box(x, y):
     space.add(body, pymunk.Poly.create_box(body,
                                            (randint(10, 30), randint(10, 30))))
 def draw_box(obj):
-    py5.begin_shape()
     py5.push_matrix()
     py5.translate(obj.body.position.x, obj.body.position.y)
     py5.rotate(obj.body.angle)
