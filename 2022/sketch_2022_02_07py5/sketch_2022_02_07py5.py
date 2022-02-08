@@ -56,20 +56,20 @@ def populate_pins():
         return not is_pin(obj) or obj.point_query((x, y)).distance > 20
     for x in range(PIN_DIST_MARGIN, py5.width - PIN_DIST_MARGIN, 30):
         for y in range(100, int(py5.height * 0.50), 30):
-            create_pin(x, y, 5, 5)
+            create_pin(x, y, BALL_RADIUS)
    
-def create_pin(x, y, w, h):
+def create_pin(x, y, radius):
     body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
     body.position = x, y
-    pin = pymunk.Circle(body, 5)
+    pin = pymunk.Circle(body, radius)
     pin.hue = None
     space.add(body, pin)
 
-def add_balls(x=None, y=None):
+def add_balls(x=None, y=5):
     if x is None:
         for x in range(BALL_MARGIN, py5.width - BALL_MARGIN, 5):
             h = py5.remap(x, BALL_MARGIN, py5.width - BALL_MARGIN, 0, 255)
-            create_ball(x, 5, h)
+            create_ball(x, y, h)
     else:
         h = py5.remap(x, 0, py5.width, 0, 255)
         create_ball(x + randint(0, 1), y, h)
