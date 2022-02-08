@@ -64,20 +64,6 @@ def create_pin(x, y, w, h):
     pin = pymunk.Circle(body, 5)
     pin.hue = None
     space.add(body, pin)
-    #body.angle += py5.radians(45)
- 
-# def draw_pin(obj):
-#     py5.push_matrix()
-#     py5.translate(obj.body.position.x, obj.body.position.y)
-#     py5.rotate(obj.body.angle)
-#     pts = obj.get_vertices()
-#     py5.begin_shape()
-#     #py5.fill((pts[0][0] * pts[0][1]) % 255, 200, 200)
-#     py5.fill(255)
-#     for x, y in pts:
-#         py5.vertex(x, y)
-#     py5.end_shape(py5.CLOSE)
-#     py5.pop_matrix()
 
 def add_balls(x=None, y=None):
     if x is None:
@@ -135,7 +121,5 @@ def key_pressed():
         populate_pins()
 
 def is_ball(obj): return isinstance(obj, pymunk.shapes.Circle)
-def is_pin(obj): return isinstance(obj, pymunk.shapes.Poly)     
 
 py5.run_sketch()
-g
