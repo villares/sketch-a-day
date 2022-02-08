@@ -99,24 +99,16 @@ def draw_seg(obj):
     
 def mouse_dragged():
     for obj in space.shapes:
-        if is_pin(obj):    
-             info = obj.point_query((py5.mouse_x, py5.mouse_y))
-             if info.distance < 2:
-                 v = pymunk.Vec2d(py5.mouse_x - py5.pmouse_x,
-                              py5.mouse_y - py5.pmouse_y)
-                 obj.body.position += v
+         info = obj.point_query((py5.mouse_x, py5.mouse_y))
+         if info.distance < 2:
+             v = pymunk.Vec2d(py5.mouse_x - py5.pmouse_x,
+                          py5.mouse_y - py5.pmouse_y)
+             obj.body.position += v
 
-def mouse_wheel(e):
-    for obj in space.shapes:
-        if is_pin(obj):
-             info = obj.point_query((py5.mouse_x, py5.mouse_y))
-             if info.distance < 2:
-                 obj.body.angle += py5.radians(e.getCount())
-       
 def key_pressed():
     if py5.key == ' ':
         for obj in reversed(space.shapes):
-            if is_ball(obj) or is_pin(obj):
+            if is_ball(obj):
                 space.remove(obj)
         populate_pins()
 
