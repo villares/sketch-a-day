@@ -7,7 +7,7 @@ from PIL import Image, GifImagePlugin
 
 from helpers import get_image_names, remove_transparency
 
-YEAR = "2020"
+YEAR = "2021"
 base_path = "/home/villares/GitHub/sketch-a-day/"
 year_path = join(base_path,YEAR)
 folders = listdir(year_path)
@@ -18,8 +18,10 @@ for folder in sorted(folders):
     folder_path = join(year_path, folder)
     f_images = get_image_names(year_path, folder)
     if f_images:
-        img_path = join(folder_path, f_images[0])
-        images.append(Image.open(img_path))
+        img_paths = [join(folder_path, img) for img in f_images
+                    if not img.lower().endswith('svg')]
+        if img_paths:
+            images.append(Image.open(img_paths[0]))
         
 # dst = Image.new('RGB', (400, 400))
 n = None # degub with 5
