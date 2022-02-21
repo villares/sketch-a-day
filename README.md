@@ -27,6 +27,114 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2022_02_18_circle_sphere](2022/sketch_2022_02_18_circle_sphere/sketch_2022_02_18_circle_sphere.gif)
+
+[sketch_2022_02_18_circle_sphere](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_18_circle_sphere) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_17_circle_sphere](2022/sketch_2022_02_17_circle_sphere/sketch_2022_02_17_circle_sphere.gif)
+
+[sketch_2022_02_17_circle_sphere](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_17_circle_sphere) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_16_circle_sphere](2022/sketch_2022_02_16_circle_sphere/sketch_2022_02_16_circle_sphere.gif)
+
+[sketch_2022_02_16_circle_sphere](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_16_circle_sphere) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_15hamsa](2022/sketch_2022_02_15hamsa/sketch_2022_02_15hamsa.gif)
+
+[sketch_2022_02_15hamsa](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_15hamsa) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_14_opencv](2022/sketch_2022_02_14_opencv/sketch_2022_02_14_opencv.gif)
+
+[sketch_2022_02_14_opencv](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_14_opencv) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_13a](2022/sketch_2022_02_13a/sketch_2022_02_13a.png)
+
+[sketch_2022_02_13a](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_13a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_12a](2022/sketch_2022_02_12a/sketch_2022_02_12a.png)
+
+[sketch_2022_02_12a](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_12a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_11](2022/sketch_2022_02_11/sketch_2022_02_11.gif)
+
+[sketch_2022_02_11](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_11) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_10](2022/sketch_2022_02_10/sketch_2022_02_10.png)
+
+[sketch_2022_02_10](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_10) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_09](2022/sketch_2022_02_09/sketch_2022_02_09.gif)
+
+[sketch_2022_02_09](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_09) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_08](2022/sketch_2022_02_08/sketch_2022_02_08.png)
+
+[sketch_2022_02_08](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_08) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+![sketch_2022_02_07py5](2022/sketch_2022_02_07py5/sketch_2022_02_07py5.png)
+
+[sketch_2022_02_07py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_07py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2022_02_06py5](2022/sketch_2022_02_06py5/sketch_2022_02_06py5.png)
+
+[sketch_2022_02_06py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_06py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2022_02_05py5](2022/sketch_2022_02_05py5/sketch_2022_02_05py5.png)
+
+[sketch_2022_02_05py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_05py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2022_02_04py5](2022/sketch_2022_02_04py5/sketch_2022_02_04py5.gif)
+
+[sketch_2022_02_04py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_04py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2022_02_03py5](2022/sketch_2022_02_03py5/sketch_2022_02_03py5.gif)
+
+[sketch_2022_02_03py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_03py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2022_02_02py5](2022/sketch_2022_02_02py5/sketch_2022_02_02py5.png)
+
+[sketch_2022_02_02py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_02py5) [[py5](https://py5.ixora.io/)]
+
+---
+
+![sketch_2022_02_01py5](2022/sketch_2022_02_01py5/sketch_2022_02_01py5.png)
+
+[sketch_2022_02_01py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_01py5) [[py5](https://py5.ixora.io/)]
+
+---
+
 ![sketch_2022_01_31py5](2022/sketch_2022_01_31py5/sketch_2022_01_31py5.gif)
 
 [sketch_2022_01_31py5](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_01_31py5) [[py5](https://py5.ixora.io/)]
