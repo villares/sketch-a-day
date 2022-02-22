@@ -27,6 +27,11 @@ Here are listed some of the tools I have been using:
 
 ---
 
+![sketch_2022_02_21_prime_spiral](2022/sketch_2022_02_21_prime_spiral/sketch_2022_02_21_prime_spiral.png)
+
+[sketch_2022_02_21_prime_spiral](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_21_prime_spiral) [[py5](https://py5.ixora.io/)]
+---
+
 ![sketch_2022_02_18_circle_sphere](2022/sketch_2022_02_18_circle_sphere/sketch_2022_02_18_circle_sphere.gif)
 
 [sketch_2022_02_18_circle_sphere](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_02_18_circle_sphere) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
