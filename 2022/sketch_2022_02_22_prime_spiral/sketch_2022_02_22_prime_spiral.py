@@ -29,8 +29,8 @@ def setup():
     # set up spiral
     x = width / 2
     y = height / 2
-    px = x
-    py = y
+    px = None
+    py = None
     background(0)
 
 def draw():
@@ -41,11 +41,10 @@ def draw():
         fill(255)
         stroke(255)
         circle(x, y, step_size * 0.5)
-    
-    # Connect current to previous with a line
-    line(x, y, px, py)
-    px = x
-    py = y
+        if px is not None:
+            line(x, y, px, py)
+        px = x
+        py = y
 
     # Move according to state
     if state == 0:
