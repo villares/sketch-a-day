@@ -8,15 +8,15 @@ from functools import reduce
 add_library('geomerative')
 add_library('pdf')
 
-segments = []
-next_seg_preview = []
+segments = []      # press "a" to erase all segments
+next_seg_preview = []  
 seg_limit = 8
 start_w = 10       # segment (starting) width
 end_w = 10         # ... ending width (for trapezoidal segs)
 divisions = 5      # Use "+" and "-" to change
 save_pdf = False   # Use "p" to save a PDF
 mirror = True      # Use "m" to toggle
-
+                   # press <backspace> to remove last segment/click
 def setup():
     size(500, 500)
     global mh, mv
@@ -42,13 +42,14 @@ def draw():
             bars.append(RPolygon([RPoint(x, y) for x, y in rotated_points]))
             if mirror:
                 bars.append(RPolygon([RPoint(x, - y) for x, y in rotated_points]))
+                
     if len(bars) > 1:
-        #result = reduce(lambda polya, polyb : polya.union(polyb), bars)
+        # union = reduce(lambda polya, polyb : polya.union(polyb), bars)
         result = bars.pop()
         for bar in bars:
             result = result.union(bar)
         RG.shape(result.toShape())
-        
+
     if save_pdf:
         endRecord()
         save_pdf = False
@@ -72,7 +73,7 @@ def keyPressed():
     if key == "m":
         mirror = not mirror
     if key == "a":
-        segments[:] = []  #    erase all segmens
+        segments[:] = []    # erase all segments
         next_seg_preview[:] = []
     if key == "g":
         saveFrame("#####.png")
@@ -81,7 +82,7 @@ def keyPressed():
         save_pdf = True
         print("saving PDF")
     if key == BACKSPACE and segments: 
-        segments.pop()
+        segments.pop()      # remove last segment
     if key == "-" and divisions > 2:
         divisions -= 1
     if key == "+" or key == "=" and divisions < 12:
