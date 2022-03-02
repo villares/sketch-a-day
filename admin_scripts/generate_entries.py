@@ -86,13 +86,17 @@ def build_entry(image, folder, year):
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
         'tk': '[tkinter]'
     }
+    folder_path = join(year_path, folder)
     tools_mentioned = (t for t in tools.keys() if t in name)
     try:
         tool = next(tools_mentioned)
     except StopIteration:
-        tool = 'pyde'
-        
-    docstring = search_docstring(join(year_path, folder))
+        tool = 'py5'
+        for f in listdir(folder_path):
+            if 'pyde' in f:
+                tool = 'pyde'
+                
+    docstring = search_docstring(folder_path)
     if docstring:
         comment = '\n\n' + docstring
     else:
@@ -100,6 +104,8 @@ def build_entry(image, folder, year):
         
     return """
 ---
+
+### {0}
 
 ![{0}]({3}/{0}/{1}.{2})
 
