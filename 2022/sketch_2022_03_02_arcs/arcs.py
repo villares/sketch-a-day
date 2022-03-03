@@ -21,9 +21,11 @@ except NameError:
     beginShape = begin_shape
     endShape = end_shape
     bezierVertex = bezier_vertex
-    noFill = no_fill
+    textSize = text_size
     
-
+    
+    
+TEXT_HEIGHT = 12
 DEBUG = False
 ROTATION = {0: 0,
             BOTTOM: 0,
@@ -369,7 +371,7 @@ def arc_augmented_poly(op_list, or_list=None, **kwargs):
                 arc_func(p2[0], p2[1], r2 * 2, r2 * 2, start, a2, mode=2,
                          **kwargs)
             if DEBUG:
-                textSize(height / 30)
+                textSize(TEXT_HEIGHT)
                 text(str(int(degrees(start - a2))), p2[0], p2[1])
         else:
             # when the the segment is smaller than the diference between
