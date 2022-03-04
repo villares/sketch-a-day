@@ -22,6 +22,7 @@ From https://github.com/villares/villares/blob/main/line_geometry.py
 2021_09_21 Fix .dist() method in Line for 3D lines and allowed xa, ya, za, xb, yb, zb
 2021_09_21 line_intesect() now may provide intersection outside the line segments & bug fix. Clean up.
 2021_10_20 Make min_max() compatible with Python 3
+2022_03_02 Make it work with py5
 """
 
 from __future__ import division
@@ -34,7 +35,6 @@ except NameError:
     beginShape = begin_shape
     endShape = end_shape
     bezierVertex = bezier_vertex
-    noFill = no_fill    
 
 class Line():
 
