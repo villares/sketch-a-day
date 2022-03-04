@@ -9,7 +9,7 @@ From https://github.com/villares/villares/blob/main/arcs.py
 2020-09-27 Revising arc_filleted_poly, added kwargs. Revised circle_arc and related functions
 2020-11    Improving compatibility with pyp5js, not using PVector anymore
 2021-07-26 Added auto-flip option to arc_augmented_poly
-
+2022-03-02 Make it work with py5
 """
 from warnings import warn
 from line_geometry import is_poly_self_intersecting, triangle_area
