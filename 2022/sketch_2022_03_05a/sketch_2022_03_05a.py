@@ -42,11 +42,11 @@ class Module:
         y = ms + self.p[1] * ms * 2 * SPACING + MARGIN
         push()
         
-        for k, svals in enumerate(self.vals):
-            vals = list(svals[:])
+        for k, v in enumerate(self.vals):
+            pattern = list(v)
             translate(-5, -5)
             for i, j in corners:
-                v = vals.pop()
+                v = pattern.pop()
                 fill(v * 255)
                 square(x + i * ms / 2, y + j * ms / 2, ms)
         fill(255, 0, 0)
