@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>Alexandre Villares - sketch-a-day</title>
+<link>http://abav.lugaralgum.com/sketch-a-day</link>
+<description>One visual idea a day, made with code</description>
+
+<item>
+<title>$title/title>
+<link>$link</link>
+<guid>example.com/3</guid>
+<pubDate>Wed, 27 Nov 2013 13:20:00 GMT</pubDate>
+<description>My newest article.</description>
+</item>
+
+<item>
+<title>Article 2</title>
+<link>example.com/2</link>
+<guid>example.com/2</guid>
+<pubDate>Tue, 26 Nov 2013 12:15:12 GMT</pubDate>
+<description>My second article.</description>
+</item>
+
+<item>
+<title>Article 1</title>
+<link>example.com/1</link>
+<guid> example.com/1</guid>
+<pubDate>Mon, 25 Nov 2013 15:10:45 GMT</pubDate>
+<description>My first article.</description>
+</item>
+</channel>
+</rss>
