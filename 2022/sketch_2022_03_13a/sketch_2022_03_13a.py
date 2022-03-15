@@ -4,7 +4,7 @@ from random import sample
 import py5
 
 from villares.helpers import lerp_tuple
-from villares.line_geometry import *
+from villares.line_geometry import is_poly_self_intersecting
 from villares.arcs import arc_filleted_poly, arc_augmented_poly
 
 MARGIN = 64
