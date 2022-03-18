@@ -10,10 +10,14 @@ From https://github.com/villares/villares/blob/main/arcs.py
 2020-11    Improving compatibility with pyp5js, not using PVector anymore
 2021-07-26 Added auto-flip option to arc_augmented_poly
 2022-03-02 Make it work with py5
+2022-03-13 On arc_filleted_poly, add radius keyword argument to be used.
+
 """
 from warnings import warn
+
 from line_geometry import is_poly_self_intersecting, triangle_area
 
+# The following block makes this compatible with py5.ixora.io
 try:
     EPSILON
 except NameError:
@@ -23,10 +27,9 @@ except NameError:
     bezierVertex = bezier_vertex
     textSize = text_size
     
-    
-    
-TEXT_HEIGHT = 12
-DEBUG = False
+DEBUG, TEXT_HEIGHT = False, 12  # For debug
+
+# For use with half_circle and quarter_circle functions
 ROTATION = {0: 0,
             BOTTOM: 0,
             DOWN: 0,
@@ -164,7 +167,7 @@ def p_arc(cx, cy, w, h, start_angle, end_angle, mode=0,
         endShape()
 
 
-def arc_filleted_poly(p_list, r_list, **kwargs):
+def arc_filleted_poly(p_list, r_list=None, **kwargs):
     """
     Draws a 'filleted' polygon with variable radius, depends on arc_corner()
 
@@ -172,10 +175,12 @@ def arc_filleted_poly(p_list, r_list, **kwargs):
     2020-09-27 Moved default args to kwargs, added kwargs support for custom arc_func
     2020-11-10 Moving vertex_func=vertex inside body to make this more compatible with pyp5js
     2020-11-11 Removing use of PVector to improve compatibility with pyp5js
+    2022-03-13 Allows a radius keyword agument to be used when no r_list is suplied
     """
     arc_func = kwargs.pop('arc_func', b_arc)  # draws with bezier aprox. arc by default
-    # assumes a closed poly by default
-    open_poly = kwargs.pop('open_poly', False)
+    open_poly = kwargs.pop('open_poly', False)  # assumes a closed poly by default
+    if r_list is None:
+        r_list = [kwargs.pop('radius', 0)] * len(p_list)
 
     p_list, r_list = list(p_list), list(r_list)
     beginShape()
@@ -290,18 +295,17 @@ def arc_augmented_poly(op_list, or_list=None, **kwargs):
         r2_list = or_list[:]
     assert len(op_list) == len(r2_list),\
         'Number of points and radii provided not the same.'
-    return_points = kwargs.pop('return_points', False)
     check_intersection = kwargs.pop('check_intersection', False)
     arc_func = kwargs.pop('arc_func', b_arc)
     auto_flip = kwargs.pop('auto_flip', True)
     if check_intersection and arc_func:
         warn("check_intersection mode overrides arc_func (arc_func ignored).")
-    if check_intersection or return_points:
+    if check_intersection:
         global _points, vertex_func
         _points = []
         vertex_func = lambda x, y: _points.append((x, y))
         arc_func = p_arc
-        kwargs["vertex_func"] = vertex_func
+        kwargs = {"num_points": 4, "vertex_func": vertex_func}
     else:
         vertex_func = vertex
     # remove overlapping adjacent points
@@ -349,7 +353,6 @@ def arc_augmented_poly(op_list, or_list=None, **kwargs):
             skeleton_points.append(p2)
         if is_poly_self_intersecting(skeleton_points):
             return True
-        kwargs["num_points"] = 4  # lighter aproximation... 
     # now draw it!
     beginShape()
     for i1, ia in enumerate(a_list):
@@ -388,8 +391,6 @@ def arc_augmented_poly(op_list, or_list=None, **kwargs):
     # check augmented poly aproximation instersection
     if check_intersection:
         return is_poly_self_intersecting(_points)
-    if return_points:
-        return _points
 
 def reduce_radius(p1, p2, r1, r2):
     d = dist(p1[0], p1[1], p2[0], p2[1])
