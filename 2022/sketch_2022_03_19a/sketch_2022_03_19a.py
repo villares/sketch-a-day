@@ -39,8 +39,6 @@ def key_pressed():
     save_frame('###.png')
     set_records()
 
-def r(): return randint(5, 20)
-
 def set_records():
     global records
     records = generate_record(15) 
