@@ -40,13 +40,11 @@ def draw_records(xo, yo, wo, ho, records, **kwargs):
             py5.translate(0, 0, z * area)
             draw_records(x + rx, y + ry, rw, rh, sub, z=z * 0.9)
             py5.pop()
-       # else:
         slab(x + rx, y + ry, rw, rh, z * area)
         if w > h:
             rx += rw
         else:
             ry += rh
-
 
 def slab(x, y, w, h, d):
     py5.push()
@@ -68,7 +66,6 @@ def generate_record(num, name='', max_elements=5):
                            generate_record(num - 5, name + str(i))))
     return result
 
-
 def key_pressed():
     # save_frame('###.png')
     m = py5.millis()
@@ -76,10 +73,8 @@ def key_pressed():
     print(m)
     set_records()
 
-
 def set_records():
     global records
     records = generate_record(20)
-
 
 py5.run_sketch()
