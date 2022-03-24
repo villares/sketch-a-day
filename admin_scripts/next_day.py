@@ -2,6 +2,7 @@
 import os
 import re
 import sys
+import subprocess
 from shutil import copytree
 from datetime import datetime, timedelta
 import generate_entries
@@ -23,6 +24,7 @@ next_day = date + timedelta(days=1)  # calculates the next day!
 new_date_string = str(next_day)[:10].replace('-', '_')
 new_folder_name = last_folder.replace(previous_date_string, new_date_string)
 keep_images = erase_code = False
+open_folder = True
 for arg in sys.argv[1:]:
     if arg.startswith('cn'):
         name_len = 10 + len(arg) - 2
@@ -33,6 +35,8 @@ for arg in sys.argv[1:]:
         erase_code = True
     elif arg == 'ki':
         keep_images = True
+    elif arg == 'do':
+        open_folder = False
     else:
         print("""usage:
         cn        : for "clean name", stop filename after date.
@@ -66,3 +70,5 @@ for file_name in os.listdir(new_folder):
                 open(new_path, 'w').close()
                 print(f'{new_name} content removed')
 
+if open_folder:
+    subprocess.Popen(["xdg-open", new_folder])
