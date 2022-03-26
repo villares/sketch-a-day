@@ -19,8 +19,6 @@ def draw():
     py5.rotate_x(py5.QUARTER_PI)
     py5.rotate_z(py5.QUARTER_PI)
     py5.translate(-py5.width / 2, -py5.height / 2, 0)
-    py5.fill(200)
-    #rect(0, 0, width, height)
     draw_records(0, 0, py5.width, py5.height, records, margin=0)
 
 
