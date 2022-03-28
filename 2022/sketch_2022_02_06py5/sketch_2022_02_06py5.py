@@ -140,4 +140,3 @@ def is_ball(obj): return isinstance(obj, pymunk.shapes.Circle)
 def is_box(obj): return isinstance(obj, pymunk.shapes.Poly)     
 
 py5.run_sketch()
-g
