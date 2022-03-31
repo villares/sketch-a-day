@@ -44,6 +44,7 @@ for arg in sys.argv[1:]:
         add-XX    : to add sufix, type it after `add-`, i.e. `add-py5`.
         ec        : erase all code from files
         ki        : keep images
+        do        : do not open folder 
         """)
         exit()
 # Rebuild the full folder paths
@@ -55,16 +56,16 @@ copytree(src_folder, new_folder)
 print(f'{new_folder_name} folder created')
 # Go through the new folder, remove images, rename files to new date
 for file_name in os.listdir(new_folder):
+    file_path = os.path.join(new_folder, file_name) 
     if is_img_ext(file_name):
         if not keep_images:
-            os.remove(os.path.join(new_folder, file_name))
+            os.remove(file_path)
             print(f'{file_name} image removed')
-    elif previous_date_string in file_name:
-        file_path = os.path.join(new_folder, file_name)
+    elif last_folder in file_name:
         if os.path.isfile(file_path):
-            new_path = file_path.replace(previous_date_string, new_date_string)
+            new_name = file_name.replace(last_folder, new_folder)
+            new_path = os.path.join(new_folder, new_name)
             os.rename(file_path, new_path)
-            new_name = file_name.replace(previous_date_string, new_date_string)
             print(f'{file_name} file renamed to {new_name}')
             if erase_code:
                 open(new_path, 'w').close()
