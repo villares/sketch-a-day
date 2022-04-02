@@ -63,10 +63,11 @@ for file_name in os.listdir(new_folder):
             print(f'{file_name} image removed')
     elif last_folder in file_name:
         if os.path.isfile(file_path):
-            new_name = file_name.replace(last_folder, new_folder)
-            new_path = os.path.join(new_folder, new_name)
-            os.rename(file_path, new_path)
+            new_name = file_name.replace(file_name, new_folder_name)
+            new_path = os.path.join(new_folder, new_name)         
             print(f'{file_name} file renamed to {new_name}')
+            os.rename(file_path, new_path)        
+            # print(f'{file_path} file renamed to {new_path}') # debug
             if erase_code:
                 open(new_path, 'w').close()
                 print(f'{new_name} content removed')
