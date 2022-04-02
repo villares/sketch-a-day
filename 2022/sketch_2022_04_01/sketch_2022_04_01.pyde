@@ -1,4 +1,4 @@
-s = 0.005  
+s = 0.005  # noise scale
 
 def setup():
     size(600, 600, P3D)
@@ -12,22 +12,16 @@ def draw():
     rotateX(QUARTER_PI)
     rotateZ(QUARTER_PI)
     translate(-width / 2, 0, 0)# -height / 2, 0)   
-
-    # elements = ((x, w, a, b), )
-    elements = (
-        (400, 50, 150, 150),
-        (300, 80, 200, 100),
-        (50, 200, 50, 300),
-        )
-    elements = []
+    
+    elements = [] # ((x, w, a, b), )
     margin = 50
     x = margin
-    while x < 600 - margin * 2:
-        w = random(20, 60)
+    while x < 580 - margin:
+        w = max(20, min(random(20, 60), 600 - margin - x))
         a = 300 * noise(1000 + x * s)
         b = 300 * noise(x * s)
         elements.append((x, w, a, b))
-        x += w + 5
+        x += w
         
     rect_base(0, 0, 600, 400, *[(x, 0, w, b) for x, w, a, b in elements])
     for x, w, a, b in elements:
