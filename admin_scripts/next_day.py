@@ -63,7 +63,7 @@ for file_name in os.listdir(new_folder):
             print(f'{file_name} image removed')
     elif last_folder in file_name:
         if os.path.isfile(file_path):
-            new_name = file_name.replace(file_name, new_folder_name)
+            new_name = file_name.replace(last_folder, new_folder_name)
             new_path = os.path.join(new_folder, new_name)         
             print(f'{file_name} file renamed to {new_name}')
             os.rename(file_path, new_path)        
