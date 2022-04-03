@@ -8,6 +8,9 @@
 # [X] find last entry for me
 # [X] insert new entries in propper place
 # [ ] insert docstrings as text on .md file
+# [ ] use CL arguments to set tool
+# [ ] use CL arguments to set Markdown comments
+# [ ] use CL arguments to commit and push README.md
 
 from os import listdir
 from os.path import join, exists
@@ -78,6 +81,7 @@ def build_entry(image, folder, year):
     """
     name, ext = image.split('.')
     tools = {
+        'pde': '[[Processing Java](https://processing.org)]'
         'pyde': '[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]',
         'flat': '[[Python + flat](https://xxyxyz.org/flat)]',
         'pyp5js': '[[pyp5js](https://berinhard.github.io/pyp5js/)]',
@@ -95,6 +99,8 @@ def build_entry(image, folder, year):
         for f in listdir(folder_path):
             if 'pyde' in f:
                 tool = 'pyde'
+            elif 'pde' in f:
+                tool = 'pde'
                 
     docstring = search_docstring(folder_path)
     if docstring:
