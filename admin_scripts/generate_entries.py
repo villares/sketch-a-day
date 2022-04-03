@@ -81,7 +81,7 @@ def build_entry(image, folder, year):
     """
     name, ext = image.split('.')
     tools = {
-        'pde': '[[Processing Java](https://processing.org)]'
+        'pde': '[[Processing Java](https://processing.org)]',
         'pyde': '[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]',
         'flat': '[[Python + flat](https://xxyxyz.org/flat)]',
         'pyp5js': '[[pyp5js](https://berinhard.github.io/pyp5js/)]',
