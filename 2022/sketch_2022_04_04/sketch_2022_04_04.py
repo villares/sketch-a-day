@@ -1,5 +1,5 @@
-H = 15
-W = 100
+w, h = 100, 15
+initial_v = 0.03
 
 def setup():
     size(900, 900)
@@ -8,23 +8,32 @@ def setup():
     
 def draw():
     background(240)
-    cols = width // W
-    rows = height // H
-    n = 0
-    v = 0.03
+    cols = width // w
+    rows = height // h
+    n = 0.5
+    v = initial_v
     for col in range(cols):
         for row in range(rows):
-#             x0, y0 = col * W, row * H
-#             third_x = x0 + W * n
-#             triangle(x0, y0, x0 + W, y0, third_x, y0 + H)
-#             n += v
-#             if not (0 <= n <= 1):
-#                 v = -v
-#     for row in range(rows):
-#         for col in range(cols):
-            x0, y0 = col * W, row * H
-            third_x = x0 + W * n
-            triangle(x0, y0, x0 + W, y0, third_x, y0 + H)
+            x0, y0 = col * w, row * h
+            third_x = x0 + w * n
+            triangle(x0, y0, x0 + w, y0, third_x, y0 + h)
             n += v
             if not (0 <= n <= 1):
                 v = -v
+                
+def key_pressed():
+    global w, h, initial_v
+    if key == CODED and key_code == UP:
+        h += 1
+    elif key == CODED and key_code == DOWN and h > 1:
+        h -= 1
+    elif key == CODED and key_code == RIGHT: 
+        w += 1
+    elif key == CODED and key_code == LEFT and w > 1:
+        w -= 1
+    elif key == 'a':
+        initial_v += 0.01
+    elif key == 'z':
+        initial_v -= 0.011
+    # if you omit the key == CODED check, '%&( will also activate
+
