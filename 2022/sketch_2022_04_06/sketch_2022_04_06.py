@@ -3,6 +3,7 @@
 
 import py5
 import pymunk as pm
+from villares.line_geometry import point_inside_poly
 
 space = pm.Space()
 space.gravity = (0, 600)
@@ -32,7 +33,7 @@ def setup():
         space.add(wall)
 
 def draw():
-    py5.background(0, 100, 20)
+    py5.background(100, 100, 20)
         
     py5.no_stroke()
     py5.fill(255, 100)    
@@ -89,49 +90,70 @@ def build_polybody(poly):
     space.add(body, shp)
 
 
-def build_softbody(x, y, cols, rows, ex, radius, mass):   # ex é o espaçamento
+def build_softpoly(x, y, cols, rows, ex, radius, mass, poly):  
     ey = py5.sqrt(3) * 0.5 * ex
     moi = pm.moment_for_circle(mass, 0, radius, (0, 0))
-    grid = {}
+    grid = {}  # dict for grid elements, (i, j) as keys
     for j in range(rows):
-        p = j % 2
-        for i in range(cols + p):
+        odd_row = j % 2
+        for i in range(cols + odd_row):
             body = pm.Body(mass, moi)
-            body.position = (x - (p * 0.5 * ex) + i * ex,
-                             y + j * ey)
+            bx, by = x - (odd_row * 0.5 * ex) + i * ex, y + j * ey
+            if point_inside_poly(bx, by, poly):                
+                body.position = (bx, by)
+                shp = pm.Circle(body, radius)
+                shp.elasticity = 0.6
+                shp.friction = 0.6
+                space.add(body, shp)
+                grid[(i, j)] = body
+    for j in range(rows):
+        odd_row = j % 2
+        for i in range(cols + odd_row):
+            if not (me := grid.get((i, j))):
+                continue
+            if right := grid.get((i + 1, j)):
+                create_link(me, right, ex)
+            if down := grid.get((i, j + 1)):
+                create_link(me, down, ex)
+            if not odd_row and (down_right := grid.get((i + 1, j + 1))):
+                create_link(me, down_right, ex)
+            elif down_left := grid.get((i - 1, j + 1)):
+                create_link(me, down_left, ex)
+
+def build_softbody(x, y, cols, rows, ex, radius, mass):   # ex (x espacing)
+    ey = py5.sqrt(3) * 0.5 * ex
+    moi = pm.moment_for_circle(mass, 0, radius, (0, 0))
+    grid = {}  # dict for grid elements, (i, j) as keys
+    for j in range(rows):
+        odd_row = j % 2
+        for i in range(cols + odd_row):
+            body = pm.Body(mass, moi)
+            body.position = (x - (odd_row * 0.5 * ex) + i * ex, y + j * ey)
             shp = pm.Circle(body, radius)
             shp.elasticity = 0.6
             shp.friction = 0.6
             space.add(body, shp)
             grid[(i, j)] = body
-
     for j in range(rows):
-        p = j % 2
-        for i in range(cols + p):
+        odd_row = j % 2
+        for i in range(cols + odd_row):
             me = grid.get((i, j))
-            if not me:
-                continue
-            down = grid.get((i, j + 1))
-            if down:
-                create_link(me, down, ex)
-            down_right = grid.get((i + 1, j + 1))
-            down_left = grid.get((i - 1, j + 1))
-            if down_right and not p:
-                create_link(me, down_right, ex)
-            elif down_left:
-                create_link(me, down_left, ex)
-            right = grid.get((i + 1, j))
-            if right:
+            if right := grid.get((i + 1, j)):
                 create_link(me, right, ex)
+            if down := grid.get((i, j + 1)):
+                create_link(me, down, ex)
+            if not odd_row and (down_right := grid.get((i + 1, j + 1))):
+                create_link(me, down_right, ex)
+            elif down_left := grid.get((i - 1, j + 1)):
+                create_link(me, down_left, ex)
 
 def create_link(me, other, ex):
-                link = pm.DampedSpring(me, other,
-                                       (0, 0), (0, 0),
+                link = pm.DampedSpring(me, other, (0, 0), (0, 0),
                                        ex, stiffness, damping)
                 space.add(link)
                 constraints.append(link)
 
-
+ 
 
 def min_max(pts):
     """
@@ -166,7 +188,10 @@ def mouse_dragged():
 
 def mouse_released():
     if len(current_poly) > 3:
-        build_polybody(current_poly[:])
+        #build_polybody(current_poly[:])
+        cp = current_poly[:]
+        (xa, ya), (xb, yb) = min_max(cp)
+        build_softpoly(xa, ya, 50, 50, 20, 10, mass, cp)
         current_poly[:] = []
 
 
