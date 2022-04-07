@@ -86,14 +86,13 @@ def build_polybody(poly):
     space.add(body, shp)
 
 
-def build_softbody(x, y, col, row, ex, radius, mass):   # ex é o espaçamento
+def build_softbody(x, y, cols, rows, ex, radius, mass):   # ex é o espaçamento
     ey = py5.sqrt(3) * 0.5 * ex
     moi = pm.moment_for_circle(mass, 0, radius, (0, 0))
-    grid = {}
     bodies = []
-    for j in range(col):
+    for j in range(rows):
         p = j % 2
-        for i in range(row + p):
+        for i in range(cols + p):
             body = pm.Body(mass, moi)
             body.position = (x - (p * 0.5 * ex) + i * ex,
                              y + j * ey)
@@ -104,35 +103,35 @@ def build_softbody(x, y, col, row, ex, radius, mass):   # ex é o espaçamento
             bodies.append(body)
 
     k = 0
-    for j in range(col - 1):
+    for j in range(rows - 1):
         p = j % 2
-        for i in range(row + p):
+        for i in range(cols + p):
             jleft = jright = 1
             if i == 0 and p:
                 jleft = 0
-            if i == row and p:
+            if i == cols and p:
                 jright = 0
             if jleft:
-                link = pm.DampedSpring(bodies[k], bodies[k + row],
+                link = pm.DampedSpring(bodies[k], bodies[k + cols],
                                        (0, 0), (0, 0),
                                        ex, stiffness, damping)
                 space.add(link)
                 constraints.append(link)
             if jright:
-                link = pm.DampedSpring(bodies[k], bodies[k + row + 1],
+                link = pm.DampedSpring(bodies[k], bodies[k + cols + 1],
                                        (0, 0), (0, 0),
                                        ex, stiffness, damping)
                 space.add(link)
                 constraints.append(link)
-                if p or (not p and i < row - 1):
+                if p or (not p and i < cols - 1):
                     link = pm.DampedSpring(bodies[k], bodies[k + 1],
                                            (0, 0), (0, 0),
                                            ex, stiffness, damping)
                     space.add(link)
                     constraints.append(link)
             k += 1
-    p = col % 2
-    for i in range(row - p):
+    p = rows % 2
+    for i in range(cols - p):
         link = pm.DampedSpring(bodies[k], bodies[k + 1],
                                (0, 0), (0, 0),
                                ex, stiffness, damping)
@@ -164,7 +163,7 @@ def key_pressed():
 
 def mouse_pressed():
     if py5.mouse_button == py5.RIGHT:
-        build_softbody(py5.mouse_x, py5.mouse_y, 4, 8, 20, 10, mass)
+        build_softbody(py5.mouse_x, py5.mouse_y, 8, 4, 20, 10, mass)
 
 
 def mouse_dragged():
