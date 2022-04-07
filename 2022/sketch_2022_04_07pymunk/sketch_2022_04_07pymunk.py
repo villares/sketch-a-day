@@ -3,12 +3,11 @@
 
 import py5
 import pymunk as pm
-from line_geometry import point_inside_poly
+from villares.line_geometry import point_inside_poly
 
 space = pm.Space()
 space.gravity = (0, 600)
 
-constraints = []
 current_poly = []
 stiffness = 10000
 damping = 300
@@ -47,7 +46,7 @@ def draw():
         if link.a.position.y > py5.height * 0.9:
             #constraints.remove(link)
             py5.text(link.a.position.y, link.a.position.x, link.a.position.y)
-            space.constraints.remove(link)
+            space.remove(link)
 
     if current_poly:
         py5.fill(255, 0, 0, 100)
@@ -160,7 +159,6 @@ def create_link(me, other, ex):
                                        ex, stiffness, damping)
                 #link = pm.PinJoint(me, other, (0, 0), (0, 0))
                 space.add(link)
-                constraints.append(link)
 
  
 
