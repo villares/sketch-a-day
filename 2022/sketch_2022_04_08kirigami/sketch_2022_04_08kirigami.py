@@ -8,7 +8,6 @@ seed = 1
 
 s = 0.005  # noise scale
 
-
 def setup():
     py5.size(600, 600, py5.P3D)
 
@@ -27,6 +26,7 @@ def draw():
         x += w
 
     if mode_3D and not save_pdf:
+        py5.fill(255)
         py5.lights()
         py5.push()
         py5.translate(py5.width / 2, py5.height / 4, -py5.height)
@@ -43,7 +43,8 @@ def draw():
             rect_h(x, 0, w, a, z=-b)
         py5.pop()
     else:
-        py5.fill(255)
+        py5.background(255)
+        py5.no_fill()
         if save_pdf:
             py5.begin_record(py5.PDF, 'output###.pdf')
         py5.rect(0, 0, 600, 600)
