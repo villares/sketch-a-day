@@ -12,26 +12,29 @@ def keyPressed():
 
 def draw():
     background(230)
+    path = sample(grid, 5)
+    arrow = offset_path(path, 30, rl=True)
+    while is_poly_self_intersecting(path) or \
+        is_poly_self_intersecting(arrow):
+        path = sample(grid, 5)
+        arrow = offset_path(path, 30, rl=True)
     fill(0, 100)
-    path = sample(grid, 3)
-    arrow = offset_path(path, 50, rl=True)
-    while is_poly_self_intersecting(arrow):
-        path = sample(grid, 6)
-        arrow = offset_path(path, 50, rl=True)
-
     beginShape()        
     for x, y in arrow:
         vertex(x, y) 
     endShape(CLOSE)
-
-    
+    noFill()
+    beginShape()        
+    for x, y in path:
+        vertex(x, y) 
+    endShape()
             
 def offset_path(path, offset, rl=False):
     a = calc_offset(path, offset, -offset)
     b = calc_offset(path[::-1], offset, offset)
-    if rl:
-        b = remove_loops(b)
-        a = remove_loops(a[::-1])[::-1]
+    # if rl:
+    #     b = remove_loops(b)
+    #     a = remove_loops(a[::-1])[::-1]
     return a + b
                         
 def calc_offset(path, offset, first_offset=0):
