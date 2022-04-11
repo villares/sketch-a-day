@@ -1,46 +1,43 @@
+from itertools import product
+from random import sample
+
 def setup():
+    global grid
     size(500, 500)
+    noLoop()
+    grid = list(product(range(100, width - 99, 150), repeat=2))
+
+def keyPressed():
+    redraw()
 
 def draw():
     background(230)
-    path = (
-        (50, 100),
-        (250, 150),
-        # (300, 450),
-        (mouseX, mouseY),
-        (450, 450),
-        (450, 100),
-    )
-    with pushStyle():
-        noFill()
-        stroke(128)
-        strokeWeight(1)
-        # beginShape()
-        # for x, y in path:
-        #     vertex(x, y)
-        # endShape()
     fill(0, 100)
-    o = 30 #+ 10 * sin(degrees(frameCount / 5000.0))
-    op = offset_path(path, o)
-    if is_poly_self_intersecting(op):
-        fill(200, 0, 0)
+    path = sample(grid, 3)
+    arrow = offset_path(path, 50, rl=True)
+    while is_poly_self_intersecting(arrow):
+        path = sample(grid, 6)
+        arrow = offset_path(path, 50, rl=True)
+
     beginShape()        
-    for x, y in op:
+    for x, y in arrow:
         vertex(x, y) 
     endShape(CLOSE)
+
     
-def offset_path(path, offset):
-    a = calc_offset(path, offset)
-    b = calc_offset(path[::-1], offset)
-    if keyPressed:
-        a = remove_loops(a)
+            
+def offset_path(path, offset, rl=False):
+    a = calc_offset(path, offset, -offset)
+    b = calc_offset(path[::-1], offset, offset)
+    if rl:
         b = remove_loops(b)
+        a = remove_loops(a[::-1])[::-1]
     return a + b
                         
-def calc_offset(path, offset):
+def calc_offset(path, offset, first_offset=0):
     first_seg = path[:2]  # first segment
     first_angle = seg_angle(first_seg)
-    first_point = point_offset(first_seg[0], offset, first_angle)
+    first_point = point_offset(first_seg[0], first_offset, first_angle)
     first_offset = seg_offset(first_seg, offset)
     # draw_seg(first_offset)
     new_path = [first_point, first_offset[0]]
@@ -158,32 +155,28 @@ def simple_intersect(*args):
     return ccw(a1, b1, a2) != ccw(a1, b1, b2) and ccw(a2, b2, a1) != ccw(a2, b2, b1)
 
 def remove_loops(path):
-    current = 0
-    new_path = [path[current]]
-    seg = path[current], path[current + 1]
-    remaining = path[current + 1:]    
-    is_intersecting, starting, ip, ending = check_remaining(seg, remaining)
-    while is_intersecting:
-        while path[current] != starting:
-            new_path.append(path[current])
-            current += 1
-        new_path.append(path[current])
-        new_path.append(ip)
-        new_path.append(ending)
-        while path[current] != ending:
-            current += 1
-        seg = path[current], path[current + 1]
-        remaining = path[current + 1:]    
-        is_intersecting, starting, ip, ending = check_remaining(seg, remaining)
-    new_path.extend(remaining)    
+    new_path = []
+    i = 0
+    while i < len(path) - 1:
+        new_path.append(path[i])
+        seg = path[i], path[i + 1]
+        intersection, ip, ie, ee = check_remaining(seg, path[i + 2:])
+        if intersection:
+            new_path.append(ip)
+            new_path.append(ee)
+            i = i + 2 + ie        
+            continue
+        i += 1
+    if i < len(path):
+        new_path.append(path[i])
     return new_path
         
 def check_remaining(seg, path):
-    if len(path) < 3:
-        return False, (0, 0), (0, 0), (0, 0)    
+    if len(path) < 2:
+        return False, None, None, None
     edges = poly_edges(path)
-    for e in edges:
+    for ie, e in enumerate(edges):
         ip = line_intersect(seg, e)
         if ip:
-            return True, seg[0], ip, e[1]
-    return False, (0, 0), (0, 0), (0, 0)
+            return True, ip, ie + 1, e[1]
+    return False, None, None, None
