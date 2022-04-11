@@ -27,6 +27,46 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_04_10a
+
+![sketch_2022_04_10a](2022/sketch_2022_04_10a/sketch_2022_04_10a.png)
+
+[sketch_2022_04_10a](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_10a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+### sketch_2022_04_09a
+
+![sketch_2022_04_09a](2022/sketch_2022_04_09a/sketch_2022_04_09a.gif)
+
+[sketch_2022_04_09a](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_09a) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+### sketch_2022_04_08kirigami
+
+![sketch_2022_04_08kirigami](2022/sketch_2022_04_08kirigami/sketch_2022_04_08kirigami.png)
+
+[sketch_2022_04_08kirigami](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_08kirigami) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
+### sketch_2022_04_07pymunk
+
+![sketch_2022_04_07pymunk](2022/sketch_2022_04_07pymunk/sketch_2022_04_07pymunk.png)
+
+[sketch_2022_04_07pymunk](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_07pymunk) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_06
+
+![sketch_2022_04_06](2022/sketch_2022_04_06/sketch_2022_04_06.png)
+
+[sketch_2022_04_06](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_06) [[py5](https://py5.ixora.io/)]
+
+---
+
 ### sketch_2022_04_05
 
 ![sketch_2022_04_05](2022/sketch_2022_04_05/sketch_2022_04_05.png)
