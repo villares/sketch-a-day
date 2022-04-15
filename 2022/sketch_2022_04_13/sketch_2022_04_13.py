@@ -42,13 +42,13 @@ def offset(poly, off_d):
         result.append((xb + off_x, yb + off_y))
     return result
 
-def centeroid(pts):
-    x, y = zip(*pts)
-    return sum(x) / len(x), sum(y) / len(y)
+def centroid(pts):
+    xs, ys = zip(*pts)
+    return sum(xs) / len(xs), sum(ys) / len(ys)
 
 def clockwise_sort(xy_pairs):
     # https://stackoverflow.com/questions/51074984/sorting-according-to-clockwise-point-coordinates
-    centroid_x, centroid_y = centeroid(xy_pairs)
+    centroid_x, centroid_y = centroid(xy_pairs)
     xy_sorted = sorted(xy_pairs,
                        key = lambda p: atan2((p[1] - centroid_y), (p[0] - centroid_x)))
     xy_sorted_xy = [coord for pair in list(zip(*xy_sorted)) for coord in pair]
