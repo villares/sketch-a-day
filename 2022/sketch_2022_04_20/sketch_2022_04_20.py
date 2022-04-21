@@ -33,14 +33,8 @@ def drag_segment(i, xin, yin):
     angle = atan2(dy, dx)
     joints[i] = xin - cos(angle) * seg_length, yin - sin(angle) * seg_length
     x, y = joints[i]    
-    draw_segment(x, y, angle)
-
-def draw_segment(x, y, a):
-    with push_matrix():
-        translate(x, y)
-        rotate(a)
-        line(0, 0, seg_length, 0)
-        
+    line(x, y, xin, yin)
+    
 def mouse_wheel(e):
     global seg_length
     seg_length += e.getCount()
