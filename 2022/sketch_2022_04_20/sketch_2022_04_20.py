@@ -33,6 +33,7 @@ def drag_segment(i, xin, yin):
     angle = atan2(dy, dx)
     joints[i] = xin - cos(angle) * seg_length, yin - sin(angle) * seg_length
     x, y = joints[i]    
+    draw_segment(x, y, angle)
 
 def draw_segment(x, y, a):
     with push_matrix():
