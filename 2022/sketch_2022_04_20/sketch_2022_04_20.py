@@ -27,12 +27,10 @@ def draw():
         drag_segment(i + 1, x, y)
 
 def drag_segment(i, xin, yin):
-    x, y = joints[i]
-    dx = xin - x
-    dy = yin - y
+    dx = xin - joints[i][0]
+    dy = yin - joints[i][1]
     angle = atan2(dy, dx)
-    joints[i] = xin - cos(angle) * seg_length, yin - sin(angle) * seg_length
-    x, y = joints[i]    
+    x, y = joints[i] = xin - cos(angle) * seg_length, yin - sin(angle) * seg_length
     line(x, y, xin, yin)
     
 def mouse_wheel(e):
