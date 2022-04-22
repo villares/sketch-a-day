@@ -11,7 +11,7 @@ def setup():
     seg = Segment()
     for _ in range(20):
         seg = Segment(link=seg)
-
+        
 def draw():
     background(240)
     Segment.segments[0].drag((mouse_x, mouse_y))    
@@ -20,12 +20,12 @@ def draw():
 class Segment:
     
     segments = []
-    seg_length = 20
     
-    def __init__(self, start=(0, 0), end=(0, 0), link=None):
-        self.start = start
-        self.end = end
+    def __init__(self, start=None, end=None, link=None):
+        self.start = start if start else (0, 0)
+        self.end = end if end else (0, 0)
         self.link = link
+        self.length = int(random(2, 5)) * 10
         self.segments.append(self)
             
     def drag(self, new_start=None):
@@ -35,8 +35,8 @@ class Segment:
             xs, ys = self.start = new_start
             xe, ye = self.end
             angle = atan2(ys - ye, xs - xe)        
-            xe = xs - cos(angle) * self.seg_length
-            ye = ys - sin(angle) * self.seg_length
+            xe = xs - cos(angle) * self.length
+            ye = ys - sin(angle) * self.length
             self.end = xe, ye
  
     def draw(self):
@@ -46,8 +46,9 @@ class Segment:
     def update_all(cls):
         for i, s in enumerate(cls.segments):
             s.drag()
-            stroke(i * 10, 200, 100, 150)
+            stroke((i * 10) % 255, 200, 100, 150)
             s.draw()
         
 def mouse_wheel(e):
-    Segment.seg_length += e.getCount()
+    for s in Segment.segments:
+        s.length += e.getCount() * 5
