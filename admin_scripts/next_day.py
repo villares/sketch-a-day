@@ -25,6 +25,7 @@ new_date_string = str(next_day)[:10].replace('-', '_')
 new_folder_name = last_folder.replace(previous_date_string, new_date_string)
 keep_images = erase_code = False
 open_folder = True
+open_file = False
 for arg in sys.argv[1:]:
     if arg.startswith('cn'):
         name_len = 10 + len(arg) - 2
@@ -35,16 +36,19 @@ for arg in sys.argv[1:]:
         erase_code = True
     elif arg == 'ki':
         keep_images = True
-    elif arg == 'do':
+    elif arg == 'no':
         open_folder = False
+    elif arg == 'of':
+        open_file = True
     else:
         print("""usage:
         cn        : for "clean name", stop filename after date.
         cn[X...]  : add any characters after cn to preserve some sufix.
         add-XX    : to add sufix, type it after `add-`, i.e. `add-py5`.
-        ec        : erase all code from files
+        ec        : erase content from files
         ki        : keep images
-        do        : do not open folder 
+        no        : do not open folder
+        of      : open file
         """)
         exit()
 # Rebuild the full folder paths
@@ -55,6 +59,7 @@ new_folder = os.path.join(base_path, new_folder_name)
 copytree(src_folder, new_folder)
 print(f'{new_folder_name} folder created')
 # Go through the new folder, remove images, rename files to new date
+file_to_open = ''
 for file_name in os.listdir(new_folder):
     file_path = os.path.join(new_folder, file_name) 
     if is_img_ext(file_name):
@@ -66,11 +71,14 @@ for file_name in os.listdir(new_folder):
             new_name = file_name.replace(last_folder, new_folder_name)
             new_path = os.path.join(new_folder, new_name)         
             print(f'{file_name} file renamed to {new_name}')
-            os.rename(file_path, new_path)        
+            os.rename(file_path, new_path)
+            file_to_open = new_path
             # print(f'{file_path} file renamed to {new_path}') # debug
             if erase_code:
                 open(new_path, 'w').close()
                 print(f'{new_name} content removed')
 
-if open_folder:
+if open_file and file_to_open:
+    subprocess.Popen(["xdg-open", file_to_open])
+elif open_folder:
     subprocess.Popen(["xdg-open", new_folder])
