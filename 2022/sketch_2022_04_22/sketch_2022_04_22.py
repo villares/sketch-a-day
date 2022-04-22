@@ -8,13 +8,13 @@ def setup():
     size(500, 500)
     stroke_weight(9)
     color_mode(HSB)
-    seg = Segment()
+    first_seg = seg = Segment()
     for _ in range(20):
-        seg = Segment(link=seg)
-        
+        seg = Segment(link=(seg, 0.5))
+
 def draw():
     background(240)
-    Segment.segments[0].drag((mouse_x, mouse_y))    
+    first_seg.drag((mouse_x, mouse_y))
     Segment.update_all()
 
 class Segment:
@@ -25,13 +25,14 @@ class Segment:
         self.start = start if start else (0, 0)
         self.end = end if end else (0, 0)
         self.link = link
-        self.length = 40 #int(random(2, 5)) * 20
+        self.length = 40
         self.segments.append(self)
-        self.anchor = (0, 0)
             
     def drag(self, new_start=None):
         if new_start is None and self.link is not None:
-            new_start = self.link.anchor
+            link_obj, amt = self.link
+            (xs, ys), (xe, ye) = link_obj.start, link_obj.end
+            new_start = lerp(xs, xe, amt), lerp(ys, ye, amt)
         if new_start:                            
             xs, ys = self.start = new_start
             xe, ye = self.end
@@ -39,13 +40,7 @@ class Segment:
             xe = xs - cos(angle) * self.length
             ye = ys - sin(angle) * self.length
             self.end = xe, ye
-        self.update_anchor()
         
-    def update_anchor(self):
-        xs, ys = self.start
-        xe, ye = self.end
-        self.anchor = (xs + xe) * 0.5, (ys + ye) * 0.5 
- 
     def draw(self):
         line(*self.start, *self.end)
         
