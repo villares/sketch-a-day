@@ -3,11 +3,9 @@
 
 from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
-# add_library('gifAnimation')
 
 space, border = 15, 30
 position = 0  # initial position
-
 
 def setup():
     global line_combos, W, H, position, num
