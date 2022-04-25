@@ -5,17 +5,17 @@ from random import shuffle
 from itertools import product, combinations, permutations, combinations_with_replacement
 # add_library('gifAnimation')
 
-space, border = 30, 30
+space, border = 18, 20
 position = 0  # initial position
 
 
 def setup():
     global line_combos, W, H, position, num
-    size(18 * 30 + 60, 23 * 30 + 60)
+    size(101 * 18 + 40, 6 * 18 + 40)
     frame_rate(5)
     rect_mode(CENTER)
-    stroke_weight(4)
-    grid = product(range(-2, 1), repeat=2)  # 4X4
+    stroke_weight(2)
+    grid = product(range(-1, 2), repeat=2)  # 4X4
     # all line combinations on a grid
     lines_on_grid = list(combinations(grid, 2))
     print("Number of lines: {}".format(len(lines_on_grid)))
@@ -23,23 +23,20 @@ def setup():
     raw_line_combos = sorted(combinations(lines_on_grid, 2))
     line_combos = []
     for la, lb in raw_line_combos:
-        if not continous(la, lb) or not parallel(la, lb):
+        sa, ea = la
+        sb, eb = lb
+        pts = set((sa, ea, sb, eb))
+        if len(pts) > 3 or triangle_area(*pts) > 0:        
              line_combos.append((la, lb))
     num = len(line_combos)
     print("Number of combinations: {}".format(num))
-    W, H = 18, 23
+    W, H = 101, 6
     print("Cols: {} Rows: {} Visible grid: {}".format(W, H, W * H))
 
-def continous(la, lb):
-    sa, ea = la
-    sb, eb = lb
-    return len(set((sa, ea, sb, eb))) < 4
-
-def parallel(la, lb):
-    (x0, y0), (x1, y1) = la
-    (x2, y2), (x3, y3) = lb
-    return abs(abs(atan2(y0 - y1, x0 - x1)) - abs(atan2(y2 - y3, x2 - x3))) > 0.1
-
+def triangle_area(a, b, c):
+    return abs(a[0] * (b[1] - c[1]) +
+               b[0] * (c[1] - a[1]) +
+               c[0] * (a[1] - b[1]))
 
 def draw():
     global position
@@ -65,14 +62,13 @@ def draw_combo(n):
     siz = space / 4.0
     for i, sl in enumerate(line_combos[n]):
         # colorMode(HSB)
-
         (x0, y0), (x1, y1) = sl
         if dist(x0, y0, x1, y1) > 2:
             stroke(0, 128, 0)
         else:
             stroke(0)
         line(x0 * siz, y0 * siz, x1 * siz, y1 * siz)
-
+        #translate(3, 3) # for debug
 
 def key_pressed():
     global W, H
