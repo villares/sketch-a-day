@@ -27,6 +27,94 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_04_25
+
+![sketch_2022_04_25](2022/sketch_2022_04_25/sketch_2022_04_25.png)
+
+[sketch_2022_04_25](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_25) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_24
+
+![sketch_2022_04_24](2022/sketch_2022_04_24/sketch_2022_04_24.png)
+
+[sketch_2022_04_24](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_24) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_23
+
+![sketch_2022_04_23](2022/sketch_2022_04_23/sketch_2022_04_23.png)
+
+[sketch_2022_04_23](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_23) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_22
+
+![sketch_2022_04_22](2022/sketch_2022_04_22/sketch_2022_04_22.png)
+
+[sketch_2022_04_22](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_22) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_21
+
+![sketch_2022_04_21](2022/sketch_2022_04_21/sketch_2022_04_21.png)
+
+[sketch_2022_04_21](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_21) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_20
+
+![sketch_2022_04_20](2022/sketch_2022_04_20/sketch_2022_04_20.gif)
+
+[sketch_2022_04_20](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_20) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_19
+
+![sketch_2022_04_19](2022/sketch_2022_04_19/sketch_2022_04_19.png)
+
+[sketch_2022_04_19](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_19) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_18
+
+![sketch_2022_04_18](2022/sketch_2022_04_18/sketch_2022_04_18.png)
+
+[sketch_2022_04_18](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_18) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_17
+
+![sketch_2022_04_17](2022/sketch_2022_04_17/sketch_2022_04_17.png)
+
+[sketch_2022_04_17](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_17) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_16
+
+![sketch_2022_04_16](2022/sketch_2022_04_16/sketch_2022_04_16.png)
+
+[sketch_2022_04_16](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_16) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_04_15
+
+![sketch_2022_04_15](2022/sketch_2022_04_15/sketch_2022_04_15.png)
+
+[sketch_2022_04_15](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_04_15) [[py5](https://py5.ixora.io/)]
+
+---
+
 ### sketch_2022_04_14
 
 ![sketch_2022_04_14](2022/sketch_2022_04_14/sketch_2022_04_14.png)
