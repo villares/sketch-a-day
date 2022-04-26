@@ -15,7 +15,7 @@ def setup():
     frame_rate(5)
     rect_mode(CENTER)
     stroke_weight(2)
-    grid = product(range(-1, 2), repeat=2)  # 4X4
+    grid = product(range(-1, 2), repeat=2)  # 3 x 3 grid
     # all line combinations on a grid
     lines_on_grid = list(combinations(grid, 2))
     print("Number of lines: {}".format(len(lines_on_grid)))
@@ -46,8 +46,8 @@ def draw():
         for x in range(W):
             if i < len(line_combos):
                 push_matrix()
-                translate(
-                    border + space / 2 + space * x, border + space / 2 + space * y)
+                translate(border + space / 2 + space * x,
+                          border + space / 2 + space * y)
                 draw_combo(i)
                 pop_matrix()
                 i += 1
@@ -61,7 +61,6 @@ def draw_combo(n):
     color_mode(RGB)
     siz = space / 4.0
     for i, sl in enumerate(line_combos[n]):
-        # colorMode(HSB)
         (x0, y0), (x1, y1) = sl
         if dist(x0, y0, x1, y1) > 2:
             stroke(0, 128, 0)
