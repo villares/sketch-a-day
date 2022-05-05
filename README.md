@@ -27,27 +27,27 @@ Here are listed some of the tools I have been using:
 
 ---
 
-### sketch_2022_05_04freeCAD
+### sketch_2022_05_04FreeCAD
 
 ![sketch_2022_05_04freeCAD](2022/sketch_2022_05_04freeCAD/sketch_2022_05_04freeCAD.gif)
 
-[sketch_2022_05_04freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_04freeCAD) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_04freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_04freeCAD) [[FreeCAD](https://freecadweb.org)]
 
 ---
 
-### sketch_2022_05_03freeCAD
+### sketch_2022_05_03FreeCAD
 
 ![sketch_2022_05_03freeCAD](2022/sketch_2022_05_03freeCAD/sketch_2022_05_03freeCAD.gif)
 
-[sketch_2022_05_03freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_03freeCAD) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_03freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_03freeCAD) [[FreeCAD](https://freecadweb.org)]
 
 ---
 
-### sketch_2022_05_02freeCAD
+### sketch_2022_05_02FreeCAD
 
 ![sketch_2022_05_02freeCAD](2022/sketch_2022_05_02freeCAD/sketch_2022_05_02freeCAD.jpg)
 
-[sketch_2022_05_02freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_02freeCAD) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_02freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_02freeCAD) [[FreeCAD](https://freecadweb.org)]
 
 ---
 
