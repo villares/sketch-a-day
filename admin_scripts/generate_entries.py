@@ -88,10 +88,11 @@ def build_entry(image, folder, year):
         'py5': '[[py5](https://py5.ixora.io/)]',
         'shoebot': '[[shoebot](http://shoebot.net/)]',
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
-        'tk': '[tkinter]'
+        'tk': '[tkinter]',
+        'freecad': '[FreeCAD](https://freecadweb.org)'       
     }
     folder_path = join(year_path, folder)
-    tools_mentioned = (t for t in tools.keys() if t in name)
+    tools_mentioned = (t for t in tools.keys() if t in name.lower())
     try:
         tool = next(tools_mentioned)
     except StopIteration:
