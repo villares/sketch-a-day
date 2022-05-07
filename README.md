@@ -27,6 +27,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_05_06freeCAD
+
+![sketch_2022_05_06freeCAD](2022/sketch_2022_05_06freeCAD/sketch_2022_05_06freeCAD.gif)
+
+[sketch_2022_05_06freeCAD](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_06freeCAD) [FreeCAD](https://freecadweb.org)
+
+---
+
 ### sketch_2022_05_05freeCAD
 
 ![sketch_2022_05_05freeCAD](2022/sketch_2022_05_05freeCAD/sketch_2022_05_05freeCAD.jpg)
