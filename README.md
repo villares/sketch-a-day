@@ -27,6 +27,22 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_05_12ahex_cells
+
+![sketch_2022_05_12ahex_cells](2022/sketch_2022_05_12ahex_cells/sketch_2022_05_12ahex_cells.png)
+
+[sketch_2022_05_12ahex_cells](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_12ahex_cells) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_05_11ahex_cells
+
+![sketch_2022_05_11ahex_cells](2022/sketch_2022_05_11ahex_cells/sketch_2022_05_11ahex_cells.gif)
+
+[sketch_2022_05_11ahex_cells](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_11ahex_cells) [[py5](https://py5.ixora.io/)]
+
+---
+
 ### sketch_2022_05_10ahex_cells
 
 ![sketch_2022_05_10ahex_cells](2022/sketch_2022_05_10ahex_cells/sketch_2022_05_10ahex_cells.png)
