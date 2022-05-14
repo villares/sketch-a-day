@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>SVG Rendering in HTML using Pyscript</title>
+      <meta charset="utf-8">  
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      </head>
+      <body>
+      <h2>Start of SVG output area: </h2>
+<div id='mydiv'></div>          
+<py-script>  
+mykey = str(1)    
+svgNS = "http://w3.org/2000/svg"     
+# svgelement = document.createElement('svg')
+svgelement = document.createElementNS('http://w3.org/2000/svg', 'svg')    
+svgelement.setAttributeNS(None,"width","100%")   
+svgelement.setAttributeNS(None,"height","100%")
+svgelement.setAttributeNS(None,"key",mykey)    
+# create SVG DOM        
+myCircle = document.createElementNS(svgNS,"circle")
+myCircle.setAttributeNS(None,"id","mycircle")
+myCircle.setAttributeNS(None,"cx",100)
+myCircle.setAttributeNS(None,"cy",100)
+myCircle.setAttributeNS(None,"r",50)
+myCircle.setAttributeNS(None,"fill","black")
+myCircle.setAttributeNS(None,"stroke","none") 
+svgelement.appendChild(myCircle)    
+# write into DIV    
+document.getElementById("ContainerBox").append(svgelement)   
+</py-script> 
+<div id='ContainerBox'></div>       
+    </body>
+  </html>
