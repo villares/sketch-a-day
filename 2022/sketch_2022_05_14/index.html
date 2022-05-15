@@ -10,11 +10,11 @@
 <div id='mydiv'></div>          
 <py-script>  
 mykey = str(1)    
-svgNS = "http://w3.org/2000/svg"     
+svgNS = "https://w3.org/2000/svg"     
 # svgelement = document.createElement('svg')
-svgelement = document.createElementNS('http://w3.org/2000/svg', 'svg')    
-svgelement.setAttributeNS(None,"width","100%")   
-svgelement.setAttributeNS(None,"height","100%")
+svgelement = document.createElementNS(svgNS, 'svg')    
+svgelement.setAttributeNS(None,"width","400px")   
+svgelement.setAttributeNS(None,"height","400px")
 svgelement.setAttributeNS(None,"key",mykey)    
 # create SVG DOM        
 myCircle = document.createElementNS(svgNS,"circle")
