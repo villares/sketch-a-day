@@ -31,7 +31,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_05_15](2022/sketch_2022_05_15/sketch_2022_05_15.png)
 
-[sketch_2022_05_15](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_15) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_15](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_15) [[pyscript](https://pyscript.net/)]
 
 ---
 
