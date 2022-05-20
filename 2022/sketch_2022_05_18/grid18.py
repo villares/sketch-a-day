@@ -91,7 +91,7 @@ def poly(points, stroke='current', fill='current', opacity='current'):
 def add(element):
     canvas.appendChild(element)
 
-def mouse_pressed(e):
+def mouse_pressed(e=None):
     #if e.button == 0:   # left mouse button e.offsetX, e.offsetY
     canvas.innerHTML = ''
     add(rect(0, 0, width, height, fill='black'))
@@ -118,8 +118,11 @@ def star(cx, cy, ra, rb, n, **kwargs):
         bx = cx + cos(ang + passo / 2.) * rb
         by = cy + sin(ang + passo / 2.) * rb
         pts.append((bx, by))
-#         add(circle(ax, ay, 5))
+#         add(circle(ax, ay, 5))  # debug
 #         add(circle(bx, by, 3))
     return poly(pts, **kwargs)
 
 size(900, 900)
+mouse_pressed() # generate the first one
+
+
