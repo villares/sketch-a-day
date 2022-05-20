@@ -27,6 +27,17 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_05_19
+
+![sketch_2022_05_19](2022/sketch_2022_05_19/sketch_2022_05_19.gif)
+
+[sketch_2022_05_19](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_05_19) [[pyscript](https://pyscript.net/)]
+
+[click here to ineteract](https://abav.lugaralgum.com/sketch-a-day/2022/sketch_2022_05_19/)
+
+
+---
+
 ### sketch_2022_05_18
 
 ![sketch_2022_05_18](2022/sketch_2022_05_18/sketch_2022_05_18.png)
