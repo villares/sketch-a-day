@@ -29,12 +29,11 @@ def generate_grid():
     empty_spots = [[True for _ in range(n_rows)] # collumn
                          for _ in range(n_cols)]
     add_to_grid([4, 1], 2)
-    add_to_grid([3, 1], 2)
+    #add_to_grid([3, 1], 1)
     for _ in range(5):
         add_to_grid([2, 1])
     add_to_grid([1, 1])
 
-    
 def draw():
     py5.background(0)
     py5.stroke_weight(4)
