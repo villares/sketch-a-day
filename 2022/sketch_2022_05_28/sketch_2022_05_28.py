@@ -29,7 +29,7 @@ def draw():
                       64 + py5.dist(xc, yc, w / 4, h / 4) % 128)
         py5.fill(c)
         py5.text_size(16)
-        f = 0.3  # map(mouseX, 0, width, 0, 1)
+        f = 0.3  #py5.remap(py5.mouse_x, 0, py5.width, 0, 1)
         for i, (x, y) in enumerate(s):
             py5.vertex(x + xc * f, y + yc * f)
             py5.text_align(py5.CENTER, py5.CENTER)
