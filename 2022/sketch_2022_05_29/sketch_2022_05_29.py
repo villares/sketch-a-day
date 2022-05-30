@@ -1,5 +1,5 @@
 import py5
-
+from export_helper import save_png_with_src
 
 def setup():
     py5.size(900, 900)
@@ -99,7 +99,8 @@ def key_pressed():
     elif py5.key == py5.ENTER:
         start_polygons()
     elif py5.key == 's':
-        py5.save_frame('###.png')
+       # py5.save_frame('###.png')
+        save_png_with_src('alt.png')
 
 
 def dividir_poligonos():
