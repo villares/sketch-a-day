@@ -11,7 +11,7 @@ def save_png_with_src(output, *args, **kwargs):
     context = kwargs.pop('context', None)
     if context:
         metadata.add_itxt("context", context)   
-    metadata.add_itxt("ALT", src)
+    metadata.add_itxt("code", src)
     py5.save(output, *args, pnginfo=metadata, **kwargs)
     # read back and print...
     # target_image = PIL.Image.open(output)
