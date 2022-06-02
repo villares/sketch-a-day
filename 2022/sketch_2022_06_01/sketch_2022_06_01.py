@@ -9,7 +9,8 @@ def setup():
     
 
 def start_polygons():
-    global poligonos, cores
+    global poligonos, div_count
+    div_count = 0
     HW = 400 # half width
     poligonos = [
         ((-400-HW, -HW), (-400+HW, -HW), (-400+HW, HW), (-400-HW, HW)),
@@ -105,6 +106,8 @@ def key_pressed():
 
 
 def dividir_poligonos():
+    global div_count
+    div_count += 1
     novos_poligonos = []
     for p in poligonos:
         novos_poligonos.extend(dividir(p))
@@ -112,8 +115,9 @@ def dividir_poligonos():
 
 
 def dividir(p):
-    #x = p[0][0]
-    if py5.random(10) > 5:
+    x = (p[0][0] + py5.width / 2) / 100
+    print(x, div_count)
+    if div_count < 5 or div_count < x:
         if len(p) == 4:
             return dividir_quad(p)
         else:

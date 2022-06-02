@@ -47,7 +47,7 @@ images_col = [
     ]  
 third_col = [
     [sg.Multiline(key='-CODE-', size=(50, 20), disabled=True, font='Consolas 10')],
-    [sg.Multiline(key='-OTHER-', size=(50, 20), disabled=True, font='Consolas 10')]
+    [sg.Multiline(key='-OTHER-', size=(50, 10), disabled=True, font='Consolas 10')]
     ]
 # ----- Full layout -----
 layout = [
