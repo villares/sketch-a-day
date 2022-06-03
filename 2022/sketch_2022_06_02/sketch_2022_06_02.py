@@ -27,15 +27,17 @@ def setup():
     end_record()  # encerra a gravação do arquivo
 
 def circulos(x, y, i, j):
+    r, g = remap(i, 0, colunas - 1, 0, 256), remap(j, 0, filas - 1, 0, 256)
     for k in range(1, 4):
         xc = k * largura_carta / 4
         if k == 1:
-            fill(i * 128, 128, 128)
+            fill(r, 128, 128)
         elif k == 2:
-            fill(128, j * 128, 128)                    
+            fill(128, g, 128)                    
         else:
-           fill(i * 128, j * 128, 128) 
-        circle(x + xc, y + altura_carta / 2, altura_carta / 3)
+           fill(r, g, 128)
+        d = min(altura_carta / (filas), largura_carta / (colunas))
+        circle(x + xc, y + altura_carta / 2, d)
 
 def marcas_de_corte(x, y, w, h, d=6):
     line(x - d, y, x - d * 2, y)
