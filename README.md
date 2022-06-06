@@ -27,6 +27,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_06_05kirigami
+
+![sketch_2022_06_05kirigami](2022/sketch_2022_06_05kirigami/sketch_2022_06_05kirigami.gif)
+
+[sketch_2022_06_05kirigami](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_06_05kirigami) [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]
+
+---
+
 ### sketch_2022_06_04
 
 ![sketch_2022_06_04](2022/sketch_2022_06_04/sketch_2022_06_04.gif)
