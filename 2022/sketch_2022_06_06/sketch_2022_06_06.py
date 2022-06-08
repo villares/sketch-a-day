@@ -3,7 +3,6 @@
 
 import py5
 import pymunk as pm
-from villares.line_geometry import point_inside_poly
 
 space = pm.Space()
 space.gravity = (0, 600)
@@ -203,6 +202,23 @@ def mouse_released():
             build_softpoly(spacing, spacing * 0.5, mass, current_poly[:])
         current_poly[:] = []
 
+
+def point_inside_poly(*args):
+    # ray-casting algorithm based on
+    # https://wrf.ecse.rpi.edu/Research/Short_Notes/pnpoly.html
+    if len(args) == 2:
+        (x, y), poly = args
+    else:
+        x, y, poly = args
+    inside = False
+    for i, p in enumerate(poly):
+        pp = poly[i - 1]
+        xi, yi = p
+        xj, yj = pp
+        intersect = ((yi > y) != (yj > y)) and (x < (xj - xi) * (y - yi) / (yj - yi) + xi)
+        if intersect:
+            inside = not inside
+    return inside
 
 def is_circle(obj): return isinstance(obj, pm.Circle)
 def is_poly(obj): return isinstance(obj, pm.Poly) 
