@@ -4,15 +4,14 @@ def setup():
     
 def draw():
     background(100, 150, 100)
-    pts = var_bar_pts(mouse_x, mouse_y, 200, 300, 50, 100, num_points=16)
+    pts = var_bar_pts(mouse_x, mouse_y, 200, 300, 40, 100, num_points=16)
     stroke_weight(1)
     with begin_closed_shape():
         vertices(pts)
     stroke_weight(5)
     points(pts)
 
-def arc_pts(cx, cy, w, h, start_angle, end_angle,
-          num_points=24):
+def arc_pts(cx, cy, w, h, start_angle, end_angle, num_points=24):
     """
     Returns points approximating an arc using the same
     signature as the original Processing arc().
@@ -25,19 +24,12 @@ def arc_pts(cx, cy, w, h, start_angle, end_angle,
         return [(vx, vy)]
     step_angle = float(sweep_angle) / num_points    
     va = start_angle
-    if sweep_angle > 0:
-        while va < end_angle:
-            vx = cx + cos(va) * w / 2.0
-            vy = cy + sin(va) * h / 2.0
-            result.append((vx, vy))
-            va += step_angle
-    else:
-        while va > end_angle:
-            vx = cx + cos(va) * w / 2.0
-            vy = cy + sin(va) * h / 2.0
-            result.append((vx, vy))
-            va += step_angle
-
+    side = 1 if sweep_angle > 0 else -1
+    while va * side < end_angle * side:
+        vx = cx + cos(va) * w / 2.0
+        vy = cy + sin(va) * h / 2.0
+        result.append((vx, vy))
+        va += step_angle
     return result
 
 def var_bar_pts(p1x, p1y, p2x, p2y, r1, r2=None, **kwargs):
@@ -66,8 +58,8 @@ def var_bar_pts(p1x, p1y, p2x, p2y, r1, r2=None, **kwargs):
         x, y = (p1x, p1y) if r1 > r2 else (p2x, p2y)
         return arc_pts(x, y, r * 2, r * 2, 0, TWO_PI, **kwargs)
                           
-def rotate_offset_points(pts, angle, ox, oy, y0=0, x0=0):
-    return [(((xp - x0) * cos(angle) - (yp - y0) * sin(angle)) + x0 + ox,
-             ((yp - y0) * cos(angle) + (xp - x0) * sin(angle)) + y0 + oy)
+def rotate_offset_points(pts, angle, offx, offy, y0=0, x0=0):
+    return [(((xp - x0) * cos(angle) - (yp - y0) * sin(angle)) + x0 + offx,
+             ((yp - y0) * cos(angle) + (xp - x0) * sin(angle)) + y0 + offy)
             for xp, yp in pts]
     
