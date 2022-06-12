@@ -16,21 +16,21 @@ def arc_pts(cx, cy, w, h, start_angle, end_angle, num_points=24):
     Returns points approximating an arc using the same
     signature as the original Processing arc().
     """
-    result = []
     sweep_angle = end_angle - start_angle
-    if sweep_angle == 0:
+    if abs(sweep_angle) < 0.0001:
         vx = cx + cos(start_angle) * w / 2.0
         vy = cy + sin(start_angle) * h / 2.0
         return [(vx, vy)]
+    pts_list = []
     step_angle = float(sweep_angle) / num_points    
     va = start_angle
     side = 1 if sweep_angle > 0 else -1
-    while va * side < end_angle * side:
+    while va * side < end_angle * side or abs(va - end_angle) < 0.0001:
         vx = cx + cos(va) * w / 2.0
         vy = cy + sin(va) * h / 2.0
-        result.append((vx, vy))
+        pts_list.append((vx, vy))
         va += step_angle
-    return result
+    return pts_list
 
 def var_bar_pts(p1x, p1y, p2x, p2y, r1, r2=None, **kwargs):
     """
