@@ -161,10 +161,6 @@ def arc_pts(cx, cy, w, h, start_angle, end_angle, num_points=24):
         pts_list.append((vx, vy))
         va += step_angle
     return pts_list
-def rotate_offset_points(pts, angle, offx, offy, y0=0, x0=0):
-    return [(((xp - x0) * cos(angle) - (yp - y0) * sin(angle)) + x0 + offx,
-             ((yp - y0) * cos(angle) + (xp - x0) * sin(angle)) + y0 + offy)
-            for xp, yp in pts]
 
 def b_arc(cx, cy, w, h, start_angle, end_angle, mode=0):
     """
