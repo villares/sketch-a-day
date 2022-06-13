@@ -56,7 +56,7 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
     assert len(op_list) == len(r2_list),\
         'Number of points and radii provided not the same.'
     auto_flip = kwargs.pop('auto_flip', True)
-    gradual_flip = kwargs.pop('gradual_flip', False)  # experimentas    
+    gradual_flip = kwargs.pop('gradual_flip', False)    
     pts_list = []
     # remove overlapping adjacent points
     p_list, r_list = [], []
@@ -66,7 +66,6 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
         p2, r2, r1 = p2_list[i2], r2_list[i2], r2_list[i1]
         d = dist(p1[0], p1[1], p2[0], p2[1])
         if d > abs(r1 - r2):
-#        if d > 1:  # or p1 != p2:
             p_list.append(p1)
             r_list.append(r1)
         else:
@@ -81,12 +80,10 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
         a = triangle_area(p0, p1, p2) / 1000
         if or_list == None:
             r_list[i1] = a 
-        else:
-            if auto_flip and a < 0:
-                r_list[i1] = -r_list[i1]
-                if gradual_flip:
-                    r_list[i1] = r_list[i1] * min(1, abs(a))
-            # an experimental shrink to flip option...
+        elif auto_flip and a < 0:
+            r_list[i1] = -r_list[i1]
+            if gradual_flip:
+                r_list[i1] = r_list[i1] * min(1, abs(a))
     # reduce radius that won't fit
     for i1, p1 in enumerate(p_list):
         i2 = (i1 + 1) % len(p_list)
@@ -132,7 +129,6 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
                 pts_list.append((p12[0], p12[1]))
             if a2:
                 pts_list.append((p21[0], p21[1]))
-
     return pts_list
 
 def reduce_radius(p1, p2, r1, r2, reduce_both=True):
@@ -146,8 +142,7 @@ def reduce_radius(p1, p2, r1, r2, reduce_both=True):
             r1 = remap(d, ri + 1, 0, r1, r2)
         else:
             r2 = remap(d, ri + 1, 0, r2, r1)
-
-    return(r1, r2)
+    return r1, r2
 
 def circ_circ_tangent(p1, p2, r1, r2):
     d = dist(p1[0], p1[1], p2[0], p2[1])
