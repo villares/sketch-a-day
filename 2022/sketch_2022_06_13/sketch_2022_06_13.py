@@ -19,12 +19,12 @@ def draw():
     fill(255, 32)
     with begin_closed_shape():
         vertices(input_pts)    
-    arc_augmented_poly(input_pts, [82, 82, 62, 32])
+    arc_augmented_poly(input_pts, radius =62) #[82, 82, 62, 32])
     fill(255) # debug text will pick this, even after no_fill()
     no_fill()
     output_pts = arc_augmented_points(input_pts,
-                                      [80, 80, 60, 30],
-                                      #radius=80,
+                                      #[80, 80, 60, 30],
+                                      radius=60,
                                       auto_flip=True,
                                       gradual_flip=True,
                                       min_dist=5) 
