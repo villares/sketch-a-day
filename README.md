@@ -33,6 +33,11 @@ Here are listed some of the tools I have been using:
 
 [sketch_2022_06_13](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_06_13) [[py5](https://py5.ixora.io/)]
 
+- Added naïve poly simplification
+- I'm happier with (newest) "gradual flip" 
+- I gained some insight on why everything is worse with   different radius for each vertex (and it is hard to fix).
+- I changed the radius reduction behavior!
+
 ---
 
 ### sketch_2022_06_12
@@ -40,6 +45,8 @@ Here are listed some of the tools I have been using:
 ![sketch_2022_06_12](2022/sketch_2022_06_12/sketch_2022_06_12.gif)
 
 [sketch_2022_06_12](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_06_12) [[py5](https://py5.ixora.io/)]
+
+- arc_augmented_points() (to complement arc_augmented_poly)
 
 ---
 
