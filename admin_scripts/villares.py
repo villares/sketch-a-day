@@ -5,7 +5,6 @@ import sys
 def please():
     pass
                 
-parse()
 for arg in sys.argv[1:]:
     if arg.startswith('p'):
         please()
