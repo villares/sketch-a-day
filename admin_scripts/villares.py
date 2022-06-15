@@ -3,15 +3,16 @@ import os
 import sys
 
 def please():
-    pass
+    print('you are welcome')
                 
 for arg in sys.argv[1:]:
     if arg.startswith('p'):
         please()
     else:
-        print("""usage:
-        p        : run please()
-        """)
+        print("""villares arguments:
+    p   run please()
+        'you are welcome'
+""")
         exit()
 
 
