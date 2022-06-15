@@ -12,14 +12,14 @@ def setup():
     
 def draw():
     scale(1.5)
-    background(100, 150, 50)
+    background(150, 150, 50)
     input_pts = ((150, 150),  (500, 200), (300, 450), (mouse_x / 1.5,
                                                        mouse_y / 1.5))
-    stroke(255, 100)
-    fill(255, 32)
-    with begin_closed_shape():
-        vertices(input_pts)    
-    arc_augmented_poly(input_pts, [42, 82, 62, 82], reduce_both=False)
+#     stroke(255, 100)
+#     fill(255, 32)
+#     with begin_closed_shape():
+#         vertices(input_pts)    
+#     arc_augmented_poly(input_pts, [42, 82, 62, 82], reduce_both=False)
     fill(255) # debug text will pick this, even after no_fill()
     no_fill()
     output_pts = arc_augmented_points(input_pts,
@@ -60,7 +60,7 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
     # remove overlapping adjacent points
     p_list, r_list = [], []
     p2_list = list(op_list)
-    for i1, p1 in enumerate(p2_list):
+    for i1, p1 in reversed(list(enumerate(p2_list))):
         i2 = (i1 + 1) % len(p2_list)
         p2, r2, r1 = p2_list[i2], r2_list[i2], r2_list[i1]
         d = dist(p1[0], p1[1], p2[0], p2[1])
@@ -75,10 +75,18 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
         i0 = (i1 - 1)
         p0 = p_list[i0]
         i2 = (i1 + 1) % len(p_list)
-        p2 = p_list[i2]
-        a = triangle_area(p0, p1, p2) / 1000
-        if auto_flip and a < 0:
+        p2, r2, r1, r0 = p_list[i2], r_list[i2], r_list[i1], r_list[i0]
+
+        cct0 = circ_circ_tangent(p0, p1, r0, r1)
+        cct1 = circ_circ_tangent(p1, p2, r1, r2)        
+        ang0, a0, b0 = cct0
+        ang1, a1, b1 = cct1
+        a = triangle_area(a0, b0, b1) / 1000
+        
+        if simple_intersect(a0, b0, a1, b1):
             r_list[i1] = -r_list[i1]
+#         if auto_flip and a < 0:
+#             r_list[i1] = -r_list[i1]
             if gradual_flip:
                 r_list[i1] = r_list[i1] * min(1, abs(a))
     # reduce radius that won't fit
@@ -93,6 +101,11 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
         p2, r2, r1 = p_list[i2], r_list[i2], r_list[i1]
         cct = circ_circ_tangent(p1, p2, r1, r2)
         a_list.append(cct)
+        with push():
+            ang, (xa, ya), (xb, yb) = cct
+            stroke(255, 0, 0)
+            stroke_weight(5)
+            line(xa, ya, xb, yb)
     # now draw it!
     for i1, ia in enumerate(a_list):
         i2 = (i1 + 1) % len(a_list)
@@ -197,7 +210,14 @@ def arc_pts(cx, cy, w, h, start_angle, end_angle,
                 previous_x, previous_y = x, y
         return pts_simplified
     
-        
+def ccw(a, b, c ):
+    """Returns True if the points are arranged counter-clockwise in the plane"""
+    return (b[0] - a[0]) * (c[1] - a[1]) > (b[1] - a[1]) * (c[0] - a[0])
+
+def simple_intersect(a1, b1, a2, b2):
+    """Returns True if line segments intersect."""
+    return ccw(a1, b1, a2) != ccw(a1, b1, b2) and ccw(a2, b2, a1) != ccw(a2, b2, b1)
+       
         
         
         
