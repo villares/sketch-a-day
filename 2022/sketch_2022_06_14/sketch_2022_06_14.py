@@ -42,21 +42,20 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
     A version of arc_augmented_poly that returns the points
     of a poly-approximation with arc_pts
     """
+    
     def mid(p0, p1):
         return (p0[0] + p1[0]) * 0.5, (p0[1] + p1[1]) * 0.5
+    
     assert op_list, 'No points were provided.'
     assert not ('radius' in kwargs and or_list),\
         "You can't use a radii list and a radius kwarg together."
     if 'radius' in kwargs and or_list == None:
         or_list = [kwargs.pop('radius')] * len(op_list)
-    if or_list == None:
-        r2_list = [0] * len(op_list)
-    else:
-        r2_list = list(or_list)
+    r2_list = list(or_list)
     assert len(op_list) == len(r2_list),\
         'Number of points and radii provided not the same.'
     auto_flip = kwargs.pop('auto_flip', True)
-    gradual_flip = kwargs.pop('gradual_flip', False)    
+    gradual_flip = kwargs.pop('gradual_flip', False)  # experimentas    
     pts_list = []
     # remove overlapping adjacent points
     p_list, r_list = [], []
@@ -78,8 +77,6 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
         i2 = (i1 + 1) % len(p_list)
         p2 = p_list[i2]
         a = triangle_area(p0, p1, p2) / 1000
-#         if or_list == None:
-        r_list[i1] = dist(*p0, *p2) / 4 
         if auto_flip and a < 0:
             r_list[i1] = -r_list[i1]
             if gradual_flip:
@@ -119,7 +116,7 @@ def arc_augmented_points(op_list, or_list=None, **kwargs):
                                         **kwargs))
             if DEBUG:
                 textSize(TEXT_HEIGHT)
-                text(f' {r2:0.2f} {degrees(abs_angle):0.2f}', p2[0], p2[1])
+                text(' {:0.2f} {:0.2f}'.format(r2, degrees(abs_angle)), p2[0], p2[1])
         else:
             # when the the segment is smaller than the diference between
             # radius, circ_circ_tangent won't renturn the angle
