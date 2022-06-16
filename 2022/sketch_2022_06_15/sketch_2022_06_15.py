@@ -21,7 +21,6 @@ def draw():
         (150, 125),
         (mouse_x - width / 2, mouse_y - height / 2),
     )
-
     for i in range(10):
         output_pts = arc_augmented_points(
             input_pts,
