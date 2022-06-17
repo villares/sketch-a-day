@@ -5,8 +5,6 @@ bezierVertex = bezier_vertex
 textSize = text_size
 DEBUG, TEXT_HEIGHT = False, 12
 
-from villares.arcs import arc_augmented_poly
-
 def setup():
     size(900, 900, P3D)
     cursor(CROSS)
