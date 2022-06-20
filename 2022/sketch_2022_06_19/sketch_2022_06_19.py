@@ -66,7 +66,6 @@ def mouse_pressed():
             break
 
 def mouse_dragged():
-    print(dragged)
     if dragged is not None:
         dx, dy = mouse_x - pmouse_x, mouse_y - pmouse_y
         x, y = pts[dragged]
