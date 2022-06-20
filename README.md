@@ -33,6 +33,10 @@ Here are listed some of the tools I have been using:
 
 [sketch_2022_06_19](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_06_19) [[py5](https://py5.ixora.io/)]
 
+Frank Morley's theorem demo
+
+«In 1899, Frank Morley proved Morley’s theorem: when the angle at each vertex of any triangle is trisected, the points of intersection of adjacent trisectors form the vertices of an equilateral triangle» [@fermatslibrary's tweet](https://twitter.com/fermatslibrary/status/1538515683486613508)
+
 ---
 
 ### sketch_2022_06_18
