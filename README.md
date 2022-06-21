@@ -27,6 +27,17 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_06_20
+
+![sketch_2022_06_20](2022/sketch_2022_06_20/sketch_2022_06_20.png)
+
+[sketch_2022_06_20](https://github.com/villares/sketch-a-day/tree/master/2022/sketch_2022_06_20) [[py5](https://py5.ixora.io/)]
+
+From [@introscopia](https://ttwitter.com/Introscopia)'s star code at [httpstwitter.com/Introscopia/status/1538966209114390529](https://ttwitter.com/Introscopia/status/1538966209114390529)
+
+
+---
+
 ### sketch_2022_06_19
 
 ![sketch_2022_06_19](2022/sketch_2022_06_19/sketch_2022_06_19.png)
