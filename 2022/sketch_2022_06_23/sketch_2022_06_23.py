@@ -13,6 +13,7 @@ def draw():
     py5.background(200)
     cols, rows = 80, 20
     H = W * py5.sqrt(3) * 0.5  # W * sin(radians(60))
+    print(py5.degrees(py5.frame_count / 10) % 360)
     for i, j in product(range(cols), range(rows)):
         x = i * W * 1.5 + W - 2
         if i % 2 == 0:
