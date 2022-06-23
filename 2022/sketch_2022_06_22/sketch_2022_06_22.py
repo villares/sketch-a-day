@@ -30,5 +30,4 @@ def draw():
             py5.fill(0, 255, 0)
             py5.circle(x, y, 2 * H / (1 + d ** 0.5 / 200))
 
-
 py5.run_sketch()
