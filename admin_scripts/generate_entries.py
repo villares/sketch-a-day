@@ -11,6 +11,8 @@
 # [ ] use CL arguments to set tool
 # [ ] use CL arguments to set Markdown comments
 # [ ] use CL arguments to commit and push README.md
+# [ ] Guard against malformed file names like sketch_2022_06_25..png
+
 
 from os import listdir
 from os.path import join, exists
@@ -18,11 +20,13 @@ from itertools import takewhile
 
 from helpers import get_image_names
 
+REPO_MAIN_URL = 'https://github.com/villares/sketch-a-day/tree/main'
 # YEAR and base_path to sketch-a-day folder are set manually, hard-coded
 YEAR = '2022'   
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = '/home/villares/GitHub/sketch-a-day'
 year_path = join(base_path, YEAR)
+
 if not exists(year_path):
     sketch_folders = []  # for the benefit of next_day.py
     print(f"{__file__}: Couldn't find the sketch-a-day year folder!")
@@ -63,7 +67,7 @@ def main():
         # insert entry if matching image found
         for img in imgs:
             if img.split('.')[0].startswith(folder):
-                entry_text = build_entry(img, folder, YEAR)
+                entry_text = build_entry(folder, img)
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 print('Adding: ' + folder)
                 break
@@ -73,13 +77,12 @@ def main():
         readme.write(content)
 
 
-def build_entry(image, folder, year):
+def build_entry(folder, image_filename):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
     of image (for a certain year).
     """
-    name, ext = image.split('.')
     tools = {
         'pde': '[[Processing Java](https://processing.org)]',
         'pyde': '[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]',
@@ -92,7 +95,7 @@ def build_entry(image, folder, year):
         'freecad': '[FreeCAD](https://freecadweb.org)'       
     }
     folder_path = join(year_path, folder)
-    tools_mentioned = (t for t in tools.keys() if t in name.lower())
+    tools_mentioned = (t for t in tools.keys() if t in image_filename.lower())
     try:
         tool = next(tools_mentioned)
     except StopIteration:
@@ -109,23 +112,22 @@ def build_entry(image, folder, year):
     else:
         comment = ''
         
-    return """
+    link = f'{REPO_MAIN_URL}/{YEAR}/{folder}'
+    
+    return f"""
 ---
 
-### {0}
+### {folder}
 
-![{0}]({3}/{0}/{1}.{2})
+![{folder}]({YEAR}/{folder}/{image_filename})
 
-[{0}](https://github.com/villares/sketch-a-day/tree/master/{3}/{0}) {4}{5}
-""".format(
-        folder, name, ext, year, tools[tool], comment
-    )
+[{folder}]({link}) {tools[tool]}{comment}
+"""
 
 def search_docstring(folder):
     print(listdir(folder))
     return None
 
-    
 
 if __name__ == '__main__':
     main()
