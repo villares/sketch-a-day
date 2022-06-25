@@ -2,7 +2,7 @@ from math import sin, cos, pi
 from itertools import product
 import py5
 
-from villares.helpers import save_png_with_src
+#from villares.helpers import save_png_with_src
 
 
 W = 15
@@ -50,4 +50,4 @@ def star(cx, cy, ra, rb, n=7, start_ang=0):  # estrela
     py5.end_shape(py5.CLOSE)
 
 py5.run_sketch()
-save_png_with_src(__file__[:-2] + '.png')
+#save_png_with_src()
