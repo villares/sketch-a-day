@@ -1,19 +1,15 @@
+# Using py5.ixora.io on Thonny with thonny-py5mode for imported mode
+
 from itertools import product
 import py5_tools
 
-from villares.helpers import save_png_with_src
-
+#from villares.helpers import save_png_with_src
 
 W = 30
-
 
 def setup():
     size(1806, 496)
     stroke_join(ROUND)
-    # py5.no_cursor()
-    #frame_rate(10)
- #   py5_tools.animated_gif('out.gif', 50, 0.1, 0.1)
-# def draw():
     background(200)
     cols, rows = 40, 9
     H = W * sqrt(3) * 0.5  # W * sin(radians(60))
@@ -42,8 +38,7 @@ def setup():
         stroke(255)
         star(x, y, d, H / 2, n)
 
-    save_png_with_src()
-
+#    save_png_with_src()
 
 def star(cx, cy, ra, rb, n=7, start_ang=0):  # estrela
     step = TWO_PI / n
