@@ -1,4 +1,3 @@
-from itertools import product
 from villares.helpers import lerp_tuple
 
 drag = None
@@ -29,7 +28,6 @@ def draw():
         stroke_weight(3)
         stroke(100, 0, 0)
         points(lpts)
-
 
 def mouse_dragged():
     if drag is not None:
