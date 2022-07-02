@@ -38,8 +38,7 @@ def draw():
         lpts = [lerp_tuple(p0, p1, k / 10) for k in range(11)]
         stroke_weight(0.5)
         stroke(0, 100)
-        with begin_shape():
-            vertices(lpts)
+        line(*p0, *p1)
         stroke_weight(3)
         stroke(100, 0, 0)
         points(lpts[1:-1])
