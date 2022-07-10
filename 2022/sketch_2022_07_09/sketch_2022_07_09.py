@@ -10,7 +10,6 @@ hs = int(step / 2)
 speed = 1 / (PI * 45)
 xoff = PI
 
-t = frame_count
 for y in range(margin, height, step): 
     for x in range(margin, width, step):
         w = hs + hs * sin(x * speed + xoff) * 0.75
