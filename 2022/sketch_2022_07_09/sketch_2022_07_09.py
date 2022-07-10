@@ -20,19 +20,15 @@ for y in range(margin, height, step):
         rect(x, y, w, h * c)
         fill(0, 0, 200)            
         rect(x, y + h * c, w, h * (1 - c))
-        next_x, next_y = x + step, y + step
-        next_w = hs+ hs * sin(next_x * speed + xoff) * 0.75
-        next_h = hs + hs * sin(next_y * speed) * 0.75
-        wb = step - w / 2 - next_w / 2
-        hb = step - h / 2 - next_h / 2
-        xb = (x + w + next_x - wb) / 2
-        yb = (y + h + next_y - hb) / 2
+        wb = step - w
+        hb = step - h
+        xb = x + w
+        yb = y + h
         c = remap(y, 0, height, 1, 0)
         wc = wb * c
         fill(200, 0, 0)
-        rect(xb, yb, wb * c, hb)
+        rect(xb, yb, wc, hb)
         fill(255, 100, 0)
-        rect(xb + wb * c, yb, wb * (1 - c), hb)
+        rect(xb + wc, yb, wb - wc, hb)
 
-from villares.helpers import save_png_with_src
-save_png_with_src() 
+
