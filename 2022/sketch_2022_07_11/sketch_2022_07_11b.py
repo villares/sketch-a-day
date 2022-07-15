@@ -7,7 +7,7 @@ import tkinter
 
 current = 0
 code = previous_code = ''
-font_size, line_step, margin = 12, 12, 20
+font_size, line_step = 12, 12
 run = False
 
 def setup():
