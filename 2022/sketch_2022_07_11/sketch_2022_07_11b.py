@@ -5,25 +5,10 @@ import py5
 import difflib
 import tkinter 
 
-
 current = 0
 code = previous_code = ''
 font_size, line_step, margin = 12, 12, 20
-
-def select_folder():
-    global image_paths
-    #file = tkinter.filedialog.askopenfilename()
-    folder = tkinter.filedialog.askdirectory()
-    try:
-        file_list = sorted(os.listdir(folder))  # get list of files in folder
-    except:
-        file_list = []
-    image_paths = [os.path.join(folder, f) for f in file_list
-                   if os.path.isfile(os.path.join(folder, f))
-                   and f.lower().endswith(('.png', '.jpg', 'jpeg',
-                                      '.tiff', '.bmp', '.gif'))]
-
-
+run = False
 
 def setup():
     global fr, fb
@@ -33,27 +18,18 @@ def setup():
     fr = py5.create_font("Source Code Pro", font_size)
     fb = py5.create_font("Source Code Pro Bold", font_size)
 
-
-
 def draw():
     py5.background(240)
-    py5.image(img, 50, 50)
-    draw_code()
-    py5.fill(0)
-    py5.text(image_paths[current], 50, 30)
-#     py5.save(f'{current}.png')
-#     walk_images(1)
-#     if current == 0:
-#         py5.exit_sketch()
-
-def key_pressed():
-    if py5.key == py5.ESC:
-        py5.exit_sketch()
-    elif py5.key_code == py5.DOWN:
+    if image_paths:
+        py5.image(img, 50, 50)
+        draw_code(img.width + 100, 50)
+        py5.fill(0)
+        py5.text(image_paths[current], 50, 30)
+    if run:
+        py5.save(f'{current}.png')
         walk_images(1)
-    elif py5.key_code == py5.UP:
-        walk_images(-1)
-
+        if current == 0:
+            py5.exit_sketch()
 
 def walk_images(i):
     global current, img, code, previous_code
@@ -76,23 +52,48 @@ def load_image_and_data(i, resize=None):
         )
     return py5.convert_image(img), img.info
 
-def draw_code():
+def select_folder():
+    global image_paths
+    #file = tkinter.filedialog.askopenfilename()
+    folder = tkinter.filedialog.askdirectory()
+    try:
+        file_list = sorted(os.listdir(folder))  # get list of files in folder
+    except:
+        file_list = []
+    image_paths = [os.path.join(folder, f) for f in file_list
+                   if os.path.isfile(os.path.join(folder, f))
+                   and f.lower().endswith(('.png', '.jpg', 'jpeg',
+                                      '.tiff', '.bmp', '.gif'))]
+
+def draw_code(x, y):
     with py5.push():
         py5.text_font(fb)
         differ = difflib.Differ()
         colors = {' ': 0, '-': 0xFFFF0000, '+': 0xFF0000FF, '?': 0xFF00CC00}
-        for li in differ.compare(previous_code.splitlines(), code.splitlines()):
-            py5.fill(colors[li[0]])
-            py5.text(li, 1000, 50)
+        if previous_code:
+            code_lines = differ.compare(previous_code.splitlines(), code.splitlines())
+        else:
+            code_lines = code.splitlines()
+        for li in code_lines:
+            py5.fill(colors.get(li[:1], 0))
+            py5.text(li, x, y)
             py5.translate(0, line_step)
     
-    
-#     py5.fill(255, 0, 0)
-#     py5.text(previous_code, 1000, 100)
-#     py5.fill(0)    
-#     py5.text(code, 1000, 100)
-#     for l in t:
-#         print(l)
+
+def key_pressed():
+    global run, current, previous_code
+    if py5.key == 'f':
+        select_folder()
+    elif py5.key == 'r':
+        previous_code = ''
+        current = 0
+        run = True
+    elif py5.key == py5.ESC:
+        py5.exit_sketch()
+    elif py5.key_code == py5.DOWN:
+        walk_images(1)
+    elif py5.key_code == py5.UP:
+        walk_images(-1)
 
 py5.run_sketch()
 
