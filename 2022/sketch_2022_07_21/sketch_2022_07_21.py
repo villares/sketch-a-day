@@ -9,7 +9,8 @@ def first_triangle():
     R, cx, cy = 300, width / 2, height * 0.60
     first_triangle = []
     for i in range(3):
-        a = i * TWO_PI / 3 - TWO_PI / 4        x = cx + R  * cos(a)
+        a = i * TWO_PI / 3 - TWO_PI / 4
+        x = cx + R  * cos(a)
         y = cy + R  * sin(a)
         first_triangle.append((x, y))
     tris = [tuple(first_triangle)]
