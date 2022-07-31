@@ -1,5 +1,6 @@
 import random  # import sample, shuffle, seed
 from villares.helpers import save_png_with_src
+import py5_tools
 
 nodes = {}
 unvisited_nodes = []
@@ -18,8 +19,11 @@ def setup():
     no_smooth()
     w, h = int(width / 2 / step - 5), int(height / 2 / step - 5)
     stroke_weight(2)
-    start(266)
-
+    start(268)
+    py5_tools.animated_gif(
+        sketch_path() / f'animated-seed{s}.gif',
+        50, 0.25, 0.25, loop=0, optimize=True)
+    
 def start(rnd_seed):
     global s
     s = rnd_seed
@@ -54,6 +58,8 @@ def grow():
     new_nodes = []
     while unvisited_nodes:
         x, y = unvisited_nodes.pop()
+        if not visible(x, y):
+            continue
         _, _, c, g = nodes.get((x, y), (0, 0, len(unvisited_nodes), 0))
         random.seed(g // 13 + c)
         xnbs = random.sample(nbs, 4 - c)
@@ -64,6 +70,10 @@ def grow():
                 new_nodes.append((xnx, yny))
     unvisited_nodes[:] = new_nodes
     
+def visible(x, y):
+    return (abs((x + ox) * step) < width / 2 - step * 5 and
+            abs((y + oy) * step) < height / 2 - step * 5)
+
 def key_pressed():
     if key == ' ':
         print(frame_count)
