@@ -27,6 +27,22 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_08_04arduino_and_sliders
+
+![sketch_2022_08_04arduino_and_sliders](2022/sketch_2022_08_04arduino_and_sliders/sketch_2022_08_04arduino_and_sliders.png)
+
+[sketch_2022_08_04arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_04arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_08_03arduino_and_sliders
+
+![sketch_2022_08_03arduino_and_sliders](2022/sketch_2022_08_03arduino_and_sliders/sketch_2022_08_03arduino_and_sliders.png)
+
+[sketch_2022_08_03arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_03arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+
+---
+
 ### sketch_2022_08_02
 
 ![sketch_2022_08_02](2022/sketch_2022_08_02/sketch_2022_08_02.gif)
