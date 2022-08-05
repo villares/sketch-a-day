@@ -211,9 +211,11 @@ class Slider:
 def get_arduino(port=None):
     try:
         arduino = Arduino(port)
-    except BaseException:
+        util.Iterator(arduino).start()
+    except Exception as e:
+        print(repr(e))
         return None
-    util.Iterator(arduino).start()
+    
     for a in range(6):  # A0 A1 A2 A3 A4 A5
         arduino.analog[a].enable_reporting()
     arduino.analog_read = (lambda a: round(arduino.analog[a].read() * 1023)
