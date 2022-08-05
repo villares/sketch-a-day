@@ -19,30 +19,22 @@ def draw():
     background(0)
     frame_rate(30)
     stroke_weight(2)
-
     a = remap(input_interface.analog_read(1), 0, 1023, 0, HALF_PI)  # ângulo
-    # randomização do tamanho do galho
-    b = remap(input_interface.analog_read(2), 0, 1023, 0, 10)
+    b = remap(input_interface.analog_read(2), 0, 1023, 0, 10)  # randomização do tamanho do galho
     c = remap(input_interface.analog_read(3), 0, 1023, -2, 2)  # randomização do ângulo
     d = remap(input_interface.analog_read(4), 0, 1023, 0, 10)  # profundidade da recursão
-
     random_seed(int(d * 10))
     with push_matrix():
         translate(width / 2, height / 2)
         branch(d, a, width / 25 + (width / 75) * b)
-
-    input_interface.update()
-
+    input_interface.update()   # desenha sliders se não tiver um Arduino conectado
 
 def branch(gen, theta, branch_size):
     stroke_weight(gen)
-    try:
-        cor = (remap(gen, 0, d, 255, 0) + frame_count) % 256
-    except ZeroDivisionError:
-        cor = 0
+    cor = (remap(gen, 0, d, 255, 0) + frame_count) % 256
     stroke(cor, 255, 255)
     # All recursive functions must have an exit condition!!!!
-    if gen > 1:  # and branch_size > 1:
+    if gen > 1: 
         with push_matrix():
             h = branch_size * (1 - random(b / 3, b) / 15)
             rotate(theta + c * random(1))  # Rotate by theta
