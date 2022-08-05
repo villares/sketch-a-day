@@ -22,7 +22,7 @@ def draw():
     a = remap(input_interface.analog_read(1), 0, 1023, 0, HALF_PI)  # ângulo
     b = remap(input_interface.analog_read(2), 0, 1023, 0, 10)  # randomização do tamanho do galho
     c = remap(input_interface.analog_read(3), 0, 1023, -2, 2)  # randomização do ângulo
-    d = remap(input_interface.analog_read(4), 0, 1023, 0, 10)  # profundidade da recursão
+    d = remap(input_interface.analog_read(4), 0, 1023, 1, 10)  # profundidade da recursão
     random_seed(int(d * 10))
     with push_matrix():
         translate(width / 2, height / 2)
