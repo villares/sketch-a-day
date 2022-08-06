@@ -1,5 +1,4 @@
 
-
 """
 This will hopefully switch between Arduino (Firmata) variable input and
 nice sliders based on Peter Farell's Sliders htts://twitter.com/hackingmath
@@ -7,9 +6,10 @@ https://github.com/hackingmath/python-sliders http://farrellpolymath.com/
 
 2020-03-14 Fix for Arduino no the first serial port (index 0)!
 2022-08-03 Converting for use with py5 and pyFirmata
+2022-08-05 Trying to make it compatible with all py5 "modes"
 """
+
 import py5
-from javax.swing import JOptionPane
 
 class InputInterface:
 
@@ -93,6 +93,7 @@ class InputInterface:
             return space_pressed
 
     def help(self):
+        from javax.swing import JOptionPane
         if self.source is not None:
             message = """   Teclas:
             'h' para esta ajuda
@@ -113,8 +114,8 @@ class Slider:
     SLIDERS = []
 
     def __init__(self, low, high, default):
-        '''slider has range from low to high
-        and is set to default'''
+        """slider has range from low to high
+        and is set to default"""
         self.low = low
         self.high = high
         self.val = default
@@ -123,18 +124,21 @@ class Slider:
         Slider.SLIDERS.append(self)
 
     def position(self, x, y):
-        '''slider's position on screen'''
+        """slider's position on screen"""
         self.x = x
         self.y = y
-        # the position of the rect you slide:
+        # the position of the rect you slide
         self.rectx = self.x + py5.remap(self.val, self.low, self.high, 0, 120)
         self.recty = self.y - 10
 
     def update(self):
-        '''updates the slider'''
+        """updates the slider"""
         sketch = py5.get_current_sketch()
         mx, my, imp = sketch.mouse_x, sketch.mouse_y, sketch.is_mouse_pressed
-        py5.push_style()
+        # To draw the slider without any style or coord tansformation
+        py5.push()         
+        py5.reset_matrix() 
+        #py5.camera() # uncomment this if on P3D
         py5.rect_mode(py5.CENTER)
         # black translucid rect behind slider
         py5.fill(0, 100)
@@ -169,29 +173,52 @@ class Slider:
             self.low,
             self.high
         )
-        py5.pop_style()
+        py5.pop()
 
 
 def get_arduino(port=None):
+    """
+    This is a PyFirmata 'helper' that tries to connect to an Arduino
+    compatible board.
+    
+    If no port is informed, using pyserial's serial.tools.list_ports.comports(),
+    if one port is found, tries that one. If more than one port is found,
+    shows for the user to choose one. Returns None if no port is found or if the
+    user cancels the dialog.
+    
+    If it successfully connects, it will return a pyfirmata Arduino object,
+    but before that, it starts a pyfirmata.util.Iterator, and adds to the object
+    both analog_read() and digital_read() functions that mimic Processing's
+    Firmata library interface:
+    Readings are never None, and analog pins return a value between 0 and 1023.
+    """   
     from pyfirmata import Arduino, util
     from serial.tools import list_ports
+    
     comports = [comport.device for comport in list_ports.comports()]
     if not comports:
         print('No ports found.')
         return None
     elif isinstance(port, str) and port not in comports:
-        print(f'Port {port} not found.')
+        print(f'Port "{port}" not found.')
         return None
+    elif isinstance(port, int):
+        if port >= len(comports):
+            print(f'Port [{port}] not found.')
+            return None
+        else:
+            port = comports[port]
     elif len(comports) == 1:
         port = comports[0]
     elif port is None:
         port = option_pane(
-            "Where is your board connected?",
-            "Please select the USB port:",
+            'Where is your board?',
+            'Please select the USB port where your '
+            'Arduino compatible board is connected:',
             comports,
             -1)  # index for default option
         if port is None:
-            print('No port selected')
+            print('No port selected.')
             return None
     try:
         print(f'Connecting to port {port}...')
@@ -200,11 +227,13 @@ def get_arduino(port=None):
     except Exception as e:
         print(repr(e))
         return None
-    for a in range(6):  # A0 A1 A2 A3 A4 A5
+    # Prepare analog_read() for A0 A1 A2 A3 A4 A5
+    for a in range(6):  
         arduino.analog[a].enable_reporting()
     arduino.analog_read = (lambda a: round(arduino.analog[a].read() * 1023)
                            if arduino.analog[a].read() is not None
                            else 0)
+    # Prepare digital_read() for D2 to D13
     digital_pin_dict = {d: arduino.get_pin(f'd:{d}:i')
                         for d in range(2, 14)}
     for d in digital_pin_dict.keys():
@@ -215,24 +244,36 @@ def get_arduino(port=None):
     return arduino
 
 
-def option_pane(title, message, options, default=None, index_only=True):
-
+def option_pane(title, message, options, default=None, index_only=False):
+    """
+    A helper for Java swing JOptionPane input dialog with drop down options.
+    
+    title     : str   - Dialog window's title (make it shorter than message).
+    message   : str   - Text shown before the drop down.
+    options   : list  - List of strings to show in the drop down.
+    default   : int   - None or index to the pre-selected option in the list.
+    index_only: False - Function returns an option string from the options list
+                        provided, or None, if the dialog was cancelled;
+                True  - Function returns the position index to the options list.    
+    """
+    from javax.swing import JOptionPane
+    
     if default is None:
         default = options[0]
     elif index_only:
         default = options[default]
 
     selection = JOptionPane.showInputDialog(
-        None,  # frame,
+        None,     # frame
         message,
         title,
         JOptionPane.INFORMATION_MESSAGE,
-        None,  # for Java null
+        None,     # for Java null
         options,
-        default)  # must be in options, otherwise 1st is shown
+        default)  # must be in options, otherwise first is shown
     if selection:
         if index_only:
             return options.index(selection)
         else:
-            return selection
-
+            # Trouble: selection can be java.lang.String
+            return str(selection) if selection else None
