@@ -1,6 +1,6 @@
 """
-polígonos recursivos - Alexandre B A Villares
-abav.lugaralgum.com/lousa-magica
+Polígonos recursivos - Alexandre B A Villares
+https://abav.lugaralgum.com/lousa-magica
 [Estudo não apresentado] Circuito Sesc de Artes 2018 
 
 tecle 'h' para ajuda...
@@ -27,7 +27,6 @@ def draw():
     rot = remap(input_interface.analog_read(4), 0, 1023, 0, TWO_PI)  # 0 to TWO_PI # giro
 
     poly_shape(width / 2, height / 2, ang, dep, sat, rot)
-
     # Desenha e lê sliders se necessário
     input_interface.update()
 
@@ -58,7 +57,6 @@ def poly_shape(x, y, angle, depth, saturation_, rotation):
                 # recusively call poly_shape with a smaller D
                 poly_shape(pv.x, pv.y, angle, depth - 1, saturation_, rotation)
 
-
 def key_pressed():
     if key == 'p':
         save_frame("lousa-03-####.png")
@@ -66,7 +64,6 @@ def key_pressed():
         input_interface.help()
 
     input_interface.key_pressed()
-
 
 def key_released():
     input_interface.key_released()

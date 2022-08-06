@@ -1,4 +1,3 @@
-
 """
 This will hopefully switch between Arduino (Firmata) variable input and
 nice sliders based on Peter Farell's Sliders htts://twitter.com/hackingmath
