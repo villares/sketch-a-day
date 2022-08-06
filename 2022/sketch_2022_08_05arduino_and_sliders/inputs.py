@@ -16,10 +16,8 @@ class InputInterface:
     def __init__(self, port=None):
         self.source = get_arduino(port)
         if self.source is None:
-            if isinstance(py5.width, int):
-                w, h = py5.width, py5.height
-            else:
-                w, h = py5.width(), py5.height()
+            sketch = py5.get_current_sketch()
+            w, h = sketch.width, sketch.height
             # start, end, default
             A = Slider(0, 1023, 512)
             B = Slider(0, 1023, 512)
@@ -43,11 +41,8 @@ class InputInterface:
                 slider.update()
 
     def key_pressed(self):
-        if isinstance(py5.key, str):
-            k, kc = py5.key, py5.key_code
-        else:
-            k, kc = py5.key(), py5.key_code()
-
+        sketch = py5.get_current_sketch()
+        k, kc = sketch.key, sketch.key_code
         if k == 'a':
             self.sliders[1].down = True
         if k == 'd':
@@ -66,10 +61,8 @@ class InputInterface:
             self.sliders[4].up = True
 
     def key_released(self):
-        if isinstance(py5.key, str):
-            k, kc = py5.key, py5.key_code
-        else:
-            k, kc = py5.key(), py5.key_code()
+        sketch = py5.get_current_sketch()
+        k, kc = sketch.key, sketch.key_code
         if k == 'a':
             self.sliders[1].down = False
         if k == 'd':
@@ -88,10 +81,8 @@ class InputInterface:
             self.sliders[4].up = False
 
     def digital_read(self, pin):
-        if not isinstance(py5.key, str):
-            k, ikp = py5.key, py5.is_key_pressed
-        else:
-            k, ikp = py5.key(), py5.is_key_pressed()
+        sketch = py5.get_current_sketch()
+        k, ikp = sketch.key, sketch.is_key_pressed
         space_pressed = ikp and k == ' '
         if self.source is not None:
             if pin == 13:
@@ -141,12 +132,8 @@ class Slider:
 
     def update(self):
         '''updates the slider'''
-        if isinstance(py5.mouse_x, int):
-            mx, my = py5.mouse_x, py5.mouse_y
-            imp = py5.is_mouse_pressed
-        else:
-            mx, my = py5.mouse_x(), py5.mouse_y()
-            imp = py5.is_mouse_pressed()
+        sketch = py5.get_current_sketch()
+        mx, my, imp = sketch.mouse_x, sketch.mouse_y, sketch.is_mouse_pressed
         py5.push_style()
         py5.rect_mode(py5.CENTER)
         # black translucid rect behind slider
