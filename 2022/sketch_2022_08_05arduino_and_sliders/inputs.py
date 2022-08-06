@@ -1,3 +1,5 @@
+
+
 """
 This will hopefully switch between Arduino (Firmata) variable input and
 nice sliders based on Peter Farell's Sliders htts://twitter.com/hackingmath
@@ -6,19 +8,18 @@ https://github.com/hackingmath/python-sliders http://farrellpolymath.com/
 2020-03-14 Fix for Arduino no the first serial port (index 0)!
 2022-08-03 Converting for use with py5 and pyFirmata
 """
-
+import py5
 from javax.swing import JOptionPane
-from py5 import *
 
 class InputInterface:
 
     def __init__(self, port=None):
         self.source = get_arduino(port)
         if self.source is None:
-            if isinstance(width, int):
-                w, h = width, height
+            if isinstance(py5.width, int):
+                w, h = py5.width, py5.height
             else:
-                w, h = width(), height()
+                w, h = py5.width(), py5.height()
             # start, end, default
             A = Slider(0, 1023, 512)
             B = Slider(0, 1023, 512)
@@ -42,10 +43,10 @@ class InputInterface:
                 slider.update()
 
     def key_pressed(self):
-        if isinstance(key, str):
-            k, kc = key, key_code
+        if isinstance(py5.key, str):
+            k, kc = py5.key, py5.key_code
         else:
-            k, kc = key(), key_code()
+            k, kc = py5.key(), py5.key_code()
 
         if k == 'a':
             self.sliders[1].down = True
@@ -55,20 +56,20 @@ class InputInterface:
             self.sliders[2].down = True
         if k == 'w':
             self.sliders[2].up = True
-        if kc == LEFT:
+        if kc == py5.LEFT:
             self.sliders[3].down = True
-        if kc == RIGHT:
+        if kc == py5.RIGHT:
             self.sliders[3].up = True
-        if kc == DOWN:
+        if kc == py5.DOWN:
             self.sliders[4].down = True
-        if kc == UP:
+        if kc == py5.UP:
             self.sliders[4].up = True
 
     def key_released(self):
-        if isinstance(key, str):
-            k, kc = key, key_code
+        if isinstance(py5.key, str):
+            k, kc = py5.key, py5.key_code
         else:
-            k, kc = key(), key_code()
+            k, kc = py5.key(), py5.key_code()
         if k == 'a':
             self.sliders[1].down = False
         if k == 'd':
@@ -77,20 +78,20 @@ class InputInterface:
             self.sliders[2].down = False
         if k == 'w':
             self.sliders[2].up = False
-        if kc == LEFT:
+        if kc == py5.LEFT:
             self.sliders[3].down = False
-        if kc == RIGHT:
+        if kc == py5.RIGHT:
             self.sliders[3].up = False
-        if kc == DOWN:
+        if kc == py5.DOWN:
             self.sliders[4].down = False
-        if kc == UP:
+        if kc == py5.UP:
             self.sliders[4].up = False
 
     def digital_read(self, pin):
-        if not isinstance(key, str):
-            k, ikp = key, is_key_pressed
+        if not isinstance(py5.key, str):
+            k, ikp = py5.key, py5.is_key_pressed
         else:
-            k, ikp = key(), is_key_pressed()
+            k, ikp = py5.key(), py5.is_key_pressed()
         space_pressed = ikp and k == ' '
         if self.source is not None:
             if pin == 13:
@@ -115,6 +116,7 @@ class InputInterface:
              ↓  (-) ou  ↑  (+) para o slider 4"""
         ok = JOptionPane.showMessageDialog(None, message)
 
+
 class Slider:
 
     SLIDERS = []
@@ -134,32 +136,32 @@ class Slider:
         self.x = x
         self.y = y
         # the position of the rect you slide:
-        self.rectx = self.x + remap(self.val, self.low, self.high, 0, 120)
+        self.rectx = self.x + py5.remap(self.val, self.low, self.high, 0, 120)
         self.recty = self.y - 10
 
     def update(self):
         '''updates the slider'''
-        if isinstance(mouse_x, int):
-            mx, my = mouse_x, mouse_y
-            imp = is_mouse_pressed
+        if isinstance(py5.mouse_x, int):
+            mx, my = py5.mouse_x, py5.mouse_y
+            imp = py5.is_mouse_pressed
         else:
-            mx, my = mouse_x(), mouse_y()
-            imp = is_mouse_pressed()
-        push_style()
-        rect_mode(CENTER)
+            mx, my = py5.mouse_x(), py5.mouse_y()
+            imp = py5.is_mouse_pressed()
+        py5.push_style()
+        py5.rect_mode(py5.CENTER)
         # black translucid rect behind slider
-        fill(0, 100)
-        no_stroke()
-        rect(self.x + 60, self.y, 130, 20)
+        py5.fill(0, 100)
+        py5.no_stroke()
+        py5.rect(self.x + 60, self.y, 130, 20)
         # gray line behind slider
-        stroke_weight(4)
-        stroke(200)
-        line(self.x, self.y, self.x + 120, self.y)
+        py5.stroke_weight(4)
+        py5.stroke(200)
+        py5.line(self.x, self.y, self.x + 120, self.y)
         # press mouse to move slider
         if (self.x < mx < self.x + 120 and self.y < my < self.y + 20):
-            fill(250)
-            text_size(10)
-            text(str(int(self.val)), self.rectx, self.recty + 35)
+            py5.fill(250)
+            py5.text_size(10)
+            py5.text(str(int(self.val)), self.rectx, self.recty + 35)
             if imp:
                 self.rectx = mx
         # key usage
@@ -168,19 +170,19 @@ class Slider:
         if self.down:
             self.rectx -= 1
         # constrain rectangle
-        self.rectx = constrain(self.rectx, self.x, self.x + 120)
+        self.rectx = py5.constrain(self.rectx, self.x, self.x + 120)
         # draw rectangle
-        no_stroke()
-        fill(255)
-        rect(self.rectx, self.recty + 10, 10, 20)
-        self.val = remap(
+        py5.no_stroke()
+        py5.fill(255)
+        py5.rect(self.rectx, self.recty + 10, 10, 20)
+        self.val = py5.remap(
             self.rectx,
             self.x,
             self.x + 120,
             self.low,
             self.high
-            )
-        pop_style()
+        )
+        py5.pop_style()
 
 
 def get_arduino(port=None):
@@ -203,7 +205,7 @@ def get_arduino(port=None):
             -1)  # index for default option
         if port is None:
             print('No port selected')
-            return None    
+            return None
     try:
         print(f'Connecting to port {port}...')
         arduino = Arduino(port)
@@ -225,6 +227,7 @@ def get_arduino(port=None):
                             else False)
     return arduino
 
+
 def option_pane(title, message, options, default=None, index_only=True):
 
     if default is None:
@@ -245,3 +248,4 @@ def option_pane(title, message, options, default=None, index_only=True):
             return options.index(selection)
         else:
             return selection
+
