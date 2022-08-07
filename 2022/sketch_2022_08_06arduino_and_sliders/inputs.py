@@ -7,9 +7,46 @@ https://github.com/hackingmath/python-sliders http://farrellpolymath.com/
 2020-03-14 Fix for Arduino no the first serial port (index 0)!
 2022-08-03 Converting for use with py5 and pyFirmata
 2022-08-05 Trying to make it compatible with all py5 "modes"
+2022-08-06 Adding scroll wheel support to the sliders and other tweaks
+
 """
 
 import py5
+from locale import getdefaultlocale
+
+interface_texts = {
+    'en': {'arduino enabled help': """   Keys:
+            'h' for help on keys
+            'p' to save an image""",
+           'sliders enabled help': """    Keys:
+            'h' for help on keys
+            'p' to save an image
+            'a' (-) or 'd' (+) for slider 1
+            's' (-) or 'w' (+) for slider 2
+             ←  (-) or  →  (+) for slider 3
+             ↓  (-) or  ↑  (+) for slider 4"""           
+    },
+    'pt': {'arduino enabled help': """   Teclas:
+            'h' para esta ajuda
+            'p' para salvar uma imagem""",
+           'sliders enabled help': """    Teclas:
+            'h' para esta ajuda
+            'p' para salvar uma imagem
+            'a' (-) ou 'd' (+) para o slider 1
+            's' (-) ou 'w' (+) para o slider 2
+             ←  (-) ou  →  (+) para o slider 3
+             ↓  (-) ou  ↑  (+) para o slider 4"""
+    },
+}
+try:
+    loc = getdefaultlocale()[0][:2]
+except (TypeError, ValueError):
+    loc = 'en'
+TR = interface_texts.get(loc, interface_texts['en'])
+
+def _(text):
+    """Translate text."""
+    return TR.get(text, text)
 
 class InputInterface:
 
@@ -80,17 +117,9 @@ class InputInterface:
     def help(self):
         from javax.swing import JOptionPane
         if self.source is not None:
-            message = """   Teclas:
-            'h' para esta ajuda
-            'p' para salvar uma imagem"""
+            message = _('arduino enabled help')
         else:
-            message = """    Teclas:
-            'h' para esta ajuda
-            'p' para salvar uma imagem
-            'a' (-) ou 'd' (+) para o slider 1
-            's' (-) ou 'w' (+) para o slider 2
-             ←(-) ou  → (+) para o slider 3
-             ↓  (-) ou  ↑  (+) para o slider 4"""
+            message = _('sliders enabled help')
         ok = JOptionPane.showMessageDialog(None, message)
 
 S_WIDTH, S_HEIGHT = 120, 20
@@ -131,16 +160,22 @@ class Slider:
         # black translucid rect behind slider
         py5.fill(0, 100)
         py5.no_stroke()
-        py5.rect(self.x + 60, self.y, 130, S_HEIGHT)
+        py5.rect(self.x + S_WIDTH / 2, self.y, S_WIDTH, S_HEIGHT)
         # gray line behind slider
         py5.stroke_weight(4)
         py5.stroke(200)
-        py5.line(self.x, self.y, self.x + S_WIDTH, self.y)
+        py5.line(self.x + 2, self.y, self.x + S_WIDTH - 2, self.y)
         # press mouse to move slider
         if self.mouse_over(mx, my):
-            py5.fill(250)
-            py5.text_size(10)
-            py5.text(str(int(self.val)), self.rectx, self.recty + 35)
+            tx = self.x + S_WIDTH * 0.5
+            ty = self.y + S_HEIGHT * 0.75
+            if py5.brightness(py5.get(int(tx), int(ty))) < 128:
+                py5.fill(255)
+            else:
+                py5.fill(0)
+            py5.text_align(py5.CENTER, py5.CENTER)
+            py5.text_size(S_HEIGHT / 2)
+            py5.text(str(int(self.val)), tx, ty)
             if imp:
                 self.rectx = mx
         # control keys
@@ -155,21 +190,24 @@ class Slider:
         # draw rectangle
         py5.no_stroke()
         py5.fill(255)
-        py5.rect(self.rectx, self.recty + 10, 10, S_HEIGHT)
+        py5.rect(
+            self.rectx,
+            self.recty + S_HEIGHT / 2,
+            S_HEIGHT / 2,
+            S_HEIGHT)
         self.val = py5.remap(
             self.rectx,
             self.x,
             self.x + S_WIDTH,
             self.low,
-            self.high
-        )
+            self.high)
         py5.pop()
     
     def mouse_over(self, mx, my):
-        return (self.x < mx < self.x + S_WIDTH
-                and self.y < my < self.y + S_HEIGHT)
-
-
+        HW, HH = S_WIDTH / 2, S_HEIGHT / 2 
+        return (self.x < mx < self.x + S_WIDTH and
+                self.y - HH / 2 < my < self.y + HH)
+    
 def get_arduino(port=None):
     """
     This is a PyFirmata 'helper' that tries to connect to an Arduino
