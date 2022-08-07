@@ -1,14 +1,9 @@
 import py5
 
 """
-árvore recursiva - alexandre B A villares
-abav.lugaralgum.com/lousa-magica
-circuito sesc de artes 2018
-
-tecle 'h' para ajuda...
+Based on sketch s115 from 2018
 """
 from inputs import InputInterface
-
 
 def setup():
     global input_interface
