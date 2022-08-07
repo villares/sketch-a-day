@@ -1,7 +1,7 @@
 """
 based on sktech "s085" 2018_03_26
-
 """
+
 from inputs import InputInterface
 
 COLORS = [
@@ -20,7 +20,6 @@ def setup():
     color_mode(HSB)
     rect_mode(CENTER)
     #stroke_weight(1.5)
-
     interface = InputInterface()
     
 
@@ -40,7 +39,7 @@ def draw():
         x = int(1 + random(MARGIN, width - tam - MARGIN) / (c / 2)) * c // 2
         y = int(1 + random(MARGIN, height - tam - MARGIN - B_MARGIN) / (c / 2)) * c // 2
         stroke(random_choice(COLORS))
-        #strokeWeight(int(random(1, 3)))
+        #troke_weight(int(random(1, 3)))
         grid(x, y, a, b, c, random_choice(SHAPES))
 
     interface.update()
