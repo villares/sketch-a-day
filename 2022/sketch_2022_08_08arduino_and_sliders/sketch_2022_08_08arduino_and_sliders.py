@@ -22,19 +22,17 @@ SHAPES = [
     diamond,
 ]
 
-
-
 def setup():
     global interface
     py5.size(800, 800, py5.P3D)
-    py5.color_mode(py5.HSB)
     py5.rect_mode(py5.CENTER)
-    # stroke_weight(1.5)
-    interface = InputInterface()
+    
+    interface = InputInterface()          # Arduino with pots or sliders
+    
     this = py5.get_current_sketch()
     cam = PeasyCam(this, 1000)
-    cam.setMinimumDistance(1000)
-    cam.setMaximumDistance(1000)
+    cam.setMinimumDistance(1000)          # these two lines will kill the zoom 
+    cam.setMaximumDistance(1000)          #    good to liberate the mouse wheel
     panDH = cam.getPanDragHandler();      # get the PanDragHandler
     cam.setCenterDragHandler(panDH);      # set it to the Center/Wheel drag
     orbitDH = cam.getRotateDragHandler(); # get the RotateDragHandler
