@@ -50,7 +50,6 @@ def draw():
     d = int(1 + interface.analog_read(4) / 32)  # number of grids
 
     py5.random_seed(int(d * 100))  # a different random seed
-    hsw = py5.width
 
     for i in range(d):
         hw = a * c / 2
