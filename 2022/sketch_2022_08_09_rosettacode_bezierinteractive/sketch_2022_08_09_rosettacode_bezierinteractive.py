@@ -1,7 +1,8 @@
 """
 Bézier Curves Cubic (Interactive)
 https://rosettacode.org/wiki/Bitmap/B%C3%A9zier_curves/Cubic#Processing
-2020-04 Alexandre Villares
+2020-04 Alexandre Villares (Python mode version)
+2022-08 Alexandre Villares (py5 version) 
 
 Task:
 
@@ -13,30 +14,28 @@ draw a cubic bezier curve.
 # It can be run online :
 # https://www.openprocessing.org/sketch/846556/
 
-x = [0] * 4
-y = [0] * 4
+pts = []
 dragging = None
 
 def setup():
     size(300, 300)
     smooth()
     # startpoint coordinates
-    x[0] = x[1] = 50
-    y[0] = 50
-    y[1] = y[2] = 150
-    x[2] = x[3] = 250
-    y[3] = 250
+    pts.append(Py5Vector(50, 50))
+    pts.append(Py5Vector(50, 150))
+    pts.append(Py5Vector(250, 150))
+    pts.append(Py5Vector(250, 250))
 
 def draw():
     background(255)
     no_fill()
     stroke(0, 0, 255)
-    bezier(x[1], y[1], x[0], y[0], x[3], y[3], x[2], y[2])
+    bezier(*pts[1], *pts[0], *pts[3], *pts[2])
     # the bezier handles
     stroke_weight(1)
     stroke(100)
-    line(x[0], y[0], x[1], y[1])
-    line(x[2], y[2], x[3], y[3])
+    line(*pts[0], *pts[1])
+    line(*pts[2], *pts[3])
     # the anchor and control points
     stroke(0)
     fill(0)
@@ -44,10 +43,10 @@ def draw():
         if i == 0 or i == 3:
             fill(255, 100, 10)
             rect_mode(CENTER)
-            rect(x[i], y[i], 5, 5)
+            rect(*pts[i], 5, 5)
         else:
             fill(0)
-            ellipse(x[i], y[i], 5, 5)
+            ellipse(*pts[i], 5, 5)
 
 def mouse_released():
     global dragging
@@ -55,17 +54,17 @@ def mouse_released():
 
 def mouse_pressed():
     global dragging
-    for i in range(4):
-        if (x[i] - 5 <= mouse_x <= x[i] + 10 and
-            y[i] - 5 <= mouse_y <= y[i] + 10):
+    for i, p in enumerate(pts):
+        if (p.x - 5 <= mouse_x <= p.x + 10 and
+            p.y - 5 <= mouse_y <= p.y + 10):
             dragging = i
             break
 
 def mouse_moved():
     # hand cursor when over dragging over points
-    for i in range(4):
-        if (x[i] - 5 <= mouse_x <= x[i] + 10 and
-            y[i] - 5 <= mouse_y <= y[i] + 10):
+    for x, y in pts:
+        if (x - 5 <= mouse_x <= x + 10 and
+            y - 5 <= mouse_y <= y + 10):
             cursor(HAND)
             break
     else:
@@ -73,6 +72,5 @@ def mouse_moved():
 
 def mouse_dragged():
     if dragging is not None:
-        x[dragging] = mouse_x
-        y[dragging] = mouse_y
+        pts[dragging].xy = mouse_x, mouse_y
         cursor(CROSS)
