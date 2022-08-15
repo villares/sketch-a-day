@@ -1,5 +1,8 @@
 # based on https://twitter.com/uspinguim/status/1558050507721261056
-from functools import cache
+try:
+    from functools import cache
+except ImportError:
+    from functools import lru_cache as cache  # for python 3.8
 
 a, b = 220, 60
 du, dv = 12, 24

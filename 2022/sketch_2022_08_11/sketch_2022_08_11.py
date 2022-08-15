@@ -1,8 +1,6 @@
 # based on 2021_06_27
-
 from random import choice
 from peasy import PeasyCam
-
 
 def setup():
     size(800, 800, P3D)

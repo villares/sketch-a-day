@@ -27,6 +27,38 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_08_14
+
+![sketch_2022_08_14](2022/sketch_2022_08_14/sketch_2022_08_14.png)
+
+[sketch_2022_08_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_14) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_08_13
+
+![sketch_2022_08_13](2022/sketch_2022_08_13/sketch_2022_08_13.png)
+
+[sketch_2022_08_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_13) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_08_12
+
+![sketch_2022_08_12](2022/sketch_2022_08_12/sketch_2022_08_12.png)
+
+[sketch_2022_08_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_12) [[py5](https://py5.ixora.io/)]
+
+---
+
+### sketch_2022_08_11
+
+![sketch_2022_08_11](2022/sketch_2022_08_11/sketch_2022_08_11.png)
+
+[sketch_2022_08_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_11) [[py5](https://py5.ixora.io/)]
+
+---
+
 ### sketch_2022_08_10unfold_pyramidal_solid
 
 ![sketch_2022_08_10unfold_pyramidal_solid](2022/sketch_2022_08_10unfold_pyramidal_solid/sketch_2022_08_10unfold_pyramidal_solid.png)
