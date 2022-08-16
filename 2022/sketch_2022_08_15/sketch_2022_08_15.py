@@ -5,8 +5,6 @@ from peasy import PeasyCam
 GRID_SIZE = 32
 # Cutting-plane position (press + & - to change)
 cut_plane = GRID_SIZE
-export = False
-
 
 def setup():
     size(700, 700, P3D)
