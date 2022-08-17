@@ -7,7 +7,7 @@ def setup():
     color_mode(HSB)
     no_stroke()
     for x, y in product(range(0, width + 1, 20), repeat=2):
-        fill(y % 255, 200, 200)
+        fill(y % 255, x % 200, 200)
         square(x, y, 20)
     set_globals()
 
