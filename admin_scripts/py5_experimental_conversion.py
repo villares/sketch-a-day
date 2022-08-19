@@ -3,7 +3,7 @@ import py5
 from shutil import copytree
 from pathlib import Path
 
-pp2i = py5_tools.translators.processingpy2imported
+# pp2i = py5_tools.translators.processingpy2imported
 
 # Material aulas
 #source_dir = '/home/villares/GitHub/material-aulas/Processing-Python'
@@ -31,6 +31,11 @@ rules = {
     'PVector.random3D()' : lambda s: s.replace('PVector.random3D()', 'Py5Vector.random(3)'), 
     '.heading()':  lambda s: s.replace('.heading()', '.heading'),
     '.mag()':  lambda s: s.replace('.mag()', '.mag'),
+    'print ':  lambda s: s.replace('print ', 'print(').replace('\n', ')\n'),
+    'xrange': lambda s: s.replace('xrange', 'range'),
+    'frame_rate': (lambda s: s.replace('frame_rate', 'get_frame_rate()') 
+                             if 'frame_rate(' not in s else s ),
+    
     }
 
 def modified_line(txt: str):
@@ -98,6 +103,6 @@ def in_place_file_changes(path_to_text_file, dry_run=False):
     with open(path_to_text_file,'w') as txt:
         txt.writelines(new_lines)
 
-#src = '/home/villares/GitHub/py5examples/examples-from-Processing-Python-mode/'
-src = '/home/villares/GitHub/processing-python/play/'
+src = '/home/villares/GitHub/py5examples/examples-from-Processing-Python-mode/'
+#src = '/home/villares/GitHub/processing-python/play/'
 in_place_dir_change(src, dry_run=False)
