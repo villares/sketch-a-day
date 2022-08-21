@@ -6,7 +6,6 @@ zoff = 0.0
 # We will increment zoff differently than xoff and yoff
 zincrement = 0.02
 
-
 def setup():
     size(320, 320)
     frame_rate(30)
@@ -14,7 +13,7 @@ def setup():
 
 def draw():
     scale(2)
-    print(get_frame_rate())
+    #print(get_frame_rate())
     global zoff
     # Optional: adjust noise detail here
     # noiseDetail(8,0.65f)
