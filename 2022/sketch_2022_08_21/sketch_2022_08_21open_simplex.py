@@ -20,7 +20,7 @@ def draw():
     #z = np.full(50, py5.frame_count * s)
     d = 128 + 128 * py5.os_noise((xgrid + py5.frame_count) * s, ygrid * s)
     my_box(xgrid, ygrid, -200 + d / 2, 10, 10, d)
-    $print(py5.frame_count)
+    #print(py5.frame_count)
 
 
 @np.vectorize
