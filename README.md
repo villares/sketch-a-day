@@ -29,7 +29,7 @@ Here are listed some of the tools I have been using:
 
 ### sketch_2022_09_02
 
-![sketch_2022_09_02](2022/sketch_2022_09_02/sketch_2022_09_02.jpg)
+![sketch_2022_09_02](2022/sketch_2022_09_02/sketch_2022_09_02.png)
 
 [sketch_2022_09_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_02) [[py5](https://py5coding.org/)]
 
