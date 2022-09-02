@@ -88,7 +88,7 @@ def build_entry(folder, image_filename):
         'pyde': '[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]',
         'flat': '[[Python + flat](https://xxyxyz.org/flat)]',
         'pyp5js': '[[pyp5js](https://berinhard.github.io/pyp5js/)]',
-        'py5': '[[py5](https://py5.ixora.io/)]',
+        'py5': '[[py5](https://py5coding.org/)]',
         'shoebot': '[[shoebot](http://shoebot.net/)]',
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
         'tk': '[tkinter]',

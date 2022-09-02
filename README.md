@@ -15,7 +15,7 @@ Here are listed some of the tools I have been using:
 - [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
 - [[pyp5js](https://berinhard.github.io/pyp5js/)] initially a Python to p5js trancriptor, now a pyodide + p5js tool
 - [[shoebot](https://shoebot.github.io/shoebot/)] Generate 2D vector graphics with Python
-- [[py5](https://py5.ixora.io/)] A new Processing Java + Python 3 amazing tool
+- [[py5](https://py5coding.org/)] A new Processing Java + Python 3 amazing tool
 - [[p5py](https://github.com/p5py/p5)] A new Python 3 implementation of Processing ideas (no Java needed)
 - [[flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python (via Allison Parrish's [Bezmerizing](https://github.com/aparrish/bezmerizing))
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
@@ -31,7 +31,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_29](2022/sketch_2022_08_29/sketch_2022_08_29.png)
 
-[sketch_2022_08_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_29) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_29) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -39,7 +39,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_28](2022/sketch_2022_08_28/sketch_2022_08_28.png)
 
-[sketch_2022_08_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_28) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_28) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -47,7 +47,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_27](2022/sketch_2022_08_27/sketch_2022_08_27.png)
 
-[sketch_2022_08_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_27) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_27) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -55,7 +55,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_26](2022/sketch_2022_08_26/sketch_2022_08_26.png)
 
-[sketch_2022_08_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_26) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_26) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -63,7 +63,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_25](2022/sketch_2022_08_25/sketch_2022_08_25.png)
 
-[sketch_2022_08_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_25) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_25) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -71,7 +71,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_24](2022/sketch_2022_08_24/sketch_2022_08_24.png)
 
-[sketch_2022_08_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_24) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_24) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -79,7 +79,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_23](2022/sketch_2022_08_23/sketch_2022_08_23.png)
 
-[sketch_2022_08_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_23) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_23) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -87,7 +87,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_22](2022/sketch_2022_08_22/sketch_2022_08_22.png)
 
-[sketch_2022_08_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_22) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_22) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -95,7 +95,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_21](2022/sketch_2022_08_21/sketch_2022_08_21.png)
 
-[sketch_2022_08_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_21) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_21) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -103,7 +103,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_20](2022/sketch_2022_08_20/sketch_2022_08_20.png)
 
-[sketch_2022_08_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_20) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_20) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -111,7 +111,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_19](2022/sketch_2022_08_19/sketch_2022_08_19.png)
 
-[sketch_2022_08_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_19) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_19) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -119,7 +119,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_18](2022/sketch_2022_08_18/sketch_2022_08_18.png)
 
-[sketch_2022_08_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_18) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_18) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -127,7 +127,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_17](2022/sketch_2022_08_17/sketch_2022_08_17.png)
 
-[sketch_2022_08_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_17) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_17) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -135,7 +135,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_16](2022/sketch_2022_08_16/sketch_2022_08_16.png)
 
-[sketch_2022_08_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_16) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_16) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -143,7 +143,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_15](2022/sketch_2022_08_15/sketch_2022_08_15.png)
 
-[sketch_2022_08_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_15) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_15) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -151,7 +151,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_14](2022/sketch_2022_08_14/sketch_2022_08_14.png)
 
-[sketch_2022_08_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_14) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_14) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -159,7 +159,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_13](2022/sketch_2022_08_13/sketch_2022_08_13.png)
 
-[sketch_2022_08_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_13) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_13) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -167,7 +167,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_12](2022/sketch_2022_08_12/sketch_2022_08_12.png)
 
-[sketch_2022_08_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_12) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_12) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -175,7 +175,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_11](2022/sketch_2022_08_11/sketch_2022_08_11.png)
 
-[sketch_2022_08_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_11) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_11) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -183,7 +183,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_10unfold_pyramidal_solid](2022/sketch_2022_08_10unfold_pyramidal_solid/sketch_2022_08_10unfold_pyramidal_solid.png)
 
-[sketch_2022_08_10unfold_pyramidal_solid](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_10unfold_pyramidal_solid) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_10unfold_pyramidal_solid](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_10unfold_pyramidal_solid) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -191,7 +191,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_09_rosettacode_bezierinteractive](2022/sketch_2022_08_09_rosettacode_bezierinteractive/sketch_2022_08_09_rosettacode_bezierinteractive.png)
 
-[sketch_2022_08_09_rosettacode_bezierinteractive](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_09_rosettacode_bezierinteractive) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_09_rosettacode_bezierinteractive](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_09_rosettacode_bezierinteractive) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -199,7 +199,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_08arduino_and_sliders](2022/sketch_2022_08_08arduino_and_sliders/sketch_2022_08_08arduino_and_sliders.png)
 
-[sketch_2022_08_08arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_08arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_08arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_08arduino_and_sliders) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -207,7 +207,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_07arduino_and_sliders](2022/sketch_2022_08_07arduino_and_sliders/sketch_2022_08_07arduino_and_sliders.png)
 
-[sketch_2022_08_07arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_07arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_07arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_07arduino_and_sliders) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -215,7 +215,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_06arduino_and_sliders](2022/sketch_2022_08_06arduino_and_sliders/sketch_2022_08_06arduino_and_sliders.png)
 
-[sketch_2022_08_06arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_06arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_06arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_06arduino_and_sliders) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -223,7 +223,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_04arduino_and_sliders](2022/sketch_2022_08_04arduino_and_sliders/sketch_2022_08_04arduino_and_sliders.png)
 
-[sketch_2022_08_04arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_04arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_04arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_04arduino_and_sliders) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -231,7 +231,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_03arduino_and_sliders](2022/sketch_2022_08_03arduino_and_sliders/sketch_2022_08_03arduino_and_sliders.png)
 
-[sketch_2022_08_03arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_03arduino_and_sliders) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_03arduino_and_sliders](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_03arduino_and_sliders) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -239,7 +239,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_02](2022/sketch_2022_08_02/sketch_2022_08_02.gif)
 
-[sketch_2022_08_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_02) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_02) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -247,7 +247,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_08_01](2022/sketch_2022_08_01/sketch_2022_08_01.gif)
 
-[sketch_2022_08_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_01) [[py5](https://py5.ixora.io/)]
+[sketch_2022_08_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_08_01) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -255,7 +255,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_31](2022/sketch_2022_07_31/sketch_2022_07_31.png)
 
-[sketch_2022_07_31](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_31) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_31](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_31) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -263,7 +263,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_30](2022/sketch_2022_07_30/sketch_2022_07_30.png)
 
-[sketch_2022_07_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_30) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_30) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -271,7 +271,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_29](2022/sketch_2022_07_29/sketch_2022_07_29.png)
 
-[sketch_2022_07_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_29) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_29) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -279,7 +279,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_28](2022/sketch_2022_07_28/sketch_2022_07_28.png)
 
-[sketch_2022_07_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_28) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_28) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -287,7 +287,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_27](2022/sketch_2022_07_27/sketch_2022_07_27.png)
 
-[sketch_2022_07_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_27) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_27) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -295,7 +295,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_26](2022/sketch_2022_07_26/sketch_2022_07_26.png)
 
-[sketch_2022_07_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_26) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_26) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -303,7 +303,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_25](2022/sketch_2022_07_25/sketch_2022_07_25.png)
 
-[sketch_2022_07_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_25) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_25) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -311,7 +311,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_24](2022/sketch_2022_07_24/sketch_2022_07_24.png)
 
-[sketch_2022_07_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_24) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_24) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -320,7 +320,7 @@ Here are listed some of the tools I have been using:
 ![sketch_2022_07_23](2022/sketch_2022_07_23/sketch_2022_07_23.png)
 ![sketch_2022_07_23](2022/sketch_2022_07_23/sketch_2022_07_23b.png)
 
-[sketch_2022_07_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_23) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_23) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -328,7 +328,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_22](2022/sketch_2022_07_22/sketch_2022_07_22.png)
 
-[sketch_2022_07_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_22) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_22) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -336,7 +336,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_21](2022/sketch_2022_07_21/sketch_2022_07_21.png)
 
-[sketch_2022_07_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_21) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_21) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -344,7 +344,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_20](2022/sketch_2022_07_20/sketch_2022_07_20.png)
 
-[sketch_2022_07_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_20) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_20) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -352,7 +352,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_19](2022/sketch_2022_07_19/sketch_2022_07_19.png)
 
-[sketch_2022_07_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_19) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_19) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -360,7 +360,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_18](2022/sketch_2022_07_18/sketch_2022_07_18.jpg)
 
-[sketch_2022_07_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_18) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_18) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -368,7 +368,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_17](2022/sketch_2022_07_17/sketch_2022_07_17.png)
 
-[sketch_2022_07_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_17) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_17) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -376,7 +376,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_16](2022/sketch_2022_07_16/sketch_2022_07_16.png)
 
-[sketch_2022_07_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_16) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_16) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -384,7 +384,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_15](2022/sketch_2022_07_15/sketch_2022_07_15.png)
 
-[sketch_2022_07_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_15) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_15) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -392,7 +392,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_14](2022/sketch_2022_07_14/sketch_2022_07_14.png)
 
-[sketch_2022_07_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_14) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_14) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -400,7 +400,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_13](2022/sketch_2022_07_13/sketch_2022_07_13.png)
 
-[sketch_2022_07_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_13) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_13) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -408,7 +408,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_12](2022/sketch_2022_07_12/sketch_2022_07_12.png)
 
-[sketch_2022_07_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_12) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_12) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -416,7 +416,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_11](2022/sketch_2022_07_11/sketch_2022_07_11.png)
 
-[sketch_2022_07_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_11) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_11) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -424,7 +424,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_10](2022/sketch_2022_07_10/sketch_2022_07_10.png)
 
-[sketch_2022_07_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_10) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_10) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -432,7 +432,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_09](2022/sketch_2022_07_09/sketch_2022_07_09_.png)
 
-[sketch_2022_07_09](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_09) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_09](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_09) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -440,7 +440,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_08](2022/sketch_2022_07_08/sketch_2022_07_08.png)
 
-[sketch_2022_07_08](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_08) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_08](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_08) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -448,7 +448,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_07_07](2022/sketch_2022_07_07/sketch_2022_07_07.png)
 
-[sketch_2022_07_07](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_07) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_07](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_07) [[py5](https://py5coding.org/)]
 
 Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-artista) (1926-2005)
 
@@ -458,7 +458,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_07_06](2022/sketch_2022_07_06/sketch_2022_07_06.gif)
 
-[sketch_2022_07_06](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_06) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_06](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_06) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -466,7 +466,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_07_05](2022/sketch_2022_07_05/sketch_2022_07_05.gif)
 
-[sketch_2022_07_05](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_05) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_05](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_05) [[py5](https://py5coding.org/)]
 
 [longer gif](2022/sketch_2022_07_05/a.gif)
 
@@ -476,7 +476,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_07_04](2022/sketch_2022_07_04/sketch_2022_07_04.png)
 
-[sketch_2022_07_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_04) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_04) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -484,7 +484,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_07_03](2022/sketch_2022_07_03/sketch_2022_07_03.gif)
 
-[sketch_2022_07_03](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_03) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_03](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_03) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -492,7 +492,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_07_02](2022/sketch_2022_07_02/sketch_2022_07_02.png)
 
-[sketch_2022_07_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_02) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_02) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -500,7 +500,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_07_01](2022/sketch_2022_07_01/sketch_2022_07_01.png)
 
-[sketch_2022_07_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_01) [[py5](https://py5.ixora.io/)]
+[sketch_2022_07_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_07_01) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -508,7 +508,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_30](2022/sketch_2022_06_30/sketch_2022_06_30.png)
 
-[sketch_2022_06_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_30) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_30) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -516,7 +516,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_29](2022/sketch_2022_06_29/sketch_2022_06_29.png)
 
-[sketch_2022_06_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_29) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_29) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -524,7 +524,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_28](2022/sketch_2022_06_28/sketch_2022_06_28.png)
 
-[sketch_2022_06_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_28) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_28) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -532,7 +532,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_27](2022/sketch_2022_06_27/sketch_2022_06_27.png)
 
-[sketch_2022_06_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_27) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_27) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -540,7 +540,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_26](2022/sketch_2022_06_26/sketch_2022_06_26.png)
 
-[sketch_2022_06_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_26) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_26) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -548,7 +548,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_25](2022/sketch_2022_06_25/sketch_2022_06_25.png)
 
-[sketch_2022_06_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_25) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_25) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -556,7 +556,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_24](2022/sketch_2022_06_24/sketch_2022_06_24.png)
 
-[sketch_2022_06_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_24) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_24) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -564,7 +564,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_23](2022/sketch_2022_06_23/sketch_2022_06_23.gif)
 
-[sketch_2022_06_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_23) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_23) [[py5](https://py5coding.org/)]
 
 [video mp4](2022/sketch_2022_06_23/a.mp4)
 
@@ -574,7 +574,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_22](2022/sketch_2022_06_22/sketch_2022_06_22.gif)
 
-[sketch_2022_06_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_22) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_22) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -582,7 +582,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_21](2022/sketch_2022_06_21/sketch_2022_06_21.gif)
 
-[sketch_2022_06_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_21) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_21) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -590,7 +590,7 @@ Inspired by Brazilian artist [Antonio Maluf](https://www.antoniomaluf.com.br/o-a
 
 ![sketch_2022_06_20](2022/sketch_2022_06_20/sketch_2022_06_20.png)
 
-[sketch_2022_06_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_20) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_20) [[py5](https://py5coding.org/)]
 
 From [@introscopia](https://ttwitter.com/Introscopia)'s star code at [httpstwitter.com/Introscopia/status/1538966209114390529](https://ttwitter.com/Introscopia/status/1538966209114390529)
 
@@ -601,7 +601,7 @@ From [@introscopia](https://ttwitter.com/Introscopia)'s star code at [httpstwitt
 
 ![sketch_2022_06_19](2022/sketch_2022_06_19/sketch_2022_06_19.png)
 
-[sketch_2022_06_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_19) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_19) [[py5](https://py5coding.org/)]
 
 Frank Morley's theorem demo
 
@@ -613,7 +613,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_18](2022/sketch_2022_06_18/sketch_2022_06_18.png)
 
-[sketch_2022_06_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_18) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_18) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -621,7 +621,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_17](2022/sketch_2022_06_17/sketch_2022_06_17.gif)
 
-[sketch_2022_06_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_17) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_17) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -629,7 +629,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_16](2022/sketch_2022_06_16/sketch_2022_06_16.gif)
 
-[sketch_2022_06_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_16) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_16) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -637,7 +637,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_15](2022/sketch_2022_06_15/sketch_2022_06_15.gif)
 
-[sketch_2022_06_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_15) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_15) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -645,7 +645,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_14](2022/sketch_2022_06_14/sketch_2022_06_14.png)
 
-[sketch_2022_06_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_14) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_14) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -653,7 +653,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_13](2022/sketch_2022_06_13/sketch_2022_06_13.gif)
 
-[sketch_2022_06_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_13) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_13) [[py5](https://py5coding.org/)]
 
 - Added naïve poly simplification
 - I'm happier with (newest) "gradual flip" 
@@ -666,7 +666,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_12](2022/sketch_2022_06_12/sketch_2022_06_12.gif)
 
-[sketch_2022_06_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_12) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_12) [[py5](https://py5coding.org/)]
 
 - arc_augmented_points() (to complement arc_augmented_poly)
 
@@ -676,7 +676,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_11](2022/sketch_2022_06_11/sketch_2022_06_11.gif)
 
-[sketch_2022_06_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_11) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_11) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -684,7 +684,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_10](2022/sketch_2022_06_10/sketch_2022_06_10.gif)
 
-[sketch_2022_06_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_10) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_10) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -692,7 +692,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_09pymunk](2022/sketch_2022_06_09pymunk/sketch_2022_06_09pymunk.png)
 
-[sketch_2022_06_09pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_09pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_09pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_09pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -700,7 +700,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_08pymunk](2022/sketch_2022_06_08pymunk/sketch_2022_06_08pymunk.png)
 
-[sketch_2022_06_08pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_08pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_08pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_08pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -708,7 +708,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_07pymunk](2022/sketch_2022_06_07pymunk/sketch_2022_06_07pymunk.png)
 
-[sketch_2022_06_07pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_07pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_07pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_07pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -716,7 +716,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_06pymunk](2022/sketch_2022_06_06pymunk/sketch_2022_06_06pymunk.png)
 
-[sketch_2022_06_06pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_06pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_06pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_06pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -732,7 +732,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_04](2022/sketch_2022_06_04/sketch_2022_06_04.gif)
 
-[sketch_2022_06_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_04) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_04) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -740,7 +740,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_03](2022/sketch_2022_06_03/sketch_2022_06_03.gif)
 
-[sketch_2022_06_03](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_03) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_03](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_03) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -748,7 +748,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_02](2022/sketch_2022_06_02/sketch_2022_06_02.png)
 
-[sketch_2022_06_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_02) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_02](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_02) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -756,7 +756,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_06_01](2022/sketch_2022_06_01/sketch_2022_06_01.png)
 
-[sketch_2022_06_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_01) [[py5](https://py5.ixora.io/)]
+[sketch_2022_06_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_06_01) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -764,7 +764,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_31](2022/sketch_2022_05_31/sketch_2022_05_31.png)
 
-[sketch_2022_05_31](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_31) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_31](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_31) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -772,7 +772,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_30](2022/sketch_2022_05_30/sketch_2022_05_30.png)
 
-[sketch_2022_05_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_30) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_30) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -780,7 +780,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_29](2022/sketch_2022_05_29/sketch_2022_05_29.png)
 
-[sketch_2022_05_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_29) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_29) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -788,7 +788,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_28](2022/sketch_2022_05_28/sketch_2022_05_28.gif)
 
-[sketch_2022_05_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_28) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_28) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -796,7 +796,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_27](2022/sketch_2022_05_27/sketch_2022_05_27.png)
 
-[sketch_2022_05_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_27) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_27) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -804,7 +804,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_26](2022/sketch_2022_05_26/sketch_2022_05_26.png)
 
-[sketch_2022_05_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_26) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_26) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -812,7 +812,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_25](2022/sketch_2022_05_25/sketch_2022_05_25.png)
 
-[sketch_2022_05_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_25) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_25) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -820,7 +820,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_24](2022/sketch_2022_05_24/sketch_2022_05_24.png)
 
-[sketch_2022_05_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_24) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_24) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -828,7 +828,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_23](2022/sketch_2022_05_23/sketch_2022_05_23.gif)
 
-[sketch_2022_05_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_23) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_23) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -836,7 +836,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_22](2022/sketch_2022_05_22/sketch_2022_05_22.gif)
 
-[sketch_2022_05_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_22) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_22) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -844,7 +844,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_21](2022/sketch_2022_05_21/sketch_2022_05_21.png)
 
-[sketch_2022_05_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_21) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_21) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -852,7 +852,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_20](2022/sketch_2022_05_20/sketch_2022_05_20.png)
 
-[sketch_2022_05_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_20) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_20) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -909,7 +909,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_14](2022/sketch_2022_05_14/sketch_2022_05_14.png)
 
-[sketch_2022_05_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_14) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_14) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -917,7 +917,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_13](2022/sketch_2022_05_13/sketch_2022_05_13.png)
 
-[sketch_2022_05_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_13) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_13) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -925,7 +925,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_12ahex_cells](2022/sketch_2022_05_12ahex_cells/sketch_2022_05_12ahex_cells.png)
 
-[sketch_2022_05_12ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_12ahex_cells) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_12ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_12ahex_cells) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -933,7 +933,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_11ahex_cells](2022/sketch_2022_05_11ahex_cells/sketch_2022_05_11ahex_cells.gif)
 
-[sketch_2022_05_11ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_11ahex_cells) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_11ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_11ahex_cells) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -941,7 +941,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_10ahex_cells](2022/sketch_2022_05_10ahex_cells/sketch_2022_05_10ahex_cells.png)
 
-[sketch_2022_05_10ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_10ahex_cells) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_10ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_10ahex_cells) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -949,7 +949,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_09ahex_cells](2022/sketch_2022_05_09ahex_cells/sketch_2022_05_09ahex_cells.png)
 
-[sketch_2022_05_09ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_09ahex_cells) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_09ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_09ahex_cells) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -957,7 +957,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_05_08ahex_cells](2022/sketch_2022_05_08ahex_cells/sketch_2022_05_08ahex_cells.gif)
 
-[sketch_2022_05_08ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_08ahex_cells) [[py5](https://py5.ixora.io/)]
+[sketch_2022_05_08ahex_cells](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_05_08ahex_cells) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1021,7 +1021,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_30](2022/sketch_2022_04_30/sketch_2022_04_30.png)
 
-[sketch_2022_04_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_30) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_30) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1029,7 +1029,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_29](2022/sketch_2022_04_29/sketch_2022_04_29.png)
 
-[sketch_2022_04_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_29) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_29) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1037,7 +1037,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_28](2022/sketch_2022_04_28/sketch_2022_04_28.png)
 
-[sketch_2022_04_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_28) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_28) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1045,7 +1045,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_27](2022/sketch_2022_04_27/sketch_2022_04_27.png)
 
-[sketch_2022_04_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_27) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_27) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1053,7 +1053,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_26](2022/sketch_2022_04_26/sketch_2022_04_26.png)
 
-[sketch_2022_04_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_26) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_26) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1061,7 +1061,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_25](2022/sketch_2022_04_25/sketch_2022_04_25.png)
 
-[sketch_2022_04_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_25) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_25) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1069,7 +1069,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_24](2022/sketch_2022_04_24/sketch_2022_04_24.png)
 
-[sketch_2022_04_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_24) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_24) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1077,7 +1077,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_23](2022/sketch_2022_04_23/sketch_2022_04_23.png)
 
-[sketch_2022_04_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_23) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_23) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1085,7 +1085,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_22](2022/sketch_2022_04_22/sketch_2022_04_22.png)
 
-[sketch_2022_04_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_22) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_22) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1093,7 +1093,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_21](2022/sketch_2022_04_21/sketch_2022_04_21.png)
 
-[sketch_2022_04_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_21) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_21) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1101,7 +1101,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_20](2022/sketch_2022_04_20/sketch_2022_04_20.gif)
 
-[sketch_2022_04_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_20) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_20) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1109,7 +1109,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_19](2022/sketch_2022_04_19/sketch_2022_04_19.png)
 
-[sketch_2022_04_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_19) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_19) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1117,7 +1117,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_18](2022/sketch_2022_04_18/sketch_2022_04_18.png)
 
-[sketch_2022_04_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_18) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_18) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1125,7 +1125,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_17](2022/sketch_2022_04_17/sketch_2022_04_17.png)
 
-[sketch_2022_04_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_17) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_17) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1133,7 +1133,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_16](2022/sketch_2022_04_16/sketch_2022_04_16.png)
 
-[sketch_2022_04_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_16) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_16) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1141,7 +1141,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_15](2022/sketch_2022_04_15/sketch_2022_04_15.png)
 
-[sketch_2022_04_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_15) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_15) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1149,7 +1149,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_14](2022/sketch_2022_04_14/sketch_2022_04_14.png)
 
-[sketch_2022_04_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_14) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_14) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1157,7 +1157,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_13](2022/sketch_2022_04_13/sketch_2022_04_13.png)
 
-[sketch_2022_04_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_13) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_13) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1165,7 +1165,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_12](2022/sketch_2022_04_12/sketch_2022_04_12.png)
 
-[sketch_2022_04_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_12) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_12) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1173,7 +1173,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_11](2022/sketch_2022_04_11/sketch_2022_04_11.gif)
 
-[sketch_2022_04_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_11) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_11) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1205,7 +1205,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_07pymunk](2022/sketch_2022_04_07pymunk/sketch_2022_04_07pymunk.png)
 
-[sketch_2022_04_07pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_07pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_07pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_07pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1213,7 +1213,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_06](2022/sketch_2022_04_06/sketch_2022_04_06.png)
 
-[sketch_2022_04_06](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_06) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_06](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_06) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1221,7 +1221,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_05](2022/sketch_2022_04_05/sketch_2022_04_05.png)
 
-[sketch_2022_04_05](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_05) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_05](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_05) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1229,7 +1229,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_04](2022/sketch_2022_04_04/sketch_2022_04_04.png)
 
-[sketch_2022_04_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_04) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_04) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1237,7 +1237,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_04_03](2022/sketch_2022_04_03/sketch_2022_04_03.png)
 
-[sketch_2022_04_03](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_03) [[py5](https://py5.ixora.io/)]
+[sketch_2022_04_03](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_04_03) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1269,7 +1269,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_30_pymunk](2022/sketch_2022_03_30_pymunk/sketch_2022_03_30_pymunk.png)
 
-[sketch_2022_03_30_pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_30_pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_30_pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_30_pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1277,7 +1277,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_29_pymunk](2022/sketch_2022_03_29_pymunk/sketch_2022_03_29_pymunk.png)
 
-[sketch_2022_03_29_pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_29_pymunk) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_29_pymunk](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_29_pymunk) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1293,7 +1293,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_27a](2022/sketch_2022_03_27a/sketch_2022_03_27a.gif)
 
-[sketch_2022_03_27a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_27a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_27a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_27a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1301,7 +1301,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_26a](2022/sketch_2022_03_26a/sketch_2022_03_26a.gif)
 
-[sketch_2022_03_26a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_26a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_26a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_26a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1309,7 +1309,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_25a](2022/sketch_2022_03_25a/sketch_2022_03_25a.gif)
 
-[sketch_2022_03_25a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_25a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_25a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_25a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1317,7 +1317,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_24a](2022/sketch_2022_03_24a/sketch_2022_03_24a.png)
 
-[sketch_2022_03_24a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_24a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_24a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_24a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1325,7 +1325,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_23a](2022/sketch_2022_03_23a/sketch_2022_03_23a.gif)
 
-[sketch_2022_03_23a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_23a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_23a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_23a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1333,7 +1333,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_22a](2022/sketch_2022_03_22a/sketch_2022_03_22a.png)
 
-[sketch_2022_03_22a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_22a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_22a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_22a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1341,7 +1341,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_21a](2022/sketch_2022_03_21a/sketch_2022_03_21a.png)
 
-[sketch_2022_03_21a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_21a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_21a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_21a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1349,7 +1349,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_20a](2022/sketch_2022_03_20a/sketch_2022_03_20a.gif)
 
-[sketch_2022_03_20a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_20a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_20a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_20a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1357,7 +1357,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_19a](2022/sketch_2022_03_19a/sketch_2022_03_19a.gif)
 
-[sketch_2022_03_19a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_19a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_19a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_19a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1365,7 +1365,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_18a](2022/sketch_2022_03_18a/sketch_2022_03_18a.gif)
 
-[sketch_2022_03_18a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_18a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_18a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_18a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1373,7 +1373,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_17a](2022/sketch_2022_03_17a/sketch_2022_03_17a.png)
 
-[sketch_2022_03_17a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_17a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_17a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_17a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1381,7 +1381,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_16a_pyfirmata](2022/sketch_2022_03_16a_pyfirmata/sketch_2022_03_16a_pyfirmata.gif)
 
-[sketch_2022_03_16a_pyfirmata](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_16a_pyfirmata) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_16a_pyfirmata](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_16a_pyfirmata) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1389,7 +1389,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_15a](2022/sketch_2022_03_15a/sketch_2022_03_15a.png)
 
-[sketch_2022_03_15a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_15a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_15a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_15a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1397,7 +1397,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_14a](2022/sketch_2022_03_14a/sketch_2022_03_14a.png)
 
-[sketch_2022_03_14a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_14a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_14a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_14a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1405,7 +1405,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_13a](2022/sketch_2022_03_13a/sketch_2022_03_13a.png)
 
-[sketch_2022_03_13a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_13a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_13a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_13a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1413,7 +1413,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_12a](2022/sketch_2022_03_12a/sketch_2022_03_12a.gif)
 
-[sketch_2022_03_12a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_12a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_12a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_12a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1421,7 +1421,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_11a](2022/sketch_2022_03_11a/sketch_2022_03_11a.gif)
 
-[sketch_2022_03_11a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_11a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_11a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_11a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1429,7 +1429,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_10a](2022/sketch_2022_03_10a/sketch_2022_03_10a.png)
 
-[sketch_2022_03_10a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_10a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_10a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_10a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1437,7 +1437,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_09a](2022/sketch_2022_03_09a/sketch_2022_03_09a.png)
 
-[sketch_2022_03_09a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_09a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_09a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_09a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1445,7 +1445,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_08a](2022/sketch_2022_03_08a/sketch_2022_03_08a.png)
 
-[sketch_2022_03_08a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_08a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_08a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_08a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1453,7 +1453,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_07a](2022/sketch_2022_03_07a/sketch_2022_03_07a.png)
 
-[sketch_2022_03_07a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_07a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_07a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_07a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1461,7 +1461,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_06a](2022/sketch_2022_03_06a/sketch_2022_03_06a.gif)
 
-[sketch_2022_03_06a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_06a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_06a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_06a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1469,7 +1469,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_05a](2022/sketch_2022_03_05a/sketch_2022_03_05a.gif)
 
-[sketch_2022_03_05a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_05a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_05a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_05a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1477,7 +1477,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_04a](2022/sketch_2022_03_04a/sketch_2022_03_04a.png)
 
-[sketch_2022_03_04a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_04a) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_04a](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_04a) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1485,7 +1485,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_03_arcs](2022/sketch_2022_03_03_arcs/sketch_2022_03_03_arcs.gif)
 
-[sketch_2022_03_03_arcs](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_03_arcs) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_03_arcs](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_03_arcs) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1493,7 +1493,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_02_arcs](2022/sketch_2022_03_02_arcs/sketch_2022_03_02_arcs.gif)
 
-[sketch_2022_03_02_arcs](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_02_arcs) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_02_arcs](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_02_arcs) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1501,7 +1501,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_03_01_shapely](2022/sketch_2022_03_01_shapely/sketch_2022_03_01_shapely.gif)
 
-[sketch_2022_03_01_shapely](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_01_shapely) [[py5](https://py5.ixora.io/)]
+[sketch_2022_03_01_shapely](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_03_01_shapely) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1565,7 +1565,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_21_prime_spiral](2022/sketch_2022_02_21_prime_spiral/sketch_2022_02_21_prime_spiral.png)
 
-[sketch_2022_02_21_prime_spiral](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_21_prime_spiral) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_21_prime_spiral](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_21_prime_spiral) [[py5](https://py5coding.org/)]
 ---
 
 ### sketch_2022_02_18_circle_sphere
@@ -1660,7 +1660,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_07py5](2022/sketch_2022_02_07py5/sketch_2022_02_07py5.png)
 
-[sketch_2022_02_07py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_07py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_07py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_07py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1668,7 +1668,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_06py5](2022/sketch_2022_02_06py5/sketch_2022_02_06py5.png)
 
-[sketch_2022_02_06py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_06py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_06py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_06py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1676,7 +1676,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_05py5](2022/sketch_2022_02_05py5/sketch_2022_02_05py5.png)
 
-[sketch_2022_02_05py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_05py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_05py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_05py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1684,7 +1684,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_04py5](2022/sketch_2022_02_04py5/sketch_2022_02_04py5.gif)
 
-[sketch_2022_02_04py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_04py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_04py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_04py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1692,7 +1692,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_03py5](2022/sketch_2022_02_03py5/sketch_2022_02_03py5.gif)
 
-[sketch_2022_02_03py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_03py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_03py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_03py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1700,7 +1700,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_02py5](2022/sketch_2022_02_02py5/sketch_2022_02_02py5.png)
 
-[sketch_2022_02_02py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_02py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_02py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_02py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1708,7 +1708,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_02_01py5](2022/sketch_2022_02_01py5/sketch_2022_02_01py5.png)
 
-[sketch_2022_02_01py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_01py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_02_01py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_02_01py5) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -1716,7 +1716,7 @@ Frank Morley's theorem demo
 
 ![sketch_2022_01_31py5](2022/sketch_2022_01_31py5/sketch_2022_01_31py5.gif)
 
-[sketch_2022_01_31py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_01_31py5) [[py5](https://py5.ixora.io/)]
+[sketch_2022_01_31py5](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_01_31py5) [[py5](https://py5coding.org/)]
 
 ---
 
