@@ -35,7 +35,7 @@ rules = {
     'xrange': lambda s: s.replace('xrange', 'range'),
     'frame_rate': (lambda s: s.replace('frame_rate', 'get_frame_rate()') 
                              if 'frame_rate(' not in s else s ),
-    
+    ': // ': lambda s: s.replace(': // ', '://'),  # reverts trouble with https://
     }
 
 def modified_line(txt: str):
