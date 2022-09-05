@@ -27,6 +27,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_09_04
+
+![sketch_2022_09_04](2022/sketch_2022_09_04/sketch_2022_09_04.png)
+
+[sketch_2022_09_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_04) [[py5](https://py5coding.org/)]
+
+---
+
 ### sketch_2022_09_03
 
 ![sketch_2022_09_03](2022/sketch_2022_09_03/sketch_2022_09_03.png)
