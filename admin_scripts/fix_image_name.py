@@ -1,10 +1,17 @@
 #! /usr/bin/python3
+"""
+When called from the CL looks for images in CWD and renames
+first found image with folder name. This might skip renaming
+if some image name starts with the folder name (even images
+with name equal to folder name plus appended chars, which could
+be a problem).
 
-# [X] add this to terminal aliases
-# [X] Where am I?
-# Look for images
-# rename image with folder name
-# extra: flag to run generate_entries?
+TODO:
+[X] add this to terminal aliases
+[X] Where am I?
+[X] Use pathlib instead of os & os.path
+[ ] Test try_renaming_first_image() outside CWD
+"""
 
 from pathlib import Path
 from helpers import is_img_ext
@@ -23,13 +30,14 @@ def try_renaming_first_image(path):
     elif imagens:
         # vai renomear a primeira para ficar com o nome da pasta
         primeira_imagem = imagens[0]  
-        ext = primeira_imagem.name.split('.')[-1]
-        novo_nome = nome_pasta + '.' + ext
+        ext = primeira_imagem.suffix
+        novo_nome = nome_pasta + ext
         primeira_imagem.rename(novo_nome)
         print(primeira_imagem.name + ' -> ' + novo_nome)
     else:
         print('Não encontrei imagens!')
 
-path = Path.cwd()
-try_renaming_first_image(path)
+if __name__ == '__main__':
+    path = Path.cwd()
+    try_renaming_first_image(path)
 
