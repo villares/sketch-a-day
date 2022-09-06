@@ -17,7 +17,7 @@ class SketchySketch(Sketch):
         if self.other:
             self.other.other = self
 
-    def draw(self):  # este é o draw pra a segunda janela
+    def draw(self): 
         if self.title == 'A':
             self.background(255)
             self.fill(0)
