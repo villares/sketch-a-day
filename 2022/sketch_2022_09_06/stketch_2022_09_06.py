@@ -1,7 +1,7 @@
 from itertools import product
 
-w = 30
-th = w * sqrt(3) / 2    
+w = 30  # width base-value for single element
+th = w * sqrt(3) / 2  # triangle height
 
 def setup():
     size(180, 520)
@@ -12,20 +12,21 @@ def setup():
     on_offs = (((shp, True), (shp, False)) for shp in shapes)
     combos = list(product(*on_offs))
     print(f'Combinations: {len(combos)}')
-    x = y = w
+
     translate(w, w / 2)
+    x = y = w
     for combo in combos:
         for func, state in combo:
-            draw_shp(state * 255, func, x, y)
+            draw_element(state * 255, func, x, y)
             x += w
         x += w
         if x > width - 5 * w:
             x = w
             y += 2 * w
 
-def draw_shp(c, shp, x, y):
+def draw_element(c, shape_func, x, y):
     fill(c)
-    shp(x, y)
+    shape_func(x, y)
 
 def t(x, y):
     triangle(x - w / 2, y + th / 2, x + w / 2, y + th / 2, x, y - th / 2)
