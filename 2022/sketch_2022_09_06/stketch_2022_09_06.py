@@ -8,16 +8,16 @@ def setup():
     no_stroke()
     rect_mode(CENTER)
 
-    shapes = (t, s, c)  # triangle, square, circle
-    on_offs = (((shp, True), (shp, False)) for shp in shapes)
-    combos = list(product(*on_offs))
+    shapes = (t, s, c)  # triangle, square, circle (shape drawing functions)
+    on_offs = (((func, True), (func, False)) for func in shapes)
+    combos = list(product(*on_offs))  # *on_offs unpacks it as serveral args
     print(f'Combinations: {len(combos)}')
 
     translate(w, w / 2)
     x = y = w
     for combo in combos:
         for func, state in combo:
-            draw_element(state * 255, func, x, y)
+            draw_element(state * 255, func, x, y)  # False * 255 is 0 (black)
             x += w
         x += w
         if x > width - 5 * w:
