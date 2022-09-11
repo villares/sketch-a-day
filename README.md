@@ -27,6 +27,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### stketch_2022_09_10
+
+![stketch_2022_09_10](2022/stketch_2022_09_10/stketch_2022_09_10.png)
+
+[stketch_2022_09_10](https://github.com/villares/sketch-a-day/tree/main/2022/stketch_2022_09_10) [tkinter]
+
+---
+
 ### stketch_2022_09_09
 
 ![stketch_2022_09_09](2022/stketch_2022_09_09/stketch_2022_09_09.png)
