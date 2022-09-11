@@ -8,11 +8,11 @@ def setup():
     rect_mode(CENTER)
     background(0)
     no_stroke()
-    elements = product((-1, 0, 1), repeat=2)  # 4 grid positions
-    on_offs = (((el, color(200, 0, 0)),
-                (el, color(0, 200, 0)),
-                (el, color(0, 0, 200))) for el in elements)
-    combos = sorted(product(*on_offs), key=how_red)
+    positions = product((-1, 0, 1), repeat=2)  # 9 grid positions
+    options_per_position = (((pos, color(200, 0, 0)),
+                             (pos, color(0, 200, 0)),
+                             (pos, color(0, 0, 200))) for pos in positions)
+    combos = sorted(product(*options_per_position))
     print(f'Combinations: {len(combos)}')
     translate(1, 1)
     x = y = w / 2
