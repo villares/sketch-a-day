@@ -12,7 +12,7 @@ def setup():
     options_per_position = (((pos, color(200, 0, 0)),
                              (pos, color(0, 200, 0)),
                              (pos, color(0, 0, 200))) for pos in positions)
-    combos = sorted(product(*options_per_position))
+    combos = sorted(product(*options_per_position), key=how_red)
     print(f'Combinations: {len(combos)}')
     translate(1, 1)
     x = y = w / 2
