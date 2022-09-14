@@ -39,7 +39,7 @@ def setup():
             y = w
             x += w * 2
     save_png_with_src()
-    save_frame('sketch_2022_09_13.png')
+    save_frame('sketch_2022_09_14.png')
 
 def sorting_func(combo):
     return sum(ci * (len(all_colors) ** i) for i, (shp, ci)
