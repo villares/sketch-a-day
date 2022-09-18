@@ -16,8 +16,8 @@ def setup():
 
     positions = list(product((-1, 0, 1), repeat=2))  # 9 positions on a grid
     arrows = list(permutations(positions, 2))        # permutations (order counts)
-    configs = list(combinations(arrows, 2))          # arrow pairs, no matter order 
-    configs = [(a, b) for a, b in configs            # filter out arrows that...
+    arrow_combos = combinations(arrows, 2)           # arrow pairs, no matter order 
+    configs = [(a, b) for a, b in arrow_combos       # filter out arrows that...
                if len(set(a) | set(b)) == 4]         # ...have points in common
 
 #     # wrong, this duplicates configs by picking the same 2 arrows in 2 ways
