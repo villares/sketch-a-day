@@ -27,6 +27,26 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_09_18
+
+![sketch_2022_09_18](2022/sketch_2022_09_18/sketch_2022_09_18b.png)
+
+[sketch_2022_09_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_18) [[py5](https://py5coding.org/)]
+
+Combinations of 2 arrows on a 3x3 grid, so that the arrows don't share starting or ending points: 1512
+
+---
+
+### sketch_2022_09_17
+
+![sketch_2022_09_17](2022/sketch_2022_09_17/sketch_2022_09_17.png)
+
+[sketch_2022_09_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_17) [[py5](https://py5coding.org/)]
+
+1400 of 2556 combinations of 76 arrows in a 3x3 grid (WIP)
+
+---
+
 ### sketch_2022_09_16
 
 ![sketch_2022_09_16](2022/sketch_2022_09_16/sketch_2022_09_16.png)
