@@ -15,7 +15,8 @@ def setup():
     stroke_join(ROUND)
     no_stroke()
 
-    positions = list(product((-0.5, 0.5), (-1, 0, 1)))  # 6 positions on a grid
+    positions = list(product((-0.66, 0.66), (-1, 0, 1)))  # 6 positions on a grid
+    positions = [(x, y) if y !=0 else (x * sqrt(3), y) for x, y in positions]
     arrows = list(permutations(positions, 2))        # permutations (order counts)
     arrow_combos = combinations(arrows, 2)           # arrow pairs, no matter order 
     configs = [(a, b) for a, b in arrow_combos       # filter out arrows that...
@@ -48,7 +49,7 @@ def setup():
             x = W * 2
             y +=  W * 1.5
         i += 1
-        save_frame('sketch_2022_09_18b.png')
+        save_frame('sketch_2022_09_19.png')
 
 def draw_arrow(xo, yo, xh, yh, head_size=5, shorten=0):
     if shorten:
