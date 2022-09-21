@@ -49,7 +49,7 @@ def setup():
             x = W * 2
             y +=  W * 1.5
         i += 1
-        save_frame('sketch_2022_09_19.png')
+    save_frame('sketch_2022_09_19.png')
 
 def draw_arrow(xo, yo, xh, yh, head_size=5, shorten=0):
     if shorten:
