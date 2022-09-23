@@ -3,8 +3,11 @@ import os
 import re
 import sys
 import subprocess
-from shutil import copytree
+
 from datetime import datetime, timedelta
+from pathlib import Path
+from shutil import copytree
+
 import generate_entries
 from helpers import is_img_ext
 
@@ -52,28 +55,26 @@ for arg in sys.argv[1:]:
         """)
         exit()
 # Rebuild the full folder paths
-base_path = generate_entries.year_path
-src_folder = os.path.join(base_path, last_folder)
-new_folder = os.path.join(base_path, new_folder_name)
+base_path = Path(generate_entries.year_path)
+src_folder = base_path / last_folder
+new_folder = base_path / new_folder_name
 # Create a new folder, copy of the most recent one, but with new name
 copytree(src_folder, new_folder)
 print(f'{new_folder_name} folder created')
 # Go through the new folder, remove images, rename files to new date
 file_to_open = ''
-for file_name in os.listdir(new_folder):
-    file_path = os.path.join(new_folder, file_name) 
-    if is_img_ext(file_name):
+for file in new_folder.iterdir():
+    if is_img_ext(file.name):
         if not keep_images:
-            os.remove(file_path)
-            print(f'{file_name} image removed')
-    elif last_folder in file_name:
-        if os.path.isfile(file_path):
-            new_name = file_name.replace(last_folder, new_folder_name)
-            new_path = os.path.join(new_folder, new_name)         
-            print(f'{file_name} file renamed to {new_name}')
-            os.rename(file_path, new_path)
+            os.remove(file)
+            print(f'{file.name} image removed')
+    elif last_folder in file.name:
+        if file.is_file():
+            new_name = file.name.replace(last_folder, new_folder_name)
+            new_path = new_folder / new_name         
+            os.rename(file, new_path)
+            print(f'{file.name} file renamed to {new_name}')
             file_to_open = new_path
-            # print(f'{file_path} file renamed to {new_path}') # debug
             if erase_code:
                 open(new_path, 'w').close()
                 print(f'{new_name} content removed')
