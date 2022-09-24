@@ -27,6 +27,30 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_09_24
+
+![sketch_2022_09_24](2022/sketch_2022_09_24/sketch_2022_09_24.png)
+
+[sketch_2022_09_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_24) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_09_23
+
+![sketch_2022_09_23](2022/sketch_2022_09_23/sketch_2022_09_23.png)
+
+[sketch_2022_09_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_23) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_09_22
+
+![sketch_2022_09_22](2022/sketch_2022_09_22/sketch_2022_09_22.png)
+
+[sketch_2022_09_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_09_22) [[py5](https://py5coding.org/)]
+
+---
+
 ### sketch_2022_09_21
 
 ![sketch_2022_09_21](2022/sketch_2022_09_21/sketch_2022_09_21.png)
