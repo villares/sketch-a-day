@@ -4,8 +4,6 @@ SIN_60 = sqrt(3) * 0.5  # sin(radians(60))
 
 nodes = {}
 unvisited_nodes = []
-step = 6
-
 EVN_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1, -1), (1, -1))
 ODD_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1,  1), (1,  1))
 W = 6
@@ -13,12 +11,9 @@ H = SIN_60 * W
 nbs = []
 
 def setup():
-    global w, h
     size(800, 800)
     no_fill()
-    w, h = int(width / 2 / step - 5), int(height / 2 / step - 5)
     start(268)
-
     
 def start(rnd_seed):
     global s
@@ -87,8 +82,8 @@ def grow():
     
 def visible(i, j):
     x, y = ij_to_xy(i, j) 
-    return (abs(x) < width / 2 - step * 5 and
-            abs(y) < height / 2 - step * 5)
+    return (abs(x) < width / 2 - W * 5 and
+            abs(y) < height / 2 - W * 5)
 
 def key_pressed():
     if key == ' ':
