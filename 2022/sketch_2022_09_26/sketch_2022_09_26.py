@@ -1,4 +1,5 @@
 import random  # import sample, shuffle, seed
+import numpy as np
 
 SIN_60 = sqrt(3) * 0.5  # sin(radians(60))
 
@@ -12,12 +13,18 @@ W = 12
 H = SIN_60 * W 
 nbs = []
 
+palette =(
+    color(0, 0, 100),
+    color(100, 100, 0),
+    color(0, 100, 0),
+    color(100, 0, 100)
+    )
+
 def setup():
     size(800, 800)
     no_fill()
     start(268)
 
-    
 def start(rnd_seed):
     global s
     s = rnd_seed
@@ -30,28 +37,34 @@ def start(rnd_seed):
         x1, y1 = random_int(-10, 10), random_int(-10, 10)
         unvisited_nodes.append((x1, y1, c))
     
-
 def draw():
     background(200)
     translate(width / 2, height / 2)
-    for n, v in nodes.items():
-        ia, ja, c = n
-        ib, jb, gen = v
-        if visible(ia, ja) and visible(ib, jb):
-            c =(
-                color(0, 0, 100),
-                color(100, 100, 0),
-                color(0, 100, 0),
-                color(100, 0, 100)
-                )[c % 4]
-            w = remap(gen, 1, 20, W, W / 3)
+    good = [(ia, ja, c, ib, jb, gen) for (ia, ja, c), (ib, jb, gen)
+            in nodes.items()
+            if visible(ia, ja) and visible(ib, jb)]
+#     if len(good):
+#         good = np.array(good).transpose() 
+#         draw_nodes(*good)
+    for ia, ja, c, ib, jb, gen in good:
+            w = sin((gen + mouse_x + c) * 0.05) * W 
             #fill(c, 255 - abs(w * 20))
-            stroke(c)
+            stroke(palette[c % 4])
             xa, ya = ij_to_xy(ia, ja)
             xb, yb = ij_to_xy(ib, jb)
             line(xa, ya, xb, yb)
             hexagon(xa, ya, w)
     grow()
+
+@np.vectorize
+def draw_nodes(ia, ja, c, ib, jb, gen):
+    w = sin((gen + mouse_x + c) * 0.05) * W 
+    #fill(c, 255 - abs(w * 20))
+    stroke(palette[c % 4])
+    xa, ya = ij_to_xy(ia, ja)
+    xb, yb = ij_to_xy(ib, jb)
+    line(xa, ya, xb, yb)
+    hexagon(xa, ya, w)
 
 def ij_to_xy(i, j):
     if i % 2 == 0:
@@ -68,9 +81,6 @@ def grow():
     while unvisited_nodes:
         i, j, c = unvisited_nodes.pop()
         nbs = EVN_NBS if i % 2 == 0 else ODD_NBS
-        #if len(unvisited_nodes) > 100:
-#         if is_mouse_pressed:
-#             nbs = list(map(d, nbs))
         if not visible(i, j):
             continue
         _, _, gen = nodes.get((i, j, c), (0, 0, 0))
@@ -97,14 +107,13 @@ def key_pressed():
 
 def hexagon(x, y, w):
     h = SIN_60 * w
-    with push_matrix():
-        translate(x, y)
-        with begin_shape():
-            vertex(-w, 0)
-            vertex(-w / 2, -h)
-            vertex(w / 2, -h)
-            vertex(w, 0)
-            vertex(w - w / 2, h)
-            vertex(-w / 2, h)
-            vertex(-w, 0)
-
+    with begin_shape():
+        vertices((
+            (x - w, y),
+            (x - w / 2, y - h),
+            (x + w / 2, y - h),
+            (x + w, y),
+            (x + w - w / 2, y +h),
+            (x - w / 2, y + h),
+            (x - w, y),
+            ))
