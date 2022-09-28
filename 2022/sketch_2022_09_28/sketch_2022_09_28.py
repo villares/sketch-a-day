@@ -39,7 +39,7 @@ def draw():
     background(200)
     translate(width / 2, height / 2)
     for (ia, ja, c), (ib, jb, gen) in nodes.items():
-            w = sin((gen + mouse_x + c) * 0.1) * W 
+            w = sin((gen + c) * 0.1 + radians(frame_count * 8)) * W 
             #fill(c, 255 - abs(w * 20))
             stroke(palette[c % 4])
             stroke_weight((4 - c) / 2)
@@ -49,7 +49,9 @@ def draw():
             stroke_weight(1)
             circle(xa, ya, w * 2)
     unvisited_nodes[:] = list(grow(unvisited_nodes))
-
+    if 145 > frame_count >= 100:
+        save_frame(f'{frame_count - 100}.png')
+        print(frame_count)
 
 @lru_cache   
 def ij_to_xy(i, j):
