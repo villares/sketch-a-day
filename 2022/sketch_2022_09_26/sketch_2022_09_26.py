@@ -1,3 +1,5 @@
+# depends on py5 (py5coding.org) imported mode
+
 import random  # import sample, shuffle, seed
 import numpy as np
 
@@ -5,7 +7,6 @@ SIN_60 = sqrt(3) * 0.5  # sin(radians(60))
 
 nodes = {}
 unvisited_nodes = []
-step = 8
 
 EVN_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1, -1), (1, -1))
 ODD_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1,  1), (1,  1))

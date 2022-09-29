@@ -1,3 +1,5 @@
+# depends on py5 (py5coding.org) imported mode
+
 import random  # import sample, shuffle, seed
 
 SIN_60 = sqrt(3) * 0.5  # sin(radians(60))
