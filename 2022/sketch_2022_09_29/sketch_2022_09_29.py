@@ -1,3 +1,5 @@
+# depends on py5 (py5coding.org) imported mode
+
 import random  # import sample, shuffle, seed
 from functools import lru_cache
 
