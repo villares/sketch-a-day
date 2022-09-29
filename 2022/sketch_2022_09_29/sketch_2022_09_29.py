@@ -5,7 +5,6 @@ from functools import lru_cache
 
 nodes = {}
 unvisited_nodes = []
-step = 8
 
 EVN_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1, -1), (1, -1))
 ODD_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1,  1), (1,  1))
