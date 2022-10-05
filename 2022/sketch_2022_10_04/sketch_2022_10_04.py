@@ -16,7 +16,7 @@ def setup():
             else:
                 y = j * H + H / 2 + deslocamento_y
             x = i * W * 3 / 4 + deslocamento_x
-            poligono_regular(x, y, W / 2, 6, rot=HALF_PI)
+            poligono_regular(x, y, W / 2, 6)
 
 def poligono_regular(x_centro, y_centro, r, lados, rot=0):
     """
@@ -26,8 +26,8 @@ def poligono_regular(x_centro, y_centro, r, lados, rot=0):
     py5.begin_shape() # começa a desenhar a forma
     for i in range(lados):
         ang = i * TWO_PI / lados + rot
-        x = x_centro + sin(ang) * r
-        y = y_centro + cos(ang) * r
+        x = x_centro + cos(ang) * r
+        y = y_centro + sin(ang) * r
         py5.vertex(x, y)
     py5.end_shape(py5.CLOSE) # encerra uma forma fechada
     
