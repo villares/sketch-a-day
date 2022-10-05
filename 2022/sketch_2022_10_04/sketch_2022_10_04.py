@@ -3,20 +3,20 @@ import py5
 
 TWO_PI = pi * 2
 HALF_PI = pi / 2
-W = 50               # largura do hexágono
+W = 105              # largura do hexágono
 H = sqrt(3) / 2 * W  # altura do hexágono
 
 def setup():
     py5.size(500, 500)
-    deslocamento_x, deslocamento_y = 10, 10
+    deslocamento_x, deslocamento_y = W / 2, H / 2
     for i in range(6):
         for j in range(5):
             if i % 2 == 0:
-                y = j * H * 2 + H + deslocamento_y
+                y = j * H  + deslocamento_y
             else:
-                y = j * H * 2 + H * 2 + deslocamento_y
-            x = i * W * 1.5 + W + deslocamento_x
-            poligono_regular(x, y, W, 6, rot=HALF_PI)
+                y = j * H + H / 2 + deslocamento_y
+            x = i * W * 3 / 4 + deslocamento_x
+            poligono_regular(x, y, W / 2, 6, rot=HALF_PI)
 
 def poligono_regular(x_centro, y_centro, r, lados, rot=0):
     """
