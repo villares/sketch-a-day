@@ -1,26 +1,24 @@
-import random  # import sample, shuffle, seed
-
+import random  # sample, shuffle, seed
 
 nodes = {}
 unvisited_nodes = []
 
 EVN_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1, -1), (1, -1))
 ODD_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1,  1), (1,  1))
-SIN_60 = sqrt(3) / 2 # sin(radians(60))
+SIN_60 = sqrt(3) / 2  # sin(radians(60))
 W = 30
 H = SIN_60 * W 
 OX, OY = W / 2, H / 2  # deslocamento (offset)
 
 def setup():
-    global w, h
     size(900, 900)
     no_fill()
-    w, h = int(width / 2 / W - 5), int(height / 2 / W - 5)
-    start(268)
+    start(2022)
 
-    
-def start(rnd_seed):
-    random.seed(rnd_seed)
+def start(s):
+    global rnd_seed
+    rnd_seed = s
+    random.seed(s)
     nodes.clear()
     unvisited_nodes[:] = []
     for _ in range(4):
@@ -56,16 +54,15 @@ def ij_to_xy(i, j):
 
 def grow():
     new_nodes = []
-    while unvisited_nodes:
-        i, j = unvisited_nodes.pop()
-        nbs = EVN_NBS if i % 2 == 0 else ODD_NBS
-        #if len(unvisited_nodes) > 100:
+
+    for n, (i, j) in enumerate(unvisited_nodes):
         if not visible(i, j):
             continue
+        nbs = EVN_NBS if i % 2 == 0 else ODD_NBS
         _, _, gen = nodes.get((i, j), (0, 0, 0))
-        #random.seed(gen // 13 + c)
-        random.seed(i + j)
-        xnbs = random.sample(nbs, 4)
+        random.seed(min(4, n) + gen // 5)
+        xnbs = random.sample(nbs, 3)
+        random.shuffle(xnbs)
         for ni, nj in xnbs:
             ini, jnj= i + ni, j + nj
             if (ini, jnj) not in nodes:
@@ -83,18 +80,16 @@ def key_pressed():
         print(frame_count)
         start(frame_count)
     elif key == 's':
-        save_frame('###.png')
+        save_frame(f'{rnd_seed}.png')
 
 def hexagon(x, y, w):
     h = SIN_60 * w
-    with push_matrix():
-        translate(x, y)
-        with begin_shape():
-            vertex(-w, 0)
-            vertex(-w / 2, -h)
-            vertex(w / 2, -h)
-            vertex(w, 0)
-            vertex(w - w / 2, h)
-            vertex(-w / 2, h)
-            vertex(-w, 0)
-
+    begin_shape()
+    vertex(x - w, y)
+    vertex(x - w / 2, y- h)
+    vertex(x + w / 2, y - h)
+    vertex(x + w, y)
+    vertex(x + w - w / 2, y + h)
+    vertex(x - w / 2, y + h)
+    vertex(x - w, y)
+    end_shape(CLOSE)
