@@ -8,7 +8,7 @@ EVN_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1, -1), (1, -1))
 ODD_NBS = ((0, 1), (0, -1), (-1, 0), (1, 0), (-1,  1), (1,  1))
 
 W = 25
-H = W py5.sqrt(3) / 2  # sin(radians(60))
+H = W * py5.sqrt(3) / 2  # sin(radians(60))
 OX, OY = W / 2, H / 2  # deslocamento (offset)
 
 def setup():
@@ -48,7 +48,7 @@ def draw():
         py5.line(xa, ya, xb, yb)
         py5.stroke_weight(W / 30)
         hexagon(xa, ya, w)
-    grow()
+    unvisited_nodes[:] = grow()
 
 
 def ij_to_xy(i, j):
@@ -60,7 +60,6 @@ def ij_to_xy(i, j):
     return x, y
 
 def grow():
-    new_nodes = []
     for i, j, k in unvisited_nodes:
         nbs = EVN_NBS if i % 2 == 0 else ODD_NBS
         _, _, gen = nodes[(i, j, k)]
@@ -71,9 +70,7 @@ def grow():
             ini, jnj = i + ni, j + nj
             if (ini, jnj, k) not in nodes and visible(ini, jnj):
                 nodes[(ini, jnj, k)] = (i, j, gen + 1)
-                new_nodes.append((ini, jnj, k))
-    unvisited_nodes[:] = new_nodes
-
+                yield ini, jnj, k
 
 def visible(i, j):
     x, y = ij_to_xy(i, j)
@@ -98,6 +95,5 @@ def hexagon(xo, yo, r):
             x = xo + py5.cos(ang) * r
             y = yo + py5.sin(ang) * r
             py5.vertex(x, y)
-
 
 py5.run_sketch()
