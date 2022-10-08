@@ -1,4 +1,4 @@
-# py5.ixora.io imported mode (thonny-py5mode)
+# py5coding.org imported mode (thonny-py5mode)
 
 from random import randint as r
 

@@ -1,4 +1,4 @@
-# You'll need py5 - made to run in py5 imported mode, more info at https://py5.ixora.io
+# You'll need py5 - made to run in py5 imported mode, more info at https://py5coding.org
 # Also needs http://pymunk.org
 
 import pymunk as pm

@@ -1,7 +1,7 @@
 """
 sketch_2022_07_07 - d'aprés Antonio Maluf 1926—2005
 Alexandre B A Villares - abav.lugaragum.com/sketch-a-day
-Rewritten 2022_07_10, requires py5.ixora.io 'static mode'
+Rewritten 2022_07_10, requires py5coding.org 'static mode'
 """
 
 size(800, 1000) #, PDF, 'output.pdf')

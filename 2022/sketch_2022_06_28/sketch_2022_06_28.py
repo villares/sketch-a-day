@@ -1,4 +1,4 @@
-# Using py5.ixora.io on Thonny with thonny-py5mode for imported mode
+# Using py5coding.org on Thonny with thonny-py5mode for imported mode
 
 from itertools import product
 import py5_tools

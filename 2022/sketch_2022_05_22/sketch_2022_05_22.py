@@ -1,6 +1,6 @@
 # Based on Ahmad Moussa's article https://gorillasun.de/blog/an-algorithm-for-irregular-grids#bool
 # via Chris Barber https://twitter.com/code_rgb/status/1528042828219179008
-# Code with py5.ixora.io
+# Code with py5coding.org
 
 import py5
 from collections import namedtuple

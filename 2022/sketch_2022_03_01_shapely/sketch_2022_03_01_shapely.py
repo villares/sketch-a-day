@@ -1,5 +1,5 @@
 # Desenhos simétricos - 2019-2022 Alexandre Villares - code under GPL v3.0
-# Using py5.ixora.io (Processing + Python) and shapely
+# Using py5coding.org (Processing + Python) and shapely
 # you'll need to install py5 and shapely
 
 from shapely.geometry import Polygon, MultiPolygon

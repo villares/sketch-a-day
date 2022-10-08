@@ -25,7 +25,7 @@ try:
 except ModuleNotFoundError:
     from villares.line_geometry import is_poly_self_intersecting, triangle_area
 
-# The following block makes this compatible with py5.ixora.io
+# The following block makes this compatible with py5coding.org
 try:
     EPSILON
     remap = map

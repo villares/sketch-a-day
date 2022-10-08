@@ -1,4 +1,4 @@
-# You'll need py5 -https://py5.ixora.io
+# You'll need py5 -https://py5coding.org
 # Also needs http://pymunk.org
 
 import py5
