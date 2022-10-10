@@ -40,10 +40,10 @@ def draw():
         ib, jb, gen = v
         #w = W - W * py5.sin(gen / 10) 
         w = py5.remap(gen, 0, 50, 0, W)
-        py5.stroke(0)
+        py5.stroke(0, 150 * (1 - ka), 150 * ka)
         xa, ya = ij_to_xy(ia, ja)
         xb, yb = ij_to_xy(ib, jb)
-        if gen < 40:
+        if gen < 50:
             py5.stroke_weight(W / 15)
             py5.line(xa, ya, xb, yb)
         py5.stroke_weight(W / 30)
