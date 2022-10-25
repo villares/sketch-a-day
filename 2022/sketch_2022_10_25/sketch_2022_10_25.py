@@ -1,7 +1,8 @@
 from functools import cache
 
-initial_length = 15 
+initial_length = 90 
 shorten = 0.8 # reduz 20% quando multiplica
+count = 0
  
 def setup():
     size(800, 800)
@@ -11,8 +12,11 @@ def setup():
 def draw(): # laço/loop principal (ele fica repetindo)
     background(0)
     galho(400, 500, initial_length, -HALF_PI)
+    print(count)
     
 def galho(x, y, length, direction):
+#     ox, oy, angle = offset_and_angle(length, direction)
+#     nx, ny = x + ox, y + oy
     nx, ny, angle = new_point(x, y, length, direction)
     if length > 5:
        xa, ya = galho(nx, ny, length * shorten, direction + angle)
@@ -23,8 +27,11 @@ def galho(x, y, length, direction):
 
 @cache
 def new_point(x, y, length, direction):
+#def offset_and_angle(length, direction):
+    global count
+    count += 1
     return  (
-        x  + length * cos(direction),
+        x + length * cos(direction),
         y + length * sin(direction),
         radians(length)
         )
