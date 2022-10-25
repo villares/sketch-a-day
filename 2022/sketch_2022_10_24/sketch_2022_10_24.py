@@ -1,5 +1,6 @@
-# colorful tree / árvore colorida
- 
+# based on the previous colorful tree / árvore colorida
+# now with translucent triangles!
+
 def setup():
     size(800, 800)
     color_mode(HSB)
@@ -18,6 +19,6 @@ def galho(x, y, length, direction):
     if length > 5:
        xa, ya = galho(nx, ny, length * shorten, direction + angle)
        xb, yb = galho(nx, ny, length * shorten, direction - angle)
-       fill((32 * direction) % 255, 200, 200, 2 * (120 - length))
+       fill((32 * direction) % 255, 200, 200, 2 * (120 - length))  # bigger triangles are more transparent
        triangle(xa, ya, nx, ny, xb, yb)
     return nx, ny 
