@@ -47,9 +47,9 @@ if __name__ == '__main__':
     else:
         path = Path(args[0])
     if path.is_dir():
-       try_renaming_first_image(path)
+        try_renaming_first_image(path)
     else:
         novo_nome = path.parent.name + path.suffix
         path.rename(novo_nome)
-        messagebox.showinfo("Message", novo_nome)
+        # messagebox.showinfo("arquivo renomeado para", novo_nome)
 
