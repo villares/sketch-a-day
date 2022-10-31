@@ -15,6 +15,9 @@ TODO:
 
 from pathlib import Path
 from helpers import is_img_ext
+from tkinter import messagebox  # for debug
+import sys
+
 
 def try_renaming_first_image(path):
     nome_pasta = path.name
@@ -38,6 +41,15 @@ def try_renaming_first_image(path):
         print('Não encontrei imagens!')
 
 if __name__ == '__main__':
-    path = Path.cwd()
-    try_renaming_first_image(path)
+    args = sys.argv[1:]
+    if not args:
+        path = Path.cwd()
+    else:
+        path = Path(args[0])
+    if path.is_dir():
+       try_renaming_first_image(path)
+    else:
+        novo_nome = path.parent.name + path.suffix
+        path.rename(novo_nome)
+        messagebox.showinfo("Message", novo_nome)
 
