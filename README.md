@@ -10,17 +10,16 @@ Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding 
 
 Here are listed some of the tools I have been using:
 
+- [[py5](https://py5coding.org/)] A new Processing Java + Python 3 amazing tool
+- [[pyp5js](https://berinhard.github.io/pyp5js/)] initially a Python to p5js trancriptor, now a pyodide + p5js tool
 - [[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)] Processing Python mode
 - [[Processing Java](https://processing.org]) Processing Java or "standard" mode
 - [[p5.js](https://p5js.org)] JavaScript library from the Processing Foundation
-- [[pyp5js](https://berinhard.github.io/pyp5js/)] initially a Python to p5js trancriptor, now a pyodide + p5js tool
 - [[shoebot](https://shoebot.github.io/shoebot/)] Generate 2D vector graphics with Python
-- [[py5](https://py5coding.org/)] A new Processing Java + Python 3 amazing tool
+- [[FreeCAD](https://freecadweb.org)] A wonderful 3D modeling tool, CAD & more, Python infused.
 - [[p5py](https://github.com/p5py/p5)] A new Python 3 implementation of Processing ideas (no Java needed)
 - [[flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python (via Allison Parrish's [Bezmerizing](https://github.com/aparrish/bezmerizing))
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
-- [[FreeCAD](https://freecadweb.org)] A wonderful 3D modeling tool, CAD & more, Python infused.
-
 ---
 
 ## [2018](2018.md) | [2019](2019.md) | [2020](2020.md) | [2021](2021.md) | 2022
