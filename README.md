@@ -27,6 +27,158 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_10_30
+
+![sketch_2022_10_30](2022/sketch_2022_10_30/sketch_2022_10_30.jpg)
+
+[sketch_2022_10_30](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_30) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_29
+
+![sketch_2022_10_29](2022/sketch_2022_10_29/sketch_2022_10_29.png)
+
+[sketch_2022_10_29](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_29) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_28
+
+![sketch_2022_10_28](2022/sketch_2022_10_28/sketch_2022_10_28.png)
+
+[sketch_2022_10_28](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_28) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_27
+
+![sketch_2022_10_27](2022/sketch_2022_10_27/sketch_2022_10_27.png)
+
+[sketch_2022_10_27](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_27) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_26
+
+![sketch_2022_10_26](2022/sketch_2022_10_26/sketch_2022_10_26.png)
+
+[sketch_2022_10_26](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_26) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_25
+
+![sketch_2022_10_25](2022/sketch_2022_10_25/sketch_2022_10_25.png)
+
+[sketch_2022_10_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_25) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_24
+
+![sketch_2022_10_24](2022/sketch_2022_10_24/sketch_2022_10_24.png)
+
+[sketch_2022_10_24](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_24) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_23
+
+![sketch_2022_10_23](2022/sketch_2022_10_23/sketch_2022_10_23.png)
+
+[sketch_2022_10_23](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_23) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_22
+
+![sketch_2022_10_22](2022/sketch_2022_10_22/sketch_2022_10_22.png)
+
+[sketch_2022_10_22](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_22) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_21
+
+![sketch_2022_10_21](2022/sketch_2022_10_21/sketch_2022_10_21.png)
+
+[sketch_2022_10_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_21) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_20
+
+![sketch_2022_10_20](2022/sketch_2022_10_20/sketch_2022_10_20.png)
+
+[sketch_2022_10_20](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_20) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_19
+
+![sketch_2022_10_19](2022/sketch_2022_10_19/sketch_2022_10_19.png)
+
+[sketch_2022_10_19](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_19) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_18
+
+![sketch_2022_10_18](2022/sketch_2022_10_18/sketch_2022_10_18.png)
+
+[sketch_2022_10_18](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_18) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_17
+
+![sketch_2022_10_17](2022/sketch_2022_10_17/sketch_2022_10_17.png)
+
+[sketch_2022_10_17](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_17) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_16
+
+![sketch_2022_10_16](2022/sketch_2022_10_16/sketch_2022_10_16.png)
+
+[sketch_2022_10_16](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_16) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_15
+
+![sketch_2022_10_15](2022/sketch_2022_10_15/sketch_2022_10_15.png)
+
+[sketch_2022_10_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_15) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_14
+
+![sketch_2022_10_14](2022/sketch_2022_10_14/sketch_2022_10_14.png)
+
+[sketch_2022_10_14](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_14) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_13
+
+![sketch_2022_10_13](2022/sketch_2022_10_13/sketch_2022_10_13.png)
+
+[sketch_2022_10_13](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_13) [[py5](https://py5coding.org/)]
+
+---
+
+### sketch_2022_10_12
+
+![sketch_2022_10_12](2022/sketch_2022_10_12/sketch_2022_10_12.png)
+
+[sketch_2022_10_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_10_12) [[py5](https://py5coding.org/)]
+
+---
+
 ### sketch_2022_10_11
 
 ![sketch_2022_10_11](2022/sketch_2022_10_11/sketch_2022_10_11.png)
