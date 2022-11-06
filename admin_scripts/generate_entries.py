@@ -13,9 +13,9 @@
 # [ ] use CL arguments to commit and push README.md
 # [ ] Guard against malformed file names like sketch_2022_06_25..png
 
-
+#import pysimplegui as pg
+from pathlib import Path
 from os import listdir
-from os.path import join, exists
 from itertools import takewhile
 
 from helpers import get_image_names
@@ -24,15 +24,16 @@ REPO_MAIN_URL = 'https://github.com/villares/sketch-a-day/tree/main'
 # YEAR and base_path to sketch-a-day folder are set manually, hard-coded
 YEAR = '2022'   
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
-base_path = '/home/villares/GitHub/sketch-a-day'
-year_path = join(base_path, YEAR)
+base_path = Path('/home/villares/GitHub/sketch-a-day')
+year_path = base_path / YEAR
 
-if not exists(year_path):
+if year_path.is_dir():
+    sketch_folders = listdir(year_path)
+else:
     sketch_folders = []  # for the benefit of next_day.py
     print(f"{__file__}: Couldn't find the sketch-a-day year folder!")
-else:
-    sketch_folders = listdir(year_path)
-readme_path = join(base_path, 'README.md')
+
+readme_path = base_path / 'README.md'
 
 def most_recent_entry(readme_as_lines):
     entry_images = (
@@ -45,7 +46,11 @@ def most_recent_entry(readme_as_lines):
     except StopIteration:
         return 'Something wrong. No dated images found!'
     
-def main():
+def main(args):
+    ask_func = None
+    if '-gui' in args or '-G' in args:
+        ask_func = ask_tool_comment
+        print(args)
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
         readme_as_lines = readme.readlines()
@@ -66,8 +71,11 @@ def main():
         imgs = get_image_names(year_path, folder)
         # insert entry if matching image found
         for img in imgs:
+            tool = comment = None
             if img.split('.')[0].startswith(folder):
-                entry_text = build_entry(folder, img)
+                if ask_func:
+                    tool, comment = ask_func(folder, img)
+                entry_text = build_entry(folder, img, tool, comment)
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 print('Adding: ' + folder)
                 break
@@ -76,8 +84,11 @@ def main():
         content = ''.join(readme_as_lines)
         readme.write(content)
 
+def ask_tool_comment(folder, img):
+    print(folder, img)
+    return None, None
 
-def build_entry(folder, image_filename):
+def build_entry(folder, image_filename, tool=None, comment=None):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
@@ -94,23 +105,25 @@ def build_entry(folder, image_filename):
         'tk': '[tkinter]',
         'freecad': '[FreeCAD](https://freecadweb.org)'       
     }
-    folder_path = join(year_path, folder)
-    tools_mentioned = (t for t in tools.keys() if t in image_filename.lower())
-    try:
-        tool = next(tools_mentioned)
-    except StopIteration:
-        tool = 'py5'
-        for f in listdir(folder_path):
-            if 'pyde' in f:
-                tool = 'pyde'
-            elif 'pde' in f:
-                tool = 'pde'
-                
-    docstring = search_docstring(folder_path)
-    if docstring:
-        comment = '\n\n' + docstring
-    else:
-        comment = ''
+    folder_path = year_path / folder
+    if tool is None:
+        tools_mentioned = (t for t in tools.keys() if t in image_filename.lower())
+        try:
+            tool = next(tools_mentioned)
+        except StopIteration:
+            tool = 'py5'
+            for f in listdir(folder_path):
+                if 'pyde' in f:
+                    tool = 'pyde'
+                elif 'pde' in f:
+                    tool = 'pde'
+          
+    if comment is None:
+        docstring = search_docstring(folder_path)
+        if docstring:
+            comment = '\n\n' + docstring
+        else:
+            comment = ''
         
     link = f'{REPO_MAIN_URL}/{YEAR}/{folder}'
     
@@ -125,9 +138,14 @@ def build_entry(folder, image_filename):
 """
 
 def search_docstring(folder):
+    """
+    Not implemented yet.
+    """
     print(listdir(folder))
     return None
 
 
 if __name__ == '__main__':
-    main()
+    import sys
+    print(sys.version_info)
+    main(sys.argv[1:])
