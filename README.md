@@ -27,6 +27,24 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_05
+
+![sketch_2022_11_05](2022/sketch_2022_11_05/sketch_2022_11_05.jpg)
+
+[sketch_2022_11_05](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_05) [[pyp5js](https://berinhard.github.io/pyp5js/)]
+
+Try yourself: http://shorturl.at/aeL12 
+
+---
+
+### sketch_2022_11_04
+
+![sketch_2022_11_04](2022/sketch_2022_11_04/sketch_2022_11_04.png)
+
+[sketch_2022_11_04](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_04) [[py5](https://py5coding.org/)]
+
+---
+
 ### sketch_2022_11_03
 
 ![sketch_2022_11_03](2022/sketch_2022_11_03/sketch_2022_11_03.png)
