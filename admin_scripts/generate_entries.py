@@ -81,6 +81,7 @@ def main(args):
                 entry_text = build_entry(folder, img, tool, comment)
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 print('Adding: ' + folder)
+                if gui_mode: sg.popup('Adding', folder)
                 break
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
