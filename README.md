@@ -27,6 +27,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_06
+
+![sketch_2022_11_06](2022/sketch_2022_11_06/sketch_2022_11_06.png)
+
+[sketch_2022_11_06](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_06) [[PySimpleGUI](https://www.pysimplegui.org/)]
+
+
+
+---
+
 ### sketch_2022_11_05
 
 ![sketch_2022_11_05](2022/sketch_2022_11_05/sketch_2022_11_05.jpg)
