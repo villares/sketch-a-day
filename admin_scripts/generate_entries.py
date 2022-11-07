@@ -13,12 +13,18 @@
 # [ ] use CL arguments to commit and push README.md
 # [ ] Guard against malformed file names like sketch_2022_06_25..png
 
-#import pysimplegui as pg
+
+import sys
+
 from pathlib import Path
 from os import listdir
 from itertools import takewhile
 
+import PySimpleGUI as sg
+
 from helpers import get_image_names
+
+gui_mode = False  # default
 
 REPO_MAIN_URL = 'https://github.com/villares/sketch-a-day/tree/main'
 # YEAR and base_path to sketch-a-day folder are set manually, hard-coded
@@ -47,10 +53,7 @@ def most_recent_entry(readme_as_lines):
         return 'Something wrong. No dated images found!'
     
 def main(args):
-    ask_func = None
-    if '-gui' in args or '-G' in args:
-        ask_func = ask_tool_comment
-        print(args)
+
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
         readme_as_lines = readme.readlines()
@@ -73,8 +76,8 @@ def main(args):
         for img in imgs:
             tool = comment = None
             if img.split('.')[0].startswith(folder):
-                if ask_func:
-                    tool, comment = ask_func(folder, img)
+                if gui_mode:
+                    tool, comment = ask_tool_comment(folder, img)
                 entry_text = build_entry(folder, img, tool, comment)
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 print('Adding: ' + folder)
@@ -85,8 +88,12 @@ def main(args):
         readme.write(content)
 
 def ask_tool_comment(folder, img):
-    print(folder, img)
-    return None, None
+    event, values = sg.Window(f'{folder} {img}',
+                  [[sg.T('Enter the tool'), sg.In(key='-TOOL-')],
+                   [sg.T('Enter a comment'), sg.In(key='-COMMENT-')],
+                  [sg.B('OK'), sg.B('Cancel') ]]).read(close=True)
+
+    return values['-TOOL-'], values['-COMMENT-']
 
 def build_entry(folder, image_filename, tool=None, comment=None):
     """
@@ -103,10 +110,12 @@ def build_entry(folder, image_filename, tool=None, comment=None):
         'shoebot': '[[shoebot](http://shoebot.net/)]',
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
         'tk': '[tkinter]',
-        'freecad': '[FreeCAD](https://freecadweb.org)'       
+        'freecad': '[[FreeCAD](https://freecadweb.org)]',
+        'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
+        'NOT FOUND': '[?]',
     }
     folder_path = year_path / folder
-    if tool is None:
+    if not tool:
         tools_mentioned = (t for t in tools.keys() if t in image_filename.lower())
         try:
             tool = next(tools_mentioned)
@@ -117,13 +126,17 @@ def build_entry(folder, image_filename, tool=None, comment=None):
                     tool = 'pyde'
                 elif 'pde' in f:
                     tool = 'pde'
-          
+    elif tool not in tools:
+        tool = 'NOT FOUND'
+    
     if comment is None:
         docstring = search_docstring(folder_path)
         if docstring:
             comment = '\n\n' + docstring
         else:
             comment = ''
+    else:
+        comment = '\n\n' + comment
         
     link = f'{REPO_MAIN_URL}/{YEAR}/{folder}'
     
@@ -141,11 +154,13 @@ def search_docstring(folder):
     """
     Not implemented yet.
     """
-    print(listdir(folder))
+    # print(listdir(folder))
     return None
 
 
 if __name__ == '__main__':
-    import sys
-    print(sys.version_info)
-    main(sys.argv[1:])
+    args = sys.argv[1:]
+    if '-gui' in args or '-G' in args:
+        gui_mode = True
+    # print(sys.version_info)
+    main(args)
