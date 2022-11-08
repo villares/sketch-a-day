@@ -1,6 +1,6 @@
 """
-Combinations of 2 arrows on a 2x3 grid, so that the arrows don't share
-starting or ending points: 180
+Combinations of 2 arrows on 6 points (distributed in an hexagon),
+so that the arrows don't share starting or ending points: 180
 """
 from itertools import product, permutations, combinations
 
@@ -17,8 +17,8 @@ def setup():
     d60, r = radians(60), 1.5
     positions = [(r * cos(i * d60), r * sin(i * d60)) for i in range(6)]
     arrows = permutations(positions, 2)        # permutations (order counts)
-    arrow_combos = combinations(arrows, 2)           # arrow pairs, no matter order 
-    configs = [(a, b) for a, b in arrow_combos       # pick arrows that...
+    arrow_combos = combinations(arrows, 2)     # arrow pairs, no matter order 
+    configs = [(a, b) for a, b in arrow_combos # pick arrows that...
                if set(a) != set(b)]     # ...don't have both ends in common
 
     print(f'Configurations: {len(configs)}')
