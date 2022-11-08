@@ -27,6 +27,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_07
+
+![sketch_2022_11_07](2022/sketch_2022_11_07/sketch_2022_11_07.png)
+
+[sketch_2022_11_07](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_07) [[py5](https://py5coding.org/)]
+
+378 pairs of line segments, all the combinations from 8 points arranged as an octagon.
+
+---
+
 ### sketch_2022_11_06
 
 ![sketch_2022_11_06](2022/sketch_2022_11_06/sketch_2022_11_06.png)
