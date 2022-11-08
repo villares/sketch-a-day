@@ -27,6 +27,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_08
+
+![sketch_2022_11_08](2022/sketch_2022_11_08/sketch_2022_11_08.png)
+
+[sketch_2022_11_08](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_08) [[py5](https://py5coding.org/)]
+
+I'm not sure I like it but... this demonstrates a P2D renderer feature that allows to change the stroke (and also fill in case of closed shapes) for each vertex.
+
+---
+
 ### sketch_2022_11_07
 
 ![sketch_2022_11_07](2022/sketch_2022_11_07/sketch_2022_11_07.png)
