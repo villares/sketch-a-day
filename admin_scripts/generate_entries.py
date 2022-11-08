@@ -8,13 +8,12 @@
 # [X] find last entry for me
 # [X] insert new entries in propper place
 # [/] use GUI or CL arguments to set tool
-#     [ ] improve GUI
+#     [ ] improve GUI (add image to the dialog!)
 #     [ ] add the CL arguments, why haven't you!!!
 # [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
 # [ ] use CL arguments to commit and push README.md
 # [ ] Guard against malformed file names like sketch_2022_06_25..png
-
 
 import sys
 
@@ -22,11 +21,10 @@ from pathlib import Path
 from os import listdir
 from itertools import takewhile
 
+from helpers import get_image_names
+
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
-
-
-from helpers import get_image_names
 
 gui_mode = False  # default
 
