@@ -7,9 +7,11 @@
 ## TO DO:
 # [X] find last entry for me
 # [X] insert new entries in propper place
+# [/] use GUI or CL arguments to set tool
+#     [ ] improve GUI
+#     [ ] add the CL arguments, why haven't you!!!
+# [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
-# [ ] use CL arguments to set tool
-# [ ] use CL arguments to set Markdown comments
 # [ ] use CL arguments to commit and push README.md
 # [ ] Guard against malformed file names like sketch_2022_06_25..png
 
@@ -21,6 +23,8 @@ from os import listdir
 from itertools import takewhile
 
 import PySimpleGUI as sg
+sg.set_options(element_padding=(10, 10))
+
 
 from helpers import get_image_names
 
@@ -32,6 +36,20 @@ YEAR = '2022'
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = Path('/home/villares/GitHub/sketch-a-day')
 year_path = base_path / YEAR
+
+tools = {
+        'pde': '[[Processing Java](https://processing.org)]',
+        'pyde': '[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]',
+        'flat': '[[Python + flat](https://xxyxyz.org/flat)]',
+        'pyp5js': '[[pyp5js](https://berinhard.github.io/pyp5js/)]',
+        'py5': '[[py5](https://py5coding.org/)]',
+        'shoebot': '[[shoebot](http://shoebot.net/)]',
+        'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
+        'tk': '[tkinter]',
+        'freecad': '[[FreeCAD](https://freecadweb.org)]',
+        'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
+    }
+
 
 if year_path.is_dir():
     sketch_folders = listdir(year_path)
@@ -59,7 +77,7 @@ def main(args):
         readme_as_lines = readme.readlines()
     # find date of the first image seen in the readme
     last_done = most_recent_entry(readme_as_lines)
-    print('Last entry: ' + last_done)
+    print('Last entry: ' + last_done) # add popup?
     # find folders after the last_done one (folders start with ISO date)
     rev_sorted_folders = sorted(sketch_folders, reverse=True)
     not_done = lambda f: last_done not in f
@@ -89,11 +107,12 @@ def main(args):
         readme.write(content)
 
 def ask_tool_comment(folder, img):
-    event, values = sg.Window(f'{folder} {img}',
-                  [[sg.T('Enter the tool'), sg.In(key='-TOOL-')],
-                   [sg.T('Enter a comment'), sg.In(key='-COMMENT-')],
-                  [sg.B('OK'), sg.B('Cancel') ]]).read(close=True)
-
+    event, values = sg.Window(f'{folder} {img}', [
+        [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', s=(15,22), k='-TOOL-')],
+        [sg.T('Comment'), sg.In(key='-COMMENT-')],
+        [sg.B('OK'), sg.B('Cancel')]
+        ],font='Fixedsys').read(close=True)
+    if event == 'Cancel': exit()
     return values['-TOOL-'], values['-COMMENT-']
 
 def build_entry(folder, image_filename, tool=None, comment=None):
@@ -102,19 +121,6 @@ def build_entry(folder, image_filename, tool=None, comment=None):
     for the sketch-a-day index page entry
     of image (for a certain year).
     """
-    tools = {
-        'pde': '[[Processing Java](https://processing.org)]',
-        'pyde': '[[Py.Processing](https://villares.github.io/como-instalar-o-processing-modo-python/index-EN)]',
-        'flat': '[[Python + flat](https://xxyxyz.org/flat)]',
-        'pyp5js': '[[pyp5js](https://berinhard.github.io/pyp5js/)]',
-        'py5': '[[py5](https://py5coding.org/)]',
-        'shoebot': '[[shoebot](http://shoebot.net/)]',
-        'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
-        'tk': '[tkinter]',
-        'freecad': '[[FreeCAD](https://freecadweb.org)]',
-        'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
-        'NOT FOUND': '[?]',
-    }
     folder_path = year_path / folder
     if not tool:
         tools_mentioned = (t for t in tools.keys() if t in image_filename.lower())
@@ -127,8 +133,6 @@ def build_entry(folder, image_filename, tool=None, comment=None):
                     tool = 'pyde'
                 elif 'pde' in f:
                     tool = 'pde'
-    elif tool not in tools:
-        tool = 'NOT FOUND'
     
     if comment is None:
         docstring = search_docstring(folder_path)
@@ -148,7 +152,7 @@ def build_entry(folder, image_filename, tool=None, comment=None):
 
 ![{folder}]({YEAR}/{folder}/{image_filename})
 
-[{folder}]({link}) {tools[tool]}{comment}
+[{folder}]({link}) {tools.get(tool,'['+tool+']')}{comment}
 """
 
 def search_docstring(folder):
