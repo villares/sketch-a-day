@@ -1,5 +1,26 @@
 from os import listdir
 from os.path import join
+import PIL.Image
+import io
+
+
+def image_as_png_bytes(file_path, resize=None):
+    """
+    Open an image file and convert it into PNG formated bytes, resize optional.
+    Return tuple (bytes, <dict from PIL.Image.info>)
+    """
+    img = PIL.Image.open(file_path)
+    cur_width, cur_height = img.size
+    if resize:
+        new_width, new_height = resize
+        scale = min(new_height / cur_height, new_width / cur_width)
+        img = img.resize(
+            (int(cur_width * scale), int(cur_height * scale)),
+            PIL.Image.Resampling.LANCZOS,
+        )
+    with io.BytesIO() as bio:
+        img.save(bio, format='PNG')
+        return bio.getvalue(), img.info
 
 
 def get_image_names(base, folder, word=None):

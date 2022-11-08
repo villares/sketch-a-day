@@ -3,11 +3,10 @@
 # Needs Python 3 ...
 
 import PySimpleGUI as sg
-
 # import PySimpleGUIQt as sg
 import os
-import PIL.Image
-import io
+
+from helpers import image_as_png_bytes
 
 """
 Based on: Demo for displaying any format of image file. 
@@ -18,24 +17,6 @@ LGPLv3 https://github.com/PySimpleGUI/PySimpleGUI/blob/master/license.txt
 
 cwd = os.getcwd()
 
-
-def image_as_png_bytes(file_path, resize=None):
-    """
-    Open an image file and convert it into PNG formated bytes, resize optional.
-    Return tuple (bytes, <dict from PIL.Image.info>)
-    """
-    img = PIL.Image.open(file_path)
-    cur_width, cur_height = img.size
-    if resize:
-        new_width, new_height = resize
-        scale = min(new_height / cur_height, new_width / cur_width)
-        img = img.resize(
-            (int(cur_width * scale), int(cur_height * scale)),
-            PIL.Image.Resampling.LANCZOS,
-        )
-    with io.BytesIO() as bio:
-        img.save(bio, format='PNG')
-        return bio.getvalue(), img.info
 # --------------------------------- Define Layout ---------------------------------
 # First the window layout...
 left_col = [
@@ -66,40 +47,43 @@ layout = [
      sg.Column(third_col, element_justification='c'),]
     ]
 # --------------------------------- Create Window ---------------------------------
-sg.ChangeLookAndFeel('BlueMono')
-window = sg.Window('Multiple Format Image Viewer',
-                   layout, resizable=True, font='Consolas 10')
-while True:  # run the event loop
-    event, values = window.read()
-    if event in (sg.WIN_CLOSED, 'Exit'):
-        break
-    if event == '-FOLDER-':
-        # Folder name was filled in, make a list of files in the folder
-        folder = values['-FOLDER-']
-        try:
-            file_list = os.listdir(folder)  # get list of files in folder
-        except:
-            file_list = []
-        fnames = [f for f in file_list
-                  if os.path.isfile(os.path.join(folder, f))
-                  and f.lower().endswith(('.png', '.jpg', 'jpeg',
-                                          '.tiff', '.bmp', '.gif'))]
-        window['-FILE LIST-'].update(fnames)
-    elif event == '-FILE LIST-' and values['-FILE LIST-']:  # A file was chosen
-        try:
-            filename = os.path.join(values['-FOLDER-'],
-                                    values['-FILE LIST-'][0])
-            window['-TOUT-'].update(filename)
-            if values['-W-'] and values['-H-']:
-                new_size = int(values['-W-']), int(values['-H-'])
-            else:
-                new_size = None
-            png_bytes, metadata = image_as_png_bytes(filename, resize=new_size)
-            window['-IMAGE-'].update(data=png_bytes)
-            window['-CODE-'].update(metadata.pop('code', ''))
-            window['-OTHER-'].update('\n'.join(f'{k}: {v}'
-                                               for k, v in metadata.items()))
-        except Exception as e:
-            print(f'** Error {e} **')  # failed loading the file or updating the image
 
-window.close()   # Close & Exit
+if __name__ == '__main__':
+    sg.ChangeLookAndFeel('BlueMono')
+    window = sg.Window('Multiple Format Image Viewer',
+                       layout, resizable=True, font='Consolas 10')
+    while True:  # run the event loop
+        event, values = window.read()
+        if event in (sg.WIN_CLOSED, 'Exit'):
+            break
+        if event == '-FOLDER-':
+            # Folder name was filled in, make a list of files in the folder
+            folder = values['-FOLDER-']
+            try:
+                file_list = os.listdir(folder)  # get list of files in folder
+            except:
+                file_list = []
+            fnames = [f for f in file_list
+                      if os.path.isfile(os.path.join(folder, f))
+                      and f.lower().endswith(('.png', '.jpg', 'jpeg',
+                                              '.tiff', '.bmp', '.gif'))]
+            window['-FILE LIST-'].update(fnames)
+        elif event == '-FILE LIST-' and values['-FILE LIST-']:  # A file was chosen
+            try:
+                filename = os.path.join(values['-FOLDER-'],
+                                        values['-FILE LIST-'][0])
+                window['-TOUT-'].update(filename)
+                if values['-W-'] and values['-H-']:
+                    new_size = int(values['-W-']), int(values['-H-'])
+                else:
+                    new_size = None
+                png_bytes, metadata = image_as_png_bytes(filename, resize=new_size)
+                window['-IMAGE-'].update(data=png_bytes)
+                window['-CODE-'].update(metadata.pop('code', ''))
+                window['-OTHER-'].update('\n'.join(f'{k}: {v}'
+                                                   for k, v in metadata.items()))
+            except Exception as e:
+                print(f'** Error {e} **')  # failed loading the file or updating the image
+
+    window.close()   # Close & Exit
+
