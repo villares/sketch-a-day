@@ -21,7 +21,7 @@ from pathlib import Path
 from os import listdir
 from itertools import takewhile
 
-from helpers import get_image_names
+from helpers import get_image_names, image_as_png_bytes
 
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
@@ -105,12 +105,17 @@ def main(args):
         readme.write(content)
 
 def ask_tool_comment(folder, img):
-    event, values = sg.Window(f'{folder} {img}', [
-        [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', s=(15,22), k='-TOOL-')],
-        [sg.T('Comment'), sg.In(key='-COMMENT-')],
+    png_bytes, metadata = image_as_png_bytes(year_path / folder / img, (600, 600)) #, resize=new_size)
+    window = sg.Window(f'{img}', [
+        [sg.Image(key='-IMAGE-', data=png_bytes)],
+        [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', s=(40,22), k='-TOOL-')],
+        [sg.T('Comment'), sg.Multiline(key='-COMMENT-', s=(40,4))],
         [sg.B('OK'), sg.B('Cancel')]
-        ],font='Fixedsys').read(close=True)
-    if event == 'Cancel': exit()
+        ],font='Fixedsys')
+#    window['-IMAGE-'].update(data=png_bytes)
+    event, values = window.read(close=True)    
+    if event == 'Cancel':
+        exit()
     return values['-TOOL-'], values['-COMMENT-']
 
 def build_entry(folder, image_filename, tool=None, comment=None):
