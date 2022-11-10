@@ -27,6 +27,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_09
+
+![sketch_2022_11_09](2022/sketch_2022_11_09/sketch_2022_11_09.png)
+
+[sketch_2022_11_09](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_09) [[py5](https://py5coding.org/)]
+
+56 triangles, all 3 point combinations from 8 vertices of octagons.
+
+---
+
 ### sketch_2022_11_08
 
 ![sketch_2022_11_08](2022/sketch_2022_11_08/sketch_2022_11_08.png)
