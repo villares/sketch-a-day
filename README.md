@@ -20,6 +20,7 @@ Here are listed some of the tools I have been using:
 - [[p5py](https://github.com/p5py/p5)] A new Python 3 implementation of Processing ideas (no Java needed)
 - [[flat](https://xxyxyz.org/flat)] A generative infrastructure library for Python (via Allison Parrish's [Bezmerizing](https://github.com/aparrish/bezmerizing))
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
+- [[PySimpleGUI](https://PySimpleGUI.org)] Python GUIs for Humans
 
 ---
 
@@ -31,7 +32,7 @@ Here are listed some of the tools I have been using:
 
 ![sketch_2022_11_10](2022/sketch_2022_11_10/sketch_2022_11_10.png)
 
-[sketch_2022_11_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_10) [py5 and PySimpleGUI]
+[sketch_2022_11_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_10)  [[py5](https://py5coding.org/)] & [[PySimpleGUI](https://PySimpleGUI.org)]
 
 A preliminar attempt using `window.read(timout=20)` has to be tested. There is a version using a `launch_repeating_thread()` in the same sketch folder. 
 
