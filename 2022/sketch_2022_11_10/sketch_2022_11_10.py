@@ -15,20 +15,20 @@ def setup():
 
 def draw():
     global bg
-#     event, values = window.read(timeout=0)
-#     # print(event, values)     
-#     if event == sg.WIN_CLOSED:        
-#         exit_sketch()
-#         return
-#     elif event == 'Background':
-#         bg = not bg
-#         background(200)
-#         
-#     if bg:
-#         background(50, 100, 100)
-#     fill(255)
-#     text(values['-Text-'], 50, 500)
-#     fill(values['-Hue-'], 200, 200)
+    event, values = window.read(timeout=0)
+    # print(event, values)     
+    if event == sg.WIN_CLOSED:        
+        exit_sketch()
+        return
+    elif event == 'Background':
+        bg = not bg
+        background(200)
+        
+    if bg:
+        background(50, 100, 100)
+    fill(255)
+    text(values['-Text-'], 50, 500)
+    fill(values['-Hue-'], 200, 200)
     circle(100, 100, 50 + 50 * sin(frame_count / 10)) 
           
 def exiting():
