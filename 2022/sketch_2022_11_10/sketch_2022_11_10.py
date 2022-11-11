@@ -15,7 +15,7 @@ def setup():
 
 def draw():
     global bg
-    event, values = window.read(timeout=0)
+    event, values = window.read(timeout=10)
     # print(event, values)     
     if event == sg.WIN_CLOSED:        
         exit_sketch()
