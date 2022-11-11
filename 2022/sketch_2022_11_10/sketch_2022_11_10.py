@@ -15,15 +15,14 @@ def setup():
 
 def draw():
     global bg
-    event, values = window.read(timeout=10)
-    # print(event, values)     
+    event, values = window.read(timeout=20)
     if event == sg.WIN_CLOSED:        
         exit_sketch()
         return
     elif event == 'Background':
         bg = not bg
         background(200)
-        
+    
     if bg:
         background(50, 100, 100)
     fill(255)

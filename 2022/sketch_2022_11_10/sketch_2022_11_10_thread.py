@@ -14,19 +14,22 @@ def setup():
         [sg.Slider(key='-Hue-', range=(0, 255), orientation='h', enable_events=True)],
         [sg.Button('Background')]]
     window = sg.Window('Sketch controls!', layout)
-    launch_repeating_thread(controls, name='controls')
+    launch_repeating_thread(controls, name='controls')  
 
-def controls():
+def controls(first=False):
     global bg, event, values
-    event, values = window.read()
+    if first:
+       event, values = window.read(timeout=0)
+       return
+    else:
+        event, values = window.read()
     print(millis())
     if event == sg.WIN_CLOSED:
         exit_sketch()
-        return
     elif event == 'Background':
         bg = not bg
-        background(200)
-
+        # background(200) # doesn't work here
+        
 def draw():
     if bg:
         background(50, 100, 100)
@@ -36,5 +39,5 @@ def draw():
     circle(100, 100, 50 + 50 * sin(frame_count / 10))
 
 def exiting():
-    window.close()
     stop_thread('controls')
+    window.close()

@@ -27,6 +27,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_10
+
+![sketch_2022_11_10](2022/sketch_2022_11_10/sketch_2022_11_10.png)
+
+[sketch_2022_11_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_10) [py5 and PySimpleGUI]
+
+A preliminar attempt using `window.read(timout=20)` has to be tested. There is a version using a `launch_repeating_thread()` in the same sketch folder. 
+
+---
+
 ### sketch_2022_11_09
 
 ![sketch_2022_11_09](2022/sketch_2022_11_09/sketch_2022_11_09.png)
