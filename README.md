@@ -28,6 +28,27 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_12
+
+![sketch_2022_11_12](2022/sketch_2022_11_12/sketch_2022_11_12.png)
+
+[sketch_2022_11_12](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_12) [[py5](https://py5coding.org/)]
+
+
+A variation of yesterday's sketch, the class example for Object Orientation with "particles", but now using Py5Vectors.
+
+---
+
+### sketch_2022_11_11
+
+![sketch_2022_11_11](2022/sketch_2022_11_11/sketch_2022_11_11.gif)
+
+[sketch_2022_11_11](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_11) [[py5](https://py5coding.org/)]
+
+Sketch made during the Object Orientation class at BA.
+
+---
+
 ### sketch_2022_11_10
 
 ![sketch_2022_11_10](2022/sketch_2022_11_10/sketch_2022_11_10.png)

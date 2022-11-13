@@ -16,13 +16,9 @@ def setup():
     window = sg.Window('Sketch controls!', layout)
     launch_repeating_thread(controls, name='controls')  
 
-def controls(first=False):
+def controls():
     global bg, event, values
-    if first:
-       event, values = window.read(timeout=0)
-       return
-    else:
-        event, values = window.read()
+    event, values = window.read()
     print(millis())
     if event == sg.WIN_CLOSED:
         exit_sketch()
