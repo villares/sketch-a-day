@@ -45,6 +45,7 @@ tools = {
         'pyxel': '[[pyxel](https://github.com/kitao/pyxel/blob/master/README.md)]',
         'tk': '[tkinter]',
         'freecad': '[[FreeCAD](https://freecadweb.org)]',
+        'pyscript': '[[pyscript](https://pyscript.net)]',
         'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
     }
 
