@@ -29,6 +29,18 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_15
+
+![sketch_2022_11_15](2022/sketch_2022_11_15/sketch_2022_11_15.png)
+
+[sketch_2022_11_15](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_15) [[pyscript](https://pyscript.net)]
+
+A bit more of SVG with pyscript!
+
+Try it here: [abav.lugaralgum.com/sketch-a-day/2022/sketch_2022_11_15](https://abav.lugaralgum.com/sketch-a-day/2022/sketch_2022_11_15)
+
+---
+
 ### sketch_2022_11_14
 
 ![sketch_2022_11_14](2022/sketch_2022_11_14/sketch_2022_11_14.png)
