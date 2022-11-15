@@ -84,7 +84,7 @@ Sketch made during the Object Orientation class at BA.
 
 ### sketch_2022_11_10
 
-![sketch_2022_11_10](2022/sketch_2022_11_10/sketch_2022_11_10.png)
+![sketch_2022_11_10](2022/sketch_2022_11_10/sketch_2022_11_10.gif)
 
 [sketch_2022_11_10](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_10)  [[py5](https://py5coding.org/)] & [[PySimpleGUI](https://PySimpleGUI.org)]
 
