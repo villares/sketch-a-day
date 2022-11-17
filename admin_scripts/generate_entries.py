@@ -26,7 +26,7 @@ from helpers import get_image_names, image_as_png_bytes
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
 
-gui_mode = False  # default
+gui_mode = True  # default
 
 REPO_MAIN_URL = 'https://github.com/villares/sketch-a-day/tree/main'
 # YEAR and base_path to sketch-a-day folder are set manually, hard-coded
@@ -169,7 +169,7 @@ def search_docstring(folder):
 
 if __name__ == '__main__':
     args = sys.argv[1:]
-    if '-gui' in args or '-G' in args:
-        gui_mode = True
+    if '-nogui' in args or '-NG' in args:
+        gui_mode = False
     # print(sys.version_info)
     main(args)
