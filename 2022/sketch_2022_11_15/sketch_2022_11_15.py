@@ -12,7 +12,7 @@ def setup():
 def create_canvas(w, h):
     global width, height, canvas # global canvas is usefull for drawing elements
     width, height = w, h
-    canvas = document.createElementNS(svgNS, 'svg')  # document is pyodide magic
+    canvas = document.createElementNS(svgNS, 'svg')  # document is pyscript "magic"
     set_attribute(canvas, 'width', f'{w}px')
     set_attribute(canvas, 'height', f'{h}px')
     append_by_id('ContainerBox', canvas)
