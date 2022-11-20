@@ -41,23 +41,20 @@ def draw_elements(element):
     if isinstance(element, MultiPolygon):
         for p in element.geoms:
             draw_elements(p)
-    elif isinstance(element, list):
-        for p in element:
-            draw_elements(p)
     elif isinstance(element, Polygon):
         begin_shape()
-        for x, y in element.exterior.coords:
-            vertex(x, y)
+        vertices(element.exterior.coords)
         for hole in element.interiors:
             begin_contour()
-            for x, y in hole.coords:
-                vertex(x, y)
+            vertices(hole.coords)
             end_contour()
         end_shape(CLOSE)
-    else:
+    elif isinstance(element, (list, tuple)):
+        for p in element:
+            draw_elements(p)
+    else:  # legacy code tuple/points
         begin_shape()
-        for x, y in element:
-            vertex(x, y)
+        vertices(element)
         end_shape(CLOSE)
         
 def s_star(x, y):
