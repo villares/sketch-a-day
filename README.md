@@ -29,6 +29,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_11_21
+
+![sketch_2022_11_21](2022/sketch_2022_11_21/sketch_2022_11_21.png)
+
+[sketch_2022_11_21](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_11_21) [[py5](https://py5coding.org/)]
+
+More shapely studies
+
+---
+
 ### sketch_2022_11_20
 
 ![sketch_2022_11_20](2022/sketch_2022_11_20/sketch_2022_11_20.png)
