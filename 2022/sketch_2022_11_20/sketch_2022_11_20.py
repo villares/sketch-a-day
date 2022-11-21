@@ -47,7 +47,7 @@ def draw_elements(element):
             for hole in element.interiors:
                 with begin_contour():
                     vertices(hole.coords)        
-    elif isinstance(element, (list, tuple)):
+    elif isinstance(element, list):
         for p in element:
             draw_elements(p)
     else:  # legacy code tuple/points
