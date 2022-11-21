@@ -42,20 +42,17 @@ def draw_elements(element):
         for p in element.geoms:
             draw_elements(p)
     elif isinstance(element, Polygon):
-        begin_shape()
-        vertices(element.exterior.coords)
-        for hole in element.interiors:
-            begin_contour()
-            vertices(hole.coords)
-            end_contour()
-        end_shape(CLOSE)
-    elif isinstance(element, (list, tuple)):
+        with begin_closed_shape():
+            vertices(element.exterior.coords)
+            for hole in element.interiors:
+                with begin_contour():
+                    vertices(hole.coords)        
+    elif isinstance(element, list):
         for p in element:
             draw_elements(p)
     else:  # legacy code tuple/points
-        begin_shape()
-        vertices(element)
-        end_shape(CLOSE)
+        with begin_closed_shape():
+            vertices(element)
         
 def s_star(x, y):
     return Polygon(star_pts(x, y, 100, 50, 12),
