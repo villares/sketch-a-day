@@ -56,9 +56,9 @@ def draw_elements(element):
     elif isinstance(element, list):
         for p in element:
             draw_elements(p)
-    else:  # legacy code tuple/points
-        with begin_closed_shape():
-            vertices(element)
+    else:
+        print(element)  # things I can't draw
+        
                        
 def key_pressed():
     prepare()
