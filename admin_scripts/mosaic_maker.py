@@ -1,53 +1,52 @@
 #! /usr/bin/python3
-
+from random import sample, seed
 from os import listdir
-from os.path import isfile, join
+from pathlib import Path
 
 from PIL import Image
 
-from helpers import get_image_names, remove_transparency
+from helpers import get_image_names #, remove_transparency
 
+MAX_IMAGES = 37
+RND_SEED = 3
+width, height = 1200, 1200 # final image size
+thumb_size = (200, 200)
 YEAR = "2022"
-base_path = "/home/villares/GitHub/sketch-a-day/"
-year_path = join(base_path,YEAR)
-folders = listdir(year_path)
-
+base_path = Path("/home/villares/GitHub/sketch-a-day/")
+year_path = base_path / YEAR
+folders = sorted(year_path.iterdir())
 
 images = []
-for folder in sorted(folders):
-    folder_path = join(year_path, folder)
-    f_images = get_image_names(year_path, folder)
+for folder in folders:
+    f_images = get_image_names(year_path, folder.name)
     if f_images and not f_images[0].lower().endswith('svg'):
-        img_path = join(folder_path, f_images[0])
+        img_path = folder / f_images[0]
         img = Image.open(img_path)
         if img.format == 'GIF' and img.is_animated:
-            continue
+            continue # skip GIFs... 
         images.append(img)
-        
-thumb_size = (200, 200)
-x = y = 0
+       
 bg = Image.new('RGB',
-               (1200, 1200),
+               (width, height),
                (0, 0, 0))
+seed(RND_SEED)
+images_sample = sample(images, MAX_IMAGES)
 
-#n = None # degub with 5
-#for img in images[:n]:
-from random import sample, seed
-seed(3)
-images_sample = sample(images, 80)
-print(len(images_sample))
-
+x = y = n = 0
+#N = None # degub with 5
+#for img in images[:N]:
 for img in images_sample:
     img.thumbnail(thumb_size, Image.Resampling.BICUBIC)    
     bg.paste(img, (x, y))
-    x += 200
-    if x >= 2000:
+    n += 1
+    x += thumb_size[0]
+    if x >= width:
         x = 0
-        y += 200
-    if y == 1200:
+        y += thumb_size[1]
+    if n == MAX_IMAGES or y >= height:
         break
     
-bg.save('36from{}.png'.format(YEAR))
+bg.save(f'{n}_images_from_{YEAR}.png')
     
 
         
