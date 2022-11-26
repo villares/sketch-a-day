@@ -42,7 +42,7 @@ for img in images_sample:
     x += thumb_size[0]
     if x >= width:
         x = 0
-        y += thumb_size[1]
+        y += thumb_size[1] # fixed height
     if n == MAX_IMAGES or y >= height:
         break
     
