@@ -19,7 +19,7 @@ def draw():
         rect(x, y, w, h)
         n += 1
         x += w
-        if x >= width:
+        if x == width:
             x = 0
             y += H
         if y >= height:
