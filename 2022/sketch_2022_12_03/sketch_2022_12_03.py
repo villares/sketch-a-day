@@ -1,4 +1,4 @@
-from random import sample, seed, randint
+from random import sample, seed, randint, shuffle
 from villares.helpers import save_png_with_src
 
 nodes = {}
@@ -20,7 +20,7 @@ def setup():
     size(600, 600)
     w, h = int(width / 2 / W - 1), int(height / 2 / W - 1)
     start(1)
-
+    color_mode(HSB)
     
 def start(rnd_seed):
     global s
@@ -29,7 +29,7 @@ def start(rnd_seed):
     nodes.clear()
     polys[:]=[]
     unvisited_nodes[:] = []
-    for i in range(3):
+    for i in range(5):
         x, y = randint(-20, 20) * 1, randint(-20, 20) * 1
         unvisited_nodes.append((x, y))
         nodes[(x, y)] = (x, y, i, 1)
@@ -38,18 +38,8 @@ def start(rnd_seed):
 def tentar():
     todos = [(k, (v[0], v[1])) for k, v in nodes.items()]
     polys[:] = find_polygons(todos)
-    
-#     if nodes:
-#         todos = list(nodes.items())
-#         k, v = todos.pop()
-#         ps = []
-#         print(k, v)
-#         ps.append(k)
-#         while k in nodes:
-#             ib, jb, c, gen = nodes.pop(k)
-#             k = ib, jb
-#             ps.append(k)
-#         polys.append(ps)
+#     polys[:] = encontra_poligonos(nodes) 
+
         
 def draw():
     background(240)
@@ -63,17 +53,19 @@ def draw():
 #             stroke(0)
 #             stroke_weight(1.5 + 1 * sin((gen - PI/2) * 0.1))
 #             line(xa, ya, xb, yb)
-    if frame_count < 50: unvisited_nodes[:] = grow()
+    if len(nodes) < 6000: unvisited_nodes[:] = grow()
     tentar()
+    no_fill()
+    print(len(polys))
     for i, pts in enumerate(polys):
-        stroke(i * 64 % 255, 100, 108)
+        stroke((i * 8) % 255, 200, 108)
         if pts:
             begin_shape()
-            curve_vertex(*pts[0])
-            for i, (ia, ja) in enumerate(pts[:]):
-                if is_mouse_pressed: text(i, *ij_to_xy(ia, ja))
+            curve_vertex(*ij_to_xy(*pts[0]))
+            for j, (ia, ja) in enumerate(pts[:]):
+                if is_mouse_pressed: text(j, *ij_to_xy(ia, ja))
                 curve_vertex(*ij_to_xy(ia, ja))
-            curve_vertex(*pts[-1])
+            curve_vertex(*ij_to_xy(*pts[-1]))
             end_shape()
         
 def ij_to_xy(i, j):
@@ -86,6 +78,9 @@ def ij_to_xy(i, j):
 
 
 def grow():
+#    shuffle(unvisited_nodes)
+#        for i, j in sorted(unvisited_nodes):
+
     for i, j in unvisited_nodes:
         if not visible(i, j):
             continue
@@ -93,7 +88,8 @@ def grow():
         #nbs = [(n[0] * 2, n[1] * 2) for n in nbs]
         _, _, c, gen = nodes[(i, j)]
         seed(gen // 2 + c)
-        xnbs = sample(nbs, 3)
+        xnbs = sorted(sample(nbs, 3))
+        #shuffle(xnbs)
         for ni, nj in xnbs:
             ini, jnj = i + ni, j + nj
             if (ini, jnj) not in nodes:
@@ -114,7 +110,21 @@ def key_pressed(e):
     elif key == ' ':
         s += 1 
         start(s)
-            
+
+def encontra_poligonos(ns):
+    todos = ns.copy()
+    polys = []
+    while todos:
+        k, v = list(todos.items()).pop()
+        ps = []
+        ps.append(k)
+        while k in todos:
+            ib, jb, c, gen = todos.pop(k)
+            k = ib, jb
+            ps.append(k)
+        polys.append(ps)
+    return polys
+
 from collections import defaultdict
 
 def find_polygons(segments):
