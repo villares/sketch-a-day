@@ -29,6 +29,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2022_12_06
+
+![sketch_2022_12_06](2022/sketch_2022_12_06/sketch_2022_12_06.png)
+
+[sketch_2022_12_06](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_06) [[py5](https://py5coding.org/)]
+
+First attempt at Video Capture with OpenCV
+
+---
+
 ### sketch_2022_12_05
 
 ![sketch_2022_12_05](2022/sketch_2022_12_05/sketch_2022_12_05.png)
