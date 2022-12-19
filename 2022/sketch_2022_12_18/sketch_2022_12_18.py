@@ -29,12 +29,8 @@ def start(rnd_seed):
     nodes.clear()
     unvisited_nodes[:] = []
     colors = {nb: i * 16 for i, nb in enumerate(nbs)}
-    random.shuffle(nbs)
-    sizes = {nb: 2 + i for i, nb in enumerate(nbs)}
     for _ in range(8):
         unvisited_nodes.append((random.randint(-w, w), random.randint(-h, h)))
-
-
 
 def draw():
     py5.stroke_weight(5)
@@ -47,7 +43,6 @@ def draw():
         py5.fill(colors[d], 200, 200)
         py5.circle(x * step, y * step,
                    1 + gen % 8)
-                   #step / 2 + step / 3 * py5.sin(gen/5 + c * py5.QUARTER_PI))
 
 def grow():
     while unvisited_nodes:
