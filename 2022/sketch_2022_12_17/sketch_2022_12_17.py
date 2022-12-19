@@ -46,7 +46,6 @@ def draw():
         py5.fill(colors[d], 200, 200)
         py5.circle(x * step, y * step,
                    sizes[d])
-                   #step / 2 + step / 3 * py5.sin(gen/5 + c * py5.QUARTER_PI))
 
 def grow():
     while unvisited_nodes:
