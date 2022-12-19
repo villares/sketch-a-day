@@ -1,19 +1,40 @@
 #! /usr/bin/python3
-# For use with helpers.save_png_with_src()
-# Needs Python 3 ...
+
+"""
+Based on: PytSimpleGUI demo for displaying any format of image file. 
+2022 - Alexandre B A Villares - I just added some PNG metadata viewing 
+                                for use with villares.helpers.save_png_with_src()
+                                github.com/villares/villares/
+
+https://github.com/PySimpleGUI/PySimpleGUI/blob/master/DemoPrograms/Demo_Image_Elem_Image_Viewer_PIL_Based.py
+Copyright 2020 PySimpleGUI.org
+LGPLv3 https://github.com/PySimpleGUI/PySimpleGUI/blob/master/license.txt    
+"""
 
 import PySimpleGUI as sg
 # import PySimpleGUIQt as sg
 import os
 
-from helpers import image_as_png_bytes
+import PIL.Image
+import io
 
-"""
-Based on: Demo for displaying any format of image file. 
-https://github.com/PySimpleGUI/PySimpleGUI/blob/master/DemoPrograms/Demo_Image_Elem_Image_Viewer_PIL_Based.py
-Copyright 2020 PySimpleGUI.org
-LGPLv3 https://github.com/PySimpleGUI/PySimpleGUI/blob/master/license.txt    
-"""
+def image_as_png_bytes(file_path, resize=None):
+    """
+    Open an image file and convert it into PNG formated bytes, resize optional.
+    Return tuple (bytes, <dict from PIL.Image.info>)
+    """
+    img = PIL.Image.open(file_path)
+    cur_width, cur_height = img.size
+    if resize:
+        new_width, new_height = resize
+        scale = min(new_height / cur_height, new_width / cur_width)
+        img = img.resize(
+            (int(cur_width * scale), int(cur_height * scale)),
+            PIL.Image.Resampling.LANCZOS,
+        )
+    with io.BytesIO() as bio:
+        img.save(bio, format='PNG')
+        return bio.getvalue(), img.info
 
 cwd = os.getcwd()
 
