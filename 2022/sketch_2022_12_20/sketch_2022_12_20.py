@@ -34,18 +34,18 @@ def start(rnd_seed):
     for _ in range(8):
         unvisited_nodes.append((random.randint(-w, w), random.randint(-h, h)))
 
-
-
 def draw():
-    py5.stroke_weight(5)
     py5.background(0)
     py5.translate(py5.width / 2 + ox * step, py5.height / 2 + oy * step)
     unvisited_nodes[:] = grow()
-    py5.no_stroke()
     for (x, y), (x0, y0, c, gen) in nodes.items():
         d = (x - x0, y - y0)  # delta/direction
         py5.fill(colors[d], 200, 200)
         diameter = step / 2 + step / 3 * py5.sin(gen / 5 + directions_offset[d])
+        if py5.is_key_pressed:
+            py5.stroke(c * 16, 255, 255)
+            py5.line(x * step, y * step, x0 * step, y0 * step)
+        py5.no_stroke()
         py5.circle(x * step, y * step, diameter)
 
 def grow():
@@ -69,7 +69,7 @@ def visible(x, y):
 def key_pressed():
     if py5.key == ' ':
         start(s + 10)
-    elif py5.key == 's':
+    elif str(py5.key) in 'sS':
         save_png_with_src(f'seed{s}.png')
     
 
