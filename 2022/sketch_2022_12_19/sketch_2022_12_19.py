@@ -34,8 +34,6 @@ def start(rnd_seed):
     for _ in range(8):
         unvisited_nodes.append((random.randint(-w, w), random.randint(-h, h)))
 
-
-
 def draw():
     py5.background(0)
     py5.translate(py5.width / 2 + ox * step, py5.height / 2 + oy * step)
@@ -49,7 +47,6 @@ def draw():
             py5.line(x * step, y * step, x0 * step, y0 * step)
         py5.no_stroke()
         py5.circle(x * step, y * step, diameter)
-
 
 def grow():
     while unvisited_nodes:
