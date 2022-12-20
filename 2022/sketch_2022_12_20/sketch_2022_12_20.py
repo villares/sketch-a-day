@@ -6,8 +6,8 @@ from villares.helpers import save_png_with_src
 nodes = {}
 unvisited_nodes = []
 step = 10
-NBS = ((-1, -1), (-1, 0), (-1, 1), (0,-1),
-      (0, 1), (1, -1), (1,0), (1, 1))
+NBS = ((-1, -1), (-2, 0), (-1, 1), (0,-2),
+       (0, 2), (1, -1), (2,0), (1, 1))
 
 
 ox = oy = 0
@@ -17,7 +17,7 @@ def setup():
     global w, h, f
     py5.size(900, 900)
     w, h = int(py5.width / 2 / step - 5), int(py5.height / 2 / step - 5)
-    start(140)
+    start(100)
     py5.color_mode(py5.HSB)
 
 def start(rnd_seed):
@@ -37,19 +37,16 @@ def start(rnd_seed):
 
 
 def draw():
+    py5.stroke_weight(5)
     py5.background(0)
     py5.translate(py5.width / 2 + ox * step, py5.height / 2 + oy * step)
     unvisited_nodes[:] = grow()
+    py5.no_stroke()
     for (x, y), (x0, y0, c, gen) in nodes.items():
         d = (x - x0, y - y0)  # delta/direction
         py5.fill(colors[d], 200, 200)
         diameter = step / 2 + step / 3 * py5.sin(gen / 5 + directions_offset[d])
-        if py5.is_key_pressed:
-            py5.stroke(255)
-            py5.line(x * step, y * step, x0 * step, y0 * step)
-        py5.no_stroke()
         py5.circle(x * step, y * step, diameter)
-
 
 def grow():
     while unvisited_nodes:
