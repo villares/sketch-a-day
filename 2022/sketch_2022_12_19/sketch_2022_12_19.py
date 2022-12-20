@@ -21,7 +21,7 @@ def setup():
     py5.color_mode(py5.HSB)
 
 def start(rnd_seed):
-    global s, nbs, colors, sizes
+    global s, nbs, colors, directions_offset
     s = rnd_seed
     random.seed(rnd_seed)
     nbs = list(NBS)
@@ -30,7 +30,7 @@ def start(rnd_seed):
     unvisited_nodes[:] = []
     colors = {nb: i * 16 for i, nb in enumerate(nbs)}
     random.shuffle(nbs)
-    sizes = {nb: 2 + i for i, nb in enumerate(nbs)}
+    directions_offset = {nb: i * py5.PI for i, nb in enumerate(nbs)}
     for _ in range(8):
         unvisited_nodes.append((random.randint(-w, w), random.randint(-h, h)))
 
@@ -43,13 +43,10 @@ def draw():
     unvisited_nodes[:] = grow()
     py5.no_stroke()
     for (x, y), (x0, y0, c, gen) in nodes.items():
-        d = (x - x0, y - y0, )
+        d = (x - x0, y - y0)  # delta/direction
         py5.fill(colors[d], 200, 200)
-#        py5.fill(sizes[d] * 16, 200, 200)
-        py5.circle(x * step, y * step,
-                   #sizes[d])
-#                    2 + (sizes[d] + gen) % 8)
-                   step / 2 + step / 3 * py5.sin(gen/10 + sizes[d]))
+        diameter = step / 2 + step / 3 * py5.sin(gen / 5 + directions_offset[d])
+        py5.circle(x * step, y * step, diameter)
 
 def grow():
     while unvisited_nodes:
