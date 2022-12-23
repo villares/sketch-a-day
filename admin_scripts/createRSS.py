@@ -1,5 +1,6 @@
 #! /usr/bin/python3
-# Adds ### titles (markdown for <h3> on sketch-a-day pages
+
+# Generate rss.xml for sketch-a-day - WIP
 
 from pathlib import Path
 
