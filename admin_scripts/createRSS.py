@@ -1,9 +1,9 @@
 #! /usr/bin/python3
 # Adds ### titles (markdown for <h3> on sketch-a-day pages
 
-from os.path import join
+from pathlib import Path
 
-base_path = '/home/villares/GitHub/sketch-a-day'
+base_path = Path('/home/villares/GitHub/sketch-a-day')
   
 rss_header = """<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
@@ -23,14 +23,14 @@ rss_item_format = """<item>
 </item>
 """.format  # use rss_item_format(title, link, date, description)
   
-def main(file):
-    readme_path = join(base_path, file)
+def main(file_name):
+    readme_path = base_path / file_name
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
         readme_as_lines = readme.readlines()
 
     # open output file
-    output_path = join(base_path, 'rss.xml')
+    output_path = base_path / 'rss.xml'
     with open(output_path, 'wt') as output:
         output.write(rss_header)
         for line in readme_as_lines:
@@ -39,7 +39,7 @@ def main(file):
                 link = 'http://'
                 description = line
                 item = rss_item_format(title, link, date, description)
-            output.write(line)
+                output.write(item)
         output.write(rss_footer)
         
 if __name__ == '__main__':
