@@ -30,7 +30,7 @@ def image_as_png_bytes(file_path, resize=None):
         scale = min(new_height / cur_height, new_width / cur_width)
         img = img.resize(
             (int(cur_width * scale), int(cur_height * scale)),
-            PIL.Image.Resampling.LANCZOS,
+            PIL.Image.ANTIALIAS,
         )
     with io.BytesIO() as bio:
         img.save(bio, format='PNG')
