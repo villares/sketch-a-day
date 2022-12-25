@@ -2,15 +2,20 @@
 
 # Generate rss.xml for sketch-a-day - WIP
 
+import re
+from datetime import datetime
 from pathlib import Path
 
-base_path = Path('/home/villares/GitHub/sketch-a-day')
-  
-rss_header = """<?xml version="1.0" encoding="utf-8"?>
+import markdown as md
+
+BASE_PATH = Path('/home/villares/GitHub/sketch-a-day')
+BASE_URL = 'http://abav.lugaralgum.com/sketch-a-day' 
+ 
+rss_header = f"""<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
 <channel>
 <title>Alexandre Villares - sketch-a-day</title>
-<link>http://abav.lugaralgum.com/sketch-a-day</link>
+<link>{BASE_URL}</link>
 <description>One visual idea a day, made with code</description>"""
 
 rss_footer = """</channel>\n</rss>"""
@@ -18,29 +23,54 @@ rss_footer = """</channel>\n</rss>"""
 rss_item_format = """<item>
 <title>{0}</title>
 <link>{1}</link>
-<guid>{1} </guid>
+<guid>{1}</guid>
 <pubDate>{2}</pubDate>
 <description>{3}</description>
+<content>{4}</content>
 </item>
-""".format  # use rss_item_format(title, link, date, description)
+""".format  # use rss_item_format(title, link, date, description, full_content)
   
+def extract_date(line):
+    date_match = re.search(r"(\d{4}_\d{2}_\d{2})", line)
+    if date_match:
+        date = datetime.strptime(date_match.group(1), "%Y_%m_%d")
+        return date.replace(hour=12).strftime("%a, %d %b %Y %H:%M:%S %z")
+    else:
+        return ''
+
+# def extract_url(line):
+#     url_match = re.search(r"\((https://.*)\)", line)
+#     return url_match.group(1) if url_match else ''
+
 def main(file_name):
-    readme_path = base_path / file_name
-    # open the readme markdown index
+    readme_path = BASE_PATH / file_name
+    
     with open(readme_path, 'rt') as readme:
         readme_as_lines = readme.readlines()
-
-    # open output file
-    output_path = base_path / 'rss.xml'
+    
+    output_path = BASE_PATH / 'rss.xml'
     with open(output_path, 'wt') as output:
         output.write(rss_header)
-        for line in readme_as_lines:
-            if '![' in line:
-                title = date = line[2:line.find(']')]
-                link = 'http://'
-                description = line
-                item = rss_item_format(title, link, date, description)
-                output.write(item)
+        content_lines = None  # no lines get added before the first H3
+        for i, line in enumerate(readme_as_lines):
+            end_of_file = i == len(readme_as_lines) - 1
+            if line.startswith('### ') or end_of_file:
+                if content_lines:
+                    contents = md.markdown(''.join(content_lines)
+                                           + (line if end_of_file else ''))
+                    item = rss_item_format(title, link, date, description, contents)
+                    output.write(item)
+                # prepare next item 
+                title = line[4:].strip()
+                date = extract_date(line)
+                link = f'{BASE_URL}#{title}'
+                description = md.markdown(''.join(readme_as_lines[i+2:i+5])
+                                            .replace('\n\n', '')
+                                            .replace(f'![{title}]', '[image]')
+                                            .replace(f'[{title}]', '[source]'))
+                content_lines = [] # empty list for next item's content
+            elif line.strip() and content_lines is not None:
+                content_lines.append(line)
         output.write(rss_footer)
         
 if __name__ == '__main__':
@@ -48,33 +78,3 @@ if __name__ == '__main__':
     # for year in (2018, 2019, 2020, 2021):
     #    main(str(year) + '.md')
     
-
-# example 
-"""
-<item>
-<title>$title/title>
-<link>$link</link>
-<guid>example.com/3</guid>
-<pubDate>Wed, 27 Nov 2013 13:20:00 GMT</pubDate>
-<description>My newest article.</description>
-</item>
-
-<item>
-<title>Article 2</title>
-<link>example.com/2</link>
-<guid>example.com/2</guid>
-<pubDate>Tue, 26 Nov 2013 12:15:12 GMT</pubDate>
-<description>My second article.</description>
-</item>
-
-<item>
-<title>Article 1</title>
-<link>example.com/1</link>
-<guid> example.com/1</guid>
-<pubDate>Mon, 25 Nov 2013 15:10:45 GMT</pubDate>
-<description>My first article.</description>
-</item>
-
-</channel>
-</rss>
-"""
