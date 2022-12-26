@@ -23,9 +23,25 @@ Here are listed some of the tools I have been using:
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
 - [[PySimpleGUI](https://PySimpleGUI.org)] Python GUIs for Humans
 
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://raw.githack.com/villares/sketch-a-day/main/rss.xml"
+  title="RSS Feed">
+
 ---
 
 ## [2018](2018.md) | [2019](2019.md) | [2020](2020.md) | [2021](2021.md) | 2022
+
+---
+
+### sketch_2022_12_25
+
+![sketch_2022_12_25](2022/sketch_2022_12_25/sketch_2022_12_25.png)
+
+[sketch_2022_12_25](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_25) [[py5](https://py5coding.org/)]
+
+
 
 ---
 
