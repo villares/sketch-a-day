@@ -16,7 +16,8 @@ rss_header = f"""<?xml version="1.0" encoding="utf-8"?>
 <channel>
 <title>Alexandre Villares - sketch-a-day</title>
 <link>{BASE_URL}</link>
-<description>One visual idea a day, made with code</description>"""
+<description>One visual idea a day, made with code</description>
+"""
 
 rss_footer = """</channel>\n</rss>"""
 
@@ -37,6 +38,19 @@ def extract_date(line):
         return date.replace(hour=12).strftime("%a, %d %b %Y %H:%M:%S %z")
     else:
         return ''
+
+def sanitize_anchor(text):
+    text = text.replace(' ', '-')       # Replace spaces with dashes
+    text = re.sub(r'[^\w-]', '', text)  # Remove all special characters
+    return text
+
+def escape_xml(text):
+    return (text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("'", "&apos;")
+                .replace('"', "&quot;")
+            )
 
 # def extract_url(line):
 #     url_match = re.search(r"\((https://.*)\)", line)
@@ -61,9 +75,10 @@ def main(file_name):
                     item = rss_item_format(title, link, date, description, contents)
                     output.write(item)
                 # prepare next item 
-                title = line[4:].strip()
+                name = line[4:].strip()
+                title = escape_xml(name)
                 date = extract_date(line)
-                link = f'{BASE_URL}#{title}'
+                link = f'{BASE_URL}#{sanitize_anchor(name)}'
                 description = md.markdown(''.join(readme_as_lines[i+2:i+5])
                                             .replace('\n\n', '')
                                             .replace(f'![{title}]', '[image]')

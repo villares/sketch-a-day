@@ -3,7 +3,48 @@
 <channel>
 <title>Alexandre Villares - sketch-a-day</title>
 <link>http://abav.lugaralgum.com/sketch-a-day</link>
-<description>One visual idea a day, made with code</description><item>
+<description>One visual idea a day, made with code</description>
+<item>
+<title>sketch_2022_12_24</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_24</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_24</guid>
+<pubDate>Sat, 24 Dec 2022 12:00:00 </pubDate>
+<description><p><a href="2022/sketch_2022_12_24/sketch_2022_12_24.png">image</a><a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_24">source</a> [<a href="https://py5coding.org/">py5</a>]</p></description>
+<content><p><img alt="sketch_2022_12_24" src="2022/sketch_2022_12_24/sketch_2022_12_24.png" />
+<a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_24">sketch_2022_12_24</a> [<a href="https://py5coding.org/">py5</a>]</p>
+<hr /></content>
+</item>
+<item>
+<title>sketch_2022_12_23</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_23</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_23</guid>
+<pubDate>Fri, 23 Dec 2022 12:00:00 </pubDate>
+<description><p><a href="2022/sketch_2022_12_23/sketch_2022_12_23.png">image</a><a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_23">source</a> [<a href="https://py5coding.org/">py5</a>]</p></description>
+<content><p><img alt="sketch_2022_12_23" src="2022/sketch_2022_12_23/sketch_2022_12_23.png" />
+<a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_23">sketch_2022_12_23</a> [<a href="https://py5coding.org/">py5</a>]</p>
+<hr /></content>
+</item>
+<item>
+<title>sketch_2022_12_22</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_22</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_22</guid>
+<pubDate>Thu, 22 Dec 2022 12:00:00 </pubDate>
+<description><p><a href="2022/sketch_2022_12_22/sketch_2022_12_22.png">image</a><a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_22">source</a> [<a href="https://py5coding.org/">py5</a>]</p></description>
+<content><p><img alt="sketch_2022_12_22" src="2022/sketch_2022_12_22/sketch_2022_12_22.png" />
+<a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_22">sketch_2022_12_22</a> [<a href="https://py5coding.org/">py5</a>]</p>
+<hr /></content>
+</item>
+<item>
+<title>sketch_2022_12_21</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_21</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_21</guid>
+<pubDate>Wed, 21 Dec 2022 12:00:00 </pubDate>
+<description><p><a href="2022/sketch_2022_12_21/sketch_2022_12_21.png">image</a><a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_21">source</a> [<a href="https://py5coding.org/">py5</a>]</p></description>
+<content><p><img alt="sketch_2022_12_21" src="2022/sketch_2022_12_21/sketch_2022_12_21.png" />
+<a href="https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2022_12_21">sketch_2022_12_21</a> [<a href="https://py5coding.org/">py5</a>]</p>
+<hr /></content>
+</item>
+<item>
 <title>sketch_2022_12_20</title>
 <link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_20</link>
 <guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_12_20</guid>
@@ -1495,9 +1536,9 @@ Combinations of 2 arrows on a 3x3 grid, so that the arrows don't share starting 
 <hr /></content>
 </item>
 <item>
-<title>sketch_2022_07_23 & 23b</title>
-<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_07_23 & 23b</link>
-<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_07_23 & 23b</guid>
+<title>sketch_2022_07_23 &amp; 23b</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_07_23--23b</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2022_07_23--23b</guid>
 <pubDate>Sat, 23 Jul 2022 12:00:00 </pubDate>
 <description><p><img alt="sketch_2022_07_23" src="2022/sketch_2022_07_23/sketch_2022_07_23.png" />
 <img alt="sketch_2022_07_23" src="2022/sketch_2022_07_23/sketch_2022_07_23b.png" /></p></description>
