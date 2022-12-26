@@ -6,6 +6,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
+import html
 import markdown as md
 
 BASE_PATH = Path('/home/villares/GitHub/sketch-a-day')
@@ -44,14 +45,6 @@ def sanitize_anchor(text):
     text = re.sub(r'[^\w-]', '', text)  # Remove all special characters
     return text
 
-def escape_xml(text):
-    return (text.replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;")
-                .replace("'", "&apos;")
-                .replace('"', "&quot;")
-            )
-
 # def extract_url(line):
 #     url_match = re.search(r"\((https://.*)\)", line)
 #     return url_match.group(1) if url_match else ''
@@ -76,7 +69,7 @@ def main(file_name):
                     output.write(item)
                 # prepare next item 
                 name = line[4:].strip()
-                title = escape_xml(name)
+                title = html.escape(name)
                 date = extract_date(line)
                 link = f'{BASE_URL}#{sanitize_anchor(name)}'
                 description = md.markdown(''.join(readme_as_lines[i+2:i+5])
