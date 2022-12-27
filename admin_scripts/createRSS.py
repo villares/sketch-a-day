@@ -75,7 +75,7 @@ def main(file_name):
                 description = md.markdown(''.join(readme_as_lines[i+2:i+5])
                                             .replace('\n\n', '')
                                             .replace(f'![{title}]', '[image]')
-                                            .replace(f'[{title}]', '[source]'))
+                                            .replace(f'[{title}]', ' [source]'))
                 content_lines = [] # empty list for next item's content
             elif line.strip() and content_lines is not None:
                 content_lines.append(line)
