@@ -15,7 +15,7 @@ ox = oy = 0
 nodes = {}
 unvisited_nodes = []
 save_png = False
-move = False
+move = True
 
 def setup():
     global w, h, f
