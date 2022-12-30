@@ -80,9 +80,11 @@ def main(file_name):
             elif line.strip() and content_lines is not None:
                 content_lines.append(line)
         output.write(rss_footer)
-        
+    print(file_name + ' -> rss.xml (generated again)')
+   
 if __name__ == '__main__':
     main('README.md')
+
     # for year in (2018, 2019, 2020, 2021):
     #    main(str(year) + '.md')
     
