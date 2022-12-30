@@ -23,6 +23,8 @@ from itertools import takewhile
 
 from helpers import get_image_names, image_as_png_bytes
 
+import createRSS
+
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
 
@@ -173,3 +175,4 @@ if __name__ == '__main__':
         gui_mode = False
     # print(sys.version_info)
     main(args)
+    createRSS.main('README.md')
