@@ -32,7 +32,7 @@ gui_mode = True  # default
 
 REPO_MAIN_URL = 'https://github.com/villares/sketch-a-day/tree/main'
 # YEAR and base_path to sketch-a-day folder are set manually, hard-coded
-YEAR = '2022'   
+YEAR = '2023'   
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = Path('/home/villares/GitHub/sketch-a-day')
 year_path = base_path / YEAR
@@ -175,4 +175,4 @@ if __name__ == '__main__':
         gui_mode = False
     # print(sys.version_info)
     main(args)
-    createRSS.main('README.md')
+    #createRSS.main('README.md')
