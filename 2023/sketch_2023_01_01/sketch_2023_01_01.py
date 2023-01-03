@@ -1,4 +1,5 @@
-# Genuary 1 - using py5 (py5coding.org)
+# Genuary 1 - gif loop
+# using py5 (py5coding.org) with github.com/tabreturn/thonny-py5mode
 
 def setup():
     size(600, 600)
