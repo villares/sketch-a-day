@@ -23,13 +23,89 @@ Here are listed some of the tools I have been using:
 - [[VPython](https://vpython.org/)] Python + glowscript gives you 3D on the browser
 - [[PySimpleGUI](https://PySimpleGUI.org)] Python GUIs for Humans
 
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://raw.githack.com/villares/sketch-a-day/main/rss.xml"
+  title="RSS Feed">
+
 ---
 
-## Full site: [abav.lugaralgum.com](htts://abav.lugaralgum.com)
+## 2023 | [2022](2022.md) | [2021](2021.md) | [2020](2020.md) | [2019](2019.md) | [2018](2018.md)
 
 ---
 
-## [2023](docs/README.md) | [2022](docs/2022.md) | [2021](docs/2021.md) | [2020](docs/2020.md) | [2019](docs/2019.md) | [2018](docs/2018.md)
+### sketch_2023_01_02
+
+![sketch_2023_01_02](2023/sketch_2023_01_02/sketch_2023_01_02.gif)
+
+[sketch_2023_01_02](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_02) [[py5](https://py5coding.org/)]
+
+Genuary 2 - 10 minutes
+
+```python
+def setup():
+    size(600, 600)
+    color_mode(HSB)
+    no_stroke()
+    rect_mode(CENTER)
+    
+def draw():
+    background(0)
+    m = frame_count #1 + mouse_x // 10
+    for x in range(100):
+        cx = 50 + x * 5
+        for y in range(100):
+            cy = 50 + y * 5
+            c = (x ^ y) ** 13 % m
+            fill(c * (255 / m), 255, 255)
+#             print(c, cx, cy)
+            square(cx, cy, 5)
+
+    if frame_count % 10 == 0 and frame_count <= 100:
+        save_frame('###.png')
+```
+
+---
+
+### sketch_2023_01_01
+
+![sketch_2023_01_01](2023/sketch_2023_01_01/sketch_2023_01_01.gif)
+
+[sketch_2023_01_01](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_01) [[py5](https://py5coding.org/)]
+
+Genuary 1 - loop
+
+```python
+def setup():
+    size(600, 600)
+    blend_mode(ADD)
+    no_stroke()
+    
+def draw():
+    background(0)
+    xc = yc = 300
+    r = 250
+    for i in range(6):
+        m = cos(radians(frame_count / 2)) ** 2
+        a = radians(frame_count / 2 + 60 * i)
+        x = xc + r * cos(a)
+        y = yc + r * sin(a)
+        fill(0, 0, 255)
+        circle(x, y, 50)
+        x = xc + r * cos(a * m)
+        y = yc + r * sin(a * m)
+        fill(0, 255, 0)
+        circle(x, y, 50)
+        x = xc + r * cos(a * -m)
+        y = yc + r * sin(a * -m)
+        fill(255, 0, 0)
+        circle(x, y, 50)
+```
+
+---
+
+## 2023 | [2022](2022.md) | [2021](2021.md) | [2020](2020.md) | [2019](2019.md) | [2018](2018.md)
 
 ---
 
