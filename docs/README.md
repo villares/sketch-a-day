@@ -37,7 +37,7 @@ Here are listed some of the tools I have been using:
 
 ### sketch_2023_01_02
 
-![sketch_2023_01_02](2023/sketch_2023_01_02/sketch_2023_01_02.gif)
+![sketch_2023_01_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_02/sketch_2023_01_02.gif)
 
 [sketch_2023_01_02](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_02) [[py5](https://py5coding.org/)]
 
@@ -70,7 +70,7 @@ def draw():
 
 ### sketch_2023_01_01
 
-![sketch_2023_01_01](2023/sketch_2023_01_01/sketch_2023_01_01.gif)
+![sketch_2023_01_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_01/sketch_2023_01_01.gif)
 
 [sketch_2023_01_01](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_01) [[py5](https://py5coding.org/)]
 
