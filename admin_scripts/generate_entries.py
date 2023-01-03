@@ -8,8 +8,8 @@
 # [X] find last entry for me
 # [X] insert new entries in propper place
 # [/] use GUI or CL arguments to set tool
-#     [ ] improve GUI (add image to the dialog!)
-#     [ ] add the CL arguments, why haven't you!!!
+#     [X] improve GUI (add image to the dialog!)
+#     [ ] add the CL arguments, why haven't you!!! (argparse!)
 # [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
 # [ ] use CL arguments to commit and push README.md
@@ -30,11 +30,13 @@ sg.set_options(element_padding=(10, 10))
 
 gui_mode = True  # default
 
-REPO_MAIN_URL = 'https://github.com/villares/sketch-a-day/tree/main'
-# YEAR and base_path to sketch-a-day folder are set manually, hard-coded
+# YEAR and base_paths to sketch-a-day folder are set manually, hard-coded
 YEAR = '2023'   
+USER, REPO = 'villares', 'sketch-a-day'
+REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
+RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
-base_path = Path('/home/villares/GitHub/sketch-a-day')
+base_path = Path(f'/home/{USER}/GitHub/{REPO}/')
 year_path = base_path / YEAR
 
 tools = {
@@ -58,7 +60,7 @@ else:
     sketch_folders = []  # for the benefit of next_day.py
     print(f"{__file__}: Couldn't find the sketch-a-day year folder!")
 
-readme_path = base_path / 'README.md'
+readme_path = base_path / 'docs' / 'README.md'
 
 def most_recent_entry(readme_as_lines):
     entry_images = (
@@ -156,7 +158,7 @@ def build_entry(folder, image_filename, tool=None, comment=None):
 
 ### {folder}
 
-![{folder}]({YEAR}/{folder}/{image_filename})
+![{folder}]({RAW_CONTENT}/{YEAR}/{folder}/{image_filename})
 
 [{folder}]({link}) {tools.get(tool,'['+tool+']')}{comment}
 """
