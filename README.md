@@ -70,9 +70,9 @@ def draw():
 
 ### sketch_2023_01_01
 
-![sketch_2023_01_01](2022/sketch_2022_12_31/sketch_2023_01_01.gif)
+![sketch_2023_01_01](2023/sketch_2022_12_31/sketch_2023_01_01.gif)
 
-[sketch_2023_01_01](https://github.com/villares/sketch-a-day/tree/main/2022/sketch_2023_01_01) [[py5](https://py5coding.org/)]
+[sketch_2023_01_01](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_01) [[py5](https://py5coding.org/)]
 
 Genuary 1 - loop
 
