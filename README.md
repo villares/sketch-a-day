@@ -25,7 +25,7 @@ Here are listed some of the tools I have been using:
 
 ---
 
-## Full site: [abav.lugaralgum.com](htts://abav.lugaralgum.com)
+## Full site: [abav.lugaralgum.com/sketch-a-day](https://abav.lugaralgum.com/sketch-a-day)
 
 ---
 
