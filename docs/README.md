@@ -41,6 +41,72 @@ Here are listed some of the tools I have been using:
 
 [sketch_2023_01_03](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_03) [[Processing Java](https://processing.org)] & [[py5](https://py5coding.org/)]
 
+Java version:
+
+```java
+// Para criar imagem com glitch a partir de 
+// arquivo JPG na sub-pasta /data 
+
+PImage img;
+int n = 10;  // número de passos estragando bytes!
+String nomeArquivo = "sesc.jpg";
+
+void setup() {
+  size(382, 510);
+  noLoop();
+}
+
+void draw() {
+  byte[] data=loadBytes(nomeArquivo);    // carrega a imagem original
+  for (int i = 0; i < n; i++) {
+    int loc=(int)random(1, data.length);  // sorteia uma posição no array
+    data[loc]=(byte)random(255);          // sorteia um valor de byte e substitui
+  }
+  saveBytes("gliched_" + nomeArquivo, data);         // salva um novo arquivo modificado
+  img = loadImage("gliched_" + nomeArquivo);        // carrega a imagem modificada
+  image (img, 0, 0);
+}
+
+void keyPressed() {
+  saveFrame("###.png");
+  redraw();
+}
+
+
+```
+
+Python version:
+
+```python
+# using py5 (py5coding.org) imported mode
+
+from PIL import Image
+import io
+
+def setup():
+    size(517, 707)
+    no_loop()
+
+def draw():
+    with open('data/a.jpg', 'rb') as f:
+        list_jpg_bytes = list(f.read())
+
+    for _ in range(10):
+        loc = random_int(len(list_jpg_bytes) - 1)
+        list_jpg_bytes[loc] = random_int(1, 255)
+
+    stream = io.BytesIO(bytes(list_jpg_bytes))
+    new_img = Image.open(stream)
+    try:
+        image(convert_image(new_img), 0, 0) # PIL.Image to py5Image
+    except: # OSError / UnidentifiedImageError:
+        pass
+    
+def key_pressed():
+    save_frame("###.png");
+    redraw()
+```
+
 ---
 
 ### sketch_2023_01_02

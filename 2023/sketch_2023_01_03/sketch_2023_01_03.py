@@ -28,4 +28,5 @@ def draw():
         pass
     
 def key_pressed():
+    save_frame('###.png')
     redraw()

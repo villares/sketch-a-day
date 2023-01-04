@@ -22,6 +22,6 @@ void draw() {
 }
 
 void keyPressed() {
-  redraw();
   saveFrame("###.png");
+  redraw();
 }
