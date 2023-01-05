@@ -35,6 +35,57 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_01_04
+
+![sketch_2023_01_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_04/sketch_2023_01_04.png)
+
+[sketch_2023_01_04](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_04) [[py5](https://py5coding.org/)]
+
+```python
+from itertools import product
+
+circles = []
+intersections = []
+
+def setup():
+    size(600, 600)
+    for x, y in product(range(100, 550, 50), repeat=2):
+        r = random(10, 60)
+        circles.append((x, y, r))
+    for xa, ya, ra in circles:
+        for xb, yb, rb in circles[1:]:
+            if (xa, ya) != (xb, yb):
+                pts = calc_cci(xa, ya, ra, xb, yb, rb)
+                intersections.extend(pts)
+    background(0, 0, 100)
+    stroke(255)
+    no_fill()
+    for x, y, r in circles:
+        circle(x, y, r * 2)
+    no_stroke()
+    fill(255, 0, 0)
+    for x, y in intersections:
+        circle(x, y, 5)
+    
+def calc_cci(x0, y0, r0, x1 ,y1, r1):
+    d = dist(x0, y0, x1, y1)
+    a = (r0 ** 2-r1 ** 2+d ** 2) / (2 * d)
+    hsqd = r0 ** 2 - a ** 2
+    if hsqd == 0:
+        return [(x0 + a * (x1 - x0) / d, y0 + a * (y1 - y0) / d)]
+    elif hsqd > 0:
+        h = sqrt(hsqd)
+        x2 = x0 + a * (x1 - x0) / d
+        y2 = y0 + a * (y1 - y0) / d
+        xa, ya = x2 + h * (y1 - y0) / d, y2 - h * (x1 - x0) / d 
+        xb, yb = x2 - h * (y1 - y0) / d, y2 + h * (x1 - x0) / d
+        return[(xa, ya), (xb, yb)]
+    else:
+        return []
+```
+
+---
+
 ### sketch_2023_01_03
 
 ![sketch_2023_01_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_03/sketch_2023_01_03.gif)
