@@ -1,5 +1,5 @@
 """
-A reticule of colored circles forms The Beatles's Abbey Road album cover
+A reticle of colored circles forms The Beatles's Abbey Road album cover
 
 Code for py5 (py5coding.org) 
 """
