@@ -1,8 +1,16 @@
-# D'aprés @ntsutae つぶやきProcessing
-# https://twitter.com/ntsutae/status/1268432505356513280?s=20
+"""
+Intrincado padrão de pixels coloridos sobre fundo preto, baseado na expressã  (abs((x + y) ^ (x - y)) ** a) % b
 
-t = 0
-a, b, c = 1.7, 512, 256
+Onde ^ é o operador XOR binário
+% b produz o resto da divisão por b
+
+D'aprés @ntsutae つぶやきProcessing
+https://twitter.com/ntsutae/status/1268432505356513280?s=20
+Que por sua vez se inspirou em 
+https://www.dwitter.net/d/18851
+"""
+
+a, b, c = 1.9, 512, 256
 
 def setup():
     size(1024, 1023)
@@ -10,24 +18,15 @@ def setup():
     color_mode(HSB)
 
 def draw():
-    global t
-    t += 1
     background(0)
     s = 1
     scale(s)
     w = width // s
     for x in range(w):
         for y in range(w):
-            p = (t + abs((x + y - t) ^ (x - y + t))
-                 ** a) % b
-            # delay(1)
+            p = (abs((x + y) ^ (x - y)) ** a) % b
             if p < c:
                 px = color(p % 256, 255, 255)
-                # for ix, iy in ((x * 2, y * 2),
-                #                (x * 2 + 1, y * 2),
-                #                (x * 2, y * 2 + 1),
-                #                (x * 2 + 1, y * 2 + 1)):
-                # set(ix, iy, px)
                 stroke(px)
                 point(x, y)
 
