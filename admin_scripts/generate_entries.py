@@ -177,4 +177,7 @@ if __name__ == '__main__':
         gui_mode = False
     # print(sys.version_info)
     main(args)
-    #createRSS.main('README.md')
+    createRSS.main([
+        'README.md',
+        '2022.md',
+        ])

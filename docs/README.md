@@ -35,6 +35,42 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_01_07
+
+![sketch_2023_01_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_07/sketch_2023_01_07.png)
+
+[sketch_2023_01_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_07) [[py5](https://py5coding.org/)]
+
+```python
+"""
+A reticule of colored circles forms The Beatles's Abbey Road album cover
+"""
+import py5
+
+def setup():
+    py5.size(1000, 1000)
+    py5.color_mode(py5.HSB)
+    img = py5.load_image('ar.jpg')
+    py5.no_stroke()
+    py5.background(0)
+    s = 10
+    w = py5.width // s
+    for i in range(w):
+        for j in range(w):
+            x, y = s // 2 + i * s, s // 2 + j * s
+            px = img.get(x, y)
+            h = py5.hue(px)
+            sat = py5.saturation(px)
+            b = 0.36 + py5.brightness(px) / 400
+            py5.fill(h, sat * 2, 255)
+            py5.circle(x, y, s * b)
+    py5.save('out.png')
+
+py5.run_sketch()
+```
+
+---
+
 ### sketch_2023_01_06
 
 ![sketch_2023_01_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_06/sketch_2023_01_06.png)

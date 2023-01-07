@@ -5,6 +5,40 @@
 <link>http://abav.lugaralgum.com/sketch-a-day</link>
 <description>One visual idea a day, made with code</description>
 <item>
+<title>sketch_2023_01_07</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_07</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_07</guid>
+<pubDate>Sat, 07 Jan 2023 12:00:00 </pubDate>
+<description><p><a href="https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_07/sketch_2023_01_07.png">image</a> <a href="https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_07">source</a> [<a href="https://py5coding.org/">py5</a>]</p></description>
+<content><p><img alt="sketch_2023_01_07" src="https://raw.githubusercontent.com/villares/sketch-a-day/main/https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_07/sketch_2023_01_07.png" />
+<a href="https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_07">sketch_2023_01_07</a> [<a href="https://py5coding.org/">py5</a>]
+<code>python
+"""
+A reticule of colored circles forms The Beatles's Abbey Road album cover
+"""
+import py5
+def setup():
+    py5.size(1000, 1000)
+    py5.color_mode(py5.HSB)
+    img = py5.load_image('ar.jpg')
+    py5.no_stroke()
+    py5.background(0)
+    s = 10
+    w = py5.width // s
+    for i in range(w):
+        for j in range(w):
+            x, y = s // 2 + i * s, s // 2 + j * s
+            px = img.get(x, y)
+            h = py5.hue(px)
+            sat = py5.saturation(px)
+            b = 0.36 + py5.brightness(px) / 400
+            py5.fill(h, sat * 2, 255)
+            py5.circle(x, y, s * b)
+    py5.save('out.png')
+py5.run_sketch()</code></p>
+<hr /></content>
+</item>
+<item>
 <title>sketch_2023_01_06</title>
 <link>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_06</link>
 <guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_06</guid>
