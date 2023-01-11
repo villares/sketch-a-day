@@ -8,18 +8,18 @@ class App:
         pyxel.init(200, 150)
 
         pyxel.sound(0).set(
-            "e2e2c2g1 g1g1c2e2 d2d2d2g2 g2g2rr" "c2c2a1e1 e1e1a1c2 b1b1b1e2 e2e2rr",
+            "a1b1c1d1 e1f1g1r a2b2c2d2 e2f2g2r a1b1c1d1r",
             "p",
             "6",
-            "vffn fnff vffs vfnn",
+            "nnnn nnn nnnn nnn nnnn",
             25,
         )
 
         pyxel.sound(1).set(
-            "r a1b1c2 b1b1c2d2 g2g2g2g2 c2c2d2e2" "f2f2f2e2 f2e2d2c2 d2d2d2d2 g2g2r r ",
+            "a2b2c2d2 e2f2g2r a2b2c2d2 e2f2g2r d2c2b2a2r",
             "s",
             "6",
-            "nnff vfff vvvv vfff svff vfff vvvv svnn",
+            "nnvv nnn nnvv nnn vvvv",
             25,
         )
 
@@ -40,7 +40,7 @@ class App:
         )
 
         pyxel.sound(4).set(
-            "f0ra4r f0ra4r f0ra4r f0f0a4r", "p", "6622 6622 6622 6422", "f", 25
+            "f0ra4r f0ra4r f0ra4r f0f0a4r", "t", "6622 6622 6622 6422", "f", 25
         )
 
         self.play_music(False, True, False)
