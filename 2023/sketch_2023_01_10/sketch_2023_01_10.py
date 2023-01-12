@@ -1,14 +1,24 @@
 import math
-
+from random import shuffle
 import pyxel
+
+notes1 = "a1 b1 c1 d1 e1 f1 g1 r a2 b2 c2 d2 e2 f2 g2 r a1 b1 c1 d1 r"
+bag = notes1.split(' ')
+shuffle(bag)
+notes1 = ' '.join(bag)
+
+notes2 = "a2 b2 c2 d2 e2 f2 g2 r a2 b2 c2 d2 e2 f2 g2 r d2 c2 b2 a2 r"
+bag = notes2.split(' ')
+shuffle(bag)
+notes2 = ' '.join(bag)
 
 
 class App:
     def __init__(self):
-        pyxel.init(200, 150)
+        pyxel.init(300, 50)
 
         pyxel.sound(0).set(
-            "a1b1c1d1 e1f1g1r a2b2c2d2 e2f2g2r a1b1c1d1r",
+            notes1,
             "p",
             "6",
             "nnnn nnn nnnn nnn nnnn",
@@ -16,7 +26,7 @@ class App:
         )
 
         pyxel.sound(1).set(
-            "a2b2c2d2 e2f2g2r a2b2c2d2 e2f2g2r d2c2b2a2r",
+            notes2,
             "s",
             "6",
             "nnvv nnn nnvv nnn vvvv",
@@ -43,7 +53,7 @@ class App:
             "f0ra4r f0ra4r f0ra4r f0f0a4r", "t", "6622 6622 6622 6422", "f", 25
         )
 
-        self.play_music(False, True, False)
+        self.play_music(True, True, True)
 
         pyxel.run(self.update, self.draw)
 
@@ -81,16 +91,37 @@ class App:
 
         if pyxel.btnp(pyxel.KEY_5):
             self.play_music(False, False, False)
+            
+#         if pyxel.btnp(pyxel.KEY_6):
+#             notes = "a2b2c2d2 e2f2g2r a2b2c2d2 e2f2g2r d2c2b2a2r"
+#             notes = "a2"
+#             pyxel.sound(1).set(
+#             notes,
+#             "s",
+#             "6",
+#             "nnvv nnn nnvv nnn vvvv",
+#             25,
+#         )
+# 
+#             pyxel.sound(2).set(
+#             notes,
+#             "t",
+#             "7",
+#             "n",
+#             25,
+#         )
+            
 
     def draw(self):
         pyxel.cls(1)
 
-        pyxel.text(6, 6, "sound(snd).set(note,tone,volume,effect,speed)", 7)
+        pyxel.text(6, 6, notes1, 7)
+        pyxel.text(6, 14, notes2, 8)
 
 
         for i in range(3):
-            x = 140 + i * 16
-            y = 123 + math.sin(pyxel.frame_count * 0.1 + i * 2.1) * 5
+            x = 40 + i * 16
+            y = 25 + math.sin(pyxel.frame_count * 0.1 + i * 2.1) * 5
             pyxel.text(x, y + i * 6, 'ha', 2 + i)
 
         pyxel.pal()
