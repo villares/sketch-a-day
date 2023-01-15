@@ -17,7 +17,7 @@ def draw():
     for _ in range(5):
         for _ in range(C):
             N = 5 # Num points
-            W = (-20, 0, 20)
+            W = (-20, 20)
             H = (-40, -20, -20, 0, 0, 0, 20, 20, 40)
             pts = [(choice(W), choice(H)) for _ in range(N)]
             V = 5 # range of random variation
