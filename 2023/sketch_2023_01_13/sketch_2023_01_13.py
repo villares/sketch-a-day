@@ -1,7 +1,7 @@
 """
 SDF exploration
 
-Code for py5 (py5coding.org) imported mode
+Code for py5 (py5coding.org) module mode
 """
 
 import py5
