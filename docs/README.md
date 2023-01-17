@@ -92,7 +92,6 @@ Here are listed some of the tools I have been using:
 [sketch_2023_01_11](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_11) [[py5](https://py5coding.org/)]
 
 
-
 ---
 
 ### sketch_2023_01_09
@@ -101,7 +100,15 @@ Here are listed some of the tools I have been using:
 
 [sketch_2023_01_09](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_09) [[py5](https://py5coding.org/)]
 
+---
 
+### sketch_2023_01_10
+
+![sketch_2023_01_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_10/sketch_2023_01_10.png)
+
+[sketch_2023_01_10](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_10) [[pyxel](https://github.com/kitao/pyxel)]
+
+- To listen: [recording.mp4](/recording.mp4)
 
 ---
 
@@ -110,7 +117,6 @@ Here are listed some of the tools I have been using:
 ![sketch_2023_01_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_08/sketch_2023_01_08.png)
 
 [sketch_2023_01_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_08) [[py5](https://py5coding.org/)]
-
 
 
 ---
