@@ -1,7 +1,5 @@
 """
 Code for py5 (py5coding.org) imported mode
-
-Recursive grid - I'm always grateful for Takao Shunsuke's inspiration.
 """
 
 def setup():
