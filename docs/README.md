@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_01_26
+
+![sketch_2023_01_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_26/sketch_2023_01_26.png)
+
+[sketch_2023_01_26](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_26) [[py5](https://py5coding.org/)]
+
+d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O1193775/interruptions-drawing-vera-molnar/)dapr
+
+---
+
 ### sketch_2023_01_25
 
 ![sketch_2023_01_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_25/sketch_2023_01_25.png)
