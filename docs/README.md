@@ -41,7 +41,7 @@ Here are listed some of the tools I have been using:
 
 [sketch_2023_01_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_27) [[py5](https://py5coding.org/)]
 
-Based on Tom Larrows experiment at: https://codeberg.org/TomLarrow/creative-coding-experiments/src/branch/main/x_0049/x_0049.py
+Based on Tom Larrow's experiment at: https://codeberg.org/TomLarrow/creative-coding-experiments/src/branch/main/x_0049/x_0049.py
 
 ---
 
@@ -61,8 +61,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_25) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_24
@@ -70,8 +68,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_24/sketch_2023_01_24.png)
 
 [sketch_2023_01_24](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_24) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -81,8 +77,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_23](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_23) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_22
@@ -90,8 +84,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_22/sketch_2023_01_22.gif)
 
 [sketch_2023_01_22](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_22) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -101,8 +93,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_21](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_21) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_20
@@ -110,8 +100,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_20/sketch_2023_01_20.gif)
 
 [sketch_2023_01_20](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_20) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -121,8 +109,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_19](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_19) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_18
@@ -130,8 +116,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_18/sketch_2023_01_18.png)
 
 [sketch_2023_01_18](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_18) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -141,8 +125,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_17](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_17) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_16
@@ -150,8 +132,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_16/sketch_2023_01_16.png)
 
 [sketch_2023_01_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_16) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -161,8 +141,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_15](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_15) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_14
@@ -170,8 +148,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_14/sketch_2023_01_14.png)
 
 [sketch_2023_01_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_14) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -181,8 +157,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_13](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_13) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_12
@@ -191,8 +165,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 
 [sketch_2023_01_12](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_12) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_11
@@ -200,7 +172,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_11/sketch_2023_01_11.png)
 
 [sketch_2023_01_11](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_11) [[py5](https://py5coding.org/)]
-
 
 ---
 
@@ -227,7 +198,6 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 ![sketch_2023_01_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_08/sketch_2023_01_08.png)
 
 [sketch_2023_01_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_08) [[py5](https://py5coding.org/)]
-
 
 ---
 
@@ -283,8 +253,6 @@ D'aprés @ntsutae つぶやきProcessing https://twitter.com/ntsutae/status/1268
 
 [sketch_2023_01_05](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_05) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2023_01_04
@@ -318,7 +286,7 @@ def setup():
     fill(255, 0, 0)
     for x, y in intersections:
         circle(x, y, 5)
-    
+
 def calc_cci(x0, y0, r0, x1 ,y1, r1):
     d = dist(x0, y0, x1, y1)
     a = (r0 ** 2-r1 ** 2+d ** 2) / (2 * d)
@@ -374,8 +342,6 @@ void keyPressed() {
   saveFrame("###.png");
   redraw();
 }
-
-
 ```
 
 Python version:
@@ -404,7 +370,7 @@ def draw():
         image(convert_image(new_img), 0, 0) # PIL.Image to py5Image
     except: # OSError / UnidentifiedImageError:
         pass
-    
+
 def key_pressed():
     save_frame("###.png");
     redraw()
@@ -426,7 +392,7 @@ def setup():
     color_mode(HSB)
     no_stroke()
     rect_mode(CENTER)
-    
+
 def draw():
     background(0)
     m = frame_count #1 + mouse_x // 10
@@ -458,7 +424,7 @@ def setup():
     size(600, 600)
     blend_mode(ADD)
     no_stroke()
-    
+
 def draw():
     background(0)
     xc = yc = 300
@@ -487,4 +453,3 @@ def draw():
 ---
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">The <a property="dct:title" rel="cc:attributionURL" href="https://abav.lugaralgum.com/sketch-a-day">sketch-a-day</a> project, images and code repository, by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://abav.lugaralgum.com">Alexandre B A VIllares</a> are licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-NoDerivatives 4.0 International <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>, except if marked/attributed otherwise in a file or code section. Please contact for licensing questions.</p>
-
