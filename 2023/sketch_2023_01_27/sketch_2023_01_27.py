@@ -1,4 +1,4 @@
-# Based on Tom Larrows experiment at:
+# Based on Tom Larrow's experiment at:
 # https://codeberg.org/TomLarrow/creative-coding-experiments/src/branch/main/x_0049/x_0049.py
 
 from random import choice
