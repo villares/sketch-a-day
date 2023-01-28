@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_01_27
+
+![sketch_2023_01_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_27/sketch_2023_01_27.png)
+
+[sketch_2023_01_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_27) [[py5](https://py5coding.org/)]
+
+Based on Tom Larrows experiment at: https://codeberg.org/TomLarrow/creative-coding-experiments/src/branch/main/x_0049/x_0049.py
+
+---
+
 ### sketch_2023_01_26
 
 ![sketch_2023_01_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_26/sketch_2023_01_26.png)
