@@ -1,8 +1,6 @@
 # Based on Tom Larrow's experiment at:
 # https://codeberg.org/TomLarrow/creative-coding-experiments/src/branch/main/x_0049/x_0049.py
 
-from random import choice
-
 def setup():
     size(800, 800)
     no_loop()

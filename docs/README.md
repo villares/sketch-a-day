@@ -35,6 +35,58 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_01_29
+
+![sketch_2023_01_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_29/sketch_2023_01_29.png)
+
+[sketch_2023_01_29](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_29) [[py5](https://py5coding.org/)]
+
+[Kate Rose Morley's palette](https://iamkate.com/data/12-bit-rainbow/)
+
+
+```python
+from random import sample
+from itertools import product
+
+palette = (
+    '#817', '#a35', '#c66', '#e94',
+    '#ed0', '#9d5', '#4d8', '#2cb',
+    '#0bc', '#09c', '#36b', '#639'
+    )
+
+def setup():
+    global palavras
+    size(800, 800)
+    no_loop()
+    rect_mode(CENTER)
+    no_stroke()
+
+def draw():
+    w = 100
+    for x, y in product(range(0, width, w), repeat=2):
+        d = width // w
+        cores = sample(palette, d)
+        for z in range(d):
+            fill(cores[z])
+            square(w / 2 + x, w / 2 + y, w / (z / 2 + 1))
+        
+def key_pressed():
+    redraw()
+
+```
+
+---
+
+### sketch_2023_01_28
+
+![sketch_2023_01_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_28/sketch_2023_01_28.png)
+
+[sketch_2023_01_28](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_28) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_01_27
 
 ![sketch_2023_01_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_27/sketch_2023_01_27.png)
