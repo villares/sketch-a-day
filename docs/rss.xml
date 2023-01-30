@@ -5,6 +5,42 @@
 <link>http://abav.lugaralgum.com/sketch-a-day</link>
 <description>One visual idea a day, made with code</description>
 <item>
+<title>sketch_2023_01_30</title>
+<link>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_30</link>
+<guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_30</guid>
+<pubDate>Mon, 30 Jan 2023 12:00:00 </pubDate>
+<description><p><a href="https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_30/sketch_2023_01_30.png">image</a> <a href="https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_30">source</a> [<a href="https://py5coding.org/">py5</a>]</p></description>
+<content><p><img alt="sketch_2023_01_30" src="https://raw.githubusercontent.com/villares/sketch-a-day/main/https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_01_30/sketch_2023_01_30.png" />
+<a href="https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_01_30">sketch_2023_01_30</a> [<a href="https://py5coding.org/">py5</a>]
+```python</p>
+<h1>Kate Rose Morley's palette</h1>
+<h1>https://iamkate.com/data/12-bit-rainbow/</h1>
+<h1>Processing #Python #py5 imported mode</h1>
+<h1>genuary #genuary30 #トゥートProcessing</h1>
+<p>from itertools import product
+palette = (
+    '#817', '#a35', '#c66', '#e94',
+    '#ed0', '#9d5', '#4d8', '#2cb',
+    '#0bc', '#09c', '#36b', '#639'
+    )
+def setup():
+    global palavras
+    size(800, 800)
+    no_loop()
+    rect_mode(CENTER)
+    no_stroke()
+def draw():
+    w = 400
+    i = 0
+    for x, y in product(range(0, width, w), repeat=2):
+        for z in range(3):
+            fill(palette[i])
+            square(w / 2 + x, w / 2 + y, w / (z / 2 + 1))
+            i += 1
+```</p>
+<hr /></content>
+</item>
+<item>
 <title>sketch_2023_01_29</title>
 <link>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_29</link>
 <guid>http://abav.lugaralgum.com/sketch-a-day#sketch_2023_01_29</guid>
