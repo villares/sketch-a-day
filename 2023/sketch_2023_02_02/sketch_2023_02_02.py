@@ -1,5 +1,3 @@
-import trimesh
-import shapely
 
 def setup():
     global f
