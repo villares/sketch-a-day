@@ -1,4 +1,4 @@
-from shapely import Polygon
+from shapely.geometry import Polygon
 
 # https://stackoverflow.com/questions/59106740/substracting-inner-rings-from-a-list-of-polygons
 from rtree.index import Index # you need to install rtree
@@ -17,6 +17,9 @@ def process_polys(polygons):
             # ensure the polygon fully contains our match
             if this_poly.contains(other_poly):
                 result = this_poly.difference(other_poly)
-                results.append(donut)
+                results.append(result)
                 break  # quit searching
-    return results
+        else:
+            results.append(this_poly) # não resolve
+    # TODO: separar os sem furo dos outros e juntar tudo.
+    return results  
