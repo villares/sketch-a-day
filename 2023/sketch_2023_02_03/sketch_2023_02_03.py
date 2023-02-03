@@ -1,80 +1,136 @@
-import trimesh
-import shapely
+import py5
 
+from shapely.affinity import translate as shapely_translate
 from shapely.geometry import Polygon, MultiPolygon, GeometryCollection, LineString, Point
-from shapely.geos import TopologicalError
 from shapely.ops import unary_union
 
-
-from polys_with_holes import process_polys
+dragged = -1
 
 def setup():
-    global m, f
-    size(800, 400)
-    no_fill()
-    stroke(255)
-    color_mode(HSB)
-    f = create_font('DejaVu Sans', 100)
-    
-    polygon = shapely.geometry.Polygon([(-100, -100), (0, -100),
-                                        (0, 0), (-50, -50), (-100, 0)])
-    m = trimesh.creation.extrude_polygon(polygon, 30)
+    global shapes
+    py5.size(1200, 400)
+    py5.color_mode(py5.HSB)
 
-def polys_from_text(words, f=None):
-    f = f or create_font('Courier', 100)
+    font = py5.create_font('Inconsolata Bold', 100)
+    shapes = polys_from_text(
+        'Oi B008!\né o gnumundo®...\nviva a ciberlândia!',
+        font)
+
+def draw():
+    py5.window_title(str(py5.get_frame_rate()))
+    py5.background(100)
+    py5.translate(100, 100)
+    py5.fill(255, 100)
+    for i, shp in enumerate(shapes):
+        py5.fill((i * 8) % 256, 255, 255, 100)
+        if i == dragged:
+            draw_shapely_objs(shp)
+    draw_shapely_objs(unary_union(shapes))
+  
+def mouse_moved():
+    global dragged
+    if not py5.is_mouse_pressed:
+        for i, shp in enumerate(shapes):
+            if shp.contains(Point(py5.mouse_x - 100, py5.mouse_y - 100)):
+                dragged = i
+                break
+        else:
+            dragged = -1
+
+def mouse_dragged():
+    if dragged >= 0:
+        dx = py5.mouse_x - py5.pmouse_x
+        dy = py5.mouse_y - py5.pmouse_y
+        shapes[dragged] = shapely_translate(shapes[dragged], xoff=dx, yoff=dy) 
+
+def polys_from_text(words, font, alternate_spacing=False):
+    """
+    Produce a list of shapely Polygons (with holes!) from a string.
+    New-line chars will try to move text to a new line.
+    
+    The alternate_spacing option will pick the glyph
+    spacing from py5.text_width() for each glyph, it can be
+    too spaced, but good for monospaced font alignment.
+    """
+    py5.text_font(font)
+    space_width = py5.text_width(' ')
     results = []
     x_offset = y_offset = 0
     for c in words:
         if c == '\n':
-            y_offset += f.get_size()
+            y_offset += font.get_size()
             x_offset = 0  # assuming left aligned text...
             continue
-        results.append([])
-        c_shp = f.get_shape(c, 1)
+        glyph_pt_lists = [[]]
+        c_shp = font.get_shape(c, 1)
         vs3 = [c_shp.get_vertex(i) for i in range(c_shp.get_vertex_count())]
-        vs = set() 
-        for vx, vy, _  in vs3:
+        vs = set()
+        for vx, vy, _ in vs3:
             x = vx + x_offset
             y = vy + y_offset
-            results[-1].append((x, y))
+            glyph_pt_lists[-1].append((x, y))
             if (x, y) not in vs:
                 vs.add((x, y))
             else:
-                results.append([])
-        w = c_shp.get_width() if vs3 else f.get_size() / 3
+                glyph_pt_lists.append([])  # will leave a trailling empty list
+        if alternate_spacing:
+            w = py5.text_width(c)
+        else:
+            w = c_shp.get_width() if vs3 else space_width
         x_offset += w
-    return [Polygon(p) for p in results if len(p) > 2]
-    
-def draw():
-    background(100)
-    translate(100, 100)
-    stuff = process_polys(polys_from_text('Oi!\nOlá mundo...', f))
-    fill(255, 100)
-    draw_elements(stuff)
-    
-def draw_elements(element):
+        # filter out elements with less than 3 points 
+        # and stop before the trailling empty list
+        glyph_polys = [Polygon(p) for p in glyph_pt_lists[:-1] if len(p) > 2]
+        if glyph_polys:  # there are still empty glyphs at this point.
+            glyph_shapes = process_glyphs(glyph_polys)
+            results.extend(glyph_shapes)
+    return results
+
+
+def process_glyphs(polys):
+    """
+    Try to subtract the shapely Polygons representing a glyph
+    in order to produce appropriate looking glyphs!
+    """
+    polys = sorted(polys, key=lambda p: p.area, reverse=True)
+    results = [polys[0]]
+    for p in polys[1:]:
+        # works on edge cases like â and ®
+        for i, earlier in enumerate(results):
+            if earlier.contains(p):
+                results[i] = results[i].difference(p)
+                break
+        else:   # the for-loop's else only executes after unbroken loops 
+            results.append(p)
+    return results
+
+
+def draw_shapely_objs(element):
+    """
+    With py5, draw some shapely object (or a list of objects).
+    """
     if isinstance(element, (MultiPolygon, GeometryCollection)):
         for p in element.geoms:
-            draw_elements(p)
+            draw_shapely_objs(p)
     elif isinstance(element, Polygon):
-        with begin_closed_shape():
-            #if element.exterior.coords:
-            vertices(element.exterior.coords)
+        with py5.begin_closed_shape():
+            if element.exterior.coords:
+                py5.vertices(element.exterior.coords)
             for hole in element.interiors:
-                with begin_contour():
-                    vertices(hole.coords)        
+                with py5.begin_contour():
+                    py5.vertices(hole.coords)
     elif isinstance(element, list):
-        for p in element:
-            draw_elements(p)
+        for i, p in enumerate(element):
+            draw_shapely_objs(p)
     elif isinstance(element, LineString):
-        stroke(255, 0, 0)
         (xa, ya), (xb, yb) = element.coords
-        line(xa, ya, xb, yb)
-        no_stroke()
+        py5.line(xa, ya, xb, yb)
     elif isinstance(element, Point):
-        with push_style():
-            fill(255, 0, 0)
+        with py5.push_style():
             x, y = element.coords[0]
-            circle(x, y, 15)
+            py5.point(x, y)
     else:
-        print(element)
+        print(f"I can't draw {element}.")
+
+
+py5.run_sketch()
