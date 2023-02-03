@@ -1,24 +1,13 @@
-import trimesh
-import shapely
-
 from shapely.geometry import Polygon, MultiPolygon, GeometryCollection, LineString, Point
-from shapely.geos import TopologicalError
-from shapely.ops import unary_union
-
-
-from polys_with_holes import process_polys
 
 def setup():
-    global m, f
-    size(800, 400)
-    no_fill()
-    stroke(255)
+    global shapes
+    size(1200, 400)
     color_mode(HSB)
-    f = create_font('DejaVu Sans', 100)
-    
-    polygon = shapely.geometry.Polygon([(-100, -100), (0, -100),
-                                        (0, 0), (-50, -50), (-100, 0)])
-    m = trimesh.creation.extrude_polygon(polygon, 30)
+    stroke(255)
+    f = create_font('Inconsolata Bold', 100)
+    shapes = polys_from_text('Oi B008!\né o gnumundo®...\nviva a ciberlândia!', f)
+
 
 def polys_from_text(words, f=None):
     f = f or create_font('Courier', 100)
@@ -29,43 +18,66 @@ def polys_from_text(words, f=None):
             y_offset += f.get_size()
             x_offset = 0  # assuming left aligned text...
             continue
-        results.append([])
+        glyph_pt_lists = [[]]
         c_shp = f.get_shape(c, 1)
         vs3 = [c_shp.get_vertex(i) for i in range(c_shp.get_vertex_count())]
         vs = set() 
         for vx, vy, _  in vs3:
             x = vx + x_offset
             y = vy + y_offset
-            results[-1].append((x, y))
+            glyph_pt_lists[-1].append((x, y))
             if (x, y) not in vs:
                 vs.add((x, y))
             else:
-                results.append([])
+                glyph_pt_lists.append([])
         w = c_shp.get_width() if vs3 else f.get_size() / 3
         x_offset += w
-    return [Polygon(p) for p in results if len(p) > 2]
+        glyph_polys = [Polygon(p) for p in glyph_pt_lists[:-1] if len(p) > 2]
+        if glyph_polys:  # yeah, ugly, but there are empty glyphs at this point.
+            glyph_shapes = process_glyphs(glyph_polys)
+            results.extend(glyph_shapes)
+    return results
     
+def process_glyphs(polys):
+    polys = sorted(polys, key=lambda p: p.area, reverse=True)
+    results = [polys[0]]
+    for p in polys[1:]:
+        # this is a bit ugly but seems to work on some edge cases like 'â'  and ®
+        for i, earlier in enumerate(results):
+            if earlier.contains(p):
+                results[i] = results[i].difference(p)
+                break
+        else:   # the for-loop's else only executes after unbroken loops
+            results.append(p)
+    return  results
+
 def draw():
     background(100)
     translate(100, 100)
-    stuff = process_polys(polys_from_text('Oi!\nOlá mundo...', f))
     fill(255, 100)
-    draw_elements(stuff)
+    for i, shp in enumerate(shapes):
+        fill((i * 8)% 256, 255, 255, 100)
+        draw_shapely_objs(shp)
     
-def draw_elements(element):
+def draw_shapely_objs(element, i=0):
     if isinstance(element, (MultiPolygon, GeometryCollection)):
         for p in element.geoms:
-            draw_elements(p)
+            draw_shapely_objs(p)
     elif isinstance(element, Polygon):
+#         # debug
+#         push_style()
+#         fill(255, 0, 0)
+#         text(i, *element.exterior.coords[0])
+#         pop_style()
         with begin_closed_shape():
-            #if element.exterior.coords:
-            vertices(element.exterior.coords)
+            if element.exterior.coords:
+                vertices(element.exterior.coords)
             for hole in element.interiors:
                 with begin_contour():
                     vertices(hole.coords)        
     elif isinstance(element, list):
-        for p in element:
-            draw_elements(p)
+        for i, p in enumerate(element):
+            draw_shapely_objs(p, i=i)
     elif isinstance(element, LineString):
         stroke(255, 0, 0)
         (xa, ya), (xb, yb) = element.coords
@@ -77,4 +89,4 @@ def draw_elements(element):
             x, y = element.coords[0]
             circle(x, y, 15)
     else:
-        print(element)
+        print(f"I can't draw {element}.")
