@@ -4,11 +4,13 @@ from shapely.affinity import translate as shapely_translate
 from shapely.geometry import Polygon, MultiPolygon, GeometryCollection, LineString, Point
 from shapely.ops import unary_union
 
+import trimesh
+
 dragged = -1
 
 def setup():
     global shapes
-    py5.size(1200, 400)
+    py5.size(1200, 400, py5.P3D)
     py5.color_mode(py5.HSB)
 
     font = py5.create_font('Inconsolata Bold', 100)
@@ -20,13 +22,23 @@ def draw():
     py5.window_title(str(py5.get_frame_rate()))
     py5.background(100)
     py5.translate(100, 100)
+    if not py5.is_key_pressed:
+        py5.rotate_x(py5.PI / 10)
     py5.fill(255, 100)
     for i, shp in enumerate(shapes):
         py5.fill((i * 8) % 256, 255, 255, 100)
         if i == dragged:
             draw_shapely_objs(shp)
-    draw_shapely_objs(unary_union(shapes))
-  
+    
+    union = unary_union(shapes)
+    if py5.is_mouse_pressed:
+        draw_shapely_objs(union)
+    else:
+        for p in union.geoms:
+            if isinstance(p, Polygon):
+                m = trimesh.creation.extrude_polygon(p, 10)
+                draw_mesh(m)
+      
 def mouse_moved():
     global dragged
     if not py5.is_mouse_pressed:
@@ -132,5 +144,11 @@ def draw_shapely_objs(element):
     else:
         print(f"I can't draw {element}.")
 
+      
+def draw_mesh(m):
+    for i, face in enumerate(m.faces):
+        py5.fill((m.vertices[0][0]) % 256, 255, 255)
+        with py5.begin_closed_shape():
+            py5.vertices([m.vertices[v] for v in face])
 
 py5.run_sketch()
