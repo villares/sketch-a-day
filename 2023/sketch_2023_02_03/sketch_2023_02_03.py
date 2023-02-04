@@ -22,7 +22,7 @@ def draw():
     py5.window_title(str(py5.get_frame_rate()))
     py5.background(100)
     py5.translate(100, 100)
-    if not py5.is_key_pressed:
+    if py5.is_key_pressed:
         py5.rotate_x(py5.PI / 10)
     py5.fill(255, 100)
     for i, shp in enumerate(shapes):
@@ -31,7 +31,7 @@ def draw():
             draw_shapely_objs(shp)
     
     union = unary_union(shapes)
-    if py5.is_mouse_pressed:
+    if not py5.is_key_pressed:
         draw_shapely_objs(union)
     else:
         for p in union.geoms:
