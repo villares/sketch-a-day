@@ -69,25 +69,6 @@ def mouse_wheel(e):
                                          e.get_count(), origin='center')
          
 
-def process_glyphs(polys):
-    """
-    Try to subtract the shapely Polygons representing a glyph
-    in order to produce appropriate looking glyphs!
-    """
-    polys = sorted(polys, key=lambda p: p.area, reverse=True)
-    results = [polys[0]]
-    for p in polys[1:]:
-        # works on edge cases like â and ®
-        for i, earlier in enumerate(results):
-            if earlier.contains(p):
-                results[i] = results[i].difference(p)
-                break
-        else:   # the for-loop's else only executes after unbroken loops 
-            results.append(p)
-    return results
-
-
-      
 def draw_mesh(m):
     for i, face in enumerate(m.faces):
         py5.fill((m.vertices[0][0]) % 256, 255, 255)
