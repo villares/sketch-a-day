@@ -11,9 +11,6 @@ def setup():
 def draw():
     global fila
     background(0)
-    # Desenha grade com `imagens` com colunas fixas de largura `w`,
-    # imagens mais largas são sobrepostas pela pr
-    contador = 0
     x = y = fila = 0
     for i, (nome, img) in enumerate(imagens[starting:]):
         fator = h / img.height
@@ -64,17 +61,17 @@ def adicionar_imagens(dir_path):
             imagens.append((file_path.name, img))
         print(f'Número de imagens: {len(imagens)}')
 
-def lista_imagens(data_path=None):
+def lista_imagens(data_path):
     """
     Devolve uma a lista dos caminhos (objetos pathlib.Path) dos arquivos
-    de imagem contidos na pasta `data_path` (ou na pasta /data/ próxima ao sketch).
+    de imagem contidos na pasta `data_path`
     """
     # extensões dos formatos de imagem que o Processing aceita!
     valid_ext = ('jpg', 'png', 'jpeg', 'gif', 'tif', 'tga')
-    data_path = Path(data_path) or sketch_path('data')  # objeto pathlib.Path
+    data_path = Path(data_path) # Garante objeto pathlib.Path
     try:
         f_list = [item for item in data_path.rglob('*')
-                  if item.is_file() and item.name.split('.')[-1] in valid_ext]
+                  if item.is_file() and item.suffix.lower()[1:] in valid_ext]
     except Exception as e:
         print(e)
         return []
