@@ -8,7 +8,7 @@ from shapely.ops import unary_union
 
 from shapely_helpers import *
 
-import trimesh
+import trimesh   # Warning you might need to install mapbox_earcut
 
 dragged = -1
 
