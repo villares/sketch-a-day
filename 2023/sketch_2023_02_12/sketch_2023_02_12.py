@@ -16,9 +16,12 @@ def setup():
     )
 
 def draw():    
-    R = remap(os_noise(mesh_x, mesh_y, frame_count * noise_increment), -1, 1, 0, 255)
-    G = remap(os_noise(mesh_x, mesh_y, (10 + frame_count) * noise_increment), -1, 1, 0, 255)
-    B = remap(os_noise(mesh_x, mesh_y, (-10 + frame_count) * noise_increment), -1, 1, 0, 255)
+    R = remap(os_noise(mesh_x, mesh_y, frame_count * noise_increment),
+                       -1, 1, 0, 255).astype(np.uint8)
+    G = remap(os_noise(mesh_x, mesh_y, (10 + frame_count) * noise_increment),
+                       -1, 1, 0, 255).astype(np.uint8)
+    B = remap(os_noise(mesh_x, mesh_y, (-10 + frame_count) * noise_increment),
+                       -1, 1, 0, 255).astype(np.uint8)
 #     npa = np.zeros((height, width, 3), dtype=np.uint8)
 #     npa[:, :, 0] = R
 #     npa[:, :, 1] = G
@@ -28,17 +31,3 @@ def draw():
     set_np_pixels(npa, bands="RGB")
     window_title(str(round(get_frame_rate(), 1)))
     
-    
-    
-@np.vectorize
-def vred(c):
-    return c >> 16 & 0xFF 
-
-@np.vectorize
-def vgreen(c):
-    return c >> 8 & 0xFF 
-
-@np.vectorize
-def vblue(c):
-    return c & 0xFF 
-
