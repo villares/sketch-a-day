@@ -24,29 +24,30 @@ def draw():
 #     point(10, 10)
 #     point(mouse_x, mouse_y)
     for (ax, ay), (bx, by) in combos:
-        dashed(ax, ay, bx, by, bs=False)
-    no_loop()
-    save_frame('out.png')   
+        dashed(ax, ay, bx, by, solid_start=is_key_pressed)
+#     no_loop()
+#     save_frame('out.png')   
 
 
-def dashed(ax, ay, bx, by, u=20, bs=False):
+def dashed(ax, ay, bx, by, u=20, solid_start=True):
     d = dist(ax, ay, bx, by)     # Line length
     if d:
         ux, uy = (bx - ax) / d, (by - ay) / d  # A "unit vector" of the line
-        nx, ny = uy, -ux                       # Normal direction
+        #nx, ny = uy, -ux                       # Normal direction
         n = d // u
         if n == 0:
-           bs = False  
+           solid_start = True  
         elif n % 2 == 0:
            n = n - 1            
         ru = d - u * n
         x, y = ax + ux * ru /  2, ay + uy * ru / 2
-        if not bs: line(ax, ay, x, y) 
+        if solid_start:
+            line(ax, ay, x, y) 
         for i in range(int(n)):
-            if i % 2 == (not bs):
+            if i % 2 == (1 if solid_start else 0):
                 xd, yd = x + ux * u, y + uy * u
                 line(x, y, xd, yd)
             x += ux * u
             y += uy * u
-        if not bs:
+        if solid_start:
             line(x, y, bx, by)    
