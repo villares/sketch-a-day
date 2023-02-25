@@ -1,3 +1,4 @@
+# To use named colors (string literals as arguments) you need matplotlib installed
 from itertools import combinations
 
 combos = []
@@ -17,7 +18,7 @@ def setup():
     
     background(200)
     stroke_weight(3)
-    for c, s in (('yellow', True), ('darkblue', False)):
+    for c, s in (('yellow', True), ('darkblue', False)):  # Strings to select named colors (depends on matplotlib)
         stroke(c)
         for (ax, ay), (bx, by) in combos:
             dashed(ax, ay, bx, by, solid_start=s)
