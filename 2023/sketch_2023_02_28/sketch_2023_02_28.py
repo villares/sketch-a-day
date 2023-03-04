@@ -1,7 +1,7 @@
 import py5
 
-N = 80
-especies_n = 4
+N = 200
+especies_n = 3
 color_step = 256.0 / especies_n
 leis = [[0] * especies_n for _ in range(especies_n)]
 balls = []

@@ -35,6 +35,46 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_03_03
+
+![sketch_2023_03_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_03/sketch_2023_03_03.png)
+
+[sketch_2023_03_03](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_03) [[py5](https://py5coding.org/)]
+
+Another numbered squares idea...
+
+---
+
+### sketch_2023_03_02
+
+![sketch_2023_03_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_02/sketch_2023_03_02.png)
+
+[sketch_2023_03_02](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_02) [[py5](https://py5coding.org/)]
+
+back to shuffling squares?
+
+---
+
+### sketch_2023_03_01
+
+![sketch_2023_03_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_01/sketch_2023_03_01.png)
+
+[sketch_2023_03_01](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_01) [[py5](https://py5coding.org/)]
+
+Tried threads, still too slow. I shoul try Numpy... I asked for Melissa Weber's helpp
+
+---
+
+### sketch_2023_02_28
+
+![sketch_2023_02_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_02_28/sketch_2023_02_28.png)
+
+[sketch_2023_02_28](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_02_28) [[py5](https://py5coding.org/)]
+
+A horribly slow Particle Life simulation (adapted from the Noite de Processing one) WIP
+
+---
+
 ### sketch_2023_02_27
 
 ![sketch_2023_02_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_02_27/sketch_2023_02_27.png)
