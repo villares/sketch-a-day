@@ -36,14 +36,14 @@ def draw():
                 if(dsq < 10):
                     m = py5.remap(dsq, 10, 0, 0, 1)
                     if m < 0:
-                        forca *= 1
+                        forca *= -1
                         m = -m
                     forca.mag = m
                 else:
                     m = py5.remap(dsq, 10000, 0, 0, 0.001)
                     lm = leis[ball_i.especie][ball_j.especie] * m
                     if lm < 0:
-                        forca *= 1
+                        forca *= -1
                         lm = -lm
                     forca.mag = lm
                 ball_i.vel += forca
