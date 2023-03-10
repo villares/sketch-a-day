@@ -5,6 +5,7 @@ import py5
 import numpy as np
 from itertools import combinations
 
+class Particle:
 
     def __init__(self, x, y, vx, vy, radius=0.01):
         """Initialize the particle's position, velocity, and radius.
