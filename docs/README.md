@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_03_12
+
+![sketch_2023_03_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_12/sketch_2023_03_12.png)
+
+[sketch_2023_03_12](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_12) [[py5](https://py5coding.org/)]
+
+144 combinations of sizes, nubmer of points and 2 colors.
+
+---
+
 ### sketch_2023_03_11
 
 ![sketch_2023_03_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_11/sketch_2023_03_11.png)
