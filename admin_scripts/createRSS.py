@@ -88,7 +88,7 @@ def main(file_list):
                                               ))
                     content_lines = [] # empty list for next item's content
                 elif line.strip() and content_lines is not None:
-                    content_lines.append(line)
+                    content_lines.append(html.escape(line))
         # RSS Footer
         output.write(rss_footer)
         print(' '.join(file_list) + ' -> rss.xml (generated again)')
