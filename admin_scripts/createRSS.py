@@ -31,7 +31,7 @@ rss_item_format = """<item>
 <guid>{1}</guid>
 <pubDate>{2}</pubDate>
 <description>{3}</description>
-<content>{4}</content>
+<content><![CDATA[{4}]]></content>
 </item>
 """.format  # use rss_item_format(title, link, date, description, full_content)
   
@@ -88,7 +88,7 @@ def main(file_list):
                                               ))
                     content_lines = [] # empty list for next item's content
                 elif line.strip() and content_lines is not None:
-                    content_lines.append(html.escape(line))
+                    content_lines.append(line)
         # RSS Footer
         output.write(rss_footer)
         print(' '.join(file_list) + ' -> rss.xml (generated again)')
