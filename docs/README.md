@@ -35,6 +35,36 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_03_27
+
+![sketch_2023_03_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_27/sketch_2023_03_27.png)
+
+[sketch_2023_03_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_27) [[py5](https://py5coding.org/)]
+
+OpenCV edge detection on a video
+
+---
+
+### sketch_2023_03_26
+
+![sketch_2023_03_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_26/sketch_2023_03_26.png)
+
+[sketch_2023_03_26](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_26) [[py5](https://py5coding.org/)]
+
+OpenCV edge detection on a video
+
+---
+
+### sketch_2023_03_25
+
+![sketch_2023_03_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_25/sketch_2023_03_25.png)
+
+[sketch_2023_03_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_03_25) [[py5](https://py5coding.org/)]
+
+Java swing
+
+---
+
 ### sketch_2023_03_24
 
 ![sketch_2023_03_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_03_24/sketch_2023_03_24.png)
