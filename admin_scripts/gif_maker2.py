@@ -7,7 +7,7 @@ from PIL import Image, GifImagePlugin
 
 from helpers import get_image_names, remove_transparency
 
-YEAR = "2021"
+YEAR = "2022"
 base_path = "/home/villares/GitHub/sketch-a-day/"
 year_path = join(base_path,YEAR)
 folders = listdir(year_path)
@@ -30,7 +30,10 @@ for img in images[:n]:
         p = img.getpalette()
         img.seek(img.n_frames // 2)
         if not img.getpalette():
-                im.putpalette(p)
+            try:
+                img.putpalette(p)
+            except ValueError:
+                pass
         img = img.convert('RGBA')
         print('gif')
         
