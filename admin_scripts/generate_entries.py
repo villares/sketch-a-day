@@ -5,6 +5,8 @@
 # gets images, checks image types
 # build markdown for entries
 ## TO DO:
+# [ ] BUG FIX: GUI preview does not show the right image!
+# [ ] BUG FIX: RSS feed is stikk broken
 # [X] find last entry for me
 # [X] insert new entries in propper place
 # [/] use GUI or CL arguments to set tool
@@ -13,7 +15,6 @@
 # [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
 # [ ] use CL arguments to commit and push README.md
-# [ ] Guard against malformed file names like sketch_2022_06_25..png
 
 import sys
 
