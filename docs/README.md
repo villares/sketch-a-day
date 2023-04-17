@@ -35,6 +35,26 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_04_17
+
+![sketch_2023_04_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_17/sketch_2023_04_17.png)
+
+[sketch_2023_04_17](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_04_17) [[py5](https://py5coding.org/)]
+
+5 colors, random choice of next, but do not repeat last 2.
+
+---
+
+### sketch_2023_04_16
+
+![sketch_2023_04_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_16/sketch_2023_04_16.png)
+
+[sketch_2023_04_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_04_16) [[py5](https://py5coding.org/)]
+
+4 colors, do not repeat last 3... this creates a cycle. Each horiz. band repeats process, so new configuration.
+
+---
+
 ### sketch_2023_04_15
 
 ![sketch_2023_04_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_15/sketch_2023_04_15.png)
