@@ -1,6 +1,6 @@
 import py5
 from random import choice
-from villares.helpers import save_png_with_src
+#from villares.helpers import save_png_with_src
 
 options = [8, 16, 24, 32, 64]
 
@@ -37,7 +37,8 @@ def draw():
 
 def key_pressed():
     if py5.key == 's':
-        save_png_with_src()
+        save_frame('###.png')
+    #    save_png_with_src()
     py5.redraw()
 
 py5.run_sketch()
