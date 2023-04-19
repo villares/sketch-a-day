@@ -1,4 +1,4 @@
-grid = []
+grade = []
 
 def modulo1(x, y, largura):
     no_stroke()
@@ -6,16 +6,22 @@ def modulo1(x, y, largura):
     fill(255)
     rect(x, y, largura, largura)
     fill(0)
-    text_align(CENTER, CENTER)
-    text_size(largura)
-    text('s', x, y)
+    triangle(x - largura / 2, y - largura / 2,
+             x - largura / 2, y + largura / 2,
+             x + largura / 2, y + largura / 2)
+    fill(255, 0, 0)
+    circle(x + largura / 4, y + largura / 4, largura / 2) 
 
 def modulo2(x, y, largura):
+    no_stroke()
     rect_mode(CENTER)
-    fill(0)
+    fill(0, 0, 200)
     rect(x, y, largura, largura)
     fill(255)
     circle(x + largura / 4, y + largura / 4, largura / 2) 
+    circle(x - largura / 4, y - largura / 4, largura / 2) 
+    circle(x - largura / 4, y + largura / 4, largura / 2) 
+
 
 def setup():
     size(600, 600)
@@ -26,23 +32,30 @@ def setup():
         for j in range(filas):
             y = largura / 2 + j * largura
             celula = Celula(x, y, largura, [modulo2, modulo1])
-            grid.append(celula)
+            grade.append(celula)
 
 def draw():
-    for celula in grid:
+    for celula in grade:
         celula.desenha()
 
 def mouse_clicked():
-    for celula in grid:
+    for celula in grade:
         if celula.sob_mouse(mouse_x, mouse_y):
             if is_key_pressed and key_code == SHIFT:
-                celula.gira()
+                celula.muda_desenho()
             elif is_key_pressed and key_code == CONTROL:
                 celula.espelha()
             else:
-                celula.muda_desenho()
+                celula.gira()
 
-    
+def key_pressed():
+    for celula in grade:
+        if key == 'm' and random(100) < 50:
+            celula.muda_desenho()
+        if key == 'r' and random(100) < 50:
+            celula.gira()
+
+
 class Celula:
     
     def __init__(self, x, y, largura, funcs):
