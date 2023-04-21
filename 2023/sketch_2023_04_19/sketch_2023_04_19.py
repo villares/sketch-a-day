@@ -4,8 +4,8 @@ grade = []
 def modulo0(x, y, largura):
     no_fill()
     ml = largura / 2 # metade da largura
-    arc(x - ml, y - ml, largura, largura, 0, PI / 2)
-    arc(x + ml, y + ml, largura, largura, PI, 3 * PI / 2)
+    arc(x - ml, y - ml, largura, largura, 0, HALF_PI)
+    arc(x + ml, y + ml, largura, largura, PI, 3 * HALF_PI)
 
 
 def modulo1(x, y, largura):
@@ -30,15 +30,16 @@ def modulo2(x, y, largura):
 
 
 def setup():
-    size(600, 600)
-    largura = 60
+    size(800, 800)
+    stroke_weight(3)
+    largura = 80
     filas = colunas = 10
     for i in range(colunas):
         x = largura / 2 + i * largura
         for j in range(filas):
             y = largura / 2 + j * largura
-            #celula = Celula(x, y, largura, [modulo2, modulo1])
-            celula = Celula(x, y, largura, [modulo0])
+            celula = Celula(x, y, largura, [modulo2, modulo1])
+            #celula = Celula(x, y, largura, [modulo0])
             grade.append(celula)
     #modulo1(150, 150, 100)
     
@@ -66,6 +67,17 @@ def key_pressed():
 
 
 class Celula:
+    """
+    nova = Celula(x, y, largura, [func_desenho0, func_desenho1, ...])
+    .desenha()    desenha celula na sua posição
+    .gira()       gira 90 graus
+    .sob_mouse()  True ou False se o mouse está sobre a célula
+    .espelha()    Inverte espelhamento
+    .muda_desenho()   Muda função de desenho para a próxima
+    .espelhada    Estado atual de espelhamento
+    .rot          Rotação atual
+    .func_ativa   Índice da função de desenho atual
+    """
     
     def __init__(self, x, y, largura, funcs):
         self.x, self.y = x, y
@@ -89,11 +101,17 @@ class Celula:
         return (self.x - self.largura / 2 < x < self.x + self.largura / 2 and
                 self.y - self.largura / 2 < y < self.y + self.largura / 2)
          
-    def gira(self):
-        self.rot = (self.rot + 1) % 4
+    def gira(self, rot=None):
+        if rot is None:
+            self.rot = (self.rot + 1) % 4
+        else:
+            self.rot = rot
 
-    def muda_desenho(self):
-        self.func_ativa = (self.func_ativa + 1) % len(self.funcs)
+    def muda_desenho(self, i=None):
+        if i is None:
+            self.func_ativa = (self.func_ativa + 1) % len(self.funcs)
+        else:
+            self.func_ativa = i
         
     def espelha(self):
         self.espelhada = not self.espelhada
