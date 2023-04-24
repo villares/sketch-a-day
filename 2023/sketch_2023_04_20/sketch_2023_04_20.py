@@ -1,6 +1,6 @@
 from itertools import product
 
-lado = 40
+lado = 80
 filas = 40
 colunas = 30
 
@@ -9,7 +9,7 @@ def setup():
     stroke_weight(3)
     for coluna in range(colunas):
         for fila in range(filas):
-            celula = Celula(coluna, fila, lado, [modulo2, modulo1])
+            celula = Celula(coluna, fila, lado)
             
 def draw():
     background(200)
@@ -34,7 +34,6 @@ def key_pressed():
         elif key == ' ':
             celula.arruma_cor()
 
-
 def modulo1(x, y, lado):
     no_stroke()
     rect_mode(CENTER)
@@ -57,15 +56,15 @@ def modulo2(x, y, lado):
 
 class Celula:
     grade = {}
+    variantes = [modulo2, modulo1]
     
-    def __init__(self, i, j, lado, funcs):
+    def __init__(self, i, j, lado):
         self.coluna = self.i = i
         self.fila = self.j = j
         self.x = lado / 2 + i * lado
         self.y = lado / 2 + j * lado
         self.lado = lado
-        self.funcs = funcs
-        self.func_ativa = 0
+        self.variante = 0
         self.rot = 0
         Celula.grade[i, j] = self
     
@@ -73,7 +72,7 @@ class Celula:
         push_matrix()
         translate(self.x, self.y)
         rotate(HALF_PI * self.rot)
-        funcao_desenho = self.funcs[self.func_ativa]
+        funcao_desenho = self.variantes[self.variante]
         funcao_desenho(0, 0, self.lado)
         pop_matrix()
  
@@ -89,9 +88,9 @@ class Celula:
 
     def muda_desenho(self, i=None):
         if i is None:
-            self.func_ativa = not self.func_ativa
+            self.variante = not self.variante
         else:
-            self.func_ativa = i
+            self.variante = i
             
     def arruma_cor(self):
         """
@@ -103,16 +102,16 @@ class Celula:
             # same rot as tile directly above
             if Celula.grade[i-1, 0].rot == self.grade[i, 0].rot:
                 # set to opposite coloring of my neighbor above
-                self.grade[i, 0].func_ativa = not self.grade[i-1, 0].func_ativa
+                self.grade[i, 0].variante = not self.grade[i-1, 0].variante
             else:
                 # set to same coloring of my neighbor above
-                self.grade[i, 0].func_ativa = self.grade[i-1, 0].func_ativa
+                self.grade[i, 0].variante = self.grade[i-1, 0].variante
         if j > 0:  # subsequent grade in a row, including the first
             # same rot as tile to the left
             if self.grade[i, j-1].rot == self.grade[i, j].rot:
                 # set to opposite coloring of my neighbor to the left
-                self.grade[i, j].func_ativa = not self.grade[i, j-1].func_ativa
+                self.grade[i, j].variante = not self.grade[i, j-1].variante
             else:
                 # set to same coloring of my neighbor to the left
-                self.grade[i, j].func_ativa = self.grade[i, j-1].func_ativa        
+                self.grade[i, j].variante = self.grade[i, j-1].variante        
 

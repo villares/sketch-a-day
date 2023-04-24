@@ -35,6 +35,36 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_04_21
+
+![sketch_2023_04_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_21/sketch_2023_04_21.png)
+
+[sketch_2023_04_21](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_04_21) [[py5](https://py5coding.org/)]
+
+Transparent PNG export accumulating frames
+
+---
+
+### sketch_2023_04_20
+
+![sketch_2023_04_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_20/sketch_2023_04_20.png)
+
+[sketch_2023_04_20](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_04_20) [[py5](https://py5coding.org/)]
+
+Recreating Ira Greenberg's 2 colour Trouched + MAM Trouchet example
+
+---
+
+### sketch_2023_04_19
+
+![sketch_2023_04_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_19/sketch_2023_04_19.png)
+
+[sketch_2023_04_19](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_04_19) [[py5](https://py5coding.org/)]
+
+Trouchet WIP
+
+---
+
 ### sketch_2023_04_18
 
 ![sketch_2023_04_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_04_18/sketch_2023_04_18.png)
