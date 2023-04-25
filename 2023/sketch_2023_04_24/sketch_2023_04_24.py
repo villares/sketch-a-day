@@ -3,7 +3,7 @@ import py5_tools
 
 nodes = {}
 unvisited_nodes = []
-step = 8
+step = 6
 NBS = (
     (-2, -2), (-1,  0),
     (-2,  2), ( 0, -1),
@@ -36,8 +36,6 @@ def start(rnd_seed):
         sketch_path() / f'animated-seed{s}.gif',
         50, 0.25, 0.25, loop=0, optimize=True)
 
-
-
 def draw():
     background(200)
     translate(width / 2 + ox * step, height / 2 + oy * step)
@@ -50,7 +48,7 @@ def draw():
                 color(0, 128, 0),
                 color(0, 0, 128)
                 )[c % 3])
-            circle(xa * step, ya * step, sqrt(gen) * 2)
+            circle(xa * step, ya * step, sqrt(gen))
             line(xa * step, ya * step, xb * step, yb * step)
     unvisited_nodes[:] = grow()
 
