@@ -3,12 +3,12 @@ import py5_tools
 
 nodes = {}
 unvisited_nodes = []
-step = 6
+step = 8
 NBS = (
-    (-1, -1), (-2,  0),
-    (-1,  1), ( 0, -2),
-    ( 0,  2), ( 1, -1),
-    ( 2,  0), ( 1,  1)
+    (-2, -2), (-1,  0),
+    (-2,  2), ( 0, -1),
+    ( 0,  1), ( 2, -2),
+    ( 1,  0), ( 2,  2)
 )
 nbs = []
 ox = oy = 0
@@ -17,7 +17,7 @@ def setup():
     size(800, 800)
     #no_smooth()
     w, h = int(width / 2 / step - 5), int(height / 2 / step - 5)
-    start(268)
+    start(1)
     no_fill()
     
 def start(rnd_seed):
@@ -26,15 +26,15 @@ def start(rnd_seed):
     seed(s)
     random_seed(s)
     nbs[:] = NBS
-    shuffle(nbs)
+    #shuffle(nbs)
     nodes.clear()
     unvisited_nodes[:] = []
     x1, y1 = 0, 0
-    unvisited_nodes.extend((int(random(-20, 21)),int(random(-20, 21)))
-                           for _ in range(9))
+    unvisited_nodes.extend((int(random(-40, 41)),int(random(-40, 41)))
+                           for _ in range(20))
     py5_tools.animated_gif(
         sketch_path() / f'animated2-seed{s}.gif',
-        20, 1, 1, loop=0, optimize=True)
+        25, 0.25, 0.25, loop=0, optimize=True)
 
 def draw():
     background(200)
@@ -44,11 +44,11 @@ def draw():
         xb, yb, c, gen = v
         if visible(xa, ya) and visible(xb, yb):
             stroke((
-                color(128, 0, 0),
-                color(0, 128, 0),
-                color(0, 0, 128)
+                color(128, 0, 64),
+                color(64, 128, 0),
+                color(0, 64, 128)
                 )[c % 3])
-            circle(xa * step, ya * step, sqrt(gen))
+            circle(xa * step, ya * step, sqrt(step / 2 * gen))
             line(xa * step, ya * step, xb * step, yb * step)
     unvisited_nodes[:] = grow()
 
