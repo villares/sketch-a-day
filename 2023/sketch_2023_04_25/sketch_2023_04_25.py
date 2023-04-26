@@ -12,6 +12,7 @@ NBS = (
 )
 nbs = []
 ox = oy = 0
+
 def setup():
     global w, h
     size(800, 800)
