@@ -15,12 +15,15 @@
 # [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
 # [ ] use CL arguments to commit and push README.md
+# [ ] Protect against missing svglib & cairo lab? #*!todo 
 
 import sys
-
 from pathlib import Path
+from io import BytesIO
 from os import listdir
 from itertools import takewhile
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPM  #*!todo
 
 from helpers import get_image_names, image_as_png_bytes
 
@@ -56,7 +59,7 @@ tools = {
 
 
 if year_path.is_dir():
-    sketch_folders = listdir(year_path)
+    sketch_folders = [folder.name for folder in year_path.iterdir()]
 else:
     sketch_folders = []  # for the benefit of next_day.py
     print(f"{__file__}: Couldn't find the sketch-a-day year folder!")
@@ -111,7 +114,16 @@ def main(args):
         readme.write(content)
 
 def ask_tool_comment(folder, img):
-    png_bytes, metadata = image_as_png_bytes(year_path / folder / img, (600, 600)) #, resize=new_size)
+    image_path = year_path / folder / img
+    if img.lower().endswith('svg'):  #*!todo
+        drawing = svg2rlg(image_path)
+        cur_width, cur_height = drawing.width, drawing.height
+        dpi = min(600 / cur_height * 72, 600 / cur_width * 72)
+        io_bytes = BytesIO()
+        renderPM.drawToFile(drawing, io_bytes, fmt="PNG", dpi=dpi)
+        png_bytes = io_bytes.getvalue()
+    else:
+        png_bytes, metadata = image_as_png_bytes(image_path, (600, 600)) #, resize=new_size)
     window = sg.Window(f'{img}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
         [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', s=(40,22), k='-TOOL-')],
@@ -168,7 +180,6 @@ def search_docstring(folder):
     """
     Not implemented yet.
     """
-    # print(listdir(folder))
     return None
 
 
