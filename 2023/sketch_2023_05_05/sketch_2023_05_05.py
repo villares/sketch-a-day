@@ -1,6 +1,7 @@
 """
 Inspired by 'follow 3' code from Keith Peters in the Processing examples
-you will need http://py5.pixora.io's sketch runner for imported mode
+you will need to install py5 http://py5coding.org and use the sketch runner
+for this is the "imported mode" style.
 """
 
 def setup():
