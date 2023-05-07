@@ -21,7 +21,7 @@ def draw():
     if not is_mouse_pressed:
         first_seg.drag((mouse_x, mouse_y))
     if is_key_pressed and key == ' ':
-        Segment.shake()
+        Segment.shake_all()
     Segment.update_all()
 
 
@@ -50,6 +50,10 @@ class Segment:
             ye = ys - sin(angle) * self.length
             self.end = xe, ye
         
+    def shake(self):
+        x, y = self.end
+        self.end = x + random(-3, 3), y + random(-3, 3)
+        
     def draw(self):
         line(*self.start, *self.end)
         
@@ -61,10 +65,9 @@ class Segment:
             s.draw()
 
     @classmethod
-    def shake(cls):
+    def shake_all(cls):
         for i, s in enumerate(cls.segments):
-            x, y = s.end
-            s.end = x + random(-3, 3), y + random(-3, 3)
+            s.shake()
 
 def mouse_wheel(e):
     for s in Segment.segments:
