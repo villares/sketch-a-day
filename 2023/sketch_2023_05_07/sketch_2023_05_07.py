@@ -22,7 +22,7 @@ def draw():
     Segment.update_all()
 
 def mouse_dragged():
-    first_seg.drag(lerp_tuple(first_seg.start, (mouse_x, mouse_y), 0.5))
+    first_seg.drag(lerp_tuple(first_seg.start, (mouse_x, mouse_y), 0.25))
 
 def mouse_wheel(e):
     for s in Segment.segments:
@@ -88,7 +88,6 @@ class Segment:
             link_obj, amt = self.link
             pa, pb = link_obj.points_at_distance(link_obj.length)
             cp = self.closer(self.end, pa, pb)
-#            self.end = lerp_tuple(self.end, cp, 0.5)
             self.end = lerp_tuple(self.end, cp, 0.25)
 
     @staticmethod
