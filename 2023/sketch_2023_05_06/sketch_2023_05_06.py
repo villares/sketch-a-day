@@ -4,38 +4,26 @@ you will need to install py5 http://py5coding.org and use the sketch runner
 for this is the "imported mode" style.
 """
 
-dragged = None
-
 def setup():
     global first_seg
     size(500, 500)
     stroke_weight(9)
     color_mode(HSB)
     first_seg = seg = Segment(first=True)
-    for _ in range(10):
-        seg2 = Segment(link=(seg, 0.33))
-        seg = Segment(link=(seg, 0.66))
-
+    for i in range(100):
+        anchor_seg = random_choice(Segment.segments[i // 4:])
+        new_seg = Segment(link=(anchor_seg, 0.5))
+        new_seg.length = anchor_seg.length * 0.90
+        
+        
 def draw():
-    background(240)
-    #first_seg.drag((mouse_x, mouse_y))
+    background(200)
+    if not is_mouse_pressed:
+        first_seg.drag((mouse_x, mouse_y))
     if is_key_pressed and key == ' ':
         Segment.shake()
     Segment.update_all()
 
-def mouse_pressed():
-    global dragged
-    dragged = random_choice(Segment.segments)
-    
-def mouse_dragged():
-    if dragged and is_key_pressed:  # edge case I suppose...
-        dragged.drag((mouse_x, mouse_y))
-    else:   
-        first_seg.drag((mouse_x, mouse_y))
-        
-def mouse_released():
-    global dragged
-    dragged = None
 
 class Segment:
     
@@ -45,7 +33,7 @@ class Segment:
         self.start = start if start else (0, 0)
         self.end = end if end else (0, 0)
         self.link = link
-        self.length = 40
+        self.length = 60
         self.segments.append(self)
         self.first = first
             
@@ -69,7 +57,7 @@ class Segment:
     def update_all(cls):
         for i, s in enumerate(cls.segments):
             s.drag()
-            stroke((i * 10) % 255, 200, 100, 150)
+            stroke((i * 10) % 255, 200, 200, 150)
             s.draw()
 
     @classmethod
@@ -80,4 +68,4 @@ class Segment:
 
 def mouse_wheel(e):
     for s in Segment.segments:
-        s.length += e.get_count() * 5
+        s.length *= (1 + 0.05 * e.get_count())
