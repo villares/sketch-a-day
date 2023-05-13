@@ -1,3 +1,8 @@
+"""
+Code using https://py5coding.org "imported mode" style, learn more
+at https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
+"""
+
 tam = 20
 
 def setup():
