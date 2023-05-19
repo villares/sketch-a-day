@@ -5,7 +5,7 @@ for this is the "imported mode" style.
 """
 
 anchor_pos = 1
-adjust_pos = 1.3333
+adjust_pos = 4 / 3
 num_segs = 100
 initial_size = 30
 
