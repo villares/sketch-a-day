@@ -1,3 +1,7 @@
+"""
+Minimal "sand" simulator - using py5 (py5coding.org) and numpy
+"""
+
 import numpy as np
 import py5
 
@@ -25,14 +29,6 @@ def draw():
 def update_grid():
     # flow water 0
     shake_water()
-    # vertical fall
-#     rows, next_rows = grid[:-1], grid[1:]
-#     next_rows_empty = next_rows == VOID
-#     for material in (SAND, WATER):
-#         positions = rows == material
-#         falling_positions = positions & next_rows_empty
-#         rows[falling_positions] = VOID
-#         next_rows[falling_positions] = material
     # generalized vertical fall - heavier sinks Rock > Sand > Water > Air-Void
     rows, next_rows = grid[:-1], grid[1:]
     smaller_down = (next_rows < rows) & (rows != CONCRETE)  # Concrete is heavier still
