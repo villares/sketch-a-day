@@ -16,13 +16,13 @@ def setup():
     mp = MultiPolygon([path.buffer(10) for path in paths])
     union = shapely.unary_union(mp.geoms[:15])
     
-def draw():
+#def draw():
     background(200)
     fill(255, 100)
     draw_shapely(mp)
     fill(0, 200, 0, 200)
     draw_shapely(union)
-    
+    save('out.png')
 
 def draw_shapely(shp):
     if isinstance(shp, (MultiPolygon, MultiLineString)):
@@ -34,12 +34,8 @@ def draw_shapely(shp):
             vertex(x, y)
         for hole in shp.interiors:
             begin_contour()
-            try:
-                for x, y in shp.coords:
-                    vertex(x, y)
-            except NotImplementedError:
-                for x, y in shp.exterior.coords:
-                    vertex(x, y)
+            for x, y in hole.coords:
+                vertex(x, y)
             end_contour()
         end_shape(CLOSE)
     elif isinstance(shp, LineString):
