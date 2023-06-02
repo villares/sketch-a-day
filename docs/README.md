@@ -35,6 +35,44 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_05_30
+
+![sketch_2023_05_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_30/sketch_2023_05_30.png)
+
+[sketch_2023_05_30](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_30) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_29
+
+![sketch_2023_05_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_29/sketch_2023_05_29.png)
+
+[sketch_2023_05_29](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_29) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_28
+
+![sketch_2023_05_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_28/sketch_2023_05_28.png)
+
+[sketch_2023_05_28](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_28) [[py5](https://py5coding.org/)]
+
+Based on https://botsin.space/@bitartbot/110448213578682186]]
+
+```
+def func(x, y):
+    try:
+        return (~(int((x & y) / (x ^ 8)) | ((y * 10) % (~x)))) % 3 > 0
+    except ZeroDivisionError:
+        return 0
+```
+
+---
+
 ### sketch_2023_05_27
 
 ![sketch_2023_05_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_27/sketch_2023_05_27.png)
