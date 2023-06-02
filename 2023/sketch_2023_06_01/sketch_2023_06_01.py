@@ -98,16 +98,16 @@ def draw_shapely(shp):
     from shapely import Point, MultiPoint
     from py5 import begin_shape, vertex, begin_contour, end_shape
     from py5 import push_style, no_fill, point
-    if isinstance(shp, (MultiPolygon, MultiLineString, MultiPoint)):
+    if isinstance(shp, MultiPolygon):
         for p in shp.geoms:
-            draw_shapely(p)
+            draw_shp(p)
     elif isinstance(shp, Polygon):
         begin_shape()
         for x, y in shp.exterior.coords:
             vertex(x, y)
         for hole in shp.interiors:
             begin_contour()
-            for x, y in shp.coords:
+            for x, y in hole.coords:
                 vertex(x, y)
             end_contour()
         end_shape(CLOSE)
@@ -118,7 +118,5 @@ def draw_shapely(shp):
             for x, y in shp.coords:
                 vertex(x, y)
             end_shape()
-    elif isinstance(shp, Point):
-        point(*shp.coords[0])
     else:
         print(f"Unable to draw: {shp}")
