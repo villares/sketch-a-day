@@ -50,11 +50,11 @@ def calc_offset(path, offset, inside=False):
     #draw_seg(first_offset)
     new_path = [first_point, first_offset[0]]
     for p in path[2:]:
-        stroke(120, 120, 200)
+        #stroke(120, 120, 200)
         #draw_seg(first_offset)
         second_seg = (first_seg[1], p)
         second_offset = seg_offset(second_seg, offset)
-        stroke(120, 200, 200)
+        #stroke(120, 200, 200)
         #draw_seg(second_offset)
         half_angle = (seg_angle(first_seg) +
                       seg_angle(second_seg)) / 2 - HALF_PI
@@ -71,11 +71,9 @@ def calc_offset(path, offset, inside=False):
     new_path.append(second_offset[1])  # final offset point
     return new_path
 
-
-def draw_seg(seg):
-    (xa, ya), (xb, yb) = seg
-    line(xa, ya, xb, yb)
-
+# def draw_seg(seg):
+#     (xa, ya), (xb, yb) = seg
+#     line(xa, ya, xb, yb)
 
 def seg_offset(seg, offset):
     angle = seg_angle(seg) + HALF_PI  # angle perpendiculat to seg
@@ -83,10 +81,8 @@ def seg_offset(seg, offset):
         seg[0], offset, angle), point_offset(
         seg[1], offset, angle)
 
-
 def point_offset(p, offset, angle):
     return p[0] + offset * cos(angle), p[1] + offset * sin(angle)
-
 
 def seg_angle(seg):
     (xa, ya), (xb, yb) = seg
@@ -98,9 +94,9 @@ def draw_shapely(shp):
     from shapely import Point, MultiPoint
     from py5 import begin_shape, vertex, begin_contour, end_shape
     from py5 import push_style, no_fill, point
-    if isinstance(shp, MultiPolygon):
+    if isinstance(shp, (MultiPolygon, MultiLineString, MultiPoint)):
         for p in shp.geoms:
-            draw_shp(p)
+            draw_shapely(p)
     elif isinstance(shp, Polygon):
         begin_shape()
         for x, y in shp.exterior.coords:
@@ -118,5 +114,7 @@ def draw_shapely(shp):
             for x, y in shp.coords:
                 vertex(x, y)
             end_shape()
+    elif isinstance(shp, Point):
+        point(*shp.coords[0])
     else:
         print(f"Unable to draw: {shp}")
