@@ -1,8 +1,8 @@
   
 from itertools import product
 from random import sample, seed
-from helpers import line_intersect, is_poly_self_intersecting, union_shapes
-from helpers import draw_poly, draw_polys
+from villares.line_geometry import line_intersect, is_poly_self_intersecting
+from villares.line_geometry import draw_poly
 
 def setup():
     global grid
