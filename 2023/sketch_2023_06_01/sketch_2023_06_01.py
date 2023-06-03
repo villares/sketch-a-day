@@ -1,7 +1,9 @@
 from itertools import product
 from random import sample, seed
-from villares.line_geometry import line_intersect, is_poly_self_intersecting
+
 from shapely import Polygon
+
+from villares.line_geometry import line_intersect, is_poly_self_intersecting
 
 def setup():
     global grid
@@ -89,31 +91,30 @@ def seg_angle(seg):
     return atan2(yb - ya, xb - xa) + PI
 
 def draw_shapely(shp):
+    """Tries to draw a shapely object with py5."""
     from shapely import Polygon, MultiPolygon
     from shapely import LineString, MultiLineString
     from shapely import Point, MultiPoint
-    from py5 import begin_shape, vertex, begin_contour, end_shape
-    from py5 import push_style, no_fill, point
+    from py5 import begin_closed_shape, begin_shape, begin_contour
+    from py5 import  vertex, push_style, no_fill, point
+    
     if isinstance(shp, (MultiPolygon, MultiLineString, MultiPoint)):
         for p in shp.geoms:
             draw_shapely(p)
     elif isinstance(shp, Polygon):
-        begin_shape()
-        for x, y in shp.exterior.coords:
-            vertex(x, y)
-        for hole in shp.interiors:
-            begin_contour()
-            for x, y in hole.coords:
+        with begin_closed_shape():
+            for x, y in shp.exterior.coords:
                 vertex(x, y)
-            end_contour()
-        end_shape(CLOSE)
+            for hole in shp.interiors:
+                with begin_contour():
+                    for x, y in hole.coords:
+                        vertex(x, y)
     elif isinstance(shp, LineString):
         with push_style():
             no_fill()
-            begin_shape()
-            for x, y in shp.coords:
-                vertex(x, y)
-            end_shape()
+            with begin_shape():
+                for x, y in shp.coords:
+                    vertex(x, y)
     elif isinstance(shp, Point):
         point(*shp.coords[0])
     else:
