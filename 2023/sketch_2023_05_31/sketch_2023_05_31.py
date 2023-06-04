@@ -23,7 +23,7 @@ def draw():
     pattern = func(x, y, f)
     py5.set_np_pixels(color_map[pattern], 'RGB')
     py5.window_title(f'{py5.get_frame_rate():.2f}')
-    if f <= 256:
+    if f % 25 == 0 and f <= 256:
         py5.save_frame('###.png', use_thread=True)
     
 @np.vectorize

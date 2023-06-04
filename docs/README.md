@@ -35,6 +35,46 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_06_03
+
+![sketch_2023_06_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_03/sketch_2023_06_03.gif)
+
+[sketch_2023_06_03](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_03) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_02
+
+![sketch_2023_06_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_02/sketch_2023_06_02.gif)
+
+[sketch_2023_06_02](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_02) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_01
+
+![sketch_2023_06_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_01/sketch_2023_06_01.gif)
+
+[sketch_2023_06_01](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_01) [[py5](https://py5coding.org/)]
+
+Back to an earlier idea, but using shapely!
+
+---
+
+### sketch_2023_05_31
+
+![sketch_2023_05_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_31/sketch_2023_05_31.gif)
+
+[sketch_2023_05_31](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_31) [[py5](https://py5coding.org/)]
+
+partial sample of the animation
+
+---
+
 ### sketch_2023_05_30
 
 ![sketch_2023_05_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_30/sketch_2023_05_30.png)
