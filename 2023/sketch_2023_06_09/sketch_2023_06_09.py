@@ -70,7 +70,7 @@ class Rect:
         self.h = h
         self.c = c
 
-def merge_rects():
+def merge_rects(color_sensitive=True):
     
     def y_x(r):
         return r.y, r.x
@@ -78,7 +78,10 @@ def merge_rects():
     rects.sort(key=y_x)
     for i, r in enumerate(rects[:-1]):
         nr = rects[i + 1] # next rect
-        if r.y == nr.y and r.h == nr.h and r.x + r.w == nr.x:
+        aligned = r.y == nr.y and r.h == nr.h
+        adjacent = r.x + r.w == nr.x
+        color_match = not color_sensitive or r.c == nr.c        
+        if aligned and adjacent and color_match:
             nr.x = r.x
             nr.w += r.w
             r.w = 0  # r will be removnred by clean_rects()
