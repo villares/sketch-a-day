@@ -63,7 +63,6 @@ def merge_rects():
         return r.y, r.x
     
     rects.sort(key=y_x)
-    
     for i, r in enumerate(rects[:-1]):
         nr = rects[i + 1] # next rect
         if r.y == nr.y and r.h == nr.h and r.x + r.w == nr.x:
@@ -180,91 +179,6 @@ def split_rects(rects: list[Rect], knife: Rect) -> list[Rect]:
 
     clean_rects() # Filter out 0 area rects
     return s_rects
-
-
-def clip_rects(rects: list[Rect], knife: Rect) -> None:
-    """
-    Clipping function that will remove the knife area from the provided Rects,
-    creating, resizing or removing axis aligned Rects (mutates the input).
-    """
-    knife_r = knife.x + knife.w  # knife's right edge x
-    knife_b = knife.y + knife.h  # knife's bottom edge y
-
-    for r in rects[:]:  # iterating over a copy of rects
-        r_r = r.x + r.w  # rect's right edge x
-        r_b = r.y + r.h  # rect's bottom edge y
-
-        if (knife.x >= r_r or
-            knife.y >= r_b or
-            knife_r <= r.x or
-            knife_b <= r.y):
-            continue  # not intersecting with knife
-
-        top_in = knife.y > r.y and knife.y < r_b
-        bot_in = knife_b > r.y and knife_b < r_b
-        lef_in = knife.x > r.x and knife.x < r_r
-        rig_in = knife_r > r.x and knife_r < r_r
-
-        total = top_in + bot_in + lef_in + rig_in
-
-        if total == 0:  # FULL CLIP
-            r.w = 0   # marks for removal in the end
-
-        elif total == 1:  # RESIZE
-            if top_in:
-                r.h = knife.y - r.y
-            elif bot_in:
-                r.y, r.h = knife_b, r_b - knife_b
-            elif lef_in:
-                r.w = knife.x - r.x
-            elif rig_in:
-                r.x, r.w = knife_r, r_r - knife_r
-
-        elif total == 2: # CORNERS AND SLICE THROUGH
-            if rig_in and bot_in:  # top left corner clipped
-                rects.append(Rect(r.x, knife_b, knife_r - r.x, r_b - knife_b))
-                r.x, r.w = knife_r, r_r - knife_r
-            elif lef_in and bot_in:  # top right corner clipped
-                rects.append(Rect(knife.x, knife_b, r_r - knife.x, r_b - knife_b))
-                r.w = knife.x - r.x
-            elif lef_in and top_in:  # bottom right corner clipped
-                rects.append(Rect(knife.x, r.y, r_r - knife.x, knife.y - r.y))
-                r.w = knife.x - r.x
-            elif rig_in and top_in:  # bottom left corner clipped
-                rects.append(Rect(r.x, r.y, knife_r - r.x, knife.y - r.y))
-                r.x, r.w = knife_r, r_r - knife_r
-            elif lef_in and rig_in:  # vertical slice
-                rects.append(Rect(knife_r, r.y, r_r - knife_r, r.h))
-                r.w = knife.x - r.x
-            elif top_in and bot_in:  # horizontal slice
-                rects.append(Rect(r.x, knife_b, r.w, r_b - knife_b))
-                r.h = knife.y - r.y
-
-        elif total == 3:  # BITES
-            if rig_in and bot_in and top_in:  # Left bite
-                rects.append(Rect(r.x, r.y, knife_r - r.x, knife.y - r.y))
-                rects.append(Rect(r.x, knife_b, knife_r - r.x, r_b - knife_b))
-                r.x, r.w = knife_r, r_r - knife_r
-            elif lef_in and bot_in and rig_in:  # top bite
-                rects.append(Rect(knife.x, knife_b,  knife.w, r_b - knife_b))
-                rects.append(Rect(knife_r, r.y, r_r - knife_r, r.h))
-                r.w = knife.x - r.x
-            elif lef_in and top_in and bot_in:  # right bite
-                rects.append(Rect(knife.x, r.y, r_r - knife.x, knife.y - r.y))
-                rects.append(Rect(knife.x, knife_b, r_r - knife.x, r_b - knife_b))
-                r.w = knife.x - r.x
-            elif rig_in and top_in and lef_in:  # bottom bite
-                rects.append(Rect(knife.x, r.y, knife.w, knife.y - r.y))
-                rects.append(Rect(knife_r, r.y, r_r - knife_r, r.h))
-                r.w = knife.x - r.x
-
-        elif total == 4: # HOLE
-            rects.append(Rect(knife.x, r.y, knife.w, knife.y - r.y))
-            rects.append(Rect(knife.x, knife_b,  knife.w, r_b - knife_b))
-            rects.append(Rect(knife_r, r.y, r_r - knife_r, r.h))
-            r.w = knife.x - r.x
-            
-    clean_rects() # Filter out 0 area rects
 
 def clean_rects():
     rects[:] = [r for r in rects if r.w * r.h != 0]
