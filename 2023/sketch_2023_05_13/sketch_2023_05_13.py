@@ -18,8 +18,7 @@ def draw():
             x = tam / 2 + c * tam 
             w = tam * 0.9
             hw = w / 2
-            d = dist(x, y, mouse_x, mouse_y)
-            x_down = x + (12 * (c + r + d)) % w - hw
+            x_down = x + (12 * (c + r)) % w - hw
             triangle(x - hw, y - hw,
                      x + hw, y - hw,
                      x_down, y + hw)
