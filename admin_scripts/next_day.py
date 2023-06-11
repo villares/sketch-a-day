@@ -1,4 +1,5 @@
-#!/bin/python3.10
+#!/bin/python
+
 import os
 import re
 import sys

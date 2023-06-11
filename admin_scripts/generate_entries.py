@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! /usr/bin/python
 
 # reads folder
 # finds missing folders from last_done
