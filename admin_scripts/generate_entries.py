@@ -126,8 +126,8 @@ def ask_tool_comment(folder, img):
         png_bytes, metadata = image_as_png_bytes(image_path, (600, 600)) #, resize=new_size)
     window = sg.Window(f'{img}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
-        [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', s=(40,22), k='-TOOL-')],
-        [sg.T('Comment'), sg.Multiline(key='-COMMENT-', s=(40,4))],
+        [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', size=(40,22), key='-TOOL-')],
+        [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
         [sg.B('OK'), sg.B('Cancel')]
         ],font='Fixedsys')
 #    window['-IMAGE-'].update(data=png_bytes)

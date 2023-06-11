@@ -35,6 +35,304 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_06_10
+
+![sketch_2023_06_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_10/sketch_2023_06_10.gif)
+
+[sketch_2023_06_10](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_10) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_09
+
+![sketch_2023_06_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_09/sketch_2023_06_09.png)
+
+[sketch_2023_06_09](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_09) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_08
+
+![sketch_2023_06_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_08/sketch_2023_06_08.png)
+
+[sketch_2023_06_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_08) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_07
+
+![sketch_2023_06_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_07/sketch_2023_06_07.png)
+
+[sketch_2023_06_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_07) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_06
+
+![sketch_2023_06_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_06/sketch_2023_06_06.gif)
+
+[sketch_2023_06_06](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_06) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_05
+
+![sketch_2023_06_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_05/sketch_2023_06_05.png)
+
+[sketch_2023_06_05](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_05) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_04
+
+![sketch_2023_06_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_04/sketch_2023_06_04.gif)
+
+[sketch_2023_06_04](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_04) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_03
+
+![sketch_2023_06_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_03/sketch_2023_06_03.gif)
+
+[sketch_2023_06_03](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_03) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_02
+
+![sketch_2023_06_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_02/sketch_2023_06_02.gif)
+
+[sketch_2023_06_02](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_02) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_06_01
+
+![sketch_2023_06_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_01/sketch_2023_06_01.gif)
+
+[sketch_2023_06_01](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_01) [[py5](https://py5coding.org/)]
+
+Back to an earlier idea, but using shapely!
+
+---
+
+### sketch_2023_05_31
+
+![sketch_2023_05_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_31/sketch_2023_05_31.gif)
+
+[sketch_2023_05_31](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_31) [[py5](https://py5coding.org/)]
+
+partial sample of the animation
+
+---
+
+### sketch_2023_05_30
+
+![sketch_2023_05_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_30/sketch_2023_05_30.png)
+
+[sketch_2023_05_30](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_30) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_29
+
+![sketch_2023_05_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_29/sketch_2023_05_29.png)
+
+[sketch_2023_05_29](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_29) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_28
+
+![sketch_2023_05_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_28/sketch_2023_05_28.png)
+
+[sketch_2023_05_28](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_28) [[py5](https://py5coding.org/)]
+
+Based on https://botsin.space/@bitartbot/110448213578682186]]
+
+```
+def func(x, y):
+    try:
+        return (~(int((x & y) / (x ^ 8)) | ((y * 10) % (~x)))) % 3 > 0
+    except ZeroDivisionError:
+        return 0
+```
+
+---
+
+### sketch_2023_05_27
+
+![sketch_2023_05_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_27/sketch_2023_05_27.png)
+
+[sketch_2023_05_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_27) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_26
+
+![sketch_2023_05_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_26/sketch_2023_05_26.png)
+
+[sketch_2023_05_26](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_26) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_25
+
+![sketch_2023_05_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_25/sketch_2023_05_25.png)
+
+[sketch_2023_05_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_25) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_24
+
+![sketch_2023_05_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_24/sketch_2023_05_24.png)
+
+[sketch_2023_05_24](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_24) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_23
+
+![sketch_2023_05_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_23/sketch_2023_05_23.png)
+
+[sketch_2023_05_23](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_23) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_22
+
+![sketch_2023_05_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_22/sketch_2023_05_22.png)
+
+[sketch_2023_05_22](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_22) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_21
+
+![sketch_2023_05_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_21/sketch_2023_05_21.png)
+
+[sketch_2023_05_21](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_21) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_20
+
+![sketch_2023_05_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_20/sketch_2023_05_20.gif)
+
+[sketch_2023_05_20](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_20) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_19
+
+![sketch_2023_05_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_19/sketch_2023_05_19.png)
+
+[sketch_2023_05_19](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_19) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_18
+
+![sketch_2023_05_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_18/sketch_2023_05_18.png)
+
+[sketch_2023_05_18](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_18) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_17
+
+![sketch_2023_05_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_17/sketch_2023_05_17.gif)
+
+[sketch_2023_05_17](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_17) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_16
+
+![sketch_2023_05_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_16/sketch_2023_05_16.gif)
+
+[sketch_2023_05_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_16) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_15
+
+![sketch_2023_05_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_15/sketch_2023_05_15.png)
+
+[sketch_2023_05_15](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_15) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_14
+
+![sketch_2023_05_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_14/sketch_2023_05_14.png)
+
+[sketch_2023_05_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_14) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_05_13
+
+![sketch_2023_05_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_13/sketch_2023_05_13.png)
+
+[sketch_2023_05_13](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_05_13) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_05_12
 
 ![sketch_2023_05_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_05_12/sketch_2023_05_12.gif)
