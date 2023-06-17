@@ -1,5 +1,5 @@
 """
-Draw interrupted stecil-ready lines with py5.
+Draw interrupted stencil-ready lines with py5.
 
 Left-click to add vertex.
 Right-click to stop polyline.
