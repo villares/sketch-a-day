@@ -35,6 +35,23 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_06_16
+
+![sketch_2023_06_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_16/sketch_2023_06_16.png)
+
+[sketch_2023_06_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_06_16) [[py5](https://py5coding.org/)]
+
+Draw interrupted stencil-ready lines with py5.
+
+Left-click to add vertex.
+Right-click to stop polyline.
+Backspace to remove last vertex.
+'e' to erase everything.
+'s' to save SVG.
+Mouse wheel to change line thickness.
+
+---
+
 ### sketch_2023_06_15
 
 ![sketch_2023_06_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_06_15/sketch_2023_06_15.png)
