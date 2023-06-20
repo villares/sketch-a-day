@@ -21,9 +21,8 @@ def draw():
     cs = (combos + combos)[i:i+10]
     for z, positions in zip(range(-100, 101, 20), cs):
         py5.fill((255 + z + i * 20) % 255, 200, 200)
-        pos_plus_z = map(lambda p: p+(z,), positions)
-        for pos in pos_plus_z:
-            element(pos)
+        for pos in positions:
+            element(pos + (z,))
 
 def element(pos):
     x, y, z = pos
