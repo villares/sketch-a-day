@@ -19,7 +19,7 @@ def make_circle():
     c.clear()  # transparent background NOW THIS IS NECESSARY!
     c.stroke_weight(10)
     c.stroke(0, 100, 0)
-    c.fill(0, 0, 100)
+    c.fill(0, 0, 100, 50) # check ou this translucent fill!
     for shrink in range(10):
         c.circle(c.width / 2, c.height / 2, c.width * (0.75 - shrink / 12))
     c.end_draw()
