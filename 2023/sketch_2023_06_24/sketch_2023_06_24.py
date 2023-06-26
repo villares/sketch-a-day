@@ -16,7 +16,7 @@ def make_circle():
     # circle
     c = py5.create_graphics(py5.width, py5.height)
     c.begin_draw()
-    c.clear()  # transparent background NOW THIS IS NECESSARY!
+    #c.clear()  # Still not necessary :O
     c.stroke_weight(10)
     c.stroke(0, 100, 0)
     c.fill(0, 0, 100, 50) # check ou this translucent fill!
@@ -26,9 +26,8 @@ def make_circle():
     # mask with stripes
     m = py5.create_graphics(py5.width, py5.height)
     m.begin_draw()
-#     m.fill(255) # visible circle
-#     m.circle(c.width / 2, c.height / 2, c.width * 0.75)
-    m.fill(0)  # transparent stripes
+    # I think I got this all wrong!
+    m.fill(0)  # the visible parts as stripes 
     for x in range(0, m.width, 150):
         m.rect(x, 0, 50, m.height)
     m.end_draw()
