@@ -47,5 +47,8 @@ def draw():
      py5.image(striped_circle, 0, 0)
      py5.rotate(-2 * py5.radians(py5.frame_count))
      py5.image(striped_circle, 0, 0)
+     f = py5.frame_count
+     if f < 361 and f % 2 == 0:
+         py5.save_frame('###.png')
 
 py5.run_sketch()
