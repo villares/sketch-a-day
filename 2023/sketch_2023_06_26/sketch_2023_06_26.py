@@ -21,7 +21,7 @@ def draw():
         b := [random(1) * random(1) for _ in range(100)],
         sorted(b),
         c := [random(1) ** 2 for _ in range(100)],
-        sorted(b)
+        sorted(c)
     )
     
     py5.stroke(200, 0, 0)
