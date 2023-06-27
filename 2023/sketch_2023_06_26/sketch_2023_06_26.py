@@ -1,70 +1,48 @@
-"""
-Code for py5 (py5coding.org)
-"""
-
-from random import choice, sample, seed
 import py5
+from py5 import random, random_seed
 
 s = 1
 
-colors = (
-    py5.color(0),
-    py5.color(150,0, 0),
-    py5.color(255)
-    )
-
 def setup():
-    py5.size(600, 600)
+    py5.size(1000, 1000)
+    py5.fill(0)
+    py5.text_font(py5.create_font('Consolas Bold', 20))
     
 def draw():
-    seed(s)
-    sf = 5
-    py5.scale(1 / sf)
-    x = y = 0
-    for _ in range(25):
-        colors3 = sample(colors, 3)
-        n = choice((3, 4, 5, 6, 7))
-        rai, rbi = sample((75, 150, 300), 2)
-        raf, rbf = sample((75, 150, 300), 2)
-        ra = py5.lerp(rai, raf, py5.mouse_x / py5.width)
-        rb = py5.lerp(rbi, rbf, py5.mouse_y / py5.height)
-        draw_combo(x, y, n, colors3, ra, rb)
-        x += py5.width
-        if x >= py5.height * sf:
-            x = 0
-            y += py5.height
-
-
-def draw_combo(x, y, n, colors3, ra, rb):
-    a, b, c = colors3
-    with py5.push_matrix():
-        if rb < ra:
-            ra, rb = rb, ra
-        py5.translate(x, y)
-        py5.fill(a)
-        py5.rect(0, 0, 600, 600)
-        py5.no_stroke()
-        py5.fill(b)
-        star(py5.width / 2, py5.height / 2, ra, rb, n * choice((1, 2)))
-        py5.fill(c)
-        star(py5.width / 2, py5.height / 2, rb, ra, n := n * choice((1, 2)),
-             py5.PI / n * choice((0, 1)))
-
-
-def star(x, y, radius_a, radius_b, n_points, rot=0):
-    step = py5.TWO_PI / n_points
-    py5.begin_shape()
-    for i in range(n_points + 1):
-        ang = i * step + rot
-        sx = py5.cos(ang) * radius_a
-        sy = py5.sin(ang) * radius_a
-        cx = py5.cos(ang + step / 2.) * radius_b
-        cy = py5.sin(ang + step / 2.) * radius_b
-        if i == 0:
-            py5.vertex(x + cx, y + cy)
+    py5.background(240)
+    py5.text('random(1)                 '
+             'random(1) * random(1)    '
+             'random(1) ** 2',
+         100, 50)
+    random_seed(s)
+    rs =(
+        a := [random(1) for _ in range(100)],
+        sorted(a),
+        b := [random(1) * random(1) for _ in range(100)],
+        sorted(b),
+        c := [random(1) ** 2 for _ in range(100)],
+        sorted(b)
+    )
+    
+    py5.stroke(200, 0, 0)
+    for j in range(21):
+        for k in range(3):
+            py5.line(100 + k * 283.4, 100 + 40 * j, 333.4 + k * 283.4, 100 + 40 * j)   
+    py5.stroke(0)
+    x = 100
+    for i, r in enumerate(rs):
+        bucket = {i: 0 for i in range(10)}
+        for n in r:
+            y = n * 400
+            bucket[int(n * 10)] += 1
+            py5.line(x, 500, x, 500 - y)
+            x += 1
+        if i % 2 == 0:
+            for b in range(10):
+                py5.rect(x - 100, (9 - b) * 40 + 510, bucket[b] * 5, 30)
+            x += 33.4
         else:
-            py5.quadratic_vertex(x + sx, y + sy, x + cx, y + cy)
-    py5.end_shape()
+            x += 50
 
 def key_pressed():
     global s
