@@ -1,3 +1,6 @@
+# Problematic - this is not a good strategy to find solutions
+# it will stall on certain seeds.
+
 from itertools import product
 
 import py5
