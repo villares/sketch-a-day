@@ -6,17 +6,16 @@ rx = ry = tx = ty = ntx = nty = 0.02
 t = 1
 
 def setup():
-    global boxes
+    global boxes, angles
     py5.size(600, 600, py5.P3D)
     boxes = SGenerator(0, make_boxes)
-    
+    angles = SGenerator(0, get_angles)
+
+
 def draw():
-    global t, tx, ty
     py5.background(0)
-    #py5.ortho()
-    
-    rx = py5.lerp(tx, ntx, t)    
-    ry = py5.lerp(ty, nty, t)    
+    #py5.ortho()   
+    rx, ry = angles()    
     
     py5.translate(py5.width / 2, py5.height / 2, -py5.height / 2)
     py5.rotate_y(ry)
@@ -47,6 +46,14 @@ def make_boxes(s):
     return [(150 + py5.random_int(6) * 50, x, y) for i, (x, y)
                  in enumerate(product(range(150, 451, 50), repeat=2))]
 
+def get_angles(s):
+    angles_dict = {
+        '1': (py5.HALF_PI + 0.3, py5.HALF_PI + 0.3),
+        '2': (py5.PI, 0),
+        }
+    return angles_dict.get(s, (0, 0))
+
+
 class SGenerator:
     generators = []
     
@@ -74,25 +81,11 @@ class SGenerator:
         for g in cls.generators:
             g.t = py5.lerp(g.t, 1, 0.1)
 
-
 def key_pressed():
-    global s, ns, tx, ty, ntx, nty, t
-    t = 0
     if py5.key == 's':
-       # py5.save_frame(f'{s}.png')
-        s = ns
-        ns += 1
-        tx, ty = ntx, nty
-    elif py5.key == '1':
-        tx, ty = ntx, nty
-        ntx =  nty = py5.HALF_PI + 0.3
-        
-    elif py5.key == '2':
-        tx, ty = ntx, nty
-        ntx = nty = 0
-    elif py5.key == '3':
-        tx, ty = ntx, nty
-        nty, ntx = py5.PI, 0
+       py5.save_frame(f'{py5.frame_count}.png')
+    elif str(py5.key) in '0123':
+        angles.update_s(py5.key)
 
 py5.run_sketch()
 
