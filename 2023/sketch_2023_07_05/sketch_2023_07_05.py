@@ -20,7 +20,7 @@ def draw():
     for b in boxes():
         xyzbox(*b)
     ms = py5.mouse_x // 20
-    LState.update(boxes=ms)  # updates "global t" and boxes.update(ms)
+    LState.update((boxes, ms))  # updates "global t" and boxes.update(ms)
         
 def xyzbox(x, y, z, w=50):
     with py5.push_matrix():
@@ -66,9 +66,11 @@ class LState:
             self.t = 0
        
     @classmethod
-    def update(cls, **kwargs):
+    def update(cls, *args, **kwargs):
         for g in cls.ls_objects.values():
             g.t = py5.lerp(g.t, 1, 0.1)
+        for obj, v in args:
+            obj.update_s(v)
         for k, v in kwargs.items():
             cls.ls_objects[k].update_s(v)
 
