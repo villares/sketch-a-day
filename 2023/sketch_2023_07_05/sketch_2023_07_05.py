@@ -1,16 +1,11 @@
 from itertools import product
 import py5
 
-s = ns = 0 # random seed
-rx = ry = tx = ty = ntx = nty = 0.02
-t = 1
-
 def setup():
     global boxes, angles
     py5.size(600, 600, py5.P3D)
-    boxes = SGenerator(0, make_boxes)
-    angles = SGenerator(0, get_angles)
-
+    boxes = LState(make_boxes, 'boxes')
+    angles = LState(get_angles)
 
 def draw():
     py5.background(0)
@@ -24,10 +19,8 @@ def draw():
     
     for b in boxes():
         xyzbox(*b)
-
-    SGenerator.update_t()
     ms = py5.mouse_x // 20
-    boxes.update_s(ms)
+    LState.update(boxes=ms)  # updates "global t" and boxes.update(ms)
         
 def xyzbox(x, y, z, w=50):
     with py5.push_matrix():
@@ -35,11 +28,6 @@ def xyzbox(x, y, z, w=50):
         py5.fill(x / 2 - 50, y / 2 - 50, z / 2 - 50)
         py5.translate(x , y, z)
         py5.box(w)
-
-def lerp_tuple(a, b, t):   
-    return tuple(lerp_tuple(ca, cb, t) if isinstance(ca, tuple)
-                 else py5.lerp(ca, cb, t)             
-                 for ca, cb in zip(a, b))
     
 def make_boxes(s):
     py5.random_seed(s)
@@ -53,15 +41,16 @@ def get_angles(s):
         }
     return angles_dict.get(s, (0, 0))
 
-
-class SGenerator:
-    generators = []
+class LState:
+    """Lerpable State Objects"""
+    ls_objects = {}
     
-    def __init__(self, first_seed, func):
+    def __init__(self, func, name=None, first_seed=0):
         self.func = func
+        self.name = name or len(self.ls_objects)
         self.s = self.ns = first_seed
         self.t = 0        
-        SGenerator.generators.append(self)
+        self.ls_objects[self.name] = self
 
     def __call__(self):
         rb = self.func(self.ns)
@@ -77,9 +66,17 @@ class SGenerator:
             self.t = 0
        
     @classmethod
-    def update_t(cls):
-        for g in cls.generators:
+    def update(cls, **kwargs):
+        for g in cls.ls_objects.values():
             g.t = py5.lerp(g.t, 1, 0.1)
+        for k, v in kwargs.items():
+            cls.ls_objects[k].update_s(v)
+
+# LState class depends on this
+def lerp_tuple(a, b, t):   
+    return tuple(lerp_tuple(ca, cb, t) if isinstance(ca, tuple)
+             else py5.lerp(ca, cb, t)             
+             for ca, cb in zip(a, b))
 
 def key_pressed():
     if py5.key == 's':
