@@ -9,7 +9,7 @@ def setup():
 
 def draw():
     py5.background(0)
-    #py5.ortho()   
+    py5.ortho()   
     rx, ry = angles()    
     
     py5.translate(py5.width / 2, py5.height / 2, -py5.height / 2)
