@@ -11,7 +11,8 @@ colors = (
     
 def setup():
     global inputs
-    py5.size(1200, 600)
+    #py5.size(1200, 600)
+    py5.full_screen()
     inputs = InputInterface()
 
 def draw():
@@ -84,5 +85,5 @@ def key_released():
     inputs.key_released()
 
 
-py5.run_sketch()
+py5.run_sketch(block=False)
 
