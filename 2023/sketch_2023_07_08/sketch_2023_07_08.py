@@ -26,11 +26,10 @@ def draw():
     colored_status = status.copy()
     colored_status[1::2,::2] *= 2
     colored_status[::2,1::2] *= 2
-    
     board_img = py5.create_image_from_numpy(color_map[colored_status], 'RGB', dst=board_img)
     py5.image(board_img, 0, 0)
-    #count_img = py5.create_image_from_numpy(live_neighbors * 32, 'L', dst=count_img)
-    #py5.image(count_img, 0, 0) 
+    # count_img = py5.create_image_from_numpy(live_neighbors * 32, 'L', dst=count_img)
+    # py5.image(count_img, 0, 0) 
 
 def get_init_status(size, initial_prob_life=0.5):
     status = np.random.uniform(0, 1, size=size) <= initial_prob_life
