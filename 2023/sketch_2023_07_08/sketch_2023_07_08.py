@@ -6,17 +6,28 @@ from scipy.signal import convolve2d
 
 board_img = count_img = None
 
+color_map = np.array([
+    [0, 0, 0],
+    [250, 250, 0],      
+    [0, 0, 250],    
+    ])
+
 def setup():
     global status
     py5.size(1200, 600)
     py5.no_smooth()
-    status = get_init_status((py5.height // 2, py5.width // 2))
+    status = get_init_status((py5.height // 4, py5.width // 4))
+    py5.frame_rate(20)
 
 def draw():
     global status, board_img, count_img
-    py5.scale(2)
+    py5.scale(4)
     status = apply_conways_game_of_life_rules(status)
-    board_img = py5.create_image_from_numpy(status * 255, 'L', dst=board_img)
+    colored_status = status.copy()
+    colored_status[1::2,::2] *= 2
+    colored_status[::2,1::2] *= 2
+    
+    board_img = py5.create_image_from_numpy(color_map[colored_status], 'RGB', dst=board_img)
     py5.image(board_img, 0, 0)
     #count_img = py5.create_image_from_numpy(live_neighbors * 32, 'L', dst=count_img)
     #py5.image(count_img, 0, 0) 
@@ -32,7 +43,7 @@ def apply_conways_game_of_life_rules(status):
     survive_underpopulation = live_neighbors >= 2
     survive_overpopulation = live_neighbors <= 3
     survive = status * survive_underpopulation * survive_overpopulation
-    new_status = np.where(live_neighbors==3, True, survive)  # Born
+    new_status = np.where(live_neighbors==3, 1, survive)  # Born
     return new_status 
 
 def count_live_neighbors(status):
