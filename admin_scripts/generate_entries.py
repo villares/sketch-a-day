@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 # reads folder
 # finds missing folders from last_done
@@ -22,6 +22,7 @@ from pathlib import Path
 from io import BytesIO
 from os import listdir
 from itertools import takewhile
+
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM  #*!todo
 
