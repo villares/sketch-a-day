@@ -85,6 +85,12 @@ class InputInterface:
             if kc == py5.UP:
                 self._sliders_list[4].up = False
 
+    def mouse_wheel(self, e):
+        if self.source is None:
+            for slider in self._sliders_list.values():
+                if slider.mouse_over(e.get_x(), e.get_y()):
+                    slider.rectx += e.get_count()            
+
     def digital_read(self, pin):
         sketch = py5.get_current_sketch()
         k, ikp = sketch.key, sketch.is_key_pressed
@@ -127,6 +133,7 @@ class Slider:
         self.val = default
         self.clicked = False
         self.up, self.down = False, False
+        self.width, self.height = 120, 20
         Slider._sliders_list.append(self)
 
     def position(self, x, y):
@@ -134,7 +141,7 @@ class Slider:
         self.x = x
         self.y = y
         # the position of the rect you slide
-        self.rectx = self.x + py5.remap(self.val, self.low, self.high, 0, 120)
+        self.rectx = self.x + py5.remap(self.val, self.low, self.high, 0, self.width)
         self.recty = self.y - 10
 
     def update(self, display=True):
@@ -156,7 +163,7 @@ class Slider:
             py5.stroke(200)
             py5.line(self.x, self.y, self.x + 120, self.y)
             # press mouse to move slider
-            if (self.x < mx < self.x + 120 and self.y < my < self.y + 20):
+            if self.mouse_over(mx, my):
                 py5.fill(250)
                 py5.text_size(10)
                 py5.text(str(int(self.val)), self.rectx, self.recty + 35)
@@ -173,14 +180,26 @@ class Slider:
         if self.down:
             self.rectx -= Slider.KEYBOARD_STEP
         # constrain rectangle
-        self.rectx = py5.constrain(self.rectx, self.x, self.x + 120)
+        self.rectx = py5.constrain(self.rectx,
+                                   self.x + self.height / 4,
+                                   self.x + self.width - self.height / 4)
         self.val = py5.remap(
             self.rectx,
-            self.x,
-            self.x + 120,
+            self.x + self.height / 4,
+            self.x + self.width - self.height / 4,
             self.low,
-            self.high
-        )
+            self.high)
+
+    def mouse_over(self, mx, my):
+        HW, HH = self.width / 2, self.height / 2 
+        return (self.x < mx < self.x + self.width and
+                self.y - HH / 2 < my < self.y + HH)
+
+    def mouse_wheel(self, e):
+        if self.source is None:
+            for slider in self._sliders_list.values():
+                if slider.mouse_over(e.get_x(), e.get_y()):
+                    slider.rectx += e.get_count()
 
 
 def get_arduino(port=None):
