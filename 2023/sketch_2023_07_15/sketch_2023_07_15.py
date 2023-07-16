@@ -50,3 +50,6 @@ def key_pressed():
 
 def key_released():
     inputs.key_released()
+
+def mouse_wheel(e):
+    inputs.mouse_wheel(e)
