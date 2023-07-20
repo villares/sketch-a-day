@@ -13,7 +13,7 @@ def setup():
 def clip_image(img, mask, x, y, mode=CORNER):
     w, h = mask.width, mask.height
     if mode == CORNER:
-        xs, yx = x, y
+        xs, ys = int(x), int(y)
     else:
         xs, ys = int(x - w / 2), int(y - h / 2)
         
