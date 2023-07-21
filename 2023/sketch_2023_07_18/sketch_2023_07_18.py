@@ -11,7 +11,7 @@ def fill_and_clip(mask: Py5Graphics, img_fill: Py5Image, x, y, mode=CORNER):
     """Mutates mask graphics, filling it with image provided."""
     w, h = mask.width, mask.height
     if mode == CORNER:
-        xs, yx = x, y
+        xs, ys = int(x), int(y)
     else:
         xs, ys = int(x - w / 2), int(y - h / 2)
     img = create_image(w, h, ARGB)
