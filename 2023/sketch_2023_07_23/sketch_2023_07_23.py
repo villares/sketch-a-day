@@ -1,24 +1,28 @@
 import numpy as np
-import cv2
-import matplotlib.pyplot as plt
+from PIL import Image
+import py5
 
 # https://pt.wikipedia.org/wiki/Ficheiro:Mappa_Topographico_do_Municipio_de_S%C3%A3o_Paulo_-_Folha_37,_Acervo_do_Museu_Paulista_da_USP.jpg
 #img_path = '/home/villares/GitHub/sketch-a-day/2023/sketch_2023_07_21/mapa.jpg'
 
-img_path = 'sample.png'
+def setup():
+    global temp_img
+    py5.size(800, 800)
+    img_path = 'sample.png'
+    img = py5.load_image(img_path)
+    temp_img = py5.create_image(img.width, img.height, py5.RGB)
 
-def apply_threshold(img_array, threshold):
-    threshold_applied = []
-    for row in img_array:
-        threshold_applied.append([])
-        for pixel in row:
-            if pixel>threshold:
-                threshold_applied[len(threshold_applied)-1].append([255, 255, 255])
-            else:
-                threshold_applied[len(threshold_applied)-1].append([0, 0, 0])
-    new_img = np.array(threshold_applied, np.uint8)
-    cv2.imwrite(f'{threshold}.png', new_img)
+    for n in range(5, 23):
+        apply_threshold(img, n * 10)
 
-img = cv2.imread(img_path, 0)
-for n in range(5, 23):
-    apply_threshold(img, n * 10)
+
+
+def apply_threshold(img, threshold):
+    img.load_np_pixels()
+    img_array = img.np_pixels
+    new_array = np.where(img_array > threshold, 255, 0)
+    temp_img.set_np_pixels(new_array, bands='RGB')
+    temp_img.save(f'{threshold}.png')
+
+    
+py5.run_sketch()
