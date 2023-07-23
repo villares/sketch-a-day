@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_07_21
+
+![sketch_2023_07_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_07_21/sketch_2023_07_21.png)
+
+[sketch_2023_07_21](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_07_21) [[py5](https://py5coding.org/)]
+
+Fragments of a [São Paulo Map from 1930 kept at Museu Paulista ](https://pt.wikipedia.org/wiki/Ficheiro:Mappa_Topographico_do_Municipio_de_S%C3%A3o_Paulo_-_Folha_37,_Acervo_do_Museu_Paulista_da_USP.jpg)
+
+---
+
 ### sketch_2023_07_20
 
 ![sketch_2023_07_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_07_20/sketch_2023_07_20.gif)
