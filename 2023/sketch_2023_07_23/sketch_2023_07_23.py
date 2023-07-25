@@ -12,7 +12,7 @@ def setup():
     img = py5.load_image(img_path)
     temp_img = py5.create_image(img.width, img.height, py5.RGB)
 
-    for n in range(1, 25):
+    for n in range(1, 24):
         apply_threshold(img, n * 10)
 
 
