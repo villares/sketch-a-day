@@ -13,7 +13,7 @@ def draw():
     array[start:end, :, 0] = (array[start:end, :, 0] + 200) % 256
     start = py5.random_int(py5.width // 10) * 10
     end = start + py5.random_int(py5.width - start) // 10 * 10
-    array[:, start:end, 1] = (array[:, start:end, 0] + 200) % 256
+    array[:, start:end, 1] = (array[:, start:end, 0] + 200) % 256  # wrong! but I'll leave it there
     start = py5.random_int(py5.height // 10) * 10
     array[start:, :, 2] = (array[start:, :, 2] + 250) % 256
     py5.set_np_pixels(array, bands='RGB')
