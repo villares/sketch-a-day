@@ -31,7 +31,24 @@ Here are listed some of the tools I have been using:
 
 ---
 
+
+---
+
+### sketch_2023_07_30
+
+![sketch_2023_07_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_07_30/sketch_2023_07_30.png)
+
+[sketch_2023_07_30](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_07_30) [[py5](https://py5coding.org/)]
+
+
 2023 \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md)
+---
+
+### sketch_2023_07_29
+
+![sketch_2023_07_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_07_29/sketch_2023_07_29.png)
+
+[sketch_2023_07_29](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_07_29) [[py5](https://py5coding.org/)]
 
 ---
 
