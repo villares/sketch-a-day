@@ -1,4 +1,4 @@
-#! /bin/user-env/python
+#!/usr/bin/env python
 
 import os
 import re
@@ -11,6 +11,8 @@ from shutil import copytree
 
 import generate_entries
 from helpers import is_img_ext
+
+print(sys.executable) # for debug
 
 # Get the current sketch-a-day folders using the generate_entries module
 rev_sorted_folders = sorted(generate_entries.sketch_folders, reverse=True)

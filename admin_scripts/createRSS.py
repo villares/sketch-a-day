@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python
 
 # Generate rss.xml for sketch-a-day - WIP
 

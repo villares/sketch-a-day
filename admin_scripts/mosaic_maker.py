@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python
 from random import sample, seed
 from os import listdir
 from pathlib import Path

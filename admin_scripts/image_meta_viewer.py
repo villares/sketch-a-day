@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python
 
 """
 Based on: PytSimpleGUI demo for displaying any format of image file. 

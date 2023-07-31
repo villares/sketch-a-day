@@ -1,4 +1,4 @@
-#! /home/villares/thonny-python-env/bin/python3
+#!/usr/bin/env python
 """
 MP4 to GIF animation. Depends on moviepy and ffmpeg.
 """

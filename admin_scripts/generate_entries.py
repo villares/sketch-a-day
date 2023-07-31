@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python
 
 # reads folder
 # finds missing folders from last_done
@@ -32,6 +32,8 @@ import createRSS
 
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
+
+print(f'Running on: {sys.executable}') # for debug
 
 gui_mode = True  # default
 
@@ -79,13 +81,16 @@ def most_recent_entry(readme_as_lines):
         return 'Something wrong. No dated images found!'
     
 def main(args):
-
+    global last_done_message
+    change_log = []
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
         readme_as_lines = readme.readlines()
     # find date of the first image seen in the readme
     last_done = most_recent_entry(readme_as_lines)
-    print('Last entry: ' + last_done) # add popup?
+    last_done_message = 'Last entry: ' + last_done
+    print(last_done_message)
+    change_log.append(last_done_message)
     # find folders after the last_done one (folders start with ISO date)
     rev_sorted_folders = sorted(sketch_folders, reverse=True)
     not_done = lambda f: last_done not in f
@@ -106,14 +111,18 @@ def main(args):
                     tool, comment = ask_tool_comment(folder, img)
                 entry_text = build_entry(folder, img, tool, comment)
                 readme_as_lines.insert(insert_point - 3, entry_text)
-                print('Adding: ' + folder)
-                #if gui_mode: sg.popup('Adding', folder)
+                adding_message = 'Adding: ' + folder
+                print(adding_message)
+                change_log.append(adding_message)
                 break
     # overwrite the readme markdown index
     with open(readme_path, 'wt') as readme:
         content = ''.join(readme_as_lines)
         readme.write(content)
-
+    # TODO show all changes on GUI
+    if gui_mode:
+        sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(change_log))
+    
 def ask_tool_comment(folder, img):
     image_path = year_path / folder / img
     if img.lower().endswith('svg'):  #*!todo
@@ -129,11 +138,14 @@ def ask_tool_comment(folder, img):
         [sg.Image(key='-IMAGE-', data=png_bytes)],
         [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', size=(40,22), key='-TOOL-')],
         [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.B('OK'), sg.B('Cancel')]
+        [sg.B('OK'), sg.B('Cancel')],
+        [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
 #    window['-IMAGE-'].update(data=png_bytes)
     event, values = window.read(close=True)    
-    if event == 'Cancel':
+    if event is None or event == 'Cancel':
+        print('Cancelled.')
+        if gui_mode: sg.popup('Cancelled:', last_done_message)
         exit()
     return values['-TOOL-'], values['-COMMENT-']
 

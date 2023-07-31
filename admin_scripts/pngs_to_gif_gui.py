@@ -1,4 +1,4 @@
-#! /bin/user-env/python
+#!/usr/bin/env python
 
 import PySimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
 from pathlib import Path

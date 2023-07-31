@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python
 # Adds ### titles (markdown for <h3> on sketch-a-day pages
 
 from os.path import join
