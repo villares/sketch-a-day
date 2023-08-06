@@ -1,6 +1,6 @@
 import py5
 from shapely import Polygon
-from villares.shapely_helpers import draw_shapely
+from villares.shapely_helpers import draw_shapely # github.com/villares/villares
 
 drag = None
 pts = [
@@ -14,14 +14,23 @@ def setup():
 
 def draw():
     py5.background(200)
-    #py5.no_fill()
-    star(300, 300, 100, 200, 12)
+    outer = star_points(300, 300, 100, 250, 12)
+    inner = star_points(300, 300, 250, 100, 12, rot=py5.PI / 12)
+    # in order to make a polygon with holes using Polygon(outer, holes[inner])
+    # you have to be sure of the "winding" clockwise/counter-clockwise,
+    # so you might preffer star = Polygon(outer).difference(Polygon(inner))
+    star = Polygon(outer, [reversed(inner)])
+    py5.stroke(0)
+    py5.stroke_weight(1)
+    draw_shapely(star)
+    py5.stroke(200, 0, 0)
+    py5.stroke_weight(2)
+    py5.points(outer + inner)
 
-    star(300, 300, 200, 100, 12, rot=py5.PI / 12)
 
 def quadratic_points(ax, ay, bx, by, cx, cy, num_points=None, first_point=False):
     if num_points is None:
-        num_points = int(py5.dist(ax, ay, bx, by) + py5.dist(bx, by, cx, cy)) // int(10 + 10/(py5.dist(ax, ay, cx, cy)))
+        num_points = int(py5.dist(ax, ay, bx, by) + py5.dist(bx, by, cx, cy)) // int(5 + 1/(1 + py5.dist(ax, ay, cx, cy)))
     if num_points <= 2:
         return [(ax, ay), (cx, cy)] if first_point else [(cx, cy)]
     pts = []
@@ -32,9 +41,11 @@ def quadratic_points(ax, ay, bx, by, cx, cy, num_points=None, first_point=False)
         pts.append((x, y))
     return pts
            
-def star(x, y, radius_a, radius_b, n_points, rot=0):
+def star_points(x, y, radius_a, radius_b, n_points, rot=0):
+    if n_points < 3:
+        raise TypeError("Number of points sould be at least 3.")
+    pts = []
     step = py5.TWO_PI / n_points
-    py5.begin_shape()
     for i in range(n_points + 1):
         ang = i * step + rot
         sx = py5.cos(ang) * radius_a
@@ -42,16 +53,10 @@ def star(x, y, radius_a, radius_b, n_points, rot=0):
         cx = py5.cos(ang + step / 2.) * radius_b
         cy = py5.sin(ang + step / 2.) * radius_b
         if i == 0:
-            py5.vertex(x + cx, y + cy)
-#             py5.stroke(255, 0, 0)
-#             py5.point(x + cx, y + cy)
-#             py5.point(x + cx, y + cy + 10)
+            pts.append((x + cx, y + cy))
         else:
-            py5.vertices(quadratic_points(anchor_x, anchor_y, x + sx, y + sy, x + cx, y + cy))
-#             py5.stroke_weight(12)
-#             py5.stroke(100, 100)
-#             py5.points(quadratic_points(anchor_x, anchor_y, x + sx, y + sy, x + cx, y + cy)) # debug
+            pts.extend(quadratic_points(anchor_x, anchor_y, x + sx, y + sy, x + cx, y + cy))
         anchor_x, anchor_y = x + cx, y + cy
-    py5.end_shape()
+    return pts
     
 py5.run_sketch()

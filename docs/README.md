@@ -34,6 +34,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_06
+
+![sketch_2023_08_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_06/sketch_2023_08_06.png)
+
+[sketch_2023_08_06](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_06) [[py5](https://py5coding.org/)]
+
+quadratic curves on shapely
+
+---
+
 ### sketch_2023_08_05
 
 ![sketch_2023_08_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_05/sketch_2023_08_05.gif)
