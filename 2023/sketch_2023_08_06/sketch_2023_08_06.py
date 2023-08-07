@@ -1,13 +1,8 @@
 import py5
 from shapely import Polygon
-from villares.shapely_helpers import draw_shapely # github.com/villares/villares
+import numpy as np
 
-drag = None
-pts = [
-    (100, 100),
-    (500, 100),
-    (500, 500),
-    ]
+from villares.shapely_helpers import draw_shapely # github.com/villares/villares
 
 def setup():
     py5.size(600, 600)
@@ -30,16 +25,13 @@ def draw():
 
 def quadratic_points(ax, ay, bx, by, cx, cy, num_points=None, first_point=False):
     if num_points is None:
-        num_points = int(py5.dist(ax, ay, bx, by) + py5.dist(bx, by, cx, cy)) // int(5 + 1/(1 + py5.dist(ax, ay, cx, cy)))
+        num_points = int(py5.dist(ax, ay, bx, by) + py5.dist(bx, by, cx, cy) + py5.dist(ax, ay, cx, cy)) // 10
     if num_points <= 2:
         return [(ax, ay), (cx, cy)] if first_point else [(cx, cy)]
-    pts = []
-    for t_num in range(0 if first_point else 1, num_points + 1):
-        t = t_num / num_points
-        x = (1 - t) * (1 - t) * ax + 2 * (1 - t) * t * bx + t * t * cx
-        y = (1 - t) * (1 - t) * ay + 2 * (1 - t) * t * by + t * t * cy
-        pts.append((x, y))
-    return pts
+    t = np.arange(0 if first_point else 1, num_points + 1) / num_points
+    x = (1 - t) * (1 - t) * ax + 2 * (1 - t) * t * bx + t * t * cx
+    y = (1 - t) * (1 - t) * ay + 2 * (1 - t) * t * by + t * t * cy
+    return np.column_stack((x, y))
            
 def star_points(x, y, radius_a, radius_b, n_points, rot=0):
     if n_points < 3:
