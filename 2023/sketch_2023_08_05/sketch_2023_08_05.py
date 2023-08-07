@@ -11,7 +11,6 @@ def setup():
     py5.size(600, 600)
 
 def draw():
-    global num_points
     py5.background(200)
     py5.no_fill()
     py5.stroke(0)
