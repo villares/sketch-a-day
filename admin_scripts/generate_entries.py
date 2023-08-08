@@ -22,16 +22,16 @@ from pathlib import Path
 from io import BytesIO
 from os import listdir
 from itertools import takewhile
+from time import sleep
 
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM  #*!todo
 
-from helpers import get_image_names, image_as_png_bytes
-
-import createRSS
-
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
+
+from helpers import get_image_names, image_as_png_bytes
+from toot_publisher import toot
 
 print(f'Running on: {sys.executable}') # for debug
 
@@ -60,6 +60,7 @@ tools = {
         'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
     }
 
+tag_dict = {'py5': '#Processing #Python #py5' }
 
 if year_path.is_dir():
     sketch_folders = [folder.name for folder in year_path.iterdir()]
@@ -105,11 +106,15 @@ def main(args):
         imgs = get_image_names(year_path, folder)
         # insert entry if matching image found
         for img in imgs:
-            tool = comment = None
+            tool = comment = description = None
             if img.split('.')[0].startswith(folder):
                 if gui_mode:
-                    tool, comment = ask_tool_comment(folder, img)
-                entry_text = build_entry(folder, img, tool, comment)
+                    tool, comment, description, do_toot = ask_tool_comment(folder, img)
+                entry_text = build_entry(folder, img, comment, description)
+                if do_toot:
+                    image_path = year_path / folder / img
+                    tags = tag_dict.get(tool, '')
+                    toot(comment + ' ' + tags, image_path, description)
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 adding_message = 'Adding: ' + folder
                 print(adding_message)
@@ -137,19 +142,20 @@ def ask_tool_comment(folder, img):
     window = sg.Window(f'{img}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
         [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', size=(40,22), key='-TOOL-')],
+        [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
         [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.B('OK'), sg.B('Cancel')],
+        [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Toot', key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
-#    window['-IMAGE-'].update(data=png_bytes)
+    #window['-IMAGE-'].update(data=png_bytes)
     event, values = window.read(close=True)    
     if event is None or event == 'Cancel':
         print('Cancelled.')
         if gui_mode: sg.popup('Cancelled:', last_done_message)
         exit()
-    return values['-TOOL-'], values['-COMMENT-']
+    return values['-TOOL-'], values['-COMMENT-'], values['-DESCRIPTION-'], values['--TOOT--']
 
-def build_entry(folder, image_filename, tool=None, comment=None):
+def build_entry(folder, image_filename, description, tool=None, comment=None):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
@@ -202,7 +208,4 @@ if __name__ == '__main__':
         gui_mode = False
     # print(sys.version_info)
     main(args)
-    createRSS.main([
-        'README.md',
-        '2022.md',
-        ])
+
