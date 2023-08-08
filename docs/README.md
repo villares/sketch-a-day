@@ -35,6 +35,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_07
+
+![sketch_2023_08_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_07/sketch_2023_08_07.gif)
+
+[sketch_2023_08_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_07) [white shape controlled by red dots]
+
+---
+
 ### sketch_2023_08_06
 
 ![sketch_2023_08_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_06/sketch_2023_08_06.png)
