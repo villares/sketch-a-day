@@ -2,8 +2,10 @@
 Toot from sketch-a-day
 """
 from time import sleep
-import tomllib
-#import tomli as tomllib # tomllib will be in Python 3.11's standard library only
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib # tomllib will be in Python 3.11's standard library only
 from mastodon import Mastodon
 
 with open("/home/villares/api_tokens", "rb") as f:
