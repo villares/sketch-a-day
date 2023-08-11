@@ -35,6 +35,38 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_09
+
+![sketch_2023_08_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_09/sketch_2023_08_09.png)
+
+[sketch_2023_08_09](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_09) [Bezier curve with points linked with red lines to the center of the screen]
+
+---
+
+### sketch_2023_08_08
+
+![sketch_2023_08_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_08/sketch_2023_08_08.png)
+
+[sketch_2023_08_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_08) [# face/mask made of a blue background and red ayes
+
+def setup():
+    size(400, 400)   # largura, altura
+    background(0, 0, 200)
+    fill(255)
+    no_stroke()
+    ellipse(200, 200, 20, 200) # nariz
+    ellipse(100, 100, 100, 100)
+    ellipse(300, 100, 100, 100)
+    fill(0)
+    ellipse(100, 100, 100, 50)
+    ellipse(300, 100, 100, 50)
+    fill(200, 0, 0)
+    ellipse(100, 100, 50, 50)
+    ellipse(300, 100, 50, 50)
+    save('rosto_ale.png')]
+
+---
+
 ### sketch_2023_08_07
 
 ![sketch_2023_08_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_07/sketch_2023_08_07.gif)
