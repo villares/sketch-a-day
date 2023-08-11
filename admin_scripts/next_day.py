@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#! /home/villares/thonny-python-env/bin/python
 
 import os
 import re

@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/home/villares/thonny-python-env/bin/python
+
 
 # reads folder
 # finds missing folders from last_done
@@ -114,7 +115,8 @@ def main(args):
                 if do_toot:
                     image_path = year_path / folder / img
                     tags = tag_dict.get(tool, '')
-                    toot(comment + ' ' + tags, image_path, description)
+                    status = toot(comment + ' ' + tags, image_path, description)
+                     change_log.append(f'Matodon: {status}')
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 adding_message = 'Adding: ' + folder
                 print(adding_message)
@@ -144,7 +146,7 @@ def ask_tool_comment(folder, img):
         [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', size=(40,22), key='-TOOL-')],
         [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
         [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Toot', key='--TOOT--')],
+        [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon', key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
