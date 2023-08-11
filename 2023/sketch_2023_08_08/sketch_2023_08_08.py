@@ -12,5 +12,6 @@ def setup():
     fill(200, 0, 0)
     ellipse(100, 100, 50, 50)
     ellipse(300, 100, 50, 50)
+
     save('rosto_ale.png')
-    
+  
