@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/villares/miniconda3/bin/python
 from random import sample, seed
 from os import listdir
 from pathlib import Path

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/villares/miniconda3/bin/python
 """
 Create GIF from PNG files in a directory!
 """

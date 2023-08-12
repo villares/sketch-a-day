@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/villares/miniconda3/bin/python
 
 # Generate rss.xml for sketch-a-day - WIP
 

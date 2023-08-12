@@ -1,5 +1,4 @@
-#!/home/villares/thonny-python-env/bin/python
-
+#!/home/villares/miniconda3/bin/python
 
 # reads folder
 # finds missing folders from last_done
@@ -7,7 +6,7 @@
 # build markdown for entries
 ## TO DO:
 # [ ] BUG FIX: GUI preview does not show the right image!
-# [ ] BUG FIX: RSS feed is stikk broken
+# [ ] BUG FIX: RSS feed is still broken
 # [X] find last entry for me
 # [X] insert new entries in propper place
 # [/] use GUI or CL arguments to set tool
@@ -16,7 +15,8 @@
 # [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
 # [ ] use CL arguments to commit and push README.md
-# [ ] Protect against missing svglib & cairo lab? #*!todo 
+# [ ] Protect against missing svglib & cairo lab? #*!todo
+# [x] Added clumsy mastodon posting
 
 import sys
 from pathlib import Path
@@ -116,7 +116,7 @@ def main(args):
                     image_path = year_path / folder / img
                     tags = tag_dict.get(tool, '')
                     status = toot(comment + ' ' + tags, image_path, description)
-                     change_log.append(f'Matodon: {status}')
+                    change_log.append(f'Mastodon: {status}')
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 adding_message = 'Adding: ' + folder
                 print(adding_message)

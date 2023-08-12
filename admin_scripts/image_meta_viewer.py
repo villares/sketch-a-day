@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/villares/miniconda3/bin/python
 
 """
 Based on: PytSimpleGUI demo for displaying any format of image file. 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/villares/miniconda3/bin/python
 """
 MP4 to GIF animation. Depends on moviepy and ffmpeg.
 """
