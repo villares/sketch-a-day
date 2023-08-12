@@ -35,6 +35,22 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_11
+
+![sketch_2023_08_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_11/sketch_2023_08_11.png)
+
+[sketch_2023_08_11](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_11) [linhas vermelhas acompanhando dois conjuntos de curvas quadráticas, parece uma um cilindro bastante deformado ou tira de fita em laço fechado.]
+
+---
+
+### sketch_2023_08_10
+
+![sketch_2023_08_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_10/sketch_2023_08_10.png)
+
+[sketch_2023_08_10](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_10) [two sets of parallel red line segments, with curved boundaries defined by bezier curves, intersecting a bit.]
+
+---
+
 ### sketch_2023_08_09
 
 ![sketch_2023_08_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_09/sketch_2023_08_09.png)
