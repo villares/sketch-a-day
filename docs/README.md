@@ -35,6 +35,14 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_12
+
+![sketch_2023_08_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_12/sketch_2023_08_12.png)
+
+[sketch_2023_08_12](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_12) [drawing composes of justaposed translucent orange lines making a closed loop that reminds one of a ribbon. White circles mark the control points of the quadratic curves controlling the ribbon.]
+
+---
+
 ### sketch_2023_08_11
 
 ![sketch_2023_08_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_11/sketch_2023_08_11.png)

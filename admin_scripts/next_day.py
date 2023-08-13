@@ -1,4 +1,4 @@
-#! /home/villares/thonny-python-env/bin/python
+#!/home/villares/miniconda3/bin/python
 
 import os
 import re
