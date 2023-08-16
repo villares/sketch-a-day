@@ -115,7 +115,10 @@ def main(args):
                 if do_toot:
                     image_path = year_path / folder / img
                     tags = tag_dict.get(tool, '')
-                    status = toot(comment + ' ' + tags, image_path, description)
+                    try:
+                        status = toot(comment + ' ' + tags, image_path, description)
+                    except Exception as e:
+                        status = e
                     change_log.append(f'Mastodon: {status}')
                 readme_as_lines.insert(insert_point - 3, entry_text)
                 adding_message = 'Adding: ' + folder
