@@ -35,6 +35,56 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_17
+
+![sketch_2023_08_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_17/sketch_2023_08_17.gif)
+
+[sketch_2023_08_17](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_17) [[py5](https://py5coding.org/)]
+
+more trimesh studies!
+
+---
+
+### sketch_2023_08_16
+
+![sketch_2023_08_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_16/sketch_2023_08_16.png)
+
+[sketch_2023_08_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_16) [[py5](https://py5coding.org/)]
+
+trimesh studies
+
+---
+
+### sketch_2023_08_15
+
+![sketch_2023_08_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_15/sketch_2023_08_15.gif)
+
+[sketch_2023_08_15](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_15) [[py5](https://py5coding.org/)]
+
+Segunda aula do curso com Daniel Bueno no Sesc Av. Paulista!
+
+---
+
+### sketch_2023_08_14
+
+![sketch_2023_08_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_14/sketch_2023_08_14.png)
+
+[sketch_2023_08_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_14) [[py5](https://py5coding.org/)]
+
+Refatorei o meu código de tokenize, aprendi um pouco sobre ANSI escape sequences, e agora consigo desenhar um pouco melhor (vai ser útil pros meus zines!
+
+---
+
+### sketch_2023_08_13
+
+![sketch_2023_08_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_13/sketch_2023_08_13.png)
+
+[sketch_2023_08_13](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_13) [[py5](https://py5coding.org/)]
+
+Work in Progress - again trying to draw some source code to the screen
+
+---
+
 ### sketch_2023_08_12
 
 ![sketch_2023_08_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_12/sketch_2023_08_12.png)
