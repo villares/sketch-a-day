@@ -33,38 +33,22 @@ Here are listed some of the tools I have been using:
 
 2023 \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md)
 
+
+---
+
+### sketch_2023_08_16
+
+![sketch_2023_08_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_16/sketch_2023_08_16.png)
+
+[sketch_2023_08_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_16) [Trimesh studies]
+
 ---
 
 ### sketch_2023_08_15
 
 ![sketch_2023_08_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_15/sketch_2023_08_15.gif)
 
-[sketch_2023_08_15](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_15) [#animação com fila de olhos com alturas saleatórias
-
-def olho(x, y, tamanho, cor=100):
-    no_stroke()
-    fill(255)
-    ellipse(x, y, tamanho, tamanho / 2)  # x, y, w, h
-    fill(cor)
-    circle(x, y, tamanho / 2)  # x, y, d
-    fill(0)
-    circle(x, y, tamanho * 0.1)
-
-def setup():
-    size(600, 400)
-    no_loop()
-    
-def draw():
-    background(200)
-    cores = [50, 120, 170, color(200, 0, 0), color(200, 200, 0)] * 2
-    x = 75
-    for cor in cores:  
-        olho(x , random(100, 300), 50, cor)
-        x = x + 50
-        
-def key_pressed():
-    save_frame('###.png')
-    redraw()]
+[sketch_2023_08_15](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_15) [Segunda aula do curso com Daniel Bueno no Sesc Av. Paulista!]
 
 ---
 
@@ -72,65 +56,7 @@ def key_pressed():
 
 ![sketch_2023_08_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_14/sketch_2023_08_14.png)
 
-[sketch_2023_08_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_14) [import py5
-
-from tokenize_helper import get_tokens, reassemble_tokens, tokenize
-from parse_ansi_strings import parse_ansi_strings
-
-src_lines = []
-font_size = 9
-
-def setup():
-    """
-    Run just once.
-    """
-    global fr, fb, styled_lines
-    py5.size(600, 600)
-    fr = py5.create_font("Source Code Pro", font_size)
-    fb = py5.create_font("Source Code Pro Bold", font_size)
-    with open('sketch_2023_08_14.py') as f: # get source text
-        src_lines.extend(f.readlines())
-    py5.text_size(font_size)
-    tokens = get_tokens(src_lines)
-    styles = {
-        tokenize.COMMENT: 'PURPLE',
-        tokenize.STRING: 'BLUE',
-        tokenize.DOCSTRING: 'RED',
-        }
-    styled_source = (reassemble_tokens(tokens, styles))
-    # print(styled_source)
-    styled_lines = parse_ansi_strings(styled_source)
-    # for li in styled_lines: print(li)
-    py5.background(200)
-    py5.fill(0)
-    draw_text(styled_lines, 50, 50)
-    py5.save('out.png')
-    
-def draw_text(txt, x, y, line_height=font_size):
-    py5.text_font(fb)
-    py5.fill(0)
-    tx, ty = x, y
-    for style, li in txt:
-        if style == 'NEWLINE':
-            tx = x
-            ty += line_height
-            continue 
-        if style == 'END':
-            py5.text_font(fr)
-            py5.fill(0)
-        elif style == 'RED':
-            py5.text_font(fb)
-            py5.fill(200, 0, 0)
-        elif style == 'PURPLE':
-            py5.text_font(fb)
-            py5.fill(200, 0, 200)
-        elif style == 'BLUE':
-            py5.text_font(fb)
-            py5.fill(0, 0, 200)       
-        py5.text(li, tx, ty)
-        tx += py5.text_width(li)
-    
-py5.run_sketch()]
+[sketch_2023_08_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_14) [Refatorei o meu código de tokenize, aprendi um pouco sobre ANSI escape sequences, e agora consigo desenhar um pouco melhor (vai ser útil pros meus zines!)]
 
 ---
 
@@ -138,45 +64,7 @@ py5.run_sketch()]
 
 ![sketch_2023_08_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_13/sketch_2023_08_13.png)
 
-[sketch_2023_08_13](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_13) [# Desenha o texto do zen do Python e o código abaixo:
-
-import py5
-
-zen_lines = []
-src_lines = []
-font_size = 9
-
-def setup():
-    global fr, fb
-    py5.size(600, 600)
-    
-    fr = py5.create_font("Source Code Pro", font_size)
-    fb = py5.create_font("Source Code Pro Bold", font_size)
- 
-    with open('zen.txt') as f: # get text
-        zen_lines.extend(f.readlines())
-    with open('sketch_2023_08_13.py') as f: # get text
-        src_lines.extend(f.readlines())
-        
-    py5.text_size(font_size)
-    py5.no_loop()
-
-def draw():
-    py5.background(200)
-    py5.fill(0)
-    py5.text_font(fr)
-    draw_text(zen_lines, 50, 50)
-    py5.text_font(fb)
-    draw_text(src_lines, 250, 250)
-    py5.save('out.png')
-    
-def draw_text(txt, x, y, line_height=font_size):
-    tx, ty = x, y
-    for li in txt:
-        py5.text(li, tx, ty)
-        ty += line_height
-    
-py5.run_sketch()]
+[sketch_2023_08_13](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_13) [Work in Progress (voltando a tentar desenhar código na tela)]
 
 ---
 
@@ -184,7 +72,7 @@ py5.run_sketch()]
 
 ![sketch_2023_08_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_12/sketch_2023_08_12.png)
 
-[sketch_2023_08_12](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_12) [drawing composes of justaposed translucent orange lines making a closed loop that reminds one of a ribbon. White circles mark the control points of the quadratic curves controlling the ribbon.]
+[sketch_2023_08_12](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_12) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -192,7 +80,7 @@ py5.run_sketch()]
 
 ![sketch_2023_08_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_11/sketch_2023_08_11.png)
 
-[sketch_2023_08_11](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_11) [linhas vermelhas acompanhando dois conjuntos de curvas quadráticas, parece uma um cilindro bastante deformado ou tira de fita em laço fechado.]
+[sketch_2023_08_11](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_11) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -200,7 +88,7 @@ py5.run_sketch()]
 
 ![sketch_2023_08_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_10/sketch_2023_08_10.png)
 
-[sketch_2023_08_10](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_10) [two sets of parallel red line segments, with curved boundaries defined by bezier curves, intersecting a bit.]
+[sketch_2023_08_10](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_10) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -208,7 +96,7 @@ py5.run_sketch()]
 
 ![sketch_2023_08_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_09/sketch_2023_08_09.png)
 
-[sketch_2023_08_09](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_09) [Bezier curve with points linked with red lines to the center of the screen]
+[sketch_2023_08_09](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_09) [[py5](https://py5coding.org/)]
 
 ---
 
@@ -216,23 +104,7 @@ py5.run_sketch()]
 
 ![sketch_2023_08_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_08/sketch_2023_08_08.png)
 
-[sketch_2023_08_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_08) [# face/mask made of a blue background and red ayes
-
-def setup():
-    size(400, 400)   # largura, altura
-    background(0, 0, 200)
-    fill(255)
-    no_stroke()
-    ellipse(200, 200, 20, 200) # nariz
-    ellipse(100, 100, 100, 100)
-    ellipse(300, 100, 100, 100)
-    fill(0)
-    ellipse(100, 100, 100, 50)
-    ellipse(300, 100, 100, 50)
-    fill(200, 0, 0)
-    ellipse(100, 100, 50, 50)
-    ellipse(300, 100, 50, 50)
-    save('rosto_ale.png')]
+[sketch_2023_08_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_08) [Primeira aula do curso de quadrinhos experimentais com Daniel Bueno!]
 
 ---
 
@@ -240,7 +112,7 @@ def setup():
 
 ![sketch_2023_08_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_07/sketch_2023_08_07.gif)
 
-[sketch_2023_08_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_07) [white shape controlled by red dots]
+[sketch_2023_08_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_07) [Interactive quadratic vertex curve #pyp5js]
 
 ---
 

@@ -1,19 +1,6 @@
 """
 Toot from sketch-a-day
 """
-from time import sleep
-try:
-    import tomllib
-except ModuleNotFoundError:
-    import tomli as tomllib # tomllib will be in Python 3.11's standard library only
-from mastodon import Mastodon
-
-with open("/home/villares/api_tokens", "rb") as f:
-    api_tokens = tomllib.load(f)
-    
-access_token = api_tokens['pynews']['access_token']
-masto_instance = 'pynews.com.br'
-mastodon = Mastodon(access_token=access_token, api_base_url=masto_instance)
 
 def mime_type(file):
     if file is None:
@@ -27,6 +14,20 @@ def toot(
          post_text,
          image_file=None, description=None,
          visibility="public", language='pt'):
+    
+    from time import sleep
+    try:
+        import tomllib
+    except ModuleNotFoundError:
+        import tomli as tomllib # tomllib will be in Python 3.11's standard library only
+    from mastodon import Mastodon
+
+    with open("/home/villares/api_tokens", "rb") as f:
+        api_tokens = tomllib.load(f)
+        
+    access_token = api_tokens['pynews']['access_token']
+    masto_instance = 'pynews.com.br'
+    mastodon = Mastodon(access_token=access_token, api_base_url=masto_instance)
     
     if image_file:
         media = mastodon.media_post(

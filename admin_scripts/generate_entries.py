@@ -111,7 +111,7 @@ def main(args):
             if img.split('.')[0].startswith(folder):
                 if gui_mode:
                     tool, comment, description, do_toot = ask_tool_comment(folder, img)
-                entry_text = build_entry(folder, img, comment, description)
+                entry_text = build_entry(folder, img, tool, comment)
                 if do_toot:
                     image_path = year_path / folder / img
                     tags = tag_dict.get(tool, '')
