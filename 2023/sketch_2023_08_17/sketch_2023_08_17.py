@@ -9,13 +9,17 @@ import py5
 def setup():
     global mesh
     py5.size(700, 700, py5.P3D)
+    mesh = make_stuff_up()
+
+def make_stuff_up():
+    cube_list[:] = []
+    hole_list[:] = []
     for _ in range(10):
         x, y, z = (py5.random(-200, 200),
                    py5.random(-200, 200),
                    py5.random(-200, 200))
         cube_list.append(cube(x, y, z, 200))
         hole_list.append(cube(x, y, z, 100))
-        
     mesh = cube_list[0]
     for c in cube_list[1:]:
         mesh = mesh.union(c)
@@ -24,6 +28,7 @@ def setup():
         hole = hole.union(c)
     mesh = mesh.difference(hole)
     mesh = mesh.difference(cube(0, 0, 0, 400))
+    return mesh
 
 def draw():
     py5.background(100, 100, 200)
@@ -40,11 +45,17 @@ def cube(x, y, z, w, h=None, d=None):
     c.apply_translation((x, y, z))
     return c
     
-
 def draw_mesh(m):
     for i, face in enumerate(m.faces):
         with py5.begin_closed_shape():
             py5.vertices([m.vertices[v] for v in face])
 
+def key_pressed():
+    if py5.key == 's':
+        py5.save_frame('###.png')
+    elif py5.key == ' ':
+        global mesh
+        mesh = make_stuff_up()
+    
 py5.run_sketch(block=False)
 
