@@ -44,6 +44,7 @@ while True:
                 save_all=True, append_images=images[1:],
                 optimize=True,
                 duration=duration,
+                disposal=2,
                 loop=0
                 )
             sg.popup('GIF created successfully!')

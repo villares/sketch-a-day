@@ -27,6 +27,7 @@ if input_dir.is_dir():
             save_all=True, append_images=images[1:],
             optimize=not args.no_optimization,
             duration=args.duration,
+            disposal=2,
             loop=args.loop
             )
         print(f'Animation saved at:\n'
