@@ -33,55 +33,6 @@ Here are listed some of the tools I have been using:
 
 2023 \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md)
 
-
----
-
-### sketch_2023_08_18
-
-![sketch_2023_08_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_18/sketch_2023_08_18.gif)
-
-[sketch_2023_08_18](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_18) [https://github.com/villares/sketch-a-day/blob/main/2023/sketch_2023_08_18/sketch_2023_08_18.py]
-
----
-
-### sketch_2023_08_17
-
-![sketch_2023_08_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_17/sketch_2023_08_17.gif)
-
-[sketch_2023_08_17](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_17) [#trimesh experiments github.com/villares/sketch-a-day]
-
----
-
-### sketch_2023_08_16
-
-![sketch_2023_08_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_16/sketch_2023_08_16.png)
-
-[sketch_2023_08_16](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_16) [Trimesh studies]
-
----
-
-### sketch_2023_08_15
-
-![sketch_2023_08_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_15/sketch_2023_08_15.gif)
-
-[sketch_2023_08_15](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_15) [Segunda aula do curso com Daniel Bueno no Sesc Av. Paulista!]
-
----
-
-### sketch_2023_08_14
-
-![sketch_2023_08_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_14/sketch_2023_08_14.png)
-
-[sketch_2023_08_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_14) [Refatorei o meu código de tokenize, aprendi um pouco sobre ANSI escape sequences, e agora consigo desenhar um pouco melhor (vai ser útil pros meus zines!)]
-
----
-
-### sketch_2023_08_13
-
-![sketch_2023_08_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_13/sketch_2023_08_13.png)
-
-[sketch_2023_08_13](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_13) [Work in Progress (voltando a tentar desenhar código na tela)]
-
 ---
 
 ### sketch_2023_08_12
