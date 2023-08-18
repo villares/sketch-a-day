@@ -107,16 +107,18 @@ def main(args):
         imgs = get_image_names(year_path, folder)
         # insert entry if matching image found
         for img in imgs:
-            tool = comment = description = None
+            comment = description = None
+            default_tool = 'py5'
             if img.split('.')[0].startswith(folder):
                 if gui_mode:
-                    tool, comment, description, do_toot = ask_tool_comment(folder, img)
-                entry_text = build_entry(folder, img, tool, comment)
+                    dialog_result = ask_tool_comment(folder, img, default_tool)
+                    tool, comment, image_caption, do_toot = dialog_result
+                entry_text = build_entry(folder, img, tool, comment, image_caption)
                 if do_toot:
                     image_path = year_path / folder / img
                     tags = tag_dict.get(tool, '')
                     try:
-                        status = toot(comment + ' ' + tags, image_path, description)
+                        status = toot(comment + ' ' + tags, image_path, image_caption)
                     except Exception as e:
                         status = e
                     change_log.append(f'Mastodon: {status}')
@@ -133,7 +135,7 @@ def main(args):
     if gui_mode:
         sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(change_log))
     
-def ask_tool_comment(folder, img):
+def ask_tool_comment(folder, img, default_tool):
     image_path = year_path / folder / img
     if img.lower().endswith('svg'):  #*!todo
         drawing = svg2rlg(image_path)
@@ -146,10 +148,12 @@ def ask_tool_comment(folder, img):
         png_bytes, metadata = image_as_png_bytes(image_path, (600, 600)) #, resize=new_size)
     window = sg.Window(f'{img}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
-        [sg.T('Tool   '), sg.Combo(list(tools), default_value='py5', size=(40,22), key='-TOOL-')],
+        [sg.T('Tool   '), sg.Combo(list(tools), default_value=default_tool,
+                                   size=(40,22), key='-TOOL-')],
         [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
         [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon', key='--TOOT--')],
+        [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon',
+                                                 key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
@@ -160,7 +164,7 @@ def ask_tool_comment(folder, img):
         exit()
     return values['-TOOL-'], values['-COMMENT-'], values['-DESCRIPTION-'], values['--TOOT--']
 
-def build_entry(folder, image_filename, description, tool=None, comment=None):
+def build_entry(folder, image_filename, tool=None, comment=None, image_caption=None):
     """
     Return a string with markdown formated
     for the sketch-a-day index page entry
@@ -178,7 +182,6 @@ def build_entry(folder, image_filename, description, tool=None, comment=None):
                     tool = 'pyde'
                 elif 'pde' in f:
                     tool = 'pde'
-    
     if comment is None:
         docstring = search_docstring(folder_path)
         if docstring:
