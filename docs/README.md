@@ -36,6 +36,22 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_18
+
+![sketch_2023_08_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_18/sketch_2023_08_18.gif)
+
+[sketch_2023_08_18](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_18) [https://github.com/villares/sketch-a-day/blob/main/2023/sketch_2023_08_18/sketch_2023_08_18.py]
+
+---
+
+### sketch_2023_08_17
+
+![sketch_2023_08_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_17/sketch_2023_08_17.gif)
+
+[sketch_2023_08_17](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_17) [#trimesh experiments github.com/villares/sketch-a-day]
+
+---
+
 ### sketch_2023_08_16
 
 ![sketch_2023_08_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_16/sketch_2023_08_16.png)
