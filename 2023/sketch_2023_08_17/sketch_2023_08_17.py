@@ -1,10 +1,8 @@
-from shapely import Polygon
-import trimesh  # install mapbox_earcut!
+import trimesh  # install mapbox_earcut!    
+import py5
 
 cube_list = []
 hole_list = []
-    
-import py5
 
 def setup():
     global mesh
@@ -41,7 +39,7 @@ def draw():
 def cube(x, y, z, w, h=None, d=None):
     h = w or h
     d = d or h
-    c = trimesh.creation.box((w, w, w))
+    c = trimesh.creation.box((w, h, d))
     c.apply_translation((x, y, z))
     return c
     
