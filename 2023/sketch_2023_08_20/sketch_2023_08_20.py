@@ -49,9 +49,16 @@ def cube(x, y, z, w, h=None, d=None):
     return c
     
 def draw_mesh(m):
+#     for face in m.faces:
+#         with py5.begin_closed_shape():
+#             py5.vertices([m.vertices[v] for v in face])
+    # this might be faster:
+    vs = []
     for face in m.faces:
-        with py5.begin_closed_shape():
-            py5.vertices([m.vertices[v] for v in face])
+        vs.extend(m.vertices[v] for v in face)
+    with py5.begin_closed_shape(py5.TRIANGLES):
+        py5.vertices(vs)
+
 
 def key_pressed():
     if py5.key == 's':
