@@ -35,7 +35,10 @@ def make_stuff_up():
 def draw():
     py5.background(100, 200, 100)
     py5.lights()
-    py5.no_stroke()
+    if not py5.is_key_pressed:
+        py5.no_stroke()
+    else:
+        py5.stroke(0)
     py5.fill(200, 240, 100)
     py5.translate(py5.width/2, py5.height/2, -py5.height/2)
     py5.rotate_y(py5.radians(py5.mouse_x))
@@ -53,12 +56,16 @@ def draw_mesh(m):
 #         with py5.begin_closed_shape():
 #             py5.vertices([m.vertices[v] for v in face])
     # this might be faster:
-    vs = []
-    for face in m.faces:
-        vs.extend(m.vertices[v] for v in face)
+#     vs = []
+#     for face in m.faces:
+#         vs.extend(m.vertices[v] for v in face)
+#     with py5.begin_closed_shape(py5.TRIANGLES):
+#         py5.vertices(vs)
+    # or maybe this:
     with py5.begin_closed_shape(py5.TRIANGLES):
-        py5.vertices(vs)
-
+        py5.vertices(m.vertices[v]
+                     for face in m.faces
+                     for v in face)    
 
 def key_pressed():
     if py5.key == 's':
