@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_25
+
+![sketch_2023_08_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_25/sketch_2023_08_25.png)
+
+[sketch_2023_08_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_25) [Python]
+
+#Python #matplotlib explorando dados © contribuidores do #OpenStreetMaps
+
+---
+
 ### sketch_2023_08_24
 
 ![sketch_2023_08_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_24/sketch_2023_08_24.png)
