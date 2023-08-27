@@ -1,12 +1,17 @@
 # Draws ways and buildings from data © OpenStreetMap contributors
-
-from shapely.affinity import affine_transform
-#import matplotlib.pyplot as plt
 import py5
+
+from shapely import Polygon, MultiPolygon
+from shapely import LineString, MultiLineString, LinearRing
+from shapely import Point, MultiPoint
+from shapely import GeometryCollection
+from shapely.ops import transform
 
 import osmnx as ox
 ox.settings.log_console=True
 ox.settings.use_cache=True
+
+from villares.shapely_helpers import draw_shapely
 
 bgcolor = '#343434'
 edge_color = '#CCCCCC'
@@ -19,23 +24,65 @@ fp = ox.features_from_point(point, tags={'building':True}, dist=dist)
 G = ox.graph_from_point(point, network_type='drive', dist=dist, truncate_by_edge=True, retain_all=True)
 nodes, edges = ox.graph_to_gdfs(G)
 m_edges = edges.to_crs(epsg=3857)
+#m_edges = edges.set_crs('EPSG:4326').to_crs('EPSG:3857')
+
 paulista = m_edges[m_edges['name'] == 'Avenida Paulista']
 #selected_edges_gdf = gdf_meters[gdf_meters['edge_id'].isin(selected_edges)]
 paulista_length = paulista.geometry.length.sum()
-print(paulista_lengt)
+print(paulista_length)  # looks wrong!
+#import matplotlib.pyplot as plt
 # fig, ax = ox.plot_graph(G, bgcolor=bgcolor, node_size=0, edge_color=edge_color, show=False)
 # fig, ax = ox.plot_footprints(fp, ax=ax, bbox=bbox, color=bldg_color, show=False) #, save=True)
 # paulista.plot(ax=ax, color='red')
 # plt.show()
 
 def setup():
-    py5.size(500, 650)
-    minx, miny, maxx, maxy = m_edges.bounds
+    py5.size(600, 600)
+    py5.background(bldg_color)
+    # m_edges['geometry'] = m_edges['geometry'].apply(lambda geom: transform(lambda x, y: (x, -y), geom))
+    minx, miny, maxx, maxy = m_edges.total_bounds
     scale_x = py5.width / (maxx - minx)
-    scale_y = py5.height / (maxy - miny)
+    #scale_y = py5.height / (maxy - miny)
+    scale_y = py5.height / -(miny - maxy)  # to switch the y axis without doing x, -y first
     translate_x = -minx * scale_x
     translate_y = -miny * scale_y
-    # trying scale_y * -1 ...
-    matrix = [scale_x, 0, 0, -scale_y, translate_x, translate_y]
+    matrix = [scale_x, 0, 0, scale_y, translate_x, translate_y]
     m_edges['geometry'] = m_edges['geometry'].affine_transform(matrix)
-
+    py5.stroke(edge_color)
+    draw_shapely(m_edges['geometry'])
+    
+    
+def draw_shapely(shps, sketch: py5.Sketch=None):
+    """
+    Draw most shapely objects with py5.
+    This will use the "current" py5 sketch as default.
+    """
+    s = sketch or py5.get_current_sketch()
+    if isinstance(shps, (MultiPolygon, MultiLineString, GeometryCollection)):
+        for shp in shps.geoms:
+            draw_shapely(shp)
+    elif isinstance(shps, Polygon):
+        with s.begin_closed_shape():
+            s.vertices(shps.exterior.coords)
+            for hole in shps.interiors:
+                with s.begin_contour():
+                    s.vertices(hole.coords)
+    elif isinstance(shps, (LineString, LinearRing)):
+        # no need to uses begin_closed_shape() because LinearRing repeats the start/end coordinates
+        with s.push_style():
+            s.no_fill()
+            with s.begin_shape():
+                s.vertices(shps.coords)
+    elif isinstance(shps, Point):
+        s.point(tuple(shps.coords)[0]) # yeah shps.coords for a lone Point is a CoordinateSequence.
+    elif isinstance(shps, MultiPoint):
+        s.points(tuple(p.coords)[0] for p in shps.geoms)
+    else:
+        try:
+            for shp in shps:
+                draw_shapely(shp)
+        except TypeError as e:
+            print(f"Unable to draw: {shps}")
+        
+        
+py5.run_sketch(block=False)
