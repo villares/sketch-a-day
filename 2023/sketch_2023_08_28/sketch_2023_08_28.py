@@ -50,9 +50,7 @@ def setup():
      (paulista.affine_transform(matrix),
           highlight, None),
      (copan.geometry.affine_transform(matrix),
-      None, highlight),
-#     (m_fp['geometry'].affine_transform(matrix).geometry,
-#           None, bldg_color),
+          None, highlight),
      ]
 
 def draw():
