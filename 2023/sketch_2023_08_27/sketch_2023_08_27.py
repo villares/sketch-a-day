@@ -77,9 +77,9 @@ def draw_shapely(shps, sketch: py5.Sketch=None):
             with s.begin_shape():
                 s.vertices(shps.coords)
     elif isinstance(shps, Point):
-        s.point(tuple(shps.coords)[0]) # yeah shps.coords for a lone Point is a CoordinateSequence.
+        s.point(shps.x, shps.y) 
     elif isinstance(shps, MultiPoint):
-        s.points(tuple(p.coords)[0] for p in shps.geoms)
+        s.points((p.x, p.y) for p in shps.geoms)
     elif isinstance(shps, GeoDataFrame):
         for shp in shps.geometry:
                 draw_shapely(shp)
