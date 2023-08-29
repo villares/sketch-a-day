@@ -35,6 +35,36 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_08_28
+
+![sketch_2023_08_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_28/sketch_2023_08_28.png)
+
+[sketch_2023_08_28](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_28) [[py5](https://py5coding.org/)]
+
+#osmnx #GeoDataFrame #OpenStreetMap contributors data
+
+---
+
+### sketch_2023_08_27
+
+![sketch_2023_08_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_27/sketch_2023_08_27.png)
+
+[sketch_2023_08_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_27) [[py5](https://py5coding.org/)]
+
+#São Paulo #osmnx data from #OpenStreetMap contributors. Av. Paulista in red.
+
+---
+
+### sketch_2023_08_26
+
+![sketch_2023_08_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_26/sketch_2023_08_26.gif)
+
+[sketch_2023_08_26](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_26) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_08_25
 
 ![sketch_2023_08_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_08_25/sketch_2023_08_25.png)
