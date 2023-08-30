@@ -1,4 +1,8 @@
-
+"""
+9 balões de fala desenhados com programação,
+contendo os números de 1 a 9 e as pontas variando
+de inclinação da esquerda para a direita.
+"""
 
 def setup():
     size(600, 600)
