@@ -14,9 +14,9 @@ def draw():
         w = 50
         x = 7.5
         while x < width + w:
-            rm = g_balao_oval(w + 10, h + 10)
-            clipped = fill_and_clip(
-                rm, img,
+            mask = g_balao_oval(w + 10, h + 10)
+            clipped = clip_with_mask(
+                img, mask,
                 random(0, img.width - w),
                 random(0, img.height - h))
             image(clipped, x + w / 2, y + h / 2)
@@ -27,21 +27,13 @@ def draw():
 
     save_frame('####.png')
          
-def fill_and_clip(mask, img_fill, x, y, mode=CORNER, draw_mask=False dst=None):    
-    """Clip an image using a mask, filling it with image provided."""
+def clip_with_mask(img, mask, x, y):    
+    """Clip an image using a mask, its dimensions, and a given position."""
     w, h = mask.width, mask.height
-    dst = dst or create_graphics(w, h)
-    if mode == CORNER:
-        xs, ys = int(x), int(y)
-    else:
-        xs, ys = int(x - w / 2), int(y - h / 2)
-    img = create_image(w, h, ARGB)
-    img.copy(img_fill, xs, ys, w, h, 0, 0, w, h)
-    img.mask(mask)
-    dst.begin_draw()
-    dst.image(img, 0, 0)
-    dst.end_draw()
-    return dst
+    result = create_image(w, h, ARGB)
+    result.copy(img, int(x), int(y), w, h, 0, 0, w, h)
+    result.mask(mask)
+    return result
 
 def g_balao_oval(w, h, draw_stroke=False):
     x, y = w / 2, h / 2
