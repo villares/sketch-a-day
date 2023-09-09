@@ -1,3 +1,6 @@
+import py5
+import numpy as np
+
 from itertools import chain
 
 w = 100
@@ -5,7 +8,7 @@ n = 6
 pad = 5
 
 def setup():
-    size(600, 600)
+    py5.size(600, 600)
     generate_faces()
 
 def generate_faces():
@@ -15,8 +18,8 @@ def generate_faces():
     for i in range(n):
         for j in range(n):
             grid[(i, j)] = (
-                w / 2 + i * w + random(-10, 10),
-                w / 2 + j * w + random(-10, 10)
+                w / 2 + i * w + py5.random(-10, 10),
+                w / 2 + j * w + py5.random(-10, 10)
                 )
     for i in range(n - 1):
         for j in range(n - 1):
@@ -35,15 +38,15 @@ def generate_faces():
     faces = np.array(face_list)
     
 def draw():
-    background(150, 150, 250)
-    fill(255)
-    with begin_shape(QUADS):
-        vertices(list(chain(*faces)))
-    rect_mode(CORNERS)
-    fill(255, 0, 0, 100)
+    py5.background(150, 150, 250)
+    py5.fill(255)
+    with py5.begin_shape(py5.QUADS):
+        py5.vertices(list(chain(*faces)))
+    py5.rect_mode(py5.CORNERS)
+    py5.fill(255, 0, 0, 100)
     for f in faces:
         (min_x, min_y), (max_x, max_y) = bounding_box(f)
-        rect(min_x, min_y, max_x, max_y)
+        py5.rect(min_x, min_y, max_x, max_y)
 
 # def bounding_box(vs):
 #     xs = [v.x for v in vs]
@@ -57,3 +60,5 @@ def bounding_box(vs):
 
 def key_pressed():
     generate_faces()
+    
+py5.run_sketch()
