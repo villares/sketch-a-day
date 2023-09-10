@@ -26,7 +26,7 @@ def draw():
             b, s = brightness_and_saturated(c)
             elemento(passo / 2 + x, passo / 2 + y, b, s)
             
-    save_frame(__file__[:-3] + '.png')
+    #save_frame(__file__[:-3] + '.png')
     print(len(stats), stats)
 
          
@@ -34,14 +34,6 @@ def draw():
 def brightness_and_saturated(c):
     return brightness(c), color(hue(c), 255, 200)
          
-def clip_with_mask(img, mask, x, y):    
-    """Clip an image using a mask, its dimensions, and a given position."""
-    w, h = mask.width, mask.height
-    result = create_image(w, h, ARGB)
-    result.copy(img, int(x), int(y), w, h, 0, 0, w, h)
-    result.mask(mask)
-    return result
-
 def elemento(x, y, b, s):
     rect_mode(CENTER)
     fill(s)
