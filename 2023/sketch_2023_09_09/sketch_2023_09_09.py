@@ -7,7 +7,6 @@ w = 100
 n = 6
 pad = 5
 
-
 def setup():
     global img
     py5.size(600, 600)
@@ -18,8 +17,8 @@ def setup():
 def generate_faces():
     global faces
     grid = {
-        (i, j): (w / 2 + i * w + py5.random(-10, 10),
-                 w / 2 + j * w + py5.random(-10, 10))
+        (i, j): (int(w / 2 + i * w + py5.random(-10, 10)),
+                 int(w / 2 + j * w + py5.random(-10, 10)))
         for i, j in product(range(n), range(n))
     } 
     face_list = []        
@@ -45,41 +44,33 @@ def bounding_box(vs):
 
 def draw():
     py5.background(150)
-    #py5.rect_mode(py5.CORNERS)
     for f in faces:
-        bb = bounding_box(f)
-        (min_x, min_y), (max_x, max_y) = bb
+        (min_x, min_y), (max_x, max_y) = bounding_box(f)
         w = max_x - min_x
         h = max_y - min_y
-        m = make_mask(f)
+        fc = f.copy()
+        fc -= np.array((min_x, min_y)) # translate to origin   
+        m = make_mask(fc, w, h)
         rx, ry = py5.random(img.width - w), py5.random(img.height - h)
         clipped = clip_with_mask(img, m, rx, ry)
         py5.image(clipped, min_x, min_y)
+    # the blue borders        
     py5.no_fill()
     py5.stroke_weight(3)
     py5.stroke(0, 0, 200)
-    #py5.translate(-1, -1)
     with py5.begin_shape(py5.QUADS):
         py5.vertices(list(chain(*faces)))
 
-        
-def make_mask(f):
-    global fc
-    fc = f.copy()
-    (min_x, min_y), (max_x, max_y) = bounding_box(f)
-    fc[:,0] -= min_x
-    fc[:,1] -= min_y
-    w = max_x - min_x
-    h = max_y - min_y
-    pg = py5.create_graphics(int(w), int(h))
+
+def make_mask(face_points, w, h):
+    pg = py5.create_graphics(w, h)
     pg.begin_draw()
     pg.no_stroke()
     pg.begin_shape()
-    pg.vertices(fc)
+    pg.vertices(face_points)
     pg.end_shape()
     pg.end_draw()
     return pg
-
 
 
 def clip_with_mask(img, mask, x, y):    
