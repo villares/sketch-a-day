@@ -6,6 +6,7 @@ def setup():
     size(500, 500)
     no_stroke()
     frame_rate(16)
+    # nome, numero de frames, tempo entre amostras, duração do frame na animação
     animated_gif('out.gif', 32, 0.06, 0.06)
     
 def draw():
