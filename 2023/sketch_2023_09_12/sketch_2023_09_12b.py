@@ -18,6 +18,5 @@ def draw():
     text(frame_count, 200, 200)
     
     
-    
-    if frame_count > n * 2:
+    if frame_count > n + 5:
         exit_sketch()
