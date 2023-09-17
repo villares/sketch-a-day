@@ -1,13 +1,36 @@
+import sys
+from pathlib import Path
+
 import py5_tools
 
-pp2i = py5_tools.translators.processingpy2imported
+translators = {
+    'pp2i': py5_tools.translators.processingpy2imported,
+    'm2i': py5_tools.translators.module2imported,
+    'i2m': py5_tools.translators.imported2module,
+}
+source_dir = Path.cwd()
+target_dir = source_dir.parent / f'{source_dir.name}_converted'
+
+args = sys.argv[1:]
+for i, arg in enumerate(args):
+    if i == 0:
+        if translator := translators.get(arg):
+            print(arg)
+        else:
+            print('no translator selected.')
+            exit()
+    
+    result = translator.translate_dir(source_dir, target_dir, ext='.py')
+    print(result) 
+        
 
 #source_dir = '/home/villares/GitHub/processing-python/'
 #target_dir = '/home/villares/GitHub/processing-python/'
-source_dir = '/home/villares/GitHub/py.processing-play/'
-target_dir = '/home/villares/GitHub/processing-python/play/'
-result = pp2i.translate_dir(source_dir, target_dir, ext='.py')
-print(result) 
+#source_dir = '/home/villares/GitHub/py.processing-play/'
+#target_dir = '/home/villares/GitHub/processing-python/play/'
+
+#result = pp2i.translate_dir(source_dir, target_dir, ext='.py')
+#print(result) 
 
 # Material aulas
 #source_dir = '/home/villares/GitHub/material-aulas/Processing-Python'
