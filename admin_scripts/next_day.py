@@ -32,6 +32,7 @@ new_folder_name = last_folder.replace(previous_date_string, new_date_string)
 keep_images = erase_code = False
 open_folder = True
 open_file = False
+use_cwd = False
 for arg in sys.argv[1:]:
     if arg.startswith('cn'):
         name_len = 10 + len(arg) - 2
@@ -46,6 +47,8 @@ for arg in sys.argv[1:]:
         open_folder = False
     elif arg == 'of':
         open_file = True
+    elif arg == 'cwd':
+        use_cwd = True        
     else:
         print("""usage:
         cn        : for "clean name", stop filename after date.
@@ -54,13 +57,16 @@ for arg in sys.argv[1:]:
         ec        : erase content from files
         ki        : keep images
         no        : do not open folder
-        of      : open file
+        of        : open file
+        cwd       : use files from current folder
         """)
         exit()
 # Rebuild the full folder paths
 base_path = Path(generate_entries.year_path)
 src_folder = base_path / last_folder
 new_folder = base_path / new_folder_name
+if use_cwd:
+    src_folder = Path.cwd()
 # Create a new folder, copy of the most recent one, but with new name
 copytree(src_folder, new_folder)
 print(f'{new_folder_name} folder created')
