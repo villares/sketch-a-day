@@ -1,7 +1,7 @@
+from itertools import chain, product
+
 import py5
 import numpy as np
-
-from itertools import chain, product
 
 w = 800 / 5
 n = 6
@@ -60,7 +60,7 @@ def draw():
         rx, ry = py5.random(img.width - w), py5.random(img.height / 4, img.height - h)
         clipped = clip_with_mask(img, m, rx, ry)
         py5.image(clipped, min_x, min_y)
-    # the blue borders        
+    # the borders        
     py5.no_fill()
     py5.stroke_weight(3)
     py5.stroke(0)
