@@ -1,5 +1,4 @@
 #!/home/villares/miniconda3/bin/python
-# Resolver pau com varios tamanhos
 
 from pathlib import Path
 
