@@ -1,6 +1,7 @@
 #!/home/villares/miniconda3/bin/python
-from pathlib import Path
+# Resolver pau com varios tamanhos
 
+from pathlib import Path
 
 import PySimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
 import imageio              # precisa installar o imageio também!
@@ -40,24 +41,29 @@ while True:
         duration = int(values[2]) if values[2] else 200
         loops = int(values[3]) if values[3] else 0
         dir_path = Path(input_dir)
-        # Load the PNG images from the input folder
-        images = [imageio.v3.imread(file_path) for file_path
+        # Create the GIF if there are any images
+        try:
+            # Load the PNG images from the input folder
+            images = [imageio.v3.imread(file_path) for file_path
                   in sorted(dir_path.iterdir())
                   if file_path.suffix.lower() == '.png']
-
-        # Create the GIF if there are any images
-        if images:
-            imageio.v3.imwrite(
-            output_file,
-            images,
-            duration=duration / 1000,
-            loop=loops,
-            )
-            sg.popup('GIF created successfully!')
-        else:
-            sg.popup('No PNG images found!')
+            if images:
+                imageio.v3.imwrite(
+                output_file,
+                images,
+                duration=duration / 1000,
+                loop=loops,
+                )
+                sg.popup('GIF created successfully!')
+            else:
+                sg.popup('No PNG images found!')
+        except Exception as e:
+            if str(e).startswith('all input arrays'):
+                sg.popup('Select only images of same size.')
+            else:    
+                sg.popup(str(e))
         # Close the window
-        window.close()
+        #window.close()
 
 # Clean up the GUI
 window.close()
