@@ -1,17 +1,23 @@
 #!/home/villares/miniconda3/bin/python
+from pathlib import Path
+
 
 import PySimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
-from pathlib import Path
-from PIL import Image, GifImagePlugin
+import imageio
 
 sugestao_output = Path.cwd() / 'out.gif'
+L_FONT = ('Courier', 20)
+I_FONT = ('Courier', 16)
 
 # Define the GUI layout
 layout = [
-    [sg.Text('Input folder:', font=('Courier', 24)), sg.InputText(font=('Courier', 20)), sg.FolderBrowse(font=('Courier', 24))],
-    [sg.Text('Output file:', font=('Courier', 24)), sg.InputText(default_text=sugestao_output, font=('Courier', 20)), sg.FileSaveAs(font=('Courier', 24))],
-    [sg.Text('Frame duration (ms):', font=('Courier', 24)), sg.InputText(default_text='200', font=('Courier', 20))],
-    [sg.Button('Create GIF', font=('Courier', 24)), sg.Button('Cancel', font=('Courier', 24))]
+    [sg.Text('Input folder:', font=L_FONT)],
+    [sg.InputText(font=I_FONT), sg.FolderBrowse(font=I_FONT)],
+    [sg.Text('Output file:', font=L_FONT)],
+    [sg.InputText(default_text=sugestao_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
+    [sg.Text('Frame duration (milliseconds):', font=L_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
+    [sg.Text('Number of loops (0=forever):', font=L_FONT), sg.InputText(default_text='0', font=I_FONT, size=(3, 1))],
+    [sg.Button('Create GIF', font=L_FONT), sg.Button('Cancel', font=L_FONT)]
 ]
 
 # Create the GUI window
@@ -28,31 +34,28 @@ while True:
 
     # Create the GIF if the Create GIF button was clicked
     if event == 'Create GIF' and values:
-        print(values)
         # Get the input and output values from the GUI
         input_dir = values[0] 
         output_file = values[1]
         duration = int(values[2]) if values[2] else 200
-
+        loops = int(values[3]) if values[3] else 0
+        dir_path = Path(input_dir)
         # Load the PNG images from the input folder
-        images = [Image.open(file_path) for file_path
-                  in sorted(Path(input_dir).iterdir())
+        images = [imageio.v3.imread(file_path) for file_path
+                  in sorted(dir_path.iterdir())
                   if file_path.suffix.lower() == '.png']
 
         # Create the GIF if there are any images
         if images:
-            images[0].save(
-                output_file,
-                save_all=True, append_images=images[1:],
-                optimize=True,
-                duration=duration,
-                disposal=2,
-                loop=0
-                )
+            imageio.v3.imwrite(
+            output_file,
+            images,
+            duration=duration / 1000,
+            loop=loops,
+            )
             sg.popup('GIF created successfully!')
         else:
             sg.popup('No PNG images found!')
-
         # Close the window
         window.close()
 
