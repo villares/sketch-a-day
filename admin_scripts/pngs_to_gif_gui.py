@@ -4,12 +4,14 @@ import PySimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip i
 from pathlib import Path
 from PIL import Image, GifImagePlugin
 
+sugestao_output = Path.cwd() / 'out.gif'
+
 # Define the GUI layout
 layout = [
-    [sg.Text('Input folder:'), sg.InputText(), sg.FolderBrowse()],
-    [sg.Text('Output file:'), sg.InputText(default_text='out.gif'), sg.FileSaveAs()],
-    [sg.Text('Frame duration (ms):'), sg.InputText(default_text='200')],
-    [sg.Button('Create GIF'), sg.Button('Cancel')]
+    [sg.Text('Input folder:', font=('Courier', 24)), sg.InputText(font=('Courier', 20)), sg.FolderBrowse(font=('Courier', 24))],
+    [sg.Text('Output file:', font=('Courier', 24)), sg.InputText(default_text=sugestao_output, font=('Courier', 20)), sg.FileSaveAs(font=('Courier', 24))],
+    [sg.Text('Frame duration (ms):', font=('Courier', 24)), sg.InputText(default_text='200', font=('Courier', 20))],
+    [sg.Button('Create GIF', font=('Courier', 24)), sg.Button('Cancel', font=('Courier', 24))]
 ]
 
 # Create the GUI window
