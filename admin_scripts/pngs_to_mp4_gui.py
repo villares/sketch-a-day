@@ -52,22 +52,13 @@ while True:
                 for img in images:
                   writer.append_data(img)
                 writer.close()
-#                 imageio.v3.imwrite(
-#                 output_file,
-#                 images,
-#                 duration=duration / 1000,
-#                 loop=loops,
-#                 )
-                sg.popup('MP4 created successfully!')
+                sg.popup(f'MP4 saved as:\n{output_file}')
             else:
-                sg.popup('No PNG images found!')
+                sg.popup('No PNG images found at\n{dir_path}')
         except Exception as e:
             if str(e).startswith('all input arrays'):
                 sg.popup('Select only images of same size.')
             else:    
                 sg.popup(str(e))
-        # Close the window
-        #window.close()
-
 # Clean up the GUI
 window.close()

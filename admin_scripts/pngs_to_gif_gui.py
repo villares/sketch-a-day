@@ -53,16 +53,13 @@ while True:
                 duration=duration / 1000,
                 loop=loops,
                 )
-                sg.popup('GIF created successfully!')
+                sg.popup(f'Animation saved as:\n{output_file}')
             else:
-                sg.popup('No PNG images found!')
+                sg.popup('No PNG images found at\n{dir_path}')
         except Exception as e:
             if str(e).startswith('all input arrays'):
                 sg.popup('Select only images of same size.')
             else:    
                 sg.popup(str(e))
-        # Close the window
-        #window.close()
-
 # Clean up the GUI
 window.close()

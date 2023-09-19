@@ -32,20 +32,26 @@ args = parser.parse_args()
 input_dir = Path(args.input or Path.cwd())
 
 if input_dir.is_dir():
-    images = [imageio.v3.imread(file_path)
-              for file_path in sorted(input_dir.iterdir())
-              if file_path.suffix.lower() == '.png']
-    if images:
-        output_path = input_dir / args.output
-        imageio.v3.imwrite(
-            output_path,
-            images,
-            duration=int(args.duration) / 1000,
-            loop=args.loop,
-            )
-        print(f'Animation saved at:\n' f'{output_path}\n')
-    else:
-        print(f'No PNG images found at:\n{input_dir}')
+    try:
+        images = [imageio.v3.imread(file_path)
+                  for file_path in sorted(input_dir.iterdir())
+                  if file_path.suffix.lower() == '.png']
+        if images:
+            output_path = input_dir / args.output
+            imageio.v3.imwrite(
+                output_path,
+                images,
+                duration=int(args.duration) / 1000,
+                loop=args.loop,
+                )
+            print(f'Animation saved at:\n{output_path}\n')
+        else:
+            print(f'No PNG images found at:\n{input_dir}')
+    except Exception as e:
+        if str(e).startswith('all input arrays'):
+            print('Select only images of same size.')
+        else:    
+            print(str(e))
 else:
     print(f'{input_dir}\nis not a valid input dir.')
 
