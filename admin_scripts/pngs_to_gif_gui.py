@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 import PySimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
-import imageio
+import imageio              # precisa installar o imageio também!
 
 sugestao_output = Path.cwd() / 'out.gif'
 L_FONT = ('Courier', 20)
