@@ -7,7 +7,7 @@ import imageio              # precisa instalar:
 # precisa instalar pip install imageio[ffmpeg]
 
 
-sugestao_output = Path.cwd() / 'out.mp4'
+default_output = Path.home() / 'out.mp4'
 L_FONT = ('Courier', 20)
 I_FONT = ('Courier', 16)
 
@@ -16,7 +16,7 @@ layout = [
     [sg.Text('Input folder:', font=L_FONT)],
     [sg.InputText(font=I_FONT), sg.FolderBrowse(font=I_FONT)],
     [sg.Text('Output file:', font=L_FONT)],
-    [sg.InputText(default_text=sugestao_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
+    [sg.InputText(default_text=default_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
     [sg.Text('Frame duration (milliseconds):', font=L_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
     [sg.Button('Create MP4', font=L_FONT), sg.Button('Cancel', font=L_FONT)]
 ]

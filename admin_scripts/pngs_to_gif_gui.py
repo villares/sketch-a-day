@@ -5,7 +5,7 @@ from pathlib import Path
 import PySimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
 import imageio              # precisa installar o imageio também!
 
-sugestao_output = Path.cwd() / 'out.gif'
+default_output = Path.home() / 'out.gif'
 L_FONT = ('Courier', 20)
 I_FONT = ('Courier', 16)
 
@@ -14,7 +14,7 @@ layout = [
     [sg.Text('Input folder:', font=L_FONT)],
     [sg.InputText(font=I_FONT), sg.FolderBrowse(font=I_FONT)],
     [sg.Text('Output file:', font=L_FONT)],
-    [sg.InputText(default_text=sugestao_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
+    [sg.InputText(default_text=default_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
     [sg.Text('Frame duration (milliseconds):', font=L_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
     [sg.Text('Number of loops (0=forever):', font=L_FONT), sg.InputText(default_text='0', font=I_FONT, size=(3, 1))],
     [sg.Button('Create GIF', font=L_FONT), sg.Button('Cancel', font=L_FONT)]
