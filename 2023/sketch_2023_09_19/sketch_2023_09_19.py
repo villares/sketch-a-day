@@ -49,8 +49,9 @@ def list_files(folder):
 
 def mouse_pressed():
     for f in files:
-        print(f)
-        if f[2] and f[1].is_dir:
+        if f[2] and f[1].is_dir():
+            print(f)
+
             files.clear()
             list_files(f[1])        
 
