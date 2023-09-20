@@ -54,7 +54,7 @@ while True:
                 writer.close()
                 sg.popup(f'MP4 saved as:\n{output_file}')
             else:
-                sg.popup('No PNG images found at\n{dir_path}')
+                sg.popup(f'No PNG images found at:\n{dir_path}')
         except Exception as e:
             if str(e).startswith('all input arrays'):
                 sg.popup('Select only images of same size.')
