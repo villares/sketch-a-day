@@ -1,5 +1,7 @@
 from pathlib import Path
+
 import py5
+import imageio
 
 BACKGROUND = py5.color(200, 200, 240)
 SELECTED = py5.color(100, 100, 200)
@@ -22,15 +24,19 @@ def draw():
     i = start
     x = y = 0
     while i < len(files) and x < py5.width:
+        name, _, _, img = files[i]
         if mouse_over(x, y):
             py5.fill(SELECTED)
             files[i][2] = True
         else:
             py5.fill(255)
             files[i][2] = False
-        py5.rect(x + 1, y + 1, coll_w - 2, line_h - 2)
+        if img:
+            py5.image(img, x + 1, y + 1, coll_w - 2, line_h - 2)
+        else:
+            py5.rect(x + 1, y + 1, coll_w - 2, line_h - 2)
         py5.fill(0)
-        py5.text(files[i][0], x, y)
+        py5.text(name, x, y)
         y += line_h
         if y > py5.height:
             y = 0
@@ -42,10 +48,13 @@ def mouse_over(x, y):
 
 def list_files(folder):
     parent = folder.parent
-    files.append([parent.name[:22], parent, None, None])
+    files.append([parent.name[:30], parent, None, None])
     if folder:
         for f in Path(folder).iterdir():
-            files.append([f.name[:22], f, None, None])
+            files.append([f.name[:30], f, None, None])
+    for i, (_, f, _, _) in enumerate(files):
+        if valid_image(f):
+            files[i][3] = py5.load_image(f)
 
 def mouse_pressed():
     for f in files:
@@ -54,6 +63,18 @@ def mouse_pressed():
 
             files.clear()
             list_files(f[1])        
+
+def valid_image(path):
+    if not path.is_file():
+        return False
+    elif path.suffix.lower() in ('.svg', '.png', '.jpg', '.jpeg', '.gif', '.tif'):
+        return True
+    else:
+        try:
+            imageio.v3.imread(path)
+            return True
+        except:
+            return False
 
 def key_pressed():
     if py5.key == 'o':
