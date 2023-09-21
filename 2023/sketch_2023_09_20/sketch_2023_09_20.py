@@ -51,10 +51,12 @@ def mouse_over(x, y):
 
 def list_files(folder):
     parent = folder.parent
-    files.append([parent.name[:30], parent, None, None])
-    if folder:
-        for f in Path(folder).iterdir():
-            files.append([f.name[:30], f, None, None])
+    files[:] = (
+        [[parent.name[:30], parent, None, None]] +
+        [[f.name[:30], f, None, None]
+         for f in Path(folder).iterdir()
+         if f.name[0] != '.']
+        )
     for i, (_, f, _, _) in enumerate(files):
         if valid_image(f):
             files[i][3] = py5.load_image(f)
@@ -78,6 +80,8 @@ def mouse_pressed():
 def valid_image(path):
     if not path.is_file():
         return False
+    elif path.suffix.lower() in ('.mp4', '.py', '.md', '.yml'):
+       return False     
     elif path.suffix.lower() in ('.png', '.jpg', '.jpeg', '.gif', '.tif'):
         return True
     else:
