@@ -35,6 +35,26 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_09_20
+
+![sketch_2023_09_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_20/sketch_2023_09_20.png)
+
+[sketch_2023_09_20](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_09_20) [[py5](https://py5coding.org/)]
+
+Small progress on my image browser, trying some folder navigation "from scratch" with py5... I can get some thumbnails from the OS, but others fail:
+
+---
+
+### sketch_2023_09_19
+
+![sketch_2023_09_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_19/sketch_2023_09_19.png)
+
+[sketch_2023_09_19](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_09_19) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_09_18
 
 ![sketch_2023_09_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_18/sketch_2023_09_18.png)
