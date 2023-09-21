@@ -31,14 +31,15 @@ def draw():
         else:
             py5.fill(255)
             files[i][2] = False
-        if img: #isinstance(img, py5.Py5Image):
-            py5.image(img, x + 1, y + 1, coll_w - 2, line_h - 2)
-        if isinstance(img, py5.Py5Shape):
-            py5.shape(img, x + 1, y + 1, coll_w - 2, line_h - 2)
+        if isinstance(img, py5.Py5Image):
+            py5.image(img, x + 12, y, coll_w - 24, line_h - 24)
+        elif isinstance(img, py5.Py5Shape):
+            py5.shape(img, x + 12, y, coll_w - 24, line_h - 24)
         else:
-            py5.rect(x + 1, y + 1, coll_w - 2, line_h - 2)
+            py5.rect(x + 12, y, coll_w - 24, line_h - 24)
         py5.fill(0)
-        py5.text(name, x, y)
+        py5.text_align(py5.CENTER)
+        py5.text(name, x + coll_w / 2, y + line_h - 12)
         y += line_h
         if y > py5.height:
             y = 0
@@ -59,6 +60,12 @@ def list_files(folder):
             files[i][3] = py5.load_image(f)
         elif f.suffix.lower() == '.svg':
             files[i][3] = py5.load_shape(f)
+        else:
+            try:
+                t = get_thumbnail(f, 128)
+                files[i][3] = py5.load_shape(t)
+            except Exception as e:
+                print(e)
 
 def mouse_pressed():
     for f in files:
@@ -79,19 +86,13 @@ def valid_image(path):
             return True
         except:
             return False
-        
-#     elif path.suffix.lower() in ('.png', '.jpg', '.jpeg', '.gif', '.tif'):
-#         return True
-#     elif path.suffix.lower() in ('.mp4', '.py', '.md', '.yml'):
-#         return False     
-#     else:
-#         try:
-#             imageio.v3.imread(path)
-#             return True
-#         except:
-#             return False
 
-def get_thumbnail(filename,size):
+def key_pressed():
+    if py5.key == 'o':
+        files.clear()
+        py5.select_folder('Select a folder', list_files)
+
+def get_thumbnail(filename, size):
     # https://stackoverflow.com/a/40831294/19771
     import os , gi
     gi.require_version('Gtk', '3.0')
@@ -99,7 +100,7 @@ def get_thumbnail(filename,size):
     
     final_filename = ""
     if os.path.exists(filename):
-        file = Gio.File.new_for_path(filename)
+        file = Gio.File.new_for_path(str(filename))
         info = file.query_info('standard::icon' , 0 , Gio.Cancellable())
         icon = info.get_icon().get_names()[0]
 
@@ -109,11 +110,7 @@ def get_thumbnail(filename,size):
             final_filename = icon_file.get_filename()
         return final_filename
 
-def key_pressed():
-    if py5.key == 'o':
-        files.clear()
-        py5.select_folder('Select a folder', list_files)
-
 
 py5.run_sketch(block=False)
+
 
