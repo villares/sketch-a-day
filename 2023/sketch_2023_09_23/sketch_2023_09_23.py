@@ -12,13 +12,13 @@ line_h = 150
 margin = 12
 image_h = line_h - margin * 2
 coll_w = 150
-items_range = {'start': 0, 'end': 0}
+items_range = {'start': 0, 'end': 0, 'first_row': 0}
 over = None
 
 def setup():
     py5.size(800, 800)
     py5.text_align(py5.LEFT, py5.TOP)
-    list_files(Path.cwd().parent.parent)
+    update_files(Path.cwd().parent.parent)
     #py5.no_loop()
 
 def draw():
@@ -26,6 +26,7 @@ def draw():
     i = items_range['start']
     x = 0
     y = margin
+    first_row = True
     while i < len(files):
         name, f, _ = files[i]        
         thumb = get_picture(f)
@@ -46,6 +47,9 @@ def draw():
         if x > py5.width - rw - margin :
             x = 0
             y += line_h
+            if first_row:
+                items_range['first_row'] = items_range['start']  - i
+                first_row = False
         if y > py5.height - line_h:
             break
 
@@ -65,6 +69,7 @@ def draw():
         x += rw + margin
         i += 1
     items_range['end'] = i
+    print(items_range['first_row'])
 
 def arrow(_, x, y, rw, image_h):
     with py5.push():
@@ -77,19 +82,25 @@ def arrow(_, x, y, rw, image_h):
         py5.line(rw - margin, image_h / 2,
                  rw / 2, margin)
 
+def update_files(folder):
+    files.clear()
+    files[:] = list_files(folder)
+
 def list_files(folder):
     items_range['start'] = 0
-    parent = folder.parent
-    files[:] = [[parent.name[:30], parent, False]] + sorted(
+    head = [[folder.parent.name[:30], folder.parent, False]]
+    tail = sorted(
         [f.name[:30], f, False]
         for f in Path(folder).iterdir()
         if f.name[0] != '.'
         )
+    return head + tail
+    
     
 @lru_cache(maxsize=64)
 def get_picture(path):
     if path.is_dir():
-        return None
+        return dir_image(path)
     if path.suffix.lower() == '.svg':
         try:
             return py5.load_shape(path)
@@ -127,11 +138,13 @@ def get_icon(path, size):
         if icon_file != None:
             final_filename = icon_file.get_filename()
         return final_filename
-        
+
+def dir_image(path):
+    return None
+ 
 def key_pressed():
     if py5.key == 'o':
-        files.clear()
-        py5.select_folder('Select a folder', list_files)
+        py5.select_folder('Select a folder', update_files)
 
 def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
@@ -140,7 +153,7 @@ def mouse_pressed():
     for f in files:
         if f[2] and f[1].is_dir():
             files.clear()
-            list_files(f[1])        
+            update_files(f[1])        
 
 def mouse_wheel(e):
     delta = e.get_count()
