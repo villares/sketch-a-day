@@ -1,3 +1,16 @@
+"""
+A naive image browser experiment.
+
+
+TODO:
+   - Check for very wide images like sketch_2022_01_13b
+       - Right now it produces "zero image rows" that jam everything.
+   - Fix troubles with SVGs.
+       - maybe just use pycairo instead of load_shape?
+   - [X] fix "line scrolling" issues"
+   - ver 27 de fev 2023
+"""
+
 from pathlib import Path
 from functools import lru_cache
 
@@ -12,8 +25,12 @@ line_h = 150
 margin = 12
 image_h = line_h - margin * 2
 coll_w = 150
-items_range = {'start': 0, 'end': 0, 'first_row': 0}
-over = None
+items_range = {
+    'start': 0,
+    'end': 0,
+    'first_row': 0,
+    'previous_row': [0]
+    }
 
 def setup():
     py5.size(800, 800)
@@ -22,6 +39,8 @@ def setup():
     #py5.no_loop()
 
 def draw():
+    global over
+    over = None
     py5.background(BACKGROUND)
     i = items_range['start']
     x = 0
@@ -37,9 +56,12 @@ def draw():
             rw = thumb.width
             func = py5.image
         elif isinstance(thumb, py5.Py5Shape):
-            w, h = thumb.get_width(), thumb.get_height()
-            ratio = w / h
-            rw = image_h * ratio
+            try:
+                w, h = thumb.get_width(), thumb.get_height()
+                ratio = w / h
+                rw = image_h * ratio
+            except AttributeError:
+                pass
             func = py5.shape
         else:
             func = lambda *args: None
@@ -48,19 +70,23 @@ def draw():
             x = 0
             y += line_h
             if first_row:
-                items_range['first_row'] = items_range['start']  - i
+                items_range['first_row'] = i - items_range['start']
                 first_row = False
         if y > py5.height - line_h:
             break
-
-        func(thumb, x + margin, y, rw, image_h)
-
+        
         if mouse_over(x, y, rw, image_h):
             py5.fill(SELECTED)
-            files[i][2] = True
+            over = i
         else:
             py5.no_fill()
-            files[i][2] = False
+            
+        try:
+            func(thumb, x + margin, y, rw, image_h)
+        except TypeError:
+            pass
+            #print(thumb)
+
         
         py5.rect(x + margin, y, rw, image_h)
         py5.fill(0)
@@ -69,7 +95,6 @@ def draw():
         x += rw + margin
         i += 1
     items_range['end'] = i
-    print(items_range['first_row'])
 
 def arrow(_, x, y, rw, image_h):
     with py5.push():
@@ -152,16 +177,21 @@ def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
 
 def mouse_pressed():
-    for f in files:
-        if f[2] and f[1].is_dir():
+    if over is not None:
+        f = files[over]
+        if f[1].is_dir():
             files.clear()
+            print(f[1])
             update_files(f[1])        
 
 def mouse_wheel(e):
+    # print(items_range)
     delta = e.get_count()
-    if (delta > 0 and items_range['end'] < len(files) - 1
-        or delta < 0 and items_range['start'] > 0):
-        items_range['start'] += delta
+    if delta > 0 and items_range['end'] < len(files) - 1:
+        items_range['start'] += items_range['first_row']
+        items_range['previous_row'].append(items_range['first_row'])
+    if delta < 0 and items_range['start'] > 0:
+        items_range['start'] -= items_range['previous_row'].pop()
 
 py5.run_sketch(block=False)
 
