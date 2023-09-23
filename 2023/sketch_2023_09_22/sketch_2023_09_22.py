@@ -1,10 +1,9 @@
 from pathlib import Path
 
 import py5
-import imageio
 
 BACKGROUND = py5.color(200, 200, 240)
-SELECTED = py5.color(100, 100, 200)
+SELECTED = py5.color(100, 100, 200, 100)
 
 files = []
 line_h = 150
@@ -50,7 +49,7 @@ def draw():
         func(thumb, x + margin, y, rw, image_h)
 
         if mouse_over(x, y, rw, image_h):
-            py5.fill(SELECTED, 100)
+            py5.fill(SELECTED)
             files[i][2] = True
         else:
             py5.no_fill()
