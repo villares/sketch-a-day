@@ -83,19 +83,17 @@ def arrow(_, x, y, rw, image_h):
                  rw / 2, margin)
 
 def update_files(folder):
+    items_range['start'] = 0
     files.clear()
-    files[:] = list_files(folder)
+    back_to_parent = [[folder.parent.name[:30], folder.parent, False]]
+    files[:] = back_to_parent + list_files(folder)
 
 def list_files(folder):
-    items_range['start'] = 0
-    head = [[folder.parent.name[:30], folder.parent, False]]
-    tail = sorted(
+    return sorted(
         [f.name[:30], f, False]
         for f in Path(folder).iterdir()
         if f.name[0] != '.'
         )
-    return head + tail
-    
     
 @lru_cache(maxsize=64)
 def get_picture(path):
@@ -140,6 +138,10 @@ def get_icon(path, size):
         return final_filename
 
 def dir_image(path):
+    files = list_files(path)
+    for name, fp, _ in files:
+        if fp.is_file() and (img := get_picture(fp)):
+            return img
     return None
  
 def key_pressed():
