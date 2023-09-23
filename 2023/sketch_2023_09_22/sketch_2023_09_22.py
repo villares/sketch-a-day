@@ -126,10 +126,10 @@ def get_icon(path, size):
     final_filename = ""
     if path.exists():
         file = Gio.File.new_for_path(str(path))
-        info = file.query_info('standard::icon' , 0 , Gio.Cancellable())
+        info = file.query_info('standard::icon', 0, Gio.Cancellable())
         icon = info.get_icon().get_names()[0]
         icon_theme = Gtk.IconTheme.get_default()
-        icon_file = icon_theme.lookup_icon(icon , size , 0)
+        icon_file = icon_theme.lookup_icon(icon, size, 0)
         if icon_file != None:
             final_filename = icon_file.get_filename()
         return final_filename
