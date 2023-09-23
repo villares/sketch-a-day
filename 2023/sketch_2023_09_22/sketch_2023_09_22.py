@@ -115,20 +115,19 @@ def key_pressed():
         files.clear()
         py5.select_folder('Select a folder', list_files)
 
-def get_icon(filename, size):
+def get_icon(path, size):
     # https://stackoverflow.com/a/40831294/19771
     # sudo pacman -S python-gobject gtk4
     # pip install PyGObject
-    import os , gi
+    import gi
     gi.require_version('Gtk', '3.0')
     from gi.repository import Gio , Gtk
     
     final_filename = ""
-    if os.path.exists(filename):
-        file = Gio.File.new_for_path(str(filename))
+    if path.exists():
+        file = Gio.File.new_for_path(str(path))
         info = file.query_info('standard::icon' , 0 , Gio.Cancellable())
         icon = info.get_icon().get_names()[0]
-
         icon_theme = Gtk.IconTheme.get_default()
         icon_file = icon_theme.lookup_icon(icon , size , 0)
         if icon_file != None:
