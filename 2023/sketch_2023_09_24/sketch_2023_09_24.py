@@ -12,6 +12,7 @@ TODO:
 """
 
 import sys
+import subprocess
 from pathlib import Path
 from functools import lru_cache, cache
 
@@ -123,6 +124,7 @@ def get_picture(path):
     if path.is_dir():
         return dir_image(path)
     if path.suffix.lower() == '.svg':
+        # TODO check possible resize
         try:
             return py5.convert_image(path)
         except RuntimeError as e:
@@ -140,29 +142,31 @@ def get_picture(path):
             ) as e:
             pass
     try:
-        t = get_icon(path, 128)
-        return py5.convert_image(t)
+        t = get_icon_filename(path, 128)
+        img = py5.convert_image(t)
+        return img
     except RuntimeError as e:
         print(f'Could not load icon SVG for {path.name}.')
         return None
 
-def get_icon(path, size):
-    # https://stackoverflow.com/a/40831294/19771
-    # sudo pacman -S python-gobject gtk4
-    # pip install PyGObject
-    import gi
-    gi.require_version('Gtk', '3.0')
-    from gi.repository import Gio , Gtk
+def get_icon_filename(path, size):
     final_filename = ""
-    if path.exists():
-        file = Gio.File.new_for_path(str(path))
-        info = file.query_info('standard::icon', 0, Gio.Cancellable())
-        icon = info.get_icon().get_names()[0]
-        icon_theme = Gtk.IconTheme.get_default()
-        icon_file = icon_theme.lookup_icon(icon, size, 0)
-        if icon_file != None:
-            final_filename = icon_file.get_filename()
-        return final_filename
+    if sys.platform == 'linux':
+        # https://stackoverflow.com/a/40831294/19771
+        # sudo pacman -S python-gobject gtk4
+        # pip install PyGObject
+        import gi
+        gi.require_version('Gtk', '3.0')
+        from gi.repository import Gio , Gtk
+        if path.exists():
+            file = Gio.File.new_for_path(str(path))
+            info = file.query_info('standard::icon', 0, Gio.Cancellable())
+            icon = info.get_icon().get_names()[0]
+            icon_theme = Gtk.IconTheme.get_default()
+            icon_file = icon_theme.lookup_icon(icon, size, 0)
+            if icon_file != None:
+                final_filename = icon_file.get_filename()
+    return final_filename
 
 def dir_image(path):
     files = list_files(path)
@@ -214,10 +218,14 @@ def key_pressed():
 def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
 
-def mouse_pressed():
+def mouse_clicked():
     if over is not None:
-        f = files[over]
-        if f[1].is_dir():
+        name, fp, _ = files[over]
+        if (py5.mouse_button == py5.RIGHT
+            or py5.is_key_pressed
+            ):
+            open_path(fp)
+        elif fp.is_dir():
             spf = scroll['last_scroll']
             if over == 0 and spf:
                 scroll.update(spf.pop())
@@ -225,8 +233,12 @@ def mouse_pressed():
                 spf.append(scroll.copy())
                 scroll['start'] = 0
             files.clear()
-            print(f[1])
-            update_files(f[1])        
+            #print(fp)
+            update_files(fp)
+    else:
+        if (py5.mouse_button == py5.RIGHT or
+            py5.is_key_pressed):
+            open_path(files[0][1].parent)
 
 def mouse_wheel(e):
     # print(scroll)
