@@ -18,10 +18,8 @@ import py5
 from PIL import Image
 
 BACKGROUND = py5.color(128, 128, 150)
-SELECTED = py5.color(100, 100, 200, 100)
 CLICKABLE = py5.color(0, 0, 255)
 OVER = py5.color(255)
-
 
 files = []
 line_h = 150
@@ -33,7 +31,7 @@ scroll = {
     'end': 0,
     'first_row': 0,
     'previous_row': [0],
-    'previous_folder': []
+    'last_scroll': []
     }
 
 def setup():
@@ -208,7 +206,7 @@ def mouse_pressed():
     if over is not None:
         f = files[over]
         if f[1].is_dir():
-            spf = scroll['previous_folder']
+            spf = scroll['last_scroll']
             if over == 0 and spf:
                 scroll.update(spf.pop())
             else:
