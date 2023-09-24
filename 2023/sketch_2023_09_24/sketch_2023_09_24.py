@@ -28,6 +28,8 @@ line_h = 150
 margin = 12
 image_h = line_h - margin * 2
 coll_w = 150
+max_width = 800
+max_height = 800
 scroll = {
     'start': 0,
     'end': 0,
@@ -51,23 +53,26 @@ def draw():
     y = margin
     first_row = True
     while i < len(files):
-        rw = coll_w - margin * 2
+        rw = rh = coll_w - margin * 2
         name, f, valid_img = files[i]        
         thumb = None
         
         if i != 0 and (thumb:= get_picture(f)):
             w, h = thumb.width, thumb.height
             ratio = w / h
-            rw = image_h * ratio
+            rw, rh = image_h * ratio, image_h
+            if rw > max_width - margin * 2:
+                rw = max_width - margin * 2
+                rh = rw / ratio
             
-        if x > py5.width - rw - margin :
+        if x > max_width - rw - margin :
             x = 0
             y += line_h
             if first_row:
                 scroll['first_row'] = i - scroll['start']
                 first_row = False
                 
-        if y > py5.height - line_h:
+        if y > max_height - line_h:
             break
         
         py5.no_fill()
@@ -76,18 +81,18 @@ def draw():
         if f.is_file():
             py5.no_stroke()
         if i != 0 and thumb:
-            py5.image(thumb, x + margin, y, rw, image_h)
-        if mouse_over(x, y, rw, image_h):
+            py5.image(thumb, x + margin, y, rw, rh)
+        if mouse_over(x, y, rw, rh):
             py5.stroke(CLICKABLE)
             if f.is_file() and not py5.is_key_pressed:
                 py5.stroke(OVER)
             over = i
-        py5.rect(x + margin, y, rw, image_h)
+        py5.rect(x + margin, y, rw, rh)
         if i == 0:
-            arrow(x + margin, y, rw, image_h)
+            arrow(x + margin, y, rw, rh)
         py5.fill(0)
         py5.text_align(py5.CENTER)
-        py5.text(name, x + rw / 2 + margin, y + image_h + margin)
+        py5.text(name, x + rw / 2 + margin, y + rh + margin)
 
         x += rw + margin
         i += 1
