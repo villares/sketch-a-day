@@ -133,7 +133,8 @@ def main(args):
         readme.write(content)
     # TODO show all changes on GUI
     if gui_mode:
-        sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(change_log))
+        clipped_log = (entry[32:] for entry in change_log)
+        sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(clipped_log))
     
 def ask_tool_comment(folder, img, default_tool):
     image_path = year_path / folder / img
