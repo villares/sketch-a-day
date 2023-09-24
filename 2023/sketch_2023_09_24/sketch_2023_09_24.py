@@ -11,6 +11,7 @@ TODO:
        - used @hx2a suggestion py5.convert_image(svg_path)
 """
 
+import sys
 from pathlib import Path
 from functools import lru_cache, cache
 
@@ -176,24 +177,35 @@ def dir_image(path):
             return get_picture(fp)
     return None
 
-@cache
+# @cache  # only needed if you use the costly try: Image.open check
 def valid_image(path):
+    # crude
     if path.suffix.lower() in (
         '.png', '.gif', '.jpg', '.jpeg'
         '.tga', '.webp', '.tif', '.tiff'
         ):
         return True
-    if path.suffix.lower() in (
-        '.py', '.pyde', '.svg', '.txt'
-        '.md', '.pyc'
-        ):
-        return False
+#     # the if bellow is to reduce/avoid the costly try: Image.open(path)
+#     if path.suffix.lower() in (
+#         '.py', '.pyde', '.svg', '.txt'
+#         '.md', '.pyc'
+#         ):
+#         return False
+#     # a costly check if the thing is an image
 #     try:
 #         Image.open(path)
 #         return True
 #     except Exception:
 #         return False    
     return False
+
+def open_path(path):
+    if sys.platform == 'darwin':
+        subprocess.Popen(['open', path])
+    elif sys.platform == 'linux':
+        subprocess.Popen(['xdg-open', path])
+    else:
+        subprocess.Popen(['explorer', path])
 
 def key_pressed():
     if py5.key == 'o':
