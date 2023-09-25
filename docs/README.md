@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_09_24
+
+![sketch_2023_09_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_24/sketch_2023_09_24.png)
+
+[sketch_2023_09_24](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_09_24) [[py5](https://py5coding.org/)]
+
+my folder browser is mostly working...
+
+---
+
 ### sketch_2023_09_23
 
 ![sketch_2023_09_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_23/sketch_2023_09_23.gif)
