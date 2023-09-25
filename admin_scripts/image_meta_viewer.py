@@ -12,13 +12,12 @@ https://github.com/PySimpleGUI/PySimpleGUI/blob/master/DemoPrograms/Demo_Image_E
 Copyright 2020 PySimpleGUI.org
 LGPLv3 https://github.com/PySimpleGUI/PySimpleGUI/blob/master/license.txt    
 """
-
-import PySimpleGUI as sg
-# import PySimpleGUIQt as sg
 from pathlib import Path
+import io
 
 import PIL.Image
-import io
+import PySimpleGUI as sg
+# import PySimpleGUIQt as sg
 
 def image_as_png_bytes(file_path, resize=None):
     """
@@ -117,7 +116,6 @@ if __name__ == '__main__':
                     window['-OTHER-'].update('\n'.join(f'{k}: {v}'
                                                        for k, v in metadata.items()))
                 elif filepath.is_dir():
-                    print('dir')
                     window['-FOLDER-'].update(str(filepath))
                     update_list(filepath)
             except Exception as e:
