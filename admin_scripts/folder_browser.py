@@ -2,8 +2,8 @@
 A naive image browser experiment.
 
 TODO:
-   - Check for very wide images like sketch_2022_01_13b
-       - Right now it produces "zero image rows" that jam everything.
+   - [X] Check for very wide images like sketch_2022_01_13b
+       - No more"zero image rows" that jam everything.
    - Create "selected item"
    - [X] right click or click + key to open folder and file
    - [X] Go back to same parent folder scroll position
@@ -147,7 +147,7 @@ def get_picture(path):
             ) as e:
             pass
     try:
-        t = get_icon_filename(path, 128)
+        t = get_icon_filename(path, line_h)
         img = py5.convert_image(t)
         return img
     except RuntimeError as e:
@@ -184,7 +184,9 @@ def dir_image(path):
     for name, fp, _ in files:
         if fp.is_file():
             return get_picture(fp)
-    return None
+    t = get_icon_filename(path, line_h)
+    img = py5.convert_image(t)
+    return img
 
 # @cache  # only needed if you use the costly try: Image.open check
 def valid_image(path):
@@ -255,5 +257,3 @@ def mouse_wheel(e):
         scroll['start'] -= scroll['previous_row'].pop()
 
 py5.run_sketch(block=False)
-
-
