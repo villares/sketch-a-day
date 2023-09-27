@@ -1,32 +1,32 @@
-from shared_memory_dict import SharedMemoryDict
-
+from multiprocessing import shared_memory
+from time import sleep
 import py5
 
-smd_config = SharedMemoryDict(name='config', size=1024)
+sleep(2)
+smd_config = shared_memory.ShareableList(name='09-26')
 
 def setup():
     py5.size(300, 300)
     py5.window_title('2')
-    smd_config["status"] = True
+    smd_config[-1] = True
 
 def draw():
-    if smd_config["status"]:
-        py5.background(0, 0, 100)
-    py5.fill(0, 100, 0)
-    x = smd_config.get('mouse_x1', 0)
-    y = smd_config.get('mouse_y1', 0)
+    if smd_config[-1]:
+        py5.background(0, 0, 100)    
+    py5.fill(100, 100, 0)
+    x = smd_config[0]
+    y = smd_config[1]
     py5.circle(x, y, 10)
     if py5.is_mouse_pressed:
-        smd_config['mouse_x2'] = py5.mouse_x
-        smd_config['mouse_y2'] = py5.mouse_y
+        smd_config[2] = int(py5.mouse_x)
+        smd_config[3] = int(py5.mouse_y)
             
 def mouse_clicked():
-    smd_config["status"] = not smd_config["status"]
-      
+    smd_config[-1] = not smd_config[-1]
+
 def exiting():
     smd_config.shm.close()
-    #smd_config.shm.unlink()
 
 py5.run_sketch()
-
+smd_config.shm.unlink()
 
