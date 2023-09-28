@@ -35,6 +35,36 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_09_27
+
+![sketch_2023_09_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_27/sketch_2023_09_27.png)
+
+[sketch_2023_09_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_09_27) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_09_26
+
+![sketch_2023_09_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_26/sketch_2023_09_26.png)
+
+[sketch_2023_09_26](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_09_26) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2023_09_25
+
+![sketch_2023_09_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_25/sketch_2023_09_25.png)
+
+[sketch_2023_09_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_09_25) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_09_24
 
 ![sketch_2023_09_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_09_24/sketch_2023_09_24.png)

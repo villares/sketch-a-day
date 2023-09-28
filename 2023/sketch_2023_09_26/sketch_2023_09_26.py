@@ -17,10 +17,10 @@ files = []
 icons = set()
 suffixes = {}
 
-line_h = 75
+coll_w = 128
+line_h = 128
 margin = 12
 image_h = line_h - margin * 2
-coll_w = 75
 max_width = 800
 max_height = 800
 scroll = {
@@ -146,6 +146,8 @@ def valid_image(path):
 def key_pressed():
     if py5.key == 'o':
         py5.select_folder('Select a folder', update_files)
+    elif py5.key == 's':
+        py5.save_frame(__file__[:-3]+'.png')
 
 def mouse_wheel(e):
     # print(scroll)
