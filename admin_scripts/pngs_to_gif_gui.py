@@ -50,7 +50,7 @@ while True:
                 imageio.v3.imwrite(
                 output_file,
                 images,
-                duration=duration / 1000,
+                duration=duration,
                 loop=loops,
                 )
                 sg.popup(f'Animation saved as:\n{output_file}')

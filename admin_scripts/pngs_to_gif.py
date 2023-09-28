@@ -41,7 +41,7 @@ if input_dir.is_dir():
             imageio.v3.imwrite(
                 output_path,
                 images,
-                duration=int(args.duration) / 1000,
+                duration=int(args.duration),
                 loop=args.loop,
                 )
             print(f'Animation saved at:\n{output_path}\n')
