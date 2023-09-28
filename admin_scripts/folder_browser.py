@@ -2,13 +2,9 @@
 A naive image browser experiment.
 
 TODO:
-   - [X] Check for very wide images like sketch_2022_01_13b
-       - No more"zero image rows" that jam everything.
    - Create "selected item"
-   - [X] right click or click + key to open folder and file
-   - [X] Go back to same parent folder scroll position
-   - [x] Fix troubles with SVGs.
-       - used @hx2a suggestion py5.convert_image(svg_path)
+   - Check scrolling issues
+    
 """
 
 import sys
