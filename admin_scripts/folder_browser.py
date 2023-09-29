@@ -4,6 +4,8 @@ A naive image browser experiment.
 TODO:
    - Create "selected item"
    - Check scrolling issues
+   - Use folder icon behind other icons when
+     showing a folder that has no images.
     
 """
 
@@ -19,6 +21,7 @@ BACKGROUND = py5.color(128, 128, 150)
 CLICKABLE = py5.color(0, 0, 255)
 OVER = py5.color(255)
 
+hidden_files = False
 files = []
 line_h = 150
 margin = 12
@@ -35,10 +38,12 @@ scroll = {
     }
 
 def setup():
+    global folder_icon
     py5.size(800, 800)
     py5.text_align(py5.LEFT, py5.TOP)
-    update_files(Path.cwd().parent.parent)
-    #py5.no_loop()
+    update_files(Path.cwd())
+    t = get_icon_filename(Path.home().parent)
+    folder_icon = py5.convert_image(t)
 
 def draw():
     global over
@@ -105,6 +110,8 @@ def arrow(x, y, rw, image_h):
                  rw / 2, margin)
 
 def update_files(folder):
+    global current_folder
+    current_folder = folder
     py5.window_title(folder.name)
     files.clear()
     back_to_parent = [[folder.parent.name[:30], folder.parent, False]]
@@ -112,24 +119,28 @@ def update_files(folder):
 
 def list_files(folder):
     try:
-        return sorted(
+        items = [
             [f.name[:30], f, valid_image(f)]
-            for f in Path(folder).iterdir()
-            if f.name[0] != '.'
-            )
-    except IOError:
+            for f in sorted(Path(folder).iterdir())
+            if f.name[0] != '.' or hidden_files
+            ]
+#         for item in items:
+#             print(item)
+        return items
+    except IOError as e:
+        print(e)
         return []
     
 @lru_cache(maxsize=64)
 def get_picture(path):
-    if path.is_dir():
-        return dir_image(path)
-    if path.suffix.lower() == '.svg':
-        # TODO check possible resize
-        try:
-            return py5.convert_image(path)
-        except RuntimeError as e:
-            print(f'Could not load SVG from {path}')
+    try:
+        if path.is_dir():
+            return dir_image(path)
+        if path.suffix.lower() == '.svg':
+            # TODO check possible resize
+                return py5.convert_image(path)
+    except RuntimeError as e:
+            print(f'{e}\nCould not load SVG from {path}')
     if valid_image(path):
         try:
             img = Image.open(path)
@@ -141,16 +152,16 @@ def get_picture(path):
             Image.UnidentifiedImageError,
             PermissionError
             ) as e:
-            pass
+            print(e)
     try:
-        t = get_icon_filename(path, line_h)
+        t = get_icon_filename(path)
         img = py5.convert_image(t)
         return img
     except RuntimeError as e:
-        print(f'Could not load icon SVG for {path.name}.')
+        print(f'{e}\nCould not load icon SVG for {path.name}.')
         return None
 
-def get_icon_filename(path, size):
+def get_icon_filename(path, size=128):
     final_filename = ""
     if sys.platform == 'linux':
         # https://stackoverflow.com/a/40831294/19771
@@ -170,6 +181,7 @@ def get_icon_filename(path, size):
     return final_filename
 
 def dir_image(path):
+    img = None
     files = list_files(path)
     for name, fp, valid_img in files:
         if valid_img and fp.stem == path.stem:
@@ -179,10 +191,8 @@ def dir_image(path):
             return get_picture(fp)
     for name, fp, _ in files:
         if fp.is_file():
-            return get_picture(fp)
-    t = get_icon_filename(path, line_h)
-    img = py5.convert_image(t)
-    return img
+            img = get_picture(fp)
+    return folder_icon if img is None else img
 
 # @cache  # only needed if you use the costly try: Image.open check
 def valid_image(path):
@@ -217,6 +227,13 @@ def open_path(path):
 def key_pressed():
     if py5.key == 'o':
         py5.select_folder('Select a folder', update_files)
+    elif py5.key == 'h':
+        global hidden_files
+        hidden_files = not hidden_files
+        update_files(current_folder)
+    elif py5.hey == 'r':
+        update_files(Path.home())
+
 
 def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
@@ -246,7 +263,7 @@ def mouse_clicked():
 def mouse_wheel(e):
     # print(scroll)
     delta = e.get_count()
-    if delta > 0 and scroll['end'] < len(files) - scroll['first_row']:
+    if delta > 0 and scroll['end'] < len(files):
         scroll['start'] += scroll['first_row']
         scroll['previous_row'].append(scroll['first_row'])
     if delta < 0 and scroll['start'] > 0:
