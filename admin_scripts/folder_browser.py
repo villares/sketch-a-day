@@ -1,12 +1,10 @@
+#!/home/villares/miniconda3/bin/python
 """
 A naive image browser experiment.
 
 TODO:
    - Create "selected item"
    - Check scrolling issues
-   - Use folder icon behind other icons when
-     showing a folder that has no images.
-    
 """
 
 import sys
@@ -148,17 +146,14 @@ def get_picture(path):
             w = image_h * ratio
             img.thumbnail((w, image_h))
             return py5.convert_image(img)
-        except (
-            Image.UnidentifiedImageError,
-            PermissionError
-            ) as e:
-            print(e)
+        except Exception as e:
+            print(f'{e}\nCould not open {path}')
     try:
         t = get_icon_filename(path)
         img = py5.convert_image(t)
         return img
     except RuntimeError as e:
-        print(f'{e}\nCould not load icon SVG for {path.name}.')
+        print(f'{e}\nCould not load icon for {path.name}.')
         return None
 
 def get_icon_filename(path, size=128):
@@ -191,7 +186,7 @@ def dir_image(path):
     icon = py5.create_graphics(128, 128)
     icon.begin_draw()
     icon.image(folder_icon, 0, 0, 128, 128)
-    x = 20
+    x = 24
     for name, fp, _ in files[:5]:
         img = None
         if fp.is_file():
@@ -200,7 +195,7 @@ def dir_image(path):
             img = folder_icon
         if not img:
             continue
-        icon.image(img, x, x, 64, 64)
+        icon.image(img, x, x, 48, 48)
         x += 10
     icon.end_draw()
     return icon #folder_icon if img is None else img
