@@ -181,7 +181,6 @@ def get_icon_filename(path, size=128):
     return final_filename
 
 def dir_image(path):
-    img = None
     files = list_files(path)
     for name, fp, valid_img in files:
         if valid_img and fp.stem == path.stem:
@@ -189,10 +188,22 @@ def dir_image(path):
     for name, fp, valid_img in files:
         if valid_img:
             return get_picture(fp)
-    for name, fp, _ in files:
+    icon = py5.create_graphics(128, 128)
+    icon.begin_draw()
+    icon.image(folder_icon, 0, 0, 128, 128)
+    x = 20
+    for name, fp, _ in files[:5]:
+        img = None
         if fp.is_file():
             img = get_picture(fp)
-    return folder_icon if img is None else img
+        elif fp.is_dir():
+            img = folder_icon
+        if not img:
+            continue
+        icon.image(img, x, x, 64, 64)
+        x += 10
+    icon.end_draw()
+    return icon #folder_icon if img is None else img
 
 # @cache  # only needed if you use the costly try: Image.open check
 def valid_image(path):
@@ -231,9 +242,11 @@ def key_pressed():
         global hidden_files
         hidden_files = not hidden_files
         update_files(current_folder)
-    elif py5.hey == 'r':
-        update_files(Path.home())
-
+    elif py5.key == 'u':
+        if  current_folder == Path.home():
+            update_files(Path.cwd())
+        else:
+            update_files(Path.home())
 
 def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
