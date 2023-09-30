@@ -4,13 +4,14 @@
 A naive image browser experiment.
 
 TODO:
-   - Create "selected item"
-   - Check scrolling issues
-
+   - Create a "selected items list" feature
+       - I'll use this to diff across different sketch versions
+   - Check scrolling issues? (might be already fixed)
    - Struggling to make it run from CLI
-    - Works on Thonny env
-     I wish it would work with #!/home/villares/miniconda3/envs/py5/bin/python
-     or #!/home/villares/thonny-python-env/bin/python3
+       - Works on Thonny env but I wish it would work with
+         #!/home/villares/miniconda3/envs/py5/bin/python
+         or #!/home/villares/thonny-python-env/bin/python3
+       - Maybe just cache lots of PNG icons to make the problem go away
 """
 
 import sys
@@ -19,6 +20,8 @@ from pathlib import Path
 from functools import lru_cache
 
 import py5
+print(f'Running on: {sys.executable}') # for debug
+
 from PIL import Image
 
 BACKGROUND = py5.color(128, 128, 150)
