@@ -6,6 +6,11 @@ A naive image browser experiment.
 TODO:
    - Create "selected item"
    - Check scrolling issues
+
+   - Struggling to make it run from CLI
+    - Works on Thonny env
+     I wish it would work with #!/home/villares/miniconda3/envs/py5/bin/python
+     or #!/home/villares/thonny-python-env/bin/python3
 """
 
 import sys
@@ -41,9 +46,9 @@ def setup():
     py5.size(800, 800)
     py5.text_align(py5.LEFT, py5.TOP)
     update_files(Path.cwd())
-#    t = get_icon_filename(Path.home().parent)
-#    folder_icon = py5.convert_image(t)
-    folder_icon = py5.load_image('folder.png')
+    t = get_icon_filename(Path.home().parent)
+    folder_icon = py5.convert_image(t)
+ #   folder_icon = py5.load_image('folder.png')
 
 def draw():
     global over
@@ -268,7 +273,7 @@ def mouse_clicked():
     else:
         if (py5.mouse_button == py5.RIGHT or
             py5.is_key_pressed):
-            open_path(files[0][1].parent)
+            open_path(files[0][1])
 
 def mouse_wheel(e):
     # print(scroll)
