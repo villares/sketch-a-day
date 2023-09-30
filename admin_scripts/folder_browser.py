@@ -1,4 +1,5 @@
-#!/home/villares/miniconda3/bin/python
+#!/home/villares/thonny-python-env/bin/python3
+
 """
 A naive image browser experiment.
 
@@ -10,7 +11,7 @@ TODO:
 import sys
 import subprocess
 from pathlib import Path
-from functools import lru_cache, cache
+from functools import lru_cache
 
 import py5
 from PIL import Image
@@ -40,8 +41,9 @@ def setup():
     py5.size(800, 800)
     py5.text_align(py5.LEFT, py5.TOP)
     update_files(Path.cwd())
-    t = get_icon_filename(Path.home().parent)
-    folder_icon = py5.convert_image(t)
+#    t = get_icon_filename(Path.home().parent)
+#    folder_icon = py5.convert_image(t)
+    folder_icon = py5.load_image('folder.png')
 
 def draw():
     global over
