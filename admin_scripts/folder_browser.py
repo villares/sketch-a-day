@@ -3,6 +3,11 @@
 """
 A naive image browser experiment.
 
+Images with thick borders are clickable folders.
+(it displays images from inside the subfolders)
+Left-click to navigate folders.
+Right-click to open files/folders with OS.
+
 TODO:
    - Create a "selected items list" feature
        - I'll use this to diff across different sketch versions
@@ -276,7 +281,7 @@ def mouse_clicked():
     else:
         if (py5.mouse_button == py5.RIGHT or
             py5.is_key_pressed):
-            open_path(files[0][1])
+            open_path(current_folder)
 
 def mouse_wheel(e):
     # print(scroll)
