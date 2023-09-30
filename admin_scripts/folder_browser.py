@@ -68,9 +68,9 @@ def draw():
     first_row = True
     while i < len(files):
         rw = rh = coll_w - margin * 2
-        name, f, valid_img = files[i]        
+        name, f, is_valid_img = files[i]        
         thumb = None
-        
+        # skipping first element, get thumb dims, if possible
         if i != 0 and (thumb:= get_picture(f)):
             w, h = thumb.width, thumb.height
             ratio = w / h
@@ -78,36 +78,39 @@ def draw():
             if rw > max_width - margin * 2:
                 rw = max_width - margin * 2
                 rh = rw / ratio
-            
+        # move to next row and record first row length    
         if x > max_width - rw - margin :
             x = 0
             y += line_h
             if first_row:
                 scroll['first_row'] = i - scroll['start']
                 first_row = False
-                
+        # stop if position outside screen        
         if y > max_height - line_h:
             break
-        
+        # default attrs
         py5.no_fill()
         py5.stroke(0)
         py5.stroke_weight(4)            
         if f.is_file():
-            py5.no_stroke()
+            py5.no_stroke() # turn off border on files by default
         if i != 0 and thumb:
             py5.image(thumb, x + margin, y, rw, rh)
+        # on mouse over, border on for everything 
         if mouse_over(x, y, rw, rh):
+            # files are clickable only if a key is pressed
             py5.stroke(CLICKABLE)
             if f.is_file() and not py5.is_key_pressed:
                 py5.stroke(OVER)
             over = i
+        # draws rect on folders and mouse-overed files
         py5.rect(x + margin, y, rw, rh)
         if i == 0:
             arrow(x + margin, y, rw, rh)
         py5.fill(0)
         py5.text_align(py5.CENTER)
         py5.text(name, x + rw / 2 + margin, y + rh + margin)
-
+        # move on position
         x += rw + margin
         i += 1
     scroll['end'] = i
@@ -137,8 +140,6 @@ def list_files(folder):
             for f in sorted(Path(folder).iterdir())
             if f.name[0] != '.' or hidden_files
             ]
-#         for item in items:
-#             print(item)
         return items
     except IOError as e:
         print(e)
@@ -192,11 +193,11 @@ def get_icon_filename(path, size=128):
 
 def dir_image(path):
     files = list_files(path)
-    for name, fp, valid_img in files:
-        if valid_img and fp.stem == path.stem:
+    for name, fp, is_valid_img in files:
+        if is_valid_img and fp.stem == path.stem:
             return get_picture(fp)
-    for name, fp, valid_img in files:
-        if valid_img:
+    for name, fp, is_valid_img in files:
+        if is_valid_img:
             return get_picture(fp)
     icon = py5.create_graphics(128, 128)
     icon.begin_draw()
@@ -215,7 +216,6 @@ def dir_image(path):
     icon.end_draw()
     return icon #folder_icon if img is None else img
 
-# @cache  # only needed if you use the costly try: Image.open check
 def valid_image(path):
     # crude
     if path.suffix.lower() in (
@@ -223,18 +223,6 @@ def valid_image(path):
         '.tga', '.webp', '.tif', '.tiff'
         ):
         return True
-#     # the if bellow is to reduce/avoid the costly try: Image.open(path)
-#     if path.suffix.lower() in (
-#         '.py', '.pyde', '.svg', '.txt'
-#         '.md', '.pyc'
-#         ):
-#         return False
-#     # a costly check if the thing is an image
-#     try:
-#         Image.open(path)
-#         return True
-#     except Exception:
-#         return False    
     return False
 
 def open_path(path):
