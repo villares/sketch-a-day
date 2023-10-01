@@ -8,15 +8,12 @@ Images with thick borders are clickable folders.
 Left-click to navigate folders.
 Right-click to open files/folders with OS.
 
+SHIFT/CONTROL + click to select/desselect items.
+
 TODO:
-   - Create a "selected items list" feature
-       - I'll use this to diff across different sketch versions
-   - Check scrolling issues? (might be already fixed)
-   - Struggling to make it run from CLI
-       - Works on Thonny env but I wish it would work with
-         #!/home/villares/miniconda3/envs/py5/bin/python
-         or #!/home/villares/thonny-python-env/bin/python3
-       - Maybe just cache lots of PNG icons to make the problem go away
+   -[X] Create a "selected items list" feature
+       -[ ] I'll use this to diff across different sketch versions
+   -[/] Check scrolling issues? (might be already fixed)
 """
 import sys
 import subprocess
@@ -27,30 +24,35 @@ from functools import lru_cache
 import py5
 import PIL.Image
 
-ICONS_ZIP = Path(__file__).parent / 'icons.zip'
+ICONS_ZIP = Path(__file__).parent / 'folder_browser_icons.zip'
+SELECTION = Path(__file__).parent / 'folder_browser_sekection.txt'
 BACKGROUND = py5.color(128, 128, 150)
 CLICKABLE = py5.color(0, 0, 255)
 OVER = py5.color(255)
+SELECTED_FILL = py5.color(255, 64)
 DEBUG = False
 
 if DEBUG:
     print(f'Running on: {sys.executable}')
 
-hidden_files = False
-files = []
 line_h = 150
 margin = 12
 image_h = line_h - margin * 2
 coll_w = 150
 max_width = 800
 max_height = 800
+
 scroll = {
     'start': 0,
     'end': 0,
     'first_row': 0,
     'previous_row': [0],
-    'last_scroll': []
+    'last_scroll': [],
+    'selection': [],
     }
+
+hidden_files = False
+files = []
 
 def setup():
     py5.size(800, 800)
@@ -68,10 +70,10 @@ def draw():
     first_row = True
     while i < len(files):
         rw = rh = coll_w - margin * 2
-        name, f, is_valid_img = files[i]        
+        name, fp, is_valid_img = files[i]        
         thumb = None
         # skipping first element, get thumb dims, if possible
-        if i != 0 and (thumb := get_picture(f)):
+        if i != 0 and (thumb := get_picture(fp)):
             w, h = thumb.width, thumb.height
             ratio = w / h
             rw, rh = image_h * ratio, image_h
@@ -90,9 +92,11 @@ def draw():
             break
         # default attrs
         py5.no_fill()
+        if fp in scroll['selection']:
+            py5.fill(SELECTED_FILL)
         py5.stroke(0)
         py5.stroke_weight(4)            
-        if f.is_file():
+        if fp.is_file():
             py5.no_stroke() # turn off border on files by default
         if i != 0 and thumb:
             py5.image(thumb, x + margin, y, rw, rh)
@@ -100,7 +104,7 @@ def draw():
         if mouse_over(x, y, rw, rh):
             # files are clickable only if a key is pressed
             py5.stroke(CLICKABLE)
-            if f.is_file() and not py5.is_key_pressed:
+            if fp.is_file() and not py5.is_key_pressed:
                 py5.stroke(OVER)
             over = i
         # draws rect on folders and mouse-overed files
@@ -229,6 +233,9 @@ def open_path(path):
     else:
         subprocess.Popen(['explorer', path])
 
+def save_selection():
+    py5.save_strings(scroll['selection'], SELECTION)
+
 def key_pressed():
     if py5.key == 'o':
         py5.select_folder('Select a folder', update_files)
@@ -248,10 +255,20 @@ def mouse_over(x, y, rw, image_h):
 def mouse_clicked():
     if over is not None:
         name, fp, _ = files[over]
-        if (py5.mouse_button == py5.RIGHT
-            or py5.is_key_pressed
-            ):
+        if py5.mouse_button == py5.RIGHT:
             open_path(fp)
+        elif (py5.is_key_pressed and
+              py5.key_code == py5.CONTROL):
+            if fp in scroll['selection']:
+                scroll['selection'].remove(fp)
+            else:
+                scroll['selection'].append(fp)
+                save_selection()
+        elif (py5.is_key_pressed and
+              py5.key_code == py5.SHIFT):
+            scroll['selection'].clear()
+            scroll['selection'].append(fp)
+            save_selection()
         elif fp.is_dir():
             spf = scroll['last_scroll']
             if over == 0 and spf:
@@ -260,11 +277,9 @@ def mouse_clicked():
                 spf.append(scroll.copy())
                 scroll['start'] = 0
             files.clear()
-            #print(fp)
             update_files(fp)
     else:
-        if (py5.mouse_button == py5.RIGHT or
-            py5.is_key_pressed):
+        if py5.mouse_button == py5.RIGHT:
             open_path(current_folder)
 
 def mouse_wheel(e):
@@ -276,4 +291,5 @@ def mouse_wheel(e):
     if delta < 0 and scroll['start'] > 0:
         scroll['start'] -= scroll['previous_row'].pop()
 
-py5.run_sketch(block=False)
+if __name__ == '__main__':
+    py5.run_sketch(block=False)
