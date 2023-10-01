@@ -18,20 +18,23 @@ TODO:
          or #!/home/villares/thonny-python-env/bin/python3
        - Maybe just cache lots of PNG icons to make the problem go away
 """
-
 import sys
 import subprocess
 from pathlib import Path
+from zipfile import ZipFile
 from functools import lru_cache
 
 import py5
-print(f'Running on: {sys.executable}') # for debug
+import PIL.Image
 
-from PIL import Image
-
+ICONS_ZIP = Path(__file__).parent / 'icons.zip'
 BACKGROUND = py5.color(128, 128, 150)
 CLICKABLE = py5.color(0, 0, 255)
 OVER = py5.color(255)
+DEBUG = False
+
+if DEBUG:
+    print(f'Running on: {sys.executable}')
 
 hidden_files = False
 files = []
@@ -50,13 +53,10 @@ scroll = {
     }
 
 def setup():
-    global folder_icon
     py5.size(800, 800)
     py5.text_align(py5.LEFT, py5.TOP)
+    load_icon_imgs()
     update_files(Path.cwd())
-    t = get_icon_filename(Path.home().parent)
-    folder_icon = py5.convert_image(t)
- #   folder_icon = py5.load_image('folder.png')
 
 def draw():
     global over
@@ -71,7 +71,7 @@ def draw():
         name, f, is_valid_img = files[i]        
         thumb = None
         # skipping first element, get thumb dims, if possible
-        if i != 0 and (thumb:= get_picture(f)):
+        if i != 0 and (thumb := get_picture(f)):
             w, h = thumb.width, thumb.height
             ratio = w / h
             rw, rh = image_h * ratio, image_h
@@ -144,52 +144,48 @@ def list_files(folder):
     except IOError as e:
         print(e)
         return []
-    
+
 @lru_cache(maxsize=64)
 def get_picture(path):
+    if path.is_dir():
+        return dir_image(path)
     try:
-        if path.is_dir():
-            return dir_image(path)
         if path.suffix.lower() == '.svg':
-            # TODO check possible resize
-                return py5.convert_image(path)
+            return py5.convert_image(path)
     except RuntimeError as e:
+        if DEBUG:
             print(f'{e}\nCould not load SVG from {path}')
     if valid_image(path):
         try:
-            img = Image.open(path)
+            img = PIL.Image.open(path)
             ratio = img.width / img.height
             w = image_h * ratio
             img.thumbnail((w, image_h))
             return py5.convert_image(img)
         except Exception as e:
-            print(f'{e}\nCould not open {path}')
-    try:
-        t = get_icon_filename(path)
-        img = py5.convert_image(t)
+            if DEBUG:
+                print(f'{e}\nCould not open {path}')
+    suf = path.suffix.lower()[1:]
+    if img := icon_imgs.get(suf):
         return img
-    except RuntimeError as e:
-        print(f'{e}\nCould not load icon for {path.name}.')
-        return None
+    if DEBUG:
+        print(f'Could not load icon for {path.name}.')
+    return icon_imgs['zero']
 
-def get_icon_filename(path, size=128):
-    final_filename = ""
-    if sys.platform == 'linux':
-        # https://stackoverflow.com/a/40831294/19771
-        # sudo pacman -S python-gobject gtk4
-        # pip install PyGObject
-        import gi
-        gi.require_version('Gtk', '3.0')
-        from gi.repository import Gio , Gtk
-        if path.exists():
-            file = Gio.File.new_for_path(str(path))
-            info = file.query_info('standard::icon', 0, Gio.Cancellable())
-            icon = info.get_icon().get_names()[0]
-            icon_theme = Gtk.IconTheme.get_default()
-            icon_file = icon_theme.lookup_icon(icon, size, 0)
-            if icon_file != None:
-                final_filename = icon_file.get_filename()
-    return final_filename
+def load_icon_imgs():
+    global icon_imgs
+    icon_imgs = {}
+    try:
+        with ZipFile(ICONS_ZIP) as icons:
+            for f in sorted(icons.namelist()[1:]):
+                img = PIL.Image.open(icons.open(f))
+                py5image = py5.convert_image(img)
+                suf = f.split('/')[1].split('.')[0]
+                # print(suf) # for debug
+                icon_imgs[suf] = py5image
+    except FileNotFoundError:
+        print('icons.zip missing!')
+        py5.exit_sketch()
 
 def dir_image(path):
     files = list_files(path)
@@ -201,20 +197,20 @@ def dir_image(path):
             return get_picture(fp)
     icon = py5.create_graphics(128, 128)
     icon.begin_draw()
-    icon.image(folder_icon, 0, 0, 128, 128)
+    icon.image(icon_imgs['folder'], 0, 0, 128, 128)
     x = 24
     for name, fp, _ in files[:5]:
         img = None
         if fp.is_file():
             img = get_picture(fp)
         elif fp.is_dir():
-            img = folder_icon
+            img = icon_imgs['folder']
         if not img:
             continue
         icon.image(img, x, x, 48, 48)
         x += 10
     icon.end_draw()
-    return icon #folder_icon if img is None else img
+    return icon 
 
 def valid_image(path):
     # crude
