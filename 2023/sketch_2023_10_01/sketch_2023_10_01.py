@@ -3,7 +3,7 @@ import py5
 import difflib
 from pathlib import Path
 
-SELECTION_PATH = Path('/home/villares/GitHub'
+SELECTION = Path('/home/villares/GitHub'
                       '/sketch-a-day/admin_scripts'
                       '/folder_browser_selection.txt')
 image_paths = []
@@ -15,11 +15,10 @@ run = False
 diff = True
 scroll_offset = 0
 
-
 def setup():
     global fr, fb
     py5.size(1800, 1000)
-    image_paths[:] = py5.load_strings(SELECTION_PATH)
+    image_paths[:] = py5.load_strings(SELECTION)
     walk_images(0)
     fr = py5.create_font("Source Code Pro", font_size)
     fb = py5.create_font("Source Code Pro Bold", font_size)
@@ -39,7 +38,7 @@ def draw():
             py5.text('previous:' + image_paths[previous], 600, 30)
 
     if run:
-        py5.save(f'{current}.png')
+        py5.save(f'a-{current}-{current_path.stem}.png')
         walk_images(1)
         if current == 0:
             py5.exit_sketch()
@@ -70,11 +69,9 @@ def load_image_and_data(image_file, resize=None):
     cur_width, cur_height = img.size
     if resize:
         new_width, new_height = resize
-        scale = min(new_height / cur_height, new_width / cur_width)
-        img = img.resize(
-            (int(cur_width * scale), int(cur_height * scale)),
-            PIL.Image.Resampling.LANCZOS,
-        )
+        sf = min(new_height / cur_height, new_width / cur_width)
+        img = img.resize((int(cur_width * sf), int(cur_height * sf)),
+                              PIL.Image.Resampling.LANCZOS)
     code = img.info.get('code', '').replace('    \n', '\n').replace('\n\n\n', '')
     return py5.convert_image(img), code
 
