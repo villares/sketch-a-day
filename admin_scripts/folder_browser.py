@@ -25,7 +25,7 @@ import py5
 import PIL.Image
 
 ICONS_ZIP = Path(__file__).parent / 'folder_browser_icons.zip'
-SELECTION = Path(__file__).parent / 'folder_browser_sekection.txt'
+SELECTION = Path(__file__).parent / 'folder_browser_selection.txt'
 BACKGROUND = py5.color(128, 128, 150)
 CLICKABLE = py5.color(0, 0, 255)
 OVER = py5.color(255)
@@ -112,6 +112,8 @@ def draw():
         if i == 0:
             arrow(x + margin, y, rw, rh)
         py5.fill(0)
+        if fp in scroll['selection']:
+            py5.fill(255)
         py5.text_align(py5.CENTER)
         py5.text(name, x + rw / 2 + margin, y + rh + margin)
         # move on position
