@@ -46,23 +46,23 @@ def walk_images(i):
     global current, previous, img, code, previous_code
     if len(image_paths) == 0:
         return
-    previous = current
-    current = (current + i) % len(image_paths)
+    previous, current = current, (current + i) % len(image_paths)
     current_path = Path(image_paths[current])
-    #print(current_path)
-    if current_path.is_file():
-        img, new_code = load_image_and_data(image_paths[current],
-                                            (900, 900))
-    if current_path.is_dir():
-        image_path = current_path / (current_path.name + '.png')
-        code_path = current_path / (current_path.name + '.py')
-        img, new_code = load_image_and_data(image_path,
-                                            (900, 900))
-        if len(new_code) == 0:
-            new_code = '\n'.join(py5.load_strings(code_path))        
-    previous_code = code
-    code = new_code
+    img, new_code = get_img_and_code(current_path)
+    previous_code, code = code, new_code
 
+def get_img_and_code(path, resize=(900, 900)):
+    img, code = None, ''
+    if path.is_file():
+        img, code = load_image_and_data(path, resize)
+    elif path.is_dir():
+        image_path = path / (path.name + '.png')
+        img, code = load_image_and_data(image_path, resize)
+        if len(code) == 0:
+            code_path = path / (path.name + '.py')
+            code = '\n'.join(py5.load_strings(code_path))
+    return img, code
+    
 def load_image_and_data(image_file, resize=None):
     img = PIL.Image.open(image_file)
     cur_width, cur_height = img.size
