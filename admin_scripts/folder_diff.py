@@ -1,3 +1,5 @@
+#!/home/villares/thonny-python-env/bin/python3
+
 import PIL.Image
 import py5
 import difflib
@@ -60,7 +62,7 @@ def get_img_and_code(path, resize=(900, 900)):
         img, code = load_image_and_data(image_path, resize)
         if len(code) == 0:
             code_path = path / (path.name + '.py')
-            code = '\n'.join(py5.load_strings(code_path))
+            code = code_path.read_text()
     return img, code
     
 def load_image_and_data(image_file, resize=None):
@@ -80,7 +82,7 @@ def list_files(folder):
         file_list = sorted(Path(folder).iter_dir())  # get list of files in folder
     except:
         file_list = []
-        image_paths = [
+    image_paths = [
             f for f in file_list
             if f.isfile() and f.suffix.lower()
             in ('.png', '.jpg', 'jpeg', '.tga', '.webp',
@@ -105,7 +107,7 @@ def draw_code(x, y):
 def key_pressed():
     global run, current, previous, previous_code, diff
     global scroll_offset
-    if py5.key == 'f':
+    if py5.key == 'o':
         py5.select_folder('Select a folder', list_files)
     elif py5.key == 'u':
         image_paths[:] = py5.load_strings(SELECTION_PATH)
