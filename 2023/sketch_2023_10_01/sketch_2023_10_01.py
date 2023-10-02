@@ -1,5 +1,3 @@
-import os
-import io
 import PIL.Image
 import py5
 import difflib
@@ -20,7 +18,7 @@ scroll_offset = 0
 
 def setup():
     global fr, fb
-    py5.size(1600, 1000)
+    py5.size(1800, 1000)
     image_paths[:] = py5.load_strings(SELECTION_PATH)
     walk_images(0)
     fr = py5.create_font("Source Code Pro", font_size)
@@ -83,13 +81,14 @@ def load_image_and_data(image_file, resize=None):
 def list_files(folder):
     global image_paths
     try:
-        file_list = sorted(os.listdir(folder))  # get list of files in folder
+        file_list = sorted(Path(folder).iter_dir())  # get list of files in folder
     except:
         file_list = []
-    image_paths = [os.path.join(folder, f) for f in file_list
-                   if os.path.isfile(os.path.join(folder, f))
-                   and f.lower().endswith(('.png', '.jpg', 'jpeg',
-                                      '.tiff', '.bmp', '.gif'))]
+        image_paths = [
+            f for f in file_list
+            if f.isfile() and f.suffix.lower()
+            in ('.png', '.jpg', 'jpeg', '.tga', '.webp',
+               '.tiff', '.tif', '.bmp', '.gif')]
 
 def draw_code(x, y):
     with py5.push():
@@ -140,5 +139,7 @@ def mouse_wheel(e):
     global scroll_offset
     d = e.get_count()
     scroll_offset += d
-    
-py5.run_sketch()
+ 
+if __name__ == '__main__':
+    py5.run_sketch()
+
