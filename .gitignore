@@ -14,7 +14,6 @@
 2021/sketch_2021_08_08a_lines/a.gif
 2021/sketch_2021_10_09a_images/data/*
 2022/sketch_2022_10_16/output.gif
-*.ipynb
 */mapa.jpg
 2023/sketch_2023_07_21/mapa.jpg
 *.json
@@ -22,3 +21,4 @@
 2023/sketch_2023_09_16/sao.jpg
 admin_scripts/icons/*
 admin_scripts/folder_browser_sekection.txt
+*.ipynb_checkpoints
