@@ -35,6 +35,36 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_10_05
+
+![sketch_2023_10_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_05/sketch_2023_10_05.png)
+
+[sketch_2023_10_05](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_05) [[py5](https://py5coding.org/)]
+
+#itertools #combinations #combinations_with_replacement #permutations #product
+
+---
+
+### sketch_2023_10_04
+
+![sketch_2023_10_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_04/sketch_2023_10_04.gif)
+
+[sketch_2023_10_04](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_04) [[py5](https://py5coding.org/)]
+
+https://github.com/villares/sketch-a-day/blob/main/2023/sketch_2023_10_04/sketch_2023_10_04.py
+
+---
+
+### sketch_2023_10_03
+
+![sketch_2023_10_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_03/sketch_2023_10_03.png)
+
+[sketch_2023_10_03](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_03) [[py5](https://py5coding.org/)]
+
+#JupyterNotebook
+
+---
+
 ### sketch_2023_10_02
 
 ![sketch_2023_10_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_02/sketch_2023_10_02.png)
