@@ -35,6 +35,33 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_10_07
+
+![sketch_2023_10_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_07/sketch_2023_10_07.png)
+
+[sketch_2023_10_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_07) [[py5](https://py5coding.org/)]
+
+#LSystem
+axiom = 'X'
+rules = {
+    'X': '[-X][+X][+FX]-FXB',
+    'F': 'FF',
+    } 
+# F -> foward step
+# B -> blue circle
+
+---
+
+### sketch_2023_10_06
+
+![sketch_2023_10_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_06/sketch_2023_10_06.png)
+
+[sketch_2023_10_06](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_06) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_10_05
 
 ![sketch_2023_10_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_05/sketch_2023_10_05.png)
