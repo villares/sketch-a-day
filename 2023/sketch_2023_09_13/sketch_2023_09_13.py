@@ -11,7 +11,7 @@ def setup():
     mascara.rect(530, 100, 200, 200, 30)
     mascara.end_draw()
     surface = get_surface()
-#     animated_gif('out.gif', 60, 1/30, 1/30) 
+#     animated_gif('out.gif', count=60, period=1/30, duration=1/30) 
 
 def draw():
     background(0, 0, 100)

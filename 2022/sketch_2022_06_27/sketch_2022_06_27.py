@@ -11,7 +11,7 @@ def setup():
     py5.size(1806, 496)
     #py5.no_cursor()
     py5.frame_rate(10)
- #   py5_tools.animated_gif('out.gif', 50, 0.1, 0.1)
+ #   py5_tools.animated_gif('out.gif', count=50, period=0.1, duration=0.1)
 
 
 def draw():
