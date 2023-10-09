@@ -42,7 +42,6 @@ Here are listed some of the tools I have been using:
 [sketch_2023_10_08](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_08) [[py5](https://py5coding.org/)]
 
 
-
 ---
 
 ### sketch_2023_10_07
@@ -51,7 +50,8 @@ Here are listed some of the tools I have been using:
 
 [sketch_2023_10_07](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_07) [[py5](https://py5coding.org/)]
 
-#LSystem
+```
+# LSystem
 axiom = 'X'
 rules = {
     'X': '[-X][+X][+FX]-FXB',
@@ -59,6 +59,7 @@ rules = {
     } 
 # F -> foward step
 # B -> blue circle
+```
 
 ---
 
