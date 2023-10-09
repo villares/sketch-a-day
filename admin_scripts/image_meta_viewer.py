@@ -43,7 +43,8 @@ cwd = Path.cwd()
 # First the window layout...
 left_col = [
     [sg.Text('Folder'),
-     sg.In(size=(25, 1), default_text=cwd, enable_events=True, key='-FOLDER-'),
+     sg.In(size=(25, 1), default_text=cwd, enable_events=True, key='-FOLDER-',
+           font='Consolas 12'),
      sg.FolderBrowse(),],
     # PSG will put FolderBrowser() result into "In" field!
     [sg.Listbox(values=[], enable_events=True, size=(60, 20), key='-FILE LIST-')],
@@ -72,7 +73,7 @@ layout = [
 
 def update_list(folder):
     try:
-        file_list = list(folder.iterdir())  # get list of files in folder
+        file_list = sorted(folder.iterdir())  # get list of files in folder
     except:
         file_list = []
     fnames = ['↰ ' + folder.parent.name] + [f.name if f.is_file() else '↳ ' + f.name

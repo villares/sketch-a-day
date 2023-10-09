@@ -23,8 +23,6 @@ def setup():
 #def draw():
     background(210, 210, 150)
     stroke_weight(3)
-    angulo = 25
-    # angulo = mouse_x / 70.0
     translate(width / 2, height * 0.9)
     for i, simbolo in enumerate(frase_resultado):
         if simbolo == 'X':   # se simbolo for igual a 'X'
