@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_10_09
+
+![sketch_2023_10_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_09/sketch_2023_10_09.png)
+
+[sketch_2023_10_09](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_09) [[py5](https://py5coding.org/)]
+
+back to some #shapely & #typography ideas (aiming at a stencil as usual)
+
+---
+
 ### sketch_2023_10_08
 
 ![sketch_2023_10_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_08/sketch_2023_10_08.png)

@@ -3,59 +3,49 @@ import py5
 from shapely.affinity import translate as shapely_translate
 from shapely.affinity import rotate as shapely_rotate
 from shapely.affinity import scale as shapely_scale
-from shapely.geometry import Polygon, MultiPolygon, GeometryCollection, LineString, Point
+from shapely.geometry import Polygon, MultiPolygon, LineString
 from shapely.ops import unary_union
-
-import trimesh  # warining, install mapbox_earcut!
 
 from villares.shapely_helpers import *
 
 previous_union = -1
 dragged = -1
-mirror = True
+mirror = False
 
 def setup():
     global shapes
-    py5.size(1200, 400, py5.P3D)
+    py5.size(800, 400)
     py5.color_mode(py5.HSB)
 
-    font = py5.create_font('Open Sans', 100)
+    font = py5.create_font('Open Sans', 110)
     shapes = polys_from_text(
-        'abcdefghijkl\nABCDEFGHIJK',
-        font)
+        'Processing\n& Python',
+        font, alternate_spacing=True)
+    pairs = [((x, -200), (x, 200))
+             for x in range(0, py5.width, 20)]
+    line_strs = [LineString(pair) for pair in pairs]
+    mps = MultiPolygon([path.buffer(3) for path in line_strs])
+    #shapes.append(mps)
+    shapes = list(MultiPolygon(shapes).difference(mps).geoms)
 
 def draw():
-    py5.lights()
     global current_union, previous_union, meshes
-    py5.window_title(str(py5.get_frame_rate()))
-    py5.background(100)
-    py5.translate(100, 100)
-    if py5.is_key_pressed:
-        py5.rotate_x(py5.PI / 10)
+    py5.background(0)
+    py5.translate(100, 200)
     py5.fill(255, 100)
     for i, shp in enumerate(shapes):
-        py5.fill((i * 8) % 256, 255, 255, 100)
+        py5.fill((i * 8) % 256, 255, 255, 200)
         if i == dragged:
             draw_shapely(shp)
     try:
         side_union = union = unary_union(shapes)
         if mirror:
             union = unary_union((union, shapely_scale(side_union, -1, 1, 1, origin='center')))
+        py5.stroke(0, 100)
+        #draw_shapely(side_union)
+        #py5.no_stroke()
+        draw_shapely(union)
         
-        current_union = hash(union)
-        if not py5.is_key_pressed:
-            py5.stroke(0, 100)
-            draw_shapely(side_union)
-            py5.no_stroke()
-            draw_shapely(union)
-        else:
-            if current_union != previous_union:
-                meshes = [trimesh.creation.extrude_polygon(p, 10)
-                          for p in union.geoms
-                          if isinstance(p, Polygon)]
-                previous_union = current_union
-            for mesh in meshes:
-                draw_mesh(mesh)
     except ValueError:
         print('ValueError')
 
@@ -63,7 +53,7 @@ def mouse_moved():
     global dragged
     if not py5.is_mouse_pressed:
         for i, shp in enumerate(shapes):
-            if shp.contains(Point(py5.mouse_x - 100, py5.mouse_y - 100)):
+            if shp.contains(Point(py5.mouse_x - 100, py5.mouse_y - 200)):
                 dragged = i
                 break
         else:
@@ -84,11 +74,4 @@ def mouse_wheel(e):
         else:
             shapes[dragged] = shapely_rotate(shapes[dragged],
                                              e.get_count(), origin='center')
-
-def draw_mesh(m):
-    for i, face in enumerate(m.faces):
-        py5.fill((m.vertices[0][0]) % 256, 255, 255)
-        with py5.begin_closed_shape():
-            py5.vertices([m.vertices[v] for v in face])
-
 py5.run_sketch()
