@@ -2,6 +2,13 @@
 Toot from sketch-a-day
 """
 
+from time import sleep
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib # tomllib will be in Python 3.11's standard library only
+from mastodon import Mastodon
+
 def mime_type(file):
     if file is None:
         return None
@@ -15,13 +22,6 @@ def toot(
          image_file=None, description=None,
          visibility="public", language='pt'):
     
-    from time import sleep
-    try:
-        import tomllib
-    except ModuleNotFoundError:
-        import tomli as tomllib # tomllib will be in Python 3.11's standard library only
-    from mastodon import Mastodon
-
     with open("/home/villares/api_tokens", "rb") as f:
         api_tokens = tomllib.load(f)
         
