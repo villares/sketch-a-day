@@ -45,8 +45,8 @@ DEBUG = False
 if DEBUG:
     print(f'Running on: {sys.executable}')
 
-line_h = 160
 margin = 16
+line_h = 160
 image_h = line_h - margin * 2
 coll_w = 160
 
@@ -62,15 +62,15 @@ state = {
 }
 
 hidden_files = False
-files = []
+folder_items = []
 
 
 def setup():
-    py5.size(800, 800)
+    py5.size(840, 840)
     py5.text_align(py5.LEFT, py5.TOP)
     py5.window_resizable(True)
-    load_icon_imgs()
-    update_files(Path.cwd())
+    load_icon_images()
+    update_items(Path.cwd())
 
 
 def draw():
@@ -94,14 +94,14 @@ def draw_browser():
     x = 0
     y = margin
     first_row = True
-    while i < len(files):
+    while i < len(folder_items):
         rw = rh = coll_w - margin * 2
-        name, fp, is_valid_img = files[i]
+        name, fp, is_valid_img = folder_items[i]
         if len(name) > 25:
             name = f'{name[:15]}…{name[-8:]}'
         thumb = None
         # skipping first element, get thumb dims, if possible
-        if i != 0 and (thumb := get_picture(fp)):
+        if i != 0 and (thumb := get_image(fp)):
             w, h = thumb.width, thumb.height
             ratio = w / h
             rw, rh = image_h * ratio, image_h
@@ -162,16 +162,16 @@ def arrow(x, y, rw, image_h):
         py5.line(rw - margin, image_h / 2, rw / 2, margin)
 
 
-def update_files(folder, sort_key=None):
+def update_items(folder, sort_key=None):
     global current_folder
     current_folder = folder
     py5.window_title(folder.name)
-    files.clear()
+    folder_items.clear()
     back_to_parent = [[folder.parent.name[:30], folder.parent, False]]
-    files[:] = back_to_parent + list_files(folder, sort_key=None)
+    folder_items[:] = back_to_parent + list_items(folder, sort_key=None)
 
 
-def list_files(folder, sort_key=None):
+def list_items(folder, sort_key=None):
     try:
         items = [
             [fp.name, fp, valid_image(fp)]
@@ -184,37 +184,47 @@ def list_files(folder, sort_key=None):
         return []
 
 
-@lru_cache(maxsize=64)
-def get_picture(path):
+def get_image(path):
     if path.is_dir():
-        return dir_image(path)
+        return folder_image(path)
+    if path.suffix.lower() == '.svg':
+        if svg_img := image_from_svg(path):
+            return svg_img
+    if valid_image(path):
+        if thumb_img := image_thumbnail(path):
+            return thumb_img
+    if icon_image := icon_images.get(path.suffix.lower()[1:]):
+        return icon_image
+    if DEBUG:
+        print(f'Could not load specific icon for {path.name}.')
+    return icon_images['zero']  # generic empty icon
+
+
+@lru_cache(maxsize=64)
+def image_from_svg(path):
     try:
-        if path.suffix.lower() == '.svg':
-            return py5.convert_image(path)
+        return py5.convert_image(path)
     except RuntimeError as e:
         if DEBUG:
-            print(f'{e}\nCould not load SVG from {path}')
-    if valid_image(path):
-        try:
-            img = PIL.Image.open(path)
-            ratio = img.width / img.height
-            w = image_h * ratio
-            img.thumbnail((w, image_h))
-            return py5.convert_image(img)
-        except Exception as e:
-            if DEBUG:
-                print(f'{e}\nCould not open {path}')
-    suf = path.suffix.lower()[1:]
-    if img := icon_imgs.get(suf):
-        return img
-    if DEBUG:
-        print(f'Could not load icon for {path.name}.')
-    return icon_imgs['zero']
+            print(f'{e}\nCould not load SVG from {path}')    
+    return None 
 
 
-def load_icon_imgs():
-    global icon_imgs
-    icon_imgs = {}
+@lru_cache(maxsize=64)
+def image_thumbnail(path):
+    try:
+        img = PIL.Image.open(path)
+        ratio = img.width / img.height
+        w = image_h * ratio
+        img.thumbnail((w, image_h))
+        return py5.convert_image(img)
+    except Exception as e:
+        if DEBUG:
+            print(f'{e}\nCould not open {path}')
+
+def load_icon_images():
+    global icon_images
+    icon_images = {}
     try:
         with ZipFile(ICONS_ZIP) as icons:
             for f in sorted(icons.namelist()[1:]):
@@ -222,30 +232,33 @@ def load_icon_imgs():
                 py5image = py5.convert_image(img)
                 suf = f.split('/')[1].split('.')[0]
                 # print(suf) # for debug
-                icon_imgs[suf] = py5image
+                icon_images[suf] = py5image
     except FileNotFoundError:
         print('icons.zip missing!')
         py5.exit_sketch()
 
-
-def dir_image(path):
-    files = list_files(path)
-    for name, fp, is_valid_img in files:
+@lru_cache(maxsize=64)
+def folder_image(path):
+    folder_items = list_items(path)
+    for name, fp, is_valid_img in folder_items:
         if is_valid_img and fp.stem == path.stem:
-            return get_picture(fp)
-    for name, fp, is_valid_img in files:
+            return get_image(fp)
+    for name, fp, is_valid_img in folder_items:
         if is_valid_img:
-            return get_picture(fp)
+            return get_image(fp)
+    return compose_folder_icon(folder_items)    
+        
+def compose_folder_icon(files):        
     icon = py5.create_graphics(128, 128)
     icon.begin_draw()
-    icon.image(icon_imgs['folder'], 0, 0, 128, 128)
+    icon.image(icon_images['folder'], 0, 0, 128, 128)
     x = 24
     for name, fp, _ in files[:5]:
         img = None
         if fp.is_file():
-            img = get_picture(fp)
+            img = get_image(fp)
         elif fp.is_dir():
-            img = icon_imgs['folder']
+            img = icon_images['folder']
         if not img:
             continue
         icon.image(img, x, x, 48, 48)
@@ -285,16 +298,16 @@ def save_selection():
 
 def key_pressed():
     if py5.key == 'o':
-        py5.select_folder('Select a folder', update_files)
+        py5.select_folder('Select a folder', update_items)
     elif py5.key == 'h':
         global hidden_files
         hidden_files = not hidden_files
-        update_files(current_folder)
+        update_items(current_folder)
     elif py5.key == 'u':
         if current_folder == Path.home():
-            update_files(Path.cwd())
+            update_items(Path.cwd())
         else:
-            update_files(Path.home())
+            update_items(Path.home())
     elif py5.key == 'm':
         change_mode()
     elif py5.key == 's':
@@ -313,10 +326,10 @@ def change_mode():
 def change_sort():
     if state['sort_by'] == 'name':
         state['sort_by'] = 'type'
-        files.sort(key=by_type)
+        folder_items.sort(key=by_type)
     elif state['sort_by'] == 'type':
         state['sort_by'] = 'name'
-        files.sort(key=by_name)
+        folder_items.sort(key=by_name)
 
 
 def by_name(item):
@@ -339,7 +352,7 @@ def mouse_over(x, y, rw, image_h):
 
 def mouse_clicked():
     if over is not None:
-        name, fp, _ = files[over]
+        name, fp, _ = folder_items[over]
         if py5.mouse_button == py5.RIGHT:
             open_path(fp)
         elif py5.is_key_pressed and py5.key_code == py5.CONTROL:
@@ -359,8 +372,8 @@ def mouse_clicked():
             else:
                 spf.append(state.copy())
                 state['scroll_start'] = 0
-            files.clear()
-            update_files(fp)
+            folder_items.clear()
+            update_items(fp)
     else:
         if py5.mouse_button == py5.RIGHT:
             open_path(current_folder)
@@ -371,7 +384,7 @@ def mouse_wheel(e):
     # print(state)
     if state['mode'] != 'diff':
         if py5.mouse_x < max_width:
-            if delta > 0 and state['scroll_end'] < len(files):
+            if delta > 0 and state['scroll_end'] < len(folder_items):
                 state['scroll_start'] += state['first_row']
                 state['previous_row'].append(state['first_row'])
             if delta < 0 and state['scroll_start'] > 0:
