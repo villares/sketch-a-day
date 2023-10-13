@@ -54,11 +54,6 @@ coll_w = 160
 state = {
 #    'sort_by': by_name,  # function by_name has to be defined yet
     'mode': 'browse',
-    'size': {
-        'browse': (840, 840),
-        'browse_preview': (1680, 840),
-        'diff': (1680, 840),
-        },
     'scroll_start': 0,
     'scroll_end': 0,
     'first_row': 0,
@@ -66,6 +61,12 @@ state = {
     'last_state': [],
     'selection': [],
 }
+
+window_size = {
+    'browse': (840, 840),
+    'browse_preview': (1680, 840),
+    'diff': (1680, 840),
+    }
 
 hidden_files = False
 folder_items = []
@@ -328,9 +329,9 @@ def key_pressed():
 
 
 def toggle_modes():
-    state['size'][state['mode']] = (py5.width, py5.height)
+    window_size[state['mode']] = (py5.width, py5.height)
     state['mode'] = next(mode_options)
-    py5.window_resize(*state['size'][state['mode']])
+    py5.window_resize(*window_size[state['mode']])
 
 
 def toggle_sorting():
