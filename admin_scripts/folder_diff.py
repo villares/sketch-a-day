@@ -17,14 +17,18 @@ diff = True
 scroll_offset = 0
 
 def setup():
-    global fr, fb
     py5.size(1800, 1000)
+    setup_folder_diff()
     image_paths[:] = py5.load_strings(SELECTION)
     walk_images(0)
+
+def setup_folder_diff():    
+    global fr, fb
     fr = py5.create_font("Source Code Pro", font_size)
     fb = py5.create_font("Source Code Pro Bold", font_size)
 
 def draw():
+    py5.text_align(py5.LEFT, py5.TOP)
     py5.background(240)
     if image_paths and img:
         py5.image(img, 50, 50)
@@ -36,7 +40,7 @@ def draw():
         py5.text(image_paths[current], 50, 30)
         if diff:
             py5.fill(0, 100, 0)
-            py5.text('previous:' + image_paths[previous], 600, 30)
+            py5.text(f'previous: {image_paths[previous]}', 600, 30)
 
     if run:
         py5.save(f'a-{current}-{current_path.stem}.png')
@@ -53,7 +57,9 @@ def walk_images(i):
     img, new_code = get_img_and_code(current_path)
     previous_code, code = code, new_code
 
-def get_img_and_code(path, resize=(900, 900)):
+def get_img_and_code(path, resize=None):
+    if resize is None:
+        resize = (py5.height, py5.height)
     img, code = None, ''
     try:
         if path.is_file():
@@ -110,10 +116,11 @@ def draw_code(x, y):
 def key_pressed():
     global run, current, previous, previous_code, diff
     global scroll_offset
+    print(py5.key)
     if py5.key == 'o':
         py5.select_folder('Select a folder', list_files)
     elif py5.key == 'u':
-        image_paths[:] = py5.load_strings(SELECTION_PATH)
+        image_paths[:] = py5.load_strings(SELECTION)
         previous_code = ''
         current = 0
         walk_images(0)
