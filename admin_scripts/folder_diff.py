@@ -55,14 +55,17 @@ def walk_images(i):
 
 def get_img_and_code(path, resize=(900, 900)):
     img, code = None, ''
-    if path.is_file():
-        img, code = load_image_and_data(path, resize)
-    elif path.is_dir():
-        image_path = path / (path.name + '.png')
-        img, code = load_image_and_data(image_path, resize)
-        if len(code) == 0:
-            code_path = path / (path.name + '.py')
-            code = code_path.read_text()
+    try:
+        if path.is_file():
+            img, code = load_image_and_data(path, resize)
+        elif path.is_dir():
+            image_path = path / (path.name + '.png')
+            img, code = load_image_and_data(image_path, resize)
+            if len(code) == 0:
+                code_path = path / (path.name + '.py')
+                code = code_path.read_text()
+    except Exception as e:
+        print(str(e))
     return img, code
     
 def load_image_and_data(image_file, resize=None):
