@@ -1,1 +1,2 @@
-/home/villares/GitHub/sketch-a-day/2023/sketch_2023_05_24/sketch_2023_05_24.py
+/home/villares/GitHub/sketch-a-day/2018/s042
+/home/villares/GitHub/sketch-a-day/2018/s041

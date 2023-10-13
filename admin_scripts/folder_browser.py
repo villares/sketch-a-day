@@ -10,10 +10,17 @@ Right-click to open files/folders with OS.
 
 SHIFT/CONTROL + click to select/desselect items.
 
+'s' to toggle sort by name or by file extension
+'m' to toggle modes
+
 TODO:
+   -[ ] Make the preview mode
+   -[ ] Make a diff modw
    -[X] Create a "selected items list" feature
-       -[ ] I'll use this to diff across different sketch versions
-   -[/] Check scrolling issues? (might be already fixed)
+       - Currently saves selection in
+         folder_browser_selection.txt
+         whic can be used by folder_diff.py
+
 """
 import sys
 import subprocess
@@ -39,8 +46,11 @@ line_h = 150
 margin = 12
 image_h = line_h - margin * 2
 coll_w = 150
-max_width = 800
-max_height = 800
+
+mode = {
+ 'mode': 'browse',
+ 'sort_by': 'name',
+}
 
 scroll = {
     'start': 0,
@@ -57,20 +67,34 @@ files = []
 def setup():
     py5.size(800, 800)
     py5.text_align(py5.LEFT, py5.TOP)
+    py5.window_resizable(True)
     load_icon_imgs()
     update_files(Path.cwd())
 
+
 def draw():
-    global over
+    py5.background(BACKGROUND)        
+    if mode['mode'] != 'diff':
+        draw_browser()        
+    
+def draw_browser():
+    global over, max_width
     over = None
-    py5.background(BACKGROUND)
+    if mode['mode'] == 'browse':
+        max_width = py5.width
+        max_height = py5.height
+    if mode['mode'] == 'browse_preview':
+        max_width = py5.width - py5.height
+        max_height = py5.height    
     i = scroll['start']
     x = 0
     y = margin
     first_row = True
     while i < len(files):
         rw = rh = coll_w - margin * 2
-        name, fp, is_valid_img = files[i]        
+        name, fp, is_valid_img = files[i]
+        if len(name) > 25:
+            name = name[:15] + '…' + name[-8:]
         thumb = None
         # skipping first element, get thumb dims, if possible
         if i != 0 and (thumb := get_picture(fp)):
@@ -131,20 +155,20 @@ def arrow(x, y, rw, image_h):
         py5.line(rw - margin, image_h / 2,
                  rw / 2, margin)
 
-def update_files(folder):
+def update_files(folder, sort_key=None):
     global current_folder
     current_folder = folder
     py5.window_title(folder.name)
     files.clear()
     back_to_parent = [[folder.parent.name[:30], folder.parent, False]]
-    files[:] = back_to_parent + list_files(folder)
+    files[:] = back_to_parent + list_files(folder, sort_key=None)
 
-def list_files(folder):
+def list_files(folder, sort_key=None):
     try:
         items = [
-            [f.name[:30], f, valid_image(f)]
-            for f in sorted(Path(folder).iterdir())
-            if f.name[0] != '.' or hidden_files
+            [fp.name[:30], fp, valid_image(fp)]
+            for fp in sorted(Path(folder).iterdir(), key=sort_key)
+            if fp.name[0] != '.' or hidden_files
             ]
         return items
     except IOError as e:
@@ -250,6 +274,39 @@ def key_pressed():
             update_files(Path.cwd())
         else:
             update_files(Path.home())
+    elif py5.key == 'm':
+        change_mode()
+    elif py5.key == 's':
+        change_sort()
+
+def change_mode():
+    if mode['mode'] == 'browse':
+        mode['mode'] = 'browse_preview'
+        py5.window_resize(py5.width + py5.height, py5.height)
+    elif mode['mode'] == 'browse_preview':
+        mode['mode'] = 'browse'
+        py5.window_resize(py5.width - py5.height, py5.height)
+
+def change_sort():
+    if mode['sort_by'] == 'name':
+        mode['sort_by'] = 'type'
+        files.sort(key=by_type)
+    elif mode['sort_by'] == 'type':
+        mode['sort_by'] = 'name'
+        files.sort(key=by_name)
+
+    
+def by_name(item):
+    name, fp, _ = item
+    if fp == current_folder.parent:
+        return ''
+    return name
+
+def by_type(item):
+    name, fp, _ = item
+    if fp == current_folder.parent:
+        return '', ''
+    return fp.suffix, name
 
 def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
@@ -285,13 +342,15 @@ def mouse_clicked():
             open_path(current_folder)
 
 def mouse_wheel(e):
-    # print(scroll)
     delta = e.get_count()
-    if delta > 0 and scroll['end'] < len(files):
-        scroll['start'] += scroll['first_row']
-        scroll['previous_row'].append(scroll['first_row'])
-    if delta < 0 and scroll['start'] > 0:
-        scroll['start'] -= scroll['previous_row'].pop()
+    # print(scroll)
+    if mode['mode'] != 'diff':
+        if py5.mouse_x < max_width:
+            if delta > 0 and scroll['end'] < len(files):
+                scroll['start'] += scroll['first_row']
+                scroll['previous_row'].append(scroll['first_row'])
+            if delta < 0 and scroll['start'] > 0:
+                scroll['start'] -= scroll['previous_row'].pop()
 
 if __name__ == '__main__':
     py5.run_sketch(block=False)
