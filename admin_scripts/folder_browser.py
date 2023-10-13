@@ -47,12 +47,11 @@ if DEBUG:
     print(f'Running on: {sys.executable}')
 
 margin = 16
-line_h = 160
-image_h = line_h - margin * 2
-coll_w = 160
+line_height = 160
+col_width = 160
 
 state = {
-#    'sort_by': by_name,  # function by_name has to be defined yet
+    #    'sort_by': by_name,  # function by_name has to be defined yet
     'mode': 'browse',
     'selection': [],
 }
@@ -69,7 +68,7 @@ window_size = {
     'browse': (840, 840),
     'browse_preview': (1680, 840),
     'diff': (1680, 840),
-    }
+}
 
 hidden_files = False
 folder_items = []
@@ -85,7 +84,7 @@ def setup():
     mode_options = cycle(['browse_preview', 'diff', 'browse'])
     # sorting functions must have been defined previously
     sorting_options = cycle([by_name, by_type])
-    toggle_sorting() # needs to be called once on setup
+    toggle_sorting()   # needs to be called once on setup
     # toggle_modes should not be called because it resizes window
     update_items(Path.cwd())
 
@@ -112,7 +111,7 @@ def draw_browser():
     y = margin
     first_row = True
     while i < len(folder_items):
-        rw = rh = coll_w - margin * 2
+        image_width = image_height = col_width - margin * 2
         name, fp, is_valid_img = folder_items[i]
         if len(name) > 25:
             name = f'{name[:15]}…{name[-8:]}'
@@ -121,19 +120,19 @@ def draw_browser():
         if i != 0 and (thumb := get_image(fp)):
             w, h = thumb.width, thumb.height
             ratio = w / h
-            rw, rh = image_h * ratio, image_h
-            if rw > max_width - margin * 2:
-                rw = max_width - margin * 2
-                rh = rw / ratio
+            image_width = image_height * ratio
+            if image_width > max_width - margin * 2:
+                image_width = max_width - margin * 2
+                image_height = image_width / ratio
         # move to next row and record first row length
-        if x > max_width - rw - margin:
+        if x > max_width - image_width - margin:
             x = 0
-            y += line_h
+            y += line_height
             if first_row:
                 scroll['first_row'] = i - scroll['scroll_start']
                 first_row = False
         # stop if position outside screen
-        if y > max_height - line_h:
+        if y > max_height - line_height:
             break
         # default attrs
         py5.no_fill()
@@ -144,25 +143,25 @@ def draw_browser():
         if fp.is_file():
             py5.no_stroke()   # turn off border on files by default
         if i != 0 and thumb:
-            py5.image(thumb, x + margin, y, rw, rh)
+            py5.image(thumb, x + margin, y, image_width, image_height)
         # on mouse over, border on for everything
-        if mouse_over(x, y, rw, rh):
+        if mouse_over(x, y, image_width, image_height):
             # files are clickable only if a key is pressed
             py5.stroke(CLICKABLE)
             if fp.is_file() and not py5.is_key_pressed:
                 py5.stroke(OVER)
             over = i
         # draws rect on folders and mouse-overed files
-        py5.rect(x + margin, y, rw, rh)
+        py5.rect(x + margin, y, image_width, image_height)
         if i == 0:
-            arrow(x + margin, y, rw, rh)
+            arrow(x + margin, y, image_width, image_height)
         py5.fill(0)
         if fp in state['selection']:
             py5.fill(255)
         py5.text_align(py5.CENTER)
-        py5.text(name, x + rw / 2 + margin, y + rh + margin)
+        py5.text(name, x + image_width / 2 + margin, y + image_height + margin)
         # move on position
-        x += rw + margin
+        x += image_width + margin
         i += 1
     scroll['scroll_end'] = i
 
@@ -171,12 +170,12 @@ def draw_diff():
     pass
 
 
-def arrow(x, y, rw, image_h):
+def arrow(x, y, image_w, image_h):
     with py5.push():
         py5.translate(x, y)
-        py5.line(rw / 2, margin, rw / 2, image_h - margin)
-        py5.line(margin, image_h / 2, rw / 2, margin)
-        py5.line(rw - margin, image_h / 2, rw / 2, margin)
+        py5.line(image_w / 2, margin, image_w / 2, image_h - margin)
+        py5.line(margin, image_h / 2, image_w / 2, margin)
+        py5.line(image_w - margin, image_h / 2, image_w / 2, margin)
 
 
 def update_items(folder):
@@ -187,6 +186,7 @@ def update_items(folder):
     back_to_parent = [[folder.parent.name, folder.parent, False]]
     folder_items[:] = back_to_parent + list_items(folder)
     folder_items.sort(key=state['sort_by'])
+
 
 def list_items(folder, sort_key=None):
     try:
@@ -223,21 +223,23 @@ def image_from_svg(path):
         return py5.convert_image(path)
     except RuntimeError as e:
         if DEBUG:
-            print(f'{e}\nCould not load SVG from {path}')    
-    return None 
+            print(f'{e}\nCould not load SVG from {path}')
+    return None
 
 
 @lru_cache(maxsize=64)
 def image_thumbnail(path):
+    image_height = line_height - 2 * margin
     try:
         img = PIL.Image.open(path)
         ratio = img.width / img.height
-        w = image_h * ratio
-        img.thumbnail((w, image_h))
+        image_width = image_height * ratio
+        img.thumbnail((image_width, image_height))
         return py5.convert_image(img)
     except Exception as e:
         if DEBUG:
             print(f'{e}\nCould not open {path}')
+
 
 def load_icon_images():
     global icon_images
@@ -254,6 +256,7 @@ def load_icon_images():
         print('icons.zip missing!')
         py5.exit_sketch()
 
+
 @lru_cache(maxsize=64)
 def folder_image(path):
     folder_items = list_items(path)
@@ -263,9 +266,10 @@ def folder_image(path):
     for name, fp, is_valid_img in folder_items:
         if is_valid_img:
             return get_image(fp)
-    return compose_folder_icon(folder_items)    
-        
-def compose_folder_icon(files):        
+    return compose_folder_icon(folder_items)
+
+
+def compose_folder_icon(files):
     icon = py5.create_graphics(128, 128)
     icon.begin_draw()
     icon.image(icon_images['folder'], 0, 0, 128, 128)
@@ -356,8 +360,8 @@ def by_type(item):
     return fp.suffix, name
 
 
-def mouse_over(x, y, rw, image_h):
-    return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
+def mouse_over(x, y, image_w, image_h):
+    return x < py5.mouse_x < x + image_w and y < py5.mouse_y < y + image_h
 
 
 def mouse_clicked():
