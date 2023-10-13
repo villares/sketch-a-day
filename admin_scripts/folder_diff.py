@@ -12,7 +12,7 @@ import py5
 import difflib
 from pathlib import Path
 
-SELECTION = Path(__file__).parent / 'folder_browser_selection.txt'
+SAVED_SELECTION = Path(__file__).parent / 'folder_browser_selection.txt'
 
 image_paths = []
 img = None
@@ -26,7 +26,7 @@ scroll_offset = 0
 def setup():
     py5.size(1800, 1000)
     setup_folder_diff()
-    image_paths[:] = py5.load_strings(SELECTION)
+    image_paths[:] = py5.load_strings(SAVED_SELECTION)
     walk_images(0)
 
 def setup_folder_diff():    
@@ -129,7 +129,7 @@ def key_pressed():
     if py5.key == 'o':
         py5.select_folder('Select a folder', list_files)
     elif py5.key == 'u':
-        image_paths[:] = py5.load_strings(SELECTION)
+        image_paths[:] = py5.load_strings(SAVED_SELECTION)
         previous_code = ''
         current = 0
         walk_images(0)
