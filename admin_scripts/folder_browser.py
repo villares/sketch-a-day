@@ -54,12 +54,15 @@ coll_w = 160
 state = {
 #    'sort_by': by_name,  # function by_name has to be defined yet
     'mode': 'browse',
+    'selection': [],
+}
+
+scroll = {
     'scroll_start': 0,
     'scroll_end': 0,
     'first_row': 0,
     'previous_row': [0],
-    'last_state': [],
-    'selection': [],
+    'last_scroll': [],
 }
 
 window_size = {
@@ -104,7 +107,7 @@ def draw_browser():
     if state['mode'] == 'browse_preview':
         max_width = py5.width - py5.height
         max_height = py5.height
-    i = state['scroll_start']
+    i = scroll['scroll_start']
     x = 0
     y = margin
     first_row = True
@@ -127,7 +130,7 @@ def draw_browser():
             x = 0
             y += line_h
             if first_row:
-                state['first_row'] = i - state['scroll_start']
+                scroll['first_row'] = i - scroll['scroll_start']
                 first_row = False
         # stop if position outside screen
         if y > max_height - line_h:
@@ -161,7 +164,7 @@ def draw_browser():
         # move on position
         x += rw + margin
         i += 1
-    state['scroll_end'] = i
+    scroll['scroll_end'] = i
 
 
 def draw_diff():
@@ -373,12 +376,12 @@ def mouse_clicked():
             state['selection'].append(fp)
             save_selection()
         elif fp.is_dir():
-            spf = state['last_state']
+            spf = scroll['last_scroll']
             if over == 0 and spf:
-                state.update(spf.pop())
+                scroll.update(spf.pop())
             else:
-                spf.append(state.copy())
-                state['scroll_start'] = 0
+                spf.append(scroll.copy())
+                scroll['scroll_start'] = 0
             folder_items.clear()
             update_items(fp)
     else:
@@ -388,14 +391,14 @@ def mouse_clicked():
 
 def mouse_wheel(e):
     delta = e.get_count()
-    # print(state)
+    # print(scroll)
     if state['mode'] != 'diff':
         if py5.mouse_x < max_width:
-            if delta > 0 and state['scroll_end'] < len(folder_items):
-                state['scroll_start'] += state['first_row']
-                state['previous_row'].append(state['first_row'])
-            if delta < 0 and state['scroll_start'] > 0:
-                state['scroll_start'] -= state['previous_row'].pop()
+            if delta > 0 and scroll['scroll_end'] < len(folder_items):
+                scroll['scroll_start'] += scroll['first_row']
+                scroll['previous_row'].append(scroll['first_row'])
+            if delta < 0 and scroll['scroll_start'] > 0:
+                scroll['scroll_start'] -= scroll['previous_row'].pop()
 
 
 if __name__ == '__main__':
