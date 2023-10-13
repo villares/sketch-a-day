@@ -1,8 +1,8 @@
 #!/home/villares/thonny-python-env/bin/python3
 
 """
-A naive folder/image browser experiment that depends
-on py5 and Pillow.
+A naive folder/image browser experiment with py5 and Pillow
+('diff' mode depends on folder_diff.py).
 
 (c) Alexandre B A Villares - License: GPLv3
 
@@ -17,17 +17,16 @@ SHIFT/CONTROL + click to select/desselect items.
 'm' (WIP) to toggle modes 'browse only' 'preview' 'diff'
 
 TODO:
-   -[ ] Implement image/tex/code preview in preview mode
+   -[/] Implement image/tex/code preview in preview mode
        -[X] First attempt at image preview
        -[ ] Add folder image preview? refactor thumbnail's code?
        -[ ] Add text/code preview
        -[ ] Decide about mouse_over/selection behavior
-   -[ ] Implement diff mode using code from folder_diff.py
-   -[X] Create a "selected items list" feature
-       - Currently saves selection in
-         folder_browser_selection.txt
-         which can be used by folder_diff.py
-       - Adapt for internal 'diff mode'
+   -[/] Implement diff mode using code from folder_diff.py
+       -[ ] Debug! 
+       -[ ] Improve folder_diff.py sketch selection/aquisition feature
+       - Currently saves selection in folder_browser_selection.txt
+         which can be used by standalone folder_diff.py too.
 """
 import sys
 import subprocess
@@ -39,8 +38,10 @@ from itertools import cycle
 import py5
 import PIL.Image
 
+import folder_diff
+
 ICONS_ZIP = Path(__file__).parent / 'folder_browser_icons.zip'
-SELECTION = Path(__file__).parent / 'folder_browser_selection.txt'
+SAVED_SELECTION = Path(__file__).parent / 'folder_browser_selection.txt'
 BACKGROUND = py5.color(128, 128, 150)
 CLICKABLE = py5.color(0, 0, 255)
 OVER = py5.color(255)
@@ -80,40 +81,44 @@ folder_items = []
 
 def setup():
     py5.size(840, 840)
-    py5.text_align(py5.LEFT, py5.TOP)
     py5.window_resizable(True)
     load_icon_images()
-    # set up global sorting_options and mode_options
+    # set up global mode_options and sorting_options
     global sorting_options, mode_options
     mode_options = cycle(['browse_preview', 'diff', 'browse'])
     # sorting functions must have been defined previously
     sorting_options = cycle([by_name, by_type])
-    toggle_sorting()   # needs to be called once on setup
-    # toggle_modes should not be called because it resizes window
+    toggle_sorting()   # needs to be called on setup
     update_items(Path.cwd())
-
+    try:
+        selection_strings = py5.load_strings(SAVED_SELECTION)
+        state['selection'] = [Path(p) for p in selection_strings]
+    except RuntimeError as e:
+        print(e)
+    folder_diff.setup_folder_diff()
+    
 
 def draw():
     py5.background(BACKGROUND)
-    if state['mode'] != 'diff':
+    if state['mode'] == 'diff':
+        folder_diff.draw()
+    elif state['mode'] == 'browse':
         draw_browser()
-    else:  # not implemented
-        draw_diff()
-
-
-def draw_browser():
+    else:
+        draw_browser(preview=True)
+        
+def draw_browser(preview=False):
     global over, max_width
-    over = None
+    max_width = py5.width - py5.height if preview else py5.width
     max_height = py5.height
-    if state['mode'] == 'browse':
-        max_width = py5.width
-    if state['mode'] == 'browse_preview':
-        max_width = py5.width - py5.height
+    selection = state['selection'] 
+    # draw preview
+    if  preview and selection:
         preview_size = py5.height - margin * 2
-    if state['mode'] == 'browse_preview' and state['selection']:
-        if img := image_preview(state['selection'][-1], preview_size):
+        if img := image_preview(selection[-1], preview_size):
             py5.image(img, max_width, margin)
-
+    
+    over = None
     i = scroll['scroll_start']
     x = 0
     y = margin
@@ -144,7 +149,7 @@ def draw_browser():
             break
         # default attrs
         py5.no_fill()
-        if fp in state['selection']:
+        if fp in selection:
             py5.fill(SELECTED_FILL)
         py5.stroke(0)
         py5.stroke_weight(4)
@@ -164,7 +169,7 @@ def draw_browser():
         if i == 0:
             arrow(x + margin, y, image_width, image_height)
         py5.fill(0)
-        if fp in state['selection']:
+        if fp in selection:
             py5.fill(255)
         py5.text_align(py5.CENTER)
         py5.text(name, x + image_width / 2 + margin, y + image_height + margin)
@@ -172,10 +177,6 @@ def draw_browser():
         x += image_width + margin
         i += 1
     scroll['scroll_end'] = i
-
-
-def draw_diff():
-    pass
 
 
 def arrow(x, y, image_w, image_h):
@@ -334,31 +335,36 @@ def open_path(path):
 
 
 def save_selection():
-    py5.save_strings(state['selection'], SELECTION)
+    py5.save_strings(state['selection'], SAVED_SELECTION)
 
 
 def key_pressed():
-    if py5.key == 'o':
-        py5.select_folder('Select a folder', update_items)
-    elif py5.key == 'h':
-        global hidden_files
-        hidden_files = not hidden_files
-        update_items(current_folder)
-    elif py5.key == 'u':
-        if current_folder == Path.home():
-            update_items(Path.cwd())
-        else:
-            update_items(Path.home())
-    elif py5.key == 'm':
+    if py5.key == 'm':
         toggle_modes()
-    elif py5.key == 's':
-        toggle_sorting()
-
+    elif state['mode'] == 'diff':
+        folder_diff.key_pressed()
+    else:
+        if py5.key == 'o':
+            py5.select_folder('Select a folder', update_items)
+        elif py5.key == 'h':
+            global hidden_files
+            hidden_files = not hidden_files
+            update_items(current_folder)
+        elif py5.key == 'u':
+            if current_folder == Path.home():
+                update_items(Path.cwd())
+            else:
+                update_items(Path.home())
+        elif py5.key == 's':
+            toggle_sorting()
 
 def toggle_modes():
     window_size[state['mode']] = (py5.width, py5.height)
     state['mode'] = next(mode_options)
     py5.window_resize(*window_size[state['mode']])
+    if state['mode'] == 'diff':
+        folder_diff.image_paths[:] = state['selection'] 
+        folder_diff.walk_images(0)
 
 
 def toggle_sorting():
@@ -408,22 +414,23 @@ def mouse_clicked():
                 scroll['scroll_start'] = 0
             folder_items.clear()
             update_items(fp)
-    else:
+    elif state['mode'] != 'diff':
         if py5.mouse_button == py5.RIGHT:
             open_path(current_folder)
 
 
 def mouse_wheel(e):
     delta = e.get_count()
-    # print(scroll)
-    if state['mode'] != 'diff':
+    if state['mode'] == 'diff':
+        folder_diff.scroll_offset += delta
+    else:
         if py5.mouse_x < max_width:
             if delta > 0 and scroll['scroll_end'] < len(folder_items):
                 scroll['scroll_start'] += scroll['first_row']
                 scroll['previous_row'].append(scroll['first_row'])
             if delta < 0 and scroll['scroll_start'] > 0:
                 scroll['scroll_start'] -= scroll['previous_row'].pop()
-
+        
 
 if __name__ == '__main__':
     py5.run_sketch(block=False)
