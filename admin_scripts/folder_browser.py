@@ -30,6 +30,7 @@ import subprocess
 from pathlib import Path
 from zipfile import ZipFile
 from functools import lru_cache
+from itertools import cycle
 
 import py5
 import PIL.Image
@@ -51,8 +52,13 @@ image_h = line_h - margin * 2
 coll_w = 160
 
 state = {
+#    'sort_by': by_name,  # function by_name has to be defined yet
     'mode': 'browse',
-    'sort_by': 'name',
+    'size': {
+        'browse': (840, 840),
+        'browse_preview': (1680, 840),
+        'diff': (1680, 840),
+        },
     'scroll_start': 0,
     'scroll_end': 0,
     'first_row': 0,
@@ -70,6 +76,13 @@ def setup():
     py5.text_align(py5.LEFT, py5.TOP)
     py5.window_resizable(True)
     load_icon_images()
+    # set up global sorting_options and mode_options
+    global sorting_options, mode_options
+    mode_options = cycle(['browse_preview', 'diff', 'browse'])
+    # sorting functions must have been defined previously
+    sorting_options = cycle([by_name, by_type])
+    toggle_sorting() # needs to be called once on setup
+    # toggle_modes should not be called because it resizes window
     update_items(Path.cwd())
 
 
@@ -162,20 +175,20 @@ def arrow(x, y, rw, image_h):
         py5.line(rw - margin, image_h / 2, rw / 2, margin)
 
 
-def update_items(folder, sort_key=None):
+def update_items(folder):
     global current_folder
     current_folder = folder
     py5.window_title(folder.name)
     folder_items.clear()
-    back_to_parent = [[folder.parent.name[:30], folder.parent, False]]
-    folder_items[:] = back_to_parent + list_items(folder, sort_key=None)
-
+    back_to_parent = [[folder.parent.name, folder.parent, False]]
+    folder_items[:] = back_to_parent + list_items(folder)
+    folder_items.sort(key=state['sort_by'])
 
 def list_items(folder, sort_key=None):
     try:
         items = [
             [fp.name, fp, valid_image(fp)]
-            for fp in sorted(Path(folder).iterdir(), key=sort_key)
+            for fp in sorted(Path(folder).iterdir())
             if fp.name[0] != '.' or hidden_files
         ]
         return items
@@ -309,27 +322,20 @@ def key_pressed():
         else:
             update_items(Path.home())
     elif py5.key == 'm':
-        change_mode()
+        toggle_modes()
     elif py5.key == 's':
-        change_sort()
+        toggle_sorting()
 
 
-def change_mode():
-    if state['mode'] == 'browse':
-        state['mode'] = 'browse_preview'
-        py5.window_resize(py5.width + py5.height, py5.height)
-    elif state['mode'] == 'browse_preview':
-        state['mode'] = 'browse'
-        py5.window_resize(py5.width - py5.height, py5.height)
+def toggle_modes():
+    state['size'][state['mode']] = (py5.width, py5.height)
+    state['mode'] = next(mode_options)
+    py5.window_resize(*state['size'][state['mode']])
 
 
-def change_sort():
-    if state['sort_by'] == 'name':
-        state['sort_by'] = 'type'
-        folder_items.sort(key=by_type)
-    elif state['sort_by'] == 'type':
-        state['sort_by'] = 'name'
-        folder_items.sort(key=by_name)
+def toggle_sorting():
+    state['sort_by'] = next(sorting_options)
+    folder_items.sort(key=state['sort_by'])
 
 
 def by_name(item):
