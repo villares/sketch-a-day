@@ -1,5 +1,12 @@
 #!/home/villares/thonny-python-env/bin/python3
 
+"""
+Experiment on diffing sketches
+
+TODO: Improve image files & code files accepted
+
+"""
+
 import PIL.Image
 import py5
 import difflib
@@ -59,15 +66,19 @@ def walk_images(i):
 
 def get_img_and_code(path, resize=None):
     if resize is None:
-        resize = (py5.height, py5.height)
+        resize = (py5.height - 100, py5.height - 100)
     img, code = None, ''
     try:
         if path.is_file():
             img, code = load_image_and_data(path, resize)
         elif path.is_dir():
+            # TODO: search any valid image format
             image_path = path / (path.name + '.png')
+            if not image_path.is_file():
+                image_path = path / (path.name + '.gif')
             img, code = load_image_and_data(image_path, resize)
             if len(code) == 0:
+                # TODO: search any code/text file
                 code_path = path / (path.name + '.py')
                 if not code_path.is_file():
                     code_path = path / (path.name + '.pyde')                
@@ -78,12 +89,8 @@ def get_img_and_code(path, resize=None):
     
 def load_image_and_data(image_file, resize=None):
     img = PIL.Image.open(image_file)
-    cur_width, cur_height = img.size
     if resize:
-        new_width, new_height = resize
-        sf = min(new_height / cur_height, new_width / cur_width)
-        img = img.resize((int(cur_width * sf), int(cur_height * sf)),
-                              PIL.Image.Resampling.LANCZOS)
+        img.thumbnail(resize)
     code = img.info.get('code', '').replace('    \n', '\n').replace('\n\n\n', '')
     return py5.convert_image(img), code
 
