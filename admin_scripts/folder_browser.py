@@ -50,17 +50,14 @@ margin = 16
 image_h = line_h - margin * 2
 coll_w = 160
 
-mode = {
+state = {
     'mode': 'browse',
     'sort_by': 'name',
-}
-
-scroll = {
-    'start': 0,
-    'end': 0,
+    'scroll_start': 0,
+    'scroll_end': 0,
     'first_row': 0,
     'previous_row': [0],
-    'last_scroll': [],
+    'last_state': [],
     'selection': [],
 }
 
@@ -78,7 +75,7 @@ def setup():
 
 def draw():
     py5.background(BACKGROUND)
-    if mode['mode'] != 'diff':
+    if state['mode'] != 'diff':
         draw_browser()
     else:  # not implemented
         draw_diff()
@@ -87,13 +84,13 @@ def draw():
 def draw_browser():
     global over, max_width
     over = None
-    if mode['mode'] == 'browse':
+    if state['mode'] == 'browse':
         max_width = py5.width
         max_height = py5.height
-    if mode['mode'] == 'browse_preview':
+    if state['mode'] == 'browse_preview':
         max_width = py5.width - py5.height
         max_height = py5.height
-    i = scroll['start']
+    i = state['scroll_start']
     x = 0
     y = margin
     first_row = True
@@ -116,14 +113,14 @@ def draw_browser():
             x = 0
             y += line_h
             if first_row:
-                scroll['first_row'] = i - scroll['start']
+                state['first_row'] = i - state['scroll_start']
                 first_row = False
         # stop if position outside screen
         if y > max_height - line_h:
             break
         # default attrs
         py5.no_fill()
-        if fp in scroll['selection']:
+        if fp in state['selection']:
             py5.fill(SELECTED_FILL)
         py5.stroke(0)
         py5.stroke_weight(4)
@@ -143,14 +140,14 @@ def draw_browser():
         if i == 0:
             arrow(x + margin, y, rw, rh)
         py5.fill(0)
-        if fp in scroll['selection']:
+        if fp in state['selection']:
             py5.fill(255)
         py5.text_align(py5.CENTER)
         py5.text(name, x + rw / 2 + margin, y + rh + margin)
         # move on position
         x += rw + margin
         i += 1
-    scroll['end'] = i
+    state['scroll_end'] = i
 
 
 def draw_diff():
@@ -283,7 +280,7 @@ def open_path(path):
 
 
 def save_selection():
-    py5.save_strings(scroll['selection'], SELECTION)
+    py5.save_strings(state['selection'], SELECTION)
 
 
 def key_pressed():
@@ -305,20 +302,20 @@ def key_pressed():
 
 
 def change_mode():
-    if mode['mode'] == 'browse':
-        mode['mode'] = 'browse_preview'
+    if state['mode'] == 'browse':
+        state['mode'] = 'browse_preview'
         py5.window_resize(py5.width + py5.height, py5.height)
-    elif mode['mode'] == 'browse_preview':
-        mode['mode'] = 'browse'
+    elif state['mode'] == 'browse_preview':
+        state['mode'] = 'browse'
         py5.window_resize(py5.width - py5.height, py5.height)
 
 
 def change_sort():
-    if mode['sort_by'] == 'name':
-        mode['sort_by'] = 'type'
+    if state['sort_by'] == 'name':
+        state['sort_by'] = 'type'
         files.sort(key=by_type)
-    elif mode['sort_by'] == 'type':
-        mode['sort_by'] = 'name'
+    elif state['sort_by'] == 'type':
+        state['sort_by'] = 'name'
         files.sort(key=by_name)
 
 
@@ -346,22 +343,22 @@ def mouse_clicked():
         if py5.mouse_button == py5.RIGHT:
             open_path(fp)
         elif py5.is_key_pressed and py5.key_code == py5.CONTROL:
-            if fp in scroll['selection']:
-                scroll['selection'].remove(fp)
+            if fp in state['selection']:
+                state['selection'].remove(fp)
             else:
-                scroll['selection'].append(fp)
+                state['selection'].append(fp)
                 save_selection()
         elif py5.is_key_pressed and py5.key_code == py5.SHIFT:
-            scroll['selection'].clear()
-            scroll['selection'].append(fp)
+            state['selection'].clear()
+            state['selection'].append(fp)
             save_selection()
         elif fp.is_dir():
-            spf = scroll['last_scroll']
+            spf = state['last_state']
             if over == 0 and spf:
-                scroll.update(spf.pop())
+                state.update(spf.pop())
             else:
-                spf.append(scroll.copy())
-                scroll['start'] = 0
+                spf.append(state.copy())
+                state['scroll_start'] = 0
             files.clear()
             update_files(fp)
     else:
@@ -371,14 +368,14 @@ def mouse_clicked():
 
 def mouse_wheel(e):
     delta = e.get_count()
-    # print(scroll)
-    if mode['mode'] != 'diff':
+    # print(state)
+    if state['mode'] != 'diff':
         if py5.mouse_x < max_width:
-            if delta > 0 and scroll['end'] < len(files):
-                scroll['start'] += scroll['first_row']
-                scroll['previous_row'].append(scroll['first_row'])
-            if delta < 0 and scroll['start'] > 0:
-                scroll['start'] -= scroll['previous_row'].pop()
+            if delta > 0 and state['scroll_end'] < len(files):
+                state['scroll_start'] += state['first_row']
+                state['previous_row'].append(state['first_row'])
+            if delta < 0 and state['scroll_start'] > 0:
+                state['scroll_start'] -= state['previous_row'].pop()
 
 
 if __name__ == '__main__':
