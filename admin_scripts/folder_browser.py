@@ -42,10 +42,10 @@ DEBUG = False
 if DEBUG:
     print(f'Running on: {sys.executable}')
 
-line_h = 150
-margin = 12
+line_h = 160
+margin = 16
 image_h = line_h - margin * 2
-coll_w = 150
+coll_w = 160
 
 mode = {
  'mode': 'browse',
