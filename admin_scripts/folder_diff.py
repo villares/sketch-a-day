@@ -69,6 +69,8 @@ def get_img_and_code(path, resize=None):
             img, code = load_image_and_data(image_path, resize)
             if len(code) == 0:
                 code_path = path / (path.name + '.py')
+                if not code_path.is_file():
+                    code_path = path / (path.name + '.pyde')                
                 code = code_path.read_text()
     except Exception as e:
         print(str(e))
