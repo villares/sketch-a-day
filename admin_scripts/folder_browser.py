@@ -18,6 +18,10 @@ SHIFT/CONTROL + click to select/desselect items.
 
 TODO:
    -[ ] Implement image/tex/code preview in preview mode
+       -[X] First attempt at image preview
+       -[ ] Add folder image preview? refactor thumbnail's code?
+       -[ ] Add text/code preview
+       -[ ] Decide about mouse_over/selection behavior
    -[ ] Implement diff mode using code from folder_diff.py
    -[X] Create a "selected items list" feature
        - Currently saves selection in
@@ -100,12 +104,16 @@ def draw():
 def draw_browser():
     global over, max_width
     over = None
+    max_height = py5.height
     if state['mode'] == 'browse':
         max_width = py5.width
-        max_height = py5.height
     if state['mode'] == 'browse_preview':
         max_width = py5.width - py5.height
-        max_height = py5.height
+        preview_size = py5.height - margin * 2
+    if state['mode'] == 'browse_preview' and state['selection']:
+        if img := image_preview(state['selection'][-1], preview_size):
+            py5.image(img, max_width, margin)
+
     i = scroll['scroll_start']
     x = 0
     y = margin
@@ -240,6 +248,18 @@ def image_thumbnail(path):
         if DEBUG:
             print(f'{e}\nCould not open {path}')
 
+@lru_cache(maxsize=64)
+def image_preview(path, preview_size):
+    if path.suffix.lower() == '.svg':
+        if svg_img := image_from_svg(path):
+            return svg_img
+    try:
+        img = PIL.Image.open(path)
+        img.thumbnail((preview_size, preview_size))
+        return py5.convert_image(img)
+    except Exception as e:
+        if DEBUG:
+            print(f'{e}\nCould not open {path}')
 
 def load_icon_images():
     global icon_images
