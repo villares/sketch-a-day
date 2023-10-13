@@ -98,7 +98,7 @@ def draw_browser():
         rw = rh = coll_w - margin * 2
         name, fp, is_valid_img = files[i]
         if len(name) > 25:
-            name = name[:15] + '…' + name[-8:]
+            name = f'{name[:15]}…{name[-8:]}'
         thumb = None
         # skipping first element, get thumb dims, if possible
         if i != 0 and (thumb := get_picture(fp)):
@@ -174,7 +174,7 @@ def update_files(folder, sort_key=None):
 def list_files(folder, sort_key=None):
     try:
         items = [
-            [fp.name[:30], fp, valid_image(fp)]
+            [fp.name, fp, valid_image(fp)]
             for fp in sorted(Path(folder).iterdir(), key=sort_key)
             if fp.name[0] != '.' or hidden_files
         ]
