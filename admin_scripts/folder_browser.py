@@ -1,7 +1,10 @@
 #!/home/villares/thonny-python-env/bin/python3
 
 """
-A naive image browser experiment.
+A naive folder/image browser experiment that depends
+on py5 and Pillow.
+
+(c) Alexandre B A Villares - License: GPLv3
 
 Images with thick borders are clickable folders.
 (it displays images from inside the subfolders)
@@ -10,17 +13,17 @@ Right-click to open files/folders with OS.
 
 SHIFT/CONTROL + click to select/desselect items.
 
-'s' to toggle sort by name or by file extension
-'m' to toggle modes
+'s' to toggle sorting by name or by file extension
+'m' (WIP) to toggle modes 'browse only' 'preview' 'diff'
 
 TODO:
-   -[ ] Make the preview mode
-   -[ ] Make a diff modw
+   -[ ] Implement image/tex/code preview in preview mode
+   -[ ] Implement diff mode using code from folder_diff.py
    -[X] Create a "selected items list" feature
        - Currently saves selection in
          folder_browser_selection.txt
-         whic can be used by folder_diff.py
-
+         which can be used by folder_diff.py
+       - Adapt for internal 'diff mode'
 """
 import sys
 import subprocess
@@ -48,8 +51,8 @@ image_h = line_h - margin * 2
 coll_w = 160
 
 mode = {
- 'mode': 'browse',
- 'sort_by': 'name',
+    'mode': 'browse',
+    'sort_by': 'name',
 }
 
 scroll = {
@@ -59,10 +62,11 @@ scroll = {
     'previous_row': [0],
     'last_scroll': [],
     'selection': [],
-    }
+}
 
 hidden_files = False
 files = []
+
 
 def setup():
     py5.size(800, 800)
@@ -73,10 +77,13 @@ def setup():
 
 
 def draw():
-    py5.background(BACKGROUND)        
+    py5.background(BACKGROUND)
     if mode['mode'] != 'diff':
-        draw_browser()        
-    
+        draw_browser()
+    else:  # not implemented
+        draw_diff()
+
+
 def draw_browser():
     global over, max_width
     over = None
@@ -85,7 +92,7 @@ def draw_browser():
         max_height = py5.height
     if mode['mode'] == 'browse_preview':
         max_width = py5.width - py5.height
-        max_height = py5.height    
+        max_height = py5.height
     i = scroll['start']
     x = 0
     y = margin
@@ -104,14 +111,14 @@ def draw_browser():
             if rw > max_width - margin * 2:
                 rw = max_width - margin * 2
                 rh = rw / ratio
-        # move to next row and record first row length    
-        if x > max_width - rw - margin :
+        # move to next row and record first row length
+        if x > max_width - rw - margin:
             x = 0
             y += line_h
             if first_row:
                 scroll['first_row'] = i - scroll['start']
                 first_row = False
-        # stop if position outside screen        
+        # stop if position outside screen
         if y > max_height - line_h:
             break
         # default attrs
@@ -119,12 +126,12 @@ def draw_browser():
         if fp in scroll['selection']:
             py5.fill(SELECTED_FILL)
         py5.stroke(0)
-        py5.stroke_weight(4)            
+        py5.stroke_weight(4)
         if fp.is_file():
-            py5.no_stroke() # turn off border on files by default
+            py5.no_stroke()   # turn off border on files by default
         if i != 0 and thumb:
             py5.image(thumb, x + margin, y, rw, rh)
-        # on mouse over, border on for everything 
+        # on mouse over, border on for everything
         if mouse_over(x, y, rw, rh):
             # files are clickable only if a key is pressed
             py5.stroke(CLICKABLE)
@@ -145,15 +152,18 @@ def draw_browser():
         i += 1
     scroll['end'] = i
 
+
+def draw_diff():
+    pass
+
+
 def arrow(x, y, rw, image_h):
     with py5.push():
         py5.translate(x, y)
-        py5.line(rw / 2, margin,
-                 rw / 2, image_h -margin)
-        py5.line(margin, image_h / 2,
-                 rw / 2, margin)
-        py5.line(rw - margin, image_h / 2,
-                 rw / 2, margin)
+        py5.line(rw / 2, margin, rw / 2, image_h - margin)
+        py5.line(margin, image_h / 2, rw / 2, margin)
+        py5.line(rw - margin, image_h / 2, rw / 2, margin)
+
 
 def update_files(folder, sort_key=None):
     global current_folder
@@ -163,17 +173,19 @@ def update_files(folder, sort_key=None):
     back_to_parent = [[folder.parent.name[:30], folder.parent, False]]
     files[:] = back_to_parent + list_files(folder, sort_key=None)
 
+
 def list_files(folder, sort_key=None):
     try:
         items = [
             [fp.name[:30], fp, valid_image(fp)]
             for fp in sorted(Path(folder).iterdir(), key=sort_key)
             if fp.name[0] != '.' or hidden_files
-            ]
+        ]
         return items
     except IOError as e:
         print(e)
         return []
+
 
 @lru_cache(maxsize=64)
 def get_picture(path):
@@ -202,6 +214,7 @@ def get_picture(path):
         print(f'Could not load icon for {path.name}.')
     return icon_imgs['zero']
 
+
 def load_icon_imgs():
     global icon_imgs
     icon_imgs = {}
@@ -216,6 +229,7 @@ def load_icon_imgs():
     except FileNotFoundError:
         print('icons.zip missing!')
         py5.exit_sketch()
+
 
 def dir_image(path):
     files = list_files(path)
@@ -240,16 +254,24 @@ def dir_image(path):
         icon.image(img, x, x, 48, 48)
         x += 10
     icon.end_draw()
-    return icon 
+    return icon
+
 
 def valid_image(path):
     # crude
     if path.suffix.lower() in (
-        '.png', '.gif', '.jpg', '.jpeg'
-        '.tga', '.webp', '.tif', '.tiff'
-        ):
+        '.png',
+        '.gif',
+        '.jpg',
+        '.jpeg',
+        '.tga',
+        '.webp',
+        '.tif',
+        '.tiff',
+    ):
         return True
     return False
+
 
 def open_path(path):
     if sys.platform == 'darwin':
@@ -259,8 +281,10 @@ def open_path(path):
     else:
         subprocess.Popen(['explorer', path])
 
+
 def save_selection():
     py5.save_strings(scroll['selection'], SELECTION)
+
 
 def key_pressed():
     if py5.key == 'o':
@@ -270,7 +294,7 @@ def key_pressed():
         hidden_files = not hidden_files
         update_files(current_folder)
     elif py5.key == 'u':
-        if  current_folder == Path.home():
+        if current_folder == Path.home():
             update_files(Path.cwd())
         else:
             update_files(Path.home())
@@ -278,6 +302,7 @@ def key_pressed():
         change_mode()
     elif py5.key == 's':
         change_sort()
+
 
 def change_mode():
     if mode['mode'] == 'browse':
@@ -287,6 +312,7 @@ def change_mode():
         mode['mode'] = 'browse'
         py5.window_resize(py5.width - py5.height, py5.height)
 
+
 def change_sort():
     if mode['sort_by'] == 'name':
         mode['sort_by'] = 'type'
@@ -295,12 +321,13 @@ def change_sort():
         mode['sort_by'] = 'name'
         files.sort(key=by_name)
 
-    
+
 def by_name(item):
     name, fp, _ = item
     if fp == current_folder.parent:
         return ''
     return name
+
 
 def by_type(item):
     name, fp, _ = item
@@ -308,23 +335,23 @@ def by_type(item):
         return '', ''
     return fp.suffix, name
 
+
 def mouse_over(x, y, rw, image_h):
     return x < py5.mouse_x < x + rw and y < py5.mouse_y < y + image_h
+
 
 def mouse_clicked():
     if over is not None:
         name, fp, _ = files[over]
         if py5.mouse_button == py5.RIGHT:
             open_path(fp)
-        elif (py5.is_key_pressed and
-              py5.key_code == py5.CONTROL):
+        elif py5.is_key_pressed and py5.key_code == py5.CONTROL:
             if fp in scroll['selection']:
                 scroll['selection'].remove(fp)
             else:
                 scroll['selection'].append(fp)
                 save_selection()
-        elif (py5.is_key_pressed and
-              py5.key_code == py5.SHIFT):
+        elif py5.is_key_pressed and py5.key_code == py5.SHIFT:
             scroll['selection'].clear()
             scroll['selection'].append(fp)
             save_selection()
@@ -341,6 +368,7 @@ def mouse_clicked():
         if py5.mouse_button == py5.RIGHT:
             open_path(current_folder)
 
+
 def mouse_wheel(e):
     delta = e.get_count()
     # print(scroll)
@@ -351,6 +379,7 @@ def mouse_wheel(e):
                 scroll['previous_row'].append(scroll['first_row'])
             if delta < 0 and scroll['start'] > 0:
                 scroll['start'] -= scroll['previous_row'].pop()
+
 
 if __name__ == '__main__':
     py5.run_sketch(block=False)
