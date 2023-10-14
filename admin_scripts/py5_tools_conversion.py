@@ -11,19 +11,19 @@ translators = {
 source_dir = Path.cwd()
 target_dir = source_dir.parent / f'{source_dir.name}_converted'
 
-args = sys.argv[1:]
-for i, arg in enumerate(args):
-    if i == 0:
-        if translator := translators.get(arg):
-            print(arg)
-        else:
-            print('no translator selected.')
-            exit()
-    
-    result = translator.translate_dir(source_dir, target_dir, ext='.py')
-    print(result) 
+args = sys.argv
+if len(args) == 2:
+    arg = args[1]
+    if translator := translators.get(arg):
+        print(arg)
+        result = translator.translate_dir(source_dir, target_dir, ext='.py')
+        print(result) 
+        exit()
         
+print('no translator selected.')
+exit()
 
+        
 #source_dir = '/home/villares/GitHub/processing-python/'
 #target_dir = '/home/villares/GitHub/processing-python/'
 #source_dir = '/home/villares/GitHub/py.processing-play/'

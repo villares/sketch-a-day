@@ -1,7 +1,7 @@
+from pathlib import Path
+
 import py5_tools
 import py5
-from shutil import copytree
-from pathlib import Path
 
 # pp2i = py5_tools.translators.processingpy2imported
 
