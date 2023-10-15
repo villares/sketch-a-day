@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_10_14
+
+![sketch_2023_10_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_14/sketch_2023_10_14.gif)
+
+[sketch_2023_10_14](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_14) [[py5](https://py5coding.org/)]
+
+first attempt at showing a GIF animation with py5...
+
+---
+
 ### sketch_2023_10_13
 
 ![sketch_2023_10_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_13/sketch_2023_10_13.png)
