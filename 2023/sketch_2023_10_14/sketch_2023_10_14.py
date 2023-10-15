@@ -1,5 +1,3 @@
-from itertools import count
-from PIL import Image
 import py5
 
 def setup():
@@ -11,7 +9,11 @@ def draw():
     gif.draw(50, 50, 400, 400)
 
 class Py5Gif():
+
     def __init__(self, pil_img):
+        from itertools import count
+        from PIL import Image
+
         if isinstance(pil_img, (py5.Path, str)):
             pil_img = Image.open(pil_img)
         self.loc = 0
