@@ -10,3 +10,5 @@ def setup():
         total += largura
         # note que nesta versão o valor total
         # pode passar de 600
+        
+    save(__file__[:-4]+'.png')
