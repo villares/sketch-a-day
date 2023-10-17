@@ -1,0 +1,8 @@
+itertools
+functools
+random
+pathlib
+tomlib
+collections
+trimesh
+shapely
