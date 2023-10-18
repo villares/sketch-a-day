@@ -1,80 +1,78 @@
-
-line_height = 60
+particles = []
 
 def setup():
-    global terms
-    size(600, 600)
-    text_size(line_height)
-    color_mode(HSB)
-    terms = setup_terms()
+    size(800, 800)
+#     for i in range(100):
+#         p = Particle(300, 300)
+#         particles.append(p)
+    background(0)
+
 
 def draw():
-    background(0, 0, 200)
-    draw_terms()
+    color_mode(RGB)
+    fill(0, 10) # preenchiment preto translúcido
+    #rect(0, 0, width, height) # placa translúcido
+    for particle in particles:
+        particle.update()
+    print(len(particles))
+    for particle in particles[:]:  #cópia da lista
+        if particle.diameter < 0.5:
+            particles.remove(particle)
 
-def draw_terms():
-    for term in terms:
-        x, y = terms[term]['x'], terms[term]['y']
-        w, h = terms[term]['w'], terms[term]['h']
-        selected = terms[term]['state']
-        if mouse_over_term(term):
-            no_fill()
-            rect(x - 2, y, w + 4, h)
-        if selected:
-            fill(255)
-        else:
-            fill(0)
-        text(term, x, y + h * 0.75)
+def mouse_dragged():
+    p = Particle(mouse_x, mouse_y)
+    particles.append(p)
 
-def mouse_released():
-    if is_key_pressed:
-        non_exclusive_selection()
-    else:
-        exclusive_selection()
+def key_pressed():
+    background(0)
 
-def non_exclusive_selection():
-    for term in terms:
-        if mouse_over_term(term):
-            terms[term]['state'] ^= 1
+class Particle():
+    
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.vx = random(-2, 2)
+        self.vy = random(-2, 2)
+        self.diameter = random(1, 25)
+        
+    def desenha(self):
+        no_stroke()
+        color_mode(HSB) # matiz, sat, brilho)
+        fill(self.diameter * 10, 200, 200)
+        vx, vy = self.vx, self.vy
+        slow = (vx * vx + vy * vy) 
+        circle(self.x, self.y,
+               self.diameter * 1.5
+               + self.diameter * sin(frame_count
+                                    / slow)
+                                    #/ self.diameter ** 2)
+               )
+        
+    def anda(self):
+        self.x = self.x + self.vx * self.diameter / 2
+        self.y = self.y + self.vy * self.diameter / 2
+         
+    def limite(self):
+#         if self.y > height or self.y < 0:
+#             self.vy = -self.vy 
+#         if self.x > width or self.x < 0:
+#             self.vx = -self.vx
+        if self.x > width:
+            self.x = 0
+        if self.x < 0:
+            self.x = width
+        if self.y > height:
+            self.y = 0
+        if self.y < 0:
+            self.y = height
+  
+    def update(self):
+        self.desenha()
+        self.anda()
+        self.limite()
+        self.diameter = self.diameter * 0.995
+        
+        
 
-def exclusive_selection():
-    for term in terms:
-        if mouse_over_term(term):
-            terms[term]['state'] = True
-        else:
-            terms[term]['state'] = False
 
 
-def mouse_over_term(term):
-    x, y = terms[term]['x'], terms[term]['y']
-    w, h = terms[term]['w'], terms[term]['h']
-    return (x < mouse_x < x + w
-            and y < mouse_y < y + h)
-
-def pos(i, t, lw, lh=None, wgap=20, hgap=2):
-    # set pos.x, pos.xo, pox.y before you call this
-    lh = lh or text_ascent() + text_descent()
-    pos.tw = text_width(t)
-    if pos.x + pos.tw > lw:
-        pos.x = pos.xo
-        pos.y += lh + hgap
-    x = pos.x
-    pos.x += pos.tw + wgap
-    return x
-
-def setup_terms():
-    ls = load_strings("terms.txt")
-    term_names = [term for term in ls
-                  if term and not '(' in term
-                  and not term.startswith('\t')]
-    pos.x = pos.xo = pos.y = 20  # initial x and y
-    terms = {term: {'state': False,
-                    'x': pos(i, term, width),
-                    'y': pos.y,
-                    'w': pos.tw,
-                    'h': line_height,
-                    }
-             for i, term in enumerate(term_names)
-             }
-    println(len(terms))
-    return terms
