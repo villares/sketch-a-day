@@ -9,7 +9,6 @@ def setup():
 
 
 def draw():
-    color_mode(RGB)
     fill(0, 10) # preenchiment preto translúcido
     #rect(0, 0, width, height) # placa translúcido
     for particle in particles:
