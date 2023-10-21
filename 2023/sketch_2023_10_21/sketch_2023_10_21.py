@@ -27,7 +27,8 @@ def draw():
 
         
 def mouse_dragged():
-    
+    # adds a tuple with the mouse coordinates if the poly list is empty
+    # or if the x, y in poly[-1] are far enough from the mouse
     if not poly or dist(poly[-1][0], poly[-1][1], mouse_x, mouse_y) > MINIMUM_DIST:
         poly.append((mouse_x, mouse_y))    
 
