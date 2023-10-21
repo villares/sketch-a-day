@@ -27,8 +27,8 @@ def draw():
 
         
 def mouse_pressed():
-    #poly.append((mouse_x, mouse_y))
-    print(tris)
+    poly.append((mouse_x, mouse_y))
+    #print(tris)
 
 def key_pressed():
     poly[:] = []
