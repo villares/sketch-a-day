@@ -18,7 +18,7 @@ mass = 1
 
 
 def setup():
-    py5.size(500, 500)
+    py5.size(600, 600)
     pm.Poly.draw = draw_poly  # this is called "monkeypatching"
     pm.Segment.draw = draw_segment
     gap = 5
