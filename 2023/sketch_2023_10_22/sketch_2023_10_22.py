@@ -1,21 +1,16 @@
-from triangulate import triangulate
+import math           # for math.isnan
 
-MINIMUM_DIST = 50
+import py5            # the main graphics & interation framework
+import pymunk as pm   # the 2D physics engine
 
-import math
+from triangulate import triangulate   # my ugly triangulation code
 
-import py5
-import pymunk as pm
+MINIMUM_DIST = 50     # harder to draw, but more elegant objects
 
-space = pm.Space()
+space = pm.Space()    # the pymunk simulation space
 space.gravity = (0, 600)
 
-constraints = []
-current_poly = []
-stiffness = 1000
-damping = 100
-mass = 1
-
+current_poly = []     # (x, y) tuples while mouse dragging
 
 def setup():
     py5.size(600, 600)
