@@ -43,22 +43,24 @@ def draw():
     space.step(0.01)   # advance simulation
 
 
-def draw_poly(obj):
+def draw_poly(self):
+    """For monkey patching pm.Poly"""
     with py5.push_matrix():
-        py5.translate(obj.body.position.x, obj.body.position.y)
-        py5.rotate(obj.body.angle)
-        pts = obj.get_vertices()
+        py5.translate(self.body.position.x, self.body.position.y)
+        py5.rotate(self.body.angle)
+        pts = self.get_vertices()
         with py5.begin_closed_shape():
             py5.vertices(pts)
 
-def draw_segment(obj):
+def draw_segment(self):
+    """For monkey patching pm.Segment"""
     with py5.push():
         py5.stroke(255)    
-        py5.stroke_weight(obj.radius*2)
-        py5.line(obj.a.x, obj.a.y, obj.b.x, obj.b.y)  
+        py5.stroke_weight(self.radius*2)
+        py5.line(self.a.x, self.a.y, self.b.x, self.b.y)  
 
 # def build_poly_body(poly):
-#     """Earilier convex poligonal objects builder"""
+#     """Earlier convex poligonal objects builder"""
 #     (xa, ya), (xb, yb) = min_max(poly)
 #     centroid = (xa + xb) / 2, (ya + yb) / 2
 #     cx, cy = centroid
