@@ -1,6 +1,6 @@
 import math           # for math.isnan
 
-import py5            # the main graphics & interation framework
+import py5            # the main graphics & interaction framework
 import pymunk as pm   # the 2D physics engine
 
 from triangulate import triangulate   # my ugly triangulation code
@@ -73,17 +73,18 @@ def draw_segment(self):
 #     shp = pm.Poly(body, poly)
 #     shp.friction = 0.2
 #     space.add(body, shp)
-# 
-# def min_max(pts):
-#     coords = tuple(zip(*pts))
-#     return tuple(map(min, coords)), tuple(map(max, coords))
+#
+
+def min_max(pts):
+    coords = tuple(zip(*pts))
+    return tuple(map(min, coords)), tuple(map(max, coords))
 
 def build_trianglulated_body(poly):
     """
     New builder that creates a multi-shape body, allowing concave objects.
     """
     tris = triangulate(poly)
-    (xa, ya), (xb, yb) = min_max_tris(tris)
+    (xa, ya), (xb, yb) = min_max(poly)
     centroid = (xa + xb) / 2, (ya + yb) / 2
     cx, cy = centroid
     polys = []
@@ -105,11 +106,11 @@ def build_trianglulated_body(poly):
         shapes.append(shp)
     space.add(body, *shapes)
 
-def min_max_tris(triangles):
-    from itertools import chain
-    pts = chain.from_iterable(triangles)
-    coords = tuple(zip(*pts))
-    return tuple(map(min, coords)), tuple(map(max, coords))
+# def min_max_tris(triangles):
+#     from itertools import chain
+#     pts = chain.from_iterable(triangles)
+#     coords = tuple(zip(*pts))
+#     return tuple(map(min, coords)), tuple(map(max, coords))
 
 def poly_area(pts):
     area = 0.0
