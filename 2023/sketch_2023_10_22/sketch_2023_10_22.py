@@ -88,7 +88,7 @@ def build_trianglulated_body(poly):
         shp = pm.Poly(body, poly)
         shp.friction = 0.2
         shapes.append(shp)
-    space.add(body, *shapes)
+    space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
 
 def poly_area(pts):
     area = 0.0
