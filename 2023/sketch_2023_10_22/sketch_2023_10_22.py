@@ -1,6 +1,8 @@
 from triangulate import triangulate
 
-MINIMUM_DIST = 10
+MINIMUM_DIST = 50
+
+import math
 
 import py5
 import pymunk as pm
@@ -31,9 +33,9 @@ def setup():
         space.add(wall)
 
 def draw():
-    py5.background(0, 100, 20)
+    py5.background(0, 50, 100)
         
-    py5.no_stroke()
+    py5.stroke(255)
     py5.fill(255, 100)    
     for shp in space.shapes:
         shp.draw()
@@ -60,30 +62,56 @@ def draw_segment(obj):
         py5.stroke_weight(obj.radius*2)
         py5.line(obj.a.x, obj.a.y, obj.b.x, obj.b.y)  
 
-
-
-def build_polybody(poly):
+def build_poly_body(poly):
     (xa, ya), (xb, yb) = min_max(poly)
     centroid = (xa + xb) / 2, (ya + yb) / 2
     cx, cy = centroid
     poly = [(x - cx, y - cy) for x, y in poly]
     mass = poly_area(poly) * 0.1
     moi = pm.moment_for_poly(mass, poly)
+    print(moi)
     body = pm.Body(mass, moi)
     body.position = centroid
     shp = pm.Poly(body, poly)
     shp.friction = 0.2
     space.add(body, shp)
 
-
-
 def min_max(pts):
-    """
-    Return two tuples with the most extreme coordinates,
-    resulting in "bounding box" corners.
-    """
     coords = tuple(zip(*pts))
     return tuple(map(min, coords)), tuple(map(max, coords))
+
+
+def build_trianglulated_body(poly):
+    tris = triangulate(poly)
+    (xa, ya), (xb, yb) = min_max_tris(tris)
+    centroid = (xa + xb) / 2, (ya + yb) / 2
+    cx, cy = centroid
+    polys = []
+    total_mass = total_moi = 0
+    for tri in tris:
+        poly = [(x - cx, y - cy) for x, y in tri]
+        mass = poly_area(poly) * 0.1
+        total_mass += mass
+        moi = pm.moment_for_poly(mass, poly)
+        if not math.isnan(moi):
+            total_moi += moi
+        polys.append(poly)   
+    body = pm.Body(total_mass, total_moi)
+    body.position = centroid
+    shapes = []
+    for poly in polys:
+        shp = pm.Poly(body, poly)
+        shp.friction = 0.2
+        shapes.append(shp)
+    space.add(body, *shapes)
+
+def min_max_tris(triangles):
+    from itertools import chain
+    pts = chain.from_iterable(triangles)
+    coords = tuple(zip(*pts))
+    return tuple(map(min, coords)), tuple(map(max, coords))
+
+
 
 def poly_area(pts):
     pts = list(pts)
@@ -111,7 +139,7 @@ def mouse_dragged():
 
 def mouse_released():
     if len(current_poly) > 3:
-        build_polybody(current_poly[:])
+        build_trianglulated_body(current_poly[:])
         current_poly[:] = []
 
 

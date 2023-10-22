@@ -2,10 +2,6 @@
 """
 Based on https://gist.github.com/Shaptic/6297978
 """
-
-def almost_equal(a, b):
-    return abs(a - b) < EPSILON
-
 def ccw(tri):
     assert len(tri) == 3, 'must be a triangle'
     a, b, c = tri
