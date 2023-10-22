@@ -30,17 +30,17 @@ def setup():
 def draw():
     py5.background(0, 50, 100)
         
-    py5.stroke(255)
-    py5.fill(255, 100)    
-    for shp in space.shapes:
+    py5.stroke(255)           # white stroke
+    py5.fill(255, 100)        # translucent white
+    for shp in space.shapes:  # draws the objects
         shp.draw()
 
-    if current_poly:
+    if current_poly:   # draws poly preview while dragging mouse
         py5.fill(255, 0, 0, 100)
         with py5.begin_closed_shape():
             py5.vertices(current_poly)
 
-    space.step(0.01)
+    space.step(0.01)   # advance simulation
 
 
 def draw_poly(obj):
@@ -57,26 +57,29 @@ def draw_segment(obj):
         py5.stroke_weight(obj.radius*2)
         py5.line(obj.a.x, obj.a.y, obj.b.x, obj.b.y)  
 
-def build_poly_body(poly):
-    (xa, ya), (xb, yb) = min_max(poly)
-    centroid = (xa + xb) / 2, (ya + yb) / 2
-    cx, cy = centroid
-    poly = [(x - cx, y - cy) for x, y in poly]
-    mass = poly_area(poly) * 0.1
-    moi = pm.moment_for_poly(mass, poly)
-    print(moi)
-    body = pm.Body(mass, moi)
-    body.position = centroid
-    shp = pm.Poly(body, poly)
-    shp.friction = 0.2
-    space.add(body, shp)
-
-def min_max(pts):
-    coords = tuple(zip(*pts))
-    return tuple(map(min, coords)), tuple(map(max, coords))
-
+# def build_poly_body(poly):
+#     """Earilier convex poligonal objects builder"""
+#     (xa, ya), (xb, yb) = min_max(poly)
+#     centroid = (xa + xb) / 2, (ya + yb) / 2
+#     cx, cy = centroid
+#     poly = [(x - cx, y - cy) for x, y in poly]
+#     mass = poly_area(poly) * 0.1
+#     moi = pm.moment_for_poly(mass, poly)
+#     print(moi)
+#     body = pm.Body(mass, moi)
+#     body.position = centroid
+#     shp = pm.Poly(body, poly)
+#     shp.friction = 0.2
+#     space.add(body, shp)
+# 
+# def min_max(pts):
+#     coords = tuple(zip(*pts))
+#     return tuple(map(min, coords)), tuple(map(max, coords))
 
 def build_trianglulated_body(poly):
+    """
+    New builder that creates a multi-shape body, allowing concave objects.
+    """
     tris = triangulate(poly)
     (xa, ya), (xb, yb) = min_max_tris(tris)
     centroid = (xa + xb) / 2, (ya + yb) / 2
@@ -106,10 +109,7 @@ def min_max_tris(triangles):
     coords = tuple(zip(*pts))
     return tuple(map(min, coords)), tuple(map(max, coords))
 
-
-
 def poly_area(pts):
-    pts = list(pts)
     area = 0.0
     for (ax, ay), (bx, by) in zip(pts, pts[1:] + [pts[0]]):
         area += ax * by
@@ -121,23 +121,23 @@ def is_segment(obj): return isinstance(obj, pm.Segment)
 
 def key_pressed():
     if py5.key == ' ':
+        # clear everything but the "box" walls
         for obj in reversed(space.shapes):
             if not is_segment(obj):
                 space.remove(obj)
 
 def mouse_dragged():
+    # adds a tuple with the mouse coordinates if the current_poly list is empty
+    # or if the x, y in current_poly[-1] are far enough from the mouse    
     mx, my = py5.mouse_x, py5.mouse_y
     if not current_poly or (py5.dist(current_poly[-1][0], current_poly[-1][1], mx, my)
                             >= MINIMUM_DIST):
         current_poly.append((mx, my))
 
-
 def mouse_released():
-    if len(current_poly) > 3:
-        build_trianglulated_body(current_poly[:])
-        current_poly[:] = []
+    # creates an object if there are enough points on the list, clears list    
+    if len(current_poly) >= 3:
+        build_trianglulated_body(current_poly)
+    current_poly.clear()
 
-
-
-py5.run_sketch()
-
+py5.run_sketch()   # starts py5, setup() and then the main loop, draw()
