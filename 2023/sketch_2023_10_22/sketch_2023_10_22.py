@@ -59,22 +59,6 @@ def draw_segment(self):
         py5.stroke_weight(self.radius*2)
         py5.line(self.a.x, self.a.y, self.b.x, self.b.y)  
 
-# def build_poly_body(poly):
-#     """Earlier convex poligonal objects builder"""
-#     (xa, ya), (xb, yb) = min_max(poly)
-#     centroid = (xa + xb) / 2, (ya + yb) / 2
-#     cx, cy = centroid
-#     poly = [(x - cx, y - cy) for x, y in poly]
-#     mass = poly_area(poly) * 0.1
-#     moi = pm.moment_for_poly(mass, poly)
-#     print(moi)
-#     body = pm.Body(mass, moi)
-#     body.position = centroid
-#     shp = pm.Poly(body, poly)
-#     shp.friction = 0.2
-#     space.add(body, shp)
-#
-
 def min_max(pts):
     coords = tuple(zip(*pts))
     return tuple(map(min, coords)), tuple(map(max, coords))
@@ -83,13 +67,13 @@ def build_trianglulated_body(poly):
     """
     New builder that creates a multi-shape body, allowing concave objects.
     """
-    tris = triangulate(poly)
+    triangles = triangulate(poly)
     (xa, ya), (xb, yb) = min_max(poly)
     centroid = (xa + xb) / 2, (ya + yb) / 2
     cx, cy = centroid
     polys = []
     total_mass = total_moi = 0
-    for tri in tris:
+    for tri in triangles:
         poly = [(x - cx, y - cy) for x, y in tri]
         mass = poly_area(poly) * 0.1
         total_mass += mass
@@ -105,12 +89,6 @@ def build_trianglulated_body(poly):
         shp.friction = 0.2
         shapes.append(shp)
     space.add(body, *shapes)
-
-# def min_max_tris(triangles):
-#     from itertools import chain
-#     pts = chain.from_iterable(triangles)
-#     coords = tuple(zip(*pts))
-#     return tuple(map(min, coords)), tuple(map(max, coords))
 
 def poly_area(pts):
     area = 0.0
@@ -144,3 +122,20 @@ def mouse_released():
     current_poly.clear()
 
 py5.run_sketch()   # starts py5, setup() and then the main loop, draw()
+
+# Used as reference...
+#
+# def build_poly_body(poly):
+#     """Earlier convex poligonal objects builder"""
+#     (xa, ya), (xb, yb) = min_max(poly)
+#     centroid = (xa + xb) / 2, (ya + yb) / 2
+#     cx, cy = centroid
+#     poly = [(x - cx, y - cy) for x, y in poly]
+#     mass = poly_area(poly) * 0.1
+#     moi = pm.moment_for_poly(mass, poly)
+#     print(moi)
+#     body = pm.Body(mass, moi)
+#     body.position = centroid
+#     shp = pm.Poly(body, poly)
+#     shp.friction = 0.2
+#     space.add(body, shp)
