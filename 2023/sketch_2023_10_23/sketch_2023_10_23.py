@@ -132,20 +132,3 @@ def triangulate2(poly):
     return [(vs[a], vs[b], vs[c]) for a, b, c in faces]
 
 py5.run_sketch(block=False)   # starts py5, setup() and then the main loop, draw()
-
-# Used as reference...
-#
-# def build_poly_body(poly):
-#     """Earlier convex poligonal objects builder"""
-#     (xa, ya), (xb, yb) = min_max(poly)
-#     centroid = (xa + xb) / 2, (ya + yb) / 2
-#     cx, cy = centroid
-#     poly = [(x - cx, y - cy) for x, y in poly]
-#     mass = poly_area(poly) * 0.1
-#     moi = pm.moment_for_poly(mass, poly)
-#     print(moi)
-#     body = pm.Body(mass, moi)
-#     body.position = centroid
-#     shp = pm.Poly(body, poly)
-#     shp.friction = 0.2
-#     space.add(body, shp)
