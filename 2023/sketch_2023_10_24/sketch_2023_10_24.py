@@ -4,9 +4,7 @@ import py5            # the main graphics & interaction framework
 import pymunk as pm   # the 2D physics engine
 from trimesh.creation import triangulate_polygon
 import shapely
-
-
-from villares.shapely_helpers import polys_from_text 
+from shapely.affinity import translate as shapely_translate
 
 MINIMUM_DIST = 20     # harder to draw, but more elegant objects
 
@@ -16,17 +14,18 @@ space.gravity = (0, 600)
 current_poly = []     # (x, y) tuples while mouse dragging
 
 def setup():
-    global font
-    py5.size(600, 600)
+    global font, margin, text_x
+    py5.size(800, 800)
     py5.color_mode(py5.HSB)
     
-    font = py5.create_font('FreeSans Bold', 150)
+    font = py5.create_font('FreeSans Bold', 120)
     
-    gap = 5
+    margin = 5
+    text_x = margin * 2
     walls = (
-        ((gap, py5.height - gap), (py5.width - gap, py5.height - gap)),
-        ((gap, py5.height - gap), (gap, gap)),
-        ((py5.width - gap, py5.height - gap), (py5.width - gap, gap)),
+        ((margin, py5.height - margin), (py5.width - margin, py5.height - margin)),
+        ((margin, py5.height - margin), (margin, margin)),
+        ((py5.width - margin, py5.height - margin), (py5.width - margin, margin)),
     )
     for pa, pb in walls:
         wall = DrawableSegment(space.static_body, pa, pb, 2)
@@ -54,8 +53,8 @@ class DrawablePoly(pm.Poly):
             py5.translate(self.body.position.x, self.body.position.y)
             py5.rotate(self.body.angle)
             pts = self.get_vertices()
-            a = poly_area(pts) / 200
-            py5.fill(30 + a % 100, 200, 200, 200)
+            a = poly_area(pts) / 20
+            py5.fill(100 + a % 100, 200, 200, 200)
             with py5.begin_closed_shape():
                 py5.vertices(pts)
 
@@ -93,6 +92,7 @@ def add_trianglulated_body(poly: shapely.Polygon):
         shp = DrawablePoly(body, poly)
         shp.friction = 0.4
         shapes.append(shp)
+    print(f'shapes: {len(shapes)}')
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
 
 def poly_area(pts):
@@ -105,15 +105,84 @@ def poly_area(pts):
 def is_poly(obj): return isinstance(obj, pm.Poly) 
 def is_segment(obj): return isinstance(obj, pm.Segment) 
 
+def polys_from_text(words, font: py5.Py5Font, leading=None, alternate_spacing=False):
+    """
+    Produce a list of shapely Polygons (with holes!) from a string.
+    New-line chars will try to move text to a new line.
+    
+    The alternate_spacing option will pick the glyph
+    spacing from py5.text_width() for each glyph, it can be
+    too spaced, but good for monospaced font alignment.
+    """
+    leading = leading or font.get_size()
+    py5.text_font(font)
+    space_width = py5.text_width(' ')
+    results = []
+    x_offset = y_offset = 0
+    for c in words:
+        if c == '\n':
+            y_offset += leading
+            x_offset = 0  # assuming left aligned text...
+            continue
+        glyph_pt_lists = [[]]
+        c_shp = font.get_shape(c, 1)
+        vs3 = [c_shp.get_vertex(i) for i in range(c_shp.get_vertex_count())]
+        vs = set()
+        for vx, vy, _ in vs3:
+            x = vx + x_offset
+            y = vy + y_offset
+            glyph_pt_lists[-1].append((x, y))
+            if (x, y) not in vs:
+                vs.add((x, y))
+            else:
+                glyph_pt_lists.append([])  # will leave a trailling empty list
+        
+        if alternate_spacing:
+            w = py5.text_width(c)
+        else:
+            w = c_shp.get_width() if vs3 else space_width
+        x_offset += w
+        # filter out elements with less than 3 points 
+        # and stop before the trailling empty list
+        glyph_polys = [shapely.Polygon(p) for p in glyph_pt_lists[:-1] if len(p) > 2]
+        if glyph_polys:  # there are still empty glyphs at this point
+            glyph_shapes = process_glyphs(glyph_polys)
+            results.extend(glyph_shapes)
+    return results
+
+
+def process_glyphs(polys):
+    """
+    Try to subtract the shapely Polygons representing a glyph
+    in order to produce appropriate looking glyphs!
+    """
+    polys = sorted(polys, key=lambda p: p.area, reverse=True)
+    results = [polys[0]]
+    for p in polys[1:]:
+        # works on edge cases like â and ®
+        for i, earlier in enumerate(results):
+            if earlier.contains(p):
+                results[i] = results[i].difference(p)
+                break
+        else:   # the for-loop's else only executes after unbroken loops
+            results.append(p)
+    return results
+
 def key_pressed():
+    global text_x
     if py5.key == ' ':
         # clear everything but the "box" walls
         for obj in reversed(space.shapes):
             if not is_segment(obj):
                 space.remove(obj)
-    else:
-        for p in polys_from_text('pymunk', font):
-            add_trianglulated_body(p)
+    elif py5.key == py5.ENTER:
+        text_x = margin * 2
+    elif py5.key != py5.CODED:
+        for p in polys_from_text(str(py5.key), font):
+            add_trianglulated_body(shapely_translate(p, text_x, 0))
+        text_x += py5.text_width(str(py5.key))
+        if text_x > py5.width - py5.text_width('W'):
+            text_x = margin * 2
 
 
 def mouse_dragged():
