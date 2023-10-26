@@ -18,6 +18,7 @@ def setup():
     py5.size(800, 800)
     py5.color_mode(py5.HSB)
     
+    #font = py5.create_font('GaroaHackerClubeKnuthEdition', 120)
     font = py5.create_font('FreeSans Bold', 120)
     
     margin = 5
@@ -170,7 +171,7 @@ def process_glyphs(polys):
 
 def key_pressed():
     global text_x
-    if py5.key == ' ':
+    if py5.key == py5.DELETE:
         # clear everything but the "box" walls
         for obj in reversed(space.shapes):
             if not is_segment(obj):
