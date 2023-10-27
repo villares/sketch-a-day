@@ -18,7 +18,9 @@ def setup():
     py5.size(800, 800)
     py5.color_mode(py5.HSB)
     
-    font = py5.create_font('Tomorrow Bold', 120)
+    #font = py5.create_font('Tomorrow Bold', 120)
+    #font = py5.create_font('GaroaHackerClubeKnuthEdition', 120)
+    font = py5.create_font('FreeSans Bold', 120)
     
     margin = 5
     text_x = margin * 2

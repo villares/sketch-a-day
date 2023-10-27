@@ -3,12 +3,14 @@ import py5
 from shapely.affinity import translate as shapely_translate
 from shapely.affinity import rotate as shapely_rotate
 from shapely.affinity import scale as shapely_scale
-from shapely.geometry import Polygon, MultiPolygon, LineString
+from shapely import Point, Polygon, MultiPolygon, LineString
 from shapely.ops import unary_union
 from shapely import GEOSException
 
-from villares.shapely_helpers import *
 
+from villares.shapely_helpers import polys_from_text, draw_shapely
+
+        
 previous_union = -1
 dragged = -1
 mirror = False
