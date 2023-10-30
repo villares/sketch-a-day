@@ -114,7 +114,7 @@ def poly_area(pts):
 def is_poly(obj): return isinstance(obj, pm.Poly) 
 def is_segment(obj): return isinstance(obj, pm.Segment) 
 
-def key_pressed():
+def key_typed():
     global text_x
     if py5.key == py5.DELETE:
         # clear everything but the "box" walls
@@ -123,7 +123,7 @@ def key_pressed():
                 space.remove(obj)
     elif py5.key == py5.ENTER:
         text_x = margin * 2
-    elif py5.key != py5.CODED:
+    else:
         for p in polys_from_text(str(py5.key), font):
             add_trianglulated_body(shapely_translate(p, text_x, 0))
         text_x += py5.text_width(str(py5.key))
