@@ -14,6 +14,7 @@ Right-click to open files/folders with OS.
 SHIFT/CONTROL + click to select/desselect items.
 
 's' to toggle sorting by name or by file extension
+'r' to toggle reversed sorting 
 'm' (WIP) to toggle modes 'browse only' 'preview' 'diff'
 
 TODO:
@@ -57,6 +58,7 @@ col_width = 160
 
 state = {
     #    'sort_by': by_name,  # function by_name has to be defined yet
+    'sort_reversed': False,
     'mode': 'browse',
     'selection': [],
 }
@@ -88,7 +90,7 @@ def setup():
     mode_options = cycle(['browse_preview', 'diff', 'browse'])
     # sorting functions must have been defined previously
     sorting_options = cycle([by_name, by_type])
-    toggle_sorting()   # needs to be called on setup
+    state['sort_by'] = by_name
     update_items(Path.cwd())
     try:
         selection_strings = py5.load_strings(SAVED_SELECTION)
@@ -187,21 +189,23 @@ def arrow(x, y, image_w, image_h):
         py5.line(image_w - margin, image_h / 2, image_w / 2, margin)
 
 
-def update_items(folder):
+def update_items(folder=None):
     global current_folder
-    current_folder = folder
-    py5.window_title(folder.name)
+    current_folder = folder or current_folder
+    py5.window_title(current_folder.name)
     folder_items.clear()
-    back_to_parent = [[folder.parent.name, folder.parent, False]]
-    folder_items[:] = back_to_parent + list_items(folder)
-    folder_items.sort(key=state['sort_by'])
+    back_to_parent = [[current_folder.parent.name, current_folder.parent, False]]
+    folder_items[:] = back_to_parent + list_items(current_folder)
 
-
-def list_items(folder, sort_key=None):
+def list_items(folder):
     try:
         items = [
             [fp.name, fp, valid_image(fp)]
-            for fp in sorted(Path(folder).iterdir())
+            for fp in sorted(
+                Path(folder).iterdir(),
+                key=state['sort_by'],
+                reverse=state['sort_reversed']
+                )
             if fp.name[0] != '.' or hidden_files
         ]
         return items
@@ -351,13 +355,20 @@ def key_pressed():
             hidden_files = not hidden_files
             update_items(current_folder)
         elif py5.key == 'u':
-            if current_folder == Path.home():
+            if (current_folder == Path.home() and
+                current_folder != Path.cwd()):
                 update_items(Path.cwd())
+            elif current_folder == Path.cwd():
+                update_items(Path(__file__).parent.absolute().parent)
             else:
                 update_items(Path.home())
         elif py5.key == 's':
-            toggle_sorting()
-
+            state['sort_by'] = next(sorting_options)
+            update_items()
+        elif py5.key == 'r':
+            state['sort_reversed'] = not state['sort_reversed']
+            update_items()
+            
 def toggle_modes():
     window_size[state['mode']] = (py5.width, py5.height)
     state['mode'] = next(mode_options)
@@ -366,24 +377,16 @@ def toggle_modes():
         folder_diff.image_paths[:] = state['selection'] 
         folder_diff.walk_images(0)
 
-
-def toggle_sorting():
-    state['sort_by'] = next(sorting_options)
-    folder_items.sort(key=state['sort_by'])
-
-
 def by_name(item):
-    name, fp, _ = item
-    if fp == current_folder.parent:
+    if item == current_folder.parent:
         return ''
-    return name
+    return item.name
 
 
 def by_type(item):
-    name, fp, _ = item
-    if fp == current_folder.parent:
+    if item == current_folder.parent:
         return '', ''
-    return fp.suffix, name
+    return item.suffix, item.name
 
 
 def mouse_over(x, y, image_w, image_h):
