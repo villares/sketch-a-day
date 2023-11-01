@@ -24,6 +24,14 @@ def draw():
 
 class Boid():
 
+    max_force = 0.3
+    max_force_sq = max_force ** 2
+    max_speed = 5
+    max_speed_sq = max_speed ** 2
+    perception = 200
+    perception_sq = perception ** 2
+
+
     def __init__(self, x, y):
         self.position = py5.Py5Vector(x, y)
  #       vec = py5.Py5Vector.random(2) - 0.5 * 10
@@ -31,19 +39,15 @@ class Boid():
         self.velocity = py5.Py5Vector(*vec)
         vec = (np.random.rand(2) - 0.5) / 2
         self.acceleration = py5.Py5Vector(*vec)
-        self.max_force = 0.3
-        self.max_speed = 5
-        self.perception = 200
-
-
+  
     def update(self):
         self.edges()
         self.apply_behaviour(flock)       
         self.position += self.velocity
         self.velocity += self.acceleration
         #limit
-        if np.linalg.norm(self.velocity) > self.max_speed:
-            self.velocity = self.velocity / np.linalg.norm(self.velocity) * self.max_speed
+        if self.velocity.mag_sq > self.max_speed_sq:
+            self.velocity.mag = self.max_speed
 
         py5.line(self.position.x,
                  self.position.y,
@@ -73,60 +77,56 @@ class Boid():
             self.position.y = py5.height
 
     def align(self, boids):
-        steering = py5.Py5Vector(*np.zeros(2))
+        steering = py5.Py5Vector2D()
         total = 0
-        avg_vector = py5.Py5Vector(*np.zeros(2))
+        avg_vector = py5.Py5Vector2D()
         for boid in boids:
-            if np.linalg.norm(boid.position - self.position) < self.perception:
+            if (boid.position - self.position).mag_sq < self.perception_sq:
                 avg_vector += boid.velocity
                 total += 1
         if total > 0:
             avg_vector /= total
-            avg_vector = py5.Py5Vector(*avg_vector)
-            avg_vector = (avg_vector / np.linalg.norm(avg_vector)) * self.max_speed
+            avg_vector = avg_vector.norm * self.max_speed
             steering = avg_vector - self.velocity
 
         return steering
 
     def cohesion(self, boids):
-        steering = py5.Py5Vector(*np.zeros(2))
+        steering = py5.Py5Vector2D()
         total = 0
-        center_of_mass = py5.Py5Vector(*np.zeros(2))
+        center_of_mass = py5.Py5Vector2D()
         for boid in boids:
-            if np.linalg.norm(boid.position - self.position) < self.perception:
+            if (boid.position - self.position).mag_sq < self.perception_sq:
                 center_of_mass += boid.position
                 total += 1
         if total > 0:
             center_of_mass /= total
-            center_of_mass = py5.Py5Vector(*center_of_mass)
             vec_to_com = center_of_mass - self.position
-            if np.linalg.norm(vec_to_com) > 0:
-                vec_to_com = (vec_to_com / np.linalg.norm(vec_to_com)) * self.max_speed
+            if vec_to_com.mag_sq > 0:
+                vec_to_com.mag = self.max_speed
             steering = vec_to_com - self.velocity
-            if np.linalg.norm(steering)> self.max_force:
-                steering = (steering /np.linalg.norm(steering)) * self.max_force
+            if steering.mag_sq > self.max_force_sq:
+                steering.mag = self.max_force
 
         return steering
 
     def separation(self, boids):
-        steering = py5.Py5Vector(*np.zeros(2))
+        steering = py5.Py5Vector2D()
         total = 0
-        avg_vector = py5.Py5Vector(*np.zeros(2))
+        near_vector = py5.Py5Vector2D()
         for boid in boids:
-            distance = np.linalg.norm(boid.position - self.position)
-            if self.position != boid.position and distance < self.perception:
-                diff = self.position - boid.position
-                diff /= distance
-                avg_vector += diff
-                total += 1
+            if self != boid:
+                diff = boid.position - self.position
+                if diff.mag_sq < self.perception_sq:
+                    near_vector += diff.norm
+                    total += 1
         if total > 0:
-            avg_vector /= total
-            avg_vector = py5.Py5Vector(*avg_vector)
-            if np.linalg.norm(steering) > 0:
-                avg_vector = (avg_vector / np.linalg.norm(steering)) * self.max_speed
+            avg_vector = near_vector / total
+            if steering.mag_sq > 0:
+                avg_vector.mag = self.max_speed
             steering = avg_vector - self.velocity
-            if np.linalg.norm(steering) > self.max_force:
-                steering = (steering /np.linalg.norm(steering)) * self.max_force
+            if steering.mag_sq > self.max_force_sq:
+                steering.mag = self.max_force
 
         return steering
     
