@@ -35,6 +35,18 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_10_31
+
+![sketch_2023_10_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_31/sketch_2023_10_31.gif)
+
+[sketch_2023_10_31](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_10_31) [[py5](https://py5coding.org/)]
+
+based on https://github.com/roholazandie/boids/tree/master
+
+#flocking #boids
+
+---
+
 ### sketch_2023_10_30
 
 ![sketch_2023_10_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_10_30/sketch_2023_10_30.png)
