@@ -22,7 +22,7 @@ def setup():
     calcular_celulas()
             
 def draw():
-    background(240)
+    background(0)
     translate(width / 2, height / 2, -200)
     rotate_y(PI / 6)
     translate(-width / 2, -height / 2, 0)
@@ -40,7 +40,7 @@ def draw():
                     region = k + 1
                     break
                 region = 0    
-            c = 0 if region == 0 else color((region * 32) % 255, 200, 200)
+            c = 255 if region == 0 else color((region * 32) % 255, 200, 200)
             fill(c)
             with push_matrix():
                 translate(0, 0, region * 25)
@@ -48,7 +48,7 @@ def draw():
 
     
 def key_pressed():
-    save(__file__[:-2] + 'png')
+    save(f'{__file__[:-2]}-{frame_count}.png')
     calcular_pontos()
     calcular_celulas()
 
