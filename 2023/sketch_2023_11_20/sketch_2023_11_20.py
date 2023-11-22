@@ -52,16 +52,17 @@ def draw():
 #     py5.stroke(py5.color(0, 255, 255))
 #     py5.stroke_weight(3)
 #     py5.points(scaled_positions)
+    # drawing the boids as triangles
 #    triangles = np.concatenate((left_points, right_points,head_points),
 #                               axis=1).reshape(-1, 2)
-
     triangles = np.hstack(
         (left_points, right_points, head_points)).reshape(-1, 2)
     with py5.begin_shape(py5.TRIANGLES):
         py5.vertices(triangles)
-
+    # Updating the "simulation"
     positions += dt * velocities # update positions
     positions %= 1 # wrap positions
+    # Showing the frame rate on the windowt title
     py5.window_title(f'{py5.get_frame_rate():.1f}')
 
 py5.run_sketch(block=False)
