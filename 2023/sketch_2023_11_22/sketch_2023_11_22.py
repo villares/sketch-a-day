@@ -129,9 +129,13 @@ def setup():
 def draw():
     py5.background(0)
     flock.run()
-    boid_length = 200
+    boid_length = 10
     position = flock.position
-    norm_vel = flock.velocity / np.linalg.norm(flock.velocity)
+    #mags =  np.sqrt(np.sum(flock.velocity**2, axis=1))
+    #norm_vel = flock.velocity / mags[:,None]
+    norm_vel = (flock.velocity
+                / np.linalg.norm(flock.velocity,
+                                  axis=1).reshape(-1,1))
     heading = norm_vel * boid_length
     perpend_a = norm_vel[:,::-1].copy() * (boid_length / 3)
     perpend_a[:, 0] = -perpend_a[:, 0]
