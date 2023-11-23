@@ -4,7 +4,6 @@ Code for py5 (py5coding.org) module mode
 Back from last numpy particle study sketch_2023_03_14.py
 """
 
-from itertools import product, combinations
 import numpy as np
 import py5
 
@@ -16,7 +15,6 @@ def setup():
     global positions, velocities #, pairs
     global scaled_heading, perpendiculars_a, perpendiculars_b
     py5.size(900, 900)
-    py5.color_mode(py5.HSB)
     positions = np.random.rand(num_particles, 2)
     angles = 2.0 * np.pi * np.random.random(num_particles)
     speed = 0.01
