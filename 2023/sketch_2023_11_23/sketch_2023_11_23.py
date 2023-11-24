@@ -49,6 +49,7 @@ class Flock:
         mask_1_count = np.maximum(mask_1.sum(axis=1), 1)
         mask_2_count = np.maximum(mask_2.sum(axis=1), 1)
         mask_3_count = mask_2_count
+        self.count = mask_2_count
 
         # Separation
         mask, count = mask_1, mask_1_count
@@ -123,18 +124,26 @@ class Flock:
 def setup():
     global flock
     py5.size(640, 640)
+    py5.no_stroke()
     N = 500
     flock = Flock(N, py5.width, py5.height)
 
 def draw():
+    global triangles, triple_count
     py5.background(0)
     flock.run()
+    red_mask = flock.count > 30
+    draw_boids(flock, red_mask,'red')
+    magenta_mask = (20 < flock.count) * (flock.count <= 30)
+    draw_boids(flock, magenta_mask,'magenta')
+    blue_mask = flock.count <= 20
+    draw_boids(flock, blue_mask, 'blue')
+
+def draw_boids(flock, mask, fill_color):
+    position = flock.position[mask]
+    velocity = flock.velocity[mask]
     boid_length = 10
-    position = flock.position
-    #mags =  np.sqrt(np.sum(flock.velocity**2, axis=1))
-    #norm_vel = flock.velocity / mags[:,None]
-    norm_vel = flock.velocity / np.linalg.norm(
-        flock.velocity,axis=1, keepdims=True)
+    norm_vel = velocity / np.linalg.norm(velocity,axis=1, keepdims=True)
     heading = norm_vel * boid_length
     perpend_a = norm_vel[:,::-1].copy() * (boid_length / 3)
     perpend_a[:, 0] = -perpend_a[:, 0]
@@ -146,11 +155,20 @@ def draw():
     head_points = position + heading
     triangles = np.hstack(
         (left_points, right_points, head_points)).reshape(-1, 2)
-    py5.no_stroke()
-    py5.fill(255)
+    triple_count = np.hstack(
+        (flock.count, flock.count, flock.count)).reshape(-1, 1)
+    py5.fill(fill_color)
     with py5.begin_shape(py5.TRIANGLES):
         py5.vertices(triangles)
+        
+
+def key_pressed():
     py5.window_title(f'{py5.get_frame_rate():.1f}')
+    print(flock.count.shape, 'flock.count')
+    print((flock.count < 50).shape, 'flock.count < 50')
+#     print(triple_count.shape, 'triple_count')
+    #print(triangles.shape, 'triangles')
 
 
 py5.run_sketch(block=False)
+

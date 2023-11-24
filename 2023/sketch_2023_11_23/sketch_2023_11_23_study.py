@@ -10,12 +10,10 @@ import numpy as np
 import py5
 
 class Flock:
-    def __init__(self, count, width, height):
-        self.width = width
-        self.height = height
-        self.min_velocity = 0.5
-        self.max_velocity = 2.0
-        self.max_acceleration = 0.03
+    def __init__(self, count):
+        self.min_velocity = 0.5 / py5.width
+        self.max_velocity = 2.0 / py5.width
+        self.max_acceleration = 0.03 / py5.width
         self.velocity = np.zeros((count, 2), dtype=np.float32)
         self.position = np.zeros((count, 2), dtype=np.float32)
 
@@ -23,9 +21,9 @@ class Flock:
         self.velocity[:, 0] = np.cos(angle)
         self.velocity[:, 1] = np.sin(angle)
         angle = np.random.uniform(0, 2*np.pi, count)
-        radius = min(width, height)/2*np.random.uniform(0, 1, count)
-        self.position[:, 0] = width/2 + np.cos(angle)*radius
-        self.position[:, 1] = height/2 + np.sin(angle)*radius
+        radius = np.random.uniform(0, 1, count) / 4
+        self.position[:, 0] = 0.5 + np.cos(angle)*radius
+        self.position[:, 1] = 0.5 + np.sin(angle)*radius
 
     def run(self):
         position = self.position
@@ -38,11 +36,11 @@ class Flock:
         dx = np.subtract.outer(position[:, 0], position[:, 0])
         dy = np.subtract.outer(position[:, 1], position[:, 1])
         distance = np.hypot(dx, dy)
-        #print(distance.shape)
+        print(distance.shape)
         # Compute common distance masks
         mask_0 = (distance > 0)
-        mask_1 = (distance < 25)
-        mask_2 = (distance < 50)
+        mask_1 = (distance < 25 / py5.width)
+        mask_2 = (distance < 50 / py5.width)
         mask_1 *= mask_0
         mask_2 *= mask_0
         mask_3 = mask_2
@@ -116,21 +114,21 @@ class Flock:
         position += velocity
 
         # Wraparound
-        position += (self.width, self.height)
-        position %= (self.width, self.height)
+        position += (1, 1)
+        position %= (1, 1)
 
 
 def setup():
     global flock
     py5.size(640, 640)
     N = 500
-    flock = Flock(N, py5.width, py5.height)
+    flock = Flock(N)
 
 def draw():
     py5.background(0)
     flock.run()
     boid_length = 10
-    position = flock.position
+    position = flock.position * py5.width
     #mags =  np.sqrt(np.sum(flock.velocity**2, axis=1))
     #norm_vel = flock.velocity / mags[:,None]
     norm_vel = flock.velocity / np.linalg.norm(
