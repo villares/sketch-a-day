@@ -152,5 +152,8 @@ def draw():
         py5.vertices(triangles)
     py5.window_title(f'{py5.get_frame_rate():.1f}')
 
+def key_pressed():
+    py5.print_line_profiler_stats()
 
+py5.profile_draw()
 py5.run_sketch(block=False)
