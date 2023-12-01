@@ -35,9 +35,6 @@ def setup():
     py5.tint(200, 200, 0)
     for count, glyph, img in counts:
         py5.image(img, 0, W)
-        #py5.text_font(f)
-        #py5.text_align(py5.CENTER, py5.CENTER)
-        #py5.text(glyph, W / 2, W / 2 - 2 + W)
         py5.translate(W, 0)
         
 py5.run_sketch()
