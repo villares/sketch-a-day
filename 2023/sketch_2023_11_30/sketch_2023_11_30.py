@@ -10,7 +10,7 @@ def setup():
     py5.size(900, 120)
     f = py5.create_font('Inconsolata Black', 60)
     pg = py5.create_graphics(W, W)  # an offscreen buffer
-    pg.no_smooth()
+    pg.no_smooth()  # to disable antialiasing, it must be done before begin_draw()
     pg.begin_draw()
     pg.text_size(W)
     pg.fill(0)
@@ -21,7 +21,7 @@ def setup():
     for glyph in glyphs:
         pg.begin_draw()
         pg.background(255)
-        pg.text(c, W / 2, W / 2 - 2)
+        pg.text(glyph, W / 2, W / 2 - 2)
         pg.load_np_pixels()
         pxs = pg.np_pixels
         black = [255, 0, 0, 0]  # Alpha, R, G, B
