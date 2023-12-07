@@ -16,12 +16,6 @@ def draw():
     no_fill()
     stroke(255)
     rect(x, y, w, h)
-    xi = int(remap(x, 0, width, 0, img.width))
-    yi = int(remap(y, 0, width, 0, img.width))
-    wi = int(remap(w, 0, width, 0, img.width))
-    hi = int(remap(h, 0, width, 0, img.width))
-    img_region = img.get_pixels(xi, yi, wi, hi)
-#    image(img_region, width / w, 0, img_region.width * 2, img_region.height * 2)    
 
 def key_pressed():
     save_frame('out.png')
