@@ -3,22 +3,22 @@ from pathlib import Path
 
 img = None
 s = {
-    'x':600,
-    'y':200,
+    'x':400,
+    'y':150,
     'w':120,
     'h':180,
     'source_step': 10,
-    'target_step':10,
+    'target_step':15,
     'cor_a': '#145814FF',
-    'cor_b': '#589A58FF',
-    'texto1': 'sete de\ndezembro'
+    'cor_b': '#E95E5E',
+    'texto1': 'oito de \ndezembro'
 }
 save_pdf = False
 modules = []
 
 def setup():
     global img, f1
-    py5.size(1600, 1000)
+    py5.size(1200, 960)
     img = py5.load_image('a.jpg')
     load_modules(py5.sketch_path('modules'))
     f1 = py5.create_font('Open Sans Bold', 50)
@@ -32,6 +32,7 @@ def load_modules(modules_folder):
 def draw():
     global save_pdf
     py5.background(200)
+    py5.scale(0.60)
     if img:
         f = img.width / img.height
         tw = py5.width / 2
@@ -62,9 +63,9 @@ def draw():
                 m = modules[k]
                 m.disable_style()
                 py5.no_stroke()
-                py5.fill(s['cor_b'])
-                py5.square(x, y, ts)
                 py5.fill(s['cor_a'])
+                py5.square(x, y, ts)
+                py5.fill(s['cor_b'])
                 py5.shape(m, x, y, ts, ts)
         py5.text_font(f1)
         py5.text_leading(43)
