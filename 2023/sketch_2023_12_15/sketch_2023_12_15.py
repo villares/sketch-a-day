@@ -30,10 +30,6 @@ minx, miny, maxx, maxy = m_edges.total_bounds
 general = m_edges[m_edges['name'].str.contains('general', case=False, na=False)]
 biblioteca = m_fp[m_fp['name'].str.contains('monteiro', case=False, na=False)]
 
-#selected_edges_gdf = gdf_meters[gdf_meters['edge_id'].isin(selected_edges)]
-#paulista_length = paulista.geometry.length.sum()
-#print(paulista_length)  # value seems wrong!!!
-
 drawing_elements = []
 
 def setup():
