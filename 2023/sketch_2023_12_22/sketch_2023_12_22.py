@@ -35,7 +35,7 @@ def wave(x1, y1, x2, y2, s=None, n=2):
         angle = py5.atan2(x1 - x2, y2 - y1)
         py5.rotate(angle)
         offset = 0
-        dy = L / (n + 2.)
+        dy = L / (n + 2)
         point_L = []
         point_L.append((0, 0))
         with py5.begin_shape():
@@ -43,10 +43,10 @@ def wave(x1, y1, x2, y2, s=None, n=2):
             for i in range(1, n + 1):
                 point_L.append((0, i * dy))
                 if i % 2:
-                    point_L.append((-s, i * dy + dy / 2.))
+                    point_L.append((-s, i * dy + dy / 2))
                     point_L.append((0, i * dy + dy))
                 else:
-                    point_L.append((s, i * dy + dy / 2.))
+                    point_L.append((s, i * dy + dy / 2))
                     point_L.append((0, i * dy + dy))
             point_L.append((0, L))
             for p1, p2 in zip(
