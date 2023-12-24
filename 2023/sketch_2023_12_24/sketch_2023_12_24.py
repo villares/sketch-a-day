@@ -1,10 +1,6 @@
-
 import py5
-from py5 import sin
 
 step = 10
-AMP = 15
-
 
 def setup():
     global osb
@@ -35,8 +31,8 @@ def draw():
                  for y in range(0, py5.height, step)],
                         0.05 #py5.sin(py5.frame_count / 10) / 20
        )
-    if py5.frame_count / 3 < py5.TWO_PI:
-        py5.save_frame('###.png')
+#     if py5.frame_count / 3 < py5.TWO_PI:
+#         py5.save_frame('###.png')
 
 def key_pressed():
     py5.save(__file__[:-2] + f'{py5.frame_count}.png')
