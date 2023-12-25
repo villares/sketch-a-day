@@ -39,7 +39,7 @@ def key_pressed():
 
 def wave(x1, y1, x2, y2, samples, offset):
     """
-    dois pares (x, y), largura, número de ondas
+    dois pares (x, y), dados para amplitude, escala amplitude
     """
     L = py5.dist(x1, y1, x2, y2)
     n = len(samples)
