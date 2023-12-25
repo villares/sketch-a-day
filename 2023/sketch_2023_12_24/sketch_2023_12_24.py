@@ -70,7 +70,6 @@ def wave(x1, y1, x2, y2, samples, offset):
                 p1x, p1y, s = p1
                 p2x, p2y, _ = p2
                 m12x, m12y = (p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2
-                #py5.stroke_weight(1 + s / 10)
                 if p2 == (0, L):
                     py5.quadratic_vertex(p1x, p1y, p2x, p2y)
                 else:
