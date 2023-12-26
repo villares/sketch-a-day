@@ -18,10 +18,12 @@ def mime_type(file):
     return f'image/{ff}'
 
 def toot( 
-         post_text,
-         image_file=None, description=None,
-         visibility="public", language='pt'):
-    
+    post_text,
+    image_file=None,
+    description=None,
+    visibility="public",
+    language='pt'
+):
     with open("/home/villares/api_tokens", "rb") as f:
         api_tokens = tomllib.load(f)
         
