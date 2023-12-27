@@ -35,6 +35,26 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_12_26
+
+![sketch_2023_12_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_26/sketch_2023_12_26.gif)
+
+[sketch_2023_12_26](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_12_26) [[py5](https://py5coding.org/)]
+
+I'm very pleased with this, today. This sketch built upon some earlier "arrow works", but now with some 3D. I'm sure that having gone for some swimming today improved my creative powers :)
+
+---
+
+### sketch_2023_12_25
+
+![sketch_2023_12_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_25/sketch_2023_12_25.gif)
+
+[sketch_2023_12_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_12_25) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2023_12_24
 
 ![sketch_2023_12_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_24/sketch_2023_12_24.gif)
