@@ -7,7 +7,10 @@ try:
     import tomllib
 except ModuleNotFoundError:
     import tomli as tomllib # tomllib will be in Python 3.11's standard library only
+
 from mastodon import Mastodon
+
+SLEEP = 2 # seconds to wait after submiting image
 
 def mime_type(file):
     if file is None:
@@ -36,7 +39,7 @@ def toot(
             #file_name=None, thumbnail=None,
             #thumbnail_mime_type=None, synchronous=False
             )
-        sleep(1)
+        sleep(SLEEP)
         media_ids = [media["id"]]
     else:
         media_ids=[]
