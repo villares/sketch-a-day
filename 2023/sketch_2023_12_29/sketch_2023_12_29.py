@@ -34,17 +34,18 @@ def draw():
         path = None
         while not path or is_poly_self_intersecting(path):
             path = sample(grid, 10)
-        arrow = Polygon(offset_path(path, 20)).buffer(0)
+        arrow = Polygon(offset_path(path, 40)).buffer(0)
         m = extrude_polygon(arrow, 10)
         arrows.append(m) # .buffer(0) cleans up Polygon
     py5.fill(255, 100)
-#     py5.stroke_weight(5)
-#     py5.stroke(0)
     py5.translate(0, 0, -150)
     for i, m in enumerate(arrows):
         py5.no_stroke()
         py5.fill(32 + i * 24, 200, 200, 100)
         draw_mesh(m)
+        py5.stroke(0)
+        py5.stroke_weight(2)
+        draw_edges(m)
         py5.translate(0, 0, 40)
 
     py5.save_frame('###.png')
@@ -141,10 +142,11 @@ def draw_mesh(m):
                      for face in m.faces
                      for v in face)   
 
-# def draw_mesh(m):
-#     polys, vs = m.facets
-#     for poly in polys:
-#         with py5.begin_closed_shape():
-#             py5.vertices(vs[v] for v in poly)    
+def draw_edges(m):
+    vs = m.vertices
+    bs = m.facets_boundary
+    for facet in bs:
+        for a, b in facet:
+            py5.line(*vs[a], *vs[b])
 
 py5.run_sketch(block=False)
