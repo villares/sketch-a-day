@@ -35,6 +35,25 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2023_12_28
+
+![sketch_2023_12_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_28/sketch_2023_12_28.png)
+
+[sketch_2023_12_28](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_12_28) [[py5](https://py5coding.org/)]
+
+
+---
+
+
+### sketch_2023_12_27
+
+![sketch_2023_12_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_27/sketch_2023_12_27.gif)
+
+[sketch_2023_12_27](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_12_27) [[py5](https://py5coding.org/)]
+
+
+---
+
 ### sketch_2023_12_26
 
 ![sketch_2023_12_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_26/sketch_2023_12_26.gif)
@@ -50,7 +69,6 @@ I'm very pleased with this, today. This sketch built upon some earlier "arrow wo
 ![sketch_2023_12_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2023/sketch_2023_12_25/sketch_2023_12_25.gif)
 
 [sketch_2023_12_25](https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_12_25) [[py5](https://py5coding.org/)]
-
 
 
 ---
