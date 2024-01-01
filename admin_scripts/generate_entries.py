@@ -39,7 +39,7 @@ print(f'Running on: {sys.executable}') # for debug
 gui_mode = True  # default
 
 # YEAR and base_paths to sketch-a-day folder are set manually, hard-coded
-YEAR = '2023'   
+YEAR = '2024'   
 USER, REPO = 'villares', 'sketch-a-day'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
@@ -119,6 +119,7 @@ def main(args):
                     tags = tag_dict.get(tool, '')
                     try:
                         status = toot(comment + ' ' + tags, image_path, image_caption)
+                        status = status[:10]
                     except Exception as e:
                         status = e
                     change_log.append(f'Mastodon: {status}')
