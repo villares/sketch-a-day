@@ -1,8 +1,8 @@
 from collections import deque
 
-bs = deque([Py5Vector()], maxlen = 256)
+positions = deque([Py5Vector()], maxlen = 256)
 
-S = 50
+STEP = 50
 
 def setup():
     size(1024, 768, P3D)
@@ -16,13 +16,16 @@ def draw():
     translate(width / 2, height / 2)
     rotate_x(f)
     rotate_z(f / 10.0)
-    for i, b in enumerate(bs):
+    for i, pos in enumerate(positions):
         fill((i + f * 50) % 256, 200, 200)
         with push_matrix():
-            translate(*b)
-            box(S - 10)
-        b -= bs[-1] / 10
+            translate(*pos)
+            box(STEP - 10)
+        pos -= positions[-1] / 10  # moves everyone to center head
     n = int(noise(f) * 20) % 3
     d = int(noise(f) * 20) % 2
-    a = (-S, S)[d]
-    bs.append(bs[-1] + Py5Vector(a*(n==2),a*(n==1),a*(n==0)))
+    a = (-STEP, STEP)[d]
+    movex = a if n==2 else 0
+    movey = a if n==1 else 0
+    movez = a if n==0 else 0 
+    positions.append(positions[-1] + Py5Vector(movex, movey, movez))
