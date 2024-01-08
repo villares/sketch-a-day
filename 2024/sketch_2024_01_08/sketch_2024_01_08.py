@@ -4,10 +4,7 @@
 import py5
 import pymunk
 
-SCREEN_HEIGHT = 800
-SCREEN_WIDTH = 800
 FPS = 50
-
 pendulum_group = []
 
 def setup():
