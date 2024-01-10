@@ -36,5 +36,6 @@ def setup():
     for count, glyph, img in counts:
         py5.image(img, 0, W)
         py5.translate(W, 0)
+        print(glyph, end='')
         
 py5.run_sketch()
