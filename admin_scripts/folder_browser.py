@@ -1,4 +1,4 @@
-#!/home/villares/miniconda3/bin/python
+#! /home/villares/apps/thonny/bin/python3
 
 """
 A naive folder/image browser experiment with py5 and Pillow
