@@ -29,7 +29,7 @@ Here are listed some of the tools I have been using:
 
 ---
 
-# [2023](docs/README.md) | [2022](docs/2022.md) | [2021](docs/2021.md) | [2020](docs/2020.md) | [2019](docs/2019.md) | [2018](docs/2018.md)
+# [2024](docs/README.md) | [2023](docs/2023.md) | [2022](docs/2022.md) | [2021](docs/2021.md) | [2020](docs/2020.md) | [2019](docs/2019.md) | [2018](docs/2018.md)
 
 ---
 
