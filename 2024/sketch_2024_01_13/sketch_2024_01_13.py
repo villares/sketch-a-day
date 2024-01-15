@@ -1,3 +1,5 @@
+# py5coding.org imported mode
+
 curvas = []
 n = 3
 
@@ -36,8 +38,8 @@ def draw():
         begin_shape()
         stroke_weight(5 + abs(h) / 5)
         for x in range(width):
-            ang = (f +  x) / 20.0
-            ang2 = (f * 2 + x) / 20.0
+            ang = (f +  x) / 20
+            ang2 = (f * 2 + x) / 20
             s = sin(ang * f1) + sin(ang2 * f2) * sin(ang2 * f3) + cos(ang * f3) 
             vertex(x, h + s * a)
         end_shape()
