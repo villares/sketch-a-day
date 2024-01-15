@@ -22,10 +22,6 @@ def setup():
                            frame_numbers=range(1,11),
                            duration=0.1)
         
-def key_pressed():
-    if key == "s":
-        save_frame("###.gif")
-
 def draw():
     background(0)
     f = radians(frame_count) * 360
