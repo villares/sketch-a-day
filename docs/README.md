@@ -35,6 +35,26 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_01_25
+
+![sketch_2024_01_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_25/sketch_2024_01_25.gif)
+
+[sketch_2024_01_25](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_25) [[py5](https://py5coding.org/)]
+
+#genuary25
+
+---
+
+### sketch_2024_01_24
+
+![sketch_2024_01_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_24/sketch_2024_01_24.png)
+
+[sketch_2024_01_24](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_24) [[py5](https://py5coding.org/)]
+
+not engough energy for  #genuary24 :(
+
+---
+
 ### sketch_2024_01_23
 
 ![sketch_2024_01_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_23/sketch_2024_01_23.gif)
