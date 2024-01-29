@@ -2,7 +2,6 @@ SIN_60 = sqrt(3) * 0.5  # sin(radians(60))
 W = 100
 H = SIN_60 * W 
 
-
 def setup():
     size(780, 780, P2D)
     no_stroke()
@@ -18,7 +17,6 @@ def draw():
             k += 1
     if frame_count // 10 <= 6 and frame_count % 10 == 0:
         save_frame('###.png')
-
 
 def ij_to_xy(i, j):
     OX, OY = W / 2, H / 2 
@@ -40,8 +38,7 @@ def hex(x, y, radius, colors, rot=0):
         x2 = x + cos(ang + passo * 2) * radius
         y2 = y + sin(ang + passo * 2) * radius
         x3 = x + cos(ang + passo * 3) * radius
-        y3 = y + sin(ang + passo * 3) * radius
-        
+        y3 = y + sin(ang + passo * 3) * radius        
         with begin_shape():
             fill(colors[i//3])    
             vertex(x0, y0)
@@ -51,7 +48,6 @@ def hex(x, y, radius, colors, rot=0):
             vertex(x2, y2)
             fill(colors[i//3])    
             vertex(x3, y3)
-        #quad(x0, y0, x1, y1, x2, y2, x3, y3)
 
 
 
