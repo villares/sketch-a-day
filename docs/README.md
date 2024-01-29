@@ -35,6 +35,38 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_01_28
+
+![sketch_2024_01_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_28/sketch_2024_01_28.gif)
+
+[sketch_2024_01_28](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_28) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2024_01_27
+
+![sketch_2024_01_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_27/sketch_2024_01_27.gif)
+
+[sketch_2024_01_27](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_27) [[py5](https://py5coding.org/)]
+
+the gif degraded the color gradients :(
+
+---
+
+### sketch_2024_01_26
+
+![sketch_2024_01_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_26/sketch_2024_01_26.png)
+
+[sketch_2024_01_26](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_26) [[py5](https://py5coding.org/)]
+
+Inspired by deconbatch's "Poor man's Diffusion Limited Aggregation"
+Istead of calculantig costly distance, I'm reading a pixel from the canvas and seeing if it falls in the "black halo".
+I started not showing the halo, but changed my mind.
+
+---
+
 ### sketch_2024_01_25
 
 ![sketch_2024_01_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_25/sketch_2024_01_25.gif)
