@@ -1,24 +1,20 @@
 #!/home/villares/miniconda3/bin/python
 
-from os import listdir
-from os.path import isfile, join
+from pathlib import Path
 
 from PIL import Image, GifImagePlugin
 
-from helpers import get_image_names, remove_transparency
+from image_helpers import get_image_names, remove_transparency
 
-YEAR = "2022"
-base_path = "/home/villares/GitHub/sketch-a-day/"
-year_path = join(base_path,YEAR)
-folders = listdir(year_path)
-
+YEAR = '2024'
+base_path = Path('/home/villares/GitHub/sketch-a-day/')
+year_path = base_path / YEAR
 
 images = []
-for folder in sorted(folders):
-    folder_path = join(year_path, folder)
-    f_images = get_image_names(year_path, folder)
+for folder in sorted(year_path.iterdir()):
+    f_images = get_image_names(year_path, folder.name)
     if f_images:
-        img_path = join(folder_path, f_images[0])
+        img_path = folder / f_images[0]
         images.append(Image.open(img_path))
         
 thumb_size = (800, 400)

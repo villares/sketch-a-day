@@ -14,7 +14,7 @@ TODO:
 """
 
 from pathlib import Path
-from helpers import is_img_ext
+from image_helpers import is_img_ext
 from tkinter import messagebox  # for debug
 import sys
 

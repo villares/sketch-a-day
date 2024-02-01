@@ -31,7 +31,7 @@ from reportlab.graphics import renderPM  #*!todo
 import PySimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
 
-from helpers import get_image_names, image_as_png_bytes
+from image_helpers import get_image_names, image_as_png_bytes
 from toot_publisher import toot
 
 print(f'Running on: {sys.executable}') # for debug

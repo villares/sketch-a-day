@@ -10,7 +10,7 @@ from pathlib import Path
 from shutil import copytree
 
 import generate_entries
-from helpers import is_img_ext
+from image_helpers import is_img_ext
 
 print(sys.executable) # for debug
 

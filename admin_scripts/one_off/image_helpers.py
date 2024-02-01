@@ -1,0 +1,1 @@
+/home/villares/GitHub/sketch-a-day/admin_scripts/image_helpers.py

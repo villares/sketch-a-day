@@ -5,7 +5,7 @@ from os.path import isfile, join
 
 from PIL import Image, GifImagePlugin
 
-from helpers import get_image_names, remove_transparency
+from image_helpers import get_image_names, remove_transparency
 
 YEAR = "2021"
 base_path = "/home/villares/GitHub/sketch-a-day/"
