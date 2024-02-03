@@ -17,9 +17,12 @@ from pathlib import Path
 
 import py5      # Installation instructions at https://py5coding.org
 import trimesh  # `pip install trimesh[easy]` The [easy] part is optional for this sketch
-from sdf import sphere, box, cylinder, X, Y, Z    # `pip install sdf-fork`
 
-STL_FILE = 'out.stl'
+# At first I used `pip install sdf-fork` now I'm using `pip install sdfcad`
+from sdf import  sphere, box, cylinder, X, Y, Z  # `pip install sdfcad`
+
+STL_FILE = 'out2.stl'
+SCALE_FACTOR = 200
 
 shader_enabled = True    # left button mouse click to toggle
 lights_enabled = False   # right button mouse click to toggle
@@ -32,7 +35,7 @@ def setup():
         f = sphere(1) & box(1.5)
         c = cylinder(0.5)
         f -= c.orient(X) | c.orient(Y) | c.orient(Z)
-        f.save(STL_FILE)
+        f.save(STL_FILE, step=0.01)
 
     m = trimesh.load_mesh(STL_FILE)
     s = py5.convert_shape(m)
@@ -55,7 +58,7 @@ def draw():
     py5.rotate_x(py5.mouse_y / 10)
     py5.fill(204)
     py5.no_stroke()
-    py5.scale(200)
+    py5.scale(SCALE_FACTOR)
     #py5.sphere(120)
     py5.shape(s, 0, 0)
     
