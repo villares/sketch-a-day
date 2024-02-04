@@ -33,7 +33,7 @@ def mouse_dragged():  # py5 will call this when you drag the mouse
 
 def mouse_released():
     global play
-    play = False
+    play = True
 
 def key_pressed():   # py5 will call this when a key is pressed
     global play
