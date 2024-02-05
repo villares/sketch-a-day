@@ -41,6 +41,8 @@ gui_mode = True  # default
 # YEAR and base_paths to sketch-a-day folder are set manually, hard-coded
 YEAR = '2024'   
 USER, REPO = 'villares', 'sketch-a-day'
+MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
+SPONSOR_LINK = 'https://liberapay.com/villares'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
@@ -148,12 +150,18 @@ def ask_tool_comment(folder, img, default_tool):
         png_bytes = io_bytes.getvalue()
     else:
         png_bytes, metadata = image_as_png_bytes(image_path, (600, 600)) #, resize=new_size)
+    link = f'{REPO_MAIN_URL}/{YEAR}/{folder}'
+    sugestao = (
+        f'Code at: {link}\n'
+        f'More sketch-a-day: {MAIN_SITE}\n'
+        f'Support me at: {SPONSOR_LINK}\n'
+        )
     window = sg.Window(f'{img}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
         [sg.T('Tool   '), sg.Combo(list(tools), default_value=default_tool,
                                    size=(40,22), key='-TOOL-')],
         [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
-        [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
+        [sg.T('Comment'), sg.Multiline(key='-COMMENT-',default_text=sugestao, size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon',
                                                  key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug

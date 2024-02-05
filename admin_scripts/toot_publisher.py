@@ -45,10 +45,12 @@ def toot(
         media_ids = [media["id"]]
     else:
         media_ids=[]
-    return mastodon.status_post(
+    status = mastodon.status_post(
         post_text,
         in_reply_to_id=None,
         media_ids=media_ids,
         language=language,
         visibility=visibility
     )
+    print(status)
+    return status
