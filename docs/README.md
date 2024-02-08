@@ -35,6 +35,30 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_02_07
+
+![sketch_2024_02_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_07/sketch_2024_02_07.gif)
+
+[sketch_2024_02_07](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_07) [[py5](https://py5coding.org/)]
+
+Code at: https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_07
+More sketch-a-day: https://abav.lugaralgum.com/sketch-a-day
+Support me at: https://liberapay.com/villares
+
+---
+
+### sketch_2024_02_06
+
+![sketch_2024_02_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_06/sketch_2024_02_06.gif)
+
+[sketch_2024_02_06](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_06) [[py5](https://py5coding.org/)]
+
+Code at: https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_06
+More sketch-a-day: https://abav.lugaralgum.com/sketch-a-day
+Support me at: https://liberapay.com/villares
+
+---
+
 ### sketch_2024_02_05
 
 ![sketch_2024_02_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_05/sketch_2024_02_05.gif)
