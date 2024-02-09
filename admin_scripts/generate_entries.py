@@ -114,13 +114,13 @@ def main(args):
             if img.split('.')[0].startswith(folder):
                 if gui_mode:
                     dialog_result = ask_tool_comment(folder, img, default_tool)
-                    tool, comment, image_caption, do_toot = dialog_result
+                    tool, comment, do_toot, toot_text, image_caption = dialog_result
                 entry_text = build_entry(folder, img, tool, comment, image_caption)
                 if do_toot:
                     image_path = year_path / folder / img
                     tags = tag_dict.get(tool, '')
                     try:
-                        status = toot(comment + ' ' + tags, image_path, image_caption)
+                        status = toot(comment + ' ' + toot_text + ' ' + tags, image_path, image_caption)
                         status = status[:10]
                     except Exception as e:
                         status = e
@@ -161,7 +161,8 @@ def ask_tool_comment(folder, img, default_tool):
         [sg.T('Tool   '), sg.Combo(list(tools), default_value=default_tool,
                                    size=(40,22), key='-TOOL-')],
         [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
-        [sg.T('Comment'), sg.Multiline(key='-COMMENT-',default_text=sugestao, size=(40,4))],
+        [sg.T('Coment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
+        [sg.T('For Mastodon'), sg.Multiline(key='-MASTODON-',default_text=sugestao, size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon',
                                                  key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
@@ -172,7 +173,13 @@ def ask_tool_comment(folder, img, default_tool):
         print('Cancelled.')
         if gui_mode: sg.popup('Cancelled:', last_done_message)
         exit()
-    return values['-TOOL-'], values['-COMMENT-'], values['-DESCRIPTION-'], values['--TOOT--']
+    return (
+        values['-TOOL-'],
+        values['-COMMENT-'],
+        values['--TOOT--'],
+        values['-DESCRIPTION-'],
+        values['-MASTODON-'],
+        )
 
 def build_entry(folder, image_filename, tool=None, comment=None, image_caption=None):
     """

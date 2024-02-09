@@ -18,7 +18,7 @@ def draw():
         for i, p in enumerate(gesture):
             py5.fill((i * 2) % 255, 255, 200, 100)
             j = py5.remap(i, 0, len(gesture), 0, py5.PI)
-            d = py5.sin(j) * 20
+            d = py5.cos(j) * 20
             py5.circle(*p, d)
         if play and len(gesture) > 2:
             to_move = gesture.popleft()

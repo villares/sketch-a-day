@@ -35,15 +35,23 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_02_08
+
+![sketch_2024_02_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_08/sketch_2024_02_08.png)
+
+[sketch_2024_02_08](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_08) [[py5](https://py5coding.org/)]
+
+Still capture of anolher animated gesture experiment
+
+---
+
 ### sketch_2024_02_07
 
 ![sketch_2024_02_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_07/sketch_2024_02_07.gif)
 
 [sketch_2024_02_07](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_07) [[py5](https://py5coding.org/)]
 
-Code at: https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_07
-More sketch-a-day: https://abav.lugaralgum.com/sketch-a-day
-Support me at: https://liberapay.com/villares
+Another animated mouse gesture experiment
 
 ---
 
@@ -53,9 +61,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_02_06](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_06) [[py5](https://py5coding.org/)]
 
-Code at: https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_06
-More sketch-a-day: https://abav.lugaralgum.com/sketch-a-day
-Support me at: https://liberapay.com/villares
+Another animated mouse gesture experiment
 
 ---
 
@@ -65,9 +71,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_02_05](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_05) [[py5](https://py5coding.org/)]
 
-Code at: https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_05
-More sketch-a-day: https://abav.lugaralgum.com/sketch-a-day
-Support me at: https://liberapay.com/villares
+Another animated mouse gesture experiment
 
 ---
 
@@ -77,9 +81,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_02_04](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_04) [[py5](https://py5coding.org/)]
 
-Code at: https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_04
-More sketch-a-day: https://abav.lugaralgum.com/sketch-a-day
-Support me at: https://liberapay.com/villares
+Another animated mouse gesture experiment
 
 ---
 
@@ -88,7 +90,6 @@ Support me at: https://liberapay.com/villares
 ![sketch_2024_02_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_03/sketch_2024_02_03.gif)
 
 [sketch_2024_02_03](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_03) [[py5](https://py5coding.org/)]
-
 
 
 ---
@@ -100,7 +101,6 @@ Support me at: https://liberapay.com/villares
 [sketch_2024_02_02](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_02) [[py5](https://py5coding.org/)]
 
 
-
 ---
 
 ### sketch_2024_02_01
@@ -108,7 +108,6 @@ Support me at: https://liberapay.com/villares
 ![sketch_2024_02_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_01/sketch_2024_02_01.png)
 
 [sketch_2024_02_01](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_01) [[py5](https://py5coding.org/)]
-
 
 
 ---
@@ -119,7 +118,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_01_31](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_31) [[py5](https://py5coding.org/)]
 
-
+Sorru, no music.
 
 ---
 
@@ -129,7 +128,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_01_30](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_30) [[py5](https://py5coding.org/)]
 
-
+#genuary30 just porting ad using a Processing shader example
 
 ---
 
@@ -139,7 +138,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_01_29](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_29) [[py5](https://py5coding.org/)]
 
-
+#genuary29 using a 3D sdf based mesh library
 
 ---
 
@@ -159,7 +158,7 @@ Support me at: https://liberapay.com/villares
 
 [sketch_2024_01_27](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_27) [[py5](https://py5coding.org/)]
 
-the gif degraded the color gradients :(
+#genuary27 the gif degraded the color gradients :(
 
 ---
 
@@ -169,7 +168,7 @@ the gif degraded the color gradients :(
 
 [sketch_2024_01_26](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_26) [[py5](https://py5coding.org/)]
 
-Inspired by deconbatch's "Poor man's Diffusion Limited Aggregation"
+#genuary26 Inspired by deconbatch's "Poor man's Diffusion Limited Aggregation"
 Istead of calculantig costly distance, I'm reading a pixel from the canvas and seeing if it falls in the "black halo".
 I started not showing the halo, but changed my mind.
 
@@ -231,7 +230,7 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_20](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_20) [[py5](https://py5coding.org/)]
 
-#shapely
+#genuary20 with shapely
 
 ---
 
@@ -241,7 +240,7 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_19](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_19) [[py5](https://py5coding.org/)]
 
-
+#genuary19 Variation of an early flocking experiment
 
 ---
 
@@ -251,7 +250,7 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_18](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_18) [[py5](https://py5coding.org/)]
 
-
+#genuary18 Bauhaus (inspired by Albers)
 
 ---
 
@@ -262,6 +261,7 @@ not engough energy for  #genuary24 :(
 [sketch_2024_01_17](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_17) [[py5](https://py5coding.org/)]
 
 
+Badly done #genuray17
 
 ---
 
@@ -271,7 +271,7 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_16](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_16) [[py5](https://py5coding.org/)]
 
-
+#genuary16 
 
 ---
 
@@ -281,7 +281,7 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_15](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_15) [[py5](https://py5coding.org/)]
 
-
+#genuary15 Physics (using pymunk)
 
 ---
 
@@ -331,7 +331,7 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_10](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_10) [[py5](https://py5coding.org/)]
 
-
+#genuary10 ASCII
 
 ---
 
@@ -351,7 +351,18 @@ not engough energy for  #genuary24 :(
 
 [sketch_2024_01_08](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_08) [[py5](https://py5coding.org/)]
 
-Double-pendulum simulation based on [pygame code by Bryan Brickman](https://github.com/branrickman/double-pyndulum-interactive)
+#genuary8 Double-pendulum simulation based on [pygame code by Bryan Brickman](https://github.com/branrickman/double-pyndulum-interactive)
+
+
+---
+
+### sketch_2024_01_07
+
+![sketch_2024_01_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_01_06/sketch_2024_01_07.gif)
+
+[sketch_2024_01_07](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_07) [[py5](https://py5coding.org/)]
+
+#genuary7 progress bar
 
 ---
 
@@ -361,7 +372,7 @@ Double-pendulum simulation based on [pygame code by Bryan Brickman](https://gith
 
 [sketch_2024_01_06](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_06) [[py5](https://py5coding.org/)]
 
-
+#genuary6 screensaver (based on earlier Processing sketches for "tweetprocessing")
 
 ---
 
@@ -371,8 +382,7 @@ Double-pendulum simulation based on [pygame code by Bryan Brickman](https://gith
 
 [sketch_2024_01_05](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_05) [[py5](https://py5coding.org/)]
 
-d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O1193775/interruptions-drawing-vera-molnar/)
-#genuary5
+#genuary5 d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O1193775/interruptions-drawing-vera-molnar/)
 
 ---
 
@@ -383,6 +393,7 @@ d'aprés Vera Molnar "interruptions" (https://collections.vam.ac.uk/item/O119377
 [sketch_2024_01_04](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_01_04) [[py5](https://py5coding.org/)]
 
 
+#genuary4 pixels
 
 ---
 
