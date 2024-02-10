@@ -1,4 +1,4 @@
-froimport functools
+import functools
 
 import py5
 from shapely import Polygon, MultiPolygon
