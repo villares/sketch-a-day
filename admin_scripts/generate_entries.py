@@ -114,7 +114,7 @@ def main(args):
             if img.split('.')[0].startswith(folder):
                 if gui_mode:
                     dialog_result = ask_tool_comment(folder, img, default_tool)
-                    tool, comment, do_toot, toot_text, image_caption = dialog_result
+                    tool, comment, do_toot, image_caption, toot_text = dialog_result
                 entry_text = build_entry(folder, img, tool, comment, image_caption)
                 if do_toot:
                     image_path = year_path / folder / img
