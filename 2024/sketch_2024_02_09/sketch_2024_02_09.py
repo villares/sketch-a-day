@@ -1,90 +1,59 @@
-import trimesh  # install mapbox_earcut!    
+froimport functools
+
 import py5
+from shapely import Polygon, MultiPolygon
+import trimesh
 
-from functools import cache
+from villares.shapely_helpers import polys_from_text, draw_shapely_objs
 
-cube_list = []
-hole_list = []
+pontos = [
+    (100, 100),
+    (300, 100),
+    (300, 300),
+    (150, 250),
+    ]
 
-sf = 22 # scale/grid factor
-rot90 = trimesh.transformations.rotation_matrix(py5.HALF_PI, [0, 1, 0])
+quadradinho = [
+    (150, 150),
+    (200, 150),
+    (200, 200),
+    (150, 200)
+    ]
 
 def setup():
-    global mesh_a, mesh_b
-    py5.size(700, 700, py5.P3D)
-    mesh_a, mesh_b = make_stuff_up()
-
-def make_stuff_up():
-    cube_list[:] = []
-    hole_list[:] = []
-    for _ in range(10):
-        x, y, z = (int(py5.random(-5, 5)) * sf * 2,
-                   int(py5.random(-5, 5)) * sf * 2,
-                   int(py5.random(-5, 5)) * sf * 2)
-        w = int(py5.random(5, 15)) * sf
-        cube_list.append(cube(x, y, z, w, w, 15 * sf))
-        hole_list.append(cube(x, y, z,
-                              w - sf, w - sf, 15 * sf + 2))
-    solid = cube_list[0]
-    for c in cube_list[1:]:
-        solid = solid.union(c)
-    hole = hole_list[0]
-    for c in hole_list[1:]:
-        hole = hole.union(c)
-        
-    mesh_a = solid.difference(hole)
-    mesh_b = mesh_a.copy().apply_transform(rot90)
-    mesh_b = mesh_b.difference(solid)
-    solid_b = solid.copy().apply_transform(rot90)
-    mesh_a = mesh_a.difference(solid_b)
-
-    return mesh_a, mesh_b
-
-def draw():
-    py5.background(150, 150, 250)
+    global polys, st
+    py5.size(800, 400, py5.P3D)
+    py5.no_stroke()
     py5.lights()
-    if not py5.is_mouse_pressed:
-        py5.no_stroke()
-    else:
-        py5.stroke(0)
-    py5.fill(200, 240, 100)
-    py5.translate(py5.width/2, py5.height/2, -py5.height/2)
-    py5.rotate_y(py5.radians(py5.mouse_x))
+    py5.translate(50, 50)
+    py5.rotate_x(py5.radians(30))
+    py5.scale(0.6)
     
-    for mesh, c in ((mesh_a, py5.color(100, 0, 200)),
-                    (mesh_b, py5.color(0, 100, 100))):
-        py5.fill(c)
-        draw_mesh(mesh)
-    py5.window_title(str(round(py5.get_frame_rate())))
+    p = Polygon(pontos)
+    q = Polygon(quadradinho)
+    pb = p.buffer(50)
+    pd = pb.difference(q)
+    tri = trimesh.creation.extrude_polygon(pd, 20)
+    pt = convert_obj(tri)
+    py5.fill(240)
+    py5.shape(pt, 0, 0)
 
-def cube(x, y, z, w, h=None, d=None):
-    h = w or h
-    d = d or h
-    c = trimesh.creation.box((w, h, d))
-    c.apply_translation((x, y, z))
-    return c
+    f = py5.create_font('Tomorrow Regular', 100)
+    py5.text_font(f)
+    texto = 'Hello shapely!\nHello trimesh!'
+    polys = MultiPolygon(polys_from_text(texto, f))
+    py5.translate(200, 300, 20)
+    py5.fill(0, 0, 200)
+    st = polys.buffer(3)
+    for el in st.geoms:
+        tri = trimesh.creation.extrude_polygon(el, 20)
+        est = convert_obj(tri)
+        py5.shape(est, 0, 0)    
+    py5.save(__file__[:-2] + 'png')
 
-
-def draw_mesh(m):
-    if  py5.is_key_pressed:
-        with py5.begin_closed_shape(py5.TRIANGLES):
-            py5.vertices(m.vertices[v]
-                         for face in m.faces
-                         for v in face)
-    else:
-        ps = convert_mesh(m)
-        py5.shape(ps, 0, 0)
-
-@cache
-def convert_mesh(m):
-    return py5.convert_shape(m)
     
+@functools.cache
+def convert_obj(obj):
+   return py5.convert_shape(obj)
 
-def key_pressed():
-    if py5.key == 's':
-        py5.save_frame('######.png')
-    elif py5.key == ' ':
-        global mesh_a, mesh_b
-        mesh_a, mesh_b = make_stuff_up()
-    
 py5.run_sketch(block=False)
