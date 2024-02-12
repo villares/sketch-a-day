@@ -5,6 +5,8 @@ https://abav.lugaralgum.com/sketch-a-day
 Now for py5 imported mode - https://py5coding.org
 """
 
+import py5_tools
+
 confeti = []
 SIZE = 15
 TEXTO = "carnahacking\nno garoa\nsegunda-feira 12/2\n15h — 20h"
@@ -25,9 +27,11 @@ def setup():
             random(TWO_PI),  # fake "Z" rotation
             color(random(256), random(256), random(256))  # color
         ))
+    py5_tools.animated_gif('out.gif', count=20, period=0.25, duration=0.25)
 
 def draw():
     background(0)
+    fill(255, 200, 0)
     text(TEXTO, width/2, height/2);
     f = frame_count
     for pos, rot1, rot2, color_ in confeti:
