@@ -44,7 +44,7 @@ def apply_rotation(obj, angle, direction=[1, 0, 0], center=[0, 0, 0]):
     rot_matrix = trimesh.transformations.rotation_matrix(angle, direction, center)
     obj.apply_transform(rot_matrix)
   
-@functools.cache
+@functools.lru_cache(maxsize=128)
 def convert_obj(obj):
    return py5.convert_shape(obj)
 
