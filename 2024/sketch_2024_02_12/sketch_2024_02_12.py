@@ -1,9 +1,9 @@
 """
-sketch 36 180205b - Alexandre B A Villares
+Based on sketch 36 180205b - Alexandre B A Villares
 https://abav.lugaralgum.com/sketch-a-day
-"""
 
-from __future__ import division, unicode_literals
+Now for py5 imported mode - https://py5coding.org
+"""
 
 confeti = []
 SIZE = 15
@@ -11,20 +11,20 @@ TEXTO = "carnahacking\nno garoa\nsegunda-feira 12/2\n15h — 20h"
 MAXDIST = 150
 
 def setup():    
-    size(500, 500)   # comment out se for usar com fundo
-
-    font = create_font("GaroaHackerClubeBold.otf", 24); 
-    text_font(font)
+    size(500, 500) 
+    font = create_font("GaroaHackerClubeBold.otf", 24) # veja na pasta do sketch
+    text_font(font)   # A fonte do Garoa tem uma licença livre
     text_align(CENTER, CENTER) # Alinhamento horizontal e vertical
-    text_size(38)             # Tamanho do texto
+    text_size(38)              # Tamanho do texto
     no_stroke()
     for _ in range(1200):
-        confeti.append(([random(width),  # X
-                         random(height+20)],  # Y
-                        random(TWO_PI),  # screen plane rotation
-                        random(TWO_PI),  # "Z" rotation
-                        color(random(256), random(256), random(256))  # color
-                        ))
+        confeti.append((
+            [random(width),       # X
+             random(height+20)],  # Y
+            random(TWO_PI),  # screen plane rotation
+            random(TWO_PI),  # fake "Z" rotation
+            color(random(256), random(256), random(256))  # color
+        ))
 
 def draw():
     background(0)
@@ -54,7 +54,5 @@ def draw():
       
             
             
-            
-    # if frameCount<300 and not frameCount % 3: saveFrame("###.tga")
-
+    
     
