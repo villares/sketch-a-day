@@ -48,7 +48,7 @@ def key_pressed():
     py5.save(__file__[:-2] + 'png')
 
 def xyz_box(x, y, z, w, h=None, d=None):
-    h = w or h
+    h = h or w  # UGH! was wrong!
     d = d or h
     c = trimesh.creation.box((w, h, d))
     c.apply_translation((x, y, z))
