@@ -6,9 +6,7 @@ import trimesh # pip install trimesh[all]
 meshes = []
 
 def setup():
-    global tri
     py5.size(600, 600, py5.P3D)
-    #py5.no_stroke()
     py5.no_stroke()
     
     for x in range(-500, 501, 50):
@@ -16,16 +14,7 @@ def setup():
         mesh_rotate(b, py5.radians(x/10), axis=0)
         b.visual.face_colors[:] = x % 255, 255 - (x % 255), 255, 255
         meshes.append(b)
-#     for y in range(-500, 501, 50):
-#         b = xyz_box(0, y, 0, 45, 45, 45)
-#         b.visual.face_colors[:] = 0, 255, 0, 255
-#         meshes.append(b)
-#     for z in range(-500, 501, 50):
-#         b = xyz_box(0, 0, z, 35, 35, 35)
-#         b.visual.face_colors[:] = 0, 0, 255, 255
-#         meshes.append(b)
  
-
 def draw():
     py5.background(240)
     py5.lights()
