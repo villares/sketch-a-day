@@ -9,43 +9,44 @@ holes = []
 def setup():
     py5.size(600, 600, py5.P3D)
     py5.no_stroke()
-    
+    gerar_formas()
+   
+def gerar_formas():
+    boxes.clear()
+    holes.clear()
     for i in range(10):
         x = py5.random_int(-50, 50) * 10
         y = py5.random_int(-50, 50) * 10
-        z = x / 10
-        b = xyz_box(x, y, z, 400, 400, 200)
-        mesh_rotate_z(b, py5.radians(x/20), center=(x, y, z))
+        z = x 
+        b = xyz_box(x, y, z, 400, 400, 600)
+        mesh_rotate_y(b, py5.radians(x/20), center=(x, y, z))
         boxes.append(b)
-        h = xyz_box(x, y, z, 350, 350, 205)
-        mesh_rotate_z(h, py5.radians(x/20), center=(x, y, z))
+        h = xyz_box(x, y, z, 350, 350, 605)
+        mesh_rotate_y(h, py5.radians(x/20), center=(x, y, z))
         holes.append(h)
     big_hole = trimesh.boolean.union(holes)
     for i, b in enumerate(boxes):
         boxes[i] = b.difference(big_hole)
-    #    boxes[i].visual.face_colors[:] = i * 25, 255 - i * 25, 255, 255
-    intersect = trimesh.boolean.intersection(boxes)
-    intersect.visual.face_colors[:] = 255, 0, 0, 255
-    for i, b in enumerate(boxes):
-        boxes[i] = b.difference(intersect)
-    boxes[:] = []
-    boxes.append(intersect)
-    
-    
+        boxes[i].visual.face_colors[:] = i * 25, 255 - i * 25, 255, 255
     
 def draw():
     py5.background(240)
     py5.lights()
-    py5.translate(py5.width / 2, py5.height / 2, -200)
+    py5.translate(py5.width / 2,
+                  py5.height / 2,
+                  -400)
     py5.rotate_x(py5.radians(py5.mouse_y))
     py5.rotate_y(py5.radians(py5.mouse_x))
-    py5.scale(0.6)
+    py5.scale(0.5)
     
     pshape = convert_meshes(boxes)
     py5.shape(pshape, 0, 0)    
 
 def key_pressed():
-    py5.save(__file__[:-2] + 'png')
+    if py5.key == ' ':
+        gerar_formas()
+    elif py5.key == 's':
+        py5.save_frame('####.png')
 
 def xyz_box(x, y, z, w, h, d):
     c = trimesh.creation.box((w, h, d))
@@ -89,5 +90,6 @@ def convert_obj(obj):
 
 
 py5.run_sketch(block=False)
+
 
 
