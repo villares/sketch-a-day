@@ -3,7 +3,7 @@ import functools
 import py5
 import trimesh # pip install trimesh[all]
 
-boxes = []
+tubes = []
 holes = []
 
 def setup():
@@ -13,22 +13,22 @@ def setup():
     #py5.shape_mode(py5.CENTER)
    
 def gerar_formas():
-    boxes.clear()
+    tubes.clear()
     holes.clear()
     for i in range(10):
         x = py5.random_int(-50, 50) * 10
         y = py5.random_int(-50, 50) * 10
         z = x 
-        b = xyz_box(x, y, z, 400, 400, 600)
+        b = xyz_tub(x, y, z, 400, 400, 600)
         mesh_rotate_y(b, py5.radians(x/20), center=(x, y, z))
-        boxes.append(b)
-        h = xyz_box(x, y, z, 350, 350, 605)
+        tubes.append(b)
+        h = xyz_tub(x, y, z, 350, 350, 605)
         mesh_rotate_y(h, py5.radians(x/20), center=(x, y, z))
         holes.append(h)
     big_hole = trimesh.boolean.union(holes)
-    for i, b in enumerate(boxes):
-        boxes[i] = b.difference(big_hole)
-        boxes[i].visual.face_colors[:] = i * 25, 255 - i * 25, 255, 255
+    for i, b in enumerate(tubes):
+        tubes[i] = b.difference(big_hole)
+        tubes[i].visual.face_colors[:] = i * 25, 255 - i * 25, 255, 255
     
 def draw():
     py5.background(240)
@@ -42,7 +42,7 @@ def draw():
     
     S = 1000
     m = py5.remap(py5.mouse_y, 0, py5.width, 0, 1)
-    for i, b in enumerate(boxes):
+    for i, b in enumerate(tubes):
         pshape = convert_obj(b)
         py5.shape(pshape, m * i * S, m * i * S)    
 
@@ -52,7 +52,7 @@ def key_pressed():
     elif py5.key == 's':
         py5.save_frame('####.png')
 
-def xyz_box(x, y, z, w, h, d):
+def xyz_tub(x, y, z, w, h, d):
     c = trimesh.creation.cylinder(w / 2, d)
     c.apply_translation((x, y, z))
     return c
