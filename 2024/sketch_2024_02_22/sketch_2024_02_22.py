@@ -32,6 +32,12 @@ def draw():
                 text(c,
                      i * tam_casa + borda + meia_casa,
                      j * tam_casa + borda + meia_casa)
+    # Números nas bordas
+    fill(0)
+    for n in range(tam_tabuleiro):
+        pos = n * tam_casa + borda + meia_casa
+        text(n, meia_casa, pos)
+        text(n, pos, height - meia_casa)
 
 def mouse_to_tabuleiro(x, y):
     i = (x - borda) // tam_casa
