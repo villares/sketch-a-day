@@ -23,14 +23,14 @@ def draw():
     stroke(0)
     rect(mouse_x, mouse_y, 150, 100)
 
-    if point_in_rect(*mouse_rect, 150, 100):
+    if point_on_rect(150, 200, *mouse_rect):
         stroke(255, 0, 0)
     else:
         stroke(0)
     stroke_weight(6)
     point(150, 200)
     
-def point_in_rect(xa, ya, xb, yb, wb, hb):
+def point_on_rect(xa, ya, xb, yb, wb, hb):
     return (xb <= xa <= xb + wb and yb <= ya <= yb + hb)
     
 def rect_in_area(xa, ya, wa, ha, xb, yb, wb, hb):
