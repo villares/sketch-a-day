@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_02_25
+
+![sketch_2024_02_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_25/sketch_2024_02_25.gif)
+
+[sketch_2024_02_25](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_02_25) [[py5](https://py5coding.org/)]
+
+Now using #shapely as suggested by @py5coding@fosstodon.org :)
+
+---
+
 ### sketch_2024_02_24
 
 ![sketch_2024_02_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_02_24/sketch_2024_02_24.png)
