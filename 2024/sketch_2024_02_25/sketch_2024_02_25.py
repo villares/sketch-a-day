@@ -1,8 +1,7 @@
 from functools import lru_cache
 
-from shapely import Polygon, LineString, Point
+from shapely import Polygon, Point
 import py5
-
 
 def setup():
     py5.size(600,400)
