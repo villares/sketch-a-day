@@ -17,12 +17,16 @@ plate = Polygon(
     [(20, 20), (480, 20), (480, 480), (20, 480)]
     )
 
+grid = list(itertools.product(range(60, 480, 60), repeat=2))
+
 def setup():
     py5.size(500, 500, py5.P3D)
     
 def draw():
     global mesh
     py5.background(200)
+    if not py5.is_mouse_pressed or py5.is_key_pressed:
+        py5.rotate_x(py5.radians(15))
     if elements:
         gc = GeometryCollection(elements)
         mp = gc.buffer(4)
@@ -51,14 +55,25 @@ def draw_edges(m):
             py5.vertices(vs[v] for v in itertools.chain(*facet))
 
 def mouse_pressed():
-    vers.append((py5.mouse_x, py5.mouse_y))
+    gp = closer_grid(py5.mouse_x, py5.mouse_y)
+    print(gp)
+    vers.append(gp)
 
+def closer_grid(mx, my):
+    min_pos = None
+    md = 1000
+    for x, y in grid:
+        d = py5.dist(x, y, mx, my)
+        #print(x, y, mx, my, md, d)
+        if d < md:
+            md = d
+            min_pos = x, y
+    return min_pos
 
 def mouse_dragged():
-    m = py5.mouse_x, py5.mouse_y
-    d = py5.dist(*vers[-1], *m)
-    if d >= 50:
-        vers.append(m)
+    gp = closer_grid(py5.mouse_x, py5.mouse_y)
+    if vers[-1] != gp:
+        vers.append(gp)
         
 def mouse_released():
     if len(vers) > 1:
@@ -78,13 +93,16 @@ def convert_obj(obj):
 def key_pressed():
     if py5.key == 'p':
         py5.save_frame(__file__[:-3] + '.png')
+    elif py5.key == ' ':
+        elements.clear()
+    elif py5.key == 'd' and elements:
+        elements.pop()
     elif py5.key == 's':
         mesh.export('teste.stl')
         print('stl salvo')
     elif py5.key == 'r':
-        for x in range(60, 480, 60):
-            for y in range(60, 480, 60):
-                elements.append(LineString([(x, y), (x, y + 30)]))
+        for x, y in grid:
+            elements.append(LineString([(x, y), (x, y + 30)]))
 
 py5.run_sketch(block=False)
 
