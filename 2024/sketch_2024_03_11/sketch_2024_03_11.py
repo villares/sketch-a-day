@@ -20,6 +20,7 @@ def set_grid(func=lambda:random_choice((0, 1))):
             board[coluna, fila] = func()
             
 def draw():
+    mc, mf = mouse_to_board(mouse_x, mouse_y)
     for (coluna, fila), estado in board.items():
         y = tam / 2 + tam * fila
         x = tam / 2 + tam * coluna
@@ -27,9 +28,9 @@ def draw():
             fill(0)
         else:
             fill(255)
-        if is_key_pressed and key == ' ':
+        if (coluna, fila) == (mc, mf):
             stroke(255, 0, 0)
-            #stroke(get_graphics()._instance.fillColor)
+            stroke_weight(3)
         else:
             no_stroke()
         square(x, y, tam)
@@ -66,14 +67,13 @@ def azulejo(x, y, tam, rot):
     pop_matrix() # volta coordenadas anteriores
 
 def mouse_to_board(x, y):
-    coluna = int((x - tam / 2) / tam)
-    fila = int((y - tam / 2) / tam)
+    coluna = int(x/ tam)
+    fila = int(y / tam)
     return coluna, fila
 
-def mouse_pressed():
-    c, f = mouse_to_board(mouse_x, mouse_y)
-    board[c, f] ^= 1
-
+def mouse_released():
+    mc, mf = mouse_to_board(mouse_x, mouse_y)
+    board[mc, mf] ^= 1
 
 def key_pressed():
     if key == 's':
