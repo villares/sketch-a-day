@@ -35,6 +35,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_03_17
+
+![sketch_2024_03_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_03_17/sketch_2024_03_17.png)
+
+[sketch_2024_03_17](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_03_17) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2024_03_16
 
 ![sketch_2024_03_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_03_16/sketch_2024_03_16.png)
