@@ -1,0 +1,84 @@
+# Baseado do sketch 2021_11_15a atualizada para py5
+
+from random import sample, seed, shuffle, randint
+
+nodes = {}
+unvisited_nodes = []                   
+step = 8
+
+NBS = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))
+nbs = list(NBS)
+
+color_dict = {}
+
+INSTANT_GROWTH = False
+
+def setup():
+    global w, h
+    size(800, 800)
+    w = width / 2 / step - 2
+    h = height / 2 / step - 2
+    color_mode(HSB)
+    seed_and_start(1)  # set global rnd_seed and starts growth
+    
+def seed_and_start(s):
+    global rnd_seed
+    seed(s)
+    rnd_seed = s
+    print(rnd_seed)
+
+    nbs[:] = NBS
+    shuffle(nbs)
+    color_dict.update({nb:  color(i * 32, 255, 128)  # HSB color dict
+                      for i, nb in enumerate(nbs)})  # for shuffled nbs
+    nodes.clear()
+    unvisited_nodes[:] = [(randint(-w, w), randint(-h, h))
+                              for _ in range(4)]
+       
+def draw():
+    background(240)
+    stroke_weight(2)
+    translate(width / 2, height / 2)
+    for n, v in nodes.items():
+        xa, ya = n
+        if v:        # v is origin + color
+            xb, yb, c = v
+        else:        # v is None
+            continue # skip inital nodes 
+        no_stroke()
+        fill(c)
+        dx = xb - xa
+        dy = yb - ya
+        circle(xa * step, ya * step, step / 2)
+        circle((xa + dx / 2) * step, (ya + dy / 2) * step, step / 2)
+
+    if INSTANT_GROWTH:
+        nl = -1
+        while nl != len(nodes):
+            nl = len(nodes)
+            unvisited_nodes[:] = grow()
+    else:
+        unvisited_nodes[:] = grow()
+
+def key_pressed():
+    if key == ' ':
+        seed_and_start(rnd_seed + 1)
+    elif key == 's':
+        save_frame('###.png')
+                
+def grow():
+    while unvisited_nodes:
+        x, y = unvisited_nodes.pop()
+        seed(len(unvisited_nodes) // 100 + int(y / 25) + int(x / 50))
+        xnbs = sample(NBS, randint(5, 7))
+        for nx, ny in xnbs:            
+            xnx, yny = x + nx, y + ny
+            visible = (abs(xnx * step) < width / 2 - step * 5 and
+                       abs(yny * step) < height / 2 - step * 5 )
+            if visible and (xnx, yny) not in nodes:
+                c = color_dict[(nx, ny)]
+                nodes[(xnx, yny)] = (x, y, c)
+                yield xnx, yny
+    
+      
+
