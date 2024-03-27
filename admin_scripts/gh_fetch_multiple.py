@@ -9,9 +9,9 @@ from git import Repo  #pip install gitpython
 repo_list_file = '/home/villares/repos_to_fetch.txt'
 
 with open(repo_list_file) as f:
-    repo_list = [line.strip() for line in f
-                 if not line.isspace()
-                 and not line.strip().startswith('#')]
+    repo_list = [li.strip() for li in f
+                 if not li.isspace()
+                 and not li.strip().startswith('#')]
 
 repos = [Repo(p) for p in repo_list]
 for repo in repos:
