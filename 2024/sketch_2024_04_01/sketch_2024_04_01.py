@@ -14,7 +14,7 @@ def setup():
 def draw():
     #ortho()
     background(240, 240, 220)
-    translate(width / 4, height / 2, -height * 1.5) 
+    translate(width / 5, height / 2, -height * 1.6) 
     rotate_y(radians(45))
     #rotate_y(radians(mouse_x))
     stroke_weight(3)

@@ -35,12 +35,22 @@ Here are listed some of the tools I have been using:
 
 ---
 
+
 ### sketch_2024_04_02
 
 ![sketch_2024_04_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_02/sketch_2024_04_02.png)
 
 [sketch_2024_04_02](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_02) [[py5](https://py5coding.org/)]
 
+
+---
+
+
+### sketch_2024_04_01
+
+![sketch_2024_04_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_01/sketch_2024_04_01.gif)
+
+[sketch_2024_04_01](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_01) [[py5](https://py5coding.org/)]
 
 
 ---
@@ -50,7 +60,6 @@ Here are listed some of the tools I have been using:
 ![sketch_2024_03_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_03_31/sketch_2024_03_31.gif)
 
 [sketch_2024_03_31](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_03_31) [[py5](https://py5coding.org/)]
-
 
 
 ---
