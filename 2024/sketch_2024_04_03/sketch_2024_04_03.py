@@ -6,7 +6,7 @@ import trimesh
 # Demo sketch for poly_from_text() and trimesh extrude
 
 T = 'Py5Font\nshapely\ntrimesh'
-D = 0 
+D = 0   # Py5Font "detail"
 
 def setup():
     global d_font
