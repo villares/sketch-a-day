@@ -1,5 +1,5 @@
-import skgeom as sg
 
+import skgeom as sg  # conda install scikit-geometry -c conda-forge
 import py5
 
 def setup():
@@ -29,6 +29,5 @@ def draw_skeleton(polygon, skeleton, show_time=True):
             py5.no_fill()
             py5.stroke(0, 0, 200)
             py5.circle(v.point.x(), v.point.y(), v.time)
-
 
 py5.run_sketch()
