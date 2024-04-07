@@ -42,7 +42,7 @@ gui_mode = True  # default
 YEAR = '2024'   
 USER, REPO = 'villares', 'sketch-a-day'
 MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
-SPONSOR_LINK = 'https://liberapay.com/villares'
+SPONSOR_LINK = 'https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
@@ -154,7 +154,7 @@ def ask_tool_comment(folder, img, default_tool):
     sugestao = (
         f'Code at: {link}\n'
         f'More sketch-a-day: {MAIN_SITE}\n'
-        f'Support me at: {SPONSOR_LINK}\n'
+        f'I really need your support ot keep going, if you can, donate any amount at: {SPONSOR_LINK}\n'
         )
     window = sg.Window(f'{img}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
