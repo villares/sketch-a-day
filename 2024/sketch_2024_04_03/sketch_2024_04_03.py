@@ -1,44 +1,33 @@
-from itertools import chain
-
 import py5
-from shapely.geometry import Polygon, MultiPolygon, MultiPoint
+from shapely.geometry import Polygon, MultiPolygon, GeometryCollection, LineString, Point
+import trimesh
 
 # Experiment to extract poly shapes from a text rendered in a specific font
-# Demo sketch for poly_from_text() and draw_shapely_objs()
+# Demo sketch for poly_from_text() and trimesh extrude
 
-TEXT = 'Py5Font'
-
+T = 'Py5Font\nshapely\ntrimesh'
+D = 0   # Py5Font "detail"
 
 def setup():
     global d_font
-    py5.size(800, 800)
-    py5.color_mode(py5.HSB)
-    py5.stroke(255)
-    d_font = py5.create_font('Open Sans', 100)
-    py5.no_loop()
-    
-def draw():
-    global shapes
-    py5.background(100)
-    py5.translate(50, 100)    
-        
-    shapes = polys_from_text(
-        TEXT, d_font, alternate_spacing=py5.is_mouse_pressed)
-    
-#     for s in shapes:
-#         print(type(s))
-    multipoly = MultiPolygon(shapes)
-    py5.no_stroke()
-    pshape = py5.convert_shape(multipoly)
-    py5.shape(pshape, 0, 0)
-    py5.stroke(0)
-    py5.stroke_weight(3)
-    multipoints = MultiPoint(list(chain(list(p.exterior.coords) for p in multipoly.geoms)))
-    pshape = py5.convert_shape(multipoints)
-    py5.shape(pshape, 0, 0)
-    
-    
+    py5.size(500, 500, py5.P3D)
+    d_font = py5.create_font('Inconsolata', 120)
 
+def draw():
+    py5.lights()
+    py5.background(100)
+    py5.translate(50, 150)
+    
+    shapes = polys_from_text(
+        T, d_font, alternate_spacing=False)
+    
+    for shp in shapes:
+        mesh = trimesh.creation.extrude_polygon(shp, 20)  
+        pshape = py5.convert_shape(mesh)
+        py5.shape(pshape, 0, 0)
+
+def key_pressed():
+    py5.save('out.png')
 
 def polys_from_text(words, font, alternate_spacing=False):
     """
@@ -59,11 +48,8 @@ def polys_from_text(words, font, alternate_spacing=False):
             x_offset = 0  # assuming left aligned text...
             continue
         glyph_pt_lists = [[]]  # começa com uma "lista atual" vazia
-        c_shp = font.get_shape(c, 1) #py5.mouse_x / 10)
-#         if c == 'a':
-#             print(py5.mouse_x / 10, c_shp.get_vertex_count())
+        c_shp = font.get_shape(c, D)
         vs3 = [c_shp.get_vertex(i) for i in range(c_shp.get_vertex_count())]
-        #if c == 'a': print(c_shp.get_vertex(0))
         
         vs = set()
         for vx, vy, _ in vs3:
@@ -111,4 +97,4 @@ def process_glyphs(polys):
 
 
 if __name__ == '__main__':
-    py5.run_sketch(block=False)
+    py5.run_sketch()

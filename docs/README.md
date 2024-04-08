@@ -33,6 +33,56 @@ Here are listed some of the tools I have been using:
 
 2024 \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md)
 
+
+---
+
+### sketch_2024_04_07
+
+![sketch_2024_04_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_07/sketch_2024_04_07.gif)
+
+[sketch_2024_04_07](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_07) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2024_04_06
+
+![sketch_2024_04_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_06/sketch_2024_04_06.png)
+
+[sketch_2024_04_06](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_06) [[py5](https://py5coding.org/)]
+
+#scikitgeometry #skgeom
+
+---
+
+### sketch_2024_04_05
+
+![sketch_2024_04_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_05/sketch_2024_04_05.png)
+
+[sketch_2024_04_05](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_05) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2024_04_04
+
+![sketch_2024_04_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_04/sketch_2024_04_04.png)
+
+[sketch_2024_04_04](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_04) [[py5](https://py5coding.org/)]
+
+#OpenSimplexNoise #Numpy
+
+---
+
+### sketch_2024_04_03
+
+![sketch_2024_04_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_03/sketch_2024_04_03.png)
+
+[sketch_2024_04_03](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_03) [[py5](https://py5coding.org/)]
+
+
 ---
 
 
