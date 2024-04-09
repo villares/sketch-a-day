@@ -16,16 +16,19 @@ def draw():
     py5.background(240)
     py5.no_fill()
     
-    poly = shapely.Polygon(pts).buffer(0)
-    py5.stroke(0, 200, 0)
+    poly = shapely.Polygon(pts)
+    py5.stroke(255)
     py5.shape(py5.convert_shape(poly), 0, 0)
-
+    poly = poly.buffer(0)
+    
     if poly.is_valid:
-        py5.stroke(0, 0, 200)
-        b = poly.buffer(30, join_style='bevel')
-        py5.shape(py5.convert_shape(b), 0, 0)
-        b = poly.buffer(-30, join_style='bevel')
-        py5.shape(py5.convert_shape(b), 0, 0)
+        for bo in (n for n in range(-40, 41, 20) if n):
+            py5.stroke(0, 200, 0)
+            shp = poly.buffer(bo, join_style='mitre', mitre_limit=1)
+            py5.shape(py5.convert_shape(shp), 0, 0)
+            py5.stroke(0, 0, 200)
+            shp = poly.buffer(bo, join_style='bevel')
+            py5.shape(py5.convert_shape(shp), 0, 0)
 
     else:
         py5.text('Polygon is not simple', 100, 100)
