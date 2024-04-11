@@ -46,7 +46,7 @@ SPONSOR_LINK = 'https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 TOOT_DEFAULT = (
-    f'Code at: {link}\n'
+    'Code at: {}\n'
     f'More sketch-a-day: {MAIN_SITE}\n'
     f'I really need your support to keep going, if you can, donate any amount at: {SPONSOR_LINK}\n'
     )
@@ -162,7 +162,7 @@ def ask_tool_comment(folder, img, default_tool):
                                    size=(40,22), key='-TOOL-')],
         [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
         [sg.T('Coment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.T('For Mastodon'), sg.Multiline(key='-MASTODON-',default_text=TOOT_DEFAULT, size=(40,4))],
+        [sg.T('For Mastodon'), sg.Multiline(key='-MASTODON-',default_text=TOOT_DEFAULT.format(link), size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon',
                                                  key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
