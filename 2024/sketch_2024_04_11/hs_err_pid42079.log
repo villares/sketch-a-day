@@ -1,0 +1,1798 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00000000005007ef, pid=42079, tid=42184
+#
+# JRE version: OpenJDK Runtime Environment (17.0.10+7) (build 17.0.10+7)
+# Java VM: OpenJDK 64-Bit Server VM (17.0.10+7, mixed mode, tiered, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [python+0x1007ef]  _PyErr_SetObject+0x8f
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h" (or dumping to /home/villares/GitHub/sketch-a-day/2024/sketch_2024_04_11/core.42079)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: 
+
+Host: Intel(R) Core(TM) i5-9300HF CPU @ 2.40GHz, 8 cores, 7G, Manjaro Linux
+Time: Wed Apr 10 21:59:27 2024 -03 elapsed time: 1.680168 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000031b73a0):  JavaThread "Animation Thread" [_thread_in_native, id=42184, stack(0x00007f6440fe7000,0x00007f64410e7000)]
+
+Stack: [0x00007f6440fe7000,0x00007f64410e7000],  sp=0x00007f64410e46e0,  free space=1013k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [python+0x1007ef]  _PyErr_SetObject+0x8f
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.jpype.proxy.JPypeProxy.hostInvoke(JLjava/lang/String;JJ[J[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  org.jpype.proxy.JPypeProxy.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+125
+j  jdk.proxy2.$Proxy7.run_method(Ljava/lang/String;[Ljava/lang/Object;)Z+20 jdk.proxy2
+j  py5.core.Sketch.setup()V+112
+j  processing.core.PApplet.handleDraw()V+185
+j  processing.awt.PSurfaceAWT$9.callDraw()V+7
+j  processing.core.PSurfaceNone$AnimationThread.run()V+57
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00000000000000ab
+
+Registers:
+RAX=0x00000000007362a0, RBX=0x00007f640c009b50, RCX=0x0000000000000000, RDX=0x0000000000000000
+RSP=0x00007f64410e46e0, RBP=0x00007f640c006ad0, RSI=0x00007f640c006b40, RDI=0x00007f640c006ad0
+R8 =0x00000000016bcda0, R9 =0x0000000000000030, R10=0x00007f64b3b7b1c0, R11=0x0000000000000000
+R12=0x00000000016bcda0, R13=0x00007f6441c0d330, R14=0x0000000000000000, R15=0x00007f64cb9ed720
+RIP=0x00000000005007ef, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+
+Register to memory mapping:
+
+RAX=0x00000000007362a0: PyType_Type+0x0000000000000000 in /home/villares/miniconda3/envs/scikit/bin/python at 0x0000000000400000
+RBX=0x00007f640c009b50 points into unknown readable memory: 0x00007f64cb5c69f8 | f8 69 5c cb 64 7f 00 00
+RCX=0x0 is NULL
+RDX=0x0 is NULL
+RSP=0x00007f64410e46e0 is pointing into the stack for thread: 0x00000000031b73a0
+RBP=0x00007f640c006ad0 points into unknown readable memory: 0x00007f6400002560 | 60 25 00 00 64 7f 00 00
+RSI=0x00007f640c006b40 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+RDI=0x00007f640c006ad0 points into unknown readable memory: 0x00007f6400002560 | 60 25 00 00 64 7f 00 00
+R8 =0x00000000016bcda0 points into unknown readable memory: 0x0000000000000007 | 07 00 00 00 00 00 00 00
+R9 =0x0000000000000030 is an unknown value
+R10=0x00007f64b3b7b1c0: <offset 0x000000000137b1c0> in /usr/lib/jvm/java-17-openjdk/lib/server/libjvm.so at 0x00007f64b2800000
+R11=0x0 is NULL
+R12=0x00000000016bcda0 points into unknown readable memory: 0x0000000000000007 | 07 00 00 00 00 00 00 00
+R13=0x00007f6441c0d330 points into unknown readable memory: 0x00007f6441c0d391 | 91 d3 c0 41 64 7f 00 00
+R14=0x0 is NULL
+R15=0x00007f64cb9ed720 points into unknown readable memory: 0x0000000000000001 | 01 00 00 00 00 00 00 00
+
+
+Top of Stack: (sp=0x00007f64410e46e0)
+0x00007f64410e46e0:   0000000003079d38 00000000016bcda0
+0x00007f64410e46f0:   00007f64410e47a0 00007f640c009b50
+0x00007f64410e4700:   00007f64410e47a0 0000000003079d38
+0x00007f64410e4710:   00000000016bcda0 00007f64410e4768
+0x00007f64410e4720:   00007f64cb9ed720 00007f64cb56ee44
+0x00007f64410e4730:   ffffffffffffffe0 ffffffffffffffe8
+0x00007f64410e4740:   fffffffffffffff8 0001010100000000
+0x00007f64410e4750:   0001000001000000 0000000100000000
+0x00007f64410e4760:   0000000000010001 0000000003079d38
+0x00007f64410e4770:   0000000000000040 0000000000000007
+0x00007f64410e4780:   0000000000000000 00007f64cb5590a6
+0x00007f64410e4790:   00007f64cb3e0d29 fffffffffffffff8
+0x00007f64410e47a0:   0000000001686c10 00000000031b7650
+0x00007f64410e47b0:   0000000000010000 0000000000000000
+0x00007f64410e47c0:   00007f64410e4a20 00007f640c009b30
+0x00007f64410e47d0:   0000000000000001 00007f640c009b30
+0x00007f64410e47e0:   00007f64410e4ab0 00007f640c009b50
+0x00007f64410e47f0:   00007f640c0095c8 00007f64410e4ab0
+0x00007f64410e4800:   00007f64410e4ad0 00007f64cb93f850
+0x00007f64410e4810:   00007f64cb9ed720 00007f64cb56f3c8
+0x00007f64410e4820:   0000000000000000 0000000000000000
+0x00007f64410e4830:   00007f64410e4a20 0000000000000000
+0x00007f64410e4840:   0000000000000000 0000000000000000
+0x00007f64410e4850:   0000000000000000 0000000000000000
+0x00007f64410e4860:   00007f64410e4a00 00007f64410e4a08
+0x00007f64410e4870:   00007f64410e4a10 00007f64410e4a18
+0x00007f64410e4880:   00007f64410e4a28 0000000000000000
+0x00007f64410e4890:   00007f64410e4a30 00007f64cb5527c6
+0x00007f64410e48a0:   0000000000000000 0000000000000000
+0x00007f64410e48b0:   0000000000000000 00007f64cc060c9f
+0x00007f64410e48c0:   4000000000000000 0000000000000000
+0x00007f64410e48d0:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00000000005007ef)
+0x00000000005006ef:   fd ff 49 89 c6 48 85 c0 74 1a 48 89 ee 48 89 c7
+0x00000000005006ff:   4c 89 e2 ff 15 40 f3 20 00 48 89 ee 4c 89 ef e8
+0x000000000050070f:   bd 62 fd ff 5a 4c 89 f0 5d 41 5c 41 5d 41 5e c3
+0x000000000050071f:   41 59 4c 89 ef 5d 41 5c 41 5d 41 5e e9 d0 23 fd
+0x000000000050072f:   ff 49 89 ee eb de 59 48 89 ef 5d 41 5c 41 5d 41
+0x000000000050073f:   5e e9 1b 0a fd ff 41 58 48 89 f2 5d 48 89 fe 41
+0x000000000050074f:   5c 4c 89 ef 41 5d 41 5e ff e0 0f 1f 80 00 00 00
+0x000000000050075f:   00 41 57 41 56 41 55 49 89 d5 41 54 49 89 f4 55
+0x000000000050076f:   48 89 fd 53 48 83 ec 18 48 85 f6 0f 84 ad 16 f3
+0x000000000050077f:   ff 48 8b 46 08 f6 80 ab 00 00 00 80 0f 84 23 16
+0x000000000050078f:   f3 ff f6 86 ab 00 00 00 40 0f 84 16 16 f3 ff 48
+0x000000000050079f:   85 d2 0f 84 a9 00 00 00 48 8b b5 90 00 00 00 49
+0x00000000005007af:   ff 45 00 48 8b 16 48 85 d2 74 09 48 81 fa 60 ac
+0x00000000005007bf:   73 00 75 0d 48 8b 4e 18 48 85 c9 0f 85 c4 00 00
+0x00000000005007cf:   00 4c 8b 76 08 49 81 fe 60 ac 73 00 74 09 4d 85
+0x00000000005007df:   f6 0f 85 10 01 00 00 4d 85 ed 74 7d 4d 8b 5d 08
+0x00000000005007ef:   41 f6 83 ab 00 00 00 40 0f 85 bd 00 00 00 4d 85
+0x00000000005007ff:   e4 0f 84 a7 15 f3 ff 49 ff 04 24 31 c0 48 8b 7d
+0x000000000050080f:   58 66 49 0f 6e c4 66 49 0f 6e cd 4c 8b 75 60 66
+0x000000000050081f:   0f 6c c1 4c 8b 7d 68 48 89 45 68 0f 11 45 58 48
+0x000000000050082f:   85 ff 75 46 4d 85 f6 75 4b 4d 85 ff 0f 85 5c 01
+0x000000000050083f:   00 00 48 83 c4 18 5b 5d 41 5c 41 5d 41 5e 41 5f
+0x000000000050084f:   c3 48 8b b5 90 00 00 00 48 8b 16 48 85 d2 0f 85
+0x000000000050085f:   57 ff ff ff e9 5b ff ff ff 4d 85 e4 0f 84 f0 14
+0x000000000050086f:   f3 ff 49 ff 04 24 31 c0 eb 93 48 ff 0f 75 b5 e9
+0x000000000050087f:   00 15 f3 ff 49 ff 0e 75 b0 49 8b 46 08 4c 89 f7
+0x000000000050088f:   ff 50 30 eb a4 48 8b 19 48 85 db 74 09 48 81 fb
+0x000000000050089f:   60 ac 73 00 75 0d 48 8b 71 18 48 85 f6 0f 85 c4
+0x00000000005008af:   00 00 00 48 89 ce e9 16 ff ff ff 4c 89 ef e8 1e
+0x00000000005008bf:   34 01 00 4d 85 e4 0f 84 9d 14 f3 ff 49 ff 04 24
+0x00000000005008cf:   48 85 c0 0f 84 34 ff ff ff 48 81 78 08 80 11 73
+0x00000000005008df:   00 0f 84 26 ff ff ff 48 ff 08 0f 84 4c 15 f3 ff 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000003079d38 is a global jni handle
+stack at sp + 1 slots: 0x00000000016bcda0 points into unknown readable memory: 0x0000000000000007 | 07 00 00 00 00 00 00 00
+stack at sp + 2 slots: 0x00007f64410e47a0 is pointing into the stack for thread: 0x00000000031b73a0
+stack at sp + 3 slots: 0x00007f640c009b50 points into unknown readable memory: 0x00007f64cb5c69f8 | f8 69 5c cb 64 7f 00 00
+stack at sp + 4 slots: 0x00007f64410e47a0 is pointing into the stack for thread: 0x00000000031b73a0
+stack at sp + 5 slots: 0x0000000003079d38 is a global jni handle
+stack at sp + 6 slots: 0x00000000016bcda0 points into unknown readable memory: 0x0000000000000007 | 07 00 00 00 00 00 00 00
+stack at sp + 7 slots: 0x00007f64410e4768 is pointing into the stack for thread: 0x00000000031b73a0
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007f6444000b70, length=19, elements={
+0x00000000021dfa70, 0x00000000024442d0, 0x0000000002445920, 0x000000000246a690,
+0x000000000246ba80, 0x000000000246ced0, 0x000000000246e8c0, 0x000000000246fde0,
+0x00000000024712b0, 0x0000000002510bc0, 0x000000000251a1c0, 0x000000000312dbe0,
+0x00000000030c8ef0, 0x00000000031cdbb0, 0x00000000031ce6b0, 0x00000000031b73a0,
+0x00007f6470001900, 0x00007f64700029f0, 0x00007f6408001800
+}
+
+Java Threads: ( => current thread )
+  0x00000000021dfa70 JavaThread "main" [_thread_in_native, id=42079, stack(0x00007ffd87bc0000,0x00007ffd87cc0000)]
+  0x00000000024442d0 JavaThread "Reference Handler" daemon [_thread_blocked, id=42119, stack(0x00007f6494db2000,0x00007f6494eb2000)]
+  0x0000000002445920 JavaThread "Finalizer" daemon [_thread_blocked, id=42120, stack(0x00007f6494cb1000,0x00007f6494db1000)]
+  0x000000000246a690 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=42121, stack(0x00007f6494bb0000,0x00007f6494cb0000)]
+  0x000000000246ba80 JavaThread "Service Thread" daemon [_thread_blocked, id=42122, stack(0x00007f6494aaf000,0x00007f6494baf000)]
+  0x000000000246ced0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=42123, stack(0x00007f64949ae000,0x00007f6494aae000)]
+  0x000000000246e8c0 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=42124, stack(0x00007f64948ad000,0x00007f64949ad000)]
+  0x000000000246fde0 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=42125, stack(0x00007f64947ac000,0x00007f64948ac000)]
+  0x00000000024712b0 JavaThread "Sweeper thread" daemon [_thread_blocked, id=42126, stack(0x00007f64946ab000,0x00007f64947ab000)]
+  0x0000000002510bc0 JavaThread "Notification Thread" daemon [_thread_blocked, id=42127, stack(0x00007f64945aa000,0x00007f64946aa000)]
+  0x000000000251a1c0 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=42129, stack(0x00007f64943a8000,0x00007f64944a8000)]
+  0x000000000312dbe0 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=42177, stack(0x00007f64415fa000,0x00007f64416fa000)]
+  0x00000000030c8ef0 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=42178, stack(0x00007f64414f9000,0x00007f64415f9000)]
+  0x00000000031cdbb0 JavaThread "Image Fetcher 0" daemon [_thread_blocked, id=42180, stack(0x00007f64413eb000,0x00007f64414eb000)]
+  0x00000000031ce6b0 JavaThread "Image Fetcher 1" daemon [_thread_blocked, id=42181, stack(0x00007f64412ea000,0x00007f64413ea000)]
+=>0x00000000031b73a0 JavaThread "Animation Thread" [_thread_in_native, id=42184, stack(0x00007f6440fe7000,0x00007f64410e7000)]
+  0x00007f6470001900 JavaThread "SIGHUP handler" daemon [_thread_blocked, id=42187, stack(0x00007f64409a8000,0x00007f6440aa8000)]
+  0x00007f64700029f0 JavaThread "SIGHUP handler" daemon [_thread_blocked, id=42188, stack(0x00007f64408a7000,0x00007f64409a7000)]
+  0x00007f6408001800 JavaThread "Thread-0" [_thread_in_native, id=42189, stack(0x00007f64407a6000,0x00007f64408a6000)]
+
+Other Threads:
+  0x0000000001c04f80 VMThread "VM Thread" [stack: 0x00007f6494eb3000,0x00007f6494fb3000] [id=42118]
+  0x00000000021acb20 WatcherThread [stack: 0x00007f64944a9000,0x00007f64945a9000] [id=42128]
+  0x0000000001f813f0 GCTaskThread "GC Thread#0" [stack: 0x00007f64c648a000,0x00007f64c658a000] [id=42113]
+  0x00007f6474001460 GCTaskThread "GC Thread#1" [stack: 0x00007f64941a6000,0x00007f64942a6000] [id=42131]
+  0x00007f64740155b0 GCTaskThread "GC Thread#2" [stack: 0x00007f64439fd000,0x00007f6443afd000] [id=42132]
+  0x00007f6474014a90 GCTaskThread "GC Thread#3" [stack: 0x00007f64940a5000,0x00007f64941a5000] [id=42133]
+  0x00007f64740023c0 GCTaskThread "GC Thread#4" [stack: 0x00007f6443f00000,0x00007f6444000000] [id=42134]
+  0x00007f64740081b0 GCTaskThread "GC Thread#5" [stack: 0x00007f6441ab6000,0x00007f6441bb6000] [id=42173]
+  0x00007f6474008ba0 GCTaskThread "GC Thread#6" [stack: 0x00007f64419b5000,0x00007f6441ab5000] [id=42174]
+  0x00007f647400ef90 GCTaskThread "GC Thread#7" [stack: 0x00007f6440ee6000,0x00007f6440fe6000] [id=42185]
+  0x000000000223d030 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f6497b90000,0x00007f6497c90000] [id=42114]
+  0x000000000223d6f0 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f6497a8f000,0x00007f6497b8f000] [id=42115]
+  0x00007f64880010a0 ConcurrentGCThread "G1 Conc#1" [stack: 0x00007f6440aa9000,0x00007f6440ba9000] [id=42186]
+  0x00000000021ac830 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007f6495186000,0x00007f6495286000] [id=42116]
+  0x00000000022a1240 ConcurrentGCThread "G1 Service" [stack: 0x00007f6495085000,0x00007f6495185000] [id=42117]
+
+Threads with active compile tasks:
+C2 CompilerThread0     1686 1493 %     4       java.awt.image.PixelGrabber::setPixels @ 330 (396 bytes)
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000085200000, size: 1966 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+
+GC Precious Log:
+ CPUs: 8 total, 8 available
+ Memory: 7863M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Heap Region Size: 1M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 124M
+ Heap Max Capacity: 1966M
+ Pre-touch: Disabled
+ Parallel Workers: 8
+ Concurrent Workers: 2
+ Concurrent Refinement Workers: 8
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 32768K, used 16585K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 1 survivors (1024K)
+ Metaspace       used 17282K, committed 17536K, reserved 1114112K
+  class space    used 1603K, committed 1728K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000085200000, 0x00000000852ffff0, 0x0000000085300000| 99%| O|  |TAMS 0x00000000852ffff0, 0x0000000085200000| Untracked 
+|   1|0x0000000085300000, 0x00000000853fffe8, 0x0000000085400000| 99%| O|  |TAMS 0x00000000853fffe8, 0x0000000085300000| Untracked 
+|   2|0x0000000085400000, 0x00000000854fffc8, 0x0000000085500000| 99%| O|  |TAMS 0x00000000854fffc8, 0x0000000085400000| Untracked 
+|   3|0x0000000085500000, 0x00000000855fffd0, 0x0000000085600000| 99%| O|  |TAMS 0x00000000855fffd0, 0x0000000085500000| Untracked 
+|   4|0x0000000085600000, 0x00000000856fffc0, 0x0000000085700000| 99%| O|  |TAMS 0x00000000856fffc0, 0x0000000085600000| Untracked 
+|   5|0x0000000085700000, 0x00000000857cc778, 0x0000000085800000| 79%| O|  |TAMS 0x00000000857cc778, 0x0000000085700000| Untracked 
+|   6|0x0000000085800000, 0x00000000858ffc20, 0x0000000085900000| 99%| O|  |TAMS 0x00000000858ffc20, 0x0000000085800000| Untracked 
+|   7|0x0000000085900000, 0x0000000085a00000, 0x0000000085a00000|100%| O|  |TAMS 0x0000000085a00000, 0x0000000085900000| Untracked 
+|   8|0x0000000085a00000, 0x0000000085a42cf0, 0x0000000085b00000| 26%| O|  |TAMS 0x0000000085a42cf0, 0x0000000085a00000| Untracked 
+|   9|0x0000000085b00000, 0x0000000085c00000, 0x0000000085c00000|100%|HS|  |TAMS 0x0000000085c00000, 0x0000000085b00000| Complete 
+|  10|0x0000000085c00000, 0x0000000085d00000, 0x0000000085d00000|100%|HC|  |TAMS 0x0000000085d00000, 0x0000000085c00000| Complete 
+|  11|0x0000000085d00000, 0x0000000085e00000, 0x0000000085e00000|100%|HS|  |TAMS 0x0000000085e00000, 0x0000000085d00000| Complete 
+|  12|0x0000000085e00000, 0x0000000085f00000, 0x0000000085f00000|100%|HC|  |TAMS 0x0000000085f00000, 0x0000000085e00000| Complete 
+|  13|0x0000000085f00000, 0x0000000086000000, 0x0000000086000000|100%|HC|  |TAMS 0x0000000086000000, 0x0000000085f00000| Complete 
+|  14|0x0000000086000000, 0x0000000086100000, 0x0000000086100000|100%|HS|  |TAMS 0x0000000086000000, 0x0000000086000000| Complete 
+|  15|0x0000000086100000, 0x0000000086200000, 0x0000000086200000|100%|HS|  |TAMS 0x0000000086100000, 0x0000000086100000| Complete 
+|  16|0x0000000086200000, 0x0000000086200000, 0x0000000086300000|  0%| F|  |TAMS 0x0000000086200000, 0x0000000086200000| Untracked 
+|  17|0x0000000086300000, 0x0000000086300000, 0x0000000086400000|  0%| F|  |TAMS 0x0000000086300000, 0x0000000086300000| Untracked 
+|  18|0x0000000086400000, 0x0000000086400000, 0x0000000086500000|  0%| F|  |TAMS 0x0000000086400000, 0x0000000086400000| Untracked 
+|  19|0x0000000086500000, 0x0000000086500000, 0x0000000086600000|  0%| F|  |TAMS 0x0000000086500000, 0x0000000086500000| Untracked 
+|  20|0x0000000086600000, 0x0000000086600000, 0x0000000086700000|  0%| F|  |TAMS 0x0000000086600000, 0x0000000086600000| Untracked 
+|  21|0x0000000086700000, 0x0000000086700000, 0x0000000086800000|  0%| F|  |TAMS 0x0000000086700000, 0x0000000086700000| Untracked 
+|  22|0x0000000086800000, 0x0000000086800000, 0x0000000086900000|  0%| F|  |TAMS 0x0000000086800000, 0x0000000086800000| Untracked 
+|  23|0x0000000086900000, 0x0000000086900000, 0x0000000086a00000|  0%| F|  |TAMS 0x0000000086900000, 0x0000000086900000| Untracked 
+|  24|0x0000000086a00000, 0x0000000086a476b8, 0x0000000086b00000| 27%| E|  |TAMS 0x0000000086a00000, 0x0000000086a00000| Complete 
+|  25|0x0000000086b00000, 0x0000000086b235e8, 0x0000000086c00000| 13%| S|CS|TAMS 0x0000000086b00000, 0x0000000086b00000| Complete 
+|  26|0x0000000086c00000, 0x0000000086d00000, 0x0000000086d00000|100%| E|CS|TAMS 0x0000000086c00000, 0x0000000086c00000| Complete 
+|  27|0x0000000086d00000, 0x0000000086d00000, 0x0000000086e00000|  0%| F|  |TAMS 0x0000000086d00000, 0x0000000086d00000| Untracked 
+|  28|0x0000000086e00000, 0x0000000086e00000, 0x0000000086f00000|  0%| F|  |TAMS 0x0000000086e00000, 0x0000000086e00000| Untracked 
+|  29|0x0000000086f00000, 0x0000000086f00000, 0x0000000087000000|  0%| F|  |TAMS 0x0000000086f00000, 0x0000000086f00000| Untracked 
+|  30|0x0000000087000000, 0x0000000087000000, 0x0000000087100000|  0%| F|  |TAMS 0x0000000087000000, 0x0000000087000000| Untracked 
+|  31|0x0000000087100000, 0x0000000087100000, 0x0000000087200000|  0%| F|  |TAMS 0x0000000087100000, 0x0000000087100000| Untracked 
+
+Card table byte_map: [0x00007f64c4027000,0x00007f64c43fe000] _byte_map_base: 0x00007f64c3bfe000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000000000222d0c0, (CMBitMap*) 0x000000000222d100
+ Prev Bits: [0x00007f6499b48000, 0x00007f649ba00000)
+ Next Bits: [0x00007f6497c90000, 0x00007f6499b48000)
+
+Polling page: 0x00007f64cbced000
+
+Metaspace:
+
+Usage:
+  Non-class:     15.31 MB used.
+      Class:      1.57 MB used.
+       Both:     16.88 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      15.44 MB ( 24%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       1.69 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      17.12 MB (  2%) committed. 
+
+Chunk freelists:
+   Non-Class:  15.98 MB
+       Class:  14.23 MB
+        Both:  30.21 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 28.44 MB
+CDS: off
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 188.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 274.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 347.
+num_chunk_merges: 0.
+num_chunk_splits: 211.
+num_chunks_enlarged: 119.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120028Kb used=572Kb max_used=572Kb free=119455Kb
+ bounds [0x00007f64a34c9000, 0x00007f64a3739000, 0x00007f64aaa00000]
+CodeHeap 'profiled nmethods': size=120028Kb used=2499Kb max_used=2499Kb free=117528Kb
+ bounds [0x00007f649ba00000, 0x00007f649bc80000, 0x00007f64a2f37000]
+CodeHeap 'non-nmethods': size=5704Kb used=1325Kb max_used=1368Kb free=4378Kb
+ bounds [0x00007f64a2f37000, 0x00007f64a31a7000, 0x00007f64a34c9000]
+ total_blobs=2155 nmethods=1488 adapters=580
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 1.618 Thread 0x000000000246fde0 1482       3       java.awt.image.DirectColorModel::getAlpha (54 bytes)
+Event: 1.618 Thread 0x000000000246fde0 nmethod 1482 0x00007f649bc6c990 code [0x00007f649bc6cb80, 0x00007f649bc6ce30]
+Event: 1.618 Thread 0x000000000246fde0 1483       3       java.awt.image.DirectColorModel::getRed (45 bytes)
+Event: 1.618 Thread 0x000000000246fde0 nmethod 1483 0x00007f649bc6cf90 code [0x00007f649bc6d1a0, 0x00007f649bc6d460]
+Event: 1.618 Thread 0x000000000246fde0 1484       3       java.awt.image.DirectColorModel::getGreen (45 bytes)
+Event: 1.618 Thread 0x000000000246fde0 nmethod 1484 0x00007f649bc6d590 code [0x00007f649bc6d7a0, 0x00007f649bc6da60]
+Event: 1.618 Thread 0x000000000246fde0 1485       3       java.awt.image.DirectColorModel::getBlue (45 bytes)
+Event: 1.618 Thread 0x000000000246fde0 nmethod 1485 0x00007f649bc6db90 code [0x00007f649bc6dda0, 0x00007f649bc6e060]
+Event: 1.618 Thread 0x000000000246fde0 1480       3       java.awt.image.DirectColorModel::getsRGBComponentFromsRGB (107 bytes)
+Event: 1.620 Thread 0x000000000246fde0 nmethod 1480 0x00007f649bc6e190 code [0x00007f649bc6e380, 0x00007f649bc6e730]
+Event: 1.623 Thread 0x000000000246fde0 1492       3       java.awt.image.PixelGrabber::setPixels (396 bytes)
+Event: 1.624 Thread 0x000000000246fde0 nmethod 1492 0x00007f649bc6e910 code [0x00007f649bc6eb60, 0x00007f649bc6f7e0]
+Event: 1.636 Thread 0x000000000246fde0 1494       3       java.awt.image.ColorModel::getRGBdefault (31 bytes)
+Event: 1.637 Thread 0x000000000246fde0 nmethod 1494 0x00007f649bc6fb90 code [0x00007f649bc6fd40, 0x00007f649bc6ffa0]
+Event: 1.674 Thread 0x000000000246e8c0 
+
+Event: 1.674 Thread 0x000000000246e8c0 1493 %     4       java.awt.image.PixelGrabber::setPixels @ 330 (396 bytes)
+Event: 1.678 Thread 0x000000000246fde0 1495       3       java.util.LinkedHashMap::newNode (23 bytes)
+Event: 1.679 Thread 0x000000000246fde0 nmethod 1495 0x00007f649bc70090 code [0x00007f649bc70260, 0x00007f649bc70640]
+Event: 1.679 Thread 0x000000000246fde0 1496       3       java.util.LinkedHashMap::afterNodeInsertion (40 bytes)
+Event: 1.679 Thread 0x000000000246fde0 nmethod 1496 0x00007f649bc70790 code [0x00007f649bc70940, 0x00007f649bc70bb0]
+
+GC Heap History (18 events):
+Event: 0.199 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 126976K, used 4096K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 0 survivors (0K)
+ Metaspace       used 7379K, committed 7552K, reserved 1114112K
+  class space    used 649K, committed 704K, reserved 1048576K
+}
+Event: 0.202 GC heap after
+{Heap after GC invocations=1 (full 1):
+ garbage-first heap   total 8192K, used 1692K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 7379K, committed 7552K, reserved 1114112K
+  class space    used 649K, committed 704K, reserved 1048576K
+}
+Event: 0.254 GC heap before
+{Heap before GC invocations=1 (full 1):
+ garbage-first heap   total 8192K, used 3740K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 0 survivors (0K)
+ Metaspace       used 7676K, committed 7872K, reserved 1114112K
+  class space    used 662K, committed 768K, reserved 1048576K
+}
+Event: 0.255 GC heap after
+{Heap after GC invocations=2 (full 1):
+ garbage-first heap   total 8192K, used 2204K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 7676K, committed 7872K, reserved 1114112K
+  class space    used 662K, committed 768K, reserved 1048576K
+}
+Event: 0.301 GC heap before
+{Heap before GC invocations=2 (full 1):
+ garbage-first heap   total 8192K, used 3228K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 1 survivors (1024K)
+ Metaspace       used 8349K, committed 8448K, reserved 1114112K
+  class space    used 735K, committed 768K, reserved 1048576K
+}
+Event: 0.302 GC heap after
+{Heap after GC invocations=3 (full 1):
+ garbage-first heap   total 8192K, used 2342K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 8349K, committed 8448K, reserved 1114112K
+  class space    used 735K, committed 768K, reserved 1048576K
+}
+Event: 0.355 GC heap before
+{Heap before GC invocations=3 (full 1):
+ garbage-first heap   total 8192K, used 3366K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 1 survivors (1024K)
+ Metaspace       used 10324K, committed 10560K, reserved 1114112K
+  class space    used 912K, committed 1024K, reserved 1048576K
+}
+Event: 0.356 GC heap after
+{Heap after GC invocations=4 (full 1):
+ garbage-first heap   total 8192K, used 2581K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 10324K, committed 10560K, reserved 1114112K
+  class space    used 912K, committed 1024K, reserved 1048576K
+}
+Event: 0.378 GC heap before
+{Heap before GC invocations=4 (full 1):
+ garbage-first heap   total 8192K, used 3605K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 1 survivors (1024K)
+ Metaspace       used 10618K, committed 10816K, reserved 1114112K
+  class space    used 921K, committed 1024K, reserved 1048576K
+}
+Event: 0.380 GC heap after
+{Heap after GC invocations=5 (full 1):
+ garbage-first heap   total 67584K, used 2599K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 10618K, committed 10816K, reserved 1114112K
+  class space    used 921K, committed 1024K, reserved 1048576K
+}
+Event: 1.040 GC heap before
+{Heap before GC invocations=5 (full 1):
+ garbage-first heap   total 67584K, used 38439K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 37 young (37888K), 1 survivors (1024K)
+ Metaspace       used 12045K, committed 12288K, reserved 1114112K
+  class space    used 1031K, committed 1152K, reserved 1048576K
+}
+Event: 1.062 GC heap after
+{Heap after GC invocations=6 (full 2):
+ garbage-first heap   total 27648K, used 6753K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 12045K, committed 12288K, reserved 1114112K
+  class space    used 1031K, committed 1152K, reserved 1048576K
+}
+Event: 1.524 GC heap before
+{Heap before GC invocations=6 (full 2):
+ garbage-first heap   total 27648K, used 15969K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 9 young (9216K), 0 survivors (0K)
+ Metaspace       used 16868K, committed 17088K, reserved 1114112K
+  class space    used 1551K, committed 1664K, reserved 1048576K
+}
+Event: 1.527 GC heap after
+{Heap after GC invocations=7 (full 2):
+ garbage-first heap   total 27648K, used 10574K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 16868K, committed 17088K, reserved 1114112K
+  class space    used 1551K, committed 1664K, reserved 1048576K
+}
+Event: 1.586 GC heap before
+{Heap before GC invocations=7 (full 2):
+ garbage-first heap   total 27648K, used 13646K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 2 survivors (2048K)
+ Metaspace       used 17195K, committed 17472K, reserved 1114112K
+  class space    used 1596K, committed 1728K, reserved 1048576K
+}
+Event: 1.598 GC heap after
+{Heap after GC invocations=8 (full 3):
+ garbage-first heap   total 27648K, used 13371K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 17195K, committed 17472K, reserved 1114112K
+  class space    used 1596K, committed 1728K, reserved 1048576K
+}
+Event: 1.602 GC heap before
+{Heap before GC invocations=8 (full 3):
+ garbage-first heap   total 27648K, used 13371K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 0 survivors (0K)
+ Metaspace       used 17207K, committed 17472K, reserved 1114112K
+  class space    used 1597K, committed 1728K, reserved 1048576K
+}
+Event: 1.605 GC heap after
+{Heap after GC invocations=9 (full 3):
+ garbage-first heap   total 27648K, used 13513K [0x0000000085200000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 17207K, committed 17472K, reserved 1114112K
+  class space    used 1597K, committed 1728K, reserved 1048576K
+}
+
+Dll operation events (10 events):
+Event: 0.009 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libjava.so
+Event: 0.047 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libjsvml.so
+Event: 0.078 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libnio.so
+Event: 0.085 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libzip.so
+Event: 0.139 Loaded shared library /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+Event: 0.283 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libawt.so
+Event: 0.286 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libawt_xawt.so
+Event: 0.292 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libjimage.so
+Event: 0.332 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libfontmanager.so
+Event: 1.602 Loaded shared library /usr/lib/jvm/java-17-openjdk/lib/libjavajpeg.so
+
+Deoptimization events (20 events):
+Event: 1.397 Thread 0x00000000021dfa70 DEOPT PACKING pc=0x00007f64a34edb74 sp=0x00007ffd87cbd300
+Event: 1.397 Thread 0x00000000021dfa70 DEOPT UNPACKING pc=0x00007f64a2f8d699 sp=0x00007ffd87cbd288 mode 2
+Event: 1.408 Thread 0x00000000021dfa70 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00007f64a34f06fc relative=0x00000000000000dc
+Event: 1.408 Thread 0x00000000021dfa70 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f64a34f06fc method=java.util.HashMap.hash(Ljava/lang/Object;)I @ 1 c2
+Event: 1.408 Thread 0x00000000021dfa70 DEOPT PACKING pc=0x00007f64a34f06fc sp=0x00007ffd87cbd470
+Event: 1.408 Thread 0x00000000021dfa70 DEOPT UNPACKING pc=0x00007f64a2f8d699 sp=0x00007ffd87cbd3d0 mode 2
+Event: 1.411 Thread 0x00000000021dfa70 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00007f64a3518c20 relative=0x00000000000005e0
+Event: 1.411 Thread 0x00000000021dfa70 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f64a3518c20 method=java.util.HashMap.hash(Ljava/lang/Object;)I @ 1 c2
+Event: 1.411 Thread 0x00000000021dfa70 DEOPT PACKING pc=0x00007f64a3518c20 sp=0x00007ffd87cbd580
+Event: 1.411 Thread 0x00000000021dfa70 DEOPT UNPACKING pc=0x00007f64a2f8d699 sp=0x00007ffd87cbd448 mode 2
+Event: 1.411 Thread 0x00000000021dfa70 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00007f64a34e0da4 relative=0x00000000000005e4
+Event: 1.411 Thread 0x00000000021dfa70 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f64a34e0da4 method=java.util.HashMap.hash(Ljava/lang/Object;)I @ 1 c2
+Event: 1.411 Thread 0x00000000021dfa70 DEOPT PACKING pc=0x00007f64a34e0da4 sp=0x00007ffd87cbd570
+Event: 1.411 Thread 0x00000000021dfa70 DEOPT UNPACKING pc=0x00007f64a2f8d699 sp=0x00007ffd87cbd4a8 mode 2
+Event: 1.529 Thread 0x00000000031b73a0 DEOPT PACKING pc=0x00007f649bbee1ee sp=0x00007f64410e52b0
+Event: 1.529 Thread 0x00000000031b73a0 DEOPT UNPACKING pc=0x00007f64a2f8de2f sp=0x00007f64410e4720 mode 0
+Event: 1.535 Thread 0x00000000031ce6b0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00007f64a35530e4 relative=0x00000000000011a4
+Event: 1.535 Thread 0x00000000031ce6b0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f64a35530e4 method=sun.awt.image.PNGImageDecoder.produceImage()V @ 867 c2
+Event: 1.535 Thread 0x00000000031ce6b0 DEOPT PACKING pc=0x00007f64a35530e4 sp=0x00007f64413e87d0
+Event: 1.535 Thread 0x00000000031ce6b0 DEOPT UNPACKING pc=0x00007f64a2f8d699 sp=0x00007f64413e8730 mode 2
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 0.176 Thread 0x00000000021dfa70 Exception <a 'java/lang/IncompatibleClassChangeError'{0x000000008c938020}: Found class java.lang.Object, but interface was expected> (0x000000008c938020) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 826]
+Event: 0.276 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x0000000085976cc8}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000085976cc8) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 0.290 Thread 0x00000000021dfa70 Exception <a 'java/lang/ClassNotFoundException'{0x0000000085994dd8}: sun/awt/resources/spi/awtProvider> (0x0000000085994dd8) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/classfile/systemDictionary.cpp, line 256]
+Event: 0.299 Thread 0x00000000021dfa70 Exception <a 'java/io/FileNotFoundException'{0x00000000859e1b98}> (0x00000000859e1b98) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/prims/jni.cpp, line 516]
+Event: 0.304 Thread 0x00000000021dfa70 Exception <a 'java/io/FileNotFoundException'{0x0000000085913a90}> (0x0000000085913a90) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/prims/jni.cpp, line 516]
+Event: 0.416 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x0000000089375928}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object)'> (0x0000000089375928) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.345 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x000000008680dda0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x000000008680dda0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.355 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x0000000086837cc0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000086837cc0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.356 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x0000000086842b50}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, int, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000086842b50) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.360 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x00000000868686e8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, int, java.lang.Object)'> (0x00000000868686e8) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.381 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x000000008671faa0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object)'> (0x000000008671faa0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.396 Thread 0x00000000021dfa70 Exception <a 'java/lang/ClassNotFoundException'{0x000000008674f858}: com/sun/swing/internal/plaf/metal/resources/spi/metalProvider> (0x000000008674f858) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/classfile/systemDictionary.cpp, line 256]
+Event: 1.399 Thread 0x00000000021dfa70 Exception <a 'java/lang/ClassNotFoundException'{0x00000000867536b0}: com/sun/swing/internal/plaf/basic/resources/spi/basicProvider> (0x00000000867536b0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/classfile/systemDictionary.cpp, line 256]
+Event: 1.408 Thread 0x00000000021dfa70 Implicit null exception at 0x00007f64a34f0660 to 0x00007f64a34f06f2
+Event: 1.411 Thread 0x00000000021dfa70 Implicit null exception at 0x00007f64a351868f to 0x00007f64a3518c00
+Event: 1.411 Thread 0x00000000021dfa70 Implicit null exception at 0x00007f64a34e080f to 0x00007f64a34e0d84
+Event: 1.427 Thread 0x00000000021dfa70 Exception <a 'java/lang/NoSuchMethodError'{0x0000000086776fb0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object)'> (0x0000000086776fb0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.532 Thread 0x00000000031cdbb0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000086c4bdb0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, int, int, int, int, int)'> (0x0000000086c4bdb0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 1.653 Thread 0x00000000031b1160 Exception <a 'java/lang/InterruptedException'{0x0000000086a2c068}> (0x0000000086a2c068) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/runtime/objectMonitor.cpp, line 1658]
+Event: 1.679 Thread 0x00000000031b73a0 Exception <a 'org/jpype/PyExceptionProxy'{0x0000000086a43ba0}> (0x0000000086a43ba0) 
+thrown [/usr/src/debug/java17-openjdk/jdk17u-jdk-17.0.10-7/src/hotspot/share/prims/jni.cpp, line 516]
+
+VM Operations (20 events):
+Event: 1.451 Executing VM operation: HandshakeAllThreads
+Event: 1.451 Executing VM operation: HandshakeAllThreads done
+Event: 1.523 Executing VM operation: G1TryInitiateConcMark
+Event: 1.527 Executing VM operation: G1TryInitiateConcMark done
+Event: 1.531 Executing VM operation: HandshakeAllThreads
+Event: 1.531 Executing VM operation: HandshakeAllThreads done
+Event: 1.534 Executing VM operation: HandshakeAllThreads
+Event: 1.535 Executing VM operation: HandshakeAllThreads done
+Event: 1.586 Executing VM operation: G1CollectFull
+Event: 1.598 Executing VM operation: G1CollectFull done
+Event: 1.600 Executing VM operation: HandshakeAllThreads
+Event: 1.600 Executing VM operation: HandshakeAllThreads done
+Event: 1.602 Executing VM operation: G1TryInitiateConcMark
+Event: 1.605 Executing VM operation: G1TryInitiateConcMark done
+Event: 1.618 Executing VM operation: G1PauseRemark
+Event: 1.619 Executing VM operation: G1PauseRemark done
+Event: 1.625 Executing VM operation: G1PauseCleanup
+Event: 1.625 Executing VM operation: G1PauseCleanup done
+Event: 1.653 Executing VM operation: ThreadDump
+Event: 1.653 Executing VM operation: ThreadDump done
+
+Events (20 events):
+Event: 1.626 loading class java/text/AttributedCharacterIterator done
+Event: 1.626 loading class java/text/AttributedString$AttributedStringIterator done
+Event: 1.647 loading class jdk/internal/misc/Signal$1
+Event: 1.647 loading class jdk/internal/misc/Signal$1 done
+Event: 1.647 Thread 0x00007f6470001900 Thread added: 0x00007f6470001900
+Event: 1.647 Protecting memory [0x00007f64409a8000,0x00007f64409ac000] with protection modes 0
+Event: 1.647 Thread 0x00007f64700029f0 Thread added: 0x00007f64700029f0
+Event: 1.647 Protecting memory [0x00007f64408a7000,0x00007f64408ab000] with protection modes 0
+Event: 1.647 Thread 0x00007f6408001800 Thread added: 0x00007f6408001800
+Event: 1.647 Protecting memory [0x00007f64407a6000,0x00007f64407aa000] with protection modes 0
+Event: 1.647 Thread 0x00007f6408002ce0 Thread added: 0x00007f6408002ce0
+Event: 1.647 Protecting memory [0x00007f64406a5000,0x00007f64406a9000] with protection modes 0
+Event: 1.647 loading class sun/awt/X11/XSystemTrayPeer
+Event: 1.648 loading class java/awt/peer/SystemTrayPeer
+Event: 1.648 loading class java/awt/peer/SystemTrayPeer done
+Event: 1.648 loading class sun/awt/X11/XSystemTrayPeer done
+Event: 1.653 Thread 0x00000000031b3390 Thread exited: 0x00000000031b3390
+Event: 1.653 Thread 0x00000000031b1160 Thread exited: 0x00000000031b1160
+Event: 1.661 Thread 0x00007f6408002ce0 Thread exited: 0x00007f6408002ce0
+Event: 1.678 Thread 0x0000000002672810 Thread exited: 0x0000000002672810
+
+
+Dynamic libraries:
+00400000-0041f000 r--p 00000000 00:1b 5545237                            /home/villares/miniconda3/envs/scikit/bin/python3.9
+0041f000-00610000 r-xp 0001f000 00:1b 5545237                            /home/villares/miniconda3/envs/scikit/bin/python3.9
+00610000-0070e000 r--p 00210000 00:1b 5545237                            /home/villares/miniconda3/envs/scikit/bin/python3.9
+0070f000-00710000 r--p 0030e000 00:1b 5545237                            /home/villares/miniconda3/envs/scikit/bin/python3.9
+00710000-00747000 rw-p 0030f000 00:1b 5545237                            /home/villares/miniconda3/envs/scikit/bin/python3.9
+00747000-00769000 rw-p 00000000 00:00 0 
+0147e000-03244000 rw-p 00000000 00:00 0                                  [heap]
+85200000-87200000 rw-p 00000000 00:00 0 
+87200000-100000000 ---p 00000000 00:00 0 
+100000000-100010000 rw-p 00000000 00:00 0 
+100010000-100030000 rw-p 00000000 00:00 0 
+100030000-1000b0000 rw-p 00000000 00:00 0 
+1000b0000-1000d0000 rw-p 00000000 00:00 0 
+1000d0000-100130000 rw-p 00000000 00:00 0 
+100130000-1001a0000 rw-p 00000000 00:00 0 
+1001a0000-1001c0000 ---p 00000000 00:00 0 
+1001c0000-1001d0000 rw-p 00000000 00:00 0 
+1001d0000-140000000 ---p 00000000 00:00 0 
+7f63f4000000-7f63f4021000 rw-p 00000000 00:00 0 
+7f63f4021000-7f63f8000000 ---p 00000000 00:00 0 
+7f63fc000000-7f63fc021000 rw-p 00000000 00:00 0 
+7f63fc021000-7f6400000000 ---p 00000000 00:00 0 
+7f6400000000-7f6400021000 rw-p 00000000 00:00 0 
+7f6400021000-7f6404000000 ---p 00000000 00:00 0 
+7f6404000000-7f6404021000 rw-p 00000000 00:00 0 
+7f6404021000-7f6408000000 ---p 00000000 00:00 0 
+7f6408000000-7f6408021000 rw-p 00000000 00:00 0 
+7f6408021000-7f640c000000 ---p 00000000 00:00 0 
+7f640c000000-7f640c021000 rw-p 00000000 00:00 0 
+7f640c021000-7f6410000000 ---p 00000000 00:00 0 
+7f6410000000-7f6410021000 rw-p 00000000 00:00 0 
+7f6410021000-7f6414000000 ---p 00000000 00:00 0 
+7f6414000000-7f6414021000 rw-p 00000000 00:00 0 
+7f6414021000-7f6418000000 ---p 00000000 00:00 0 
+7f6418000000-7f6418115000 rw-p 00000000 00:00 0 
+7f6418115000-7f641c000000 ---p 00000000 00:00 0 
+7f641c000000-7f641c032000 rw-p 00000000 00:00 0 
+7f641c032000-7f6420000000 ---p 00000000 00:00 0 
+7f6420000000-7f6420021000 rw-p 00000000 00:00 0 
+7f6420021000-7f6424000000 ---p 00000000 00:00 0 
+7f6424000000-7f6424021000 rw-p 00000000 00:00 0 
+7f6424021000-7f6428000000 ---p 00000000 00:00 0 
+7f6428000000-7f6428021000 rw-p 00000000 00:00 0 
+7f6428021000-7f642c000000 ---p 00000000 00:00 0 
+7f642c000000-7f642c021000 rw-p 00000000 00:00 0 
+7f642c021000-7f6430000000 ---p 00000000 00:00 0 
+7f6430000000-7f6430021000 rw-p 00000000 00:00 0 
+7f6430021000-7f6434000000 ---p 00000000 00:00 0 
+7f6434000000-7f6434021000 rw-p 00000000 00:00 0 
+7f6434021000-7f6438000000 ---p 00000000 00:00 0 
+7f6438000000-7f6438021000 rw-p 00000000 00:00 0 
+7f6438021000-7f643c000000 ---p 00000000 00:00 0 
+7f643c000000-7f643c021000 rw-p 00000000 00:00 0 
+7f643c021000-7f6440000000 ---p 00000000 00:00 0 
+7f64406a4000-7f64406a5000 ---p 00000000 00:00 0 
+7f64406a5000-7f64406a9000 ---p 00000000 00:00 0 
+7f64406a9000-7f64407a5000 rw-p 00000000 00:00 0 
+7f64407a5000-7f64407a6000 ---p 00000000 00:00 0 
+7f64407a6000-7f64407aa000 ---p 00000000 00:00 0 
+7f64407aa000-7f64408a6000 rw-p 00000000 00:00 0 
+7f64408a6000-7f64408a7000 ---p 00000000 00:00 0 
+7f64408a7000-7f64408ab000 ---p 00000000 00:00 0 
+7f64408ab000-7f64409a7000 rw-p 00000000 00:00 0 
+7f64409a7000-7f64409a8000 ---p 00000000 00:00 0 
+7f64409a8000-7f64409ac000 ---p 00000000 00:00 0 
+7f64409ac000-7f6440aa8000 rw-p 00000000 00:00 0 
+7f6440aa8000-7f6440aa9000 ---p 00000000 00:00 0 
+7f6440aa9000-7f6440ba9000 rw-p 00000000 00:00 0 
+7f6440ba9000-7f6440baf000 r--p 00000000 00:1b 1351898                    /usr/lib/libjpeg.so.8.3.2
+7f6440baf000-7f6440c1c000 r-xp 00006000 00:1b 1351898                    /usr/lib/libjpeg.so.8.3.2
+7f6440c1c000-7f6440c44000 r--p 00073000 00:1b 1351898                    /usr/lib/libjpeg.so.8.3.2
+7f6440c44000-7f6440c45000 r--p 0009a000 00:1b 1351898                    /usr/lib/libjpeg.so.8.3.2
+7f6440c45000-7f6440c46000 rw-p 0009b000 00:1b 1351898                    /usr/lib/libjpeg.so.8.3.2
+7f6440c74000-7f6440ee5000 rw-s 00000000 00:01 426006                     /SYSV00000000 (deleted)
+7f6440ee5000-7f6440ee6000 ---p 00000000 00:00 0 
+7f6440ee6000-7f6440fe6000 rw-p 00000000 00:00 0 
+7f6440fe6000-7f6440fe7000 ---p 00000000 00:00 0 
+7f6440fe7000-7f6440feb000 ---p 00000000 00:00 0 
+7f6440feb000-7f64410e7000 rw-p 00000000 00:00 0 
+7f64410e7000-7f64410e8000 ---p 00000000 00:00 0 
+7f64410e8000-7f64410ec000 ---p 00000000 00:00 0 
+7f64410ec000-7f64411e8000 rw-p 00000000 00:00 0 
+7f64411e8000-7f64411e9000 ---p 00000000 00:00 0 
+7f64411e9000-7f64411ed000 ---p 00000000 00:00 0 
+7f64411ed000-7f64412e9000 rw-p 00000000 00:00 0 
+7f64412e9000-7f64412ea000 ---p 00000000 00:00 0 
+7f64412ea000-7f64412ee000 ---p 00000000 00:00 0 
+7f64412ee000-7f64413ea000 rw-p 00000000 00:00 0 
+7f64413ea000-7f64413eb000 ---p 00000000 00:00 0 
+7f64413eb000-7f64413ef000 ---p 00000000 00:00 0 
+7f64413ef000-7f64414eb000 rw-p 00000000 00:00 0 
+7f64414eb000-7f64414ed000 r--p 00000000 00:1b 547228                     /usr/lib/libXrandr.so.2.2.0
+7f64414ed000-7f64414f4000 r-xp 00002000 00:1b 547228                     /usr/lib/libXrandr.so.2.2.0
+7f64414f4000-7f64414f6000 r--p 00009000 00:1b 547228                     /usr/lib/libXrandr.so.2.2.0
+7f64414f6000-7f64414f7000 r--p 0000a000 00:1b 547228                     /usr/lib/libXrandr.so.2.2.0
+7f64414f7000-7f64414f8000 rw-p 0000b000 00:1b 547228                     /usr/lib/libXrandr.so.2.2.0
+7f64414f8000-7f64414f9000 ---p 00000000 00:00 0 
+7f64414f9000-7f64414fd000 ---p 00000000 00:00 0 
+7f64414fd000-7f64415f9000 rw-p 00000000 00:00 0 
+7f64415f9000-7f64415fa000 ---p 00000000 00:00 0 
+7f64415fa000-7f64415fe000 ---p 00000000 00:00 0 
+7f64415fe000-7f64416fa000 rw-p 00000000 00:00 0 
+7f64416fa000-7f64416fd000 r--p 00000000 00:1b 1365033                    /usr/lib/libXcursor.so.1.0.2
+7f64416fd000-7f6441702000 r-xp 00003000 00:1b 1365033                    /usr/lib/libXcursor.so.1.0.2
+7f6441702000-7f6441704000 r--p 00008000 00:1b 1365033                    /usr/lib/libXcursor.so.1.0.2
+7f6441704000-7f6441705000 r--p 00009000 00:1b 1365033                    /usr/lib/libXcursor.so.1.0.2
+7f6441705000-7f6441706000 rw-p 0000a000 00:1b 1365033                    /usr/lib/libXcursor.so.1.0.2
+7f6441728000-7f644172a000 r--p 00000000 00:1b 1413868                    /usr/lib/jvm/java-17-openjdk/lib/libjavajpeg.so
+7f644172a000-7f6441731000 r-xp 00002000 00:1b 1413868                    /usr/lib/jvm/java-17-openjdk/lib/libjavajpeg.so
+7f6441731000-7f6441732000 r--p 00009000 00:1b 1413868                    /usr/lib/jvm/java-17-openjdk/lib/libjavajpeg.so
+7f6441732000-7f6441733000 r--p 0000a000 00:1b 1413868                    /usr/lib/jvm/java-17-openjdk/lib/libjavajpeg.so
+7f6441733000-7f6441734000 rw-p 0000b000 00:1b 1413868                    /usr/lib/jvm/java-17-openjdk/lib/libjavajpeg.so
+7f6441734000-7f64419b4000 rw-p 00000000 00:00 0 
+7f64419b4000-7f64419b5000 ---p 00000000 00:00 0 
+7f64419b5000-7f6441ab5000 rw-p 00000000 00:00 0 
+7f6441ab5000-7f6441ab6000 ---p 00000000 00:00 0 
+7f6441ab6000-7f6441c76000 rw-p 00000000 00:00 0 
+7f6441c76000-7f6441c7e000 r--p 00000000 00:1b 5575802                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/line_profiler/_line_profiler.cpython-39-x86_64-linux-gnu.so
+7f6441c7e000-7f6441ca7000 r-xp 00008000 00:1b 5575802                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/line_profiler/_line_profiler.cpython-39-x86_64-linux-gnu.so
+7f6441ca7000-7f6441cae000 r--p 00031000 00:1b 5575802                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/line_profiler/_line_profiler.cpython-39-x86_64-linux-gnu.so
+7f6441cae000-7f6441caf000 r--p 00037000 00:1b 5575802                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/line_profiler/_line_profiler.cpython-39-x86_64-linux-gnu.so
+7f6441caf000-7f6441cb1000 rw-p 00038000 00:1b 5575802                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/line_profiler/_line_profiler.cpython-39-x86_64-linux-gnu.so
+7f6441cb1000-7f64423b1000 rw-p 00000000 00:00 0 
+7f64423b1000-7f64423b6000 r--p 00000000 00:1b 5578818                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geometry_helpers.cpython-39-x86_64-linux-gnu.so
+7f64423b6000-7f64423ef000 r-xp 00005000 00:1b 5578818                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geometry_helpers.cpython-39-x86_64-linux-gnu.so
+7f64423ef000-7f64423f8000 r--p 0003e000 00:1b 5578818                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geometry_helpers.cpython-39-x86_64-linux-gnu.so
+7f64423f8000-7f64423f9000 r--p 00046000 00:1b 5578818                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geometry_helpers.cpython-39-x86_64-linux-gnu.so
+7f64423f9000-7f64423fb000 rw-p 00047000 00:1b 5578818                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geometry_helpers.cpython-39-x86_64-linux-gnu.so
+7f64423fb000-7f64423fc000 rw-p 00000000 00:00 0 
+7f64423fc000-7f6442400000 rw-p 001ed000 00:1b 5578818                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geometry_helpers.cpython-39-x86_64-linux-gnu.so
+7f6442400000-7f64424c4000 r--p 00000000 00:1b 5578785                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos-f99bd675.so.3.11.3
+7f64424c4000-7f6442631000 r-xp 000c4000 00:1b 5578785                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos-f99bd675.so.3.11.3
+7f6442631000-7f644269e000 r--p 00231000 00:1b 5578785                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos-f99bd675.so.3.11.3
+7f644269e000-7f64426a6000 r--p 0029d000 00:1b 5578785                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos-f99bd675.so.3.11.3
+7f64426a6000-7f64426ad000 rw-p 002a5000 00:1b 5578785                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos-f99bd675.so.3.11.3
+7f64426ad000-7f6442723000 rw-p 00373000 00:1b 5578785                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos-f99bd675.so.3.11.3
+7f644272e000-7f6442730000 r--p 00000000 00:1b 5543862                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_csv.cpython-39-x86_64-linux-gnu.so
+7f6442730000-7f6442735000 r-xp 00002000 00:1b 5543862                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_csv.cpython-39-x86_64-linux-gnu.so
+7f6442735000-7f6442737000 r--p 00007000 00:1b 5543862                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_csv.cpython-39-x86_64-linux-gnu.so
+7f6442737000-7f6442738000 ---p 00009000 00:1b 5543862                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_csv.cpython-39-x86_64-linux-gnu.so
+7f6442738000-7f6442739000 r--p 00009000 00:1b 5543862                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_csv.cpython-39-x86_64-linux-gnu.so
+7f6442739000-7f644273a000 rw-p 0000a000 00:1b 5543862                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_csv.cpython-39-x86_64-linux-gnu.so
+7f644273a000-7f644277a000 rw-p 00000000 00:00 0 
+7f644277a000-7f644278e000 r--p 00000000 00:1b 5578786                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos_c-da48124d.so.1.17.3
+7f644278e000-7f64427b0000 r-xp 00014000 00:1b 5578786                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos_c-da48124d.so.1.17.3
+7f64427b0000-7f64427bf000 r--p 00036000 00:1b 5578786                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos_c-da48124d.so.1.17.3
+7f64427bf000-7f64427c0000 r--p 00044000 00:1b 5578786                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos_c-da48124d.so.1.17.3
+7f64427c0000-7f64427c1000 rw-p 00045000 00:1b 5578786                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos_c-da48124d.so.1.17.3
+7f64427c1000-7f64427c2000 rw-p 00000000 00:00 0 
+7f64427c2000-7f64427d5000 rw-p 00059000 00:1b 5578786                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely.libs/libgeos_c-da48124d.so.1.17.3
+7f64427d5000-7f64427dc000 r--p 00000000 00:1b 5578800                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/lib.cpython-39-x86_64-linux-gnu.so
+7f64427dc000-7f64427f3000 r-xp 00007000 00:1b 5578800                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/lib.cpython-39-x86_64-linux-gnu.so
+7f64427f3000-7f64427f9000 r--p 0001e000 00:1b 5578800                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/lib.cpython-39-x86_64-linux-gnu.so
+7f64427f9000-7f64427fa000 r--p 00023000 00:1b 5578800                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/lib.cpython-39-x86_64-linux-gnu.so
+7f64427fa000-7f64427fc000 rw-p 00024000 00:1b 5578800                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/lib.cpython-39-x86_64-linux-gnu.so
+7f64427fc000-7f6442800000 rw-p 000a1000 00:1b 5578800                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/lib.cpython-39-x86_64-linux-gnu.so
+7f6442800000-7f6442b40000 rw-p 00000000 00:00 0 
+7f6442b40000-7f6442b4a000 r--p 00000000 00:1b 5586502                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_image.cpython-39-x86_64-linux-gnu.so
+7f6442b4a000-7f6442b73000 r-xp 0000a000 00:1b 5586502                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_image.cpython-39-x86_64-linux-gnu.so
+7f6442b73000-7f6442b79000 r--p 00033000 00:1b 5586502                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_image.cpython-39-x86_64-linux-gnu.so
+7f6442b79000-7f6442b7a000 r--p 00038000 00:1b 5586502                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_image.cpython-39-x86_64-linux-gnu.so
+7f6442b7a000-7f6442b7b000 rw-p 00039000 00:1b 5586502                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_image.cpython-39-x86_64-linux-gnu.so
+7f6442b7b000-7f6442bfc000 rw-p 00000000 00:00 0 
+7f6442bfc000-7f6442c06000 r--p 00000000 00:1b 5586609                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/backends/_backend_agg.cpython-39-x86_64-linux-gnu.so
+7f6442c06000-7f6442c49000 r-xp 0000a000 00:1b 5586609                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/backends/_backend_agg.cpython-39-x86_64-linux-gnu.so
+7f6442c49000-7f6442c52000 r--p 0004d000 00:1b 5586609                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/backends/_backend_agg.cpython-39-x86_64-linux-gnu.so
+7f6442c52000-7f6442c53000 r--p 00055000 00:1b 5586609                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/backends/_backend_agg.cpython-39-x86_64-linux-gnu.so
+7f6442c53000-7f6442c54000 rw-p 00056000 00:1b 5586609                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/backends/_backend_agg.cpython-39-x86_64-linux-gnu.so
+7f6442c54000-7f6443155000 rw-p 00000000 00:00 0 
+7f6443155000-7f6443166000 r--p 00000000 00:1b 5586499                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/ft2font.cpython-39-x86_64-linux-gnu.so
+7f6443166000-7f64431ed000 r-xp 00011000 00:1b 5586499                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/ft2font.cpython-39-x86_64-linux-gnu.so
+7f64431ed000-7f6443218000 r--p 00098000 00:1b 5586499                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/ft2font.cpython-39-x86_64-linux-gnu.so
+7f6443218000-7f644321e000 r--p 000c2000 00:1b 5586499                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/ft2font.cpython-39-x86_64-linux-gnu.so
+7f644321e000-7f644321f000 rw-p 000c8000 00:1b 5586499                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/ft2font.cpython-39-x86_64-linux-gnu.so
+7f644321f000-7f64437e2000 rw-p 00000000 00:00 0 
+7f64437e2000-7f6443800000 r--p 00000000 00:1b 1348960                    /usr/lib/libglib-2.0.so.0.7800.4
+7f6443800000-7f644389e000 r-xp 0001e000 00:1b 1348960                    /usr/lib/libglib-2.0.so.0.7800.4
+7f644389e000-7f644392b000 r--p 000bc000 00:1b 1348960                    /usr/lib/libglib-2.0.so.0.7800.4
+7f644392b000-7f644392c000 r--p 00149000 00:1b 1348960                    /usr/lib/libglib-2.0.so.0.7800.4
+7f644392c000-7f644392d000 rw-p 0014a000 00:1b 1348960                    /usr/lib/libglib-2.0.so.0.7800.4
+7f644392d000-7f644392e000 rw-p 00000000 00:00 0 
+7f644392e000-7f644393c000 r--p 00000000 00:1b 529031                     /usr/lib/libfreetype.so.6.20.1
+7f644393c000-7f64439c9000 r-xp 0000e000 00:1b 529031                     /usr/lib/libfreetype.so.6.20.1
+7f64439c9000-7f64439f3000 r--p 0009b000 00:1b 529031                     /usr/lib/libfreetype.so.6.20.1
+7f64439f3000-7f64439fb000 r--p 000c4000 00:1b 529031                     /usr/lib/libfreetype.so.6.20.1
+7f64439fb000-7f64439fc000 rw-p 000cc000 00:1b 529031                     /usr/lib/libfreetype.so.6.20.1
+7f64439fc000-7f64439fd000 ---p 00000000 00:00 0 
+7f64439fd000-7f6443afd000 rw-p 00000000 00:00 0 
+7f6443b01000-7f6443b04000 r--p 00000000 00:1b 5578811                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geos.cpython-39-x86_64-linux-gnu.so
+7f6443b04000-7f6443b0c000 r-xp 00003000 00:1b 5578811                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geos.cpython-39-x86_64-linux-gnu.so
+7f6443b0c000-7f6443b0e000 r--p 0000b000 00:1b 5578811                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geos.cpython-39-x86_64-linux-gnu.so
+7f6443b0e000-7f6443b0f000 r--p 0000c000 00:1b 5578811                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geos.cpython-39-x86_64-linux-gnu.so
+7f6443b0f000-7f6443b10000 rw-p 0000d000 00:1b 5578811                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geos.cpython-39-x86_64-linux-gnu.so
+7f6443b10000-7f6443b13000 rw-p 00053000 00:1b 5578811                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/shapely/_geos.cpython-39-x86_64-linux-gnu.so
+7f6443b13000-7f6443b16000 r--p 00000000 00:1b 8171                       /usr/lib/libpcre2-8.so.0.11.2
+7f6443b16000-7f6443b81000 r-xp 00003000 00:1b 8171                       /usr/lib/libpcre2-8.so.0.11.2
+7f6443b81000-7f6443bac000 r--p 0006e000 00:1b 8171                       /usr/lib/libpcre2-8.so.0.11.2
+7f6443bac000-7f6443bad000 r--p 00099000 00:1b 8171                       /usr/lib/libpcre2-8.so.0.11.2
+7f6443bad000-7f6443bae000 rw-p 0009a000 00:1b 8171                       /usr/lib/libpcre2-8.so.0.11.2
+7f6443bae000-7f6443bba000 r--p 00000000 00:1b 528963                     /usr/lib/libharfbuzz.so.0.60830.0
+7f6443bba000-7f6443c84000 r-xp 0000c000 00:1b 528963                     /usr/lib/libharfbuzz.so.0.60830.0
+7f6443c84000-7f6443cba000 r--p 000d6000 00:1b 528963                     /usr/lib/libharfbuzz.so.0.60830.0
+7f6443cba000-7f6443cbb000 r--p 0010c000 00:1b 528963                     /usr/lib/libharfbuzz.so.0.60830.0
+7f6443cbb000-7f6443cbc000 rw-p 0010d000 00:1b 528963                     /usr/lib/libharfbuzz.so.0.60830.0
+7f6443cbc000-7f6443cd8000 r--p 00000000 00:1b 526849                     /usr/lib/libX11.so.6.4.0
+7f6443cd8000-7f6443d63000 r-xp 0001c000 00:1b 526849                     /usr/lib/libX11.so.6.4.0
+7f6443d63000-7f6443df8000 r--p 000a7000 00:1b 526849                     /usr/lib/libX11.so.6.4.0
+7f6443df8000-7f6443dfb000 r--p 0013b000 00:1b 526849                     /usr/lib/libX11.so.6.4.0
+7f6443dfb000-7f6443dff000 rw-p 0013e000 00:1b 526849                     /usr/lib/libX11.so.6.4.0
+7f6443dff000-7f6443e2a000 r--p 00000000 00:1b 1413857                    /usr/lib/jvm/java-17-openjdk/lib/libawt.so
+7f6443e2a000-7f6443ec1000 r-xp 0002b000 00:1b 1413857                    /usr/lib/jvm/java-17-openjdk/lib/libawt.so
+7f6443ec1000-7f6443ece000 r--p 000c2000 00:1b 1413857                    /usr/lib/jvm/java-17-openjdk/lib/libawt.so
+7f6443ece000-7f6443ecf000 r--p 000ce000 00:1b 1413857                    /usr/lib/jvm/java-17-openjdk/lib/libawt.so
+7f6443ecf000-7f6443eda000 rw-p 000cf000 00:1b 1413857                    /usr/lib/jvm/java-17-openjdk/lib/libawt.so
+7f6443eda000-7f6443eff000 rw-p 00000000 00:00 0 
+7f6443eff000-7f6443f00000 ---p 00000000 00:00 0 
+7f6443f00000-7f6444021000 rw-p 00000000 00:00 0 
+7f6444021000-7f6448000000 ---p 00000000 00:00 0 
+7f6448000000-7f6448021000 rw-p 00000000 00:00 0 
+7f6448021000-7f644c000000 ---p 00000000 00:00 0 
+7f644c000000-7f644c021000 rw-p 00000000 00:00 0 
+7f644c021000-7f6450000000 ---p 00000000 00:00 0 
+7f6450000000-7f6450021000 rw-p 00000000 00:00 0 
+7f6450021000-7f6454000000 ---p 00000000 00:00 0 
+7f6454000000-7f6454021000 rw-p 00000000 00:00 0 
+7f6454021000-7f6458000000 ---p 00000000 00:00 0 
+7f6458000000-7f6458021000 rw-p 00000000 00:00 0 
+7f6458021000-7f645c000000 ---p 00000000 00:00 0 
+7f645c000000-7f645ca9f000 rw-p 00000000 00:00 0 
+7f645ca9f000-7f6460000000 ---p 00000000 00:00 0 
+7f6460000000-7f6460386000 rw-p 00000000 00:00 0 
+7f6460386000-7f6464000000 ---p 00000000 00:00 0 
+7f6464000000-7f6464021000 rw-p 00000000 00:00 0 
+7f6464021000-7f6468000000 ---p 00000000 00:00 0 
+7f6468000000-7f6468021000 rw-p 00000000 00:00 0 
+7f6468021000-7f646c000000 ---p 00000000 00:00 0 
+7f646c000000-7f646c021000 rw-p 00000000 00:00 0 
+7f646c021000-7f6470000000 ---p 00000000 00:00 0 
+7f6470000000-7f6470021000 rw-p 00000000 00:00 0 
+7f6470021000-7f6474000000 ---p 00000000 00:00 0 
+7f6474000000-7f6474821000 rw-p 00000000 00:00 0 
+7f6474821000-7f6478000000 ---p 00000000 00:00 0 
+7f6478000000-7f6478021000 rw-p 00000000 00:00 0 
+7f6478021000-7f647c000000 ---p 00000000 00:00 0 
+7f647c000000-7f647c4f0000 rw-p 00000000 00:00 0 
+7f647c4f0000-7f647c530000 rw-p 00000000 00:00 0 
+7f647c530000-7f647c570000 rw-p 00000000 00:00 0 
+7f647c570000-7f647c630000 rw-p 00000000 00:00 0 
+7f647c630000-7f647c670000 rw-p 00000000 00:00 0 
+7f647c670000-7f647c6f0000 rw-p 00000000 00:00 0 
+7f647c6f0000-7f647c8f0000 rw-p 00000000 00:00 0 
+7f647c8f0000-7f647c9b0000 rw-p 00000000 00:00 0 
+7f647c9b0000-7f647caf0000 rw-p 00000000 00:00 0 
+7f647caf0000-7f647cc30000 rw-p 00000000 00:00 0 
+7f647cc30000-7f647cc70000 rw-p 00000000 00:00 0 
+7f647cc70000-7f647ccf0000 rw-p 00000000 00:00 0 
+7f647ccf0000-7f647cf60000 rw-p 00000000 00:00 0 
+7f647cf60000-7f647d000000 ---p 00000000 00:00 0 
+7f647d000000-7f647d010000 rw-p 00000000 00:00 0 
+7f647d010000-7f6480000000 ---p 00000000 00:00 0 
+7f6480000000-7f6480021000 rw-p 00000000 00:00 0 
+7f6480021000-7f6484000000 ---p 00000000 00:00 0 
+7f6484000000-7f6484021000 rw-p 00000000 00:00 0 
+7f6484021000-7f6488000000 ---p 00000000 00:00 0 
+7f6488000000-7f6488021000 rw-p 00000000 00:00 0 
+7f6488021000-7f648c000000 ---p 00000000 00:00 0 
+7f648c000000-7f648c021000 rw-p 00000000 00:00 0 
+7f648c021000-7f6490000000 ---p 00000000 00:00 0 
+7f6490000000-7f6490021000 rw-p 00000000 00:00 0 
+7f6490021000-7f6494000000 ---p 00000000 00:00 0 
+7f6494000000-7f6494002000 r--p 00000000 00:1b 7909                       /usr/lib/libXfixes.so.3.1.0
+7f6494002000-7f6494005000 r-xp 00002000 00:1b 7909                       /usr/lib/libXfixes.so.3.1.0
+7f6494005000-7f6494006000 r--p 00005000 00:1b 7909                       /usr/lib/libXfixes.so.3.1.0
+7f6494006000-7f6494007000 r--p 00006000 00:1b 7909                       /usr/lib/libXfixes.so.3.1.0
+7f6494007000-7f6494008000 rw-p 00007000 00:1b 7909                       /usr/lib/libXfixes.so.3.1.0
+7f6494008000-7f6494048000 rw-p 00000000 00:00 0 
+7f6494048000-7f6494049000 r--p 00000000 00:1b 439657                     /home/villares/miniconda3/envs/scikit/lib/libbrotlicommon.so.1.1.0
+7f6494049000-7f649404a000 r-xp 00001000 00:1b 439657                     /home/villares/miniconda3/envs/scikit/lib/libbrotlicommon.so.1.1.0
+7f649404a000-7f6494069000 r--p 00002000 00:1b 439657                     /home/villares/miniconda3/envs/scikit/lib/libbrotlicommon.so.1.1.0
+7f6494069000-7f649406a000 r--p 00021000 00:1b 439657                     /home/villares/miniconda3/envs/scikit/lib/libbrotlicommon.so.1.1.0
+7f649406a000-7f649406b000 rw-p 00022000 00:1b 439657                     /home/villares/miniconda3/envs/scikit/lib/libbrotlicommon.so.1.1.0
+7f649406b000-7f6494071000 r--p 00000000 00:1b 319684                     /home/villares/miniconda3/envs/scikit/lib/libpng16.so.16.37.0
+7f6494071000-7f6494097000 r-xp 00006000 00:1b 319684                     /home/villares/miniconda3/envs/scikit/lib/libpng16.so.16.37.0
+7f6494097000-7f64940a2000 r--p 0002c000 00:1b 319684                     /home/villares/miniconda3/envs/scikit/lib/libpng16.so.16.37.0
+7f64940a2000-7f64940a3000 r--p 00036000 00:1b 319684                     /home/villares/miniconda3/envs/scikit/lib/libpng16.so.16.37.0
+7f64940a3000-7f64940a4000 rw-p 00037000 00:1b 319684                     /home/villares/miniconda3/envs/scikit/lib/libpng16.so.16.37.0
+7f64940a4000-7f64940a5000 ---p 00000000 00:00 0 
+7f64940a5000-7f64941a5000 rw-p 00000000 00:00 0 
+7f64941a5000-7f64941a6000 ---p 00000000 00:00 0 
+7f64941a6000-7f64942a6000 rw-p 00000000 00:00 0 
+7f64942a6000-7f64942a7000 ---p 00000000 00:00 0 
+7f64942a7000-7f64942ab000 ---p 00000000 00:00 0 
+7f64942ab000-7f64943a7000 rw-p 00000000 00:00 0 
+7f64943a7000-7f64943a8000 ---p 00000000 00:00 0 
+7f64943a8000-7f64943ac000 ---p 00000000 00:00 0 
+7f64943ac000-7f64944a8000 rw-p 00000000 00:00 0 
+7f64944a8000-7f64944a9000 ---p 00000000 00:00 0 
+7f64944a9000-7f64945a9000 rw-p 00000000 00:00 0 
+7f64945a9000-7f64945aa000 ---p 00000000 00:00 0 
+7f64945aa000-7f64945ae000 ---p 00000000 00:00 0 
+7f64945ae000-7f64946aa000 rw-p 00000000 00:00 0 
+7f64946aa000-7f64946ab000 ---p 00000000 00:00 0 
+7f64946ab000-7f64946af000 ---p 00000000 00:00 0 
+7f64946af000-7f64947ab000 rw-p 00000000 00:00 0 
+7f64947ab000-7f64947ac000 ---p 00000000 00:00 0 
+7f64947ac000-7f64947b0000 ---p 00000000 00:00 0 
+7f64947b0000-7f64948ac000 rw-p 00000000 00:00 0 
+7f64948ac000-7f64948ad000 ---p 00000000 00:00 0 
+7f64948ad000-7f64948b1000 ---p 00000000 00:00 0 
+7f64948b1000-7f64949ad000 rw-p 00000000 00:00 0 
+7f64949ad000-7f64949ae000 ---p 00000000 00:00 0 
+7f64949ae000-7f64949b2000 ---p 00000000 00:00 0 
+7f64949b2000-7f6494aae000 rw-p 00000000 00:00 0 
+7f6494aae000-7f6494aaf000 ---p 00000000 00:00 0 
+7f6494aaf000-7f6494ab3000 ---p 00000000 00:00 0 
+7f6494ab3000-7f6494baf000 rw-p 00000000 00:00 0 
+7f6494baf000-7f6494bb0000 ---p 00000000 00:00 0 
+7f6494bb0000-7f6494bb4000 ---p 00000000 00:00 0 
+7f6494bb4000-7f6494cb0000 rw-p 00000000 00:00 0 
+7f6494cb0000-7f6494cb1000 ---p 00000000 00:00 0 
+7f6494cb1000-7f6494cb5000 ---p 00000000 00:00 0 
+7f6494cb5000-7f6494db1000 rw-p 00000000 00:00 0 
+7f6494db1000-7f6494db2000 ---p 00000000 00:00 0 
+7f6494db2000-7f6494db6000 ---p 00000000 00:00 0 
+7f6494db6000-7f6494eb2000 rw-p 00000000 00:00 0 
+7f6494eb2000-7f6494eb3000 ---p 00000000 00:00 0 
+7f6494eb3000-7f6494fb3000 rw-p 00000000 00:00 0 
+7f6494fb3000-7f6494fb8000 r--p 00000000 00:1b 1413873                    /usr/lib/jvm/java-17-openjdk/lib/libjsvml.so
+7f6494fb8000-7f6494ff9000 r-xp 00005000 00:1b 1413873                    /usr/lib/jvm/java-17-openjdk/lib/libjsvml.so
+7f6494ff9000-7f6495082000 r--p 00046000 00:1b 1413873                    /usr/lib/jvm/java-17-openjdk/lib/libjsvml.so
+7f6495082000-7f6495083000 r--p 000ce000 00:1b 1413873                    /usr/lib/jvm/java-17-openjdk/lib/libjsvml.so
+7f6495083000-7f6495084000 rw-p 000cf000 00:1b 1413873                    /usr/lib/jvm/java-17-openjdk/lib/libjsvml.so
+7f6495084000-7f6495085000 ---p 00000000 00:00 0 
+7f6495085000-7f6495185000 rw-p 00000000 00:00 0 
+7f6495185000-7f6495186000 ---p 00000000 00:00 0 
+7f6495186000-7f6497a8e000 rw-p 00000000 00:00 0 
+7f6497a8e000-7f6497a8f000 ---p 00000000 00:00 0 
+7f6497a8f000-7f6497b8f000 rw-p 00000000 00:00 0 
+7f6497b8f000-7f6497b90000 ---p 00000000 00:00 0 
+7f6497b90000-7f6497d10000 rw-p 00000000 00:00 0 
+7f6497d10000-7f6499b48000 ---p 00000000 00:00 0 
+7f6499b48000-7f6499bc8000 rw-p 00000000 00:00 0 
+7f6499bc8000-7f649ba00000 ---p 00000000 00:00 0 
+7f649ba00000-7f649bc80000 rwxp 00000000 00:00 0 
+7f649bc80000-7f64a2f37000 ---p 00000000 00:00 0 
+7f64a2f37000-7f64a31a7000 rwxp 00000000 00:00 0 
+7f64a31a7000-7f64a34c9000 ---p 00000000 00:00 0 
+7f64a34c9000-7f64a3739000 rwxp 00000000 00:00 0 
+7f64a3739000-7f64aaa00000 ---p 00000000 00:00 0 
+7f64aaa00000-7f64b27ca000 r--s 00000000 00:1b 1413887                    /usr/lib/jvm/java-17-openjdk/lib/modules
+7f64b27cf000-7f64b27d0000 r--p 00000000 00:1b 388774                     /home/villares/miniconda3/envs/scikit/lib/libbrotlidec.so.1.1.0
+7f64b27d0000-7f64b27d8000 r-xp 00001000 00:1b 388774                     /home/villares/miniconda3/envs/scikit/lib/libbrotlidec.so.1.1.0
+7f64b27d8000-7f64b27db000 r--p 00009000 00:1b 388774                     /home/villares/miniconda3/envs/scikit/lib/libbrotlidec.so.1.1.0
+7f64b27db000-7f64b27dc000 r--p 0000b000 00:1b 388774                     /home/villares/miniconda3/envs/scikit/lib/libbrotlidec.so.1.1.0
+7f64b27dc000-7f64b27dd000 rw-p 0000c000 00:1b 388774                     /home/villares/miniconda3/envs/scikit/lib/libbrotlidec.so.1.1.0
+7f64b27dd000-7f64b27e0000 r--p 00000000 00:1b 92437                      /usr/lib/libgraphite2.so.3.2.1
+7f64b27e0000-7f64b27f8000 r-xp 00003000 00:1b 92437                      /usr/lib/libgraphite2.so.3.2.1
+7f64b27f8000-7f64b27fd000 r--p 0001b000 00:1b 92437                      /usr/lib/libgraphite2.so.3.2.1
+7f64b27fd000-7f64b27ff000 r--p 0001f000 00:1b 92437                      /usr/lib/libgraphite2.so.3.2.1
+7f64b27ff000-7f64b2800000 rw-p 00021000 00:1b 92437                      /usr/lib/libgraphite2.so.3.2.1
+7f64b2800000-7f64b2a52000 r--p 00000000 00:1b 1413897                    /usr/lib/jvm/java-17-openjdk/lib/server/libjvm.so
+7f64b2a52000-7f64b37bd000 r-xp 00252000 00:1b 1413897                    /usr/lib/jvm/java-17-openjdk/lib/server/libjvm.so
+7f64b37bd000-7f64b3a43000 r--p 00fbd000 00:1b 1413897                    /usr/lib/jvm/java-17-openjdk/lib/server/libjvm.so
+7f64b3a43000-7f64b3afb000 r--p 01243000 00:1b 1413897                    /usr/lib/jvm/java-17-openjdk/lib/server/libjvm.so
+7f64b3afb000-7f64b3b30000 rw-p 012fb000 00:1b 1413897                    /usr/lib/jvm/java-17-openjdk/lib/server/libjvm.so
+7f64b3b30000-7f64b3b8a000 rw-p 00000000 00:00 0 
+7f64b3b8a000-7f64b3b8c000 r--p 00000000 00:1b 5580498                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_posix.abi3.so
+7f64b3b8c000-7f64b3b8e000 r-xp 00002000 00:1b 5580498                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_posix.abi3.so
+7f64b3b8e000-7f64b3b8f000 r--p 00004000 00:1b 5580498                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_posix.abi3.so
+7f64b3b8f000-7f64b3b90000 r--p 00004000 00:1b 5580498                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_posix.abi3.so
+7f64b3b90000-7f64b3b91000 rw-p 00005000 00:1b 5580498                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_posix.abi3.so
+7f64b3b91000-7f64b3b9a000 r--p 00000000 00:1b 5552146                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/kiwisolver/_cext.cpython-39-x86_64-linux-gnu.so
+7f64b3b9a000-7f64b3bb3000 r-xp 00009000 00:1b 5552146                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/kiwisolver/_cext.cpython-39-x86_64-linux-gnu.so
+7f64b3bb3000-7f64b3bb9000 r--p 00022000 00:1b 5552146                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/kiwisolver/_cext.cpython-39-x86_64-linux-gnu.so
+7f64b3bb9000-7f64b3bba000 r--p 00027000 00:1b 5552146                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/kiwisolver/_cext.cpython-39-x86_64-linux-gnu.so
+7f64b3bba000-7f64b3bbb000 rw-p 00028000 00:1b 5552146                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/kiwisolver/_cext.cpython-39-x86_64-linux-gnu.so
+7f64b3bbb000-7f64b3bc7000 r--p 00000000 00:1b 1349338                    /usr/lib/libxcb.so.1.1.0
+7f64b3bc7000-7f64b3bdb000 r-xp 0000c000 00:1b 1349338                    /usr/lib/libxcb.so.1.1.0
+7f64b3bdb000-7f64b3be4000 r--p 00020000 00:1b 1349338                    /usr/lib/libxcb.so.1.1.0
+7f64b3be4000-7f64b3be5000 r--p 00028000 00:1b 1349338                    /usr/lib/libxcb.so.1.1.0
+7f64b3be5000-7f64b3be6000 rw-p 00029000 00:1b 1349338                    /usr/lib/libxcb.so.1.1.0
+7f64b3be6000-7f64b3bf4000 r--p 00000000 00:1b 1414084                    /usr/lib/jvm/java-17-openjdk/lib/libawt_xawt.so
+7f64b3bf4000-7f64b3c31000 r-xp 0000e000 00:1b 1414084                    /usr/lib/jvm/java-17-openjdk/lib/libawt_xawt.so
+7f64b3c31000-7f64b3c41000 r--p 0004b000 00:1b 1414084                    /usr/lib/jvm/java-17-openjdk/lib/libawt_xawt.so
+7f64b3c41000-7f64b3c42000 r--p 0005b000 00:1b 1414084                    /usr/lib/jvm/java-17-openjdk/lib/libawt_xawt.so
+7f64b3c42000-7f64b3c44000 rw-p 0005c000 00:1b 1414084                    /usr/lib/jvm/java-17-openjdk/lib/libawt_xawt.so
+7f64b3c44000-7f64b3d46000 rw-p 00000000 00:00 0 
+7f64b3d46000-7f64b3d53000 r--p 00000000 00:1b 5575964                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md__mypyc.cpython-39-x86_64-linux-gnu.so
+7f64b3d53000-7f64b3d6f000 r-xp 0000d000 00:1b 5575964                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md__mypyc.cpython-39-x86_64-linux-gnu.so
+7f64b3d6f000-7f64b3d78000 r--p 00029000 00:1b 5575964                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md__mypyc.cpython-39-x86_64-linux-gnu.so
+7f64b3d78000-7f64b3d79000 ---p 00032000 00:1b 5575964                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md__mypyc.cpython-39-x86_64-linux-gnu.so
+7f64b3d79000-7f64b3d7a000 r--p 00032000 00:1b 5575964                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md__mypyc.cpython-39-x86_64-linux-gnu.so
+7f64b3d7a000-7f64b3d7f000 rw-p 00033000 00:1b 5575964                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md__mypyc.cpython-39-x86_64-linux-gnu.so
+7f64b3d7f000-7f64b41ff000 rw-p 00000000 00:00 0 
+7f64b41ff000-7f64b4201000 r--p 00000000 00:1b 1339473                    /usr/lib/libuuid.so.1.3.0
+7f64b4201000-7f64b4205000 r-xp 00002000 00:1b 1339473                    /usr/lib/libuuid.so.1.3.0
+7f64b4205000-7f64b4206000 r--p 00006000 00:1b 1339473                    /usr/lib/libuuid.so.1.3.0
+7f64b4206000-7f64b4207000 r--p 00006000 00:1b 1339473                    /usr/lib/libuuid.so.1.3.0
+7f64b4207000-7f64b4208000 rw-p 00007000 00:1b 1339473                    /usr/lib/libuuid.so.1.3.0
+7f64b420b000-7f64b420c000 r--p 00000000 00:1b 92185                      /usr/lib/libXinerama.so.1.0.0
+7f64b420c000-7f64b420d000 r-xp 00001000 00:1b 92185                      /usr/lib/libXinerama.so.1.0.0
+7f64b420d000-7f64b420e000 r--p 00002000 00:1b 92185                      /usr/lib/libXinerama.so.1.0.0
+7f64b420e000-7f64b420f000 r--p 00002000 00:1b 92185                      /usr/lib/libXinerama.so.1.0.0
+7f64b420f000-7f64b4210000 rw-p 00003000 00:1b 92185                      /usr/lib/libXinerama.so.1.0.0
+7f64b4210000-7f64b4213000 r--p 00000000 00:1b 543415                     /usr/lib/libXi.so.6.1.0
+7f64b4213000-7f64b421f000 r-xp 00003000 00:1b 543415                     /usr/lib/libXi.so.6.1.0
+7f64b421f000-7f64b4222000 r--p 0000f000 00:1b 543415                     /usr/lib/libXi.so.6.1.0
+7f64b4222000-7f64b4223000 r--p 00011000 00:1b 543415                     /usr/lib/libXi.so.6.1.0
+7f64b4223000-7f64b4224000 rw-p 00012000 00:1b 543415                     /usr/lib/libXi.so.6.1.0
+7f64b4224000-7f64b4227000 r--p 00000000 00:1b 5543870                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so
+7f64b4227000-7f64b422d000 r-xp 00003000 00:1b 5543870                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so
+7f64b422d000-7f64b422f000 r--p 00009000 00:1b 5543870                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so
+7f64b422f000-7f64b4230000 r--p 0000a000 00:1b 5543870                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so
+7f64b4230000-7f64b4231000 rw-p 0000b000 00:1b 5543870                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so
+7f64b4231000-7f64b4232000 r--p 00000000 00:1b 5575954                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md.cpython-39-x86_64-linux-gnu.so
+7f64b4232000-7f64b4233000 r-xp 00001000 00:1b 5575954                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md.cpython-39-x86_64-linux-gnu.so
+7f64b4233000-7f64b4234000 r--p 00002000 00:1b 5575954                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md.cpython-39-x86_64-linux-gnu.so
+7f64b4234000-7f64b4235000 r--p 00002000 00:1b 5575954                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md.cpython-39-x86_64-linux-gnu.so
+7f64b4235000-7f64b4236000 rw-p 00003000 00:1b 5575954                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/charset_normalizer/md.cpython-39-x86_64-linux-gnu.so
+7f64b4236000-7f64b4239000 r--p 00000000 00:1b 5543894                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/unicodedata.cpython-39-x86_64-linux-gnu.so
+7f64b4239000-7f64b423d000 r-xp 00003000 00:1b 5543894                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/unicodedata.cpython-39-x86_64-linux-gnu.so
+7f64b423d000-7f64b4345000 r--p 00007000 00:1b 5543894                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/unicodedata.cpython-39-x86_64-linux-gnu.so
+7f64b4345000-7f64b4346000 r--p 0010e000 00:1b 5543894                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/unicodedata.cpython-39-x86_64-linux-gnu.so
+7f64b4346000-7f64b4347000 rw-p 0010f000 00:1b 5543894                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/unicodedata.cpython-39-x86_64-linux-gnu.so
+7f64b4347000-7f64b4787000 rw-p 00000000 00:00 0 
+7f64b4787000-7f64b478c000 r--p 00000000 00:1b 5543876                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so
+7f64b478c000-7f64b4791000 r-xp 00005000 00:1b 5543876                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so
+7f64b4791000-7f64b4795000 r--p 0000a000 00:1b 5543876                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so
+7f64b4795000-7f64b4796000 r--p 0000d000 00:1b 5543876                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so
+7f64b4796000-7f64b4798000 rw-p 0000e000 00:1b 5543876                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so
+7f64b4798000-7f64b4818000 rw-p 00000000 00:00 0 
+7f64b4818000-7f64b483d000 r--p 00000000 00:1b 5548024                    /home/villares/miniconda3/envs/scikit/lib/libssl.so.3
+7f64b483d000-7f64b48c2000 r-xp 00025000 00:1b 5548024                    /home/villares/miniconda3/envs/scikit/lib/libssl.so.3
+7f64b48c2000-7f64b48ee000 r--p 000aa000 00:1b 5548024                    /home/villares/miniconda3/envs/scikit/lib/libssl.so.3
+7f64b48ee000-7f64b48f9000 r--p 000d5000 00:1b 5548024                    /home/villares/miniconda3/envs/scikit/lib/libssl.so.3
+7f64b48f9000-7f64b48fd000 rw-p 000e0000 00:1b 5548024                    /home/villares/miniconda3/envs/scikit/lib/libssl.so.3
+7f64b48fd000-7f64b4910000 r--p 00000000 00:1b 5543887                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ssl.cpython-39-x86_64-linux-gnu.so
+7f64b4910000-7f64b4919000 r-xp 00013000 00:1b 5543887                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ssl.cpython-39-x86_64-linux-gnu.so
+7f64b4919000-7f64b4926000 r--p 0001c000 00:1b 5543887                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ssl.cpython-39-x86_64-linux-gnu.so
+7f64b4926000-7f64b4927000 ---p 00029000 00:1b 5543887                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ssl.cpython-39-x86_64-linux-gnu.so
+7f64b4927000-7f64b4928000 r--p 00029000 00:1b 5543887                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ssl.cpython-39-x86_64-linux-gnu.so
+7f64b4928000-7f64b4931000 rw-p 0002a000 00:1b 5543887                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ssl.cpython-39-x86_64-linux-gnu.so
+7f64b4931000-7f64b49b1000 rw-p 00000000 00:00 0 
+7f64b49b1000-7f64b49c3000 r--p 00000000 00:1b 5539932                    /home/villares/miniconda3/envs/scikit/lib/libsqlite3.so.0.8.6
+7f64b49c3000-7f64b4ac3000 r-xp 00012000 00:1b 5539932                    /home/villares/miniconda3/envs/scikit/lib/libsqlite3.so.0.8.6
+7f64b4ac3000-7f64b4af7000 r--p 00112000 00:1b 5539932                    /home/villares/miniconda3/envs/scikit/lib/libsqlite3.so.0.8.6
+7f64b4af7000-7f64b4af8000 ---p 00146000 00:1b 5539932                    /home/villares/miniconda3/envs/scikit/lib/libsqlite3.so.0.8.6
+7f64b4af8000-7f64b4afc000 r--p 00146000 00:1b 5539932                    /home/villares/miniconda3/envs/scikit/lib/libsqlite3.so.0.8.6
+7f64b4afc000-7f64b4b00000 rw-p 0014a000 00:1b 5539932                    /home/villares/miniconda3/envs/scikit/lib/libsqlite3.so.0.8.6
+7f64b4b00000-7f64b5000000 rw-p 00000000 00:00 0 
+7f64b5000000-7f64b5003000 r-xp 00000000 00:1b 5574021                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libXau-154567c4.so.6.0.0
+7f64b5003000-7f64b5202000 ---p 00003000 00:1b 5574021                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libXau-154567c4.so.6.0.0
+7f64b5202000-7f64b5203000 r--p 00002000 00:1b 5574021                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libXau-154567c4.so.6.0.0
+7f64b5203000-7f64b5204000 rw-p 00000000 00:00 0 
+7f64b5204000-7f64b5205000 rw-p 00005000 00:1b 5574021                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libXau-154567c4.so.6.0.0
+7f64b5205000-7f64b5207000 r--p 00000000 00:1b 5543851                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so
+7f64b5207000-7f64b5209000 r-xp 00002000 00:1b 5543851                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so
+7f64b5209000-7f64b520a000 r--p 00004000 00:1b 5543851                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so
+7f64b520a000-7f64b520b000 ---p 00005000 00:1b 5543851                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so
+7f64b520b000-7f64b520c000 r--p 00005000 00:1b 5543851                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so
+7f64b520c000-7f64b520d000 rw-p 00006000 00:1b 5543851                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so
+7f64b520d000-7f64b5213000 r--p 00000000 00:1b 5543886                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+7f64b5213000-7f64b521d000 r-xp 00006000 00:1b 5543886                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+7f64b521d000-7f64b5221000 r--p 00010000 00:1b 5543886                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+7f64b5221000-7f64b5222000 ---p 00014000 00:1b 5543886                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+7f64b5222000-7f64b5223000 r--p 00014000 00:1b 5543886                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+7f64b5223000-7f64b5225000 rw-p 00015000 00:1b 5543886                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+7f64b5225000-7f64b52e5000 rw-p 00000000 00:00 0 
+7f64b52e5000-7f64b52e9000 r--p 00000000 00:1b 5574025                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/liblzma-13fa198c.so.5.4.5
+7f64b52e9000-7f64b5318000 r-xp 00004000 00:1b 5574025                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/liblzma-13fa198c.so.5.4.5
+7f64b5318000-7f64b5325000 r--p 00033000 00:1b 5574025                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/liblzma-13fa198c.so.5.4.5
+7f64b5325000-7f64b5326000 r--p 0003f000 00:1b 5574025                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/liblzma-13fa198c.so.5.4.5
+7f64b5326000-7f64b5328000 rw-p 00040000 00:1b 5574025                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/liblzma-13fa198c.so.5.4.5
+7f64b5328000-7f64b5334000 r--p 00000000 00:1b 5574027                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libxcb-80c5a837.so.1.1.0
+7f64b5334000-7f64b534f000 r-xp 0000c000 00:1b 5574027                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libxcb-80c5a837.so.1.1.0
+7f64b534f000-7f64b5359000 r--p 00027000 00:1b 5574027                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libxcb-80c5a837.so.1.1.0
+7f64b5359000-7f64b535a000 r--p 00030000 00:1b 5574027                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libxcb-80c5a837.so.1.1.0
+7f64b535a000-7f64b535b000 rw-p 00031000 00:1b 5574027                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libxcb-80c5a837.so.1.1.0
+7f64b535b000-7f64b5366000 rw-p 00033000 00:1b 5574027                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libxcb-80c5a837.so.1.1.0
+7f64b5366000-7f64b536e000 r--p 00000000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b536e000-7f64b53dc000 r-xp 00008000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b53dc000-7f64b53ef000 r--p 00076000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b53ef000-7f64b53f0000 ---p 00089000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b53f0000-7f64b53f1000 r--p 00089000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b53f1000-7f64b53f2000 rw-p 0008a000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b53f2000-7f64b53f5000 rw-p 0008c000 00:1b 5574023                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libopenjp2-05423b53.so
+7f64b53f5000-7f64b53fa000 r--p 00000000 00:1b 5574026                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libjpeg-f391b078.so.62.4.0
+7f64b53fa000-7f64b548e000 r-xp 00005000 00:1b 5574026                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libjpeg-f391b078.so.62.4.0
+7f64b548e000-7f64b54b7000 r--p 00099000 00:1b 5574026                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libjpeg-f391b078.so.62.4.0
+7f64b54b7000-7f64b54b8000 ---p 000c2000 00:1b 5574026                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libjpeg-f391b078.so.62.4.0
+7f64b54b8000-7f64b54b9000 r--p 000c2000 00:1b 5574026                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libjpeg-f391b078.so.62.4.0
+7f64b54b9000-7f64b54be000 rw-p 000c3000 00:1b 5574026                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libjpeg-f391b078.so.62.4.0
+7f64b54be000-7f64b54c5000 r--p 00000000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b54c5000-7f64b5535000 r-xp 00007000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b5535000-7f64b5566000 r--p 00077000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b5566000-7f64b5567000 ---p 000a8000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b5567000-7f64b556b000 r--p 000a8000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b556b000-7f64b556c000 rw-p 000ac000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b556c000-7f64b5570000 rw-p 000ae000 00:1b 5574014                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/pillow.libs/libtiff-4da6744b.so.6.0.2
+7f64b5570000-7f64b5584000 r--p 00000000 00:1b 5574139                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so
+7f64b5584000-7f64b5601000 r-xp 00014000 00:1b 5574139                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so
+7f64b5601000-7f64b5612000 r--p 00091000 00:1b 5574139                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so
+7f64b5612000-7f64b5616000 r--p 000a1000 00:1b 5574139                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so
+7f64b5616000-7f64b561a000 rw-p 000a5000 00:1b 5574139                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so
+7f64b561a000-7f64b5621000 rw-p 002dd000 00:1b 5574139                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/PIL/_imaging.cpython-39-x86_64-linux-gnu.so
+7f64b5624000-7f64b5626000 r--p 00000000 00:1b 5580495                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_linux.abi3.so
+7f64b5626000-7f64b5629000 r-xp 00002000 00:1b 5580495                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_linux.abi3.so
+7f64b5629000-7f64b562a000 r--p 00005000 00:1b 5580495                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_linux.abi3.so
+7f64b562a000-7f64b562b000 r--p 00005000 00:1b 5580495                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_linux.abi3.so
+7f64b562b000-7f64b562c000 rw-p 00006000 00:1b 5580495                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/psutil/_psutil_linux.abi3.so
+7f64b562c000-7f64b56ec000 rw-p 00000000 00:00 0 
+7f64b56ec000-7f64b56f6000 r--p 00000000 00:1b 5586507                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_path.cpython-39-x86_64-linux-gnu.so
+7f64b56f6000-7f64b5718000 r-xp 0000a000 00:1b 5586507                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_path.cpython-39-x86_64-linux-gnu.so
+7f64b5718000-7f64b571f000 r--p 0002c000 00:1b 5586507                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_path.cpython-39-x86_64-linux-gnu.so
+7f64b571f000-7f64b5720000 r--p 00032000 00:1b 5586507                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_path.cpython-39-x86_64-linux-gnu.so
+7f64b5720000-7f64b5721000 rw-p 00033000 00:1b 5586507                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_path.cpython-39-x86_64-linux-gnu.so
+7f64b5721000-7f64b5762000 rw-p 00000000 00:00 0 
+7f64b5762000-7f64b5767000 r--p 00000000 00:1b 5543893                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/pyexpat.cpython-39-x86_64-linux-gnu.so
+7f64b5767000-7f64b5795000 r-xp 00005000 00:1b 5543893                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/pyexpat.cpython-39-x86_64-linux-gnu.so
+7f64b5795000-7f64b57a1000 r--p 00033000 00:1b 5543893                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/pyexpat.cpython-39-x86_64-linux-gnu.so
+7f64b57a1000-7f64b57a3000 r--p 0003e000 00:1b 5543893                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/pyexpat.cpython-39-x86_64-linux-gnu.so
+7f64b57a3000-7f64b57a5000 rw-p 00040000 00:1b 5543893                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/pyexpat.cpython-39-x86_64-linux-gnu.so
+7f64b57a5000-7f64b59e5000 rw-p 00000000 00:00 0 
+7f64b59e5000-7f64b59ec000 r--p 00000000 00:1b 5574847                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_generator.cpython-39-x86_64-linux-gnu.so
+7f64b59ec000-7f64b5a6d000 r-xp 00007000 00:1b 5574847                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_generator.cpython-39-x86_64-linux-gnu.so
+7f64b5a6d000-7f64b5ac1000 r--p 00088000 00:1b 5574847                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_generator.cpython-39-x86_64-linux-gnu.so
+7f64b5ac1000-7f64b5ac2000 r--p 000db000 00:1b 5574847                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_generator.cpython-39-x86_64-linux-gnu.so
+7f64b5ac2000-7f64b5ac4000 rw-p 000dc000 00:1b 5574847                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_generator.cpython-39-x86_64-linux-gnu.so
+7f64b5ac4000-7f64b5ac6000 rw-p 00000000 00:00 0 
+7f64b5ac6000-7f64b5ac9000 r--p 00000000 00:1b 5574832                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_sfc64.cpython-39-x86_64-linux-gnu.so
+7f64b5ac9000-7f64b5ad2000 r-xp 00003000 00:1b 5574832                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_sfc64.cpython-39-x86_64-linux-gnu.so
+7f64b5ad2000-7f64b5ad5000 r--p 0000c000 00:1b 5574832                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_sfc64.cpython-39-x86_64-linux-gnu.so
+7f64b5ad5000-7f64b5ad6000 r--p 0000e000 00:1b 5574832                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_sfc64.cpython-39-x86_64-linux-gnu.so
+7f64b5ad6000-7f64b5ad7000 rw-p 0000f000 00:1b 5574832                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_sfc64.cpython-39-x86_64-linux-gnu.so
+7f64b5ad7000-7f64b5ada000 r--p 00000000 00:1b 5574844                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_pcg64.cpython-39-x86_64-linux-gnu.so
+7f64b5ada000-7f64b5aec000 r-xp 00003000 00:1b 5574844                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_pcg64.cpython-39-x86_64-linux-gnu.so
+7f64b5aec000-7f64b5af1000 r--p 00015000 00:1b 5574844                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_pcg64.cpython-39-x86_64-linux-gnu.so
+7f64b5af1000-7f64b5af2000 r--p 00019000 00:1b 5574844                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_pcg64.cpython-39-x86_64-linux-gnu.so
+7f64b5af2000-7f64b5af3000 rw-p 0001a000 00:1b 5574844                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_pcg64.cpython-39-x86_64-linux-gnu.so
+7f64b5af3000-7f64b5af6000 r--p 00000000 00:1b 5574823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_philox.cpython-39-x86_64-linux-gnu.so
+7f64b5af6000-7f64b5b05000 r-xp 00003000 00:1b 5574823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_philox.cpython-39-x86_64-linux-gnu.so
+7f64b5b05000-7f64b5b09000 r--p 00012000 00:1b 5574823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_philox.cpython-39-x86_64-linux-gnu.so
+7f64b5b09000-7f64b5b0a000 r--p 00015000 00:1b 5574823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_philox.cpython-39-x86_64-linux-gnu.so
+7f64b5b0a000-7f64b5b0b000 rw-p 00016000 00:1b 5574823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_philox.cpython-39-x86_64-linux-gnu.so
+7f64b5b0b000-7f64b5b0e000 r--p 00000000 00:1b 5574835                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_mt19937.cpython-39-x86_64-linux-gnu.so
+7f64b5b0e000-7f64b5b1f000 r-xp 00003000 00:1b 5574835                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_mt19937.cpython-39-x86_64-linux-gnu.so
+7f64b5b1f000-7f64b5b24000 r--p 00014000 00:1b 5574835                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_mt19937.cpython-39-x86_64-linux-gnu.so
+7f64b5b24000-7f64b5b25000 r--p 00018000 00:1b 5574835                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_mt19937.cpython-39-x86_64-linux-gnu.so
+7f64b5b25000-7f64b5b26000 rw-p 00019000 00:1b 5574835                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_mt19937.cpython-39-x86_64-linux-gnu.so
+7f64b5b26000-7f64b5b2a000 r--p 00000000 00:1b 5574826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_bounded_integers.cpython-39-x86_64-linux-gnu.so
+7f64b5b2a000-7f64b5b6f000 r-xp 00004000 00:1b 5574826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_bounded_integers.cpython-39-x86_64-linux-gnu.so
+7f64b5b6f000-7f64b5b78000 r--p 00049000 00:1b 5574826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_bounded_integers.cpython-39-x86_64-linux-gnu.so
+7f64b5b78000-7f64b5b79000 r--p 00051000 00:1b 5574826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_bounded_integers.cpython-39-x86_64-linux-gnu.so
+7f64b5b79000-7f64b5b7a000 rw-p 00052000 00:1b 5574826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_bounded_integers.cpython-39-x86_64-linux-gnu.so
+7f64b5b7a000-7f64b5bbb000 rw-p 00000000 00:00 0 
+7f64b5bbb000-7f64b5bbf000 r--p 00000000 00:1b 5574828                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_common.cpython-39-x86_64-linux-gnu.so
+7f64b5bbf000-7f64b5bf1000 r-xp 00004000 00:1b 5574828                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_common.cpython-39-x86_64-linux-gnu.so
+7f64b5bf1000-7f64b5bf5000 r--p 00036000 00:1b 5574828                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_common.cpython-39-x86_64-linux-gnu.so
+7f64b5bf5000-7f64b5bf6000 ---p 0003a000 00:1b 5574828                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_common.cpython-39-x86_64-linux-gnu.so
+7f64b5bf6000-7f64b5bf7000 r--p 0003a000 00:1b 5574828                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_common.cpython-39-x86_64-linux-gnu.so
+7f64b5bf7000-7f64b5bf8000 rw-p 0003b000 00:1b 5574828                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/_common.cpython-39-x86_64-linux-gnu.so
+7f64b5bf8000-7f64b5bf9000 rw-p 00000000 00:00 0 
+7f64b5bf9000-7f64b9bf9000 rw-p 00000000 00:00 0 
+7f64b9bf9000-7f64b9bfa000 ---p 00000000 00:00 0 
+7f64b9bfa000-7f64ba3fa000 rw-p 00000000 00:00 0 
+7f64ba3fa000-7f64bc3fa000 rw-p 00000000 00:00 0 
+7f64bc3fa000-7f64bc3fb000 ---p 00000000 00:00 0 
+7f64bc3fb000-7f64bcbfb000 rw-p 00000000 00:00 0 
+7f64bcbfb000-7f64c0bfb000 rw-p 00000000 00:00 0 
+7f64c0bfb000-7f64c0bfc000 ---p 00000000 00:00 0 
+7f64c0bfc000-7f64c13fc000 rw-p 00000000 00:00 0 
+7f64c13fc000-7f64c33fc000 rw-p 00000000 00:00 0 
+7f64c33fc000-7f64c33fd000 ---p 00000000 00:00 0 
+7f64c33fd000-7f64c3bfd000 rw-p 00000000 00:00 0 
+7f64c3bfd000-7f64c3bff000 r--p 00000000 00:1b 1349223                    /usr/lib/libXdmcp.so.6.0.0
+7f64c3bff000-7f64c3c01000 r-xp 00002000 00:1b 1349223                    /usr/lib/libXdmcp.so.6.0.0
+7f64c3c01000-7f64c3c03000 r--p 00004000 00:1b 1349223                    /usr/lib/libXdmcp.so.6.0.0
+7f64c3c03000-7f64c3c04000 r--p 00005000 00:1b 1349223                    /usr/lib/libXdmcp.so.6.0.0
+7f64c3c04000-7f64c3c05000 rw-p 00006000 00:1b 1349223                    /usr/lib/libXdmcp.so.6.0.0
+7f64c3c05000-7f64c3c07000 r--p 00000000 00:1b 92194                      /usr/lib/libXtst.so.6.1.0
+7f64c3c07000-7f64c3c0a000 r-xp 00002000 00:1b 92194                      /usr/lib/libXtst.so.6.1.0
+7f64c3c0a000-7f64c3c0b000 r--p 00005000 00:1b 92194                      /usr/lib/libXtst.so.6.1.0
+7f64c3c0b000-7f64c3c0c000 r--p 00006000 00:1b 92194                      /usr/lib/libXtst.so.6.1.0
+7f64c3c0c000-7f64c3c0d000 rw-p 00007000 00:1b 92194                      /usr/lib/libXtst.so.6.1.0
+7f64c3c0d000-7f64c3c11000 r--p 00000000 00:1b 1351694                    /usr/lib/libXext.so.6.4.0
+7f64c3c11000-7f64c3c1c000 r-xp 00004000 00:1b 1351694                    /usr/lib/libXext.so.6.4.0
+7f64c3c1c000-7f64c3c20000 r--p 0000f000 00:1b 1351694                    /usr/lib/libXext.so.6.4.0
+7f64c3c20000-7f64c3c21000 r--p 00012000 00:1b 1351694                    /usr/lib/libXext.so.6.4.0
+7f64c3c21000-7f64c3c22000 rw-p 00013000 00:1b 1351694                    /usr/lib/libXext.so.6.4.0
+7f64c3c28000-7f64c3c29000 r--p 00000000 00:1b 5586452                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_c_internal_utils.cpython-39-x86_64-linux-gnu.so
+7f64c3c29000-7f64c3c2a000 r-xp 00001000 00:1b 5586452                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_c_internal_utils.cpython-39-x86_64-linux-gnu.so
+7f64c3c2a000-7f64c3c2b000 r--p 00002000 00:1b 5586452                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_c_internal_utils.cpython-39-x86_64-linux-gnu.so
+7f64c3c2b000-7f64c3c2c000 r--p 00002000 00:1b 5586452                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_c_internal_utils.cpython-39-x86_64-linux-gnu.so
+7f64c3c2c000-7f64c3c2d000 rw-p 00003000 00:1b 5586452                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/matplotlib/_c_internal_utils.cpython-39-x86_64-linux-gnu.so
+7f64c3c2d000-7f64c3c2f000 r--p 00000000 00:1b 5551874                    /home/villares/miniconda3/envs/scikit/lib/libbz2.so.1.0.8
+7f64c3c2f000-7f64c3c3d000 r-xp 00002000 00:1b 5551874                    /home/villares/miniconda3/envs/scikit/lib/libbz2.so.1.0.8
+7f64c3c3d000-7f64c3c3f000 r--p 00010000 00:1b 5551874                    /home/villares/miniconda3/envs/scikit/lib/libbz2.so.1.0.8
+7f64c3c3f000-7f64c3c40000 r--p 00011000 00:1b 5551874                    /home/villares/miniconda3/envs/scikit/lib/libbz2.so.1.0.8
+7f64c3c40000-7f64c3c41000 rw-p 00012000 00:1b 5551874                    /home/villares/miniconda3/envs/scikit/lib/libbz2.so.1.0.8
+7f64c3c41000-7f64c3c44000 r--p 00000000 00:1b 1413861                    /usr/lib/jvm/java-17-openjdk/lib/libfontmanager.so
+7f64c3c44000-7f64c3c4c000 r-xp 00003000 00:1b 1413861                    /usr/lib/jvm/java-17-openjdk/lib/libfontmanager.so
+7f64c3c4c000-7f64c3c4e000 r--p 0000b000 00:1b 1413861                    /usr/lib/jvm/java-17-openjdk/lib/libfontmanager.so
+7f64c3c4e000-7f64c3c4f000 r--p 0000c000 00:1b 1413861                    /usr/lib/jvm/java-17-openjdk/lib/libfontmanager.so
+7f64c3c4f000-7f64c3c50000 rw-p 0000d000 00:1b 1413861                    /usr/lib/jvm/java-17-openjdk/lib/libfontmanager.so
+7f64c3c50000-7f64c3c60000 rw-p 00000000 00:00 0 
+7f64c3c60000-7f64c4027000 ---p 00000000 00:00 0 
+7f64c4027000-7f64c4037000 rw-p 00000000 00:00 0 
+7f64c4037000-7f64c43fe000 ---p 00000000 00:00 0 
+7f64c43fe000-7f64c63fe000 rw-p 00000000 00:00 0 
+7f64c6400000-7f64c6401000 r--p 00000000 00:1b 7905                       /usr/lib/libXau.so.6.0.0
+7f64c6401000-7f64c6402000 r-xp 00001000 00:1b 7905                       /usr/lib/libXau.so.6.0.0
+7f64c6402000-7f64c6403000 r--p 00002000 00:1b 7905                       /usr/lib/libXau.so.6.0.0
+7f64c6403000-7f64c6404000 r--p 00002000 00:1b 7905                       /usr/lib/libXau.so.6.0.0
+7f64c6404000-7f64c6405000 rw-p 00003000 00:1b 7905                       /usr/lib/libXau.so.6.0.0
+7f64c6405000-7f64c6407000 r--p 00000000 00:1b 92191                      /usr/lib/libXrender.so.1.3.0
+7f64c6407000-7f64c640e000 r-xp 00002000 00:1b 92191                      /usr/lib/libXrender.so.1.3.0
+7f64c640e000-7f64c6410000 r--p 00009000 00:1b 92191                      /usr/lib/libXrender.so.1.3.0
+7f64c6410000-7f64c6411000 r--p 0000a000 00:1b 92191                      /usr/lib/libXrender.so.1.3.0
+7f64c6411000-7f64c6412000 rw-p 0000b000 00:1b 92191                      /usr/lib/libXrender.so.1.3.0
+7f64c6412000-7f64c6452000 rw-p 00000000 00:00 0 
+7f64c6452000-7f64c6454000 r--p 00000000 00:1b 1413886                    /usr/lib/jvm/java-17-openjdk/lib/libzip.so
+7f64c6454000-7f64c6458000 r-xp 00002000 00:1b 1413886                    /usr/lib/jvm/java-17-openjdk/lib/libzip.so
+7f64c6458000-7f64c645a000 r--p 00006000 00:1b 1413886                    /usr/lib/jvm/java-17-openjdk/lib/libzip.so
+7f64c645a000-7f64c645b000 r--p 00007000 00:1b 1413886                    /usr/lib/jvm/java-17-openjdk/lib/libzip.so
+7f64c645b000-7f64c645c000 rw-p 00008000 00:1b 1413886                    /usr/lib/jvm/java-17-openjdk/lib/libzip.so
+7f64c645c000-7f64c6460000 r--p 00000000 00:1b 1413879                    /usr/lib/jvm/java-17-openjdk/lib/libnet.so
+7f64c6460000-7f64c646e000 r-xp 00004000 00:1b 1413879                    /usr/lib/jvm/java-17-openjdk/lib/libnet.so
+7f64c646e000-7f64c6472000 r--p 00012000 00:1b 1413879                    /usr/lib/jvm/java-17-openjdk/lib/libnet.so
+7f64c6472000-7f64c6473000 r--p 00015000 00:1b 1413879                    /usr/lib/jvm/java-17-openjdk/lib/libnet.so
+7f64c6473000-7f64c6474000 rw-p 00016000 00:1b 1413879                    /usr/lib/jvm/java-17-openjdk/lib/libnet.so
+7f64c6474000-7f64c647b000 r--p 00000000 00:1b 1413880                    /usr/lib/jvm/java-17-openjdk/lib/libnio.so
+7f64c647b000-7f64c6483000 r-xp 00007000 00:1b 1413880                    /usr/lib/jvm/java-17-openjdk/lib/libnio.so
+7f64c6483000-7f64c6487000 r--p 0000f000 00:1b 1413880                    /usr/lib/jvm/java-17-openjdk/lib/libnio.so
+7f64c6487000-7f64c6488000 r--p 00013000 00:1b 1413880                    /usr/lib/jvm/java-17-openjdk/lib/libnio.so
+7f64c6488000-7f64c6489000 rw-p 00014000 00:1b 1413880                    /usr/lib/jvm/java-17-openjdk/lib/libnio.so
+7f64c6489000-7f64c648a000 ---p 00000000 00:00 0 
+7f64c648a000-7f64c6619000 rw-p 00000000 00:00 0 
+7f64c6619000-7f64c69e0000 ---p 00000000 00:00 0 
+7f64c69e0000-7f64c71ed000 rw-p 00000000 00:00 0 
+7f64c71ed000-7f64c72d3000 ---p 00000000 00:00 0 
+7f64c72d3000-7f64c72d8000 rw-p 00000000 00:00 0 
+7f64c72d8000-7f64c73be000 ---p 00000000 00:00 0 
+7f64c73be000-7f64c73c3000 rw-p 00000000 00:00 0 
+7f64c73c3000-7f64c73ca000 ---p 00000000 00:00 0 
+7f64c73ca000-7f64c73d6000 r--p 00000000 00:1b 1413867                    /usr/lib/jvm/java-17-openjdk/lib/libjava.so
+7f64c73d6000-7f64c73e7000 r-xp 0000c000 00:1b 1413867                    /usr/lib/jvm/java-17-openjdk/lib/libjava.so
+7f64c73e7000-7f64c73ed000 r--p 0001d000 00:1b 1413867                    /usr/lib/jvm/java-17-openjdk/lib/libjava.so
+7f64c73ed000-7f64c73ee000 r--p 00022000 00:1b 1413867                    /usr/lib/jvm/java-17-openjdk/lib/libjava.so
+7f64c73ee000-7f64c73ef000 rw-p 00023000 00:1b 1413867                    /usr/lib/jvm/java-17-openjdk/lib/libjava.so
+7f64c73ef000-7f64c73f0000 rw-p 00000000 00:00 0 
+7f64c73f0000-7f64c73f8000 rw-s 00000000 00:2a 453                        /tmp/hsperfdata_villares/42079
+7f64c73f8000-7f64c73fa000 r--p 00000000 00:1b 1413870                    /usr/lib/jvm/java-17-openjdk/lib/libjimage.so
+7f64c73fa000-7f64c73fd000 r-xp 00002000 00:1b 1413870                    /usr/lib/jvm/java-17-openjdk/lib/libjimage.so
+7f64c73fd000-7f64c73fe000 r--p 00005000 00:1b 1413870                    /usr/lib/jvm/java-17-openjdk/lib/libjimage.so
+7f64c73fe000-7f64c73ff000 r--p 00006000 00:1b 1413870                    /usr/lib/jvm/java-17-openjdk/lib/libjimage.so
+7f64c73ff000-7f64c7400000 rw-p 00007000 00:1b 1413870                    /usr/lib/jvm/java-17-openjdk/lib/libjimage.so
+7f64c7400000-7f64c743b000 r-xp 00000000 00:1b 5575255                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libquadmath-96973f99.so.0.0.0
+7f64c743b000-7f64c763a000 ---p 0003b000 00:1b 5575255                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libquadmath-96973f99.so.0.0.0
+7f64c763a000-7f64c763b000 r--p 0003a000 00:1b 5575255                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libquadmath-96973f99.so.0.0.0
+7f64c763b000-7f64c763d000 rw-p 0003b000 00:1b 5575255                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libquadmath-96973f99.so.0.0.0
+7f64c763e000-7f64c7643000 r--p 00000000 00:1b 5574824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/bit_generator.cpython-39-x86_64-linux-gnu.so
+7f64c7643000-7f64c7666000 r-xp 00005000 00:1b 5574824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/bit_generator.cpython-39-x86_64-linux-gnu.so
+7f64c7666000-7f64c7670000 r--p 00028000 00:1b 5574824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/bit_generator.cpython-39-x86_64-linux-gnu.so
+7f64c7670000-7f64c7671000 r--p 00031000 00:1b 5574824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/bit_generator.cpython-39-x86_64-linux-gnu.so
+7f64c7671000-7f64c7673000 rw-p 00032000 00:1b 5574824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/bit_generator.cpython-39-x86_64-linux-gnu.so
+7f64c7673000-7f64c7674000 rw-p 00000000 00:00 0 
+7f64c7674000-7f64c7679000 r--p 00000000 00:1b 5574827                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/mtrand.cpython-39-x86_64-linux-gnu.so
+7f64c7679000-7f64c76d3000 r-xp 00005000 00:1b 5574827                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/mtrand.cpython-39-x86_64-linux-gnu.so
+7f64c76d3000-7f64c7724000 r--p 0005f000 00:1b 5574827                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/mtrand.cpython-39-x86_64-linux-gnu.so
+7f64c7724000-7f64c7725000 r--p 000af000 00:1b 5574827                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/mtrand.cpython-39-x86_64-linux-gnu.so
+7f64c7725000-7f64c7726000 rw-p 000b0000 00:1b 5574827                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/random/mtrand.cpython-39-x86_64-linux-gnu.so
+7f64c7726000-7f64c7768000 rw-p 00000000 00:00 0 
+7f64c7768000-7f64c7769000 r--p 00000000 00:1b 5574390                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/fft/_pocketfft_internal.cpython-39-x86_64-linux-gnu.so
+7f64c7769000-7f64c777c000 r-xp 00001000 00:1b 5574390                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/fft/_pocketfft_internal.cpython-39-x86_64-linux-gnu.so
+7f64c777c000-7f64c777e000 r--p 00014000 00:1b 5574390                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/fft/_pocketfft_internal.cpython-39-x86_64-linux-gnu.so
+7f64c777e000-7f64c777f000 r--p 00015000 00:1b 5574390                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/fft/_pocketfft_internal.cpython-39-x86_64-linux-gnu.so
+7f64c777f000-7f64c7780000 rw-p 00016000 00:1b 5574390                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/fft/_pocketfft_internal.cpython-39-x86_64-linux-gnu.so
+7f64c7780000-7f64c7800000 rw-p 00000000 00:00 0 
+7f64c7800000-7f64c7a76000 r-xp 00000000 00:1b 5575256                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libgfortran-040039e1.so.5.0.0
+7f64c7a76000-7f64c7c75000 ---p 00276000 00:1b 5575256                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libgfortran-040039e1.so.5.0.0
+7f64c7c75000-7f64c7c76000 r--p 00275000 00:1b 5575256                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libgfortran-040039e1.so.5.0.0
+7f64c7c76000-7f64c7c78000 rw-p 00276000 00:1b 5575256                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libgfortran-040039e1.so.5.0.0
+7f64c7c78000-7f64c7c8d000 rw-p 0027b000 00:1b 5575256                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libgfortran-040039e1.so.5.0.0
+7f64c7c8d000-7f64c7c8f000 r--p 00000000 00:1b 5543852                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sha512.cpython-39-x86_64-linux-gnu.so
+7f64c7c8f000-7f64c7c94000 r-xp 00002000 00:1b 5543852                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sha512.cpython-39-x86_64-linux-gnu.so
+7f64c7c94000-7f64c7c95000 r--p 00007000 00:1b 5543852                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sha512.cpython-39-x86_64-linux-gnu.so
+7f64c7c95000-7f64c7c96000 r--p 00007000 00:1b 5543852                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sha512.cpython-39-x86_64-linux-gnu.so
+7f64c7c96000-7f64c7c97000 rw-p 00008000 00:1b 5543852                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_sha512.cpython-39-x86_64-linux-gnu.so
+7f64c7c97000-7f64c7c99000 r--p 00000000 00:1b 5543845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_random.cpython-39-x86_64-linux-gnu.so
+7f64c7c99000-7f64c7c9b000 r-xp 00002000 00:1b 5543845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_random.cpython-39-x86_64-linux-gnu.so
+7f64c7c9b000-7f64c7c9c000 r--p 00004000 00:1b 5543845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_random.cpython-39-x86_64-linux-gnu.so
+7f64c7c9c000-7f64c7c9d000 r--p 00004000 00:1b 5543845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_random.cpython-39-x86_64-linux-gnu.so
+7f64c7c9d000-7f64c7c9e000 rw-p 00005000 00:1b 5543845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_random.cpython-39-x86_64-linux-gnu.so
+7f64c7c9e000-7f64c7d1e000 rw-p 00000000 00:00 0 
+7f64c7d1e000-7f64c7d24000 r--p 00000000 00:1b 5574782                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-x86_64-linux-gnu.so
+7f64c7d24000-7f64c7d44000 r-xp 00006000 00:1b 5574782                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-x86_64-linux-gnu.so
+7f64c7d44000-7f64c7d49000 r--p 00026000 00:1b 5574782                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-x86_64-linux-gnu.so
+7f64c7d49000-7f64c7d4a000 r--p 0002a000 00:1b 5574782                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-x86_64-linux-gnu.so
+7f64c7d4a000-7f64c7d4b000 rw-p 0002b000 00:1b 5574782                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-x86_64-linux-gnu.so
+7f64c7d4b000-7f64c7d4c000 rw-p 00000000 00:00 0 
+7f64c7d4c000-7f64c7d4f000 rw-p 00032000 00:1b 5574782                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-x86_64-linux-gnu.so
+7f64c7d4f000-7f64c7d8f000 rw-p 00000000 00:00 0 
+7f64c7d8f000-7f64c7d92000 r--p 00000000 00:1b 5524916                    /home/villares/miniconda3/envs/scikit/lib/libffi.so.8.1.2
+7f64c7d92000-7f64c7d9c000 r-xp 00003000 00:1b 5524916                    /home/villares/miniconda3/envs/scikit/lib/libffi.so.8.1.2
+7f64c7d9c000-7f64c7d9e000 r--p 0000d000 00:1b 5524916                    /home/villares/miniconda3/envs/scikit/lib/libffi.so.8.1.2
+7f64c7d9e000-7f64c7d9f000 r--p 0000e000 00:1b 5524916                    /home/villares/miniconda3/envs/scikit/lib/libffi.so.8.1.2
+7f64c7d9f000-7f64c7da0000 rw-p 0000f000 00:1b 5524916                    /home/villares/miniconda3/envs/scikit/lib/libffi.so.8.1.2
+7f64c7da0000-7f64c7da7000 r--p 00000000 00:1b 5543890                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so
+7f64c7da7000-7f64c7db5000 r-xp 00007000 00:1b 5543890                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so
+7f64c7db5000-7f64c7dbb000 r--p 00015000 00:1b 5543890                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so
+7f64c7dbb000-7f64c7dbc000 r--p 0001a000 00:1b 5543890                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so
+7f64c7dbc000-7f64c7dc0000 rw-p 0001b000 00:1b 5543890                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so
+7f64c7dc0000-7f64c7e00000 rw-p 00000000 00:00 0 
+7f64c7e00000-7f64c7f0a000 r--p 00000000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c7f0a000-7f64c7f12000 r-xp 0010a000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c7f12000-7f64c7f18000 ---p 00112000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c7f18000-7f64c9b99000 r-xp 00118000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c9b99000-7f64c9da9000 r--p 01d99000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c9da9000-7f64c9daa000 ---p 01fa9000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c9daa000-7f64c9db0000 r--p 01fa9000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c9db0000-7f64c9dc7000 rw-p 01faf000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c9dc7000-7f64c9dd3000 rw-p 00000000 00:00 0 
+7f64c9dd3000-7f64c9e7f000 rw-p 020d4000 00:1b 5575254                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so
+7f64c9e80000-7f64ca000000 rw-p 00000000 00:00 0 
+7f64ca000000-7f64ca02b000 r--p 00000000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca02b000-7f64ca509000 r-xp 0002b000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca509000-7f64ca67d000 r--p 00509000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca67d000-7f64ca67e000 ---p 0067d000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca67e000-7f64ca680000 r--p 0067d000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca680000-7f64ca6a3000 rw-p 0067f000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca6a3000-7f64ca6c3000 rw-p 00000000 00:00 0 
+7f64ca6c3000-7f64ca6ce000 rw-p 0070b000 00:1b 5574934                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so
+7f64ca6ce000-7f64ca6d0000 r--p 00000000 00:1b 5543833                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so
+7f64ca6d0000-7f64ca6d1000 r-xp 00002000 00:1b 5543833                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so
+7f64ca6d1000-7f64ca6d2000 r--p 00003000 00:1b 5543833                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so
+7f64ca6d2000-7f64ca6d3000 r--p 00003000 00:1b 5543833                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so
+7f64ca6d3000-7f64ca6d4000 rw-p 00004000 00:1b 5543833                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so
+7f64ca6d4000-7f64ca6d6000 r--p 00000000 00:1b 5543836                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bisect.cpython-39-x86_64-linux-gnu.so
+7f64ca6d6000-7f64ca6d7000 r-xp 00002000 00:1b 5543836                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bisect.cpython-39-x86_64-linux-gnu.so
+7f64ca6d7000-7f64ca6d8000 r--p 00003000 00:1b 5543836                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bisect.cpython-39-x86_64-linux-gnu.so
+7f64ca6d8000-7f64ca6d9000 r--p 00003000 00:1b 5543836                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bisect.cpython-39-x86_64-linux-gnu.so
+7f64ca6d9000-7f64ca6da000 rw-p 00004000 00:1b 5543836                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bisect.cpython-39-x86_64-linux-gnu.so
+7f64ca6da000-7f64ca6e1000 r--p 00000000 00:1b 5574916                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_tests.cpython-39-x86_64-linux-gnu.so
+7f64ca6e1000-7f64ca6f8000 r-xp 00007000 00:1b 5574916                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_tests.cpython-39-x86_64-linux-gnu.so
+7f64ca6f8000-7f64ca6fe000 r--p 0001e000 00:1b 5574916                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_tests.cpython-39-x86_64-linux-gnu.so
+7f64ca6fe000-7f64ca6ff000 r--p 00023000 00:1b 5574916                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_tests.cpython-39-x86_64-linux-gnu.so
+7f64ca6ff000-7f64ca701000 rw-p 00024000 00:1b 5574916                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/numpy/core/_multiarray_tests.cpython-39-x86_64-linux-gnu.so
+7f64ca701000-7f64ca708000 r--p 00000000 00:1b 5543895                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so
+7f64ca708000-7f64ca73a000 r-xp 00007000 00:1b 5543895                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so
+7f64ca73a000-7f64ca74a000 r--p 00039000 00:1b 5543895                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so
+7f64ca74a000-7f64ca74b000 r--p 00048000 00:1b 5543895                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so
+7f64ca74b000-7f64ca74e000 rw-p 00049000 00:1b 5543895                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so
+7f64ca74e000-7f64ca753000 r--p 00000000 00:1b 5543892                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_datetime.cpython-39-x86_64-linux-gnu.so
+7f64ca753000-7f64ca764000 r-xp 00005000 00:1b 5543892                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_datetime.cpython-39-x86_64-linux-gnu.so
+7f64ca764000-7f64ca76a000 r--p 00016000 00:1b 5543892                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_datetime.cpython-39-x86_64-linux-gnu.so
+7f64ca76a000-7f64ca76b000 r--p 0001b000 00:1b 5543892                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_datetime.cpython-39-x86_64-linux-gnu.so
+7f64ca76b000-7f64ca76e000 rw-p 0001c000 00:1b 5543892                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_datetime.cpython-39-x86_64-linux-gnu.so
+7f64ca76e000-7f64ca7ee000 rw-p 00000000 00:00 0 
+7f64ca7ee000-7f64ca7f1000 r--p 00000000 00:1b 5543866                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so
+7f64ca7f1000-7f64ca7f7000 r-xp 00003000 00:1b 5543866                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so
+7f64ca7f7000-7f64ca7f9000 r--p 00009000 00:1b 5543866                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so
+7f64ca7f9000-7f64ca7fa000 r--p 0000a000 00:1b 5543866                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so
+7f64ca7fa000-7f64ca7fb000 rw-p 0000b000 00:1b 5543866                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so
+7f64ca7fb000-7f64ca8fb000 rw-p 00000000 00:00 0 
+7f64ca8fb000-7f64ca8fd000 r--p 00000000 00:1b 5543860                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/binascii.cpython-39-x86_64-linux-gnu.so
+7f64ca8fd000-7f64ca902000 r-xp 00002000 00:1b 5543860                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/binascii.cpython-39-x86_64-linux-gnu.so
+7f64ca902000-7f64ca904000 r--p 00007000 00:1b 5543860                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/binascii.cpython-39-x86_64-linux-gnu.so
+7f64ca904000-7f64ca905000 ---p 00009000 00:1b 5543860                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/binascii.cpython-39-x86_64-linux-gnu.so
+7f64ca905000-7f64ca906000 r--p 00009000 00:1b 5543860                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/binascii.cpython-39-x86_64-linux-gnu.so
+7f64ca906000-7f64ca907000 rw-p 0000a000 00:1b 5543860                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/binascii.cpython-39-x86_64-linux-gnu.so
+7f64ca907000-7f64ca909000 r--p 00000000 00:1b 5543834                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so
+7f64ca909000-7f64ca90a000 r-xp 00002000 00:1b 5543834                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so
+7f64ca90a000-7f64ca90b000 r--p 00003000 00:1b 5543834                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so
+7f64ca90b000-7f64ca90c000 r--p 00003000 00:1b 5543834                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so
+7f64ca90c000-7f64ca90d000 rw-p 00004000 00:1b 5543834                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so
+7f64ca90d000-7f64ca98d000 rw-p 00000000 00:00 0 
+7f64ca98e000-7f64ca990000 r--p 00000000 00:1b 5543841                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/fcntl.cpython-39-x86_64-linux-gnu.so
+7f64ca990000-7f64ca992000 r-xp 00002000 00:1b 5543841                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/fcntl.cpython-39-x86_64-linux-gnu.so
+7f64ca992000-7f64ca994000 r--p 00004000 00:1b 5543841                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/fcntl.cpython-39-x86_64-linux-gnu.so
+7f64ca994000-7f64ca995000 r--p 00005000 00:1b 5543841                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/fcntl.cpython-39-x86_64-linux-gnu.so
+7f64ca995000-7f64ca996000 rw-p 00006000 00:1b 5543841                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/fcntl.cpython-39-x86_64-linux-gnu.so
+7f64ca996000-7f64ca999000 r--p 00000000 00:1b 5543842                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so
+7f64ca999000-7f64ca99a000 r-xp 00003000 00:1b 5543842                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so
+7f64ca99a000-7f64ca99c000 r--p 00004000 00:1b 5543842                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so
+7f64ca99c000-7f64ca99d000 r--p 00005000 00:1b 5543842                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so
+7f64ca99d000-7f64ca99f000 rw-p 00006000 00:1b 5543842                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so
+7f64ca99f000-7f64ca9a3000 r--p 00000000 00:1b 5543874                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/array.cpython-39-x86_64-linux-gnu.so
+7f64ca9a3000-7f64ca9aa000 r-xp 00004000 00:1b 5543874                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/array.cpython-39-x86_64-linux-gnu.so
+7f64ca9aa000-7f64ca9ae000 r--p 0000b000 00:1b 5543874                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/array.cpython-39-x86_64-linux-gnu.so
+7f64ca9ae000-7f64ca9af000 ---p 0000f000 00:1b 5543874                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/array.cpython-39-x86_64-linux-gnu.so
+7f64ca9af000-7f64ca9b0000 r--p 0000f000 00:1b 5543874                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/array.cpython-39-x86_64-linux-gnu.so
+7f64ca9b0000-7f64ca9b1000 rw-p 00010000 00:1b 5543874                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/array.cpython-39-x86_64-linux-gnu.so
+7f64ca9b1000-7f64ca9b6000 r--p 00000000 00:1b 5543881                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_socket.cpython-39-x86_64-linux-gnu.so
+7f64ca9b6000-7f64ca9bf000 r-xp 00005000 00:1b 5543881                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_socket.cpython-39-x86_64-linux-gnu.so
+7f64ca9bf000-7f64ca9c7000 r--p 0000e000 00:1b 5543881                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_socket.cpython-39-x86_64-linux-gnu.so
+7f64ca9c7000-7f64ca9c8000 ---p 00016000 00:1b 5543881                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_socket.cpython-39-x86_64-linux-gnu.so
+7f64ca9c8000-7f64ca9c9000 r--p 00016000 00:1b 5543881                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_socket.cpython-39-x86_64-linux-gnu.so
+7f64ca9c9000-7f64ca9ca000 rw-p 00017000 00:1b 5543881                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_socket.cpython-39-x86_64-linux-gnu.so
+7f64ca9ca000-7f64ca9ce000 r--p 00000000 00:1b 5543884                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_elementtree.cpython-39-x86_64-linux-gnu.so
+7f64ca9ce000-7f64ca9d7000 r-xp 00004000 00:1b 5543884                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_elementtree.cpython-39-x86_64-linux-gnu.so
+7f64ca9d7000-7f64ca9db000 r--p 0000d000 00:1b 5543884                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_elementtree.cpython-39-x86_64-linux-gnu.so
+7f64ca9db000-7f64ca9dc000 r--p 00010000 00:1b 5543884                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_elementtree.cpython-39-x86_64-linux-gnu.so
+7f64ca9dc000-7f64ca9de000 rw-p 00011000 00:1b 5543884                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_elementtree.cpython-39-x86_64-linux-gnu.so
+7f64ca9de000-7f64cab5e000 rw-p 00000000 00:00 0 
+7f64cab5e000-7f64cab63000 r--p 00000000 00:1b 5543891                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_pickle.cpython-39-x86_64-linux-gnu.so
+7f64cab63000-7f64cab76000 r-xp 00005000 00:1b 5543891                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_pickle.cpython-39-x86_64-linux-gnu.so
+7f64cab76000-7f64cab7c000 r--p 00018000 00:1b 5543891                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_pickle.cpython-39-x86_64-linux-gnu.so
+7f64cab7c000-7f64cab7d000 ---p 0001e000 00:1b 5543891                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_pickle.cpython-39-x86_64-linux-gnu.so
+7f64cab7d000-7f64cab7e000 r--p 0001e000 00:1b 5543891                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_pickle.cpython-39-x86_64-linux-gnu.so
+7f64cab7e000-7f64cab80000 rw-p 0001f000 00:1b 5543891                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_pickle.cpython-39-x86_64-linux-gnu.so
+7f64cab80000-7f64cab84000 r--p 00000000 00:1b 5543877                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_struct.cpython-39-x86_64-linux-gnu.so
+7f64cab84000-7f64cab8a000 r-xp 00004000 00:1b 5543877                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_struct.cpython-39-x86_64-linux-gnu.so
+7f64cab8a000-7f64cab8e000 r--p 0000a000 00:1b 5543877                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_struct.cpython-39-x86_64-linux-gnu.so
+7f64cab8e000-7f64cab8f000 r--p 0000d000 00:1b 5543877                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_struct.cpython-39-x86_64-linux-gnu.so
+7f64cab8f000-7f64cab90000 rw-p 0000e000 00:1b 5543877                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_struct.cpython-39-x86_64-linux-gnu.so
+7f64cab90000-7f64cabd0000 rw-p 00000000 00:00 0 
+7f64cabd0000-7f64cabd4000 r--p 00000000 00:1b 5518083                    /home/villares/miniconda3/envs/scikit/lib/liblzma.so.5.4.6
+7f64cabd4000-7f64cabf1000 r-xp 00004000 00:1b 5518083                    /home/villares/miniconda3/envs/scikit/lib/liblzma.so.5.4.6
+7f64cabf1000-7f64cabfd000 r--p 00021000 00:1b 5518083                    /home/villares/miniconda3/envs/scikit/lib/liblzma.so.5.4.6
+7f64cabfd000-7f64cabfe000 ---p 0002d000 00:1b 5518083                    /home/villares/miniconda3/envs/scikit/lib/liblzma.so.5.4.6
+7f64cabfe000-7f64cabff000 r--p 0002d000 00:1b 5518083                    /home/villares/miniconda3/envs/scikit/lib/liblzma.so.5.4.6
+7f64cabff000-7f64cac00000 rw-p 0002e000 00:1b 5518083                    /home/villares/miniconda3/envs/scikit/lib/liblzma.so.5.4.6
+7f64cac00000-7f64cacc3000 r--p 00000000 00:1b 5571606                    /home/villares/miniconda3/envs/scikit/lib/libcrypto.so.3
+7f64cacc3000-7f64cafee000 r-xp 000c3000 00:1b 5571606                    /home/villares/miniconda3/envs/scikit/lib/libcrypto.so.3
+7f64cafee000-7f64cb0d2000 r--p 003ee000 00:1b 5571606                    /home/villares/miniconda3/envs/scikit/lib/libcrypto.so.3
+7f64cb0d2000-7f64cb135000 r--p 004d2000 00:1b 5571606                    /home/villares/miniconda3/envs/scikit/lib/libcrypto.so.3
+7f64cb135000-7f64cb138000 rw-p 00535000 00:1b 5571606                    /home/villares/miniconda3/envs/scikit/lib/libcrypto.so.3
+7f64cb138000-7f64cb13b000 rw-p 00000000 00:00 0 
+7f64cb13b000-7f64cb13c000 r--p 00000000 00:1b 5543823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so
+7f64cb13c000-7f64cb13d000 r-xp 00001000 00:1b 5543823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so
+7f64cb13d000-7f64cb13e000 r--p 00002000 00:1b 5543823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so
+7f64cb13e000-7f64cb13f000 r--p 00002000 00:1b 5543823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so
+7f64cb13f000-7f64cb140000 rw-p 00003000 00:1b 5543823                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so
+7f64cb140000-7f64cb143000 r--p 00000000 00:1b 5543861                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so
+7f64cb143000-7f64cb147000 r-xp 00003000 00:1b 5543861                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so
+7f64cb147000-7f64cb14a000 r--p 00007000 00:1b 5543861                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so
+7f64cb14a000-7f64cb14b000 r--p 00009000 00:1b 5543861                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so
+7f64cb14b000-7f64cb14c000 rw-p 0000a000 00:1b 5543861                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so
+7f64cb14c000-7f64cb14f000 r--p 00000000 00:1b 5543882                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bz2.cpython-39-x86_64-linux-gnu.so
+7f64cb14f000-7f64cb15e000 r-xp 00003000 00:1b 5543882                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bz2.cpython-39-x86_64-linux-gnu.so
+7f64cb15e000-7f64cb161000 r--p 00012000 00:1b 5543882                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bz2.cpython-39-x86_64-linux-gnu.so
+7f64cb161000-7f64cb162000 r--p 00014000 00:1b 5543882                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bz2.cpython-39-x86_64-linux-gnu.so
+7f64cb162000-7f64cb164000 rw-p 00015000 00:1b 5543882                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_bz2.cpython-39-x86_64-linux-gnu.so
+7f64cb164000-7f64cb167000 r--p 00000000 00:1b 5540848                    /home/villares/miniconda3/envs/scikit/lib/libz.so.1.2.13
+7f64cb167000-7f64cb179000 r-xp 00003000 00:1b 5540848                    /home/villares/miniconda3/envs/scikit/lib/libz.so.1.2.13
+7f64cb179000-7f64cb180000 r--p 00015000 00:1b 5540848                    /home/villares/miniconda3/envs/scikit/lib/libz.so.1.2.13
+7f64cb180000-7f64cb181000 r--p 0001b000 00:1b 5540848                    /home/villares/miniconda3/envs/scikit/lib/libz.so.1.2.13
+7f64cb181000-7f64cb182000 rw-p 0001c000 00:1b 5540848                    /home/villares/miniconda3/envs/scikit/lib/libz.so.1.2.13
+7f64cb182000-7f64cb185000 r--p 00000000 00:1b 5543858                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/zlib.cpython-39-x86_64-linux-gnu.so
+7f64cb185000-7f64cb188000 r-xp 00003000 00:1b 5543858                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/zlib.cpython-39-x86_64-linux-gnu.so
+7f64cb188000-7f64cb18b000 r--p 00006000 00:1b 5543858                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/zlib.cpython-39-x86_64-linux-gnu.so
+7f64cb18b000-7f64cb18c000 r--p 00008000 00:1b 5543858                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/zlib.cpython-39-x86_64-linux-gnu.so
+7f64cb18c000-7f64cb18d000 rw-p 00009000 00:1b 5543858                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/zlib.cpython-39-x86_64-linux-gnu.so
+7f64cb18d000-7f64cb24d000 rw-p 00000000 00:00 0 
+7f64cb24d000-7f64cb251000 r--p 00000000 00:1b 5543878                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so
+7f64cb251000-7f64cb259000 r-xp 00004000 00:1b 5543878                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so
+7f64cb259000-7f64cb25d000 r--p 0000c000 00:1b 5543878                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so
+7f64cb25d000-7f64cb25e000 ---p 00010000 00:1b 5543878                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so
+7f64cb25e000-7f64cb25f000 r--p 00010000 00:1b 5543878                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so
+7f64cb25f000-7f64cb260000 rw-p 00011000 00:1b 5543878                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so
+7f64cb260000-7f64cb263000 r--p 00000000 00:1b 5543859                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/select.cpython-39-x86_64-linux-gnu.so
+7f64cb263000-7f64cb266000 r-xp 00003000 00:1b 5543859                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/select.cpython-39-x86_64-linux-gnu.so
+7f64cb266000-7f64cb268000 r--p 00006000 00:1b 5543859                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/select.cpython-39-x86_64-linux-gnu.so
+7f64cb268000-7f64cb269000 ---p 00008000 00:1b 5543859                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/select.cpython-39-x86_64-linux-gnu.so
+7f64cb269000-7f64cb26a000 r--p 00008000 00:1b 5543859                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/select.cpython-39-x86_64-linux-gnu.so
+7f64cb26a000-7f64cb26b000 rw-p 00009000 00:1b 5543859                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/select.cpython-39-x86_64-linux-gnu.so
+7f64cb26b000-7f64cb32b000 rw-p 00000000 00:00 0 
+7f64cb32b000-7f64cb3d4000 r--p 00000000 00:1b 5712285                    /home/villares/miniconda3/envs/scikit/lib/libstdc++.so.6.0.32
+7f64cb3d4000-7f64cb474000 r-xp 000a9000 00:1b 5712285                    /home/villares/miniconda3/envs/scikit/lib/libstdc++.so.6.0.32
+7f64cb474000-7f64cb4fb000 r--p 00149000 00:1b 5712285                    /home/villares/miniconda3/envs/scikit/lib/libstdc++.so.6.0.32
+7f64cb4fb000-7f64cb506000 r--p 001cf000 00:1b 5712285                    /home/villares/miniconda3/envs/scikit/lib/libstdc++.so.6.0.32
+7f64cb506000-7f64cb50a000 rw-p 001da000 00:1b 5712285                    /home/villares/miniconda3/envs/scikit/lib/libstdc++.so.6.0.32
+7f64cb50a000-7f64cb50e000 rw-p 00000000 00:00 0 
+7f64cb50e000-7f64cb549000 r--p 00000000 00:1b 5575845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+7f64cb549000-7f64cb59d000 r-xp 0003b000 00:1b 5575845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+7f64cb59d000-7f64cb5c5000 r--p 0008f000 00:1b 5575845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+7f64cb5c5000-7f64cb5c6000 ---p 000b7000 00:1b 5575845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+7f64cb5c6000-7f64cb5ca000 r--p 000b7000 00:1b 5575845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+7f64cb5ca000-7f64cb5ce000 rw-p 000bb000 00:1b 5575845                    /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/_jpype.cpython-39-x86_64-linux-gnu.so
+7f64cb5ce000-7f64cb7ce000 rw-p 00000000 00:00 0 
+7f64cb7ce000-7f64cb7cf000 r--p 00000000 00:00 0 
+7f64cb7cf000-7f64cb7d1000 r--p 00000000 00:1b 5543848                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_posixsubprocess.cpython-39-x86_64-linux-gnu.so
+7f64cb7d1000-7f64cb7d3000 r-xp 00002000 00:1b 5543848                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_posixsubprocess.cpython-39-x86_64-linux-gnu.so
+7f64cb7d3000-7f64cb7d4000 r--p 00004000 00:1b 5543848                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_posixsubprocess.cpython-39-x86_64-linux-gnu.so
+7f64cb7d4000-7f64cb7d5000 r--p 00004000 00:1b 5543848                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_posixsubprocess.cpython-39-x86_64-linux-gnu.so
+7f64cb7d5000-7f64cb7d6000 rw-p 00005000 00:1b 5543848                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_posixsubprocess.cpython-39-x86_64-linux-gnu.so
+7f64cb7d6000-7f64cb7d8000 r--p 00000000 00:1b 5543880                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_blake2.cpython-39-x86_64-linux-gnu.so
+7f64cb7d8000-7f64cb7e0000 r-xp 00002000 00:1b 5543880                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_blake2.cpython-39-x86_64-linux-gnu.so
+7f64cb7e0000-7f64cb7e2000 r--p 0000a000 00:1b 5543880                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_blake2.cpython-39-x86_64-linux-gnu.so
+7f64cb7e2000-7f64cb7e3000 r--p 0000b000 00:1b 5543880                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_blake2.cpython-39-x86_64-linux-gnu.so
+7f64cb7e3000-7f64cb7e4000 rw-p 0000c000 00:1b 5543880                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_blake2.cpython-39-x86_64-linux-gnu.so
+7f64cb7e4000-7f64cb824000 rw-p 00000000 00:00 0 
+7f64cb824000-7f64cb834000 r--p 00000000 00:1b 5545057                    /home/villares/miniconda3/envs/scikit/lib/libtinfow.so.6.4
+7f64cb834000-7f64cb850000 r-xp 00010000 00:1b 5545057                    /home/villares/miniconda3/envs/scikit/lib/libtinfow.so.6.4
+7f64cb850000-7f64cb861000 r--p 0002c000 00:1b 5545057                    /home/villares/miniconda3/envs/scikit/lib/libtinfow.so.6.4
+7f64cb861000-7f64cb865000 r--p 0003c000 00:1b 5545057                    /home/villares/miniconda3/envs/scikit/lib/libtinfow.so.6.4
+7f64cb865000-7f64cb866000 rw-p 00040000 00:1b 5545057                    /home/villares/miniconda3/envs/scikit/lib/libtinfow.so.6.4
+7f64cb866000-7f64cb87f000 r--p 00000000 00:1b 5521039                    /home/villares/miniconda3/envs/scikit/lib/libreadline.so.8.2
+7f64cb87f000-7f64cb8ab000 r-xp 00019000 00:1b 5521039                    /home/villares/miniconda3/envs/scikit/lib/libreadline.so.8.2
+7f64cb8ab000-7f64cb8b5000 r--p 00045000 00:1b 5521039                    /home/villares/miniconda3/envs/scikit/lib/libreadline.so.8.2
+7f64cb8b5000-7f64cb8b6000 ---p 0004f000 00:1b 5521039                    /home/villares/miniconda3/envs/scikit/lib/libreadline.so.8.2
+7f64cb8b6000-7f64cb8b9000 r--p 0004f000 00:1b 5521039                    /home/villares/miniconda3/envs/scikit/lib/libreadline.so.8.2
+7f64cb8b9000-7f64cb8bf000 rw-p 00052000 00:1b 5521039                    /home/villares/miniconda3/envs/scikit/lib/libreadline.so.8.2
+7f64cb8bf000-7f64cba00000 rw-p 00000000 00:00 0 
+7f64cba00000-7f64cbced000 r--p 00000000 00:1b 1331923                    /usr/lib/locale/locale-archive
+7f64cbced000-7f64cbcee000 ---p 00000000 00:00 0 
+7f64cbcee000-7f64cbcef000 r--p 00000000 00:00 0 
+7f64cbcef000-7f64cbcf0000 ---p 00000000 00:00 0 
+7f64cbcf0000-7f64cbcf2000 r--p 00000000 00:1b 5543838                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/grp.cpython-39-x86_64-linux-gnu.so
+7f64cbcf2000-7f64cbcf3000 r-xp 00002000 00:1b 5543838                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/grp.cpython-39-x86_64-linux-gnu.so
+7f64cbcf3000-7f64cbcf4000 r--p 00003000 00:1b 5543838                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/grp.cpython-39-x86_64-linux-gnu.so
+7f64cbcf4000-7f64cbcf5000 r--p 00003000 00:1b 5543838                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/grp.cpython-39-x86_64-linux-gnu.so
+7f64cbcf5000-7f64cbcf6000 rw-p 00004000 00:1b 5543838                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/grp.cpython-39-x86_64-linux-gnu.so
+7f64cbcf6000-7f64cbcfa000 r--p 00000000 00:1b 5543873                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so
+7f64cbcfa000-7f64cbd00000 r-xp 00004000 00:1b 5543873                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so
+7f64cbd00000-7f64cbd04000 r--p 0000a000 00:1b 5543873                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so
+7f64cbd04000-7f64cbd05000 r--p 0000d000 00:1b 5543873                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so
+7f64cbd05000-7f64cbd06000 rw-p 0000e000 00:1b 5543873                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so
+7f64cbd06000-7f64cbd07000 r--p 00000000 00:1b 5543826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_opcode.cpython-39-x86_64-linux-gnu.so
+7f64cbd07000-7f64cbd08000 r-xp 00001000 00:1b 5543826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_opcode.cpython-39-x86_64-linux-gnu.so
+7f64cbd08000-7f64cbd09000 r--p 00002000 00:1b 5543826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_opcode.cpython-39-x86_64-linux-gnu.so
+7f64cbd09000-7f64cbd0a000 r--p 00002000 00:1b 5543826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_opcode.cpython-39-x86_64-linux-gnu.so
+7f64cbd0a000-7f64cbd0b000 rw-p 00003000 00:1b 5543826                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_opcode.cpython-39-x86_64-linux-gnu.so
+7f64cbd0b000-7f64cbd0c000 r--p 00000000 00:1b 5543856                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_heapq.cpython-39-x86_64-linux-gnu.so
+7f64cbd0c000-7f64cbd0f000 r-xp 00001000 00:1b 5543856                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_heapq.cpython-39-x86_64-linux-gnu.so
+7f64cbd0f000-7f64cbd12000 r--p 00004000 00:1b 5543856                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_heapq.cpython-39-x86_64-linux-gnu.so
+7f64cbd12000-7f64cbd13000 r--p 00006000 00:1b 5543856                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_heapq.cpython-39-x86_64-linux-gnu.so
+7f64cbd13000-7f64cbd14000 rw-p 00007000 00:1b 5543856                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_heapq.cpython-39-x86_64-linux-gnu.so
+7f64cbd14000-7f64cbd58000 rw-p 00000000 00:00 0 
+7f64cbd58000-7f64cbd80000 r--p 00000000 00:1b 1331211                    /usr/lib/libc.so.6
+7f64cbd80000-7f64cbedb000 r-xp 00028000 00:1b 1331211                    /usr/lib/libc.so.6
+7f64cbedb000-7f64cbf30000 r--p 00183000 00:1b 1331211                    /usr/lib/libc.so.6
+7f64cbf30000-7f64cbf34000 r--p 001d7000 00:1b 1331211                    /usr/lib/libc.so.6
+7f64cbf34000-7f64cbf36000 rw-p 001db000 00:1b 1331211                    /usr/lib/libc.so.6
+7f64cbf36000-7f64cbf3e000 rw-p 00000000 00:00 0 
+7f64cbf3e000-7f64cbf4e000 r--p 00000000 00:1b 1331220                    /usr/lib/libm.so.6
+7f64cbf4e000-7f64cbfce000 r-xp 00010000 00:1b 1331220                    /usr/lib/libm.so.6
+7f64cbfce000-7f64cc02a000 r--p 00090000 00:1b 1331220                    /usr/lib/libm.so.6
+7f64cc02a000-7f64cc02b000 r--p 000eb000 00:1b 1331220                    /usr/lib/libm.so.6
+7f64cc02b000-7f64cc02c000 rw-p 000ec000 00:1b 1331220                    /usr/lib/libm.so.6
+7f64cc02c000-7f64cc02d000 r--p 00000000 00:1b 1331244                    /usr/lib/libutil.so.1
+7f64cc02d000-7f64cc02e000 r-xp 00001000 00:1b 1331244                    /usr/lib/libutil.so.1
+7f64cc02e000-7f64cc02f000 r--p 00002000 00:1b 1331244                    /usr/lib/libutil.so.1
+7f64cc02f000-7f64cc030000 r--p 00002000 00:1b 1331244                    /usr/lib/libutil.so.1
+7f64cc030000-7f64cc031000 rw-p 00003000 00:1b 1331244                    /usr/lib/libutil.so.1
+7f64cc031000-7f64cc032000 r--p 00000000 00:1b 1331213                    /usr/lib/libdl.so.2
+7f64cc032000-7f64cc033000 r-xp 00001000 00:1b 1331213                    /usr/lib/libdl.so.2
+7f64cc033000-7f64cc034000 r--p 00002000 00:1b 1331213                    /usr/lib/libdl.so.2
+7f64cc034000-7f64cc035000 r--p 00002000 00:1b 1331213                    /usr/lib/libdl.so.2
+7f64cc035000-7f64cc036000 rw-p 00003000 00:1b 1331213                    /usr/lib/libdl.so.2
+7f64cc036000-7f64cc037000 r--p 00000000 00:1b 1331235                    /usr/lib/libpthread.so.0
+7f64cc037000-7f64cc038000 r-xp 00001000 00:1b 1331235                    /usr/lib/libpthread.so.0
+7f64cc038000-7f64cc039000 r--p 00002000 00:1b 1331235                    /usr/lib/libpthread.so.0
+7f64cc039000-7f64cc03a000 r--p 00002000 00:1b 1331235                    /usr/lib/libpthread.so.0
+7f64cc03a000-7f64cc03b000 rw-p 00003000 00:1b 1331235                    /usr/lib/libpthread.so.0
+7f64cc03b000-7f64cc03e000 r--p 00000000 00:1b 5543854                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so
+7f64cc03e000-7f64cc040000 r-xp 00003000 00:1b 5543854                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so
+7f64cc040000-7f64cc042000 r--p 00005000 00:1b 5543854                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so
+7f64cc042000-7f64cc043000 r--p 00006000 00:1b 5543854                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so
+7f64cc043000-7f64cc044000 rw-p 00007000 00:1b 5543854                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so
+7f64cc044000-7f64cc045000 r--p 00000000 00:1b 5543824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so
+7f64cc045000-7f64cc046000 r-xp 00001000 00:1b 5543824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so
+7f64cc046000-7f64cc047000 r--p 00002000 00:1b 5543824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so
+7f64cc047000-7f64cc048000 r--p 00002000 00:1b 5543824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so
+7f64cc048000-7f64cc049000 rw-p 00003000 00:1b 5543824                    /home/villares/miniconda3/envs/scikit/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so
+7f64cc049000-7f64cc04a000 r--p 00000000 00:1b 1331240                    /usr/lib/librt.so.1
+7f64cc04a000-7f64cc04b000 r-xp 00001000 00:1b 1331240                    /usr/lib/librt.so.1
+7f64cc04b000-7f64cc04c000 r--p 00002000 00:1b 1331240                    /usr/lib/librt.so.1
+7f64cc04c000-7f64cc04d000 r--p 00002000 00:1b 1331240                    /usr/lib/librt.so.1
+7f64cc04d000-7f64cc04e000 rw-p 00003000 00:1b 1331240                    /usr/lib/librt.so.1
+7f64cc04e000-7f64cc052000 r--p 00000000 00:1b 5551530                    /home/villares/miniconda3/envs/scikit/lib/libgcc_s.so.1
+7f64cc052000-7f64cc064000 r-xp 00004000 00:1b 5551530                    /home/villares/miniconda3/envs/scikit/lib/libgcc_s.so.1
+7f64cc064000-7f64cc067000 r--p 00016000 00:1b 5551530                    /home/villares/miniconda3/envs/scikit/lib/libgcc_s.so.1
+7f64cc067000-7f64cc068000 r--p 00019000 00:1b 5551530                    /home/villares/miniconda3/envs/scikit/lib/libgcc_s.so.1
+7f64cc068000-7f64cc069000 rw-p 0001a000 00:1b 5551530                    /home/villares/miniconda3/envs/scikit/lib/libgcc_s.so.1
+7f64cc069000-7f64cc06b000 rw-p 00000000 00:00 0 
+7f64cc06b000-7f64cc06c000 r--p 00000000 00:1b 1331199                    /usr/lib/ld-linux-x86-64.so.2
+7f64cc06c000-7f64cc093000 r-xp 00001000 00:1b 1331199                    /usr/lib/ld-linux-x86-64.so.2
+7f64cc093000-7f64cc09e000 r--p 00028000 00:1b 1331199                    /usr/lib/ld-linux-x86-64.so.2
+7f64cc09e000-7f64cc0a0000 r--p 00032000 00:1b 1331199                    /usr/lib/ld-linux-x86-64.so.2
+7f64cc0a0000-7f64cc0a2000 rw-p 00034000 00:1b 1331199                    /usr/lib/ld-linux-x86-64.so.2
+7ffd87bc0000-7ffd87bc4000 ---p 00000000 00:00 0 
+7ffd87bc4000-7ffd87cc0000 rw-p 00000000 00:00 0                          [stack]
+7ffd87d9c000-7ffd87da0000 r--p 00000000 00:00 0                          [vvar]
+7ffd87da0000-7ffd87da2000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): /home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/core.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/gluegen-rt.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/jogl-all.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/py5.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/dxf/dxf.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/pdf/itext.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/pdf/pdf.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/svg/batik.jar:/home/villares/miniconda3/envs/scikit/lib/python3.9/site-packages/py5/jars/svg/svg.jar
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 130023424                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2061500416                                {product} {ergonomic}
+   size_t MaxNewSize                               = 1236271104                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2061500416                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/home/villares/miniconda3/condabin:/home/villares/GitHub/doutorado/scripts/:/home/villares/GitHub/sketch-a-day/admin_scripts/:/home/villares/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+SHELL=/bin/bash
+DISPLAY=:0.0
+LANG=en_GB.utf8
+LC_NUMERIC=pt_BR.UTF-8
+LC_TIME=pt_BR.UTF-8
+TERM=xterm-256color
+
+Active Locale:
+LC_ALL=LC_CTYPE=en_GB.UTF-8;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=C;LC_PAPER=pt_BR.UTF-8;LC_NAME=pt_BR.UTF-8;LC_ADDRESS=pt_BR.UTF-8;LC_TELEPHONE=pt_BR.UTF-8;LC_MEASUREMENT=pt_BR.UTF-8;LC_IDENTIFICATION=pt_BR.UTF-8
+LC_COLLATE=C
+LC_CTYPE=en_GB.UTF-8
+LC_MESSAGES=C
+LC_MONETARY=C
+LC_NUMERIC=C
+LC_TIME=C
+
+Signal Handlers:
+   SIGSEGV: 0x00007f64b3738d90 in libjvm.so+15961488, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: 0x00007f64b3738d90 in libjvm.so+15961488, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: 0x00007f64b3738d90 in libjvm.so+15961488, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: 0x00007f64b35cf990 in libjvm.so+14481808, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGXFSZ: 0x00007f64b35cf990 in libjvm.so+14481808, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGILL: 0x00007f64b3738d90 in libjvm.so+15961488, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: 0x00007f64b35cf020 in libjvm.so+14479392, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGHUP: 0x00007f64b35cef30 in libjvm.so+14479152, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGINT: 0x00007f64b35cef30 in libjvm.so+14479152, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTERM: 0x00007f64b35cef30 in libjvm.so+14479152, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGQUIT: 0x00007f64b35cef30 in libjvm.so+14479152, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: 0x00007f64b3738d90 in libjvm.so+15961488, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+DISTRIB_ID="ManjaroLinux"
+DISTRIB_RELEASE="23.1.4"
+DISTRIB_CODENAME="Vulcan"
+DISTRIB_DESCRIPTION="Manjaro Linux"
+uname: Linux 6.6.25-1-MANJARO #1 SMP PREEMPT_DYNAMIC Thu Apr  4 20:32:38 UTC 2024 x86_64
+OS uptime: 0 days 2:50 hours
+libc: glibc 2.39 NPTL 2.39 
+rlimit (soft/hard): STACK 8192k/infinity , CORE infinity/infinity , NPROC 31318/31318 , NOFILE 524288/524288 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 8192k/8192k
+load average: 1.00 1.27 1.32
+
+/proc/meminfo:
+MemTotal:        8052564 kB
+MemFree:          144244 kB
+MemAvailable:    1957988 kB
+Buffers:              20 kB
+Cached:          2181788 kB
+SwapCached:        72380 kB
+Active:          5099924 kB
+Inactive:        1690228 kB
+Active(anon):    4479596 kB
+Inactive(anon):   334248 kB
+Active(file):     620328 kB
+Inactive(file):  1355980 kB
+Unevictable:         112 kB
+Mlocked:             112 kB
+SwapTotal:       9015288 kB
+SwapFree:        7106296 kB
+Zswap:            416408 kB
+Zswapped:        1527700 kB
+Dirty:              1464 kB
+Writeback:            24 kB
+AnonPages:       4590072 kB
+Mapped:           664740 kB
+Shmem:            205240 kB
+KReclaimable:     120412 kB
+Slab:             329152 kB
+SReclaimable:     120412 kB
+SUnreclaim:       208740 kB
+KernelStack:       30992 kB
+PageTables:        68540 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    13041568 kB
+Committed_AS:   15812728 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       82832 kB
+VmallocChunk:          0 kB
+Percpu:             5312 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    299008 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:     88064 kB
+FilePmdMapped:     83968 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+Unaccepted:            0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      201340 kB
+DirectMap2M:     4960256 kB
+DirectMap1G:     4194304 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled: [always] madvise never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter): always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 6563572K (peak: 6629108K)
+Resident Set Size: 211308K (peak: 218676K) (anon: 160384K, file: 48492K, shmem: 2432K)
+Swapped out: 0K
+C-Heap outstanding allocations: 60163K, retained: 17676K
+glibc malloc tunables: (default)
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads): 62636
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have): 65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers): 4194304
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: not supported
+cpu_memory_nodes: not supported
+active_processor_count: 8
+cpu_quota: no quota
+cpu_period: 100000
+cpu_shares: no shares
+memory_limit_in_bytes: unlimited
+memory_and_swap_limit_in_bytes: unlimited
+memory_soft_limit_in_bytes: unlimited
+memory_usage_in_bytes: 6213736 k
+memory_max_usage_in_bytes: not supported
+memory_swap_current_in_bytes: 1629296 k
+memory_swap_max_limit_in_bytes: unlimited
+maximum number of tasks: unlimited
+current number of tasks: 1328
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 158 stepping 13 microcode 0xfa, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Core(TM) i5-9300HF CPU @ 2.40GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi md_clear flush_l1d arch_capabilities
+
+Online cpus: 0-7
+Offline cpus: 
+BIOS frequency limitation: <Not Available>
+Frequency switch latency (ns): 0
+Available cpu frequencies: <Not Available>
+Current governor: powersave
+Core performance/turbo boost: <Not Available>
+
+Memory: 4k page, physical 8052564k(144244k free), swap 9015288k(7106296k free)
+Page Sizes: 4k
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.10+7) for linux-amd64 JRE (17.0.10+7), built on Jan 16 2024 22:32:35 by "builduser" with gcc 13.2.1 20230801
+
+END.
