@@ -5,8 +5,6 @@ from itertools import product, combinations, permutations
 
 from shapely import Polygon
 
-from villares.line_geometry import edges_as_sets, poly_area, triangle_area, is_poly_self_intersecting
-
 space, border = 100, 50
 name = "shapes"
 
@@ -73,3 +71,46 @@ def create_polys(pts, num_pts=None, allow_intersecting=False):
             polys.append(poly)
     return [poly for poly in polys
             if Polygon(poly).is_valid]
+
+
+# def points_are_colinear(ax, ay, bx, by, cx, cy,
+#                         tolerance=EPSILON):
+#     """
+#     Test for colinearity by calculating the area
+#     of a triangle formed by the 3 points.
+#     """
+#     area = triangle_area((ax, ay), (bx, by), (cx, cy))
+#     return abs(area) < tolerance
+# 
+# 
+# def triangle_area(a, b, c):
+#     area = (a[0] * (b[1] - c[1]) +
+#             b[0] * (c[1] - a[1]) +
+#             c[0] * (a[1] - b[1]))
+#     return area
+
+def edges_as_sets(poly_points, frozen=True):
+    """
+    Return a (frozen)set of poly edges as frozensets of 2 points.
+    """
+    if frozen:
+        return frozenset(frozenset(edge) for edge in poly_edges(poly_points))
+    else:
+        return set(frozenset(edge) for edge in poly_edges(poly_points))
+
+def poly_edges(poly_points):
+    """
+    Return a list of edges (tuples containing pairs of points)
+    for a list of points that represent a closed polygon
+    """
+    return pairwise(poly_points) + [(poly_points[-1], poly_points[0])]
+
+def pairwise(iterable):
+    from itertools import tee
+    "s -> (s0, s1), (s1, s2), (s2, s3), ..."
+    a, b = tee(iterable)
+    next(b, None)
+    return list(zip(a, b))
+
+def poly_area(points):
+    return Polygon(points).area
