@@ -1,13 +1,11 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/
-# To run this you will need py5 imported mode
+# To run this you will need py5 imported mode https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
 
 from itertools import product, combinations, permutations
 
 from shapely import Polygon
 
 from villares.line_geometry import edges_as_sets, poly_area, triangle_area, is_poly_self_intersecting
-
-
 
 space, border = 100, 50
 name = "shapes"
@@ -61,6 +59,9 @@ def draw_scaled_poly(p_list, s):
 def create_polys(pts, num_pts=None, allow_intersecting=False):
     """
     Generate all distinct shapes/polygons from a collection of pts.
+    
+    WIP from a prevevious sketch...
+    I have to get the colinear points elimination code back...
     """
     num_pts = num_pts or len(pts)
     all_polys = list(permutations(pts, num_pts))
@@ -71,5 +72,4 @@ def create_polys(pts, num_pts=None, allow_intersecting=False):
             tested.add(edges)
             polys.append(poly)
     return [poly for poly in polys
-            if Polygon(poly).is_valid
-            ]
+            if Polygon(poly).is_valid]
