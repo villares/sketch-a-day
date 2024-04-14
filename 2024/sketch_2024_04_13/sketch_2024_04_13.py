@@ -13,7 +13,7 @@ def setup():
     grid = product((-1, 1), (-1, 1))  # 3X3
     pts = list(grid) + [(0, 0)]
     polys = []
-    for i in range(3, 8): # 3 to 7, as no non-intersecting polys exist with 8 or 9 pts.
+    for i in range(3, 6):
         polys.extend(create_polys(pts, i))
     polys.sort(key=poly_area)
     print(len(polys))
@@ -43,11 +43,11 @@ def setup():
     save_frame(name + '.png')
 
 def draw_scaled_poly(p_list, s):
-    no_stroke()
-    begin_shape()
-    for p in p_list:
-        vertex(p[0] * s, p[1] * s)
-    end_shape(CLOSE)
+    with push_matrix(), begin_closed_shape():
+        scale(s)
+        no_stroke()
+        vertices(p_list)
+    # "debug mode"
     stroke(255)
     stroke_weight(5)
     for p in p_list:
