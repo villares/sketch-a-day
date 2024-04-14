@@ -14,15 +14,15 @@ from villares.line_geometry import edges_as_sets, poly_area, triangle_area, is_p
 
 
 
-space, border = 60, 30
+space, border = 100, 50
 name = "shapes"
 
 def setup():
-    size(850, 790)  # 24 x 22
-    grid = product((-1, -0.32, 0.32, 1), (-1, 1))  # 3X3
-    pts = list(grid)
+    size(700, 400)  # 24 x 22
+    grid = product((-1, 1), (-1, 1))  # 3X3
+    pts = list(grid) + [(0, 0)]
     polys = []
-    for i in range(3, 7): # 3 to 7, as no non-intersecting polys exist with 8 or 9 pts.
+    for i in range(3, 8): # 3 to 7, as no non-intersecting polys exist with 8 or 9 pts.
         polys.extend(create_polys(pts, i))
     polys.sort(key=poly_area)
     print(len(polys))
@@ -44,6 +44,7 @@ def setup():
             translate(border  + space / 2 + space * x,
                     border + space / 2 + space * y)
             fill(0)
+            no_stroke()
             draw_scaled_poly(polys[i], space * 0.4)
             pop_matrix()
             i += 1
@@ -51,10 +52,16 @@ def setup():
     save_frame(name + '.png')
 
 def draw_scaled_poly(p_list, s):
+    no_stroke()
     begin_shape()
     for p in p_list:
         vertex(p[0] * s, p[1] * s)
     end_shape(CLOSE)
+    stroke(255)
+    stroke_weight(5)
+    for p in p_list:
+        point(p[0] * s, p[1] * s)
+    
 
 def create_polys(pts, num_pts=None, allow_intersecting=False):
     """
