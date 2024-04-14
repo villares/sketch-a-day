@@ -8,7 +8,11 @@ Polygons on a 3 x 2, grid
 
 from itertools import product, combinations, permutations
 
+from shapely import Polygon
+
 from villares.line_geometry import edges_as_sets, poly_area, triangle_area, is_poly_self_intersecting
+
+
 
 space, border = 60, 30
 name = "shapes"
@@ -65,19 +69,5 @@ def create_polys(pts, num_pts=None, allow_intersecting=False):
             tested.add(edges)
             polys.append(poly)
     return [poly for poly in polys
-            if (allow_intersecting or not is_poly_self_intersecting(poly))
-            and not collapsed(poly)
+            if Polygon(poly).is_valid
             ]
-
-def collapsed(poly):
-    for i, c in enumerate(poly):
-        a = poly[i - 2]
-        b = poly[i - 1]
-        if triangle_area(a, b, c) == 0:
-            return True
-        if midpoint(a, b) in poly:
-            return True
-    return False
-
-def midpoint(a, b):
-    return (a[0] + b[0]) / 2.0, (a[1] + b[1]) / 2.0
