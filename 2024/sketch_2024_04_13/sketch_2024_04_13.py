@@ -1,10 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/
-# To run this you will need Processing 3.5.4 + Python mode, instructions at: 
-# https://abav.lugaralgum.com/como-instalar-o-processing-modo-python/index-EN.html
-
-"""
-Polygons on a 3 x 2, grid
-"""
+# To run this you will need py5 imported mode
 
 from itertools import product, combinations, permutations
 
