@@ -41,8 +41,9 @@ class Shape(object):
         """
         p = self.translate()
         h = hash(p.edges)
+        # this is wrong: not rotating itself after the first rotation
         for _ in range(4):
-            rtp = p.rotate().translate()
+            rtp = p.rotate().translate() 
             h = min(h, hash(rtp.edges))
         if Shape.remove_flipped:
             fp = self.flip().translate()
