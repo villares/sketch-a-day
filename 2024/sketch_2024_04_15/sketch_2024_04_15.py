@@ -12,7 +12,7 @@ name = "shapes"
 
 def setup():
     global polys
-    py5.size(600, 500)  
+    py5.size(600, 400)  
     grid = product((0, 1, 2), (0, 1, 2))  # 3X3
     pts = list(grid)
     polys = []

@@ -12,7 +12,8 @@ class Shape(object):
     remove_flipped = False
 
     def __init__(self, iterable):
-        self.points = tuple([Point(*s) for s in iterable])
+        self.points = tuple(Point(*s) for s in iterable)
+        self.translate_points()
         self.poly = Polygon(self.points)
         self.is_valid = self.points and self.poly.is_valid
         self.area = self.poly.area
@@ -68,6 +69,13 @@ class Shape(object):
     def flip(self):
         """Return a Shape flipped"""
         return Shape((-x, y) for x, y in self)
+
+    def translate_points(self):
+        """Return a Shape Translated to 0,0"""
+        minX = min(s.x for s in self.points)
+        minY = min(s.y for s in self.points)
+        self.points = tuple(Point(x - minX, y - minY) for x, y
+                            in self.points)
 
     def translate(self):
         """Return a Shape Translated to 0,0"""
