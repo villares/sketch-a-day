@@ -66,8 +66,6 @@ def create_polys(pts, num_pts=None, allow_intersecting=False):
             s.edges not in tested
             ):
             tested.add(s.edges)
-            tested.add(s.edges)
-
             polys.append(s)
     
     return polys
