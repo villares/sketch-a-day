@@ -20,8 +20,10 @@ def setup():
     H = int(py5.height - border * 2) // space
 
     shapes = []
+    m = py5.millis()
     for i in [4]: # 3 to 7, as no non-intersecting shapes exist with 8 or 9 pts.
         shapes.extend(Shape.all_from_points(pts, i))
+    print(py5.millis() - m)
     
     def shape_area(s):
         return s.area
