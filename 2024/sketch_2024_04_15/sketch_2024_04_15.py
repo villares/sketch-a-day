@@ -1,5 +1,5 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/
-# To run this you will need py5 imported mode https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
+# To run this you will need py5 https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
 
 from itertools import product, combinations, permutations
 
@@ -42,10 +42,6 @@ def setup():
                 py5.fill(0, 0, 32)
                 shp.draw(space * 0.4)
                 py5.fill(255, 0, 0)
-#                 print(shp.points[0])
-#                 cx, cy = shp.points[0]
-#                 py5.circle(cx * space * 0.4, cy * space * 0.4, 4)
-#                 print(shp)
             i += 1
     py5.end_record()  # end PDF export
     py5.save_frame(name + '.png')
