@@ -1,8 +1,8 @@
 from functools import cache
+from itertools import permutations
 
 from shapely import Polygon
 import py5
-
 
 
 class Shape(object):
@@ -11,7 +11,7 @@ class Shape(object):
 
     def __init__(self, iterable):
         points_tuple = tuple((x, y) for x, y in iterable)
-        self.points = Shape.translate_points(points_tuple)
+        self.points = translate_points(points_tuple)
         self.poly = Polygon(self.points)
         self.is_valid = self.points and self.poly.is_valid
         self.area = self.poly.area
@@ -20,7 +20,7 @@ class Shape(object):
         self.edges = edges_as_sets(self.points)
 
     def __repr__(self):
-        return "%s(%s)" % (self.__class__.__name__, repr(self.points))
+        return f'{self.__class__.__name__}({self.points})'
 
     def __iter__(self):
         return iter(self.points)
@@ -50,7 +50,6 @@ class Shape(object):
                 h = min(h, hash(f.edges))
         return h
     
-    
     def find_colinear(self):
         for i, (x2, y2) in enumerate(self.points):
             x1, y1 = self.points[i - 1]
@@ -59,7 +58,6 @@ class Shape(object):
                 return True
         return False
 
-
     def rotated(self):
         """Return a Shape rotated clockwise"""
         return Shape((-y, x) for x, y in self)
@@ -67,15 +65,6 @@ class Shape(object):
     def flipped(self):
         """Return a Shape flippedped"""
         return Shape((-x, y) for x, y in self)
-
-    @cache
-    @staticmethod
-    def translate_points(points):
-        """Return tuples translated to 0, 0"""
-        minX = min(s[0] for s in points)
-        minY = min(s[1] for s in points)
-        return tuple((x - minX, y - minY) for x, y
-                            in points)
         
     def draw(self, s):
         """
@@ -86,6 +75,32 @@ class Shape(object):
             py5.scale(s)
             py5.vertices(self.points)
 
+    @classmethod
+    def all_from_points(cls, pts, num_pts=None):
+        """
+        Generate all distinct shapes, simple (not self-intersecting)
+        polygons from a collection of points.
+        """
+        num_pts = num_pts or len(pts)
+        all_polys = list(permutations(pts, num_pts))
+        tested, shapes = set(), []
+        for poly in all_polys:
+            s = cls(poly)
+            if (s.is_simple and
+                not s.has_colinear and
+                s not in tested):
+                tested.add(s)
+                shapes.append(s)
+        return shapes
+
+
+@cache
+def translate_points(points):
+    """Return tuples translated to 0, 0"""
+    minX = min(s[0] for s in points)
+    minY = min(s[1] for s in points)
+    return tuple((x - minX, y - minY) for x, y
+                        in points)
 
 @cache
 def points_are_colinear(ax, ay, bx, by, cx, cy,
@@ -105,14 +120,11 @@ def triangle_area(a, b, c):
     return area
 
                         
-def edges_as_sets(poly_points, frozen=True):
+def edges_as_sets(poly_points):
     """
-    Return a (frozen)set of poly edges as frozensets of 2 points.
+    Return a frozenset of poly edges as frozensets of 2 points.
     """
-    if frozen:
-        return frozenset(frozenset(edge) for edge in poly_edges(poly_points))
-    else:
-        return set(frozenset(edge) for edge in poly_edges(poly_points))
+    return frozenset(frozenset(edge) for edge in poly_edges(poly_points))
 
 def poly_edges(poly_points):
     """

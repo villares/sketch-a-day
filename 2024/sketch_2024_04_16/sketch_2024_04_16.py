@@ -1,7 +1,7 @@
 # Alexandre B A Villares - https://abav.lugaralgum.com/
 # To run this you will need py5 https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
 
-from itertools import product, combinations, permutations
+from itertools import product
 
 import py5
 
@@ -21,7 +21,7 @@ def setup():
 
     shapes = []
     for i in [4]: # 3 to 7, as no non-intersecting shapes exist with 8 or 9 pts.
-        shapes.extend(create_shapes(pts, i))
+        shapes.extend(Shape.all_from_points(pts, i))
     
     def shape_area(s):
         return s.area
@@ -52,29 +52,6 @@ def setup():
     # end PDF export 
     py5.end_record()  
     py5.save_frame(name + '.png')
-
-
-def create_shapes(pts, num_pts=None, allow_intersecting=False):
-    """
-    Generate all distinct shapes, simple* polygons
-    from a collection of points.
-    
-    * not self-intersecting
-    """
-    num_pts = num_pts or len(pts)
-    all_shapes = list(permutations(pts, num_pts))
-    tested, shapes = set(), []
-    for poly in all_shapes:
-        s = Shape(poly)
-        if (
-            s.is_simple and
-            not s.has_colinear and
-            #s.is_valid and
-            s not in tested
-            ):
-            tested.add(s)
-            shapes.append(s)
-    return shapes
 
 
 py5.run_sketch(block=False)
