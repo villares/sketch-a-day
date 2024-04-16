@@ -21,15 +21,17 @@ def setup():
     shapes = []
     for i in [4]: # 3 to 7, as no non-intersecting shapes exist with 8 or 9 pts.
         shapes.extend(create_shapes(pts, i))
+    
+    def shape_area(s):
+        return s.area
     shapes.sort(key=shape_area)
+    
     print(f'shapes: {len(shapes)} Cols: {W} Rows: {H} Visible grid: {W*H}')
 
-    f = py5.create_graphics(
-        py5.width * 10,  # for big PDF export
-        py5.height * 10,   
-        py5.PDF, name + '.pdf'
-        )
-    py5.begin_record(f) # begin PDF export
+    f = py5.create_graphics(py5.width * 10,  # for big PDF export
+                            py5.height * 10, py5.PDF, name + '.pdf')
+    # begin PDF export
+    py5.begin_record(f) 
     f.scale(10)
     py5.stroke_join(py5.ROUND)
     py5.background(240)
@@ -45,15 +47,17 @@ def setup():
                 shp.draw(space * 0.4)
                 py5.fill(255, 0, 0)
             i += 1
-    py5.end_record()  # end PDF export
+    # end PDF export 
+    py5.end_record()  
     py5.save_frame(name + '.png')
+
 
 def create_shapes(pts, num_pts=None, allow_intersecting=False):
     """
     Generate all distinct shapes, simple* polygons
     from a collection of points.
     
-    * not self intersecting
+    * not self-intersecting
     """
     num_pts = num_pts or len(pts)
     all_shapes = list(permutations(pts, num_pts))
@@ -70,8 +74,5 @@ def create_shapes(pts, num_pts=None, allow_intersecting=False):
             shapes.append(s)
     return shapes
 
-                        
-def shape_area(p):
-    return p.area
 
 py5.run_sketch(block=False)
