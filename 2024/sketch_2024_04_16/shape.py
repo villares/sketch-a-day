@@ -1,19 +1,17 @@
-from collections import namedtuple
 from functools import cache
 
 from shapely import Polygon
 import py5
 
 
-Point = namedtuple('Point', 'x y') 
 
 class Shape(object):
     
     remove_flippedped = False
 
     def __init__(self, iterable):
-        self.points = tuple(Point(*s) for s in iterable)
-        self.translate_points()
+        points_tuple = tuple((x, y) for x, y in iterable)
+        self.points = Shape.translate_points(points_tuple)
         self.poly = Polygon(self.points)
         self.is_valid = self.points and self.poly.is_valid
         self.area = self.poly.area
@@ -70,51 +68,14 @@ class Shape(object):
         """Return a Shape flippedped"""
         return Shape((-x, y) for x, y in self)
 
-    def translate_points(self):
-        """Return a Shape Translated to 0,0"""
-        minX = min(s.x for s in self.points)
-        minY = min(s.y for s in self.points)
-        self.points = tuple(Point(x - minX, y - minY) for x, y
-                            in self.points)
-
-    def translate(self):
-        """Return a Shape Translated to 0,0"""
-        minX = min(s.x for s in self)
-        minY = min(s.y for s in self)
-        return Shape((x - minX, y - minY) for x, y in self)
-# 
-#     def raise_order(self, size_limit=3):
-#         """Return a list of higher order Polyonominos evolved from self"""
-#         shapes = []
-#         for s in self:
-#             adjacents = (adjacent for adjacent in (
-#                 (s.x + 1, s.y),
-#                 (s.x - 1, s.y),
-#                 (s.x, s.y + 1),
-#                 (s.x, s.y - 1),
-#             ) if adjacent not in self)
-#             for adjacent in adjacents:
-#                 new_shape = translate(Shape(list(self) + [adjacent]))
-#                 if shape_under_limit(new_shape, size_limit):
-#                     shapes.append(new_shape)
-#         return shapes
-
+    @cache
     @staticmethod
-    def shape_under_limit(shp, size_limit):
-        return (max(s.x for s in shp) <= size_limit and 
-                max(s.y for s in shp) <= size_limit)
-
-    def render(self):
-        """
-        Returns a string map representation of the Shape
-        """
-        p = self.translate()
-        order = len(p)
-        return ''.join(
-            ["\n %s" % (''.join(
-                ["X" if (x, y) in p.points else "-" for x in range(order)]
-            )) for y in range(order)]
-        )
+    def translate_points(points):
+        """Return tuples translated to 0, 0"""
+        minX = min(s[0] for s in points)
+        minY = min(s[1] for s in points)
+        return tuple((x - minX, y - minY) for x, y
+                            in points)
         
     def draw(self, s):
         """
@@ -124,11 +85,7 @@ class Shape(object):
         with py5.push_matrix(), py5.begin_closed_shape():
             py5.scale(s)
             py5.vertices(self.points)
-#         with py5.push():
-#             py5.scale(s)
-#             py5.stroke(255, 255, 0)
-#             py5.stroke_weight(5 / s)
-#             py5.points(self.points)
+
 
 @cache
 def points_are_colinear(ax, ay, bx, by, cx, cy,
