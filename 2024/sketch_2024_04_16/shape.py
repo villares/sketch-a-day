@@ -1,4 +1,3 @@
-from functools import cache
 from itertools import permutations
 
 from shapely import Polygon
@@ -7,11 +6,11 @@ import py5
 
 class Shape(object):
     
-    remove_flippedped = False
+    remove_flipped = False
 
     def __init__(self, iterable):
         points_tuple = tuple((x, y) for x, y in iterable)
-        self.points = translate_points(points_tuple)
+        self.points = translated_points(points_tuple)
         self.poly = Polygon(self.points)
         self.is_valid = self.points and self.poly.is_valid
         self.area = self.poly.area
@@ -37,18 +36,25 @@ class Shape(object):
         (calculated from the frozenset of edges)
         and the hashes of its 3 rotated siblings
         """
-        p = self
-        h = hash(p.edges)
-        for _ in range(3):
-            p = p.rotated()
-            h = min(h, hash(p.edges))
-        if Shape.remove_flippedped:
-            f = self.flipped()
-            h = min(h, hash(f.edges))
+        pts = self.points
+        hashes = [hash(self.edges)]
+        if Shape.remove_flipped:
+            fpts = translated_points(flipped_points(pts))
+            fedges = edges_as_sets(fpts)
+            hashes.append(hash(fedges))
             for _ in range(3):
-                f = f.rotated()
-                h = min(h, hash(f.edges))
-        return h
+                pts = translated_points(rotated_points(pts))
+                edges = edges_as_sets(pts)
+                hashes.append(hash(edges))
+                fpts = translated_points(flipped_points(pts))
+                fedges = edges_as_sets(fpts)
+                hashes.append(hash(fedges))
+        else:
+            for _ in range(3):
+                pts = translated_points(rotated_points(pts))
+                edges = edges_as_sets(pts)
+                hashes.append(hash(edges))
+        return min(hashes)
     
     def find_colinear(self):
         for i, (x2, y2) in enumerate(self.points):
@@ -57,14 +63,6 @@ class Shape(object):
             if points_are_colinear(x0, y0, x1, y1, x2, y2):
                 return True
         return False
-
-    def rotated(self):
-        """Return a Shape rotated clockwise"""
-        return Shape((-y, x) for x, y in self)
-
-    def flipped(self):
-        """Return a Shape flippedped"""
-        return Shape((-x, y) for x, y in self)
         
     def draw(self, s):
         """
@@ -93,16 +91,21 @@ class Shape(object):
                 shapes.append(s)
         return shapes
 
+def flipped_points(points):
+    """Return tuples with points flipped"""
+    return tuple((-x, y) for x, y in points)
 
-@cache
-def translate_points(points):
+def rotated_points(points):
+    """Return tuples with points rotated"""
+    return tuple((-y, x) for x, y in points)
+
+def translated_points(points):
     """Return tuples translated to 0, 0"""
     minX = min(s[0] for s in points)
     minY = min(s[1] for s in points)
     return tuple((x - minX, y - minY) for x, y
                         in points)
 
-@cache
 def points_are_colinear(ax, ay, bx, by, cx, cy,
                         tolerance=py5.EPSILON):
     """
@@ -112,26 +115,23 @@ def points_are_colinear(ax, ay, bx, by, cx, cy,
     area = triangle_area((ax, ay), (bx, by), (cx, cy))
     return abs(area) < tolerance
 
-@cache
 def triangle_area(a, b, c):
     area = (a[0] * (b[1] - c[1]) +
             b[0] * (c[1] - a[1]) +
             c[0] * (a[1] - b[1]))
     return area
-
-                        
-def edges_as_sets(poly_points):
+ 
+def edges_as_sets(points_tuple):
     """
     Return a frozenset of poly edges as frozensets of 2 points.
     """
-    return frozenset(frozenset(edge) for edge in poly_edges(poly_points))
+    return frozenset(frozenset(edge) for edge in poly_edges(points_tuple))
 
 def poly_edges(poly_points):
     """
     Return a list of edges (tuples containing pairs of points)
     for a list of points that represent a closed polygon
     """
-    poly_points = tuple(poly_points)
     return pairwise(poly_points) + [(poly_points[-1], poly_points[0])]
 
 def pairwise(iterable):
