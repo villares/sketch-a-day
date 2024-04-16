@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_04_16
+
+![sketch_2024_04_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_16/sketch_2024_04_16.png)
+
+[sketch_2024_04_16](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_16) [[py5](https://py5coding.org/)]
+
+Success! All the possible simple quadrilaterals from a 3 x 3 grid of points. Yesterday I had broken my hashing function that made it possible to eliminate rotations (it is possible to eliminate reflections too, but I like to have them)
+
+---
+
 ### sketch_2024_04_15
 
 ![sketch_2024_04_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_15/sketch_2024_04_15.png)
