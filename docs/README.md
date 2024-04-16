@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_04_15
+
+![sketch_2024_04_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_15/sketch_2024_04_15.png)
+
+[sketch_2024_04_15](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_15) [[py5](https://py5coding.org/)]
+
+still WIP, my translation/rotation elimination strategy didn't work (so turned it off on this output)
+
+---
+
 ### sketch_2024_04_14
 
 ![sketch_2024_04_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_14/sketch_2024_04_14.png)
