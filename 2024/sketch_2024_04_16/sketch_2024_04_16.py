@@ -9,12 +9,13 @@ from shape import Shape
 
 grid = product((0, 1, 2), (0, 1, 2))  # 3X3
 pts = list(grid)
-space, border = 50, 25
+space, border = 150, 75
 name = "shapes"
 
 def setup():
     global shapes
-    py5.size(350, 250)
+    py5.size(1050, 1050)
+    
     W = int(py5.width - border * 2) // space
     H = int(py5.height - border * 2) // space
 
@@ -31,8 +32,9 @@ def setup():
     f = py5.create_graphics(py5.width * 10,  # for big PDF export
                             py5.height * 10, py5.PDF, name + '.pdf')
     # begin PDF export
-    py5.begin_record(f) 
+    py5.begin_record(f)
     f.scale(10)
+    py5.translate(20, 170)
     py5.stroke_join(py5.ROUND)
     py5.background(240)
     py5.no_stroke()
