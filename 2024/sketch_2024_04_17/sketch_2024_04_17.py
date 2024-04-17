@@ -2,12 +2,12 @@
 # To run this you will need py5 https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
 
 """
-3 89
-4 421
-5 2079
-6 8522
-7 27479
-total: 38590 millisegundos
+3 74
+4 276
+5 1370
+6 5819
+7 17720
+total: 25259 millisegundos
 shapes: 125 Cols: 25 Rows: 5 Visible grid: 125
 """
 

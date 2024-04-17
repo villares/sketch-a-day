@@ -1,20 +1,22 @@
 from functools import cache
 from itertools import permutations
 
-from line_profiler import profile
+#from line_profiler import profile
 from shapely import Polygon
 import py5
+import numpy as np
+
 
 class Shape(object):
     
     remove_flipped = False
     
-    @profile
+    #@profile
     def __init__(self, iterable):
         points_tuple = tuple((x, y) for x, y in iterable)
         self.points = translated_points(points_tuple)
         self.poly = Polygon(self.points)
-        self.is_valid = self.points and self.poly.is_valid
+        self.is_valid = len(self.points) and self.poly.is_valid
         self.area = self.poly.area
         self.is_simple = self.poly.is_simple
         self.has_colinear = self.find_colinear()
@@ -32,7 +34,7 @@ class Shape(object):
     def __eq__(self, other):
         return hash(self) == hash(other)
 
-    @profile
+    #@profile
     def __hash__(self):
         """
         The smaller hash of the item itself
@@ -89,10 +91,13 @@ def rotated_points(points):
 @cache
 def translated_points(points):
     """Return tuples translated to 0, 0"""
-    minX = min(s[0] for s in points)
-    minY = min(s[1] for s in points)
-    return tuple((x - minX, y - minY) for x, y
-                        in points)
+    min_x, min_y = tuple(map(min, zip(*points)))    
+    return tuple((x - min_x, y - min_y)
+                 for x, y in points)
+#     points = np.array(points)
+#     min_x = np.min(points[:, 0])  # Minimum x-coordinate
+#     min_y = np.min(points[:, 1])  # Minimum y-coordinate
+#     return points - np.array([min_x, min_y])
 
 def points_are_colinear(ax, ay, bx, by, cx, cy,
                         tolerance=py5.EPSILON):
@@ -114,6 +119,7 @@ def edges_as_sets(points_tuple):
     """
     Return a frozenset of poly edges as frozensets of 2 points.
     """
+    #points_tuple = tuple(map(tuple, points_tuple))
     return frozenset(frozenset(edge) for edge in poly_edges(points_tuple))
 
 def poly_edges(poly_points):
@@ -130,7 +136,7 @@ def pairwise(iterable):
     next(b, None)
     return tuple(zip(a, b))
 
-@profile
+#@profile
 def all_from_points(pts, num_pts=None, remove_flipped=False):
     """
     Generate all distinct shapes, simple (not self-intersecting)
