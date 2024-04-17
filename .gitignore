@@ -38,3 +38,5 @@ admin_scripts/one_off/export2024.gif
 2024/sketch_2024_02_02/peek_2.gif
 2024/sketch_2024_03_01/teste.stl
 2024/sketch_2024_03_15/out.stl
+*.lprof
+*profile_output*
