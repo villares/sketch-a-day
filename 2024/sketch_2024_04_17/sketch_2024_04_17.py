@@ -11,14 +11,11 @@ total: 25259 millisegundos
 shapes: 125 Cols: 25 Rows: 5 Visible grid: 125
 """
 
-from itertools import product, permutations
-from time import sleep
+from itertools import product
 
 import py5
-from line_profiler import profile
 
 from shape import all_from_points
-
 
 grid = product((0, 1, 2), (0, 1, 2))  # 3X3
 pts = list(grid)
@@ -69,6 +66,5 @@ def setup():
     # end PDF export
     py5.end_record()  
     py5.save_frame(name + '.png')
-
 
 py5.run_sketch(block=True)
