@@ -8,11 +8,12 @@ from shape import all_from_points
 
 grid = product((-1, 0, 1), (-1, 0, 1))  # 3X3
 pts = list(grid)
-space, border = 50, 50
+space, border = 100, 25
 
 def setup():
     global shapes, img
-    py5.size(500, 350)
+    py5.size(850, 550)
+    py5.background(200)
     W = int(py5.width - border * 2) // space
     H = int(py5.height - border * 2) // space
     img = py5.load_image('lobo.jpg')
@@ -36,20 +37,20 @@ def setup():
     #py5.background(0, 0, 200)
     py5.no_stroke()
     i = 0
-    b = py5.create_graphics(int(space), int(space))
+    b = py5.create_graphics(int(space * 0.9) , int(space * 0.9))
     for y, x in product(range(H), range(W)):
         if i < len(shapes):
             shp = shapes[i]
             with py5.push_matrix():
-                py5.translate(border + (space + 1) * x + space / 2,
-                              border + (space + 1) * y + space / 2)
+                py5.translate(border + space * x + space / 2,
+                              border + space * y + space / 2)
                 py5.fill(len(shp) * 35, 255, 150)
                 #shp.draw(space * 0.3)
                 b.begin_draw()
                 b.background(0)
                 b.no_stroke()
                 b.fill(255)
-                b.scale(space * 0.5)
+                b.scale(space * 0.45)
                 #b.translate(space * 0.05, space * 0.05)
                 with b.begin_closed_shape():
                     b.vertices(shp.points)
