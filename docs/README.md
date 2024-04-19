@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_04_18
+
+![sketch_2024_04_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_18/sketch_2024_04_18.png)
+
+[sketch_2024_04_18](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_18) [[py5](https://py5coding.org/)]
+
+40 hexágonos brancos a partir de uma grande de 3x3 pontos. Em branco em quadrados pretos, dispostos em uma grade de 8 colunas e 5 linhas em um fundo azul.
+
+---
+
 ### sketch_2024_04_17
 
 ![sketch_2024_04_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_17/sketch_2024_04_17.png)
