@@ -26,8 +26,18 @@ def setup():
         print(i, dt)
         tm += dt
     print(f'total: {tm} millisegundos')
-            
-    shapes.sort(key=poly_area)
+    
+    def min_angles(s):
+        a = []
+        for i, v2 in enumerate(s.points):
+            v1 = s.points[i - 1]
+            v0 = s.points[i - 2]
+            ang = py5.degrees(corner_angle(v1, v0, v2))
+            a.append(ang)
+        print(a, s.area)
+        return int(min(a)) + s.area
+        
+    shapes.sort(key=min_angles)
     
     print(f'shapes: {len(shapes)} Cols: {W} Rows: {H} Visible grid: {W*H}')
 
@@ -39,26 +49,26 @@ def setup():
         if i < len(shapes):
             shp = shapes[i]
             a = poly_area(shp.points)
-            shp_pts = shp.points if a < 0 else list(reversed(shp.points))
+            shp_pts = shp.points 
             with py5.push_matrix():
                 py5.translate(border + space * x + space / 2,
                               border + space * y + space / 2)
                 py5.fill(0)
                 shp.draw(scale_factor)
-                py5.text_size(18)
+                py5.text_size(12)
                 for vi, v2 in enumerate(shp_pts):
                     v1 = shp_pts[vi - 1]
                     v0 = shp_pts[vi - 2]
-                    ang = int(180 - py5.degrees(corner_angle(v1, v2, v0)))
+                    ang = int((180 - py5.degrees(corner_angle(v1, v0, v2))) * 10) / 10
                     py5.fill(255)
-                    py5.text(f'{vi}:{ang}', v1[0] * scale_factor, v1[1] * scale_factor)
+                    py5.text(f'{ang}', v1[0] * scale_factor, v1[1] * scale_factor)
 
                 if a < 0:
                     py5.fill(255, 0, 0)
                 else:
                     py5.fill(0, 0, 255)
                 cx, cy = shp.poly.centroid.coords[0]
-                py5.text(f'{a:.1f}', cx * scale_factor, cy * scale_factor)
+                py5.text(f'{min_angles(shp)}', cx * scale_factor, cy * scale_factor)
         i += 1
 
 
