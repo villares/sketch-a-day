@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_04_20
+
+![sketch_2024_04_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_20/sketch_2024_04_20.png)
+
+[sketch_2024_04_20](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_20) [[py5](https://py5coding.org/)]
+
+#DebugAesthetics
+
+---
+
 ### sketch_2024_04_19
 
 ![sketch_2024_04_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_19/sketch_2024_04_19.png)
