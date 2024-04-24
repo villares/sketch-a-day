@@ -25,14 +25,12 @@ def setup():
         ((py5.width - margin, py5.height - margin), (py5.width - margin, margin)),
     )
     for pa, pb in walls:
-        wall = DrawableSegment(space.static_body, pa, pb, 2)
+        wall = pm.Segment(space.static_body, pa, pb, 2)
         wall.friction = 0.4
         space.add(wall)
 
 def draw():
     py5.background(100)
-#     py5.stroke(255)           # white stroke
-    py5.fill(255, 100)        # translucent white
     for b in space.bodies:  # draws the objects
         b.draw()
 
@@ -52,13 +50,7 @@ class DrawableBody(pm.Body):
             a = self.position.y / 3 
             py5.fill(a % 255, 200, 200, 200)
             py5.shape(self.poly, 0, 0)
-            
-class DrawableSegment(pm.Segment):
-    def draw(self):
-        with py5.push():
-            py5.stroke(255)    
-            py5.stroke_weight(self.radius*2)
-            py5.line(self.a.x, self.a.y, self.b.x, self.b.y)  
+   
 
 def min_max(pts):
     coords = tuple(zip(*pts))
@@ -98,7 +90,6 @@ def add_trianglulated_body(poly: shapely.Polygon):
         shapes.append(shp)
     #print(f'shapes: {len(shapes)}')
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
-
 
 
 def poly_area(pts):
