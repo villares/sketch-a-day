@@ -6,7 +6,7 @@ from trimesh.creation import triangulate_polygon
 import shapely
 from shapely.affinity import translate as shapely_translate
 
-MINIMUM_DIST = 20     # harder to draw, but more elegant objects
+MINIMUM_DIST = 50     # harder to draw, but more elegant objects
 
 space = pm.Space()    # the pymunk simulation space
 space.gravity = (0, 600)
@@ -18,7 +18,7 @@ def setup():
     py5.size(800, 800)
     py5.color_mode(py5.HSB)
     
-    margin = 5
+    margin = 10
     walls = (
         ((margin, py5.height - margin), (py5.width - margin, py5.height - margin)),
         ((margin, py5.height - margin), (margin, margin)),
@@ -49,7 +49,7 @@ class DrawableBody(pm.Body):
             py5.no_stroke()
             py5.translate(self.position.x, self.position.y)
             py5.rotate(self.angle)
-            a = self.position.y
+            a = self.position.y / 3 
             py5.fill(a % 255, 200, 200, 200)
             py5.shape(self.poly, 0, 0)
             
