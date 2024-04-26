@@ -1,11 +1,10 @@
 import numpy as np
-from PIL import Image
 import py5
 
 def setup():
     global temp_img
     py5.size(800, 400)
-    img_path = 'piscina.png' # Sample from sketh 2023_07_22
+    img_path = 'piscina.png'
     img = py5.load_image(img_path)
     temp_img = py5.create_image(img.width, img.height, py5.ARGB)
 
