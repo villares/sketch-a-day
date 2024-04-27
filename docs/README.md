@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_04_26
+
+![sketch_2024_04_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_26/sketch_2024_04_26.gif)
+
+[sketch_2024_04_26](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_26) [[py5](https://py5coding.org/)]
+
+#pymunk experiments... trying to extend pymunk.Body with a DrawableBody class (instead of monkeypatching pymunk.shape.Poly & etc.)
+
+---
+
 ### sketch_2024_04_25
 
 ![sketch_2024_04_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_25/sketch_2024_04_25.png)
