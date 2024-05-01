@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_04_30
+
+![sketch_2024_04_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_30/sketch_2024_04_30.gif)
+
+[sketch_2024_04_30](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_04_30) [[py5](https://py5coding.org/)]
+
+Formas básicas, preenchimento, traço e interação usando draw(). Esse sketch do dia é bem bobo, mas o codigo anotado vira um quebra-cabeças de Parsons em https://abav.lugaralgum.com/faded-parsons-visual
+
+---
+
 ### sketch_2024_04_29
 
 ![sketch_2024_04_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_04_29/sketch_2024_04_29.gif)

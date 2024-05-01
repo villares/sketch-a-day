@@ -1,0 +1,25 @@
+problem_name: Desenho, cor e a interação com o mouse 
+
+problem_subtitle: Formas básicas, preenchimento, traço e interação usando draw()
+
+problem_category: 100 Primeiros passos
+
+problem_description: |
+  <h6>Desenho, cor e a interação com o mouse</h6></br><img src="parsons_probs/sketch_2024_04_30.gif"></br><code>Desenho, cor e a interação com o mouse</code></br>Organize os blocos para fazer um sketch como este.Note que o círculo, com a posição controlada pela ponta do mouse não tem traço de contorno, e que o quadrado, sempre redesenhado no mesmo lugar, tem um traço de contorno amarelo mais espesso.
+   
+code_lines: |
+  # setup: configurações iniciais #0given
+  def setup(): #0given
+  size(400, 400) #1given
+  # draw: código que repete #0given    
+  def draw(): #0given
+  fill(255) # preenchimento branco
+  no_stroke() # desliga traço
+  circle(mouse_x, mouse_y, 50) #1given
+  fill(0, 0, 255) # preenchimento azul
+  stroke_weight(3) # traço mais espesso
+  stroke(255, 255, 0) # traço amarelo
+  square(200, 250, 50)
+
+  
+test_fn: setup
