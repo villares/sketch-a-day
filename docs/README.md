@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_05_02
+
+![sketch_2024_05_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_05_02/sketch_2024_05_02.png)
+
+[sketch_2024_05_02](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_05_02) [[py5](https://py5coding.org/)]
+
+Revisitando uma ideia de sketch de 2018 inspirado em um sketch de manoloide (Manuel Gamboa Naom)
+
+---
+
 ### sketch_2024_05_01
 
 ![sketch_2024_05_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_05_01/sketch_2024_05_01.png)
