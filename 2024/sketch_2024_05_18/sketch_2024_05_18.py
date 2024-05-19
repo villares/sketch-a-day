@@ -28,7 +28,7 @@ def key_pressed():
         rects.append(r)
         print(r)
     elif key == 's':
-        #save_snapshot_and_code()
+        #dsave_snapshot_and_code()
         save_frame('###.png')
            
 def r_choice():
