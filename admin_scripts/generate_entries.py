@@ -68,7 +68,7 @@ tools = {
         'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
     }
 
-tag_dict = {'py5': '#Processing #Python #py5' }
+tag_dict = {'py5': '#Processing #Python #py5 #CreativeCoding' }
 
 if year_path.is_dir():
     sketch_folders = [folder.name for folder in year_path.iterdir()]
@@ -123,7 +123,7 @@ def main(args):
                 entry_text = build_entry(folder, img, tool, comment, image_caption)
                 if do_toot:
                     image_path = year_path / folder / img
-                    tags = tag_dict.get(tool, '')
+                    tags = tag_dict.get(tool, ' #CreativeCoding')
                     try:
                         status = toot(comment + ' ' + toot_text + ' ' + tags, image_path, image_caption)
                         status = status[:10]
