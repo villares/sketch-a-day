@@ -47,16 +47,15 @@ def create_circle(base_circle=None):
     hw, hh = d / 2, d / 2
     if base_circle is None:
         ex, ey = x, y = width / 2, height / 2
-        a = c = 0
+        ang = c = 0
     else:
         ex, ey, ed, _, c = base_circle
         hew = heh = ed / 2
-        a = random_choice(range(8)) # 3, 4))
-        #b = c / 55
-        ang = (TWO_PI / 8) * a
+        a = random_choice(range(5)) # 3, 4))
+        ang = PI + c / 10 + (TWO_PI / 5) * a
         x = ex + cos(ang) * (ed / 2 + d / 2) 
         y = ey + sin(ang) * (ed / 2 + d / 2) 
-    return x, y, d, (ex, ey), a * 55 # c + 12
+    return x, y, d, (ex, ey), ang * 10 # c + 12
             
 def check_circle(circ):
     x, y, d, _, _ = circ

@@ -51,9 +51,9 @@ def create_circle(base_circle=None):
     else:
         ex, ey, ed, _, c = base_circle
         hew = heh = ed / 2
-        a = random_choice(range(8)) # 3, 4))
-        #b = c / 55
-        ang = (TWO_PI / 8) * a
+        a = random_choice(range(3)) # 3, 4))
+        b = c / 55
+        ang = (TWO_PI / 3) * (a + b) + PI 
         x = ex + cos(ang) * (ed / 2 + d / 2) 
         y = ey + sin(ang) * (ed / 2 + d / 2) 
     return x, y, d, (ex, ey), a * 55 # c + 12
