@@ -49,16 +49,16 @@ def rotate_point(p, angle, origin=(0,0)):
     yr = y * cos(angle) + x * sin(angle)
     return (xr + x0, yr + y0)
 
-def draw_rect(rect_info):
-    pos, w, h, rot = rect_info
-    b = py5.remap(rot, 0, py5.TAU, 0, 255)
-    py5.fill(h * 10, abs(pos[1] / 2), b)
-    with py5.push_matrix():
-        py5.rect_mode(py5.CENTER)
-        py5.translate(*pos)
-        py5.rotate(rot)
-        py5.rect(0, 0, w, h)
-    return pos
+# def draw_rect(rect_info):
+#     pos, w, h, rot = rect_info
+#     b = py5.remap(rot, 0, py5.TAU, 0, 255)
+#     py5.fill(h * 10, abs(pos[1] / 2), b)
+#     with py5.push_matrix():
+#         py5.rect_mode(py5.CENTER)
+#         py5.translate(*pos)
+#         py5.rotate(rot)
+#         py5.rect(0, 0, w, h)
+#     return pos
 
 def key_pressed():
     py5.save('out.png')
