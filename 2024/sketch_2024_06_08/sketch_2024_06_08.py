@@ -11,7 +11,8 @@ def setup():
     py5.color_mode(py5.HSB)
     global shp
     shp = py5.create_shape(py5.GROUP)
-
+    py5.no_loop()
+    
 def draw():
 #def predraw_update():
     space = 25 #+ py5.mouse_x // 10
