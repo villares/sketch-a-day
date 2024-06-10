@@ -106,43 +106,6 @@ def add_trianglulated_body(poly: Polygon):
     #print(f'shapes: {len(shapes)}')
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
    
-# WIP   
-def add_trianglulated_body_frompolys(polys): # polys:list(Polygon)
-    """
-    Todo, look at shapely centroid and improve
-    DrawableBody class maybe to get the shapely.Poly
-    Maybe passe everything t the DrawableBody class?
-    """
-    multi_polygon = MultiPolygon(polys)
-    centroid = shapely.centroid(multi_polygon)
-    cx, cy = centroid.x, centroid.y
-    for poly in polys:
-        vs, faces = triangulate_polygon(poly)
-        triangles = [(vs[a], vs[b], vs[c]) for a, b, c in faces] 
-        translated_tris = []
-        total_mass = total_moi = 0
-        for tri in triangles:
-            translated_tri = [(x - cx, y - cy) for x, y in tri]
-            translated_tris.append(translated_tri)
-            mass = poly.area * 0.1
-            total_mass += mass
-            moi = pm.moment_for_poly(mass, poly.exterior.coords)
-            if not math.isnan(moi):
-                total_moi += moi
-            
-            
-    body = DrawableBody(total_mass, total_moi)
-    body.poly = multi_polygon #shapely_translate(multi_polygon, -cx, -cy)
-    body.position = (cx, cy)
-    shapes = []
-    for tri in translated_tris:
-        shp = pm.Poly(body, tri)
-        shp.friction = 0.4
-        shapes.append(shp)
-    #print(f'shapes: {len(shapes)}')
-    space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
-
-
 def poly_area(pts):
     area = 0.0
     for (ax, ay), (bx, by) in zip(pts, pts[1:] + [pts[0]]):
