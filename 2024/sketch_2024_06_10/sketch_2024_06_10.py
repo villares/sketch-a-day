@@ -87,12 +87,14 @@ def add_trianglulated_body(
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
    
 def add_trianglulated_body_frompolys(
-    mpoly: shapely.MultiPolygon,
+    mpoly: shapely.MultiPolygon | list[shapely.Polygon],
     friction=0.1,
     mass_factor=0.5):
     """
-    Check multi-color solution...
+    Try to think another multi-color solution...
+    ... maybe passing them a keyword argument.
     """
+    mpoly = shapely.MultiPolygon(mpoly)
     try:    
         cx, cy = mpoly.centroid.x, mpoly.centroid.y        
         mass = moi = 0
@@ -144,9 +146,10 @@ def key_typed():
 #         for p in polys_from_text(str(py5.key), font):
 #             pass 
 #             #add_trianglulated_body(shapely_translate(p, text_x, 0))
-        mp = shapely.MultiPolygon(polys_from_text(str(py5.key), font))
-        tmp = shapely_translate(mp, text_x, 0)                                  
-        add_trianglulated_body_frompolys(tmp)
+        polys = polys_from_text(str(py5.key), font)
+        translated_polys = [shapely_translate(poly, text_x, 0)
+                            for poly in polys]
+        add_trianglulated_body_frompolys(translated_polys)
         text_x += py5.text_width(str(py5.key))
         if text_x > py5.width - py5.text_width('W'):
             text_x = margin * 2
