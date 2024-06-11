@@ -3,13 +3,7 @@ import math           # for math.isnan
 import py5
 import pymunk as pm   # the 2D physics engine
 from trimesh.creation import triangulate_polygon
-
 from shapely.affinity import translate as shapely_translate
-from shapely.affinity import rotate as shapely_rotate
-from shapely.affinity import scale as shapely_scale
-from shapely import Point, Polygon, MultiPolygon, LineString
-from shapely.ops import unary_union
-from shapely import GEOSException
 import shapely
 
 from villares.shapely_helpers import polys_from_text, draw_shapely
@@ -63,55 +57,30 @@ class DrawableBody(pm.Body):
             py5.no_stroke()
             py5.translate(self.position.x, self.position.y)
             py5.rotate(self.angle)
-            a = self.position.y
-           # py5.fill(a % 255, 200, 200, 200)
             py5.fill(self.color)
             draw_shapely(self.poly)
 
-
-def min_max(pts):
-    coords = tuple(zip(*pts))
-    return tuple(map(min, coords)), tuple(map(max, coords))
-
-def add_trianglulated_body(poly: Polygon):
+def add_trianglulated_body(poly: shapely.Polygon, friction=0.1, mass_factor=0.1):
     """
-    Todo, look at shapely centroid and improve
-    DrawableBody class maybe to get the shapely.Poly
-    Maybe passe everything t the DrawableBody class?
+    Maybe make this a DrawableBody class thing?
+    How about the graphic attributes?
     """
-    vs, faces = triangulate_polygon(poly)
-    triangles = [(vs[a], vs[b], vs[c]) for a, b, c in faces]
-    (xa, ya), (xb, yb) = min_max(vs)
-    centroid = (xa + xb) / 2, (ya + yb) / 2
-    cx, cy = centroid
-    translated_tris = []
-    total_mass = total_moi = 0
-    for tri in triangles:
-        translated_tri = [(x - cx, y - cy) for x, y in tri]
-        mass = poly_area(translated_tri) * 0.1
-        total_mass += mass
-        moi = pm.moment_for_poly(mass, translated_tri)
-        if not math.isnan(moi):
-            total_moi += moi
-        translated_tris.append(translated_tri)   
-    body = DrawableBody(total_mass, total_moi)
+    cx, cy = poly.centroid.x, poly.centroid.y        
+    mass = poly.area * mass_factor
+    moi = pm.moment_for_poly(mass, poly.exterior.coords)
+    body = DrawableBody(mass, moi)
     body.poly = shapely_translate(poly, -cx, -cy)
-    body.position = centroid
+    body.position = (cx, cy)
     body.color = py5.random_choice(colors)
     shapes = []
-    for tri in translated_tris:
-        shp = pm.Poly(body, tri)
-        shp.friction = 0.4
+    vs, faces = triangulate_polygon(poly)
+    triangles = [(vs[a], vs[b], vs[c]) for a, b, c in faces]
+    for tri in triangles:
+        translated_tri = [(x - cx, y - cy) for x, y in tri]
+        shp = pm.Poly(body, translated_tri)
+        shp.friction = friction
         shapes.append(shp)
-    #print(f'shapes: {len(shapes)}')
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
-   
-def poly_area(pts):
-    area = 0.0
-    for (ax, ay), (bx, by) in zip(pts, pts[1:] + [pts[0]]):
-        area += ax * by
-        area -= bx * ay
-    return abs(area) / 2.0
 
 def is_poly(obj): return isinstance(obj, pm.Poly) 
 def is_segment(obj): return isinstance(obj, pm.Segment) 
@@ -132,6 +101,5 @@ def key_typed():
         text_x += py5.text_width(str(py5.key))
         if text_x > py5.width - py5.text_width('W'):
             text_x = margin * 2
-
 
 py5.run_sketch(block=False)
