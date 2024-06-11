@@ -11,6 +11,7 @@ space.gravity = (0, 600)
 
 shapes = []
 colors = []
+flag_delete = False
 
 def setup():
     global letter_shapes, results
@@ -39,14 +40,16 @@ def setup():
         wall.friction = 0.4
         space.add(wall)
     
+        
+def predraw_update():
+    check_delete()
+    space.step(0.01)   # advance simulation
+
 def draw():
     global current_union, previous_union, meshes
     py5.background(0)
     for b in space.bodies:  # draws the objects
         b.draw()
-        
-def predraw_update():    
-    space.step(0.01)   # advance simulation
 
 class DrawableBody(pm.Body):
     def draw(self):
@@ -83,7 +86,6 @@ def add_trianglulated_body(
         shapes.append(shp)
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
    
-# WIP   
 def add_trianglulated_body_frompolys(
     mpoly: shapely.MultiPolygon,
     friction=0.1,
@@ -119,29 +121,34 @@ def add_trianglulated_body_frompolys(
             shapes.append(shp)
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
    
-
 def is_poly(obj): return isinstance(obj, pm.Poly) 
 def is_segment(obj): return isinstance(obj, pm.Segment) 
 
+def check_delete():
+    global flag_delete
+    if flag_delete:
+        flag_delete = False
+        for shp in reversed(space.shapes):
+            if not is_segment(shp):
+                space.remove(shp)
+        for body in reversed(space.bodies):
+            space.remove(body)
+
 def key_typed():
-    global text_x
+    global text_x, flag_delete
     if py5.key == py5.DELETE:
-        # clear everything but the "box" walls
-        for obj in reversed(space.shapes):
-            if not is_segment(obj):
-                space.remove(obj)
+        flag_delete = True
     elif py5.key == py5.ENTER:
         text_x = margin * 2
     else:
-        for p in polys_from_text(str(py5.key), font):
-            pass 
-            #add_trianglulated_body(shapely_translate(p, text_x, 0))
+#         for p in polys_from_text(str(py5.key), font):
+#             pass 
+#             #add_trianglulated_body(shapely_translate(p, text_x, 0))
         mp = shapely.MultiPolygon(polys_from_text(str(py5.key), font))
         tmp = shapely_translate(mp, text_x, 0)                                  
         add_trianglulated_body_frompolys(tmp)
         text_x += py5.text_width(str(py5.key))
         if text_x > py5.width - py5.text_width('W'):
             text_x = margin * 2
-
 
 py5.run_sketch(block=False)
