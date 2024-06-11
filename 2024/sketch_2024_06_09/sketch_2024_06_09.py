@@ -11,7 +11,6 @@ from villares.shapely_helpers import polys_from_text, draw_shapely
 space = pm.Space()    # the pymunk simulation space
 space.gravity = (0, 600)
 
-xo, yo = 10, 100
 shapes = []
 colors = []
 
