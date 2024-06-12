@@ -27,7 +27,7 @@ def setup():
 #         font, leading=90, alternate_spacing=True
 #         )
 #     for shp in letter_shapes:
-#         add_trianglulated_body(shapely_translate(shp, 50, 100))
+#         add_triangulated_body(shapely_translate(shp, 50, 100))
 
     margin = 5
     text_x = margin * 2
@@ -59,7 +59,7 @@ class DrawableBody(pm.Body):
             py5.fill(self.color)
             draw_shapely(self.poly)
 
-def add_trianglulated_body(poly: shapely.Polygon, friction=0.1, mass_factor=0.1):
+def add_triangulated_body(poly: shapely.Polygon, friction=0.1, mass_factor=0.1):
     """
     Maybe make this a DrawableBody class thing?
     How about the graphic attributes?
@@ -95,8 +95,8 @@ def key_typed():
         text_x = margin * 2
     else:
         for p in polys_from_text(str(py5.key), font):
-            add_trianglulated_body(shapely_translate(p, text_x, 0))
-        #add_trianglulated_body_frompolys(polys_from_text(str(py5.key), font))
+            add_triangulated_body(shapely_translate(p, text_x, 0))
+        #add_triangulated_body_frompolys(polys_from_text(str(py5.key), font))
         text_x += py5.text_width(str(py5.key))
         if text_x > py5.width - py5.text_width('W'):
             text_x = margin * 2
