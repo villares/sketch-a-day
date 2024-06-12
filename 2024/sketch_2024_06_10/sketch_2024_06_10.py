@@ -26,7 +26,7 @@ def setup():
 #         font, leading=90, alternate_spacing=True
 #         )
 #     for shp in letter_shapes:
-#         add_trianglulated_body(shapely_translate(shp, 50, 100))
+#         add_triangulated_body(shapely_translate(shp, 50, 100))
 
     margin = 5
     text_x = margin * 2
@@ -58,7 +58,7 @@ class DrawableBody(pm.Body):
             py5.rotate(self.angle)
             py5.shape(self.py5_shape, 0, 0)
 
-def add_trianglulated_body(
+def add_triangulated_body(
     poly: shapely.Polygon,
     friction=0.1,
     mass_factor=0.1
@@ -86,7 +86,7 @@ def add_trianglulated_body(
         shapes.append(shp)
     space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
    
-def add_trianglulated_body_frompolys(
+def add_triangulated_body_frompolys(
     mpoly: shapely.MultiPolygon | list[shapely.Polygon],
     friction=0.1,
     mass_factor=0.5):
@@ -143,13 +143,10 @@ def key_typed():
     elif py5.key == py5.ENTER:
         text_x = margin * 2
     else:
-#         for p in polys_from_text(str(py5.key), font):
-#             pass 
-#             #add_trianglulated_body(shapely_translate(p, text_x, 0))
         polys = polys_from_text(str(py5.key), font)
         translated_polys = [shapely_translate(poly, text_x, 0)
                             for poly in polys]
-        add_trianglulated_body_frompolys(translated_polys)
+        add_triangulated_body_frompolys(translated_polys)
         text_x += py5.text_width(str(py5.key))
         if text_x > py5.width - py5.text_width('W'):
             text_x = margin * 2
