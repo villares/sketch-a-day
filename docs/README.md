@@ -36,6 +36,26 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_06_14
+
+![sketch_2024_06_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_14/sketch_2024_06_14.png)
+
+[sketch_2024_06_14](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_06_14) [blender geometry nodes]
+
+
+
+---
+
+### sketch_2024_06_13
+
+![sketch_2024_06_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_13/sketch_2024_06_13.png)
+
+[sketch_2024_06_13](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_06_13) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2024_06_12
 
 ![sketch_2024_06_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_12/sketch_2024_06_12.png)
