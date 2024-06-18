@@ -36,6 +36,36 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_06_17
+
+![sketch_2024_06_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_17/sketch_2024_06_17.png)
+
+[sketch_2024_06_17](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_06_17) [[py5](https://py5coding.org/)]
+
+Back to drawing text with colors for highlights. I have an earlier sketch that uses Python's tokenize to draw source with some basic syntax coloring https://github.com/villares/sketch-a-day/tree/main/2023/sketch_2023_08_14, this one is simpler (preparing for another idea).
+
+---
+
+### sketch_2024_06_16
+
+![sketch_2024_06_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_16/sketch_2024_06_16.png)
+
+[sketch_2024_06_16](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_06_16) [[py5](https://py5coding.org/)]
+
+another nasty SVG + pymunk failure
+
+---
+
+### sketch_2024_06_15
+
+![sketch_2024_06_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_15/sketch_2024_06_15.png)
+
+[sketch_2024_06_15](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_06_15) [[py5](https://py5coding.org/)]
+
+Not very good WIP :(
+
+---
+
 ### sketch_2024_06_14
 
 ![sketch_2024_06_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_14/sketch_2024_06_14.png)
