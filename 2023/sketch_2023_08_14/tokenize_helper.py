@@ -33,7 +33,11 @@ def get_tokens(text_lines):
 def reassemble_tokens(token_tuples, styles={}):
     """
     Gets a list of "tokens tuples" from a tokenized  text
-    and returns a list of "styled segments".    
+    and returns text colored with ansi escape codes.    
+
+    The style dict maps tokenize's token-type constants 
+    to STYLE dict keys from the parse_ansi_strings helper
+    that will in turn inform the ansi formatting to be added.
     """
     lines = []
     current_line = ""
