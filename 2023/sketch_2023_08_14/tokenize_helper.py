@@ -1,6 +1,7 @@
 
-"""Draw source code lines with comments in white.
-Now with multi-line doctstrings also in white!
+"""
+Functions useful draw source code lines with colors,
+to get comments, and also to get multi-line (doc)strings.
 """
 import tokenize
 import io
@@ -8,7 +9,7 @@ from os import path
 
 from parse_ansi_strings import parse_ansi_strings, STYLE
 
-tokenize.DOCSTRING = -tokenize.STRING
+tokenize.DOCSTRING = -tokenize.STRING # some monkeying around
 
 def get_comments(tokens):
     return [token for toktype, token, start, end_, ln
@@ -23,10 +24,21 @@ def starting_triple_quote(s):
     return s.startswith('"' * 3) or s.startswith("'" * 3)
 
 def get_tokens(text_lines):
+    """
+    A helper to produce a list of "token tuples" using Python's tokenize
+    """
     buffer = io.StringIO("".join(text_lines))
     return list(tokenize.generate_tokens(buffer.readline))
 
 def reassemble_tokens(token_tuples, styles={}):
+    """
+    Gets a list of "tokens tuples" from a tokenized  text
+    and returns text colored with ansi escape codes.    
+
+    The style dict maps tokenize's token-type constants 
+    to STYLE dict keys from the parse_ansi_strings helper
+    that will in turn inform the ansi formatting to be added.
+    """
     lines = []
     current_line = ""
     current_line_number = 1
