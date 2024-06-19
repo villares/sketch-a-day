@@ -1,4 +1,3 @@
-
 """
 Functions useful draw source code lines with colors,
 to get comments, and also to get multi-line (doc)strings.
@@ -6,8 +5,19 @@ to get comments, and also to get multi-line (doc)strings.
 import tokenize
 import io
 from os import path
+import builtins
 
 from parse_ansi_strings import parse_ansi_strings, STYLE
+
+KEYWORDS = """
+False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield
+""".split() #; print(KEYWORDS)
 
 tokenize.DOCSTRING = -tokenize.STRING # some monkeying around
 
@@ -58,8 +68,15 @@ def reassemble_tokens(token_tuples, styles={}):
         # Add token text to the current line
         if tok_type == tokenize.STRING and starting_triple_quote(tok_text):
             tok_type = tokenize.DOCSTRING
-        if e := styles.get(tok_type):
-            tok_text = STYLE[e] + tok_text + STYLE['END']
+        if style := styles.get(tok_type):
+            tok_text = STYLE[style] + tok_text + STYLE['END']
+        if tok_type == tokenize.NAME and tok_text in dir(builtins):
+            if style := styles.get('BUILTIN'):
+                tok_text = STYLE[style] + tok_text + STYLE['END']
+        if tok_type == tokenize.NAME and tok_text in KEYWORDS:
+            if style := styles.get('KEYWORD'):
+                tok_text = STYLE[style] + tok_text + STYLE['END']
+ 
         current_line += tok_text
         current_column = end_col
     lines.append(current_line)
@@ -72,8 +89,88 @@ if __name__ == '__main__':
     tokens = get_tokens(src_lines)
     comments = get_comments(tokens) + get_docstrings(tokens)
     styles = {
-        tokenize.COMMENT: 'PURPLE',
+        tokenize.COMMENT: 'DARKCYAN',
         tokenize.STRING: 'BLUE',
-        tokenize.DOCSTRING: 'RED',
+        tokenize.DOCSTRING: 'PURPLE',
+        'KEYWORD': 'GREEN',
+        'BUILTIN': 'RED',
         }
     print(reassemble_tokens(tokens, styles))
+
+# import token as TOKEN
+# for token_type in dir(TOKEN):
+#     print(token_type)
+
+
+"""
+AMPER
+AMPEREQUAL
+ASYNC
+AT
+ATEQUAL
+AWAIT
+CIRCUMFLEX
+CIRCUMFLEXEQUAL
+COLON
+COLONEQUAL
+COMMA
+COMMENT
+DEDENT
+DOT
+DOUBLESLASH
+DOUBLESLASHEQUAL
+DOUBLESTAR
+DOUBLESTAREQUAL
+ELLIPSIS
+ENCODING
+ENDMARKER
+EQEQUAL
+EQUAL
+ERRORTOKEN
+EXACT_TOKEN_TYPES
+GREATER
+GREATEREQUAL
+INDENT
+ISEOF
+ISNONTERMINAL
+ISTERMINAL
+LBRACE
+LEFTSHIFT
+LEFTSHIFTEQUAL
+LESS
+LESSEQUAL
+LPAR
+LSQB
+MINEQUAL
+MINUS
+NAME
+NEWLINE
+NL
+NOTEQUAL
+NT_OFFSET
+NUMBER
+N_TOKENS
+OP
+PERCENT
+PERCENTEQUAL
+PLUS
+PLUSEQUAL
+RARROW
+RBRACE
+RIGHTSHIFT
+RIGHTSHIFTEQUAL
+RPAR
+RSQB
+SEMI
+SLASH
+SLASHEQUAL
+SOFT_KEYWORD
+STAR
+STAREQUAL
+STRING
+TILDE
+TYPE_COMMENT
+TYPE_IGNORE
+VBAR
+VBAREQUAL
+"""
