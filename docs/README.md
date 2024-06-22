@@ -36,6 +36,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_06_22
+
+![sketch_2024_06_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_22/sketch_2024_06_22.gif)
+
+[sketch_2024_06_22](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_06_22) [[py5](https://py5coding.org/)]
+
+Kind of works... based on Stand-up Maths video abou rotation without rotation (3 skews) https://www.youtube.com/watch?v=1LCEiVDHJmc
+
+---
+
 ### sketch_2024_06_21
 
 ![sketch_2024_06_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_06_21/sketch_2024_06_21.png)
