@@ -73,7 +73,7 @@ def reassemble_tokens(token_tuples, styles={}):
         if tok_type == tokenize.NAME and tok_text in dir(builtins):
             if style := styles.get('BUILTIN'):
                 tok_text = STYLE[style] + tok_text + STYLE['END']
-        elif tok_type == tokenize.NAME and tok_text in KEYWORDS:
+        if tok_type == tokenize.NAME and tok_text in KEYWORDS:
             if style := styles.get('KEYWORD'):
                 tok_text = STYLE[style] + tok_text + STYLE['END']
  
@@ -95,8 +95,6 @@ if __name__ == '__main__':
         'KEYWORD': 'GREEN',
         'BUILTIN': 'RED',
         }
-    for t in tokens:
-        print(t)
     print(reassemble_tokens(tokens, styles))
 
 # import token as TOKEN
