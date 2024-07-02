@@ -2,11 +2,13 @@
 
 #### coding a visual idea a day
 
-Welcome! My name is [Alexandre Villares](https://abav.lugaralgum.com) and since January, 2018 I have been coding *sketches* everyday, publishing the source code in the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day).
+Welcome! My name is [Alexandre Villares](https://abav.lugaralgum.com) and since January, 2018 I have been coding *sketches* everyday, publishing the source code in the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day). 
 
-The results are mostly tentative, exploratory, and I don’t feel like they need to be relevant or meaningful on any particular day. The everyday practice leads to the emergence of ideas that I consider interesting, worthy of further exploration. Some of those have been added to [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), this collection itself became valuable for me, and it is my pleasure to share it with anyone willing to explore coding as a creative and expressive medium.
+The results here are mostly tentative, exploratory, and I don’t feel like they need to be relevant or meaningful on any particular day. The everyday practice leads to the emergence of ideas that I consider interesting, worthy of further exploration. Some of those have been added to [selected work](https://abav.lugaralgum.com/selected-work/index-EN.html), this collection itself became valuable for me, and it is my pleasure to share it with anyone willing to explore coding as a creative and expressive medium.
 
-Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects. Moreover, I kindly invite you to follow me on Mastodon [[@villares@ciberlandia.pt](https://ciberlandia.pt/@villares)]. If you appreciate what I have been doing, you may support my artistic work, research and open educational resources I publish on-line using [gumroad.com/villares](https://gumroad.com/villares), [PayPal](https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724) or PIX at `46c37783-5edb-4f1c-b3a8-1309db11488c`.
+You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/@villares) or at <a rel="me" href="https://pynews.com.br/@villares">@villares@pynews.com.br</a>, where I post most of my daily sketches. Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
+
+If you appreciate what I have been doing, you may also support my artistic work, research and open educational resources I publish on-line using the Brazilan PIX key at `46c37783-5edb-4f1c-b3a8-1309db11488c`, [PayPal](https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724) or [gumroad.com/villares](https://gumroad.com/villares), where you can subscribe to my [[sketch-mail](https://villares.gumroad.com/l/sketch-mail)] newsletter.
 
 Here are listed some of the tools I have been using:
 
