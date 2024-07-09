@@ -1,6 +1,6 @@
 well = {}
 piece = []
-game_over = False
+
 cores = {
     'r': color(200, 0, 0),  # red
     'g': color(0, 200, 0),  # green
@@ -9,7 +9,7 @@ cores = {
     'm': color(200, 0, 200),  # magenta
     'c': color(0, 200, 200),  # cian
     't': color(200, 200, 200),  # gray
-    'w': 128  # cinza
+    'w': 128  # wall, dark gray
     }
 
 pieces = (
@@ -47,6 +47,12 @@ W, H, s = 11, 20, 25   # Well Width, Well Height, single block size
 
 def setup():
     size(525, 525)
+    start()
+    
+def start():
+    global game_over, score
+    game_over, score = False, 0
+    well.clear()
     for y in range(H):
         well[0, y] = 'w'
         well[W, y] = 'w'
@@ -55,6 +61,7 @@ def setup():
     new_piece()
     
 def draw():
+    global score
     background(0)
     for (x, y), b in list(well.items()) + piece:
         fill(cores[b])
@@ -66,7 +73,6 @@ def draw():
          text_size(80)
          text('GAME OVER',
               width / 2, height / 2)
-         
     elif frame_count % 10 == 0:
         if check_move(piece, 0, 1):
             move_piece(0, 1)
@@ -77,6 +83,7 @@ def draw():
         r = check_filled_row()
         if r != -1:
             collapse_row(r)
+            score += 1
  
 def new_piece():
     global game_over
@@ -131,10 +138,12 @@ def rotated_piece():
     c = piece_centroid()
     cx, cy = int(c[0]), int(c[1])
     ttop = (((x - cx, y - cy), b) for (x, y), b in piece) # translated to origin piece
-    return tuple(((-y + cx, x + cy), b) for (x, y), b in ttop)
+    return tuple(((y + cx, -x + cy), b) for (x, y), b in ttop)
 
 def key_pressed():
-    if key_code == LEFT and check_move(piece, -1, 0):
+    if key == ' ':
+        start()
+    elif key_code == LEFT and check_move(piece, -1, 0):
         move_piece(-1, 0)
     elif key_code == RIGHT and check_move(piece, 1, 0):
         move_piece(1, 0);
