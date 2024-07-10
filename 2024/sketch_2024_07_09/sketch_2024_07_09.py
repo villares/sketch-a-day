@@ -56,7 +56,6 @@ def draw():
             move_falling_piece(0, 1)
         else:
             add_to_well()
-            falling_piece[:] =[]
             new_falling_piece()
         r = check_filled_row()
         if r != -1:
