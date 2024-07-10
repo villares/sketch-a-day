@@ -3,29 +3,18 @@
 
 well = {}
 falling_piece = []
-
-colors = {
-    'r': color(200, 0, 0),  # red
-    'g': color(0, 200, 0),  # green
-    'b': color(0, 0, 200),  # blue
-    'y': color(200, 200, 0),  # yellow
-    'm': color(200, 0, 200),  # magenta
-    'c': color(0, 200, 200),  # cian
-    't': color(200, 200, 200),  # gray
-    'w': 128  # well walls, dark gray
-    }
-
 pieces = (
-    (((6, 0), 'g'), ((7, 0), 'g'), ((6, 1), 'g'), ((7, 1), 'g')), # O
-    (((4, 0), 'b'), ((5, 0), 'b'), ((6, 0), 'b'), ((6, 1), 'b')), # J
-    (((4, 1), 'y'), ((5, 1), 'y'), ((6, 1), 'y'), ((6, 0), 'y')), # L
-    (((4, 0), 'r'), ((5, 0), 'r'), ((6, 0), 'r'), ((7, 0), 'r')), # I
-    (((5, 0), 'c'), ((5, 1), 'c'), ((6, 1), 'c'), ((6, 2), 'c')), # S
-    (((6, 0), 'm'), ((6, 1), 'm'), ((5, 1), 'm'), ((5, 2), 'm')), # N
-    (((4, 0), 't'), ((5, 0), 't'), ((6, 0), 't'), ((5, 1), 't')), # T
+    [((x, y), color(0, 200, 0)) for x, y in ((6, 0), (7, 0), (6, 1), (7, 1))], # O
+    [((x, y), color(0, 0, 200)) for x, y in ((4, 0), (5, 0), (6, 0), (6, 1))], # J
+    [((x, y), color(200, 200, 0)) for x, y in ((4, 1), (5, 1), (6, 1), (6, 0))], # L
+    [((x, y), color(200, 0, 0)) for x, y in ((4, 0), (5, 0), (6, 0), (7, 0))], # I
+    [((x, y), color(0, 200, 200)) for x, y in ((5, 0), (5, 1), (6, 1), (6, 2))], # S
+    [((x, y), color(200, 0, 200)) for x, y in ((6, 0), (6, 1), (5, 1), (5, 2))], # N
+    [((x, y), color(200)) for x, y in ((4, 0), (5, 0), (6, 0), (5, 1))], # T
 )
 
 W, H, s = 11, 20, 25   # Well Width, Well Height, single block size
+frame_sample = 12  # a smaller number makes it faster, a bigger number makes it slower
 
 def setup():
     size(525, 525)
@@ -37,19 +26,19 @@ def start():
     global game_over, score
     game_over, score = False, 0
     well.clear()
-    for y in range(H):
-        well[0, y] = 'w'
-        well[W, y] = 'w'
-    for x in range(W + 1):
-        well[x, H] = 'w'
+    for y in range(H):  # Set vertical well walls
+        well[0, y] = color(128)
+        well[W, y] = color(128)
+    for x in range(W + 1):  # Set bottom of well
+        well[x, H] = color(128)
     new_falling_piece()
     loop() # reactivates draw if it is paused
     
 def draw():
     global score
     background(0)
-    for (x, y), b in list(well.items()) + falling_piece:
-        fill(colors[b])
+    for (x, y), block_color in list(well.items()) + falling_piece:
+        fill(block_color)
         square(x * s, y * s, s)
     fill(200)
     text(score, W * s + (width - W * s) / 2, s * 2)        
@@ -58,7 +47,7 @@ def draw():
          text('GAME OVER',
               width / 2, height / 2)
          no_loop() # pause draw
-    elif frame_count % 10 == 0:
+    elif frame_count % frame_sample == 0:
         if check_move(falling_piece, 0, 1):
             move_falling_piece(0, 1)
         else:
