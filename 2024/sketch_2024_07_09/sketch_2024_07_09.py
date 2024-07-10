@@ -1,4 +1,4 @@
-# To run this, use py5 (py5coding.org) with an imported mode runner
+# To run this you'll need py5 (py5coding.org) with an imported mode runner
 # More about this at https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
 
 well = {}
