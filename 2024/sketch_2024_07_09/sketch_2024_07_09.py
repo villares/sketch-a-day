@@ -1,8 +1,12 @@
-# To run this you'll need py5 (py5coding.org) with an imported mode runner
-# More about this at https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
+"""
+To run this you'll need py5 (py5coding.org) with an imported mode runner
+More about this at https://abav.lugaralgum.com/como-instalar-py5/index-EN.html
 
-well = {}
-falling_piece = []
+Use arrows to play - up to rotate, space bar to restart.
+"""
+
+well = {}  # a dictionary for the walls and already fallen pieces
+falling_piece = []   # will contain ((x,y), color) tuples, the component blocks of a piece
 pieces = (
     [((x, y), color(0, 200, 0)) for x, y in ((6, 0), (7, 0), (6, 1), (7, 1))], # O
     [((x, y), color(0, 0, 200)) for x, y in ((4, 0), (5, 0), (6, 0), (6, 1))], # J
@@ -125,3 +129,4 @@ def key_pressed():
         move_falling_piece(0, 1);
     elif key_code == UP and check_move(rp := rotated_falling_piece()):
         falling_piece[:] = rp
+
