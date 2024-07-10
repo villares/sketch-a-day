@@ -101,13 +101,13 @@ def clear_row(r):
         if (c, r) in well:
             del well[c, r]
 
-def collapse_on_row(r):
-    # clear row r and move blocks down to it
-    for row in range(r, -1, -1): # moving upwards, starting from row r
-        clear_row(row) 
+def collapse_on_row(row):
+    # clear passed row and move blocks down to it
+    for r in range(row, -1, -1): # moving upwards, starting from passed row
+        clear_row(r) 
         for c in range(1, W):
-            if b := well.get((c, row-1)):
-                well[c, row] = b
+            if b := well.get((c, r - 1)): # get block from 1 row up
+                well[c, r] = b  
     
 def rounded_falling_piece_centroid():
     positions = ((x, y) for (x, y), _ in falling_piece)
@@ -132,4 +132,4 @@ def key_pressed():
     elif key_code == DOWN and check_move(falling_piece, 0, 1):
         move_falling_piece(0, 1);
     elif key_code == UP and check_move(rp := rotated_falling_piece()):
-            falling_piece[:] = rp
+        falling_piece[:] = rp
