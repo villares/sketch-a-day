@@ -17,6 +17,7 @@ def setup():
              rects_as_sets.add(frozen_pts)
     rects.sort(key=poly_area)
     print(len(rects))
+    # Note frame 0 is just after setup() and frame 1 is after the first run of draw()
     py5_tools.animated_gif('out.gif', duration=0.3, frame_numbers=range(1, len(rects)+1))
     no_stroke()
                
@@ -25,6 +26,7 @@ def draw():
     fill(0)
     for x, y in grid:
         circle(x, y, 10)
+    # shows the first rect (index 0) on the first draw() frame (frame_count 1)
     r = rects[(frame_count - 1) % len(rects)]
     with begin_shape():
         for x, y in r:
