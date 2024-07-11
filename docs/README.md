@@ -38,6 +38,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_07_10
+
+![sketch_2024_07_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_10/sketch_2024_07_10.gif)
+
+[sketch_2024_07_10](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_10) [[py5](https://py5coding.org/)]
+
+100 rectangles on a 5 x 5 grid of points
+
+---
+
 ### sketch_2024_07_09
 
 ![sketch_2024_07_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_09/sketch_2024_07_09.png)
