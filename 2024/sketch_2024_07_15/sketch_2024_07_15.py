@@ -1,5 +1,5 @@
 # You'll need py5 and a use the run_sketch tool or Thonny + thonny-py5mode
-# to run this py5 "imported mode" style sketch
+# to run this py5 "imported mode" style sketch. Learn more at py5coding.org
 
 def setup():
     size(600, 600)
