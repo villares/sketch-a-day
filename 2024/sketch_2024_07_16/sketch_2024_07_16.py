@@ -4,6 +4,9 @@
 def setup():
     size(600, 600)
     rect_mode(CENTER)
+    no_fill()
+    stroke_weight(3)
+    stroke_join(ROUND)
     
 def draw():
     background(0)
@@ -29,20 +32,29 @@ def unit(x, y, w):
     
 def poly(x, y, r, n):
     # inradius
-    # r = R * cos(PI / 8)
-    if n == 8:
-        R = r / cos(PI / 8) # octagon circumradius
-    elif n == 4:
-        R = r * sqrt(2)
-    else:
-        return
+    # r = R * cos(PI / n)
+    R = r / cos(PI / n) # octagon circumradius
     ang = TAU / n
+    stroke(x % 150, 150 + (y % 100), x % 150)
+    if n == 8:
+        q = 1 + (mouse_x / 100)
+    else:
+        q = 1 + (mouse_y / 100)
     with begin_closed_shape():
         for i in range(n):
             vx = x + cos(i * ang + ang / 2) * R 
             vy = y + sin(i * ang + ang / 2) * R
             vertex(vx, vy)
- 
+    stroke(255)
+    with begin_closed_shape():
+        for i in range(n):
+            vx = x + cos(i * ang) * r
+            vy = y + sin(i * ang) * r
+            vertex(vx, vy)
+            vx = x + cos(i * ang + ang / 2) * r / q 
+            vy = y + sin(i * ang + ang / 2) * r / q
+            vertex(vx, vy)
+
 def key_pressed():
     save_snapshot_and_code()
     
