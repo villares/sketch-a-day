@@ -38,7 +38,7 @@ def poly(x, y, r, n):
     stroke(x % 150, 150 + (y % 100), x % 150)
     if n == 8:
         q = 1 + (mouse_x / 100)
-    else:
+    else: # squares
         q = 1 + (mouse_y / 100)
     with begin_closed_shape():
         for i in range(n):
