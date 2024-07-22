@@ -38,6 +38,41 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_07_21
+
+![sketch_2024_07_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_21/sketch_2024_07_21.png)
+
+[sketch_2024_07_21](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_21) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2024_07_20
+
+![sketch_2024_07_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_20/sketch_2024_07_20.png)
+
+[sketch_2024_07_20](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_20) [[py5](https://py5coding.org/)]
+
+Not at all what I wanted :(
+playing with layers (geodataframes) from#prettymaps, but getting confused because I'm terrible with #matplotlib
+data (c) OpenStreetMap contributors
+ttps://www.openstreetmap.org/copyright
+
+---
+
+### sketch_2024_07_19
+
+![sketch_2024_07_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_19/sketch_2024_07_19.png)
+
+[sketch_2024_07_19](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_19) [[py5](https://py5coding.org/)]
+
+work in progress ... #osmnx
+data (c) OpenStreetMap contributors
+https://www.openstreetmap.org/copyright
+
+---
+
 ### sketch_2024_07_18
 
 ![sketch_2024_07_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_18/sketch_2024_07_18.png)
