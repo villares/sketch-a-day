@@ -3,8 +3,8 @@ import py5
 
 place = "Sé, São Paulo, SP, Brasil"
 plot = prettymaps.plot(place)
-buildings = plot.geodataframes['building'].plot(ax=None)
-#buildings.axes = []
+buildings = plot.geodataframes['building'].plot()
+_ = buildings.axis('off')
 
 message = 'data (c) OpenStreetMap contributors\n'\
           'https://www.openstreetmap.org/copyright\n'\
