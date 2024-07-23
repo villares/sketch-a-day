@@ -38,6 +38,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_07_23
+
+![sketch_2024_07_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_23/sketch_2024_07_23.png)
+
+[sketch_2024_07_23](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_23) [[py5](https://py5coding.org/)]
+
+Reproducing a pixel manipulation example from Guzdial & Ericson's Media Computation with Python!
+
+---
+
 ### sketch_2024_07_22
 
 ![sketch_2024_07_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_22/sketch_2024_07_22.png)
