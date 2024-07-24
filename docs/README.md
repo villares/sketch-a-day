@@ -38,6 +38,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_07_24
+
+![sketch_2024_07_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_24/sketch_2024_07_24.png)
+
+[sketch_2024_07_24](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_24) [[py5](https://py5coding.org/)]
+
+Inspired by @JeanBaptisteEt4's work: https://mathstodon.xyz/@JeanBaptisteEt4/112837724665792089 #tiling #tesselation
+
+---
+
 ### sketch_2024_07_23
 
 ![sketch_2024_07_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_23/sketch_2024_07_23.png)
