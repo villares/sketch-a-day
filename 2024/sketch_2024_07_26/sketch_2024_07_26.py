@@ -1,8 +1,6 @@
 # You'll need py5 and a use the run_sketch tool or Thonny + thonny-py5mode
 # to run this py5 "imported mode" style sketch. Learn more at py5coding.org
 
-R = 150
-
 def setup():
     size(600, 600)
     stroke_weight(3)
@@ -11,16 +9,13 @@ def setup():
     
 def draw():
     background(0)
-    unit(300, 300, 200, 100)
-#    unit(300, 300, mouse_x, mouse_y)
-    
-def unit(xu, yu, s1, s2):
-    vs = hex_points(xu, yu, s1)
     stroke(255)
-    #with begin_closed_shape():
-    #    vertices(vs)
+    unit(300, 300, 180)
+    
+def unit(xu, yu, r):
+    vs = poly_points(xu, yu, r)
     for i, (x, y) in enumerate(vs):
-        svs = hex_points(x, y, s2)
+        svs = poly_points(x, y, r / 2)
         no_fill()
         with begin_closed_shape():
             vertices(svs)
@@ -32,15 +27,14 @@ def unit(xu, yu, s1, s2):
                 for j in range(5, 8):
                     vertex(svs[(i + j) % len(svs)])
     
-def hex_points(x, y, cr, pointy=True):
-    # cr is the circumradius
+def poly_points(x, y, cr, n=6, half_rot=True):
+    # cr is the circumradius for hex
     # ir = cr * cos(TAU / 12)  # to be confirmed
     # a = cr * 2 * sin(TAU / 12) # to be confirmed
-    ang = TAU / 6
-    return [(x + cos(i * ang + pointy * ang / 2) * cr,
-             y + sin(i * ang + pointy * ang / 2) * cr)
-           for i in range(6)]
-
+    ang = TAU / n
+    return [(x + cos(i * ang + half_rot * ang / 2) * cr,
+             y + sin(i * ang + half_rot * ang / 2) * cr)
+           for i in range(n)]
 
 def key_pressed():
     save_frame('out.png')
