@@ -21,16 +21,15 @@ def draw():
     
     stroke_weight(1)
     stroke(200)
+    # lines to control points
     for i, (x, y) in enumerate(pontos):
         if i != 0 and i % 3 == 0:  # elementos divisíveis por 3 da lista
-            c0x, c0y = pontos[i - 3]
+            v0x, v0y = pontos[i - 3]
             c1x, c1y = pontos[i - 2]
-            line(c0x, c0y, c1x, c1y)
+            line(v0x, v0y, c1x, c1y)
             c2x, c2y = pontos[i - 1]
-            c3x, c3y = pontos[i]
-            line(c2x, c2y, c3x, c3y)
-
-
+            line(c2x, c2y, x, y)
+    # the curves
     stroke_weight(3)
     stroke(0)
     no_fill()
