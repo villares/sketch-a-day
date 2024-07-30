@@ -38,6 +38,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_07_30
+
+![sketch_2024_07_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_30/sketch_2024_07_30.gif)
+
+[sketch_2024_07_30](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_07_30) [[py5](https://py5coding.org/)]
+
+#QuadraticBezier curves have a single control point. I find them easier to work with, sometimes...
+
+---
+
 ### sketch_2024_07_29
 
 ![sketch_2024_07_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_07_29/sketch_2024_07_29.gif)
