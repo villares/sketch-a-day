@@ -8,7 +8,6 @@ class Mode(Enum):
 #     OPEN_CMR = 2
 #     CLOSED_CMR = 3
 
-
 active_mode = Mode(0)
 being_dragged = None
 
@@ -135,7 +134,7 @@ def generate_code():
         for (c1x, c1y), (c2x, c2y), (vx, vy) in zip(pts[1::3],
                                                     pts[2::3],
                                                     pts[3::3] ):
-            code += f'    bezier({c1x}, {c1y}, {c2x}, {c2y}, {vx}, {vy})\n'
+            code += f'    bezier_vertex({c1x}, {c1y}, {c2x}, {c2y}, {vx}, {vy})\n'
     return code
 
 
