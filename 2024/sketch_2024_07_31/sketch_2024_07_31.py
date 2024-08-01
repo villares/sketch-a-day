@@ -27,13 +27,14 @@ pts = [
 #     (50, 150),   # 6: ?
 #     (50, 100),   # 6: ?
 #     (50, 50),   # 6: ?
-
     ]
 
 s = 2 # scale factor
 
 def setup():
-    py5.size(800, 600)
+    py5.size(800, 800)
+    f = py5.create_font('Inconsolata', 12)
+    py5.text_font(f)
 
 def draw():
     py5.scale(s)
@@ -89,11 +90,14 @@ def draw():
         py5.circle(x, y, 5)
         templates = {
             Mode.BEZIER:
-            f'{"vertex" if not i else "control" if i % 3 else "bezier"}',
+            f"{'vertex' if not i else 'control' if i % 3 else 'bezier'}",
             Mode.QUADRATIC:
-            f'{"vertex" if not i else "control" if i % 2 else "quadratic"}',
+            f"{'vertex' if not i else 'control' if i % 2 else 'quadratic'}",
         }
         py5.text(f'{i}: {templates[active_mode]}', x + 5, y - 5)
+        t = generate_code()
+        py5.fill(255)
+        py5.text(t, 20, 300)
 
 def mouse_pressed():
     global being_dragged
@@ -114,19 +118,25 @@ def key_pressed():
     if py5.key == ' ':
         active_mode = Mode((active_mode.value + 1) % len(Mode))
     elif  py5.key == 'p':
-        (v0x, v0y) = pts[0]
-        if active_mode == Mode.QUADRATIC:
-            print(f"with begin_shape():\n    vertex({v0x}, {v0y})")
-            for (cx, cy), (vx, vy) in zip(pts[1::2],
-                                          pts[2::2]):
-                print (f"    quadratic_vertex({cx}, {cy}, {vx}, {vy})")
-        if active_mode == Mode.BEZIER:
-            print(f"with begin_shape():\n    vertex({v0x}, {v0y})")
-            for (c1x, c1y), (c2x, c2y), (vx, vy) in zip(pts[1::3],
-                                                        pts[2::3],
-                                                        pts[3::3] ):
-                print (f"    bezier({c1x}, {c1y}, {c2x}, {c2y}, {vx}, {vy})")
-
+        py5.save_frame('####.png')
+        print(generate_code())
+        
+def generate_code():
+    (v0x, v0y) = pts[0]
+    if active_mode == Mode.QUADRATIC:
+        code = '# Quadratic Bézier curve\n'
+        code += f'with begin_shape():\n    vertex({v0x}, {v0y})\n'
+        for (cx, cy), (vx, vy) in zip(pts[1::2],
+                                      pts[2::2]):
+            code += f'    quadratic_vertex({cx}, {cy}, {vx}, {vy})\n'
+    if active_mode == Mode.BEZIER:
+        code = '# Cubic Bézier curve\n'
+        code += f'with begin_shape():\n    vertex({v0x}, {v0y})\n'
+        for (c1x, c1y), (c2x, c2y), (vx, vy) in zip(pts[1::3],
+                                                    pts[2::3],
+                                                    pts[3::3] ):
+            code += f'    bezier({c1x}, {c1y}, {c2x}, {c2y}, {vx}, {vy})\n'
+    return code
 
 
 def mouse_dragged():
