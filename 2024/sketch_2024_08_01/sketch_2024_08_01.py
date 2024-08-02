@@ -19,10 +19,6 @@ Mode.switch(Mode.BEZIER)  # you need to init the active mode
 
 being_dragged = None
 
-draw_line_funcs = {}
-draw_curve_funcs = {}
-draw_hendle_funcs = {}
-
 pts = [
     (100, 50),   # 0 initial anchor
     (150, 100),  # 1
