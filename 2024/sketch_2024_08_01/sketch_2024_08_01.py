@@ -15,7 +15,7 @@ class Mode(Enum):
     def switch(cls, mode=None):
         cls.active = mode or cls((cls.active.value + 1) % len(cls))
 
-Mode.switch(Mode(0))
+Mode.switch(Mode.BEZIER)  # you need to init the active mode
 
 being_dragged = None
 
