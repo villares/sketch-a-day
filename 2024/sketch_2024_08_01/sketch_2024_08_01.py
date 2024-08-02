@@ -106,7 +106,8 @@ def draw():
             Mode.CLOSED_CMR:
             f"{i}: {'curve_vertex 2x' if i in (0,1) or i == len(pts)-1 else 'curve_vertex'}",
         }
-    py5.text(templates[Mode.active], x + 5, y - 5)
+        py5.text(templates[Mode.active], x + 5, y - 5)
+    # draw code
     t = generate_code()
     py5.fill(255)
     py5.text_leading(10)
