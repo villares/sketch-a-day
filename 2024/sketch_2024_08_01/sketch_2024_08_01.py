@@ -90,8 +90,8 @@ def draw():
         x, y = pt
         if i == being_dragged:
             py5.fill(200, 0, 0)
-        elif py5.dist(py5.mouse_x,
-                      py5.mouse_y, x, y) < 10:
+        elif py5.dist(py5.mouse_x / s,
+                      py5.mouse_y / s, x, y) < 10:
             py5.fill(255, 255, 0)
         else:
             py5.fill(255)
