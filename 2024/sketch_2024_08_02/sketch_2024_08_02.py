@@ -7,10 +7,8 @@ TAN_A = py5.tan(A)
 
 def setup():
     py5.size(600, 600)
-    f = py5.create_font('Inconsolata', 10)
-    py5.text_font(f)
-    py5.no_fill()
     py5.rect_mode(py5.CENTER)
+    py5.no_fill()
 
 def draw():
     py5.background(100)
