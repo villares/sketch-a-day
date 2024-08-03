@@ -38,6 +38,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_08_02
+
+![sketch_2024_08_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_08_02/sketch_2024_08_02.png)
+
+[sketch_2024_08_02](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_08_02) [[py5](https://py5coding.org/)]
+
+More #IslamicPatterns studies.
+
+---
+
 ### sketch_2024_08_01
 
 ![sketch_2024_08_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_08_01/sketch_2024_08_01.gif)
