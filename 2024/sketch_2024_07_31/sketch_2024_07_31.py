@@ -11,9 +11,6 @@ class Mode(Enum):
 active_mode = Mode(0)
 being_dragged = None
 
-draw_line_funcs = {}
-draw_curve_funcs = {}
-draw_hendle_funcs = {}
 
 pts = [
     (100, 50),   # 0: vertex() initial anchor
@@ -94,9 +91,9 @@ def draw():
             f"{'vertex' if not i else 'control' if i % 2 else 'quadratic'}",
         }
         py5.text(f'{i}: {templates[active_mode]}', x + 5, y - 5)
-        t = generate_code()
-        py5.fill(255)
-        py5.text(t, 20, 300)
+    t = generate_code()
+    py5.fill(255)
+    py5.text(t, 20, 300)
 
 def mouse_pressed():
     global being_dragged
@@ -139,8 +136,6 @@ def generate_code():
 
 
 def mouse_dragged():
-    global pts
-    global being_dragged
     if being_dragged is not None:
         x, y = pts[being_dragged]
         x += (py5.mouse_x - py5.pmouse_x) / s
