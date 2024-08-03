@@ -35,8 +35,8 @@ def module(x, y, ext):
 def m(a, b):
     return (a + b) / 2
 
-def rot(x, y, cw=1, ang=None):  # -45 degrees
-    ang = ang or -A * 2
+def rot(x, y, cw=1, ang=None):  
+    ang = ang or -A * 2 # -45 degrees by default for this sketch
     return  (x * py5.cos(ang * cw) + y * py5.sin(ang * cw),
             -x * py5.sin(ang * cw) + y * py5.cos(ang * cw))
 
