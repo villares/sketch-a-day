@@ -8,12 +8,16 @@ class Mode(Enum):
     OPEN_CMR = 2
     CLOSED_CMR = 3
 
-active_mode = Mode(0)
-being_dragged = None
+    def is_active(self):
+        return self == self.active
 
-draw_line_funcs = {}
-draw_curve_funcs = {}
-draw_hendle_funcs = {}
+    @classmethod
+    def switch(cls, mode=None):
+        cls.active = mode or cls((cls.active.value + 1) % len(cls))
+
+Mode.switch(Mode.BEZIER)  # you need to init the active mode
+
+being_dragged = None
 
 pts = [
     (100, 50),   # 0 initial anchor
@@ -40,12 +44,12 @@ def draw():
     py5.stroke(200)
     for i, (x, y) in enumerate(pts):
         if i != 0:
-            if active_mode == Mode.QUADRATIC and i % 2 == 0:
+            if Mode.QUADRATIC.is_active() and i % 2 == 0:
                 v0x, v0y = pts[i - 2]
                 c1x, c1y = pts[i - 1]
                 py5.line(v0x, v0y, c1x, c1y)
                 py5.line(c1x, c1y, x, y)
-            elif active_mode == Mode.BEZIER and i % 3 == 0:
+            elif Mode.BEZIER.is_active() and i % 3 == 0:
                 v0x, v0y = pts[i - 3]
                 c1x, c1y = pts[i - 2]
                 py5.line(v0x, v0y, c1x, c1y)
@@ -55,40 +59,39 @@ def draw():
     py5.stroke_weight(3)
     py5.stroke(0)
     py5.no_fill()
-    if active_mode == Mode.QUADRATIC:
+    if Mode.QUADRATIC.is_active():
         with py5.begin_shape():
             py5.vertex(pts[0][0], pts[0][1])  # primeiro pt (índice 0)
             pairs = zip(pts[1::2], pts[2::2])
             for (px, py), (x, y) in pairs:  
                py5. quadratic_vertex(px, py, x, y)
-    elif active_mode == Mode.BEZIER:
+    elif Mode.BEZIER.is_active():
         with py5.begin_shape():
             py5.vertex(pts[0][0], pts[0][1])  # primeiro pt (índice 0)
             triples = zip(pts[1::3], pts[2::3], pts[3::3])
             for (c1x, c1y), (c2x, c2y), (vx, vy) in triples:
                 py5.bezier_vertex(c1x, c1y, c2x, c2y, vx, vy)
-    elif active_mode == Mode.OPEN_CMR:
+    elif Mode.OPEN_CMR.is_active():
         with py5.begin_shape():
             py5.curve_vertex(pts[0][0], pts[0][1])  # primeiro pt (índice 0)
             for x, y in pts:
                 py5.curve_vertex( x, y)
             py5.curve_vertex(pts[-1][0], pts[-1][1])  # último ponto
-    elif active_mode == Mode.CLOSED_CMR:
+    elif Mode.CLOSED_CMR.is_active():
         with py5.begin_closed_shape():
             py5.curve_vertex(pts[-1][0], pts[-1][1])  # primeiro pt (índice 0)
             for x, y in pts:
                 py5.curve_vertex( x, y)
             py5.curve_vertex(pts[0][0], pts[0][1])  # último ponto
             py5.curve_vertex(pts[1][0], pts[1][1])  # último ponto
-
     # the handles
     py5.stroke_weight(1)
     for i, pt in enumerate(pts):
         x, y = pt
         if i == being_dragged:
             py5.fill(200, 0, 0)
-        elif py5.dist(py5.mouse_x,
-                      py5.mouse_y, x, y) < 10:
+        elif py5.dist(py5.mouse_x / s,
+                      py5.mouse_y / s, x, y) < 10:
             py5.fill(255, 255, 0)
         else:
             py5.fill(255)
@@ -103,10 +106,12 @@ def draw():
             Mode.CLOSED_CMR:
             f"{i}: {'curve_vertex 2x' if i in (0,1) or i == len(pts)-1 else 'curve_vertex'}",
         }
-        py5.text(templates[active_mode], x + 5, y - 5)
-        t = generate_code()
-        py5.fill(255)
-        py5.text(t, 20, 260)
+        py5.text(templates[Mode.active], x + 5, y - 5)
+    # draw code
+    t = generate_code()
+    py5.fill(255)
+    py5.text_leading(10)
+    py5.text(t, 20, 260)
 
 def mouse_pressed():
     global being_dragged
@@ -121,11 +126,9 @@ def mouse_released():
     global being_dragged
     being_dragged = None
     
-
 def key_pressed():
-    global active_mode
     if py5.key == ' ':
-        active_mode = Mode((active_mode.value + 1) % len(Mode))
+       Mode.switch()
     elif  py5.key == 'p':
         py5.save_frame('####.png')
         print(generate_code())
@@ -133,28 +136,28 @@ def key_pressed():
 def generate_code():
     (v0x, v0y) = pts[0]
     code = ''
-    if active_mode == Mode.QUADRATIC:
+    if Mode.QUADRATIC.is_active():
         code = '# Quadratic Bézier curve\n'
         code += f'with begin_shape():\n'
         code += f'    vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         pairs = zip(pts[1::2], pts[2::2], range(1, len(pts), 2))
         for (cx, cy), (vx, vy), i in pairs:
             code += f'    quadratic_vertex({cx}, {cy}, {vx}, {vy})  # {i} {i+1}\n'
-    elif active_mode == Mode.BEZIER:
+    elif Mode.BEZIER.is_active():
         code = '# Cubic Bézier curve\n'
         code += f'with begin_shape():\n'
         code += f'    vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         triples = zip(pts[1::3], pts[2::3], pts[3::3], range(1, len(pts), 3))
         for (c1x, c1y), (c2x, c2y), (vx, vy), i in triples:
             code += f'    bezier_vertex({c1x}, {c1y}, {c2x}, {c2y}, {vx}, {vy})   # {i} {i+1} {i+2}\n'
-    elif active_mode == Mode.OPEN_CMR:
+    elif Mode.OPEN_CMR.is_active():
         code = '# Open Catmull-Rom curve\n'
         code += f'with begin_shape():\n'
         code += f'    curve_vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         for i, (x, y) in enumerate(pts):
             code += f'    curve_vertex({x}, {y})  # {i}\n'
         code += f'    curve_vertex({pts[-1][0]}, {pts[-1][1]})  # {len(pts)-1}\n'
-    elif active_mode == Mode.CLOSED_CMR:
+    elif Mode.CLOSED_CMR.is_active():
         code = '# Closed Catmull-Rom curve\n'
         code += f'with begin_shape():\n'
         code += f'    curve_vertex({pts[-1][0]}, {pts[-1][1]})  # {len(pts)-1}\n'
@@ -163,9 +166,7 @@ def generate_code():
         code += f'    curve_vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         code += f'    curve_vertex({pts[1][0]}, {pts[1][1]})  # 1 \n'
 
-    
     return code
-
 
 def mouse_dragged():
     global pts
