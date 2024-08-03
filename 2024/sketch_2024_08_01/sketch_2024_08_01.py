@@ -134,7 +134,6 @@ def key_pressed():
         print(generate_code())
         
 def generate_code():
-    (v0x, v0y) = pts[0]
     code = ''
     if Mode.QUADRATIC.is_active():
         code = '# Quadratic Bézier curve\n'
@@ -169,8 +168,6 @@ def generate_code():
     return code
 
 def mouse_dragged():
-    global pts
-    global being_dragged
     if being_dragged is not None:
         x, y = pts[being_dragged]
         x += (py5.mouse_x - py5.pmouse_x) / s
