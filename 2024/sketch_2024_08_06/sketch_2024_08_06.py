@@ -16,10 +16,10 @@ def draw():
         x = i * h + (h / 4 if j % 2 else -h / 4)
         y = j * v
         py5.stroke(0)
-        poly(x, y, h)
-        #poly(x, y, h / 2)
+        #poly(x, y, h) # 173.2
+        poly(x, y, 177)
         py5.stroke(255)
-        poly(x, y, h * 2 / 3)
+        poly(x, y, 122)  
     
 def poly(x, y, r, n=8):
     with py5.push_matrix():
