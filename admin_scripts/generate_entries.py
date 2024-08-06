@@ -28,7 +28,7 @@ from time import sleep
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM  #*!todo
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
 
 from image_helpers import get_image_names, image_as_png_bytes
