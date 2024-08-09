@@ -78,7 +78,7 @@ def draw():
                 py5.curve_vertex( x, y)
             py5.curve_vertex(pts[-1][0], pts[-1][1])  # último ponto
     elif Mode.CLOSED_CMR.is_active():
-        with py5.begin_closed_shape():
+        with py5.begin_shape():  # closed not needed here, and causes problem in p5js/py5js
             py5.curve_vertex(pts[-1][0], pts[-1][1])  # primeiro pt (índice 0)
             for x, y in pts:
                 py5.curve_vertex( x, y)
@@ -136,21 +136,21 @@ def key_pressed():
 def generate_code():
     code = ''
     if Mode.QUADRATIC.is_active():
-        code = '# Quadratic Bézier curve\n'
+        code = '# Quadratic Bézier curve - one control point per section\n'
         code += f'with begin_shape():\n'
         code += f'    vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         pairs = zip(pts[1::2], pts[2::2], range(1, len(pts), 2))
         for (cx, cy), (vx, vy), i in pairs:
             code += f'    quadratic_vertex({cx}, {cy}, {vx}, {vy})  # {i} {i+1}\n'
     elif Mode.BEZIER.is_active():
-        code = '# Cubic Bézier curve\n'
+        code = '# Cubic Bézier curve - two control points per section\n'
         code += f'with begin_shape():\n'
         code += f'    vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         triples = zip(pts[1::3], pts[2::3], pts[3::3], range(1, len(pts), 3))
         for (c1x, c1y), (c2x, c2y), (vx, vy), i in triples:
             code += f'    bezier_vertex({c1x}, {c1y}, {c2x}, {c2y}, {vx}, {vy})   # {i} {i+1} {i+2}\n'
     elif Mode.OPEN_CMR.is_active():
-        code = '# Open Catmull-Rom curve\n'
+        code = '# Open Catmull-Rom curve - ends do not influence each other\n'
         code += f'with begin_shape():\n'
         code += f'    curve_vertex({pts[0][0]}, {pts[0][1]})  # 0 \n'
         for i, (x, y) in enumerate(pts):
@@ -158,7 +158,7 @@ def generate_code():
         code += f'    curve_vertex({pts[-1][0]}, {pts[-1][1]})  # {len(pts)-1}\n'
     elif Mode.CLOSED_CMR.is_active():
         code = '# Closed Catmull-Rom curve\n'
-        code += f'with begin_shape():\n'
+        code += f'with begin_shape():   # notice it is not using "begin_closed_shape"\n'
         code += f'    curve_vertex({pts[-1][0]}, {pts[-1][1]})  # {len(pts)-1}\n'
         for i, (x, y) in enumerate(pts):
             code += f'    curve_vertex({x}, {y})  # {i}\n'
