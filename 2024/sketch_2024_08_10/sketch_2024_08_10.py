@@ -45,7 +45,7 @@ def triangulate(pts):
 def sub_tri(poly_pts):
     for a, b, c in triangulate(poly_pts):
         for sa, sb, sc in triangulate((a, b, c)):
-            fill(64 + sa[0] % 128, 255, 128 + sb[0]  % 128)
+            fill(64 + sa[0] % 128, 255, 128 + sb[0 ]  % 128)
             triangle(*sa, *sb, *sc)
 
 def sub_quad(x, y, s):
