@@ -1,4 +1,4 @@
-#!/home/villares/thonny-python-env/bin/python3
+#!/home/villares/thonny-env/bin/python
 
 """
 Experiment on diffing sketches

@@ -1,4 +1,4 @@
-#!/home/villares/miniconda3/bin/python
+#!/home/villares/thonny-env/bin/python
 """
 MP4 to GIF animation. Depends on moviepy and ffmpeg.
 """

@@ -1,4 +1,4 @@
-#!/home/villares/miniconda3/bin/python
+#!/home/villares/thonny-env/bin/python
 
 # Generate rss.xml for sketch-a-day - WIP
 

@@ -1,8 +1,8 @@
-#!/home/villares/miniconda3/bin/python
+#!/home/villares/thonny-env/bin/python
 
 from pathlib import Path
 
-import PySimpleGUI as sg    # precisa instalar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
+import FreeSimpleGUI as sg    # precisa instalar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
 import imageio              # precisa instalar:
 # precisa instalar pip install imageio[ffmpeg]
 

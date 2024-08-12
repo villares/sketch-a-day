@@ -1,4 +1,5 @@
-#!/home/villares/miniconda3/bin/python
+#!/home/villares/thonny-env/bin/python
+
 """
 When called from the CL looks for images in CWD and renames
 first found image with folder name. This might skip renaming

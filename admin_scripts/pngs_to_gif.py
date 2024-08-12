@@ -1,4 +1,4 @@
-#!/home/villares/miniconda3/bin/python
+#!/home/villares/thonny-env/bin/python
 """
 Create GIF from PNG files in a directory!
 """

@@ -1,5 +1,3 @@
-#!/home/villares/miniconda3/bin/python
-
 from os import listdir
 from os.path import join
 import PIL.Image

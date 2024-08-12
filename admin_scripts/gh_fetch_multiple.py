@@ -1,3 +1,5 @@
+#!/home/villares/thonny-env/bin/python
+
 """
 Experimental automation of local repo actions
 
