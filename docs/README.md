@@ -38,6 +38,16 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_08_12
+
+![sketch_2024_08_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_08_12/sketch_2024_08_12.png)
+
+[sketch_2024_08_12](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_08_12) [[py5](https://py5coding.org/)]
+
+I think this is my first attempt at combining py5 and networkx :)  #networkx #graphviz
+
+---
+
 ### sketch_2024_08_11
 
 ![sketch_2024_08_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_08_11/sketch_2024_08_11.gif)
