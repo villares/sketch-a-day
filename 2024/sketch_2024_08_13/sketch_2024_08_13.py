@@ -16,23 +16,28 @@ import networkx as nx
 # gvpr unflatten sccmap - probably need arguments I don't understand
 MODES = ('patchwork neato circo dot twopi sfdp fdp').split()
 a_mode = 0
-
+margin = 50
 G = nx.balanced_tree(3, 5)
 
 def setup():
     global pos
-    py5.size(800, 750)
+    py5.size(800, 800)
     pos = calc_layout(MODES[a_mode])
 
 def draw():
     py5.background(200, 200, 150)
+    py5.fill(255)
+    py5.text_size(margin / 3)
+    py5.text(MODES[a_mode], margin, margin / 2)
+    py5.stroke(0)
     for a, b in G.edges:
         xa, ya = pos[a]
         xb, yb = pos[b]
         py5.line(xa, ya, xb, yb)
     py5.fill(0, 0, 200)
+    py5.no_stroke()
     for n in G.nodes:
-        py5.circle(*pos[n], 4)
+        py5.circle(*pos[n], 5)
         
 @cache
 def calc_layout(mode):
@@ -44,24 +49,21 @@ def calc_layout(mode):
         ys.append(y)
     min_x = min(xs)
     min_y = min(ys)
-    dx = max(xs) - min_x
-    dy = max(ys) - min_y
-    scale_factor = 1
-    if dx > py5.width:
-        scale_factor = py5.width / dx
-    elif dx < py5.width:
-        scale_factor = dx / py5.width
-    if dy * scale_factor > py5.height:
-         scale_factor = py5.height / (dy * scale_factor)
-    for n, (nx, ny) in layout.items():
-        layout[n] = (nx - min_x) * scale_factor , (ny - min_y) * scale_factor
+    max_x = max(xs) 
+    max_y = max(ys)
+    for n, (x, y) in layout.items():
+        nx = py5.remap(x, min_x, max_x, margin, py5.width - margin)
+        ny = py5.remap(y, min_y, max_y, margin, py5.height - margin)
+        layout[n] = nx, ny
     return layout
-
 
 def key_pressed():
     global pos, a_mode
-    a_mode = (a_mode + 1) % len(MODES)
-    print(MODES[a_mode])
-    pos = calc_layout(MODES[a_mode])
+    if py5.key == ' ':
+        a_mode = (a_mode + 1) % len(MODES)
+        print(MODES[a_mode])
+        pos = calc_layout(MODES[a_mode])
+    elif py5.key == 'p':
+        py5.save_frame(MODES[a_mode] + '.png')
 
 py5.run_sketch(block=False)
