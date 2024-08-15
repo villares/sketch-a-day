@@ -10,6 +10,7 @@ and then installed in my local env with pip
 from functools import cache
 
 import py5
+from py5_tools import animated_gif
 
 import networkx as nx
 
@@ -21,30 +22,25 @@ def setup():
     global pos
     py5.size(800, 800, py5.P3D)
     pos = nx.spring_layout(G, dim=3, seed=100)
-    #pos = nx.spiral_layout(G, dim=3)
+    #pos = nx.spiral_layout(G, dim=2)
     pos = resize_layout(pos)
+    animated_gif('out.gif', frame_numbers=range(1, 361, 10), duration=0.2, optimize=False)
     
 def draw():
     py5.push_matrix()
     py5.translate(py5.width / 2, py5.height / 2, -py5.height / 2)
-    py5.rotate_y(py5.mouse_x / 20)
+    py5.rotate_y(py5.radians(py5.frame_count))
     py5.background(200, 200, 150)
     py5.stroke(0)
     py5.stroke_weight(1)
-    for a, b in G.edges:
-        xa, ya, za = pos[a]
-        xb, yb, zb = pos[b]
-        py5.line(xa, ya, za, xb, yb, zb)
+    py5.lines(pos[a] + pos[b] for a, b in G.edges)  # better!
     py5.stroke(0, 0, 200)
-    py5.stroke_weight(4)
-    for n in G.nodes:
-        py5.point(*pos[n])
+    py5.stroke_weight(5)
+    py5.points(pos[n] for n in G.nodes)
     py5.pop_matrix()
     py5.fill(255)
     py5.text_size(margin / 2)
-    py5.text('nx.spring_layout(G, dim=3, seed=1)', margin, margin)
-
-
+    py5.text('G = nx.balanced_tree(4, 5)\npos = nx.spring_layout(G, dim=3, seed=1)', margin, margin)
 
 def resize_layout(pos):
     """ Resize the positions dict layout to screen a and center on origin. """
@@ -68,14 +64,5 @@ def resize_layout(pos):
         nz = py5.remap(z, min_z, max_z, margin, h - margin)
         layout[n] = nx - w / 2, ny - h / 2 , nz - h / 2  
     return layout
-
-def key_pressed():
-    global pos, a_mode
-    if py5.key == ' ':
-        a_mode = (a_mode + 1) % len(MODES)
-        print(MODES[a_mode])
-        pos = calc_layout(MODES[a_mode])
-    elif py5.key == 'p':
-        py5.save_frame(MODES[a_mode] + '.png')
 
 py5.run_sketch(block=False)

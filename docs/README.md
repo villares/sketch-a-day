@@ -38,6 +38,20 @@ Here are listed some of the tools I have been using:
 
 ---
 
+### sketch_2024_08_14
+
+![sketch_2024_08_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_08_14/sketch_2024_08_14.gif)
+
+[sketch_2024_08_14](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_08_14) [[py5](https://py5coding.org/)]
+
+#networkx #3d #graph
+```
+G = nx.balanced_tree(4, 5)
+pos = nx.spring_layout(G, dim=3, seed=1)', margin, margin)
+```
+
+---
+
 ### sketch_2024_08_13
 
 ![sketch_2024_08_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_08_13/sketch_2024_08_13.gif)
