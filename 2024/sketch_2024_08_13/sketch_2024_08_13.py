@@ -30,14 +30,19 @@ def draw():
     py5.text_size(margin / 3)
     py5.text(MODES[a_mode], margin, margin / 2)
     py5.stroke(0)
-    for a, b in G.edges:
-        xa, ya = pos[a]
-        xb, yb = pos[b]
-        py5.line(xa, ya, xb, yb)
-    py5.fill(0, 0, 200)
-    py5.no_stroke()
-    for n in G.nodes:
-        py5.circle(*pos[n], 5)
+#     for a, b in G.edges:
+#         xa, ya = pos[a]
+#         xb, yb = pos[b]
+#         py5.line(xa, ya, xb, yb)
+    py5.stroke_weight(1)
+    py5.lines(pos[a] + pos[b] for a, b in G.edges)  # better!
+#     py5.fill(0, 0, 200)
+#     py5.no_stroke()
+#     for n in G.nodes:
+#         py5.circle(*pos[n], 5)
+    py5.stroke(0, 0, 200)
+    py5.stroke_weight(5)
+    py5.points(pos[n] for n in G.nodes)
         
 @cache
 def calc_layout(mode):
