@@ -1,11 +1,5 @@
 """
-Sketch adapting code from https://networkx.org/documentation/stable/auto_examples/graphviz_layout/plot_circular_tree.html
-Note: -"This example needs Graphviz and PyGraphviz"
-      - Requires scipy
-
-I had trouble at first pip installing graphviz and pygraphviz but managed
-to install, via pacman, on Manjaro, python-graphviz and python-pygraphviz
-and then installed in my local env with pip
+Sketch inspired by code from https://networkx.org/documentation/stable/auto_examples/
 """
 from functools import cache
 
