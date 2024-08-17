@@ -39,7 +39,8 @@ def resize_layout(pos):
     """ Resize the positions dict layout to screen a and center on origin. """
     coords = np.array(list(pos.values()))
     coords_normalized = (coords - np.min(coords)) / (np.max(coords) - np.min(coords))
-    return coords * (py5.height / 2 - margin)# - np.array([py5.height / 2, py5.height / 2])
+    return coords_normalized * (py5.height - margin * 2) + np.array([margin - py5.height / 2 ,
+                                                                     margin - py5.height / 2])
 
 
 def key_pressed():
