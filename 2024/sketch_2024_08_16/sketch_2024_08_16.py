@@ -49,7 +49,7 @@ def key_pressed():
     elif py5.key_code == py5.DOWN:
         t -= 0.1
     if py5.key == 's':
-        py5.save_frame('###.png')
+        py5.save_frame('####.png')
         
 
 py5.run_sketch(block=False)
