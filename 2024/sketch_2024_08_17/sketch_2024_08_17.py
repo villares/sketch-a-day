@@ -33,7 +33,7 @@ def draw():
     py5.points(pos[n] for n in G.nodes)  # draw nodes
 
 def resize_layout(pos, ext, margin=50):
-    """ Resize the positions dict layout to screen a and center on origin. """
+    """ Resize the layout positions dict to screen, and center it on origin, using numpy"""
     coords = np.array(list(pos.values()))
     coords_normalized = (coords - np.min(coords)) / (np.max(coords) - np.min(coords))
     return coords_normalized * (ext - margin * 2) + np.array([margin - ext / 2 , margin - ext / 2])
