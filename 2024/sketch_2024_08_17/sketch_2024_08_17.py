@@ -23,7 +23,8 @@ def setup():
 def draw():
     py5.translate(py5.width / 2, py5.height / 2)
     t = 0.5 + 0.5 * np.sin(py5.radians(py5.frame_count))
-    pos = pos0 + (pos1 - pos0) * t  # lerp
+    #pos = pos0 + (pos1 - pos0) * t  # lerp
+    pos = py5.lerp(pos0, pos1, t)
     py5.background(200, 200, 150)
     py5.stroke(0)
     py5.stroke_weight(1)
@@ -35,7 +36,8 @@ def draw():
 def resize_layout(pos, ext, margin=50):
     """ Resize the layout positions dict to screen, and center it on origin, using numpy"""
     coords = np.array(list(pos.values()))
-    coords_normalized = (coords - np.min(coords)) / (np.max(coords) - np.min(coords))
+    #coords_normalized = (coords - np.min(coords)) / (np.max(coords) - np.min(coords))
+    coords_normalized = py5.remap(coords, np.min(coords), np.max(coords), 0, 1)
     return coords_normalized * (ext - margin * 2) + np.array([margin - ext / 2 , margin - ext / 2])
         
 py5.run_sketch(block=False)
