@@ -33,7 +33,7 @@ def draw():
     triangle_wave = abs(sawtooth_wave)    # bounces 0-1-0-1-0
     # find our location in 2D path based on 0-1
     the_pts = lerp(pts0, pts1,remap(sin(frame_count / 10), -1, 1, 0, 1))
-    x, y = lerp_along_list(triangle_wave, the_pts)
+    x, y = lerp_along_points(triangle_wave, the_pts)
     stroke(frame_count % 255, 200, 200)
     stroke_weight(2)
     point(x, y)    # draw at the location
@@ -45,12 +45,12 @@ def key_pressed():
     elif key == ' ':
         start()
 
-def lerp_along_list(amt, lst):
+def lerp_along_points(amt, pts):
     # Based on LerpVectorsExample by Jeremy Douglass
     amt = constrain(amt, 0, 1)  # let's play safe
-    if len(lst) == 1:
-        return lst[0]
-    cunit = 1.0 / (len(lst) - 1)
-    return lerp(lst[floor(amt / cunit)],
-                      lst[ceil(amt / cunit)],
-                      amt % cunit / cunit)
+    if len(pts) == 1:
+        return pts[0]
+    cunit = 1.0 / (len(pts) - 1)
+    return lerp(pts[floor(amt / cunit)],
+                pts[ceil(amt / cunit)],
+                amt % cunit / cunit)
