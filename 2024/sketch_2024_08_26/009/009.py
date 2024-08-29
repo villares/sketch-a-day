@@ -12,20 +12,17 @@ def draw():
     #print(RU := mouse_x, R := mouse_y)
     RU = R = 200
     r = R * sqrt(3) / 2
-    rbh =  r * sqrt(2) 
-#    print(rbh)
-#     stroke(255, 60)
-#     circle(300, 300, rbh)
-#     circle(300, 300, rbh - 43)
-    stroke(255)
+    rbh =  r * sqrt(3) / 4 #r * 3 / 2
     unit(300, 300, RU)
     unit(300 + r * 2, 300, RU)
     unit(300 - r * 2, 300, RU)
+    stroke(0, 255, 0)
     hexagon(300 + r, 300 - R * 3 / 2, rbh, False)
     hexagon(300 - r, 300 - R * 3 / 2, rbh, False)
     hexagon(300 + r, 300 + R * 3 / 2, rbh, False)
     hexagon(300 - r, 300 + R * 3 / 2, rbh, False)
-    hexagon(300, 300, rbh, False)
+    stroke(255, 0, 0)
+    hexagon(300, 300, r * 3 / 2, False)
     hexagon(300 + r * 2, 300, rbh, False)
     hexagon(300 - r * 2, 300, rbh, False)
 
@@ -49,10 +46,7 @@ def hex_points(x, y, cr, pointy=True):
            for i in range(6)]
 
 def key_pressed():
-    if key == 'S':
-        save_snapshot_and_code()
-    elif key == 's':
-        save(__file__[:-3]+'.png')
+    save_snapshot_and_code()
     
 def save_snapshot_and_code():
     import shutil
