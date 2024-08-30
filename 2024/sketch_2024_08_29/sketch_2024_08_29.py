@@ -32,8 +32,8 @@ py5.run_sketch(block=False)
 
 @cache
 def get_regions(polys):
-    # global regions # for debugging
-    regions = {}
+    global regions # for debugging
+    regions = []
     n = len(polys)
     for i in range(1, n + 1):
         for combo in combinations(range(n), i):
@@ -43,5 +43,6 @@ def get_regions(polys):
             for k in range(n):
                 if k not in combo: # if not part of this combo subtract
                     intersection = intersection.difference(polys[k])            
-            regions[combo] = intersection
-    return GeometryCollection([r.buffer(-5) for r in regions.values() if r.area])
+            if intersection.area:
+                regions.append(intersection)
+    return GeometryCollection([r.buffer(-5) for r in regions])
