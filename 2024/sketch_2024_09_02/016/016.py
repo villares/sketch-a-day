@@ -1,7 +1,7 @@
 #! /home/villares/thonny-env/bin/python3
-# You'll need py5. Learn more at py5coding.org
-
-from functools import cached_property
+# You'll need to install py5 and shapely
+# Learn more at py5coding.org
+# Press SPACE for a new palette
 
 import py5
 from shapely import Polygon
@@ -31,16 +31,15 @@ def draw():
         y = 300 + j * r * 3 / 2
         for i in range(-2, 3):
             x = 300 + i * w + (w / 2) * (j % 2)
-            unit(x, y, r)
-#    tri(300, 300, 100)  # debug
+            hex_unit(x, y, r)
 
-def unit(xu, yu, ru, ang=0): 
+def hex_unit(xu, yu, ru, ang=0): 
     vs = regular_poly_points(xu, yu, ru / py5.sqrt(3), 6, ang)
     for i, (x, y) in enumerate(vs):
-        tri(x, y, ru /  py5.sqrt(3), ang + py5.radians(60) * (i + 1),
-            i if py5.is_mouse_pressed else 0)
+        tri_unit(x, y, ru /  py5.sqrt(3), ang + py5.radians(60) * (i + 1),
+                 i if py5.is_mouse_pressed else 0)
 
-def tri(x, y, r, angle=0, n=0):
+def tri_unit(x, y, r, angle=0, n=0):
     evs = regular_poly_points(x, y, r, 3, angle)
     ivs = regular_poly_points(x, y, r / 4, 3, angle)
     py5.fill(palette[n % 2- 2])
@@ -64,35 +63,20 @@ def tri(x, y, r, angle=0, n=0):
         py5.fill(palette[n % 2 - 1])        
         diamond = Polygon((e, f, g, h)).buffer(OFFSET)
         diamond.draw()
-        
-#         # more visual debug
-#         for i, p in ((5, (scx, scy)), (1, (sbx, sby))):
-#             py5.fill(255)
-#             py5.circle(*p, 4 + i)
 
-
-def regular_poly_points(x, y, cr, N, rot=0):
+def regular_poly_points(x, y, cr, n, rot=0):
     # cr is the circumradius
-    ang = py5.TAU / N
+    ang = py5.TAU / n
     return [(x + py5.cos(i * ang + rot) * cr,
              y + py5.sin(i * ang + rot) * cr)
-           for i in range(N)]
-
-def triangulate(pts):
-    xs, ys = tuple(zip(*pts))
-    xc, yc = sum(xs) / len(xs), sum(ys) / len(ys)
-    triangles = []
-    for i, (x, y) in enumerate(pts):
-        x0, y0 = pts[i-1]
-        triangles.append(((x, y), (x0, y0), (xc, yc)))
-    return triangles
+            for i in range(n)]
 
 def new_palette(bgd_color):
     rnd_palette = [
     py5.color(py5.random_int(50, 200),
               py5.random_int(50, 200),
               py5.random_int(50, 200))
-    for _ in range(5)] + [bgd_color]
+    for _ in range(4)] + [bgd_color]
     palette[:] = py5.random_sample(rnd_palette * 2, 6)
 
 def key_pressed():

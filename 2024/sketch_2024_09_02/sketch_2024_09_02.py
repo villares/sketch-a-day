@@ -76,7 +76,7 @@ def new_palette(bgd_color):
     py5.color(py5.random_int(50, 200),
               py5.random_int(50, 200),
               py5.random_int(50, 200))
-    for _ in range(4)] + [bgd_color]
+    for _ in range(5)] + [bgd_color]
     palette[:] = py5.random_sample(rnd_palette * 2, 6)
 
 def key_pressed():
@@ -89,12 +89,13 @@ def key_pressed():
         py5.save(__file__[:-3]+'.png')
     
 def save_snapshot_and_code():
-    from py5 import sketch_path, save
     import shutil
-    p = sketch_path()
-    n = (p.parent / (p.name[:-3]+'.png')).is_file()
-    N = f'{len(list(p.iterdir()))-n:03d}'
-    save(p / N / (N + '.png')) 
-    shutil.copyfile(__file__, p / N / (N + '.py'))
+    from py5 import sketch_path, Path, save
+    path = sketch_path()
+    has_image = Path(__file__[:-3]+'.png').is_file()
+    number = len(list(path.iterdir())) - has_image
+    snap_name = f'{number:03d}'  # 001, 002 ....
+    save(path / snap_name / (snap_name + '.png')) 
+    shutil.copyfile(__file__, path / snap_name / (snap_name + '.py'))
 
-py5.run_sketch(block=False)
+py5.run_sketch(block=False) 
