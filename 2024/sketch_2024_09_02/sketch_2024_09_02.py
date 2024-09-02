@@ -6,13 +6,6 @@
 import py5
 from shapely import Polygon
 
-def draw_shapely(self):
-    shp = py5.convert_cached_shape(self)
-    shp.disable_style()
-    py5.shape(shp)
-
-Polygon.draw = draw_shapely
-
 OFFSET = -2
 BACKGROUND_COLOR = 0
 palette = []
@@ -44,7 +37,7 @@ def tri_unit(x, y, r, angle=0, n=0):
     ivs = regular_poly_points(x, y, r / 4, 3, angle)
     py5.fill(palette[n % 2- 2])
     central_triangle = Polygon(ivs).buffer(OFFSET)
-    central_triangle.draw()
+    draw_shapely(central_triangle)
     for i in range(3):
         sax, say = evs[i]
         sbx, sby = evs[i - 1]
@@ -55,14 +48,19 @@ def tri_unit(x, y, r, angle=0, n=0):
         d = ivs[i]
         py5.fill(palette[(i + n) % 5])
         trapezoid = Polygon((a, b, c, d)).buffer(OFFSET)
-        trapezoid.draw()
+        draw_shapely(trapezoid)
         e = evs[i-1]
         f = py5.lerp(sbx, scx, 1/4), py5.lerp(sby, scy, 1/4)
         g = c
         h = b
         py5.fill(palette[n % 2 - 1])        
         diamond = Polygon((e, f, g, h)).buffer(OFFSET)
-        diamond.draw()
+        draw_shapely(diamond)
+
+def draw_shapely(obj):
+    shp = py5.convert_cached_shape(obj)
+    shp.disable_style()
+    py5.shape(shp)
 
 def regular_poly_points(x, y, cr, n, rot=0):
     # cr is the circumradius
@@ -98,4 +96,7 @@ def save_snapshot_and_code():
     save(path / snap_name / (snap_name + '.png')) 
     shutil.copyfile(__file__, path / snap_name / (snap_name + '.py'))
 
+
+import thonny
+thonny.get_runner()
 py5.run_sketch(block=False) 
