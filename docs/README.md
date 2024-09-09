@@ -38,7 +38,7 @@ Here are listed some of the tools I have been using more recently:
 
 [sketch_2024_09_08](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_09_08) [[faded-parsons-visual](https://abav.lugaralgum.com/faded-parsons-visual/)]
 
-The daily sketch was a "Parsons Problem puzzle, the code on the link produces both the "chequered image" and the YAML for the  [the puzzle page](https://abav.lugaralgum.com/faded-parsons-visual/problem.html?name=135_xadrez)
+The daily sketch was a "Parsons Problems" puzzle, the code on the link produces both the "chequered image" and the YAML for the  [the puzzle page](https://abav.lugaralgum.com/faded-parsons-visual/problem.html?name=135_xadrez)
 
 ---
 
