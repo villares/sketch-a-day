@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_09_08
+
+![sketch_2024_09_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_09_08/sketch_2024_09_08.png)
+
+[sketch_2024_09_08](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_09_08) [faded-parsons-visual]
+
+The daily sketch was the example and the code you can read produces chequered image and the YAML for the puzzle page at: https://abav.lugaralgum.com/faded-parsons-visual/problem.html?name=135_xadrez
+
+---
+
 ### sketch_2024_09_07
 
 ![sketch_2024_09_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_09_07/sketch_2024_09_07.png)

@@ -1,0 +1,25 @@
+problem_name: Tabuleiro de xadrez 
+
+problem_subtitle: Grade com cores alternadas
+
+problem_category: 130 - laços de repetição
+
+problem_description: |
+  <h6>Tabuleiro de xadrez</h6></br><img src="parsons_probs/135_xadrez.png"></br><code>Grade com cores alternadas</code></br>Organize os blocos para o obter um desenho como este.
+   
+code_lines: |
+  # setup: configurações iniciais
+  def setup(): #0given
+  size(400, 400) #1given
+  n = 8
+  s = width / n
+  for i in range(n):
+  for j in range(n):
+  if (i + j) % 2 == 0:
+  fill(255)
+  else:
+  fill(0)
+  square(i * s,  j * s, s)
+
+  
+test_fn: setup
