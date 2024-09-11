@@ -38,7 +38,7 @@ Here are listed some of the tools I have been using more recently:
 
 [sketch_2024_09_10](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_09_10) [[py5](https://py5coding.org/)]
 
-Trying to replicate the "Tecniquim tiling" idea from Johm
+Trying to replicate the "Tecniquim tiling" idea from John
 
 ---
 
