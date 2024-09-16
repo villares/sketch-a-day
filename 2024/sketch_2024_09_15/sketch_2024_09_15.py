@@ -13,8 +13,10 @@ def setup():
             s_limit = min(4, min(n - j, n - i))
             s = py5.random_int(1, s_limit)
             # print(s)
-            if test_fit(i, j, s) or test_fit(i, j, s := 1):
+            if test_fit(i, j, s):
                 fill_grid(i, j, s)
+            elif test_fit(i, j, 1):
+                fill_grid(i, j, 1)
                     
     py5.save('out.png')     
                 
