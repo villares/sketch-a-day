@@ -15,15 +15,15 @@ def setup():
             # print(s)
             if test_fit(i, j, s) or test_fit(i, j, s := 1):
                 fill_grid(i, j, s)
-                py5.fill(s * 32, 255, 255, 100)
-                py5.square(i * w, j * w, w * s)
-                py5.fill(0)
-                py5.text_align(py5.CENTER, py5.CENTER)
-                py5.text(str(s), i * w + (w * s)  / 2, j * w + (w * s) / 2)
-            
+                    
     py5.save('out.png')     
                 
 def fill_grid(i, j, s):
+    py5.fill(s * 32, 255, 255, 100)
+    py5.square(i * w, j * w, w * s)
+    py5.fill(0)
+    py5.text_align(py5.CENTER, py5.CENTER)
+    py5.text(str(s), i * w + (w * s)  / 2, j * w + (w * s) / 2)
     for di in range(s):
         for dj in range(s):
             grid[i + di, j + dj] = True
