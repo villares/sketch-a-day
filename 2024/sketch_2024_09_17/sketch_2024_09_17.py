@@ -9,7 +9,6 @@ counts = defaultdict(lambda:0)
 grid = {}
 
 def setup():
-    global w
     py5.size(840, 640)
     py5.color_mode(py5.HSB)
     py5.stroke_weight(3)
