@@ -48,7 +48,7 @@ def draw_records(rcrds, xo, yo, wo, ho, total_value, **kwargs):
             flag_margin = False
         with py5.push():
             v = f'{total_value :0.1%}'
-            t = f'{name} {v} {margin}' if flag_margin else f'{name}\n{v}'
+            t = f'{name} {v}' if flag_margin else f'{name}\n{v}'
             s = flag_margin - 2 if flag_margin else py5.remap(w, 0, py5.width, 6, 60)
             py5.text_size(s)        
             py5.fill(0)
