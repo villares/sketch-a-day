@@ -38,18 +38,17 @@ def draw_records(rcrds, xo, yo, wo, ho, total_value, **kwargs):
     if len(rcrds) == 1:
         name, value, sub = rcrds[0]
         py5.fill(758 * total_value, 100, 200, 200)
+        py5.rect(x, y, w, h)
         if sub:  # se tiver sub-áreas, chama recursivamente a função
-            py5.rect(x, y, w, h)
-            draw_records(sub, x, y, w, h, total_value, margin=16)
-            parent_margin = 16
+            sub_margin = 16
+            draw_records(sub, x, y, w, h, total_value, margin=sub_margin)
         else:
-            py5.stroke(0)
-            py5.rect(x, y, w, h)
-            parent_margin = 0
+            sub_margin = 0
         with py5.push():
             v = f'{total_value :0.1%}'
-            t = f'{name} {v}' if parent_margin else f'{name}\n{v}'
-            s = parent_margin - 2 if parent_margin else py5.remap(w, 0, py5.width, 6, 60)
+            t = f'{name} {v}' if sub_margin else f'{name}\n{v}'
+            s = (sub_margin - 2 if sub_margin
+                 else py5.remap(w, 0, py5.width, 6, 60))
             py5.text_size(s)        
             py5.fill(0)
             py5.text(t , x + s / 2, y + s)
