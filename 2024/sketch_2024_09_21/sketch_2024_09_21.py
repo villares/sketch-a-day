@@ -35,8 +35,8 @@ def draw_records(rcrds, xo, yo, wo, ho, total_value, **kwargs):
     w, h = wo - margin, ho - margin * 1.5  # aplica margem (subtrai) nas dimensões
     total_area = sum_record_areas(rcrds)  # calcula soma dos valores dos registros
     rcrds = sorted(rcrds, key=lambda r:r[1])  # by size
-    if len(rcrds) == 1:
-        name, value, sub = rcrds[0]
+    if len(rcrds) == 1: # caso base de desenhar um único registro
+        name, _, sub = rcrds[0]
         py5.fill(758 * total_value, 100, 200, 200)
         py5.rect(x, y, w, h)
         if sub:  # se tiver sub-áreas, chama recursivamente a função
@@ -52,8 +52,7 @@ def draw_records(rcrds, xo, yo, wo, ho, total_value, **kwargs):
             py5.text_size(s)        
             py5.fill(0)
             py5.text(t , x + s / 2, y + s)
-
-    else:
+    else: # para mais de um registro, subdivide e chama recursivamente
         n = len(rcrds) // 2
         a = rcrds[:n]
         area_a = sum_record_areas(a)
