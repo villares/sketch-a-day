@@ -7,9 +7,7 @@ history = deque(maxlen=360)  # mouse dragged positions
 
 def setup():   # py5 will call this once to set things up
     py5.size(600, 600, py5.P3D)
-    py5.no_stroke()
     py5.color_mode(py5.HSB)
-    py5.stroke_weight(10)
 
 def draw():   # py5 will call this in a loop
     py5.background(0)
