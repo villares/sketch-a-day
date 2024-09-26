@@ -48,6 +48,7 @@ while True:
                   in sorted(dir_path.iterdir())
                   if file_path.suffix.lower() == '.png']
             if images:
+                #imageio.imwrite(output_file, images, fps=fps)
                 writer = imageio.v2.get_writer(output_file, fps=fps)
                 for img in images:
                   writer.append_data(img)
