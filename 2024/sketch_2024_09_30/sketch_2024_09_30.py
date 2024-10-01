@@ -1,12 +1,12 @@
+# ideas... 6 possible modules, 2 x 2 -> 6 ** 4 -> 1296
+# But how to sort by "partitions" when same-color regions merge?
+
 from itertools import product, combinations
 from copy import copy
 
 import py5  # check out https://github.com/py5coding 
 
-# ideas... 6 possible modules, 2 x 2 -> 6 ** 4 -> 1296  
-
 def setup():
-    global grid
     py5.size(600, 600)
     py5.stroke_join(py5.ROUND)
 
