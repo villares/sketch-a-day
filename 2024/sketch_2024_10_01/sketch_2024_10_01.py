@@ -43,12 +43,15 @@ class Region:
         return iter(self.vs)
     
     def __add__(self, other):
-        if self.color == other.color:
+        if self.color == other.color and self.isadjacent(other):
             new_edges = self.edges ^ other.edges
             return self.__class__(self.from_edges(new_edges), self.color)
         else:
             raise TypeError
-    
+ 
+    def isadjacent(self, other):
+        return not self.edges.isdisjoint(other.edges)
+ 
     def draw(self):
         with py5.push(), py5.begin_closed_shape():
             py5.scale(self.S)
