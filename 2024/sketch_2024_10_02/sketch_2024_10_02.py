@@ -26,7 +26,7 @@ def draw():
     py5.background(200)    
     Region.grid(4)
     for r in Region.elements:
-        py5.translate(1, 1)
+        py5.translate(1, 1) # debug!
         r.draw()
     
     
