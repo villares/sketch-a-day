@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_03
+
+![sketch_2024_10_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_03/sketch_2024_10_03.gif)
+
+[sketch_2024_10_03](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_03) [[py5](https://py5coding.org/)]
+
+animation shows some examples of black and white triangles in a 4 x 4 point grid being merged (with same color triangles)
+
+---
+
 ### sketch_2024_10_02
 
 ![sketch_2024_10_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_02/sketch_2024_10_02.png)
