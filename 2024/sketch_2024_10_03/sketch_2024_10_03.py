@@ -2,7 +2,6 @@
 # But how to sort by "partitions" when same-color regions merge?
 
 from itertools import product, combinations
-from random import shuffle
 
 import py5  # check out https://github.com/py5coding 
 
@@ -99,7 +98,6 @@ class Region:
 
     @staticmethod
     def from_edges(edges):
-        print(edges)
         edge_list = list(edges)
         vs = list(edge_list.pop())
         while len(edge_list):
