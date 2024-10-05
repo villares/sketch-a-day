@@ -20,22 +20,22 @@ def start():
     combos.clear()
     # New cell size/scale
     Region.S = (py5.width - MARGIN * 2) / N 
-    QUADRANT_TYPES = (
-        (0, 0, 0),     # full black
-        (0, 255, 255), # full white
-        (0, 0, 255),  # d1
-        (0, 255, 0),  # d2
-        (1, 0, 255),  # d3
-        (1, 255, 0),  # d4
+    SQUARE_TYPES = (# diagonal, color a, color b
+        (0, 0, 0),  # full black
+        (0, 1, 1),  # full white
+        (0, 0, 1),  # d1
+        (0, 1, 0),  # d2
+        (1, 0, 1),  # d3
+        (1, 1, 0),  # d4
     )
-    quadrants = [py5.random_choice(QUADRANT_TYPES)
-                 for _ in range(N * N)]
-    combos.append(generate_combo(quadrants))
+    squares = [py5.random_choice(SQUARE_TYPES)
+               for _ in range(N * N)]
+    combos.append(generate_combo(squares))
     
-def generate_combo(quadrants):
+def generate_combo(squares):
     regions = set()
     for (i, j), (t, ca, cb) in zip(product(range(N), repeat=2),
-                                   quadrants):
+                                   squares):
         if t == 1:
             ra = Region([(i, j), (i + 1, j), (i + 1, j + 1)], color=ca)
             rb = Region([(i, j), (i, j + 1), (i + 1, j + 1)], color=cb)
@@ -106,8 +106,8 @@ class Region:
             py5.stroke_weight(2 / s)
             py5.shape(self.shp)
             py5.no_stroke()
-            py5.fill(self.color)
-
+            # py5.fill(self.color * 255)
+            # py5.circle(self.p.centroid.x, self.p.centroid.y, 30 / s) 
     @staticmethod
     def merge_regions(els):
         num_els = 0
