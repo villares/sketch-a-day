@@ -108,6 +108,7 @@ class Region:
             py5.no_stroke()
             # py5.fill(self.color * 255)
             # py5.circle(self.p.centroid.x, self.p.centroid.y, 30 / s) 
+
     @staticmethod
     def merge_regions(els):
         num_els = 0
