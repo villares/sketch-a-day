@@ -4,7 +4,7 @@
 from itertools import product, combinations
 
 import py5  # check out https://github.com/py5coding 
-from shapely import Polygon, MultiPolygon
+from shapely import Polygon
 
 N = 4 # default grid order
 MARGIN = 75 # default margin
@@ -62,11 +62,9 @@ def key_pressed():
         start()
 
 
-            
-#@functools.total_ordering
 class Region:
     
-    S = 22 # default grid cell size
+    S = 225 # default grid cell size
     
     def __init__(self, p, color=0):
         self.p = Polygon(p) if isinstance(p, list) else p
@@ -77,8 +75,8 @@ class Region:
     def __repr__(self):
         return f'Region({self.p}, color={self.color})' 
         
-#     def __eq__(self, other):
-#         return self.area == other.area
+    def __eq__(self, other):
+        return self.area == other.area
     
     def __gt__(self, other):
         return self.p.area > other.p.area
@@ -87,7 +85,6 @@ class Region:
         return hash(self.p)
     
     def __add__(self, other):
-#        if self.color == other.color and self.isadjacent(other):
         if self.color == other.color:
             return Region(self.p.union(other.p),
                           color=self.color)
@@ -101,17 +98,15 @@ class Region:
         s = s or self.S
         with py5.push():
             py5.scale(s)
-            #py5.fill(self.color, 128)
-            if i is not None:
-                #py5.fill(i * 24, 200, 128 + 64 * (i % 2), 128)
-                py5.fill((self.p.area * s) % 255, 128,
-                         128 + (32 if self.color == 0 else 96)
-                         )
-                py5.stroke_weight(2 / s)
+            # if i is not None:
+            #     py5.fill(i * 24, 200, 128 + 64 * (i % 2), 128)
+            py5.fill((self.p.area * s) % 255, 128,
+                     128 + (32 if self.color == 0 else 96)
+                     )
+            py5.stroke_weight(2 / s)
             py5.shape(self.shp)
             py5.no_stroke()
             py5.fill(self.color)
-            #py5.circle(self.p.centroid.x, self.p.centroid.y, 30 / s)
 
     @staticmethod
     def merge_regions(els):
@@ -127,12 +122,5 @@ class Region:
                     els.add(c)
         return els
 
+
 py5.run_sketch(block=False)
-        
-        
-
-
-
-
-
-
