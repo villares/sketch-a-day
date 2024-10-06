@@ -76,7 +76,7 @@ class Region:
         return f'Region({self.p}, color={self.color})' 
         
     def __eq__(self, other):
-        return self.area == other.area
+        return self.p.area == other.p.area
     
     def __gt__(self, other):
         return self.p.area > other.p.area
