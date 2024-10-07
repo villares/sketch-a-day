@@ -16,6 +16,7 @@ most filled on the bottom right.
 """
 
 from itertools import product, combinations
+from functools import cache
 
 import py5  # check out https://github.com/py5coding 
 from shapely import Polygon
@@ -28,7 +29,9 @@ def setup():
     py5.size(48 * 32 + 100, 27 * 32 + 100)
     py5.stroke_join(py5.ROUND)
     py5.color_mode(py5.HSB)    
+    m = py5.millis()
     start()
+    print(py5.millis() - m)
     
 def draw():
     py5.background(0)
@@ -96,16 +99,14 @@ def generate_ensemble(squares):
 def key_pressed():
     if py5.key == 's':
         py5.save_frame('###.png')
-    elif py5.key == ' ':
-        start()
-
 
 class Region:
     
     S = 225 # default grid cell size
     
     def __init__(self, p, filled=True):
-        self.p = Polygon(p) if isinstance(p, list) else p
+#        self.p = Polygon(p) if isinstance(p, list) else p
+        self.p = cached_polygon(tuple(p)) if isinstance(p, list) else p
         self.shp = py5.convert_cached_shape(self.p)
         self.shp.disable_style()
         self.filled = filled
@@ -120,15 +121,14 @@ class Region:
         return self.p.area > other.p.area
     
     def __hash__(self):
-        return hash(self.p)
-    
+        return hash(self.p) + hash(self.filled)
+
+    @cache
     def __add__(self, other):
-        if self.filled == other.filled:
-            return Region(self.p.union(other.p),
-                          filled=self.filled)
-        else:
-            raise TypeError
+        return Region(self.p.union(other.p),
+                      filled=self.filled)
     
+    @cache
     def isadjacent(self, other):
         return self.p.exterior.overlaps(other.p.exterior)
  
@@ -157,5 +157,8 @@ class Region:
                     els.add(c)
         return els
 
+@cache
+def cached_polygon(t):
+    return Polygon(t)
 
 py5.run_sketch(block=False)
