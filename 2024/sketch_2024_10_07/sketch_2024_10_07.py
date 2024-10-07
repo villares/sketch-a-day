@@ -8,9 +8,10 @@ the less filled on top left, and the most filled on the bottom right.
 """
 
 from itertools import product, combinations
+from functools import cache
 
 import py5  # check out https://github.com/py5coding 
-from shapely import Polygon
+from shapely import Polygon, unary_union
 
 N = 3 # default grid "order", generates N * N square cells
 ensembles = []
@@ -20,8 +21,10 @@ def setup():
     py5.size(32 * 47 + 100, 16 * 47 + 100)
     py5.stroke_join(py5.ROUND)
     py5.color_mode(py5.HSB)    
+    m = py5.millis()
     start()
-    
+    print(py5.millis() - m)
+  
 def draw():
     py5.background(0)
     py5.translate(50, 50) # notice the + 100 on size()
@@ -48,19 +51,8 @@ def draw_ensemble(ensemble, xe, ye):
  
 def start():
     ensembles.clear()
-    SQUARE_TYPES = (# diagonal, filled a, filled b
-        (0, 0, 0),  # empty square
-        (0, 1, 1),  # filled square
-#         (0, 0, 1),  # d1
-#         (0, 1, 0),  # d2
-#         (1, 0, 1),  # d3
-#         (1, 1, 0),  # d4
-    )
-#     # This would remove the distintion in/out filled/empty
-#     # black/white giving half the number of partitions
-#     ensembles[:] = sorted({generate_ensemble(squares) for squares
-#                        in product(SQUARE_TYPES, repeat=N*N)},
-#                        key=len)
+    SQUARE_TYPES = (0, 1)
+    ensembles.clear()
     ensembles[:] = sorted((generate_ensemble(squares) for squares
                        in product(SQUARE_TYPES, repeat=N*N)),
                        key=ensemble_area)
@@ -71,19 +63,12 @@ def ensemble_area(ensemble):
     return sum(region.p.area for region in ensemble
                if region.filled)
     
-def generate_ensemble(squares):
-    regions = set()
-    for (i, j), (t, a, b) in zip(product(range(N), repeat=2),
-                                   squares):
-        if t == 1:
-            ra = Region([(i, j), (i + 1, j), (i + 1, j + 1)], a)
-            rb = Region([(i, j), (i, j + 1), (i + 1, j + 1)], b)
-        else:
-            ra = Region([(i, j), (i + 1, j), (i, j + 1)], a)
-            rb = Region([(i, j + 1), (i + 1, j), (i + 1, j + 1)], b)           
-        regions.update((ra, rb))
+def generate_ensemble(config):
+    coords = product(range(N), repeat=2)
+    regions = {Region(((i, j), (i + 1, j), (i + 1, j + 1), (i, j + 1)), filled=fill_type)
+               for (i, j), fill_type in zip(coords, config)}
     Region.merge_regions(regions)
-    return frozenset(regions)
+    return regions
   
 def key_pressed():
     if py5.key == 's':
@@ -97,7 +82,8 @@ class Region:
     S = 225 # default grid cell size
     
     def __init__(self, p, filled=True):
-        self.p = Polygon(p) if isinstance(p, list) else p
+        self.p = cached_polygon(p) if isinstance(p, tuple) else p
+        # if not isinstance(self.p, Polygon): print(type(self.p)) # No MuliPolygons here!
         self.shp = py5.convert_cached_shape(self.p)
         self.shp.disable_style()
         self.filled = filled
@@ -114,16 +100,6 @@ class Region:
     def __hash__(self):
         return hash(self.p)
     
-    def __add__(self, other):
-        if self.filled == other.filled:
-            return Region(self.p.union(other.p),
-                          filled=self.filled)
-        else:
-            raise TypeError
-    
-    def isadjacent(self, other):
-        return self.p.exterior.overlaps(other.p.exterior)
- 
     def draw(self, s=None):
         s = s or self.S
         with py5.push():
@@ -142,12 +118,23 @@ class Region:
             num_els = len(els) 
             for a, b in combinations(els, 2):
                 if (a in els and b in els and
-                    a.isadjacent(b) and a.filled == b.filled):
-                    c = a + b
+                    isadjacent(a.p, b.p) and a.filled == b.filled):
+                    c = Region(cached_union(a.p, b.p), filled=a.filled)
                     els.remove(a)
                     els.remove(b)
                     els.add(c)
         return els
 
+@cache
+def cached_union(a_poly: Polygon, b_poly: Polygon) -> Polygon:
+    return unary_union((a_poly, b_poly))
+
+@cache
+def cached_polygon(t: tuple) -> Polygon:
+    return Polygon(t)
+    
+@cache
+def isadjacent(a_poly: Polygon, b_poly: Polygon) -> bool:
+    return a_poly.exterior.overlaps(b_poly.exterior)
 
 py5.run_sketch(block=False)
