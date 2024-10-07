@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_06
+
+![sketch_2024_10_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_06/sketch_2024_10_06.png)
+
+[sketch_2024_10_06](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_06) [[py5](https://py5coding.org/)]
+
+There are 1295 ways of making enclosed areas using the segments and shorter diagonals of a 3 x 3 grid of points. 1296 if you consider the "empty" case of not enlosing any area.
+
+---
+
 ### sketch_2024_10_05
 
 ![sketch_2024_10_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_05/sketch_2024_10_05.gif)
