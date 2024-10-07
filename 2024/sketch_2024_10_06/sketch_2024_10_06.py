@@ -19,7 +19,7 @@ from itertools import product, combinations
 from functools import cache
 
 import py5  # check out https://github.com/py5coding 
-from shapely import Polygon
+from shapely import Polygon, unary_union
 
 N = 2 # default grid "order", generates N * N square cells
 ensembles = []
@@ -125,7 +125,7 @@ class Region:
 
     @cache
     def __add__(self, other):
-        return Region(self.p.union(other.p),
+        return Region(unary_union((self.p, other.p)),
                       filled=self.filled)
     
     @cache
