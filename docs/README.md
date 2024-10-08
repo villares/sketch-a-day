@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_08
+
+![sketch_2024_10_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_08/sketch_2024_10_08.png)
+
+[sketch_2024_10_08](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_08) [[py5](https://py5coding.org/)]
+
+1434 ways of subdividing a square merging areas from a grid of 9 subsquares.
+
+---
+
 ### sketch_2024_10_07
 
 ![sketch_2024_10_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_07/sketch_2024_10_07.png)
