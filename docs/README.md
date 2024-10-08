@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_07
+
+![sketch_2024_10_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_07/sketch_2024_10_07.png)
+
+[sketch_2024_10_07](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_07) [[py5](https://py5coding.org/)]
+
+512 configurations, ways of "enclosing" elements from a 3 x 3 grid
+
+---
+
 ### sketch_2024_10_06
 
 ![sketch_2024_10_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_06/sketch_2024_10_06.png)
