@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_09
+
+![sketch_2024_10_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_09/sketch_2024_10_09.png)
+
+[sketch_2024_10_09](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_09) [[py5](https://py5coding.org/)]
+
+456 ways to subdivide a 4 x 2 rectangle (merging 1 x 1 sub-regions)
+
+---
+
 ### sketch_2024_10_08
 
 ![sketch_2024_10_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_08/sketch_2024_10_08.png)
