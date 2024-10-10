@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_10
+
+![sketch_2024_10_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_10/sketch_2024_10_10.png)
+
+[sketch_2024_10_10](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_10) [[py5](https://py5coding.org/)]
+
+1200 ways to divide a square using only the squares and smaller diagonals from a grid of 3x3 points (edges, mid-side and center of the square).
+
+---
+
 ### sketch_2024_10_09
 
 ![sketch_2024_10_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_09/sketch_2024_10_09.png)
