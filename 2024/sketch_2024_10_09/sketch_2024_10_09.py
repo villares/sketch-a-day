@@ -11,12 +11,12 @@ COLS, ROWS  = 24, 19
 MARGIN = 10
 N = 4 #  grid order, N x M subsquares, (N+1) x (M+1) points
 M = 2
-E_WIDTH = 60  # ensemble/configuration size
+E_WIDTH = 60  # configuration/configuration size
 E_HEIGHT = py5.ceil(E_WIDTH / N) * M + 1
-E_MARGIN = 2 # internal "ensemble" margin
+E_MARGIN = 2 # internal "configuration" margin
 COLOR_FACTOR = 30
 
-ensembles = []
+configurations = []
 
 def setup():
     py5.size(COLS * E_WIDTH + MARGIN * 2, ROWS * E_HEIGHT + MARGIN * 2)
@@ -27,20 +27,20 @@ def setup():
     print(py5.millis() - m)
 
 def start():
-    SQUARE_TYPES = (0, 1, 2, 4)
-    ensembles.clear()
+    MAP_COLORS = (0, 1, 2, 4)  # because of https://en.wikipedia.org/wiki/Four_color_theorem
+    configurations.clear()
     data_path = py5.Path(f'{N}x{M}_polys.pickle')
     if data_path.is_file():
         polys = py5.load_pickle(data_path)
-        ensembles[:] = [frozenset(Region(p) for p in p_list) for p_list in polys]    
+        configurations[:] = [frozenset(Region(p) for p in p_list) for p_list in polys]    
     else:
-        ensembles[:] = sorted({generate_ensemble(config) for config
-                               in product(SQUARE_TYPES, repeat=N*M)},
-                              key=max_area_min_divisions)
-        polys = [[region.p for region in ens] for ens in ensembles]
+        configurations[:] = sorted({generate_configuration(colors) for colors
+                                    in product(MAP_COLORS, repeat=N*M)},
+                                    key=max_area_min_divisions)
+        polys = [[region.p for region in ens] for ens in configurations]
         py5.save_pickle(polys, data_path)
-    #ensembles[:] = ensembles[1:] + [ensembles[0]]
-    print(f'Configurations: {len(ensembles)}')
+    #configurations[:] = configurations[1:] + [configurations[0]]
+    print(f'Configurations: {len(configurations)}')
 
 def draw():
     py5.background(0)
@@ -51,25 +51,25 @@ def draw():
         y = i * E_HEIGHT
         for j in range(COLS):
             x = j * E_WIDTH  
-            if k < len(ensembles):
-                draw_ensemble(
-                    ensembles[k],
+            if k < len(configurations):
+                draw_configuration(
+                    configurations[k],
                     x + E_MARGIN,
                     y + E_MARGIN)
             k += 1
     
-def draw_ensemble(ensemble, xe, ye):
+def draw_configuration(configuration, xe, ye):
     with py5.push_matrix():
         py5.translate(xe, ye)
-        for region in ensemble:
+        for region in configuration:
             region.draw()
  
 
  
-def max_area_min_divisions(ensemble):
-    return max(region.p.area for region in ensemble) - len(ensemble) / 10
+def max_area_min_divisions(configuration):
+    return max(region.p.area for region in configuration) - len(configuration) / 10
  
-def generate_ensemble(config):
+def generate_configuration(config):
     coords = product(range(N), range(M))
     regions = {Region(((i, j), (i + 1, j), (i + 1, j + 1), (i, j + 1)), filled=fill_type)
                for (i, j), fill_type in zip(coords, config)}
