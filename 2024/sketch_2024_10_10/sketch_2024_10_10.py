@@ -27,7 +27,7 @@ def setup():
 
 def start():
     configurations.clear()
-    data_path = py5.Path(f'{N}x{M}_polys.pickle')
+    data_path = py5.Path(f'{N}x{M}_polys_triangular_parts.pickle')
     if data_path.is_file():
         polys = py5.load_pickle(data_path)
         configurations[:] = [frozenset(Region(p) for p in p_list) for p_list in polys]    
