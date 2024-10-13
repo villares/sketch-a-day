@@ -8,8 +8,6 @@ from functools import cache
 
 import py5  # check out https://github.com/py5coding 
 from shapely import Polygon, unary_union, MultiPolygon
-from shapely.affinity import translate, rotate
-
 
 MAP_COLORS = (0, 1, 2, 4)  # because of https://en.wikipedia.org/wiki/Four_color_theorem
 COLS, ROWS  = 41, 35
@@ -68,14 +66,18 @@ def draw_configuration(configuration, xe, ye):
         for region in configuration:
             region.draw()
 
+def color_maps():
+    all_colors = list(product(MAP_COLORS, repeat=N*M))
+    return all_colors
+
 def generate_configurations():
     return {generate_configuration(colors) for colors
-            in product(MAP_COLORS, repeat=N*M)}
+            in color_maps()}
   
-def generate_configuration(config):
+def generate_configuration(colors):
     coords = product(range(N), range(M))
     regions = (Region(((i, j), (i + 1, j), (i + 1, j + 1), (i, j + 1)), filled=fill_type)
-               for (i, j), fill_type in zip(coords, config))
+               for (i, j), fill_type in zip(coords, colors))
     regions = Region.merge_regions(regions)
     return frozenset(regions)
 
