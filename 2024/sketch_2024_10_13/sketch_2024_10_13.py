@@ -1,7 +1,10 @@
-# 1275 ways of dividing a square (using a grid of 9 subsquares) and painting the regions
-# removing rotations, shown on a 41 x 35 grid of 1435 positions.
-# The colors now show the minimum number of colors you need to color the regions,
-# widhout adjacent areas having the same color.
+"""
+1275 ways of dividing a square (using a grid of 9 subsquares) and painting the regions
+removing rotations, shown on a 41 x 35 grid of 1435 positions.
+
+WIP, this is still including and excluding some rotated configs with same geometry and different painting :(
+I'd be happy if it included all or excluded all the painting variations. Working on it. 
+"""
 
 from itertools import product, combinations
 from functools import cache
