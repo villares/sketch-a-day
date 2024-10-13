@@ -32,6 +32,28 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_12
+
+![sketch_2024_10_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_12/sketch_2024_10_12.png)
+
+[sketch_2024_10_12](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_12) [[py5](https://py5coding.org/)]
+
+1434 configurations of ways of dividing a square (using a grid of 9 subsquares) 
+The colors now show the minimum number of colors you need to color the regions,
+# widhout adjacent areas having the same color.
+
+---
+
+### sketch_2024_10_11
+
+![sketch_2024_10_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_11/sketch_2024_10_11.png)
+
+[sketch_2024_10_11](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_11) [[py5](https://py5coding.org/)]
+
+2810 ways of partitioning a square using 5 x 2 subsquares, shown on a 38 x 74 grid of 2812 positions.
+
+---
+
 ### sketch_2024_10_10
 
 ![sketch_2024_10_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_10/sketch_2024_10_10.png)
