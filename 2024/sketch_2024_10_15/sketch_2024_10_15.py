@@ -1,5 +1,5 @@
 """
-2811 ways of coloring a grid of 3 x 3 squares removing rotations,
+2811 ways of coloring a grid of 3 x 3 squares removing rotations... 
 """
 
 from itertools import product, combinations, permutations
