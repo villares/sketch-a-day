@@ -1,5 +1,5 @@
 """
-31 ways of coloring a grid of 2 x 2 squares removing rotations,
+31 ways of coloring a grid of 2 x 2 squares removing rotations.
 """
 
 from itertools import product, combinations, permutations
