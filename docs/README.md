@@ -32,6 +32,26 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_15
+
+![sketch_2024_10_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_15/sketch_2024_10_15.png)
+
+[sketch_2024_10_15](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_15) [[py5](https://py5coding.org/)]
+
+2811 ways of coloring a grid of 3 x 3 squares removing rotations...
+
+---
+
+### sketch_2024_10_14
+
+![sketch_2024_10_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_14/sketch_2024_10_14.png)
+
+[sketch_2024_10_14](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_14) [[py5](https://py5coding.org/)]
+
+31 ways of coloring a grid of 2 x 2 squares removing rotations? Is this correct?
+
+---
+
 ### sketch_2024_10_13
 
 ![sketch_2024_10_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_13/sketch_2024_10_13.png)
