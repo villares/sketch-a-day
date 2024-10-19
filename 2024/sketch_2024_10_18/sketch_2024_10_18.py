@@ -50,9 +50,9 @@ class Walker():
      
     def move(self):
          xs = self.x + py5.random_choice((-STEP, 0, STEP))
-         ys = self.y + py5.random_choice((-STEP, STEP))
+         ys = self.y + py5.random_choice((-STEP, 0, STEP))
          for other in walkers:
-            #if other != self:
+            if other != self:
                  if (xs, ys) in other.history_set:
                      self.stuck += 1
                      break
@@ -62,10 +62,10 @@ class Walker():
                  self.history_set.add((self.x, self.y))
                  self.x = xs
                  self.y = ys
-         if self.stuck > 20:
-             self.stuck = 0
-             self.x = self.x + py5.random_choice((-STEP, STEP)) 
-             self.y = self.y + py5.random_choice((-STEP, STEP))
+#          if self.stuck > 20:
+#              self.stuck = 0
+#              self.x = self.x + py5.random_choice((-STEP, STEP)) 
+#              self.y = self.y + py5.random_choice((-STEP, STEP))
                        
          
     def draw(self):
