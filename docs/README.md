@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_27
+
+![sketch_2024_10_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_27/sketch_2024_10_27.png)
+
+[sketch_2024_10_27](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_27) [[py5](https://py5coding.org/)]
+
+704 one-sided octominoes, using code inspired by a great talk by Hamish Campbell https://pyvideo.org/kiwi-pycon-2013/polyominoes-an-exploration-in-problem-solving-w.html
+
+---
+
 ### sketch_2024_10_26
 
 ![sketch_2024_10_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_26/sketch_2024_10_26.png)
