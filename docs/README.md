@@ -38,8 +38,7 @@ Here are listed some of the tools I have been using more recently:
 
 [sketch_2024_10_29](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_29) [[py5](https://py5coding.org/)]
 
-1199 polykings of order 2, 3, 4, 5 and 6
-11
+1200 polykings of order 1, 2, 3, 4, 5 and 6 (https://en.wikipedia.org/wiki/Pseudo-polyomino)
 
 ---
 
@@ -48,7 +47,6 @@ Here are listed some of the tools I have been using more recently:
 ![sketch_2024_10_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_28/sketch_2024_10_28.png)
 
 [sketch_2024_10_28](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_28) [[py5](https://py5coding.org/)]
-
 
 
 ---

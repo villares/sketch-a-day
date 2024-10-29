@@ -16,7 +16,7 @@ w = 5   # component square size
 def setup():
     py5.size(1700, 900)
     py5.background(255, 255, 240)
-    polyominoes = Polyomino.get_polyominoes(N, up_to=True) 
+    polyominoes = Polyomino.get_polyominoes(N, up_to=True, include_unit=True) 
     print(len(polyominoes))
     
     x, y = M, M

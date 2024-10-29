@@ -96,12 +96,11 @@ class Polyomino(object):
                    color_func(x, y, i)
                 py5.rect(x * w, y *w, w, w) 
             
-
     @classmethod
-    def get_polyominoes(cls, target, up_to=False):
+    def get_polyominoes(cls, target, up_to=False, include_unit=False):
         order = 1
         polyominoes = set([cls(((0,0),))])
-        all_p = set([])
+        all_p = polyominoes if include_unit else set([]) 
         while order < target:
             order += 1
             next_order_polyominoes = set()
