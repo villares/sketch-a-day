@@ -18,6 +18,8 @@ class Polyomino(object):
             (-1, 0),
             ( 0, 1),
             ( 0,-1),]
+    
+
 
     def __init__(self, iterable):
         self.squares = tuple([Square(*s) for s in sorted(iterable)])
