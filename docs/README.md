@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_10_31
+
+![sketch_2024_10_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_31/sketch_2024_10_31.png)
+
+[sketch_2024_10_31](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_10_31) [[py5](https://py5coding.org/)]
+
+Today I worked on this with a friend to whom I'm teaching Python classes: 336 configurations made from 4 truchet modules (diagonaly divided squares with black and white sides) plus black and white squares. Removing rotations!
+
+---
+
 ### sketch_2024_10_30
 
 ![sketch_2024_10_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_10_30/sketch_2024_10_30.png)
