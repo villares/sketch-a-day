@@ -10,6 +10,7 @@ def setup():
     global screen_grid, noise_space_grid, len_grid
     py5.size(500, 500, py5.P3D)
     py5.color_mode(py5.HSB)
+    py5.stroke_cap(py5.PROJECT)
     py5.stroke_weight(5)
     grid = list(product(range(0, py5.height, 5), range(0, py5.width, 5)))
     len_grid = len(grid)
