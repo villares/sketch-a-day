@@ -23,12 +23,12 @@ def draw():
     py5.translate(-py5.width/2, -py5.height/2)
     py5.background(0)
     offset = np.array((-py5.mouse_x * 10, -py5.mouse_y * 10))
-    t = py5.frame_count * 10 
+    t = py5.frame_count * 10 * step_scale
     noise_space_grid = (screen_grid + offset) * step_scale
     noise_values = py5.os_noise(
         noise_space_grid[:,0],
         noise_space_grid[:,1],
-        np.full(len_grid, t * step_scale)
+        np.full(len_grid, t)
     )
     remapped_values = (noise_values + 1) / 2 * 255  # could have been remap()
 #    positions_and_values = np.hstack((screen_grid, remapped_values.reshape(-1, 1)))
