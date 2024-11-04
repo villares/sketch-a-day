@@ -6,9 +6,6 @@ def setup():
     py5.color_mode(py5.HSB)
     slider_a = Slider(0, 255, 128, 'hue')
     slider_b = Slider(10, 400, 20, 'size')
-    global g
-    g = py5.get_graphics()
-    
     
 def draw():
     py5.background(0)
@@ -33,6 +30,7 @@ class Slider:
         self.w, self.h = 120, 20
         self.set_default_position()
         self.sliders.append(self)
+        self.is_3D = py5.get_graphics()._instance.is3D()
 
     def set_default_position(self):
         if not self.sliders:
@@ -64,7 +62,8 @@ class Slider:
         py5.push_matrix()  
         py5.reset_matrix()
         py5.push_style()
-        py5.camera()
+        if self.is_3D:
+            py5.camera()
         py5.rect_mode(py5.CENTER)
         py5.stroke_weight(4)
         py5.stroke(200)
