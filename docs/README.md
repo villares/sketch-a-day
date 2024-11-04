@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_11_03
+
+![sketch_2024_11_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_11_03/sketch_2024_11_03.gif)
+
+[sketch_2024_11_03](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_11_03) [[py5](https://py5coding.org/)]
+
+I now can use the mouse wheel to control my naive sliders!
+
+---
+
 ### sketch_2024_11_02
 
 ![sketch_2024_11_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_11_02/sketch_2024_11_02.png)
