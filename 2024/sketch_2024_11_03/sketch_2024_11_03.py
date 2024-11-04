@@ -91,7 +91,7 @@ class Slider:
     def mouse_wheel(cls, event):
         for s in cls.sliders:
             if (s.x < py5.mouse_x < s.x + s.w
-                and s.y < py5.mouse_y < s.y + s.h):
+                and s.y - s.h / 2 < py5.mouse_y < s.y + s.h / 2):
                 s.rectx += event.get_count()
 
     @classmethod
