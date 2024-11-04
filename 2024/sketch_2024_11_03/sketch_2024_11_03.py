@@ -6,10 +6,12 @@ def setup():
     py5.color_mode(py5.HSB)
     slider_a = Slider(0, 255, 128, 'hue')
     slider_b = Slider(10, 400, 20, 'size')
-    
+    # slider_b = Slider(10, 400, 20, 'size') # to debug duplicated label
+
 def draw():
     py5.background(0)
-    py5.fill(slider_a.value, 255, 255)
+    #py5.fill(slider_a.value, 255, 255)
+    py5.fill(Slider.values['hue'], 255, 255)  # new way of getting values
     py5.circle(200, 200, slider_b.value)
     py5.fill(255)
     Slider.update_all()
@@ -22,11 +24,15 @@ def mouse_wheel(e):
 
 class Slider:
     sliders = []
+    values = {}
 
     def __init__(self, low, high, default, label=''):
         self.low , self.high = low, high
         self.value = default
         self.label = label
+        self.values[self.label or self] = self.value
+        if label in [s.label for s in self.sliders]:
+            print(f'Warning: You already created a slider with label "{label}".')
         self.w, self.h = 120, 20
         self.set_default_position()
         self.sliders.append(self)
@@ -90,7 +96,9 @@ class Slider:
 
     @classmethod
     def update_all(cls):
-        for s in cls.sliders:
-            s.update()
-            
+        values = {s.label: s.update() for s in cls.sliders}
+        cls.values.update(values)
+        return values
+    
+    
 py5.run_sketch(block=False)
