@@ -15,7 +15,7 @@ def draw():
     
     global save_pdf    
     if save_pdf:
-        begin_record(PDF, '__file__[:-3]'+'.pdf')
+        begin_record(PDF, __file__[:-3]+'.pdf')
     
     stroke_weight(2)
     no_fill()
@@ -63,6 +63,7 @@ def key_pressed():
         save_snapshot_and_code()
     elif key == 's':
         save(__file__[:-3]+'.png')
+        print('PNG saved.')
     elif key == 'p':
         save_pdf = True
     
