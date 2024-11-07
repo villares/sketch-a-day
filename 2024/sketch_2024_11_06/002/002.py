@@ -1,6 +1,5 @@
 # You'll need py5 and a use the run_sketch tool or Thonny+thonny-py5mode
 # to run this py5 "imported mode" style sketch. Learn more at py5coding.org
-from shapely import Polygon
 
 def setup():
     size(600, 600)
@@ -53,9 +52,9 @@ def key_pressed():
     elif key == 's':
         save(__file__[:-3]+'.png')
     
-def save_snapshot_and_code():
-    import shutil
-    p = sketch_path()
-    N = f'{len(list(p.iterdir())):03d}'
-    save(p / N / (N+'.png')) 
-    shutil.copyfile(__file__, p / N / (N+'.py'))
+
+try:
+    from villares.helpers import save_snapshot_and_code
+except ImportError:
+    def save_snapshot_and_code():
+        print('missing the snapshot helper from github.com/villares/villares')
