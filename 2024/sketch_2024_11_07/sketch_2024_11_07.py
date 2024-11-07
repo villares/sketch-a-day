@@ -1,55 +1,71 @@
 # You'll need py5 and a use the run_sketch tool or Thonny+thonny-py5mode
 # to run this py5 "imported mode" style sketch. Learn more at py5coding.org
-from shapely import Polygon
+
+R = 50
+ROWS = 13
+COLS = 12
+
+save_pdf = False
 
 def setup():
-    size(600, 600)
+    size(900, 900)
     
 def draw():
-    background(100)
-    translate(300, 300)
-    stroke_weight(3)
+    background(200, 240, 240)  # background not included on PDF export!
+    
+    global save_pdf    
+    if save_pdf:
+        begin_record(PDF, '__file__[:-3]'+'.pdf')
+    
+    stroke_weight(2)
     no_fill()
-    stroke(255)
-    R = 100
-    r = R * sqrt(3) / 2
-    rbh =  r * sqrt(2)
-    hex_unit(+r, -R * 3 / 2, rbh, False)
-    hex_unit(-r, -R * 3 / 2, rbh, False)
-    hex_unit(+r, +R * 3 / 2, rbh, False)
-    hex_unit(-r, +R * 3 / 2, rbh, False)
-    hex_unit(0, 0, rbh, False)
-    hex_unit(+r * 2, 0, rbh, False)
-    hex_unit(-r * 2, 0, rbh, False)
+    w = R * sqrt(3)
+    h = R * 1.5
+    for row in range(ROWS):
+        y = row * h
+        for col in range(COLS):
+            x = col * w
+            if row % 2 == 1:
+                x += w / 2
+            hex_unit(x, y, R)
    
-
-def hex_unit(x, y, r, pointy):
-    unit(x, y, 2  * r / sqrt(2) / sqrt(3), not pointy)
-    hexagon(x, y, r, pointy)
-
-
-def unit(xu, yu, ru, pointy=True, N=2, M=4): 
-    vs = hex_points(xu, yu, ru, pointy=pointy)
-    for x, y in vs[N:M]:
-        hexagon(x, y, ru / 2, pointy=pointy)
+    if save_pdf:
+        end_record()
+        save_pdf = False
+        print('PDF saved.')
+   
+def hex_unit(xu, yu, r, pointy=False):
+    big_hex_radius = r * sqrt(3) / 2 * sqrt(2)
+    draw_hexagon(xu, yu, big_hex_radius, pointy)  # big hexagon
+    vs = hexagon_points(xu, yu, r, not pointy) # centers for smaller hexs
+    for x, y in vs[2:4]:  # just the third and fourth (indices 2 and 3)
+        draw_hexagon(x, y, r / 2, not pointy)  # smaller hexagons
         
-def hexagon(x, y, r, pointy=True):
-    vs = hex_points(x, y, r, pointy)
+def draw_hexagon(x, y, r, pointy=True):
+    vs = regular_polygon_points(x, y, r, 6, pointy)
     with begin_closed_shape():
             vertices(vs)
 
-def hex_points(x, y, cr, pointy=True):
+def hexagon_points(x, y, cr, pointy=True):
+    # returns a list of tuples for the coords of vertices of hexagon
+    return regular_polygon_points(x, y, cr, 6, pointy)
+
+def regular_polygon_points(x, y, cr, n, pointy=True):
     # cr is the circumradius
-    ang = TAU / 6
-    return [(x+cos(i * ang+pointy * ang / 2) * cr,
-             y+sin(i * ang+pointy * ang / 2) * cr)
-           for i in range(6)]
+    ang = TAU / n
+    return [(x+cos(i * ang + pointy * ang / 2) * cr,
+             y+sin(i * ang + pointy * ang / 2) * cr)
+            for i in range(n)]
 
 def key_pressed():
+    global save_pdf
     if key == 'S':
         save_snapshot_and_code()
     elif key == 's':
         save(__file__[:-3]+'.png')
+    elif key == 'p':
+        save_pdf = True
+    
    
 try:
     from villares.helpers import save_snapshot_and_code
