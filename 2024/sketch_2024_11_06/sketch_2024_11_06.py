@@ -11,37 +11,33 @@ def draw():
     no_fill()
     stroke(255)
     R = 100
-    w = R * sqrt(3)
+    w = R * sqrt(3) / 2
     h = R * 1.5
-    main_radius = w / 2 * sqrt(2)
 
-    rows = 3
-    cols = 3
-    for row in range(rows):
-        y = (row - 1) * h
-        for col in range(cols):
-            x = (col - 1) * w
-            if row % 2 == 1:
-                x += w / 2
-            hex_unit(x, y, main_radius)
-    
-
-#     r = R * sqrt(3) / 2
-#     hex_unit(+r, -R * 3 / 2, main_radius)
-#     hex_unit(-r, -R * 3 / 2, main_radius)
-#     hex_unit(+r, +R * 3 / 2, main_radius)
-#     hex_unit(-r, +R * 3 / 2, main_radius)
-#     hex_unit(0, 0, main_radius)
-#     hex_unit(+r * 2, 0, main_radius)
-#     hex_unit(-r * 2, 0, main_radius)
-   
-
-def hex_unit(xu, yu, ru, pointy=False):
-    draw_hexagon(xu, yu, ru, pointy)  # big hexagon
-    sur = 2  * ru / sqrt(2) / sqrt(3)
-    vs = hexagon_points(xu, yu, sur, not pointy)
-    for x, y in vs[2:4]:
-        draw_hexagon(x, y, sur / 2, not pointy)  # smaller hexagons
+#     rows = 3
+#     cols = 3
+#     for row in range(rows):
+#         y = (row - 1) * h
+#         for col in range(cols):
+#             x = (col - 1) * w
+#             if row % 2 == 1:
+#                 x += w / 2
+#             hex_unit(x, y, R)
+    hex_unit(+w, -h, R)
+    hex_unit(-w, -h, R)
+    hex_unit(+w, +h, R)
+    hex_unit(-w, +h, R)
+    hex_unit(0, 0, R)
+    hex_unit(+w * 2, 0, R)
+    hex_unit(-w * 2, 0, R)
+  
+  
+def hex_unit(xu, yu, r, pointy=False):
+    big_hex_radius = r * sqrt(3) / 2 * sqrt(2)
+    draw_hexagon(xu, yu, big_hex_radius, pointy)  # big hexagon
+    vs = hexagon_points(xu, yu, r, not pointy) # centers for smaller hexs
+    for x, y in vs[2:4]:  # just the third and fourth (indices 2 and 3)
+        draw_hexagon(x, y, r / 2, not pointy)  # smaller hexagons
         
 def draw_hexagon(x, y, r, pointy=True):
     vs = regular_polygon_points(x, y, r, 6, pointy)
