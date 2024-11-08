@@ -14,15 +14,6 @@ def draw():
     w = R * sqrt(3) / 2
     h = R * 1.5
 
-#     rows = 3
-#     cols = 3
-#     for row in range(rows):
-#         y = (row - 1) * h
-#         for col in range(cols):
-#             x = (col - 1) * w
-#             if row % 2 == 1:
-#                 x += w / 2
-#             hex_unit(x, y, R)
     hex_unit(+w, -h, R)
     hex_unit(-w, -h, R)
     hex_unit(+w, +h, R)
