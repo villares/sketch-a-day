@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_11_11
+
+![sketch_2024_11_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_11_11/sketch_2024_11_11.gif)
+
+[sketch_2024_11_11](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_11_11) [[py5](https://py5coding.org/)]
+
+I love to play/create an #LSystem, check discussion at https://github.com/py5coding/py5generator/discussions/555
+
+---
+
 ### sketch_2024_11_10
 
 ![sketch_2024_11_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_11_10/sketch_2024_11_10.png)
