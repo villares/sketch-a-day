@@ -2,7 +2,6 @@ import py5
 import trimesh
 import numpy as np
 
-    
 def setup():
     py5.size(500, 500, py5.P3D)
     py5.background(0)
@@ -38,6 +37,4 @@ def create_trimesh_surface(rows, cols, spacing):
     mesh = trimesh.Trimesh(vertices=vs, faces=faces)
     return mesh
 
-
-#mesh.show()
 py5.run_sketch(block=False)
