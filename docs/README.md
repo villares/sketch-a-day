@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_11_15
+
+![sketch_2024_11_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_11_15/sketch_2024_11_15.png)
+
+[sketch_2024_11_15](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_11_15) [[py5](https://py5coding.org/)]
+
+Ramalho @lr@ciberlandia.pt (e Feurzeig, , Solomon & Papert) tinham razão: andar e virar é mais fácil...
+
+---
+
 ### sketch_2024_11_14
 
 ![sketch_2024_11_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_11_14/sketch_2024_11_14.png)
