@@ -20,17 +20,17 @@ def setup():
             turn(-45)
         else:
             turn(90)
-        foward(segment_size)
+        forward(segment_size)
         star.append(current_pos.copy)
     draw_poly(star)
     
-    foward(segment_size + segment_size * SQRT2)
+    forward(segment_size + segment_size * SQRT2)
     #py5.circle(*current_pos, 5)
     octagon_side = segment_size * 2 + segment_size * SQRT2
     set_heading(0)
     octagon = [current_pos.copy]
     for i in range(7):
-        foward(octagon_side)
+        forward(octagon_side)
         turn(360 / 8)
         octagon.append(current_pos)
     draw_poly(octagon)
@@ -44,7 +44,7 @@ def setup():
 
     py5.save(__file__[:-3] + '.png')
    
-def foward(d):
+def forward(d):
     global current_pos
     current_pos = current_pos.copy + (Vector.from_heading(heading) * d)
 
