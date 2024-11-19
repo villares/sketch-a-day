@@ -28,8 +28,8 @@ def setup():
             turn(-45)
             shapes.append(square_pts(star_side))
         else:
-            shapes.append(triangle_pts(octagon_side / SQRT2))
             turn(90)
+            shapes.append(triangle_pts(octagon_side / SQRT2))
         forward(star_side)
     #shapes.insert(0, star)
     forward(-star_side)
@@ -69,6 +69,7 @@ def draw_poly(pts):
 def triangle_pts(d):
     pts = []
     pts.append(current_pos)
+    turn(-90)
     forward(d)
     pts.append(current_pos)
     turn(-90-45)
@@ -76,26 +77,7 @@ def triangle_pts(d):
     pts.append(current_pos)
     turn(-90-45)
     forward(d)
-    turn(-90)
     return pts
-
-# def kite_pts(d):
-#     pts = []
-#     turn(90)
-#     pts.append(current_pos)
-#     forward(d/2)
-#     turn(-45)
-#     pts.append(current_pos)
-#     forward(d/2)
-#     turn(-90)
-#     pts.append(current_pos)
-#     forward(d)
-#     pts.append(current_pos)
-#     turn(-90-45)
-#     forward(d)
-#     turn(-90)
-#     turn(-90)
-#     return pts
 
 def square_pts(d):
     pts = []
@@ -104,8 +86,6 @@ def square_pts(d):
         forward(d)
         turn(90)
     return pts
-
-    
 
 py5.run_sketch(block=False)
 
