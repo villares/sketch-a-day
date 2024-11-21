@@ -47,7 +47,6 @@ def setup():
             with py5.push_matrix():
                 py5.translate(x, y)
                 for i, shp in enumerate(shapes):
-                    #py5.fill((255 - i * 32) % 255, 200, 200)
                     py5.fill((i * 8) % 255, 200, 200)
                     draw_poly(shp)
 
