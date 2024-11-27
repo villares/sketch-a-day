@@ -16,6 +16,5 @@ def setup():
     
 def draw():
     image(img_c, 0, 0)
-    
-    #save('out.png')
+
 
