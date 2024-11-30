@@ -8,11 +8,11 @@ def setup():
     py5.color_mode(py5.HSB)
   
 def draw():
-    py5.background('blue')
+    py5.background('green')
     for i, (x, y, d) in enumerate(history):
-        py5.fill(d * 2.5,
-                 255, 255, 100)
         td = d + d * py5.sin(i/20)
+        py5.fill(td * 2.5,
+             255, 255, 100)
         py5.circle(x, y, td)
     if history:
         history.append(history.popleft())
