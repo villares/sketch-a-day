@@ -1,31 +1,18 @@
-from collections import deque
-import py5
-
-history = deque(maxlen=200)
+# py5 imported mode sketch - learn more at https://py5coding.org
 
 def setup():
-    py5.size(500, 500)
-    py5.color_mode(py5.HSB)
-  
+    size(600, 600)
+    background(255, 0, 0)
+    
 def draw():
-    py5.background('green')
-    for i, (x, y, d) in enumerate(history):
-        td = d + d * py5.sin(i/20)
-        py5.fill(td * 2.5,
-             255, 255, 100)
-        py5.circle(x, y, td)
-    if history:
-        history.append(history.popleft())
-    
-    
+    #background(255, 0, 0)
+    d = random(20, 100)
+    fill(random(255),
+         random(255),
+         random(255), 100) # R G B A
+    if is_mouse_pressed:
+        circle(mouse_x, mouse_y, d)
+        
 def key_pressed():
-    if py5.key == 's':
-        py5.save_frame('####.png')
-    
-def mouse_dragged():
-    d = py5.random(20, 40)
-    history.append(
-        (py5.mouse_x, py5.mouse_y, d)
-        )
-    
-py5.run_sketch()
+    if key == 's':
+        save_frame('####.png')
