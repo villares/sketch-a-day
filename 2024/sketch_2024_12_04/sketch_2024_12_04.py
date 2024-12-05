@@ -1,5 +1,7 @@
+# I used Py5Vectors insteado of translate & rotate
+# Because I want to try to make shapely polygons for the trees later
+
 import py5
-import shapely
 
 V = py5.Py5Vector
 seed = 1
@@ -11,11 +13,11 @@ def setup():
 def draw():
     py5.random_seed(seed)
     py5.background(240, 240, 200)
+    margin = py5.width / 10
     for _ in range(10):
-        margin = py5.width / 10
         ox = py5.random(margin, py5.width - margin)
-        oy = py5.random(margin * 2, py5.height)
-        bh = py5.sqrt(oy * 2) * 2
+        oy = py5.random(margin * 2, py5.height) 
+        bh = py5.sqrt(oy * 2) * 2  # bigger trees towards bottom
         branch(V(ox, oy), V(0, -bh))
 
 def branch(origin, v):
