@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_12_08
+
+![sketch_2024_12_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_08/sketch_2024_12_08.gif)
+
+[sketch_2024_12_08](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_08) [[py5](https://py5coding.org/)]
+
+#vtracer raster to svg tool from the visioncortex group.
+
+---
+
 ### sketch_2024_12_07
 
 ![sketch_2024_12_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_07/sketch_2024_12_07.png)
