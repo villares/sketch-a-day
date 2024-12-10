@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_12_10
+
+![sketch_2024_12_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_10/sketch_2024_12_10.png)
+
+[sketch_2024_12_10](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_10) [[py5](https://py5coding.org/)]
+
+Slowing working on some #NumPy skill so I can get back to my combinatory explorations (thinking about removing rotations and reflections...)
+
+---
+
 ### sketch_2024_12_09
 
 ![sketch_2024_12_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_09/sketch_2024_12_09.png)
