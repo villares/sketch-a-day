@@ -38,7 +38,7 @@ Here are listed some of the tools I have been using more recently:
 
 [sketch_2024_12_10](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_10) [[py5](https://py5coding.org/)]
 
-Slowing working on some #NumPy skill so I can get back to my combinatory explorations (thinking about removing rotations and reflections...)
+Slowly working on some #NumPy skill so I can get back to my combinatorics explorations (thinking about removing rotations and reflections...)
 
 ---
 
