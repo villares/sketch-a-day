@@ -14,6 +14,7 @@ def setup():
         grids.append(grids[-1].rotated90())
         #grids.append(grids[-1].alternate())
         
+    #for g in set(grids):
     for g in grids:
         g.draw()
         py5.translate(Grid.CS * (g.order + 1), 0)
@@ -38,6 +39,19 @@ class Grid:
     def alternate(self):
         return Grid((self.array + 1) % len(self.colors), order=self.order)
 
+    def __eq__(self, other):
+        return hash(self) == hash(other)
+
+    def __hash__(self):
+        """
+        Makes rotations equivalent.
+        """
+        h = hash(self.array.tobytes())
+        s = self
+        for _ in range(3):
+            s = s.rotated90()
+            h = min(h, hash(s.array.tobytes()))            
+        return(h)
 
     def draw(self):
         rows, cols = self.array.shape
@@ -49,5 +63,4 @@ class Grid:
                 py5.square(x, y, self.CS)
                 
                 
-
 py5.run_sketch(block=False)
