@@ -1,3 +1,4 @@
+from itertools import permutations
 import py5
 import numpy as np
 
@@ -14,7 +15,7 @@ def setup():
         grids.append(grids[-1].rotated90())
         #grids.append(grids[-1].alternate())
         
-    #for g in set(grids):
+    #for g in set(grids):  # testing for duplicate removal
     for g in grids:
         g.draw()
         py5.translate(Grid.CS * (g.order + 1), 0)
@@ -41,17 +42,21 @@ class Grid:
 
     def __eq__(self, other):
         return hash(self) == hash(other)
-
+        
     def __hash__(self):
         """
-        Makes rotations equivalent.
+        Makes rotations and different colors equivalent.
         """
-        h = hash(self.array.tobytes())
-        s = self
-        for _ in range(3):
-            s = s.rotated90()
-            h = min(h, hash(s.array.tobytes()))            
-        return(h)
+        a = self.array
+        h = hash(a.tobytes())
+        values, inverse_indices = np.unique(a, return_inverse=True)
+        for vs in permutations(values):
+            a = np.array(vs)[inverse_indices].reshape(self.order, self.order)
+            h = min(h, hash(a.tobytes()))
+            for _ in range(3):
+                    a = np.rot90(a, 1)                    
+                    h = min(h, hash(a.tobytes()))
+        return h
 
     def draw(self):
         rows, cols = self.array.shape
