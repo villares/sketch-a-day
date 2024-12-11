@@ -12,6 +12,7 @@ def setup():
     grids = [Grid(order=5)]
     for _ in range(3):
         grids.append(grids[-1].rotated90())
+        #grids.append(grids[-1].alternate())
         
     for g in grids:
         g.draw()
@@ -24,14 +25,19 @@ class Grid:
     colors = [0]
     CS = 20  # Cell size
     
-    def __init__(self, els=None, order=3):
+    def __init__(self, elements=None, order=3):
         self.order = order
-        elements = els if els is not None else py5.random_sample(self.colors,
-                                                                 order * order)
+        color_indices = range(len(self.colors))
+        if elements is None:
+            elements = py5.random_sample(color_indices, order * order)
         self.array = np.array(elements).reshape(order, order)
 
     def rotated90(self):
         return Grid(np.rot90(self.array), order=self.order)
+
+    def alternate(self):
+        return Grid((self.array + 1) % len(self.colors), order=self.order)
+
 
     def draw(self):
         rows, cols = self.array.shape
@@ -39,7 +45,7 @@ class Grid:
             y = self.CS * r
             for c in range(cols):
                 x = self.CS * c
-                py5.fill(self.array[r, c])
+                py5.fill(self.colors[self.array[r, c]])
                 py5.square(x, y, self.CS)
                 
                 
