@@ -19,7 +19,8 @@ def draw():
     py5.background(200)
     py5.translate(Grid.CS, Grid.CS)
     x = y = 0
-    for g in grids:
+    #for g in set(grids):  # to test duplicate removal
+    for g in set(grids):
         with py5.push_matrix():
             py5.translate(x, y)
             g.draw()
@@ -57,7 +58,25 @@ class Grid:
         This will have more stuff later...
         ... it will need to roll the sub-elements
         """
-        return np.rot90(a)
+        return np.rot90(a, 1)
+
+    def __eq__(self, other):
+        return hash(self) == hash(other)
+        
+    def __hash__(self):
+        """
+        Makes rotations and different colors equivalent.
+        """
+        a = self.array
+        h = hash(a.tobytes())
+        values, inverse_indices = np.unique(a, return_inverse=True)
+        for vs in permutations(values):
+            a = np.array(vs)[inverse_indices].reshape(self.shape)
+            h = min(h, hash(a.tobytes()))
+            for _ in range(3):
+                    a = self.rot90(a)                    
+                    h = min(h, hash(a.tobytes()))
+        return h
 
     def draw(self):
         rows, cols, subelements = self.array.shape
