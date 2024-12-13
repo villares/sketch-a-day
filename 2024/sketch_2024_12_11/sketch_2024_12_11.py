@@ -20,7 +20,7 @@ def draw():
     py5.translate(Grid.CS, Grid.CS)
     x = y = 0
     #for g in set(grids):  # to test duplicate removal
-    for g in set(grids):
+    for g in grids:
         with py5.push_matrix():
             py5.translate(x, y)
             g.draw()
