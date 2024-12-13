@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_12_12
+
+![sketch_2024_12_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_12/sketch_2024_12_12.png)
+
+[sketch_2024_12_12](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_12) [[py5](https://py5coding.org/)]
+
+Maybe, just maybe, I'm getting to enjoy using #NumPy.
+
+---
+
 ### sketch_2024_12_11
 
 ![sketch_2024_12_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_11/sketch_2024_12_11.gif)
