@@ -1,3 +1,10 @@
+"""
+This is unfinished and possibly broken :(
+I'd have to:
+- Merge the regions of same colors in polygons, probably with shapely as I did once
+- Check if there are no configurations repeated or missing.
+"""
+
 from itertools import permutations, combinations_with_replacement
 import py5
 import numpy as np
