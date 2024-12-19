@@ -19,7 +19,6 @@ def dodecahedron(radius):
     a = radius / 1.618033989
     b = radius
     c = 0.618033989 * a
-    global verts, faces
     verts = np.array([
         (a, a, a), (a, a, -a), (a, -a, a), (a, -a, -a), (-a, a, a),
         (-a, a, -a), (-a, -a, a), (-a, -a, -a), (0, c, b), (0, c, -b),
