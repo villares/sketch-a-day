@@ -32,6 +32,16 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_12_20
+
+![sketch_2024_12_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_20/sketch_2024_12_20.gif)
+
+[sketch_2024_12_20](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_20) [[py5](https://py5coding.org/)]
+
+A tetrahedron with #py5 and a bit of #NumPy ... Maybe tomorrow I'll tackle the icosahedron, but if I'm tired, I might do just use the built-in box() for the hexahedron ;)
+
+---
+
 ### sketch_2024_12_19
 
 ![sketch_2024_12_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_19/sketch_2024_12_19.gif)
