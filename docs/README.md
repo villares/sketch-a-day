@@ -32,6 +32,36 @@ Here are listed some of the tools I have been using more recently:
 
 ---
 
+### sketch_2024_12_21
+
+![sketch_2024_12_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_21/sketch_2024_12_21.gif)
+
+[sketch_2024_12_21](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_21) [[py5](https://py5coding.org/)]
+
+Preparing for an icosahedron!
+
+```python
+    phi = (py5.sqrt(5) + 1) / 2
+    a = phi * f
+    b = 1 * f
+    vs = np.array([
+        (a,  b,  0),
+        (a,  -b,  0),
+        (-a,  -b,  0),
+        (-a,  b,  0),
+        (b,  0, a),
+        (-b,  0, a),
+        (-b,  0, -a),
+        (b, 0, -a),
+        (0, a, b),
+        (0, a, -b),
+        (0, -a, -b),
+        (0, -a, b),
+    ])
+```
+
+---
+
 ### sketch_2024_12_20
 
 ![sketch_2024_12_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_20/sketch_2024_12_20.gif)
