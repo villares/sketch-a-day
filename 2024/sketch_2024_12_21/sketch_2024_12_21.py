@@ -18,7 +18,7 @@ def draw():
     icosahdron(300)
 
 def icosahdron(radius):
-    f = radius / 2 # this is wrong but will do for now
+    f = (radius / 2) # / 0.95 # aprox. ?
     phi = (py5.sqrt(5) + 1) / 2
     a = phi * f
     b = 1 * f
@@ -42,8 +42,9 @@ def icosahdron(radius):
         8, 9, 10, 11,
     ])
     py5.no_fill()
-    py5.stroke(0)
     py5.stroke_weight(2)
+    #py5.circle(0, 0, radius * 2)
+    py5.stroke(0)
     with py5.begin_shape(py5.QUADS):
          py5.vertices(vs[sequence])
     py5.stroke(255, 0, 0)
@@ -59,6 +60,4 @@ def icosahdron(radius):
             py5.rotate_y(-ang)
             py5.text(i, -12, 12, 0)
             
-
-
 py5.run_sketch(block=False)
