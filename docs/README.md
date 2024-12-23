@@ -19,11 +19,11 @@ Here are listed some of the tools I have been using more recently:
 - [[FreeCAD](https://freecadweb.org)] - the wonderful 3D modeling tool, CAD & more, Python infused;
 - [[Blender](https://blender.org)] doesn't need introductions, I guess, but it has a nice Python interface you might have missed.
   
-<!-- link
+<link
   rel="alternate"
   type="application/rss+xml"
-  href="https://raw.githack.com/villares/sketch-a-day/main/rss.xml"
-  title="RSS Feed" -->
+  href="http://pynews.com.br/@villares.rss"
+  title="RSS Feed">
 
 ---
 
