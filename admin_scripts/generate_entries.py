@@ -33,6 +33,7 @@ sg.set_options(element_padding=(10, 10))
 
 from image_helpers import get_image_names, image_as_png_bytes
 from toot_publisher import toot
+from generate_index_for_logseq import generate_sketch_a_day_index
 
 print(f'Running on: {sys.executable}') # for debug
 
@@ -140,6 +141,10 @@ def main(args):
         content = ''.join(readme_as_lines)
         readme.write(content)
     # TODO show all changes on GUI
+    generate_sketch_a_day_index()
+    adding_message = 'Regenerated logseq index.'
+    print(adding_message)
+    change_log.append(adding_message) 
     if gui_mode:
         clipped_log = (entry[32:] for entry in change_log)
         sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(clipped_log))
