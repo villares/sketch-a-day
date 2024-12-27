@@ -10,7 +10,6 @@ def setup():
 
 
 def draw():
-    global ang
     ang = py5.radians(py5.frame_count)
     py5.background(0)
     #py5.lights()
@@ -21,16 +20,16 @@ def draw():
     py5.rotate_y(ang)
     py5.rotate_x(ang)
     icosa = icosahedron(250)
-    icosa.color_mode(py5.HSB)
     icosa.set_fills(noise_color(60))
     py5.shape(icosa, 0, 0)
+    
 def noise_color(n):
     step = py5.TAU / n
     colors = []
     for i in range(n):
-        ang = i * step + py5.radians(py5.frame_count)
-        x = py5.cos(ang)
-        y = py5.sin(ang)    
+        a = i * step + py5.radians(py5.frame_count)
+        x = py5.cos(a)
+        y = py5.sin(a)    
         r = 255 * (1 + py5.os_noise(x, y, 100)) / 2
         g = 255 * (1 + py5.os_noise(x, y, 1000)) / 2
         b = 255 * (1 + py5.os_noise(x, y, 10000)) / 2
