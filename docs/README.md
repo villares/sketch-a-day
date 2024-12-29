@@ -36,10 +36,10 @@ Here are listed some of the tools I have been using more recently:
 
 
 <video controls="">
-<source src="https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_28/sketch_2024_12_28.mp4" type="video/mp4">
+<source src="https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_28/video.mp4" type="video/mp4">
 </video>
 
-[video](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_28/sketch_2024_12_28.mp4)
+[video](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_28/video.mp4)
 
 [sketch_2024_12_28](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_28) [[py5](https://py5coding.org/)]
 
