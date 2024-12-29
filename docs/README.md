@@ -34,12 +34,12 @@ Here are listed some of the tools I have been using more recently:
 
 ### sketch_2024_12_28
 
-https://github.com/user-attachments/assets/d231860b-c1a7-4da8-8322-c05c150bca8f
 
-<video controls="" width="800" height="500" muted="" loop="" autoplay="">
+<video controls="">
 <source src="https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_27/sketch_2024_12_27.mp4" type="video/mp4">
 </video>
 
+[video](https://raw.githubusercontent.com/villares/sketch-a-day/main/2024/sketch_2024_12_27/sketch_2024_12_27.mp4)
 
 [sketch_2024_12_28](https://github.com/villares/sketch-a-day/tree/main/2024/sketch_2024_12_28) [[py5](https://py5coding.org/)]
 
