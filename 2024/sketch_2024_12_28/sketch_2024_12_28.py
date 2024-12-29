@@ -53,10 +53,10 @@ def noise_colors(vs):
         a = i * step + py5.radians(py5.frame_count)
         x = py5.cos(a) + xo / 10
         y = py5.sin(a) + yo / 10  
-        r = 255 * (1 + py5.os_noise(x, y, 100)) / 2
-        g = 255 * (1 + py5.os_noise(x, y, 1000)) / 2
+        h = 255 * (1 + py5.os_noise(x, y, 100)) / 2
+        s = 255 * (1 + py5.os_noise(x, y, 1000)) / 2
         b = 255 #* (1 + py5.os_noise(x, y, 10000)) / 2
-        colors.append(py5.color(r, g, b))
+        colors.append(py5.color(h, s, b))
     return colors
     
 def key_pressed():
