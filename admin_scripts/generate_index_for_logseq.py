@@ -5,8 +5,8 @@
 import re
 from pathlib import Path
 
-input_path = '/home/villares/GitHub/sketch-a-day/docs/{}.md'
-output_path = '/home/villares/GitHub/logseq/pages/sketch-a-day-{}.md'
+input_path_template = '/home/villares/GitHub/sketch-a-day/docs/{}.md'
+output_path_template = '/home/villares/GitHub/logseq/pages/sketch-a-day-{}.md'
 
 
 def sketch_date(line):
@@ -23,14 +23,18 @@ def sketch_date(line):
     else:
         return None
 
-def generate_sketch_a_day_index(min_year=2018, max_year=2024):
+def generate_sketch_a_day_index(min_year=2018, max_year=2030):
     for s_year in range(min_year, max_year + 1):
         s_year = str(s_year)
         # open the source markdown page from the sketch-a-day repo
-        with open(input_path.format(s_year), 'rt') as readme:
+        input_path = Path(input_path_template.format(s_year))
+        output_path = Path(output_path_template.format(s_year))        
+        if not input_path.isfile():
+            continue
+        with open(input_path, 'rt') as readme:
             readme_as_lines = readme.readlines()
         # generate the target markdown page for logseq
-        with open(output_path.format(s_year), 'wt') as readme:
+        with open(output_path, 'wt') as readme:
             writing = False
             for line in readme_as_lines:
                 if r'.md) \| [<b>2' in line : ### {}\n\n'.format(line[2:line.find(']')])
