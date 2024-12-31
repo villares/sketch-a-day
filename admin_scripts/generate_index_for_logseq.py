@@ -29,7 +29,7 @@ def generate_sketch_a_day_index(min_year=2018, max_year=2030):
         # open the source markdown page from the sketch-a-day repo
         input_path = Path(input_path_template.format(s_year))
         output_path = Path(output_path_template.format(s_year))        
-        if not input_path.isfile():
+        if not input_path.is_file():
             continue
         with open(input_path, 'rt') as readme:
             readme_as_lines = readme.readlines()
