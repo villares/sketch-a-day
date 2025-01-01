@@ -31,7 +31,7 @@ Here are listed some of the tools I have been using:
 
 ---
 
-# [2024](docs/README.md) | [2023](docs/2023.md) | [2022](docs/2022.md) | [2021](docs/2021.md) | [2020](docs/2020.md) | [2019](docs/2019.md) | [2018](docs/2018.md)
+[<b>2025</b>](README.md) \|  [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
 
 ---
 
