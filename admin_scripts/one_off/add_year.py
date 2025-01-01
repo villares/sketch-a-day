@@ -28,14 +28,13 @@ def main(n):
     with open(page, 'rt') as readme:
         readme_as_lines = readme.readlines()
 
-#     with open(page, 'wt') as readme:
+    with open(page, 'wt') as readme:
         for line in readme_as_lines:
+            print(f'Processing {n}.') 
             if index_line(line):
                 line = template.replace(year_format(n), str(n))
                 line = line.replace(f'[<b>{n}</b>](README.md)', str(n))  # current year case
-                print(line)
-#                readme.write('### {}\n\n'.format(line[2:line.find(']')]))
-#             readme.write(line)
+            readme.write(line)
 
 if __name__ == '__main__':
     for y in range(2018, 2030):
