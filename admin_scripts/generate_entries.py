@@ -17,6 +17,8 @@
 # [ ] use CL arguments to commit and push README.md
 # [ ] Protect against missing svglib & cairo lab? #*!todo
 # [x] Added clumsy mastodon posting
+# [x] Added a call to generate_index_for_logseq.py
+
 
 import sys
 from pathlib import Path
@@ -40,7 +42,7 @@ print(f'Running on: {sys.executable}') # for debug
 gui_mode = True  # default
 
 # YEAR and base_paths to sketch-a-day folder are set manually, hard-coded
-YEAR = '2024'   
+YEAR = '2025'   
 USER, REPO = 'villares', 'sketch-a-day'
 MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 SPONSOR_LINK = 'https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724'
@@ -49,7 +51,7 @@ RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 TOOT_DEFAULT = (
     'Code at: {}\n'
     f'More sketch-a-day: {MAIN_SITE}\n'
-    f'I really need your support to keep going, if you can, donate any amount at: {SPONSOR_LINK}\n'
+    f'If you like this, support my work: {SPONSOR_LINK}\n'
     )
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = Path(f'/home/{USER}/GitHub/{REPO}/')
@@ -66,7 +68,9 @@ tools = {
         'tk': '[tkinter]',
         'freecad': '[[FreeCAD](https://freecadweb.org)]',
         'pyscript': '[[pyscript](https://pyscript.net)]',
-        'pysimplegui': '[[PySimpleGUI](https://www.pysimplegui.org/)]',
+        'freesimplegui': '[[FreeSimpleGUI](https://github.com/spyoungtech/FreeSimpleGui)]',
+        'raylib-python':'[[raylib-python](https://electronstudio.github.io/raylib-python-cffi/README.html)]',
+        'ursina': '[[ursina](https://www.ursinaengine.org/)]',
     }
 
 tag_dict = {'py5': '#Processing #Python #py5 #CreativeCoding' }
