@@ -41,7 +41,7 @@ def generate_regions(seed_points, w, h):
          ])
     voronoi = Voronoi(extended_points)
     shapely_regions = (
-        Polygon(voronoi.vertices[index] for index in vs if index != -1)
+        Polygon(voronoi.vertices[index] for index in vs)
         for vs in voronoi.regions if vs and -1 not in vs
         )
     colored_regions = []
