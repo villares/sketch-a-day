@@ -12,6 +12,7 @@ r"\| [<b>2021</b>](2021.md) "
 r"\| [<b>2020</b>](2020.md) "
 r"\| [<b>2019</b>](2019.md) "
 r"\| [<b>2018</b>](2018.md) "
+"\n"
 )
 # String used to find the year of the page being processed
 year_format = "[<b>{0}</b>]({0}.md)".format
