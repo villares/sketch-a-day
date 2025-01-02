@@ -10,15 +10,6 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 If you appreciate what I have been doing, you may also support my artistic work, research and open educational resources I publish on-line using the Brazilan PIX key at `46c37783-5edb-4f1c-b3a8-1309db11488c`, [PayPal](https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724) or [gumroad.com/villares](https://gumroad.com/villares), where you can subscribe to my [[sketch-mail](https://villares.gumroad.com/l/sketch-mail)] newsletter.
 
-Here are listed some of the tools I have been using more recently:
-
-- [[py5](https://py5coding.org/)] is my main too, combining a Processing Java infrastructure and Python 3;
-- [[pyp5js](https://berinhard.github.io/pyp5js/)] is my browser based choice for creative coding, based on pyodide + p5.js;
-- [[shoebot](https://shoebot.github.io/shoebot/)] - great 2D vector graphics creative coding with Python;
-- [[pyscript](https://pyscript.net)] - another useful Python in the browser tool;
-- [[FreeCAD](https://freecadweb.org)] - the wonderful 3D modeling tool, CAD & more, Python infused;
-- [[Blender](https://blender.org)] doesn't need introductions, I guess, but it has a nice Python interface you might have missed.
-  
 <link
   rel="alternate"
   type="application/rss+xml"
