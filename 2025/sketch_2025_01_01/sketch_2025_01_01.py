@@ -1,7 +1,7 @@
 from itertools import product
 
 import py5
-from shapely import Polygon
+from shapely import Polygon, LineString, MultiLineString
 from scipy.spatial import Voronoi
 
 def setup():
@@ -54,7 +54,15 @@ def generate_regions(seed_points, w, h):
     return colored_regions
 
 def random_hatch(region):
-    return region
+    ix, iy, fx, fy = region.bounds
+    step = py5.random_choice((3, 4, 5, 6, 7, 8))
+    if step % 2 == 0:
+        hatch = MultiLineString([LineString([(x, iy), (x, fy)])
+                                 for x in range(int(ix), int(fx) + 1, step)])
+    else:
+        hatch = MultiLineString([LineString([(ix, y), (fx, y)])
+                                 for y in range(int(iy), int(fy) + 1, step)])
+    return region.intersection(hatch)
 
 def draw():
     py5.background(0)
@@ -64,11 +72,9 @@ def draw():
 
 
 def key_pressed():
-    if py5.key == ' ':
-        new_points()
-    elif py5.key == 's':
+    if py5.key == 's':
         py5.save_frame('out###.png')
-    
-            
+        new_points()
+
 py5.run_sketch(block=False)
 
