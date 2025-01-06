@@ -24,7 +24,7 @@ def setup():
     tri = tri.difference(hole)
     py5.no_stroke()
     shp = py5.convert_cached_shape(tri)
-    animated_gif('out.gif', duration=0.066, frame_numbers=range(1, 361, 4))
+#    animated_gif('out.gif', duration=0.066, frame_numbers=range(1, 361, 4))
 
 
 def draw():
@@ -43,6 +43,9 @@ def draw():
             py5.rotate_x(py5.random_choice(ra) + a)
             py5.rotate_y(py5.random_choice(ra) + a)
             py5.shape(shp, 0, 0)    
+    if f == 1:
+        py5.save('static.gif')
+
 
 def key_pressed():
     py5.save(__file__[:-2] + 'png')
