@@ -1,8 +1,7 @@
 """
-On libre office Calc, prepar a grid,
-select the background for a cell
-double-click the clone fomatting tool
-and run this.
+On LibreOffice Calc, prepare a grid, making narrow cols
+select the background for a cell (red in my case) and
+double-click the clone formatting tool and run this.
 """
 
 from math import radians, sin, cos
