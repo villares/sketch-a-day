@@ -23,6 +23,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_01_07
+
+![sketch_2025_01_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_07/sketch_2025_01_07.png)
+
+[sketch_2025_01_07](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_07) [python]
+
+#pyautogui #LibreOffice
+
+---
+
 ### sketch_2025_01_06
 
 ![sketch_2025_01_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_06/sketch_2025_01_06.png)
