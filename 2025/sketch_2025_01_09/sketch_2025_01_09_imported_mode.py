@@ -33,7 +33,7 @@ def draw():
             if y <= 0:
                 y = rows + y
             if matrix[i, j] == 1:  # Se a célula i, está viva/ativa/1
-               py5.stroke(c_matrix[i, j]) 
+               py5.stroke(c_matrix[i, j])# stroke(c_matrix[i, j])
             else:
                 py5.stroke(200)
             py5.point(i, y - 1)
