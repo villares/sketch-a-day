@@ -65,5 +65,5 @@ if __name__ == '__main__':
         else:        
             path.rename(new_name)
             print(f'{path.name}  -> {new_name}')
-        # messagebox.showinfo('', f'{first_found_image.name} -> {new_name}')
+        # messagebox.showinfo('', f'{path.name} -> {new_name}')
 
