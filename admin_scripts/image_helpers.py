@@ -38,21 +38,14 @@ def get_image_names(base, folder, word=None):
 
 def is_img_ext(file_name):
     """
-    Return True if file_name ends with
-    one of the valid_extensions.
+    Return True if file_name ends with some
+    image-like extensions (add/remove the ones you like).
     """
-    ext = file_name.split('.')[-1]
-    valid_extensions = (
-        'jpg',
-        'png',
-        'jpeg',
-        'gif',
-        'tif',
-        'tga',
-        'svg',
+    return Path(file_name).suffix.lower() in (
+        '.jpg', '.jpeg', '.png',
+        '.tif', '.tiff', '.tga',
+        '.gif', '.webp', '.svg', 
     )
-    return ext.lower() in valid_extensions
-
 
 def remove_transparency(im, bg_colour=(255, 255, 255)):
     from PIL import Image
