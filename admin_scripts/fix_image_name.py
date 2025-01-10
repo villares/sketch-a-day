@@ -15,31 +15,41 @@ TODO:
 """
 
 from pathlib import Path
-from image_helpers import is_img_ext
 from tkinter import messagebox  # for debug
 import sys
 
 
 def try_renaming_first_image(path):
-    nome_pasta = path.name
-    itens_diretorio = sorted(path.iterdir())
-    # Procura imagens no diretório corrente
-    imagens = [item for item in itens_diretorio
-                if item.is_file() and is_img_ext(item.name)]
-    # Imagens boas são as que tem o mesmo nome da pasta!
-    imagens_boas = [path_imagem for path_imagem in imagens
-                    if path_imagem.name.startswith(nome_pasta)]
-    if imagens_boas:
-        print('Não precisei fazer nada!')
-    elif imagens:
+    dir_name = path.name
+    # Filter images from directory;
+    imgs = [item for item in sorted(path.iterdir())
+            if item.is_file() and is_img_ext(item.name)]
+    # "Good names" start with the directory name (even if not the same)!
+    good_names = [path_imagem for path_imagem in imgs
+                  if path_imagem.name.startswith(dir_name)]
+    if good_names:
+        print('You already have some good image names!')
+    elif imgs:
         # vai renomear a primeira para ficar com o nome da pasta
-        primeira_imagem = imagens[0]  
-        ext = primeira_imagem.suffix
-        novo_nome = nome_pasta + ext
-        primeira_imagem.rename(novo_nome)
-        print(primeira_imagem.name + ' -> ' + novo_nome)
+        first_found_image = imgs[0]  
+        ext = first_found_image.suffix
+        new_name = dir_name + ext
+        first_found_image.rename(new_name)
+        print(f'{first_found_image.name}  -> {new_name}')
     else:
-        print('Não encontrei imagens!')
+        print('No images found!')
+
+
+def is_img_ext(file_name):
+    """
+    Return True if file_name ends with some
+    image-like extensions (add/remove the ones you like).
+    """
+    return Path(file_name).suffix.lower() in (
+        '.jpg', '.jpeg', '.png',
+        '.tif', '.tiff', '.tga',
+        '.gif', '.webp', '.svg', 
+    )
 
 if __name__ == '__main__':
     args = sys.argv[1:]
@@ -49,8 +59,8 @@ if __name__ == '__main__':
         path = Path(args[0])
     if path.is_dir():
         try_renaming_first_image(path)
-    else:
-        novo_nome = path.parent.name + path.suffix
-        path.rename(novo_nome)
-        # messagebox.showinfo("arquivo renomeado para", novo_nome)
+    else: # will rename file passed as argumen 
+        new_name = path.parent.name + path.suffix
+        path.rename(new_name)
+        # messagebox.showinfo(f'{first_found_image.name}  -> {new_name}')
 
