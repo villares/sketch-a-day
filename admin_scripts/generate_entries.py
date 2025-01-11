@@ -17,8 +17,10 @@
 # [ ] use CL arguments to commit and push README.md
 # [ ] Protect against missing svglib & cairo lab? #*!todo
 # [x] Added clumsy mastodon posting
-# [x] Added a call to generate_index_for_logseq.py
-
+# 2024
+# Added a call to generate_index_for_logseq.py
+# 2025
+# Updated image_helpers to use pathlib...
 
 import sys
 from pathlib import Path
@@ -121,7 +123,7 @@ def main(args):
         for img in imgs:
             comment = description = None
             default_tool = 'py5'
-            if img.split('.')[0].startswith(folder):
+            if img.name.startswith(folder):
                 if gui_mode:
                     dialog_result = ask_tool_comment(folder, img, default_tool)
                     tool, comment, do_toot, image_caption, toot_text = dialog_result
@@ -155,7 +157,7 @@ def main(args):
     
 def ask_tool_comment(folder, img, default_tool):
     image_path = year_path / folder / img
-    if img.lower().endswith('svg'):  #*!todo
+    if img.suffix.lower().endswith('svg'):  #*!todo
         drawing = svg2rlg(image_path)
         cur_width, cur_height = drawing.width, drawing.height
         dpi = min(600 / cur_height * 72, 600 / cur_width * 72)
