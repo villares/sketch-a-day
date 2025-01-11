@@ -29,9 +29,9 @@ def get_image_names(base, folder, word=None):
     if name contains the folder name.
     Use word='' to get any images, irrespective of name.
     """
-    word = word if word is not None else folder
-    contents = Path(base, folder).iterdir()
-    image_files = [f for f in contents if is_img_ext(f) and word in f]
+    word = word if word is not None else str(folder)
+    image_files = [f for f in Path(base, folder).iterdir()
+                   if is_img_ext(f) and word in f.name]
     return image_files
 
 
