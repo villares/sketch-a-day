@@ -6,7 +6,6 @@ import py5
 
 rows = cols = 100
 matrix = np.zeros((100, 100), dtype=int) 
-c_matrix =  np.zeros((100, 100), dtype=int)
 
 nice_rules = [    # Some rules we like
     [1, 0, 1, 1, 1, 1, 1, 0],  # rule 125
@@ -33,7 +32,11 @@ def draw():
             if y <= 0:
                 y = rows + y
             if matrix[i, j] == 1:  # Se a célula i, está viva/ativa/1
-               py5.stroke(c_matrix[i, j]) 
+                left = matrix[(i + cols - 1) % cols, j - 1]
+                centre = matrix[i, j - 1]
+                right = matrix[(i + 1) % cols, j - 1]
+                c = py5.color(55 + left * 100, 55 + centre * 100, 55 + right * 100)
+                py5.stroke(c) 
             else:
                 py5.stroke(200)
             py5.point(i, y - 1)
@@ -46,9 +49,7 @@ def new_gen():
         centre = matrix[i, gen % rows]
         right = matrix[(i + 1) % cols, gen % rows]
         result = ruleset[left  * 4 +  centre * 2 +  right * 1]
-        cor = py5.color(55 + left * 100, 55 + centre * 100, 55 + right * 100)
         matrix[i, (gen + 1) % rows] =  result 
-        c_matrix[i, (gen + 1) % rows] =  cor             
     gen += 1
     
 def key_pressed():
