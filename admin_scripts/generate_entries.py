@@ -127,12 +127,11 @@ def main(args):
                 if gui_mode:
                     dialog_result = ask_tool_comment(folder, img, default_tool)
                     tool, comment, do_toot, image_caption, toot_text = dialog_result
-                entry_text = build_entry(folder, img, tool, comment, image_caption)
+                entry_text = build_entry(folder, img.name, tool, comment, image_caption)
                 if do_toot:
-                    image_path = year_path / folder / img
                     tags = tag_dict.get(tool, ' #CreativeCoding')
                     try:
-                        status = toot(comment + ' ' + toot_text + ' ' + tags, image_path, image_caption)
+                        status = toot(comment + ' ' + toot_text + ' ' + tags, img, image_caption)
                         status = status[:10]
                     except Exception as e:
                         status = e
@@ -156,18 +155,17 @@ def main(args):
         sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(clipped_log))
     
 def ask_tool_comment(folder, img, default_tool):
-    image_path = year_path / folder / img
     if img.suffix.lower().endswith('svg'):  #*!todo
-        drawing = svg2rlg(image_path)
+        drawing = svg2rlg(img)
         cur_width, cur_height = drawing.width, drawing.height
         dpi = min(600 / cur_height * 72, 600 / cur_width * 72)
         io_bytes = BytesIO()
         renderPM.drawToFile(drawing, io_bytes, fmt="PNG", dpi=dpi)
         png_bytes = io_bytes.getvalue()
     else:
-        png_bytes, metadata = image_as_png_bytes(image_path, (600, 600)) #, resize=new_size)
+        png_bytes, metadata = image_as_png_bytes(img, (600, 600)) #, resize=new_size)
     link = f'{REPO_MAIN_URL}/{YEAR}/{folder}'
-    window = sg.Window(f'{img}', [
+    window = sg.Window(f'{img.name}', [
         [sg.Image(key='-IMAGE-', data=png_bytes)],
         [sg.T('Tool   '), sg.Combo(list(tools), default_value=default_tool,
                                    size=(40,22), key='-TOOL-')],
