@@ -18,7 +18,7 @@ def start():
     #matrix[:, 0] = [choice((0, 1)) for _ in range(cols)]
     gen = 0
     #ruleset = [choice((0, 1)) for _ in range(8)]
-    ruleset = [1, 0, 1, 0, 0, 1, 1, 0]
+    ruleset = np.array([1, 0, 1, 0, 0, 1, 1, 0])
 
     print(ruleset)
     
@@ -45,12 +45,11 @@ def draw():
 
 def new_gen():
     global gen
-    for i in range(cols):
-        left = matrix[(i + cols - 1) % cols, gen % rows]
-        centre = matrix[i, gen % rows]
-        right = matrix[(i + 1) % cols, gen % rows]
-        result = ruleset[left  * 4 +  centre * 2 +  right * 1]
-        matrix[i, (gen + 1) % rows] =  result 
+    current_row = matrix[:, gen % rows]
+    left = np.roll(current_row, 1)
+    right = np.roll(current_row, -1)
+    rule_idx = (left << 2) + (current_row << 1) + right
+    matrix[:, (gen + 1) % rows] = ruleset[rule_idx]
     gen += 1
     
 def key_pressed():
