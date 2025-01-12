@@ -22,7 +22,7 @@ def start():
     matrix[:, 0] = [choice((0, 1)) for _ in range(cols)]
     gen = 0
     #ruleset = [choice((0, 1)) for _ in range(8)]
-    ruleset = np.array(list(reversed([1, 0, 1, 0, 0, 1, 1, 0])))
+    ruleset = np.array([1, 0, 1, 0, 0, 1, 1, 0])
     print(ruleset)
     
 def predraw_update():
