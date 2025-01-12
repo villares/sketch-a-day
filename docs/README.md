@@ -23,6 +23,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_01_11
+
+![sketch_2025_01_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_11/sketch_2025_01_11.png)
+
+[sketch_2025_01_11](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_11) [[py5](https://py5coding.org/)]
+
+#Wolfram #genuary2025 #genuary11 I wanted to optimize with NumPy but couldn't do much, the drawing part needs more work...
+
+---
+
 ### sketch_2025_01_10
 
 ![sketch_2025_01_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_10/sketch_2025_01_10.png)
