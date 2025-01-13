@@ -2,16 +2,15 @@ import py5
 
 margem = 10
 
-
 def setup():
     py5.size(800, 800) 
     start_polygons()
     
 def start_polygons(n=7):
     global poligonos
-    HW = py5.width - 2 * margem # half width (meia largura)
+    W = py5.width - 2 * margem 
     poligonos = [
-        ((0, 0), (HW, 0), (HW, HW), (0, HW)),
+        ((0, 0), (W, 0), (W, W), (0, W)),
     ]
     for _ in range(n):
         dividir_poligonos()   
