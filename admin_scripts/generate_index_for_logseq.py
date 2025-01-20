@@ -1,6 +1,8 @@
 #!/home/villares/thonny-env/bin/python
 
-# Prepares page for logseq
+# Prepara versão das páginas índice de cada ano do sketch-a-day para o logseq
+# Tem várias referências "hard coded" das pastas no meio, só vai funcionar no meu Linux...
+# ...com uma estrutura de pastas muito específica.
 
 import re
 from pathlib import Path
@@ -33,26 +35,29 @@ def generate_sketch_a_day_index(min_year=2018, max_year=2030):
             continue
         with open(input_path, 'rt') as readme:
             readme_as_lines = readme.readlines()
-        # generate the target markdown page for logseq
+        # Gera uma página em markdown para usar com o logseq
         with open(output_path, 'wt') as readme:
-            writing = False
+            writing = False # até a linha com os links dos anos, as linhas ignoradas
             for line in readme_as_lines:
-                if r'.md) \| [<b>2' in line : ### {}\n\n'.format(line[2:line.find(']')])
-                    index_links = [] 
+                if r'.md) \| [<b>2' in line : # se for a linha com links dos anos
+                    index_links = []  # monta uma nova lista de links
                     for y in range(min_year, max_year + 1):
-                        if str(y) == s_year:
-                            index_links.append(f"**{s_year}**")
-                        else:
+                        if str(y) == s_year: # ano deste arquivo não é link
+                            index_links.append(f"**{s_year}**") 
+                        else: # muda link para página logseq/local do ano
                             index_links.append(f"[{y}](sketch-a-day-{y})")
                     readme.write(r' \| '.join(index_links))
-                    writing = True
+                    writing = True # liga o processamento de linhas daqui por diante
                 elif writing:
+                    # Títulos ganham o [[ ]] para linkar no Journal
                     if line.startswith('###') and (date_tuple := sketch_date(line)):
                         line = line[:-1] + ' [[{}-{}-{}]]\n'.format(*date_tuple)
+                    # Imagens passam a referenciar as imagens locais
                     elif '![' in line:
                         line = '' + line.replace(
                             'https://raw.githubusercontent.com/villares/sketch-a-day/main/',
                             '/home/villares/GitHub/sketch-a-day/')
+                    # Linha com link para o github passa a referenciar pasta local
                     elif 'https://github.com/villares/sketch-a-day/tree/' in line:
                         line = '' + (line.replace('https://github.com/villares/',
                                             'file:///home/villares/GitHub/')
