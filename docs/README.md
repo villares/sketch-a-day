@@ -23,6 +23,26 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_01_24
+
+![sketch_2025_01_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_24/sketch_2025_01_24.png)
+
+[sketch_2025_01_24](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_24) [p5js]
+
+I'm too sad to make my own #genuary sketch because of news of Vamoss passing away. I decided to just tweak one of his openprocessing sketches, he loved that people could work on top of his code. We will miss him so much. His inspiring energy will live one.
+
+---
+
+### sketch_2025_01_23
+
+![sketch_2025_01_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_23/sketch_2025_01_23.gif)
+
+[sketch_2025_01_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_23) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2025_01_22
 
 ![sketch_2025_01_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_22/sketch_2025_01_22.png)
