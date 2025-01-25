@@ -29,7 +29,7 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 [sketch_2025_01_24](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_24) [p5js]
 
-I'm too sad to make my own #genuary sketch because of news of Vamoss passing away. I decided to just tweak one of his openprocessing sketches, he loved that people could work on top of his code. We will miss him so much. His inspiring energy will live one.
+I'm too sad to make my own #genuary sketch because of news of [Vamoss](https://openprocessing.org/user/65884) passing away. I decided to just tweak one of his openprocessing sketches, he loved that people could work on top of his code. We will miss him so much. His inspiring energy will live on.
 
 ---
 
