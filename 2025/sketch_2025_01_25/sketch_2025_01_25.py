@@ -19,7 +19,6 @@ def draw():
         py5.shape(py5.convert_cached_shape(p))
    
 def key_pressed():
-    global p
     if py5.key in ('+', '='):
         ps.append(ps[-1].buffer(10, cap_style='round'))
     elif py5.key == '-':
@@ -28,4 +27,5 @@ def key_pressed():
         py5.save_frame('out###.png')
     elif py5.key == ' ':
         start()
+        
 py5.run_sketch()
