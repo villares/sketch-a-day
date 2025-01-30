@@ -23,17 +23,25 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_01_29
+
+![sketch_2025_01_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_29/sketch_2025_01_29.png)
+
+[sketch_2025_01_29](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_29) [[py5](https://py5coding.org/)]
+
+[animated screen capture](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_29/sketch_2025_01_29.mp4)
+
+---
+
 ### sketch_2025_01_28
 
 ![sketch_2025_01_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_28/sketch_2025_01_28.png)
 
 [sketch_2025_01_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_28) [[py5](https://py5coding.org/)]
 
-[animated screen capture](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_22/sketch_2025_01_22.mp4)
+[animated screen capture](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_28/sketch_2025_01_28.mp4)
 
 Interactive OpenSimplexNoise based "infinite scroll" #genuary28 #genuary2025
-
----[animation](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_22/sketch_2025_01_22.mp4)
 
 ### sketch_2025_01_27
 
