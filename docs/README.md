@@ -23,6 +23,26 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_01_31
+
+![sketch_2025_01_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_31/sketch_2025_01_31.gif)
+
+[sketch_2025_01_31](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_31) [[py5](https://py5coding.org/)]
+
+Using #numpy.sort on a variation of the previous sketch, animating a few frames, but the color compression is brutal :(
+
+---
+
+### sketch_2025_01_30
+
+![sketch_2025_01_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_30/sketch_2025_01_30.png)
+
+[sketch_2025_01_30](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_30) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2025_01_29
 
 ![sketch_2025_01_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_29/sketch_2025_01_29.png)
