@@ -2,7 +2,7 @@ from itertools import chain
 
 import py5
 from py5 import sin, cos, TAU, sqrt
-import trimesh
+import trimesh  # you might want to `pip install trimesh[easy]` for optional dependencies
 
 from shapely import Polygon, Point, unary_union
 
@@ -18,17 +18,19 @@ def setup():
     hex_points = poly_points(xc, yc, radius, n)
     hex_shp = Polygon(hex_points)
     base = trimesh.creation.extrude_polygon(hex_shp, depth)
-    arcs = []
+    rings = []
     for arc_center in hex_points:
-        ring_shp = (Point(arc_center).buffer(radius  / 2 + stroke_width / 2)
-                    - Point(arc_center).buffer(radius  / 2 - stroke_width / 2))
-        arc_shp = hex_shp.intersection(ring_shp)
-        arcs.append(arc_shp)
-    arcs_union = unary_union(arcs)
-    figure = trimesh.creation.extrude_polygon(arcs_union, depth)
+        ring_shp = (Point(arc_center).buffer(radius / 2 + stroke_width / 2)
+                    - Point(arc_center).buffer(radius / 2 - stroke_width / 2))
+        rings.append(ring_shp)
+    rings_union = unary_union(rings)
+    clipped_union = hex_shp.intersection(rings_union)
+    figure = trimesh.creation.extrude_polygon(clipped_union, depth)
     figure.apply_translation((0,0, depth))
     #mesh = base.union(figure, engine='blender', check_volume=False)
-    mesh = trimesh.util.concatenate((figure, base))
+    # I managed to merge/fuse some meshes, but then it stopped working :(
+    # I think default is enine='manifold'
+    mesh = trimesh.util.concatenate((figure, base))  # kind of "group" only
     
 def draw():
     py5.shape(py5.convert_shape(mesh))
@@ -38,7 +40,7 @@ def draw():
     py5.stroke(255, 32)
     py5.fill(200, 200, 240)
     py5.translate(py5.width / 2, py5.height / 2)
-    py5.rotate_x(py5.mouse_y / TAU) #TAU / 6)
+    py5.rotate_x(py5.mouse_y / TAU) # mouse movement spins the view
     py5.shape(py5.convert_cached_shape(mesh))
     
 def key_pressed():
