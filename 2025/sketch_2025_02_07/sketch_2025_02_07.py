@@ -28,11 +28,11 @@ def draw():
 
     py5.no_stroke()
     nodes_coords = nx.get_node_attributes(mst, 'pos')  #  {'node': (x,y)}
-    for nome, (x, y) in nodes_coords.items():
+    for node, (x, y) in nodes_coords.items():
         py5.fill(255)
         py5.circle(x, y, 10)
-        py5.fill(255, 0, 0)
-        py5.text(nome, x + 10, y + 10)
+#         py5.fill(255, 0, 0)
+#         py5.text(node, x + 10, y + 10)
 
 def key_pressed():
     py5.save_frame('###.png')
