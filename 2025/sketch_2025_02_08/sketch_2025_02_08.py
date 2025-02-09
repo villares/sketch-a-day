@@ -8,7 +8,7 @@ def setup():
     start()
     
 def start():
-    global nodes_dict, G, mst
+    global G
     nodes_dict = {i: (py5.random_choice(range(100, 501, 25)),
                       py5.random_choice(range(100, 501, 25)))
                 for i in range(50)}
