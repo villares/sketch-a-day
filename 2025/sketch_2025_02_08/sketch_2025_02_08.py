@@ -1,6 +1,5 @@
 import py5
 import networkx as nx
-# import numpy as np
 
 dragging = None
 
@@ -55,12 +54,6 @@ def mouse_dragged():
         dy = py5.mouse_y - py5.pmouse_y
         new_x, new_y = x + dx, y + dy
         G.nodes[dragged]['pos'] = new_x, new_y   
-#   # the numpy way
-#     node_pos = np.array((new_x, new_y))
-#     for neighbor in G.neighbors(dragged):
-#         neighbor_pos = np.array(G.nodes[neighbor]['pos'])
-#         distance = np.linalg.norm(node_pos - neighbor_pos)
-#         G[dragged][neighbor]['weight'] = distance
     # one could move this to mouse_released() if it is too slow...
     for neighbor in G.neighbors(dragged):
         neighbor_x, neighbor_y = G.nodes[neighbor]['pos']
