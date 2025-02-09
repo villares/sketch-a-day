@@ -25,11 +25,17 @@ def draw():
     py5.background(200)
     py5.stroke(0)
     py5.stroke_weight(2)
-    for a, b in mst.edges():
-        xa, ya = mst.nodes[a]['pos']
-        xb, yb = mst.nodes[b]['pos']
-        py5.line(xa, ya, xb, yb)
-
+#     for a, b in mst.edges():
+#         xa, ya = mst.nodes[a]['pos']
+#         xb, yb = mst.nodes[b]['pos']
+#         py5.line(xa, ya, xb, yb)
+    py5.lines(
+        (mst.nodes[a]['pos'][0],
+         mst.nodes[a]['pos'][1],
+         mst.nodes[b]['pos'][0],
+         mst.nodes[b]['pos'][1])
+         for a, b in mst.edges()
+         )
     py5.no_stroke()
     nodes_coords = nx.get_node_attributes(mst, 'pos')  #  {'node': (x,y)}
     for node, (x, y) in nodes_coords.items():
