@@ -21,6 +21,7 @@
 # Added a call to generate_index_for_logseq.py
 # 2025
 # Updated image_helpers to use pathlib...
+# TODO save the caption and comments if posting fails...
 
 import sys
 from pathlib import Path
