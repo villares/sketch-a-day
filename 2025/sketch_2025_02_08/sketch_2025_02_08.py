@@ -54,11 +54,11 @@ def mouse_dragged():
         dy = py5.mouse_y - py5.pmouse_y
         new_x, new_y = x + dx, y + dy
         G.nodes[dragged]['pos'] = new_x, new_y   
-    # one could move this to mouse_released() if it is too slow...
-    for neighbor in G.neighbors(dragged):
-        neighbor_x, neighbor_y = G.nodes[neighbor]['pos']
-        distance = py5.dist(new_x, new_y,neighbor_x, neighbor_y) 
-        G[dragged][neighbor]['weight'] = distance 
+        # one could move this to mouse_released() if it is too slow...
+        for neighbor in G.neighbors(dragged):
+            neighbor_x, neighbor_y = G.nodes[neighbor]['pos']
+            distance = py5.dist(new_x, new_y,neighbor_x, neighbor_y) 
+            G[dragged][neighbor]['weight'] = distance 
 
 def mouse_released():
     global dragged
