@@ -1,7 +1,7 @@
 import py5
 import networkx as nx
 
-dragging = None
+dragged = None
 
 def setup():
     py5.size(600, 600)
