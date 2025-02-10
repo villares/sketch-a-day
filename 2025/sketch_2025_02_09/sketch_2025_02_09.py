@@ -1,5 +1,4 @@
 from itertools import product
-from functools import cache
 
 import py5
 import networkx as nx
@@ -15,7 +14,7 @@ def setup():
     
 def start():
     global G
-    nodes_dict = {i: (x + py5.random(-5, 5), y + py5.random(-5, 5))
+    nodes_dict = {i: (x + py5.random(-5, 5), y + py5.random(-25, 25))
                   for i, (x, y)
                   in enumerate(product(range(100, 501, 50), repeat=2))}
     G = nx.complete_graph(list(nodes_dict.keys()))        
