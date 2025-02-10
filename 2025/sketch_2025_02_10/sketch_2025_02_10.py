@@ -1,4 +1,4 @@
-from itertools import product
+from itertools import product, permutations
 
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
@@ -24,22 +24,51 @@ def start():
     update_tsp()
 
 
-def update_tsp():    
-    nodes[:] = nodes[nearest_neighbor_tsp(nodes)]
+def update_tsp():
+    global total_distance
+    idxs, total_distance = nearest_neighbor_tsp(nodes)
+    nodes[:] = nodes[idxs]
         
 def nearest_neighbor_tsp(coordinates):
     # pairwise distances between all points
+    tour_distance = 0
     distances = squareform(pdist(coordinates))
     unvisited = set(range(1, len(coordinates)))
     current = 0
     tour = [current]
     while unvisited:
         next_node = min(unvisited, key=lambda x: distances[current][x])
+        tour_distance += distances[current][next_node]
         current = next_node
         tour.append(current)
         unvisited.remove(current)
-    return tour
+    return tour, tour_distance
+   
+   
+    unvisited = set(range(1, n))
+    tour = [0]
+    total_distance = 0
+    
+    # Construct tour by always choosing nearest unvisited city
+    current = 0
+    while unvisited:
+        # Find nearest unvisited city
+        next_city = min(unvisited, key=lambda x: distances[current][x])
         
+        # Add distance to total
+        total_distance += distances[current][next_city]
+        
+        # Move to next city
+        current = next_city
+        tour.append(current)
+        unvisited.remove(current)
+    
+    # Return to starting city
+    total_distance += distances[current][0]
+    tour.append(0)
+    
+    return tour, total_distanc
+   
         
 def draw():
     py5.fill(200, py5.random(16, 32))
@@ -47,7 +76,7 @@ def draw():
      
     py5.no_fill()
     py5.stroke(0, 0, 100)
-    with py5.begin_shape():
+    with py5.begin_closed_shape():
         py5.vertices(nodes)
 
     py5.no_stroke()
@@ -57,6 +86,8 @@ def draw():
             py5.fill(255, 0, 0)
         py5.circle(x, y, 10)
 
+    py5.text_size(20)
+    py5.text(total_distance, 10, 20)
     py5.window_title(str(py5.get_frame_rate()))
 
     
@@ -66,6 +97,8 @@ def mouse_dragged():
         if py5.dist(x, y, py5.mouse_x, py5.mouse_y) < 10:
             dragged = i
             break
+    else:
+        dragged = None
     
     if dragged is not None:
         x, y = nodes[dragged]
@@ -73,14 +106,14 @@ def mouse_dragged():
         dy = py5.mouse_y - py5.pmouse_y
         new_x, new_y = x + dx, y + dy
         nodes[dragged] = new_x, new_y   
-    update_tsp()
+    #update_tsp()
 
 
 
 def mouse_released():
     global dragged
     dragged = None
-    #update_tsp()  # to use without the repeating thread...
+    update_tsp()  # to use without the repeating...
 
 def key_pressed():
     if py5.key == ' ':
