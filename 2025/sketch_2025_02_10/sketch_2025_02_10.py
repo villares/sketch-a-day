@@ -4,8 +4,6 @@ import numpy as np
 from scipy.spatial.distance import pdist, squareform
 import py5
 
-
-
 dragged = None
 tsp = []
 previous_solution = None
@@ -22,7 +20,6 @@ def start():
          for i, (x, y) in enumerate(product(range(100, 501, 50), repeat=2))]
         )
     update_tsp()
-
 
 def update_tsp():
     global total_distance
@@ -106,14 +103,14 @@ def mouse_dragged():
         dy = py5.mouse_y - py5.pmouse_y
         new_x, new_y = x + dx, y + dy
         nodes[dragged] = new_x, new_y   
-    #update_tsp()
+    update_tsp() # to use during dragg
 
 
 
 def mouse_released():
     global dragged
     dragged = None
-    update_tsp()  # to use without the repeating...
+    #update_tsp()  # to use without the repeating...
 
 def key_pressed():
     if py5.key == ' ':
