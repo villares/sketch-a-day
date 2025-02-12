@@ -54,12 +54,11 @@ def two_opt_tsp(nodes, improvement_threshold=0.2):
     return route
 
 def update_viz():
-    global nodes, mst_edges
     # Update TSP
     idxs = two_opt_tsp(nodes)
     nodes[:] = nodes[idxs]
     # Update MST
-    mst_edges = calculate_mst(nodes)
+    mst_edges[:] = calculate_mst(nodes)
 
 def draw():
     py5.fill(200, py5.random(16, 32))
