@@ -25,27 +25,28 @@ def calculate_mst(nodes):
     dist_matrix = squareform(distances)
     mst = minimum_spanning_tree(dist_matrix)
     mst_dense = mst.toarray()
-    edges = []
-    for i in range(len(mst_dense)):
-        for j in range(i + 1, len(mst_dense)):
-            if mst_dense[i, j] > 0:
-                edges.append((i, j))
+    rows, cols = np.nonzero(mst_dense)    
+    mask = rows < cols
+    edges = np.column_stack((rows[mask], cols[mask]))
     return edges
 
-def path_distance(r, c):
-    return np.sum([np.linalg.norm(c[r[p]]-c[r[p-1]]) for p in range(len(r))])
+def path_distance(route, nodes):
+    coords = nodes[route]
+    coords_shifted = np.roll(coords, 1, axis=0)
+    return np.sum(np.linalg.norm(coords - coords_shifted, axis=1))
 
-def two_opt_tsp(cities, improvement_threshold=0.2):
+
+def two_opt_tsp(nodes, improvement_threshold=0.2):
     two_opt_swap = lambda r, i, k: np.concatenate((r[0:i], r[k:-len(r)+i-1:-1], r[k+1:len(r)]))
-    route = np.arange(cities.shape[0])
+    route = np.arange(nodes.shape[0])
     improvement_factor = 1
-    best_distance = path_distance(route, cities)
+    best_distance = path_distance(route, nodes)
     while improvement_factor > improvement_threshold:
         distance_to_beat = best_distance
         for swap_first in range(1, len(route)-2):
             for swap_last in range(swap_first+1, len(route)):
                 new_route = two_opt_swap(route, swap_first, swap_last)
-                new_distance = path_distance(new_route, cities)
+                new_distance = path_distance(new_route, nodes)
                 if new_distance < best_distance:
                     route = new_route
                     best_distance = new_distance
