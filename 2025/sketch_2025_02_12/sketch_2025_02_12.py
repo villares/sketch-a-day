@@ -54,27 +54,23 @@ def two_opt_tsp(nodes, improvement_threshold=0.2):
         improvement_factor = 1 - best_distance / distance_to_beat
     return route
 
-def nearest_neighbor_tsp(coordinates):
-    distances = squareform(pdist(coordinates))
-    unvisited = set(range(1, len(coordinates)))
-    current = 0
-    tour = [current]
-    while unvisited:
-        next_node = min(unvisited, key=lambda x: distances[current][x])
-        current = next_node
-        tour.append(current)
-        unvisited.remove(current)
-    return tour
+# def nearest_neighbor_tsp(coordinates):
+#     distances = squareform(pdist(coordinates))
+#     unvisited = set(range(1, len(coordinates)))
+#     current = 0
+#     tour = [current]
+#     while unvisited:
+#         next_node = min(unvisited, key=lambda x: distances[current][x])
+#         current = next_node
+#         tour.append(current)
+#         unvisited.remove(current)
+#     return tour
 
 
 def update_viz():
     # Update TSP
-#     idxs = nearest_neighbor_tsp(nodes)
-#     np.roll(idxs, len(idxs)//2)
-#     nodes[:] = nodes[idxs]  
     idxs = two_opt_tsp(nodes)
     nodes[:] = nodes[idxs]
-    
     
     # Update MST
 #    mst_edges[:] = calculate_mst(nodes)
@@ -82,7 +78,6 @@ def update_viz():
 def draw():
     py5.fill(200, py5.random(16, 32))
     py5.rect(0, 0, py5.width, py5.height)
-
 
 #     # MST edges
 #     py5.no_fill()
