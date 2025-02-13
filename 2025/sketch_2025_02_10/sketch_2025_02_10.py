@@ -41,32 +41,7 @@ def nearest_neighbor_tsp(coordinates):
         unvisited.remove(current)
     return tour, tour_distance
    
-   
-    unvisited = set(range(1, n))
-    tour = [0]
-    total_distance = 0
-    
-    # Construct tour by always choosing nearest unvisited city
-    current = 0
-    while unvisited:
-        # Find nearest unvisited city
-        next_city = min(unvisited, key=lambda x: distances[current][x])
-        
-        # Add distance to total
-        total_distance += distances[current][next_city]
-        
-        # Move to next city
-        current = next_city
-        tour.append(current)
-        unvisited.remove(current)
-    
-    # Return to starting city
-    total_distance += distances[current][0]
-    tour.append(0)
-    
-    return tour, total_distanc
-   
-        
+         
 def draw():
     py5.fill(200, py5.random(16, 32))
     py5.rect(0, 0, py5.width, py5.height)
