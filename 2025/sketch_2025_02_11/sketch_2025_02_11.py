@@ -35,9 +35,10 @@ def path_distance(route, nodes):
     coords_shifted = np.roll(coords, 1, axis=0)
     return np.sum(np.linalg.norm(coords - coords_shifted, axis=1))
 
+def two_opt_swap(route, i, k):
+    return np.concatenate((route[:i], route[k:i-1:-1], route[k+1:]))
 
 def two_opt_tsp(nodes, improvement_threshold=0.2):
-    two_opt_swap = lambda r, i, k: np.concatenate((r[0:i], r[k:-len(r)+i-1:-1], r[k+1:len(r)]))
     route = np.arange(nodes.shape[0])
     improvement_factor = 1
     best_distance = path_distance(route, nodes)
