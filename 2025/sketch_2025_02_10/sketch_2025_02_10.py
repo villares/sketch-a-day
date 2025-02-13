@@ -27,7 +27,6 @@ def update_tsp():
     nodes[:] = nodes[idxs]
         
 def nearest_neighbor_tsp(coordinates):
-    # pairwise distances between all points
     tour_distance = 0
     distances = squareform(pdist(coordinates))
     unvisited = set(range(1, len(coordinates)))
