@@ -11,7 +11,6 @@ import py5
 
 dragged = None
 mst_edges = []
-nodes = []
 
 def setup():
     py5.size(600, 600)
@@ -19,9 +18,10 @@ def setup():
     start()
     
 def start():
-    nodes[:] = [(py5.random(100, 500),
-                 py5.random(100, 500))
-                for _ in range(15)]
+    global nodes
+    nodes= np.array([(py5.random(100, 500),
+                     py5.random(100, 500))
+                      for _ in range(15)])
     update_viz()
 
 def calculate_mst(nodes):
@@ -42,18 +42,20 @@ def update_viz():
 
 def draw():
     py5.background(200)
-
     py5.no_fill()
-    py5.stroke(0, 0, 200, 150)
-    py5.stroke_weight(15)
+
+    py5.stroke(0, 200, 100, 100)
+    py5.stroke_weight(3)
+    for ixs in tri.simplices:
+        with py5.begin_closed_shape():
+            py5.vertices(nodes[ixs])
+            
+    py5.stroke(200, 0, 200, 100)
+    py5.stroke_weight(12)
     py5.lines((nodes[i][0], nodes[i][1], nodes[j][0], nodes[j][1])
           for i, j in mst_edges)
 
-    py5.stroke(0, 200, 100)
-    py5.stroke_weight(5)
-    for ixs in tri.simplices:
-        with py5.begin_closed_shape():
-            py5.vertices(nodes[ixs.as_int()])
+
 
 
     # Draw nodes
@@ -61,7 +63,7 @@ def draw():
     for x, y in nodes:
         py5.fill(0)
         if py5.dist(x, y, py5.mouse_x, py5.mouse_y) < 10:
-            py5.fill(255, 0, 0)
+            py5.fill(255, 255, 0)
         py5.circle(x, y, 10)
 
 def mouse_dragged():
@@ -79,11 +81,12 @@ def mouse_dragged():
         dy = py5.mouse_y - py5.pmouse_y
         new_x, new_y = x + dx, y + dy
         nodes[dragged] = new_x, new_y
+        # ho ho ho
+        update_viz()
 
 def mouse_released():
     global dragged
     dragged = None
-    update_viz()
 
 def key_pressed():
     if py5.key == ' ':
