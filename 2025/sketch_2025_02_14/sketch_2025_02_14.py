@@ -53,7 +53,7 @@ def draw():
     py5.stroke_weight(5)
     for ixs in tri.simplices:
         with py5.begin_closed_shape():
-            py5.vertices(nodes[ixs])
+            py5.vertices(nodes[ixs.as_int()])
 
 
     # Draw nodes
