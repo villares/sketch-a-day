@@ -20,17 +20,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
 
-
----
-
-### sketch_2025_02_14
-
-![sketch_2025_02_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_14/sketch_2025_02_14.gif)
-
-[sketch_2025_02_14](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_14) [[py5](https://py5coding.org/)]
-
-
-
 ---
 
 ### sketch_2025_02_13
@@ -48,8 +37,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
 ![sketch_2025_02_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_12/sketch_2025_02_12.png)
 
 [sketch_2025_02_12](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_12) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -109,8 +96,6 @@ Naive "nearest neighbor" #TravelingSalesmanProblem aproximation with just #scipy
 
 [sketch_2025_02_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_06) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_05
@@ -118,8 +103,6 @@ Naive "nearest neighbor" #TravelingSalesmanProblem aproximation with just #scipy
 ![sketch_2025_02_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_05/sketch_2025_02_05.png)
 
 [sketch_2025_02_05](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_05) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -129,8 +112,6 @@ Naive "nearest neighbor" #TravelingSalesmanProblem aproximation with just #scipy
 
 [sketch_2025_02_04](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_04) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_03
@@ -139,8 +120,6 @@ Naive "nearest neighbor" #TravelingSalesmanProblem aproximation with just #scipy
 
 [sketch_2025_02_03](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_03) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_02
@@ -148,8 +127,6 @@ Naive "nearest neighbor" #TravelingSalesmanProblem aproximation with just #scipy
 ![sketch_2025_02_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_02/sketch_2025_02_02.png)
 
 [sketch_2025_02_02](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_02) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -179,8 +156,6 @@ Using #numpy.sort on a variation of the previous sketch, animating a few frames,
 
 [sketch_2025_01_30](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_30) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_01_29
@@ -209,7 +184,6 @@ Interactive OpenSimplexNoise based "infinite scroll" #genuary28 #genuary2025
 
 [sketch_2025_01_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_27) [[py5](https://py5coding.org/)]
 
-
 ---
 
 ### sketch_2025_01_26
@@ -218,8 +192,6 @@ Interactive OpenSimplexNoise based "infinite scroll" #genuary28 #genuary2025
 
 [sketch_2025_01_26](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_26) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_01_25
@@ -227,7 +199,6 @@ Interactive OpenSimplexNoise based "infinite scroll" #genuary28 #genuary2025
 ![sketch_2025_01_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_25/sketch_2025_01_25.gif)
 
 [sketch_2025_01_25](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_25) [[py5](https://py5coding.org/)]
-
 
 ---
 
@@ -246,8 +217,6 @@ I'm too sad to make my own #genuary sketch because of news of [Vamoss](https://o
 ![sketch_2025_01_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_23/sketch_2025_01_23.gif)
 
 [sketch_2025_01_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_23) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -268,7 +237,6 @@ I'm too sad to make my own #genuary sketch because of news of [Vamoss](https://o
 [sketch_2025_01_21](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_21) [[py5](https://py5coding.org/)]
 
 #genuary21
-
 
 ### sketch_2025_01_20
 
@@ -314,8 +282,6 @@ A lazy rehash of a PyMunk sketch
 
 [sketch_2025_01_16](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_16) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_01_15
@@ -343,8 +309,6 @@ A lazy rehash of a PyMunk sketch
 ![sketch_2025_01_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_13/sketch_2025_01_13.png)
 
 [sketch_2025_01_13](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_13) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -414,8 +378,6 @@ I'd love to see Wolfram's "rule 30" on my bus seats! #genuary9 #genuary2025
 
 [sketch_2025_01_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_06) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_01_05
@@ -426,7 +388,6 @@ I'd love to see Wolfram's "rule 30" on my bus seats! #genuary9 #genuary2025
 
 [sketch_2025_01_05](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_05) [[py5](https://py5coding.org/)]
 
-
 ---
 
 ### sketch_2025_01_04
@@ -434,8 +395,6 @@ I'd love to see Wolfram's "rule 30" on my bus seats! #genuary9 #genuary2025
 ![sketch_2025_01_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_01_04/sketch_2025_01_04.png)
 
 [sketch_2025_01_04](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_04) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -472,7 +431,6 @@ The next day I think I improved it:
 ---
 
 2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
-
 
 ---
 
