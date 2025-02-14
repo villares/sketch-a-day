@@ -54,10 +54,6 @@ def draw():
     py5.stroke_weight(12)
     py5.lines((nodes[i][0], nodes[i][1], nodes[j][0], nodes[j][1])
           for i, j in mst_edges)
-
-
-
-
     # Draw nodes
     py5.no_stroke()
     for x, y in nodes:
