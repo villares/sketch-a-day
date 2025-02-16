@@ -160,12 +160,17 @@ def hexahedron(radius):
 def octahedron(radius):
     a = radius
     vs = np.array([(a, 0, 0), (0, a, 0), (0, 0, a), (-a, 0, 0), (0, -a, 0), (0, 0, -a)])
-    octa = py5.create_shape()
-    with octa.begin_shape(py5.TRIANGLE_FAN):
+    octa = py5.create_shape(py5.GROUP)
+    top =  py5.create_shape()
+    with top.begin_shape(py5.TRIANGLE_FAN):
         sequence = np.array([4, 0, 2, 3, 5, 0])
-        octa.vertices(vs[sequence])
+        top.vertices(vs[sequence])
+    bot =  py5.create_shape()
+    with bot.begin_shape(py5.TRIANGLE_FAN):
         sequence = np.array([1, 0, 2, 3, 5, 0])
-        octa.vertices(vs[sequence])
+        bot.vertices(vs[sequence])
+    octa.add_child(top)
+    octa.add_child(bot)
     octa.disable_style()
     return octa
 
