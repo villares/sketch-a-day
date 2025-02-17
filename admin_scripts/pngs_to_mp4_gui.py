@@ -38,7 +38,7 @@ while True:
     if event == 'Create MP4' and values:
         # Get the input and output values from the GUI
         input_dir = Path(values[0])
-        output_file = values[1]
+        output_file = input_dir / values[1]
         duration = int(values[2]) if values[2] else 200
         # Create the GIF if there are any images
         try:
@@ -49,7 +49,7 @@ while True:
                   if file_path.suffix.lower() == '.png']
             if images:
                 #imageio.imwrite(output_file, images, fps=fps)
-                writer = imageio.v2.get_writer(input_dir / output_file, fps=fps)
+                writer = imageio.v2.get_writer(output_file, fps=fps)
                 for img in images:
                   writer.append_data(img)
                 writer.close()
