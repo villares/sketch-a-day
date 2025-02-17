@@ -2,17 +2,19 @@
 
 from pathlib import Path
 
+# ATENÇÃO:                    Precisa instalar as bibliotecas!
 import FreeSimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
 import imageio              # precisa installar o imageio também!
 
-default_output = Path.home() / 'out.gif'
+default_output = 'out.gif'
+default_input = Path.cwd()
 L_FONT = ('Courier', 20)
 I_FONT = ('Courier', 16)
 
 # Define the GUI layout
 layout = [
     [sg.Text('Input folder:', font=L_FONT)],
-    [sg.InputText(font=I_FONT), sg.FolderBrowse(font=I_FONT)],
+    [sg.InputText(default_text=default_input, font=I_FONT), sg.FolderBrowse(font=I_FONT)],
     [sg.Text('Output file:', font=L_FONT)],
     [sg.InputText(default_text=default_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
     [sg.Text('Frame duration (milliseconds):', font=L_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
@@ -35,8 +37,8 @@ while True:
     # Create the GIF if the Create GIF button was clicked
     if event == 'Create GIF' and values:
         # Get the input and output values from the GUI
-        input_dir = values[0] 
-        output_file = values[1]
+        input_dir = Path(values[0])
+        output_file = input_dir / values[1]
         duration = int(values[2]) if values[2] else 200
         loops = int(values[3]) if values[3] else 0
         dir_path = Path(input_dir)
