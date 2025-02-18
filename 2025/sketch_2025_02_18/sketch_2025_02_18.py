@@ -6,8 +6,11 @@ from scipy.sparse.csgraph import minimum_spanning_tree
 from scipy.spatial import ConvexHull
 from scipy.spatial import Delaunay
 import py5
+import py5_tools
 
 dragged = None
+step = 4
+animate = False
 
 def setup():
     global draw_handle
@@ -59,18 +62,17 @@ def update_viz():
     to_tour = two_opt_tsp(nodes)
 
 def draw():
-    #py5.ortho()
+    global y_rotation
     py5.background(200)
     py5.translate(py5.width / 2, py5.height / 2, -py5.height / 2)
     py5.rotate_y(py5.radians(y_rotation))
     py5.no_fill()
 
-
     py5.stroke_weight(6)
     py5.stroke(0, 200, 200)
     with py5.begin_closed_shape():
             py5.vertices(nodes[to_tour])
-    py5.stroke(200, 0, 200)
+    py5.stroke(0, 200, 0)
     alt_nodes = np.array([[y, -x, z] for x, y, z in nodes])
     with py5.begin_closed_shape():
             py5.vertices(alt_nodes[to_tour])
@@ -91,6 +93,9 @@ def draw():
         sy = py5.screen_y(x, y, z) 
         if py5.dist(sx, sy, py5.mouse_x, py5.mouse_y) < 10:
             draw_handle(x, y, z)
+
+    if animate:
+        y_rotation += step
 
 def mouse_pressed():
     global dragged
@@ -118,10 +123,17 @@ def mouse_released():
     dragged = None
 
 def key_pressed():
-    if py5.key == ' ':
+    global animate
+    if py5.key == 's':
         py5.save_frame('###.png')
         start()
-        
+    if py5.key == 'a':
+        animate = not animate
+        if animate:
+            f = py5.frame_count
+            py5_tools.animated_gif(f'out-{f}.gif', duration=0.1, frame_numbers=range(f + 1, f + 360, step))
+
+
         
 def mouse_wheel(e):
     global y_rotation
