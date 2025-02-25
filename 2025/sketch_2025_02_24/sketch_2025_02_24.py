@@ -1,10 +1,8 @@
-# Poly data (c) OpenStreetMap contributors ttps://www.openstreetmap.org/copyright
-
+CT = "Poly data (c) OpenStreetMap contributors \nhttps://www.openstreetmap.org/copyright"
 
 import py5
 import osmnx as ox
 import shapely
-#import matplotlib.pyplot as plt
 
 def setup():
     global city_boundary, parks_and_squares, polygon, map_h, x_min
@@ -25,7 +23,6 @@ def setup():
         "São Paulo, Brazil", tags={
             'water': True,
             })
-
     x_min, y_min, x_max, y_max = city_boundary.total_bounds
     map_w, map_h = (x_max - x_min), (y_max - y_min)
     x_scale = y_scale = py5.height / map_h   
@@ -47,8 +44,11 @@ def setup():
     greens = shapely.GeometryCollection(tuple(parks_and_squares.geometry))
     py5.shape(py5.convert_shape(greens))
 
-    py5.save('map.png')
+    py5.scale(1, -1)
+    py5.fill(0)
+    py5.text(CT, 400, -30)
 
+    py5.save('map.png')
 
 def translate_and_scale_gdf(gdf, x, y, x_scale, y_scale):
     gdf['geometry'] = gdf.geometry.translate(x, y)
@@ -57,6 +57,7 @@ def translate_and_scale_gdf(gdf, x, y, x_scale, y_scale):
 
 py5.run_sketch(block=False)
 
+#import matplotlib.pyplot as plt
 #     fig, ax = plt.subplots(figsize=(10, 10))
 #     city_boundary.plot(ax=ax, color='lightgrey', edgecolor='black') 
 #     parks_and_squares.plot(ax=ax, color='green') 
