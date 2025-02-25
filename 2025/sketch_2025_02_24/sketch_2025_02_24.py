@@ -8,8 +8,8 @@ import shapely
 
 def setup():
     global city_boundary, parks_and_squares, polygon, map_h, x_min
-    py5.size(800, 800)
-    py5.translate(0, 800)
+    py5.size(1000, 1000)
+    py5.translate(0, py5.height)
     py5.scale(1, -1)
     py5.stroke_join(py5.ROUND)
 
@@ -23,13 +23,12 @@ def setup():
             })
     rivers = ox.features_from_place(
         "São Paulo, Brazil", tags={
-            'waterway': 'river',
-            'landuse': 'stream',
+            'water': True,
             })
 
     x_min, y_min, x_max, y_max = city_boundary.total_bounds
     map_w, map_h = (x_max - x_min), (y_max - y_min)
-    x_scale = y_scale = 800 / map_h   
+    x_scale = y_scale = py5.height / map_h   
     for gdf in (city_boundary,
                 parks_and_squares,
                 rivers):
@@ -40,13 +39,13 @@ def setup():
     with py5.begin_closed_shape():
         py5.vertices(city_boundary.geometry[0].exterior.coords)
 
-    py5.fill(0, 200, 0)
-    greens = shapely.GeometryCollection(tuple(parks_and_squares.geometry))
-    py5.shape(py5.convert_shape(greens))
-
     py5.fill(0, 0, 200)
     blues = shapely.GeometryCollection(tuple(rivers.geometry))
     py5.shape(py5.convert_shape(blues))
+
+    py5.fill(0, 128, 0, 128)
+    greens = shapely.GeometryCollection(tuple(parks_and_squares.geometry))
+    py5.shape(py5.convert_shape(greens))
 
     py5.save('map.png')
 
