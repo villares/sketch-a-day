@@ -22,10 +22,12 @@ def setup():
     ox.settings.requests_timeout = 1000
     
     if data_path.is_file():
+        print(f'loading GDFs from {data_path}')
         with open(data_path, 'rb') as f:
             city_boundary, parks_and_squares, rivers, buildings = (
                 pickle.load(f))
     else:
+        print(f'downloading GDFs with OSMnx.=')
         city_boundary = ox.geocode_to_gdf("São Paulo, Brazil")
         se = ox.geocode("Praça da Sé, São Paulo, SP, Brasil")
         parks_and_squares = ox.features_from_place(
