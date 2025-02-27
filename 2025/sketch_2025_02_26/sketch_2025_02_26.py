@@ -7,6 +7,8 @@ import py5
 import osmnx as ox
 import shapely
 
+
+
 x_off = 0
 y_off = 0
 zoom = 1
@@ -17,6 +19,7 @@ def setup():
     py5.no_stroke()
     data_path = Path('osmnx.data')
     ox.settings.log_console = True
+    ox.settings.requests_timeout =1000
     
     if data_path.is_file():
         with open(data_path, 'rb') as f:
@@ -87,9 +90,3 @@ def mouse_wheel(e):
     zoom += e.get_count() / 10
 
 py5.run_sketch(block=False)
-
-#import matplotlib.pyplot as plt
-#     fig, ax = plt.subplots(figsize=(10, 10))
-#     city_boundary.plot(ax=ax, color='lightgrey', edgecolor='black') 
-#     parks_and_squares.plot(ax=ax, color='green') 
-#     plt.show()
