@@ -7,14 +7,12 @@ import py5
 import osmnx as ox
 import shapely
 
-
-
 x_off = 0
 y_off = 0
 zoom = 1
 
 def setup():
-    global main_shp
+    global main_shp, geodata, graph
     py5.size(1000, 1000)
     py5.stroke_join(py5.ROUND)
     data_path = Path('osmnx.data')
@@ -24,8 +22,14 @@ def setup():
     if data_path.is_file():
         print(f'loading GDFs from {data_path}')
         with open(data_path, 'rb') as f:
-            city_boundary, parks_and_squares, rivers, buildings = (
-                pickle.load(f))
+            geodata = pickle.load(f)
+        gdf_nodes, gdf_edges = ox.graph_to_gdfs(
+            geodata['graph'],
+            nodes=True, edges=True,
+            node_geometry=True,
+            fill_edge_geometry=False
+        )
+        geodata['edges'] = gdf_edges
     else:
         print(f'downloading GDFs with OSMnx.=')
         city_boundary = ox.geocode_to_gdf("São Paulo, Brazil")
@@ -44,24 +48,38 @@ def setup():
             se, dist=2000, tags={
                 'building': True,
                 })
-        with open(data_path, 'wb') as f:
-            pickle.dump((city_boundary,
-                         parks_and_squares,
-                         rivers,
-                         buildings
-                         ), f)
+        graph = ox.graph_from_place(
+             "São Paulo, Brazil"
+            )
+        
+        
+        geodata = {
+            'boundary': city_boundary,
+            'parks': parks_and_squares,
+            'rivers': rivers,
+            'buildngs': buildings,
+            'graph': graph,
+            }  
+        
+    with open(data_path, 'wb') as f:
+        pickle.dump(geodata, f)
 
-    x_min, y_min, x_max, y_max = city_boundary.total_bounds
+    x_min, y_min, x_max, y_max = geodata['boundary'].total_bounds
     map_w, map_h = (x_max - x_min), (y_max - y_min)
     x_scale = y_scale = py5.height / map_h
     main_shp = py5.create_shape(py5.GROUP)
-    for gdf, fill_color, stroke_color, in ((city_boundary, 100, 'white'),
-                            (rivers, 'blue', None),
-                            (parks_and_squares, py5.color(0, 100, 0, 128), None),
-                            (buildings, 200, 0),
-                            ):
+    for gdf, fill_color, stroke_color, in (
+        (geodata['boundary'], 100, 'white'),
+        (geodata['rivers'], 'blue', None),
+        (geodata['parks'], py5.color(0, 100, 0, 128), None),
+        (geodata['buildngs'], 200, 0),
+        (geodata['edges'], None, 255),
+        ):
         translate_and_scale_gdf(gdf, -x_min, -y_min, x_scale, -y_scale)
-        py5.fill(fill_color)
+        if fill_color is None:
+            py5.no_fill()
+        else:
+            py5.fill(fill_color)
         if stroke_color is None:
             py5.no_stroke()
         else:
