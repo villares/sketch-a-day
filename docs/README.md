@@ -22,6 +22,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_02_28
+
+![sketch_2025_02_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_28/sketch_2025_02_28.gif)
+
+[sketch_2025_02_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_28) [[py5](https://py5coding.org/)]
+
+Domingo vai ter oficina de GIFs animados no Garoa... [versão maior da animação](sketch_2025_02_28_maior.gif)
+
+---
+
 ### sketch_2025_02_27
 
 ![sketch_2025_02_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_27/sketch_2025_02_27.png)
