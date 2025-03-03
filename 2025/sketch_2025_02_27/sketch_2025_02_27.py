@@ -52,7 +52,7 @@ def setup():
             'buildngs': buildings,
             'graph': graph,
             }  
-                gdf_nodes, gdf_edges = ox.graph_to_gdfs(
+        gdf_nodes, gdf_edges = ox.graph_to_gdfs(
             geodata['graph'],
             nodes=True, edges=True,
             node_geometry=True,
