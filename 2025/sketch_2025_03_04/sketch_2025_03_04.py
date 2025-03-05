@@ -18,7 +18,7 @@ def setup():
 def draw():
     global mode
     ang = py5.radians(py5.frame_count)
-    r = 1 / py5.sqrt(2)
+    r = 0.66
     wa = w * r
     wb = w * (1 - r)
     rot = ang * 2
