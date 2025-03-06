@@ -16,7 +16,6 @@ def setup():
     circular_mask.circle(100, 100, 200)
     circular_mask.end_draw()
 
-def draw():
     py5.background(0, 0, 100)
     py5.fill(255, 0, 0)
     # normal .mask() doesn't preserve offscreen canvas alpha
