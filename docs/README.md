@@ -22,6 +22,18 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_03_06
+
+![sketch_2025_03_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_06/sketch_2025_03_06.png)
+
+[sketch_2025_03_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_06) [[py5](https://py5coding.org/)]
+
+Collage from "Mercado Municipal (São Paulo)" by Wilfredo Rafael Rodriguez Hernandez (Wilfredor)
+https://commons.wikimedia.org/wiki/File:Mercado_Municipal_(S%C3%A3o_Paulo)_16.jpg
+Creative Commons Attribution-Share Alike 4.0 International license.
+
+---
+
 ### sketch_2025_03_05
 
 ![sketch_2025_03_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_05/sketch_2025_03_05.png)
