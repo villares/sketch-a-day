@@ -28,6 +28,7 @@ def draw():
     mask = make_mask(R * 2, R * 2) 
     w = R * py5.sqrt(3)
     h = R * 1.5
+    py5.image(img, 400, 400) # test/debug!
     for row in range(ROWS):
         y = row * h
         for col in range(COLS):
@@ -42,6 +43,8 @@ def draw():
                 py5.translate(x, y)
                 py5.rotate(py5.random_int(6) * py5.TWO_PI / 6)
                 py5.image(clipped, 0, 0)
+    #py5.image(img, 400, 400) # test/debug!
+    py5.save_frame('###.png')
 
 def make_mask(w, h):
     m = py5.create_graphics(int(w), int(h))
@@ -67,6 +70,5 @@ def clip_with_mask(img, mask, x, y):
 
 def key_pressed():
     py5.redraw()
-    py5.save_frame('###.png')
 
 py5.run_sketch(block=False)
