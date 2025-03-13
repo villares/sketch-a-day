@@ -22,6 +22,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_03_12
+
+![sketch_2025_03_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_12/sketch_2025_03_12.png)
+
+[sketch_2025_03_12](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_12) [[py5](https://py5coding.org/)]
+
+Work in progress... #OpenStreetMap data as usual #osmnx
+
+---
+
 ### sketch_2025_03_11
 
 ![sketch_2025_03_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_11/sketch_2025_03_11.gif)
