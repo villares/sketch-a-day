@@ -30,16 +30,16 @@ def setup():
 #            )
 #         geodata['graph'] = graph
 
-        gdf_nodes, gdf_edges = ox.graph_to_gdfs(
-            geodata['graph'],
-            nodes=True, edges=True,
-            node_geometry=True,
-            fill_edge_geometry=False
-        )
-        geodata['edges'] = gdf_edges
-        
-        with open(data_path, 'wb') as f:
-            pickle.dump(geodata, f)            
+#         gdf_nodes, gdf_edges = ox.graph_to_gdfs(
+#             geodata['graph'],
+#             nodes=True, edges=True,
+#             node_geometry=True,
+#             fill_edge_geometry=False
+#         )
+#         geodata['edges'] = gdf_edges
+         
+#         with open(data_path, 'wb') as f:
+#             pickle.dump(geodata, f)            
     else:
         print(f'downloading GDFs with OSMnx.=')
         city_boundary = ox.geocode_to_gdf("São Paulo, Brazil")
