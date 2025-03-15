@@ -1,7 +1,11 @@
 import py5
 
+R = 52
+ROWS = 11
+COLS = 10
+
 def setup():
-    global img
+    global img, mask
     py5.size(800, 800)
     img = py5.create_graphics(1000, 1000)
     img.begin_draw()
@@ -19,14 +23,11 @@ def setup():
     img.end_draw()
     py5.no_loop()
     py5.image_mode(py5.CENTER)
+    mask = make_mask(R * 2, R * 2) 
     
 def draw():
     py5.no_loop()
     py5.background(0)
-    R = 52
-    ROWS = 11
-    COLS = 10
-    mask = make_mask(R * 2, R * 2) 
     w = R * py5.sqrt(3)
     h = R * 1.5
     for row in range(ROWS):
