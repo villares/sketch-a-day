@@ -19,12 +19,12 @@ def setup():
     data_path = Path('osmnx.data')
     ox.settings.log_console = True
     ox.settings.requests_timeout = 1000
+    se = ox.geocode("Praça da Sé, São Paulo, SP, Brasil")  
     if data_path.is_file():
         print(f'loading GDFs from {data_path}')
         with open(data_path, 'rb') as f:
             geodata = pickle.load(f)
-            
-#         se = ox.geocode("Praça da Sé, São Paulo, SP, Brasil")            
+                 
 #         graph = ox.graph_from_point(
 #              se, dist=2000,
 #            )
@@ -82,8 +82,10 @@ def setup():
     main_shp.add_child(py5.convert_shape(shps))
     # Buildings
     buildings = geodata['buildings']
-    amenity_names = list(set(a for a in buildings.amenity if str(a) != 'nan'))
-    am_color = {a: py5.color(i * (255 / len(amenity_names)), 200, 200)
+    amenity_names = sorted(set(a for a in buildings.amenity if str(a) != 'nan'))
+    am_color = {a: py5.color(i * (255 / len(amenity_names)),
+                             200, 200)
+                             #128 + (i % 3) * 64 , 128 + (i % 2) * 128)
                 for i, a in enumerate(amenity_names)}
     translate_and_scale_gdf(buildings, -x_min, -y_min, x_scale, -y_scale)    
     py5.no_stroke()
