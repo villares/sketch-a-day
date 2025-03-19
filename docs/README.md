@@ -20,6 +20,17 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
 
+
+---
+
+### sketch_2025_03_18
+
+![sketch_2025_03_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_18/sketch_2025_03_18.gif)
+
+[sketch_2025_03_18](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_18) [[py5](https://py5coding.org/)]
+
+
+
 ---
 
 ### sketch_2025_03_17

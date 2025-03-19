@@ -39,17 +39,14 @@ def draw():
 
 
 def update_img(ang):
+    ra = py5.radians(ang)
+    w =  R / 2 + R / 3 * py5.sin(ra)
+    h =  R / 2 + R / 3 * py5.cos(ra)
     img.begin_draw()
     img.background(0)
-    img.stroke_weight(2)
-    img.translate(img.width / 2, img.height / 2)
-    img.rotate(py5.radians(ang))
-    for x in range(0, img.width * 2, 2):
-            img.stroke(py5.random(128, 255),
-                       py5.random(128, 255),
-                       0, 150)
-            img.line(x - img.width, -img.height, # + py5.random(-5, 5),
-                     x - img.width, img.height)
+    img.no_stroke()
+    img.fill(w * 5, h * 5, 128)
+    img.ellipse(R * 1.5, R * 1.5, w, h)
     img.end_draw()
 
     
