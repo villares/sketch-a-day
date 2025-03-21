@@ -1,6 +1,8 @@
 """
-polys_from_text(words, font) -> list of shapely Polygons
+polys_from_text(words, py5_font) -> list of shapely Polygons
+extrude_polys(polys, depth) -> trimesh 3D mesh
 
+TODO: I might want to flip the Y axis...
 """
 
 import py5
