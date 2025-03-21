@@ -71,10 +71,10 @@ def polys_from_text(
             results.append(glyph_shapes)
     return shapely.GeometryCollection(results)
 
-def process_glyphs(polys) -> shapely.MultiPolygon:
+def process_glyphs(polys: list[shapely.Polygon]) -> shapely.MultiPolygon:
     """
-    Try to subtract the shapely Polygons representing a glyph
-    in order to produce appropriate looking glyphs!
+    Try to subtract the shapely Polygons from glyph contours
+    in order to produce appropriate looking glyphs with holes.
     """
     polys = sorted(polys, key=lambda p: p.area, reverse=True)
     results = [polys[0]]
