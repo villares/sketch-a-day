@@ -89,18 +89,19 @@ def process_glyphs(polys) -> shapely.MultiPolygon:
     return shapely.MultiPolygon(results)
 
 def extrude_polys(
-    polys: shapely.Polygon | shapely.MultiPolygon,
+    polys: shapely.Polygon | shapely.MultiPolygon | shapely.GeometryCollection,
     depth: float) -> trimesh.Trimesh:
     """
-    Extrude a Polygon or MultiPolygon
+    Extrude a GeometryCollection, Polygon or MultiPolygon
     """
     if isinstance(polys, shapely.Polygon):
         return trimesh.creation.extrude_polygon(polys, depth)
-    elif isinstance(polys, shapely.MultiPolygon):
+    elif isinstance(polys, (shapely.MultiPolygon, shapely.GeometryCollection)):
         return trimesh.util.concatenate([
-            trimesh.creation.extrude_polygon(poly, depth)
-            for poly in polys.geoms])
-
+            extrude_polys(geom, depth) for geom in polys.geoms
+            if isinstance(geom, (shapely.MultiPolygon, shapely.Polygon))
+            ])
+         
 if __name__ == '__main__':
     
     # Download Saira Stencil One Regular from
