@@ -5,10 +5,10 @@ This will run an interactive py5 demo for two helper functions:
   produces a shapely.GeometryCollection (containing MultiPolygons for each glyph)
 
 - extrude_polys(polys, depth)
-  produces a trimesh.Trimesh 3D mesh
+  produces a trimesh.Trimesh 3D mesh from shapely geometries
 
 "s" key will save an STL file
-"f" key will flip  the Y axis of the mesh.
+"f" key will flip the Y axis of the mesh.
 """
 
 import py5
