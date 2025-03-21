@@ -48,7 +48,7 @@ def polys_from_text(words: str,
         if alternate_spacing:
             w = py5.text_width(c)
         else:
-            w = c_shp.get_width() if vs3 else space_width
+            w = c_shp.get_width() if vs3d else space_width
         x_offset += w
         # filter out elements with less than 3 points 
         # and stop one item before the trailling empty list
