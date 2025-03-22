@@ -6,6 +6,9 @@ This will run an interactive py5 demo for two helper functions:
 
 - extrude_polys(polys, depth)
   produces a trimesh.Trimesh 3D mesh from shapely geometries
+  
+"s" key will save an STL file
+"f" key will flip the Y axis of the mesh.
 """
 
 import py5
@@ -141,6 +144,9 @@ if __name__ == '__main__':
     def key_pressed():
         if py5.key == 's':
             slab.export('slab.stl')
-
+        elif py5.key == 'f':
+            flip_y_matrix = np.eye(4)  
+            flip_y_matrix[1, 1] = -1   
+            slab.apply_transform(flip_y_matrix)
     
     py5.run_sketch(block=False)
