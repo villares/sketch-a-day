@@ -49,7 +49,7 @@ YEAR = '2025'
 USER, REPO = 'villares', 'sketch-a-day'
 MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 SPONSOR_LINKS = 'https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724\n'\
-                'https://liberapay.com/Villares\n'\  
+                'https://liberapay.com/Villares\n'\
                 'https://wise.com/pay/me/alexandrev562'
   
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
