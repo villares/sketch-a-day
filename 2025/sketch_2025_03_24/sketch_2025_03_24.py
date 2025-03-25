@@ -44,19 +44,6 @@ def poligono(xc, yc, ra, pontos=6):
         vertex(x, y)
     end_shape(CLOSE)
 
-def estrela(xc, yc, ra, rb, pontas=6, rot=0):
-    ang = TWO_PI / pontas
-    begin_shape()
-    for i in range(pontas):
-        x = xc + cos(rot + ang * i) * ra
-        y = yc + sin(rot + ang * i) * ra
-        vertex(x, y)
-        x = xc + cos(rot + ang * i + ang / 3) * rb
-        y = yc + sin(rot + ang * i + ang / 3) * rb
-        vertex(x, y)
-    end_shape(CLOSE)
-
-    
     
     
     
