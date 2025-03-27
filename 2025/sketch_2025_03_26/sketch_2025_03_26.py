@@ -5,26 +5,44 @@ import py5
 
 astronaut_image = astronaut() 
 astronaut_segments = slic(astronaut_image, 
-                          n_segments=500, 
-                          compactness=10)
+                          n_segments=300, 
+                          compactness=100)
 colored_segments = label2rgb(astronaut_segments, astronaut_image, kind='avg')
 # print(colored_segments)
 
 def setup():
-    global img, original_image, edges_shader
+    global img, seg_img, edges_shader, canvas, strokes
     py5.size(512, 512, py5.P2D)
     py5.color_mode(py5.HSB) # Matiz, Sat, Bri
     py5.no_stroke()
-    img = py5.create_image_from_numpy(colored_segments, 'RGB')
-    #original_image = py5.create_image_from_numpy(astronaut_image, 'RGB')
-    #original_image.apply_filter(py5.POSTERIZE, 3)
-    #edges_shader = py5.load_shader("edges.glsl")
+    seg_img = py5.create_image_from_numpy(colored_segments, 'RGB')
+    img = py5.create_image_from_numpy(astronaut_image, 'RGB')
+    #original_image.apply_filter(py5.POSTERIZE, 2)
+    edges_shader = py5.load_shader("edges.glsl")
+    edges = py5.create_graphics(img.width, img.height, py5.P2D)
+    edges.begin_draw()
+    edges.shader(edges_shader)
+    edges.image(img, 0, 0)
+    edges.apply_filter(py5.INVERT)
+    edges.end_draw()
+    strokes = edges.copy()
+    strokes.apply_filter(py5.ERODE)
+    canvas = py5.create_graphics(img.width, img.height, py5.P2D)
+    canvas.begin_draw()
+    canvas.image(seg_img, 0, 0)
+    canvas.blend_mode(py5.MULTIPLY)
+    canvas.image(strokes, 0, 0)
+    canvas.end_draw()
     
+#     strokes = canvas.copy()
+#     strokes.load_np_pixels()
+#     strokes.np_pixels[:, :, :] = 255 - strokes.np_pixels
+#     strokes.update_np_pixels()
     
 def draw():
     #background(0)
     #py5.shader(edges_shader)
-    py5.image(img, 0, 0)
+    py5.image(canvas, 0, 0)
     #py5.apply_filter(py5.INVERT)
     py5.no_loop()
     py5.save('out.png')
