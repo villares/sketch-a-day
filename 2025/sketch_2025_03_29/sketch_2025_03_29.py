@@ -25,6 +25,7 @@ def mouse_wheel(e):
     xrd = (py5.mouse_x - T['x']) / T['scale']
     yrd = (py5.mouse_y - T['y']) / T['scale']
     T['i'] -= e.get_count()
+    #print(e.get_count())
     T['scale'] = 1.1 ** T['i']
     T['x'] = py5.mouse_x - xrd * T['scale']
     T['y'] = py5.mouse_y - yrd * T['scale']
