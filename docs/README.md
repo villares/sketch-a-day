@@ -23,6 +23,26 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_04_02
+
+![sketch_2025_04_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_02/sketch_2025_04_02.png)
+
+[sketch_2025_04_02](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_02) [[py5](https://py5coding.org/)]
+
+#LSystem
+
+---
+
+### sketch_2025_04_01
+
+![sketch_2025_04_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_01/sketch_2025_04_01.png)
+
+[sketch_2025_04_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_01) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2025_03_31
 
 ![sketch_2025_03_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_31/sketch_2025_03_31.png)
