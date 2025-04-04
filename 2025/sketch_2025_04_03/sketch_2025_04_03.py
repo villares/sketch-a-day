@@ -1,10 +1,11 @@
 import py5
 
-step = 10
+step = 9
 axiom = 'F'
 rules = {
-#    'F': 'FF+[+F-F-FO]-[-F+F+FO]',
-   'F': 'F[+F-F+FO]F[-F+F-FO]',
+#    'F': 'F[>+F-F+FO<]-F+[>-F+F-FO<]',
+   'F': 'F[+F-F+FO]-F+[-F+F-FO]',
+
     }
 angle = 30
 iterations = 4
@@ -24,11 +25,10 @@ def calculate_sequence():
     print(len(sequence))
     
 def draw():
-    #global angle
-    #angle = py5.mouse_x / 5
+    global angle
     py5.background(0)
-    py5.stroke(255)
-    py5.translate(py5.width / 2, py5.height - 30)
+    py5.stroke(255, 200)
+    py5.translate(py5.width / 6, py5.height - 100)
     
     for symbol in sequence:
         if symbol == 'F':
@@ -47,9 +47,14 @@ def draw():
                 py5.fill(255, 0, 0)
                 py5.no_stroke()
                 py5.circle(0, 0, step / 2)
+#         elif symbol == '>':
+#             angle += 5
+#         elif symbol == '<':
+#             angle -= 5
+
 
 def key_pressed():
     py5.save_frame('###.png')
             
         
-py5.run_sketch()
+py5.run_sketch(block=False)
