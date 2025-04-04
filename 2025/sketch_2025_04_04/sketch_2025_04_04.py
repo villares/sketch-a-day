@@ -3,7 +3,9 @@ import py5
 step = 9
 axiom = 'F'
 rules = {
-   'F': 'F[>+F-F+FO<]-F+[>-F+F-FO<]',
+#    'F': 'F[>+F-F+FO<]-F+[>-F+F-FO<]',
+   'F': 'F[+F-F+FO]-F+[-F+F-FO]',
+
     }
 angle = 30
 iterations = 4
