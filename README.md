@@ -8,7 +8,7 @@ The results here are mostly tentative, exploratory, and I don’t feel like they
 
 You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/@villares) or at <a rel="me" href="https://pynews.com.br/@villares">@villares@pynews.com.br</a>, where I post most of my daily sketches. Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
 
-If you appreciate what I have been doing, you may also support my artistic work, research and open educational resources I publish on-line using the Brazilan PIX key at `46c37783-5edb-4f1c-b3a8-1309db11488c`, [PayPal](https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724) or [Wise](https://wise.com/pay/me/alexandrev562), where you can subscribe to my [[sketch-mail](https://abav.lugaralgum.com/l/sketch-mail)] newsletter.
+If you appreciate what I have been doing, you may also support my artistic work, research and open educational resources I publish on-line using the Brazilan PIX key at `46c37783-5edb-4f1c-b3a8-1309db11488c`, [PayPal](https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724) or [Wise](https://wise.com/pay/me/alexandrev562).
 
 Some of the tools I have explored:
 
