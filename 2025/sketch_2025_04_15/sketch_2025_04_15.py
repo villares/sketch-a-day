@@ -26,4 +26,4 @@ def setup():
         fill(255)
         text(i, x, y)
         
-        
+    save('filas.png')
