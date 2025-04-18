@@ -66,7 +66,7 @@ def draw():
         live_nbs = live_nbs_count[col, row]
         if state == 1:
             py5.fill(live_nbs * 32, 200, 200)
-        elif live_nbs == 3: # state == 0 but with become alive next.
+        elif live_nbs == 3: # state == 0 but will become alive next.
             py5.fill(64)
         else: # state == 0
             py5.fill(0)
