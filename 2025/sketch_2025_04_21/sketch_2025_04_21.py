@@ -99,10 +99,10 @@ def mouse_dragged():
     mouse_vector = np.array([py5.mouse_x, py5.mouse_y]) 
     grid_positions = np.array(list(grid.values()))
     d = grid_positions - mouse_vector # note the "broadcasting"
-    d_mag = np.linalg.norm(d, axis=1, keepdims=True)
-    d_scaled = d * (1 / (1 + d_mag))
+    added_mag = np.linalg.norm(d, axis=1, keepdims=True) + 0.1 # adding to avoid zero division
+    displacement = d * (1 / added_mag)
     for i, vi in enumerate(grid.keys()):
-        grid[vi] += d_scaled[i]
+        grid[vi] += displacement[i]
 
 def mouse_clicked():
     for q in quads.copy():
