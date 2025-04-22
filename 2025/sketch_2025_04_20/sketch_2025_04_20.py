@@ -1,7 +1,7 @@
 import py5
 
 grid = {}
-squares = []
+quads = []
 margin = 50
 N = 16
 
@@ -15,29 +15,29 @@ def draw():
     py5.random_seed(1)
     py5.background(230, 240, 250)
     py5.stroke_weight(1)
-    for s in squares:
+    for q in quads:
         py5.fill(0, 128, py5.random(255))
         with py5.begin_closed_shape(py5.QUADS): 
-            py5.vertices(grid[i, j]for i, j in s) 
+            py5.vertices(grid[i, j]for i, j in q) 
     py5.stroke_weight(5)
     py5.points(tuple(grid.values()))
 
 #     py5.no_fill()
 #     with py5.begin_closed_shape(py5.QUADS): 
 #         py5.vertices(grid[i, j]
-#                  for s in squares
-#                  for i, j in s) 
+#                  for q in quads
+#                  for i, j in q) 
 
 def calc_grid():
     cell_size = (py5.width - margin * 2) / N
-    squares.clear()
+    quads.clear()
     for i in range(N):
         x = margin + i * cell_size + cell_size / 2 
         for j in range(N):
             y = margin + j * cell_size + cell_size / 2
             grid[i, j] = py5.Py5Vector(x, y)
             if i > 0 and j > 0:
-                squares.append((
+                quads.append((
                     (i-1, j-1), (i, j-1),
                     (i, j), (i-1, j)
                     ))
