@@ -102,13 +102,21 @@ def poly_area(pts):
     return 0.5 * np.abs(np.dot(xs, np.roll(ys, 1)) - np.dot(ys, np.roll(xs, 1)))
     
 def mouse_dragged():
+    drag = np.array([py5.mouse_x, py5.mouse_y]) - np.array([py5.pmouse_x, py5.pmouse_y])
+    new_grid_positions = np.array(list(grid.values())) + drag
+    for i, vi in enumerate(grid.keys()):
+        grid[vi] = new_grid_positions[i]    
+    
+    
+def mouse_wheel(e):
     mouse_vector = np.array([py5.mouse_x, py5.mouse_y]) 
     grid_positions = np.array(list(grid.values()))
     d = grid_positions - mouse_vector # note the "broadcasting"
-    added_mag = np.linalg.norm(d, axis=1, keepdims=True) + 0.1 # adding to avoid zero division
-    displacement = d * (1 / added_mag)
+    added_mag = np.linalg.norm(d, axis=1, keepdims=True) + 10 # adding to avoid zero division
+    displacement = d * (e.get_count() / added_mag)
+    new_positions = grid_positions + displacement
     for i, vi in enumerate(grid.keys()):
-        grid[vi] += displacement[i]
+        grid[vi] = new_positions[i]
 
 def mouse_clicked():
     for q in regions.copy():
@@ -119,7 +127,10 @@ def mouse_clicked():
             break
 
 def key_pressed():
-    calc_grid()
+    if py5.key == ' ':
+        calc_grid()
+    elif py5.key == 's':
+        py5.save_frame('###out.png')
 
 py5.run_sketch(block=False)
                
