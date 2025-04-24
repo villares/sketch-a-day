@@ -1,11 +1,9 @@
 """
 This example lets you dynamically create static walls and dynamic balls
-
 Based on https://github.com/viblo/pymunk/blob/master/pymunk/examples/balls_and_lines.py
 """
 
 import py5
-
 import pymunk
 from pymunk import Vec2d
 
@@ -31,7 +29,6 @@ static_lines = []
 def setup():
     global mouse_body
     py5.size(600, 600)
-
     ### Mouse
     mouse_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
     mouse_shape = pymunk.Circle(mouse_body, 3, (0, 0))
@@ -41,23 +38,19 @@ def setup():
         COLLTYPE_MOUSE, COLLTYPE_BALL
     ).pre_solve = mouse_coll_func
 
-
-
 def draw():
     ### Update physics
     if run_physics:
         dt = 1.0 / 60.0
         for x in range(1):
             space.step(dt)
-
     ### Draw stuff
     py5.background('white')
     py5.fill(0)
-    py5.text("""LMB: Create ball
-LMB + Shift: Create many balls
-RMB: Drag to create wall, release to finish
-Space: Pause physics simulation""", 10, 20)
-
+    py5.text("LMB: Create ball\n"
+             "LMB + Shift: Create many balls\n"
+             "RMB: Drag to create wall, release to finish\n"
+             "Space: Pause physics simulation", 10, 20)
     for ball in balls:
         r = ball.radius
         v = ball.body.position
@@ -69,20 +62,17 @@ Space: Pause physics simulation""", 10, 20)
         py5.circle(v.x, v.y, r * 2)
         py5.stroke('red')
         py5.line(v.x, v.y, p2.x, p2.y)
-
     if line_point1 is not None:
         py5.line(line_point1.x, line_point1.y,
                  py5.mouse_x, py5.mouse_y)
-
     for line in static_lines:
         body = line.body
         pv1 = body.position + line.a.rotated(body.angle)
         pv2 = body.position + line.b.rotated(body.angle)
         py5.stroke('lightgray')
         py5.line(pv1.x, pv1.y, pv2.x, pv2.y)
- 
     mouse_body.position = Vec2d(py5.mouse_x, py5.mouse_y)
- 
+    py5.window_title(f'fps: {py5.get_frame_rate():1.1f}') 
     if py5.is_key_pressed and py5.key_code == py5.SHIFT:
         body = pymunk.Body(10, 100)
         body.position = py5.mouse_x, py5.mouse_y
@@ -92,10 +82,6 @@ Space: Pause physics simulation""", 10, 20)
         space.add(body, shape)
         balls.append(shape)
  
- 
-    py5.window_title(f'fps: {py5.get_frame_rate():1.1f}')
-
-
 def mouse_coll_func(arbiter, space, data):
     """Simple callback that increases the radius of circles touching the mouse"""
     s1, s2 = arbiter.shapes
