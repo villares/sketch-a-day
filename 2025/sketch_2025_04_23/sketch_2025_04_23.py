@@ -73,7 +73,8 @@ def draw():
         py5.line(pv1.x, pv1.y, pv2.x, pv2.y)
     mouse_body.position = Vec2d(py5.mouse_x, py5.mouse_y)
     py5.window_title(f'fps: {py5.get_frame_rate():1.1f}') 
-    if py5.is_key_pressed and py5.key_code == py5.SHIFT:
+    if (py5.is_mouse_pressed and py5.mouse_button == py5.LEFT
+        and py5.is_key_pressed and py5.key_code == py5.SHIFT):
         body = pymunk.Body(10, 100)
         body.position = py5.mouse_x, py5.mouse_y
         shape = pymunk.Circle(body, 10, (0, 0))
