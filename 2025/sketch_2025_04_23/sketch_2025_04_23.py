@@ -56,7 +56,7 @@ def draw():
     py5.text("""LMB: Create ball
 LMB + Shift: Create many balls
 RMB: Drag to create wall, release to finish
-Space: Pause physics simulation""", 10, 10)
+Space: Pause physics simulation""", 10, 20)
 
     for ball in balls:
         r = ball.radius
@@ -83,6 +83,16 @@ Space: Pause physics simulation""", 10, 10)
  
     mouse_body.position = Vec2d(py5.mouse_x, py5.mouse_y)
  
+    if py5.is_key_pressed and py5.key_code == py5.SHIFT:
+        body = pymunk.Body(10, 100)
+        body.position = py5.mouse_x, py5.mouse_y
+        shape = pymunk.Circle(body, 10, (0, 0))
+        shape.friction = 0.5
+        shape.collision_type = COLLTYPE_BALL
+        space.add(body, shape)
+        balls.append(shape)
+ 
+ 
     py5.window_title(f'fps: {py5.get_frame_rate():1.1f}')
 
 
@@ -106,19 +116,9 @@ def mouse_pressed():
         shape.collision_type = COLLTYPE_BALL
         space.add(body, shape)
         balls.append(shape)
-    elif py5.mouse_button == py5.RIGHT or py5.is_key_pressed and py5.key_code == py5.SHIFT:
+    elif py5.mouse_button == py5.RIGHT or py5.is_key_pressed and py5.key_code == py5.CONTROL:
         if line_point1 is None:
             line_point1 = Vec2d(py5.mouse_x, py5.mouse_y)
-
-#    
-#    if pygame.key.get_mods() & pygame.KMOD_SHIFT and pygame.mouse.get_pressed()[0]:
-#             body = pymunk.Body(10, 10)
-#             body.position = mouse_pos
-#             shape = pymunk.Circle(body, 10, (0, 0))
-#             shape.collision_type = COLLTYPE_BALL
-#             space.add(body, shape)
-#             balls.append(shape)
-
 
 
 def mouse_released():
@@ -138,6 +138,4 @@ def key_pressed():
     if py5.key == ' ':
         run_physics = not run_physics
 
-
- 
-py5.run_sketch()
+py5.run_sketch(block=False)
