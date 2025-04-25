@@ -1,11 +1,13 @@
-import pymunk
+# Código para py5 "imported mode" precisa de um "sketch runner"
+# Saiba mais em: https://abav.lugaralgum.com/como-instalar-py5/
 
-bolinhas = []  
-paredes = []
+import pymunk
 
 space = pymunk.Space()
 space.gravity = 0, 900
 
+bolinhas = []  
+paredes = []
 inicio_nova_parede = None
 
 def setup():
@@ -27,8 +29,7 @@ def acrescenta_parede(xa, ya, xb, yb):
     forma.friction = 100.99
     space.add(forma)
     paredes.append(forma)
-    
-    
+
 def draw():  # fica repetindo
     background(0, 0, 200)  # R, G, B
     for bola in bolinhas.copy():
@@ -37,25 +38,24 @@ def draw():  # fica repetindo
         no_stroke()
         fill(0)
         circle(pos.x, pos.y, r * 2)
-        
+        # remover bolas que cairam pra baixo da tela
         if pos.y > height + 50:
             bolinhas.remove(bola)
             space.remove(bola)
-        
-        
+    # desenhar linhas-parede (simplifiquei!)
     for parede in paredes:
         stroke(128)
         stroke_weight(3)
         line(parede.a.x, parede.a.y,
              parede.b.x, parede.b.y)
-    
+    # muitas bolas novas
     if is_key_pressed and key_code == SHIFT:     
         acrescenta_bola(mouse_x + random(-1, 1), mouse_y)
-
+    # mostra preview da parede sendo desenhada
     if inicio_nova_parede:
         stroke(255, 0, 0) # linha vermelha
         line(*inicio_nova_parede, mouse_x, mouse_y)
-    
+    # avança um passo da simulação
     space.step(1 / 60)
     
 def mouse_pressed():
@@ -76,20 +76,24 @@ def mouse_released():
    
 def key_pressed():
     global inicio_nova_parede, space, bolinhas, paredes
-    
+    # tecla DELETE apaga paredes
     if key == DELETE and inicio_nova_parede:
         inicio_nova_parede = None
     elif key == DELETE and paredes:
         ultima_parede = paredes.pop()
         space.remove(ultima_parede)
+    # "c" limpa bolas
     elif key == 'c' or key == 'C':
         for bola in bolinhas.copy():
             bolinhas.remove(bola)
             space.remove(bola)
+    # "s" salva estado da simulação
     elif key == 's':
         save_pickle((space, bolinhas, paredes), 'space.data')
         print('salvo')
+    # "l" (de "load") recarrega estado salvo
     elif key == 'l':
-        space, bolinhas, paredes = load_pickle('space.data')
+        if Path('space.data').is_file():
+            space, bolinhas, paredes = load_pickle('space.data')
 
     print(f'objetos simulados: {len(space.shapes)}')
