@@ -1,10 +1,15 @@
 import py5
 import pymunk
 
+# my ugly triangulation & area code (TO DO: use shapely)
+from triangulate import triangulate, poly_area
+
 CT_DEFAULT = 0
 CT_SPECIAL = 1
 CT_WALL = 2
 
+MINIMUM_DIST = 50
+current_poly = [] # (x, y) tuples while mouse dragging
 wall_start = None
 drawing_dict = {}
 save_filename = 'data.pickle'
@@ -20,7 +25,7 @@ def setup():
     add_wall(100, 500, 500, 500)
 
 def draw():  # py5's main loop
-    py5.background(0, 0, 200)  # R, G, B
+    py5.background(0, 200, 100)  # R, G, B
     for item, (draw_func, kwargs) in list(drawing_dict.items()):
         draw_func(item, **kwargs)
         if item.body.position.y > py5.height + 50:
@@ -30,10 +35,13 @@ def draw():  # py5's main loop
     if py5.is_key_pressed and py5.key_code == py5.SHIFT:     
         add_ball(py5.mouse_x + py5.random(-1, 1),
                  py5.mouse_y)
-    # wall preview 
+    # wall preview
+    fill_and_stroke('red', 'red', 3)
     if wall_start:
-        py5.stroke(255, 0, 0) # red
         py5.line(*wall_start, py5.mouse_x, py5.mouse_y)
+    if current_poly:   # draws poly preview while dragging mouse
+        with py5.begin_closed_shape():
+            py5.vertices(current_poly)
     # advance the simulation
     space.step(1 / 60)
 
@@ -71,8 +79,38 @@ def add_wall(xa, ya, xb, yb):
         draw_static_segment,
         {'stroke': 128}
         )
+
+def add_poly(poly):
+    triangles = triangulate(poly)
+    # this is bad, I should use shapely!
+    (xa, ya), (xb, yb) = min_max(poly)
+    cx, cy = (xa + xb) / 2, (ya + yb) / 2
+    polys = []
+    total_mass = total_moi = 0
+    for tri in triangles:
+        poly = [(x - cx, y - cy) for x, y in tri]
+        mass = poly_area(poly) * 0.1
+        total_mass += mass
+        moi = pymunk.moment_for_poly(mass, poly)
+        if not py5.np.isnan(moi):
+            total_moi += moi
+        polys.append(poly)   
+    body = pymunk.Body(total_mass, total_moi)
+    body.position = cx, cy
+    shapes = []
+    for poly in polys:
+        shp = pymunk.Poly(body, poly)
+        shp.friction = 0.2
+        shapes.append(shp)
+        drawing_dict[shp] = (
+            draw_poly,
+            {'stroke': None, 'fill': 255}
+        )
+    space.add(body, *shapes)  # Note critical * operator expands .add(b, s0, s1, s2...)
     
-def draw_circle(shape, fill=0, stroke=0):
+
+def fill_and_stroke(fill=255, stroke=0, weight=None):
+    py5.stroke_weight(weight or 1)
     if stroke is not None:
         py5.stroke(stroke)
     else:
@@ -81,15 +119,27 @@ def draw_circle(shape, fill=0, stroke=0):
         py5.fill(fill)
     else:
         py5.no_fill()
+ 
+def draw_circle(shape, fill=0, stroke=None):
+    fill_and_stroke(fill, stroke)
     py5.circle(shape.body.position.x,
                shape.body.position.y,
                shape.radius * 2)
 
-def draw_static_segment(shape, stroke=0):
-    py5.stroke(stroke)
-    py5.stroke_weight(3)
+def draw_static_segment(shape, fill=None, stroke=0, weight=3):
+    fill_and_stroke(fill, stroke, weight)
     py5.line(shape.a.x, shape.a.y,
              shape.b.x, shape.b.y)
+
+
+def draw_poly(shape,fill=255, stroke=None, weight=None):
+    fill_and_stroke(fill, stroke, weight) 
+    with py5.push_matrix():
+        py5.translate(shape.body.position.x, shape.body.position.y)
+        py5.rotate(shape.body.angle)
+        pts = shape.get_vertices()
+        with py5.begin_closed_shape():
+            py5.vertices(pts)
 
 def mouse_clicked():
     if py5.is_key_pressed and py5.key_code == py5.CONTROL:
@@ -105,19 +155,34 @@ def mouse_clicked():
 
 def mouse_dragged():
     global wall_start
-    if not wall_start:
-        wall_start = (py5.mouse_x, py5.mouse_y)
-        
+    mx, my = py5.mouse_x, py5.mouse_y
+    if py5.is_key_pressed and py5.key_code == py5.CONTROL:
+        if (not current_poly or
+            py5.dist(current_poly[-1][0],
+                     current_poly[-1][1],
+                    mx, my) >= MINIMUM_DIST):
+            current_poly.append((mx, my))
+    elif not wall_start:
+        wall_start = (mx, my)
+   
+def min_max(pts):
+    coords = tuple(zip(*pts))
+    return tuple(map(min, coords)), tuple(map(max, coords))
+   
 def mouse_released():
     global wall_start
-    if (wall_start and
+    if len(current_poly) >= 3:
+        add_poly(current_poly)
+    elif (wall_start and
         py5.dist(*wall_start,
                  py5.mouse_x, py5.mouse_y) > 5):
         inicio_x, inicio_y = wall_start
         add_wall(inicio_x, inicio_y,
                           py5.mouse_x, py5.mouse_y)
-        wall_start = None
-   
+    wall_start = None
+    current_poly.clear()
+
+ 
 def key_pressed():
     global wall_start, space, drawing_dict
     # tecla DELETE apaga walls
@@ -125,7 +190,7 @@ def key_pressed():
         py5.intercept_escape()
         wall_start = None
     elif py5.key == py5.DELETE:
-        for shape in drawing_dict.keys():
+        for shape in reversed(drawing_dict.keys()):
             if isinstance(shape, pymunk.Segment):
                 space.remove(shape)
                 del drawing_dict[shape]
