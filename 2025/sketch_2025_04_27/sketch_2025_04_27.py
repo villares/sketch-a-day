@@ -131,7 +131,6 @@ def draw_static_segment(shape, fill=None, stroke=0, weight=3):
     py5.line(shape.a.x, shape.a.y,
              shape.b.x, shape.b.y)
 
-
 def draw_poly(shape,fill=255, stroke=None, weight=None):
     fill_and_stroke(fill, stroke, weight) 
     with py5.push_matrix():
