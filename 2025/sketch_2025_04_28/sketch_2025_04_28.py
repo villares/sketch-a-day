@@ -2,16 +2,16 @@
 
 import pymunk
 
+space = pymunk.Space()
+space.gravity = 100, 900
 drawing_dict = {}  # o que tem que desenhar
+mass_scale = 0.1
 
 def setup():
-    global space
+    global space, draw_funcs
     size(600, 600)
-    space = pymunk.Space()
-    space.gravity = 100, 900
-    # parede xa, ya, xb, yb
-    add_wall(100, 500, 500, 500)
-    add_ball(100, 100, f=color(0, 0, 200))
+    add_wall(100, 500, 500, 500)  # parede xa, ya, xb, yb
+    add_ball(250, 300, f=color(0, 0, 200))
     add_static_ball(200, 200, f=255)
     add_box(200, 200, 100, 50, f=0)
     add_static_box(300, 200, 100, 50, s=0)
@@ -34,7 +34,9 @@ def add_ball(
     x, y, diameter=20, f=255
     ):
     radius = diameter / 2
-    body = pymunk.Body(radius ** 2 / 10, 100)
+    mass = PI * radius ** 2 * mass_scale
+    moment = pymunk.moment_for_circle(mass, 0, radius)
+    body = pymunk.Body(mass, moment)
     body.position = x, y
     shp = pymunk.Circle(body, radius, (0, 0))
     shp.friction = 0.99
@@ -66,6 +68,32 @@ def add_wall(xa, ya, xb, yb):
         draw_static_segment,
         {'s': 128}
         )
+
+
+def add_box(x, y, w, h, s=None, f=0):
+    mass = w * h * mass_scale
+    moment = pymunk.moment_for_box(mass, (w, h))
+    body = pymunk.Body(mass, moment)
+    body.position = (x , y)
+    shp = pymunk.Poly.create_box(body, (w, h))
+    shp.friction = 100.99
+    space.add(body, shp)
+    drawing_dict[shp] = (
+        draw_poly,
+        {'s': s, 'f': f}
+    )
+
+def add_static_box(x, y, w, h, s=None, f=128):
+    body = pymunk.Body(body_type=pymunk.Body.STATIC)
+    body.position = (x , y)
+    shp = pymunk.Poly.create_box(body, (w, h))
+    shp.friction = 100.99
+    space.add(body, shp)
+    drawing_dict[shp] = (
+        draw_poly,
+        {'s': s, 'f': f}
+    )
+
     
 def fill_and_stroke(f=255, s=0, weight=None):
     stroke_weight(weight or 1)
@@ -88,32 +116,8 @@ def draw_static_segment(shp, f=None, s=0, weight=3):
     fill_and_stroke(f, s, weight)
     line(shp.a.x, shp.a.y,
          shp.b.x, shp.b.y)
-  
-def add_box(x, y, w, h, s=None, f=0):
-    mass = w * h
-    moment = pymunk.moment_for_box(mass, (w, h))
-    body = pymunk.Body(mass, moment)
-    body.position = (x , y)
-    shp = pymunk.Poly.create_box(body, (w, h))
-    shp.friction = 100.99
-    space.add(body, shp)
-    drawing_dict[shp] = (
-        draw_box,
-        {'s': s, 'f': f}
-    )
 
-def add_static_box(x, y, w, h, s=None, f=128):
-    body = pymunk.Body(body_type=pymunk.Body.STATIC)
-    body.position = (x , y)
-    shp = pymunk.Poly.create_box(body, (w, h))
-    shp.friction = 100.99
-    space.add(body, shp)
-    drawing_dict[shp] = (
-        draw_box,
-        {'s': s, 'f': f}
-    )
-
-def draw_box(shp, f=255, s=None, weight=1):
+def draw_poly(shp, f=255, s=None, weight=1):
     fill_and_stroke(f, s, weight) 
     with push_matrix():
         translate(shp.body.position.x, shp.body.position.y)
@@ -133,4 +137,21 @@ def mouse_clicked():
                  diameter=30,
                  f=color(0, 255, 0))        
         
+def key_pressed():
+    global space, draw_funcs, drawing_dict
+    save_filename = 'data.pickle'
+    if key == DELETE:
+        for shp in reversed(drawing_dict.keys()):
+            if isinstance(shp, pymunk.Segment):
+                space.remove(shp)
+                del drawing_dict[shp]
+                break
+    # "c" limpa balls
+    elif key in ('c', 'C'):
+        for shp in space.shapes:
+            if isinstance(shp, pymunk.Circle):
+                space.remove(shp)
+                del drawing_dict[shp]
+ 
+    print(f'shapes in simulation: {len(space.shapes)}')
 
