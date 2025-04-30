@@ -198,7 +198,7 @@ def key_pressed():
     elif py5.key in ('c', 'C'):
         for shape in space.shapes:
             if isinstance(shape, pymunk.Circle):
-                space.remove(shap)
+                space.remove(shape)
                 del drawing_dict[shape]
     # "s" salve simulation state
     elif py5.key == 's':
