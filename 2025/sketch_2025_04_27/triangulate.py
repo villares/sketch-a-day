@@ -1,35 +1,8 @@
 
-"""
-Based on https://gist.github.com/Shaptic/6297978
-"""
-def ccw(tri):
-    assert len(tri) == 3, 'must be a triangle'
-    a, b, c = tri
-    return (b[0] - a[0]) * (c[1] - a[1]) > (b[1] - a[1]) * (c[0] - a[0])
-
-def in_poly(p, points):
-    # ray-casting algorithm based on
-    # https://wrf.ecse.rpi.edu/Research/Short_Notes/pnpoly.html
-    inside = False
-    if len(points[0]) == 3:
-        for i, (xi, yi, _) in enumerate(points):
-            xj, yj, _= points[i - 1]  
-            if ((yi > p[1]) != (yj > p[1])) and (p[0] < (xj - xi) * (p[1] - yi)
-                                                / (yj - yi) + xi):
-                inside = not inside  # an intersection was found
-        return inside
-    else:   
-        for i, (xi, yi) in enumerate(points):
-            xj, yj = points[i - 1]  
-            if ((yi > p[1]) != (yj > p[1])) and (p[0] < (xj - xi) * (p[1] - yi)
-                                                / (yj - yi) + xi):
-                inside = not inside  # an intersection was found
-        return inside
-    
-def get_ear(shape, ear):
-    return (shape[ear - 1], shape[ear], shape[(ear+1) % len(shape)])
-
 def triangulate(original_shape):
+    """
+    Based on https://gist.github.com/Shaptic/6297978
+    """
     # Use orientation of the top-left-most vertex.
     shape = list(original_shape[:])
     left, starting_index = shape[0], 0
@@ -69,6 +42,34 @@ def triangulate(original_shape):
         triangles.append(get_ear(shape, eartip))
         del shape[eartip] 
     return triangles
+
+def ccw(tri):
+    assert len(tri) == 3, 'must be a triangle'
+    a, b, c = tri
+    return (b[0] - a[0]) * (c[1] - a[1]) > (b[1] - a[1]) * (c[0] - a[0])
+
+def in_poly(p, points):
+    # ray-casting algorithm based on
+    # https://wrf.ecse.rpi.edu/Research/Short_Notes/pnpoly.html
+    inside = False
+    if len(points[0]) == 3:
+        for i, (xi, yi, _) in enumerate(points):
+            xj, yj, _= points[i - 1]  
+            if ((yi > p[1]) != (yj > p[1])) and (p[0] < (xj - xi) * (p[1] - yi)
+                                                / (yj - yi) + xi):
+                inside = not inside  # an intersection was found
+        return inside
+    else:   
+        for i, (xi, yi) in enumerate(points):
+            xj, yj = points[i - 1]  
+            if ((yi > p[1]) != (yj > p[1])) and (p[0] < (xj - xi) * (p[1] - yi)
+                                                / (yj - yi) + xi):
+                inside = not inside  # an intersection was found
+        return inside
+    
+def get_ear(shape, ear):
+    return (shape[ear - 1], shape[ear], shape[(ear+1) % len(shape)])
+
 
 def poly_area(pts):
     area = 0.0
