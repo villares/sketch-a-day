@@ -23,6 +23,27 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_05_01
+
+![sketch_2025_05_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_01/sketch_2025_05_01.png)
+
+[sketch_2025_05_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_01) [[py5](https://py5coding.org/)]
+
+I needed to make the bodies KINEMATIC... It was a long time since I tried this I had forgoten all about the these.
+
+---
+
+### sketch_2025_04_30
+
+![sketch_2025_04_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_30/sketch_2025_04_30.png)
+
+[sketch_2025_04_30](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_30) [[py5](https://py5coding.org/)]
+
+Broken! Maybe something in pymunk changed, I have to investigate!
+(I rotated the box bodies, the shapes are drawn rotated, but the geometry for the collisions seems not to be rotated...)
+
+---
+
 ### sketch_2025_04_29
 
 ![sketch_2025_04_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_29/sketch_2025_04_29.png)
