@@ -22,39 +22,47 @@ def draw():
                 if j % 2 == 1 and k % 3 == 0 and i % 3 == 0:
                     py5.fill(255, 200)
                 if j % 2 == 0:
-                    spaced_arc(0, 0, 60,
-                           50 + 25 * i - 25 * k, 25)            
+                    spaced_arc(
+                        0, 0,
+                        60,
+                        radians(py5.frame_count),
+                        50 + 25 * i - 25 * k,
+                        25)            
                 else:
-                    solid_arc(0, 0, 60,
-                           50 + 25 * i - 25 * k, 10)                    
+                    solid_arc(
+                        0, 0,
+                        60,
+                        radians(py5.frame_count),
+                        50 + 25 * i - 25 * k,
+                        10)                    
 
-def solid_arc(x, y, deg, rad, w):
+def solid_arc(x, y, deg, start, radius, w):
     vs = []
     for i in range(0, deg, 5):
-        a = radians(i)
+        a = radians(i) + start
         vs.extend((
-            (cos(a) * (rad) + x,
-             sin(a) * (rad) + y),
-            (cos(a) * (rad + w) + x,
-             sin(a) * (rad + w) + y)))
+            (cos(a) * (radius) + x,
+             sin(a) * (radius) + y),
+            (cos(a) * (radius + w) + x,
+             sin(a) * (radius + w) + y)))
     py5.begin_shape(py5.QUAD_STRIP)
     py5.vertices(vs)
     py5.end_shape()
 
-def spaced_arc(x, y, deg, rad, w, s=6, t=3):
+def spaced_arc(x, y, deg, start, radius, w, s=6, t=3):
     vs = []
     for i in range(0, deg, s):
-        a = radians(i)
-        b = radians(i + t)
+        a = radians(i) + start
+        b = radians(i + t) + start
         vs.extend((
-            (cos(a) * (rad) + x,
-             sin(a) * (rad) + y),
-            (cos(a) * (rad + w) + x,
-             sin(a) * (rad + w) + y),
-            (cos(b) * (rad + w) + x,
-             sin(b) * (rad + w) + y),
-            (cos(b) * (rad) + x,
-             sin(b) * (rad) + y),            
+            (cos(a) * (radius) + x,
+             sin(a) * (radius) + y),
+            (cos(a) * (radius + w) + x,
+             sin(a) * (radius + w) + y),
+            (cos(b) * (radius + w) + x,
+             sin(b) * (radius + w) + y),
+            (cos(b) * (radius) + x,
+             sin(b) * (radius) + y),            
             ))
     py5.begin_shape(py5.QUADS)
     py5.vertices(vs)
