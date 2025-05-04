@@ -23,13 +23,23 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_05_04
+
+![sketch_2025_05_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_04/sketch_2025_05_04.png)
+
+[sketch_2025_05_04](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_04) [[py5](https://py5coding.org/)]
+
+Still the Marius Watz inspitation... [check the animated version](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_04/out.gif)
+
+---
+
 ### sketch_2025_05_03
 
 ![sketch_2025_05_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_03/sketch_2025_05_03.png)
 
 [sketch_2025_05_03](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_03) [[py5](https://py5coding.org/)]
 
-heavily inspired by Marius Watz's work I posted recently, from  the Processing examples...
+heavily inspired by Marius Watz's work I posted recently, from the Processing examples...
 
 ---
 
