@@ -1,6 +1,7 @@
 import py5
 import geobr  # https://github.com/ipeaGIT/geobr
 
+# zoom and pan transformation state dict
 T = {'x': 0, 'y': 0, 'scale': 1, 'i': 0}
 
 def setup():
@@ -16,11 +17,9 @@ def setup():
     translate_and_scale_gdf(geodata, -x_min, -y_min, x_scale, -y_scale)    
     
     state_names = sorted(set(a for a in geodata.name_state if str(a) != 'nan'))
-    state_color = {a: py5.color(i * (255 / len(state_names)),
-                             #200, 200)
-                             128 + (i % 2) * 128 , 128 + (i % 3) * 64)
-                for i, a in enumerate(state_names)}
-    print(state_names)
+    state_color = {state_name: py5.color(i * (255 / len(state_names)),
+                   128 + (i % 2) * 128 , 128 + (i % 3) * 64)
+                   for i, state_name in enumerate(state_names)}
     main_shp = py5.create_shape(py5.GROUP)
     py5.stroke_weight(0.1)
     for g, s in zip(geodata.geometry, geodata.name_state):
@@ -29,7 +28,6 @@ def setup():
         else:
             py5.fill(200)
         main_shp.add_child(py5.convert_shape(g))
-
 
 def draw():
     py5.background(200)
@@ -44,7 +42,6 @@ def translate_and_scale_gdf(gdf, x, y, x_scale, y_scale):
         xfact=x_scale, yfact=y_scale, origin=(0, 0))
 
 def mouse_wheel(e):
-    print(T)
     xrd = (py5.mouse_x - T['x']) / T['scale']
     yrd = (py5.mouse_y - T['y']) / T['scale']
     T['i'] -= e.get_count()
@@ -53,7 +50,6 @@ def mouse_wheel(e):
     T['y'] = py5.mouse_y - yrd * T['scale']
 
 def mouse_dragged():
-    print(T) 
     T['x'] += py5.mouse_x - py5.pmouse_x
     T['y'] += py5.mouse_y - py5.pmouse_y
 
