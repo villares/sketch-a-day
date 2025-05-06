@@ -17,8 +17,8 @@ def setup():
     
     state_names = sorted(set(a for a in geodata.name_state if str(a) != 'nan'))
     state_color = {a: py5.color(i * (255 / len(state_names)),
-                             200, 200)
-                             #128 + (i % 3) * 64 , 128 + (i % 2) * 128)
+                             #200, 200)
+                             128 + (i % 2) * 128 , 128 + (i % 3) * 64)
                 for i, a in enumerate(state_names)}
     print(state_names)
     main_shp = py5.create_shape(py5.GROUP)
