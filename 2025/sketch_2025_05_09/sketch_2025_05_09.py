@@ -1,10 +1,10 @@
 import py5
-from py5 import Py5Vector as V
 
+V = py5.Py5Vector
 u = 75
 right = V(u, 0)
-up60d = V(u, 0).rotate(radians(-60))
-down30d = V(u, 0).rotate(radians(+30))
+up60d = V(u, 0).rotate(py5.radians(-60))
+down30d = V(u, 0).rotate(py5.radians(+30))
 down = V(0, u)
 
 a = V(u * 2, u * 2)
