@@ -1,3 +1,4 @@
+import py5
 from py5 import Py5Vector as V
 
 u = 75
@@ -17,17 +18,16 @@ h = g + down30d
 i = a + down
 
 def setup():
-    size(450, 450)
-    triangle(*a, *b, *c)
-    triangle(*b, *d, *c)
-    quad(*c, *d, *e, *f)
-    triangle(*c, *f, *g)
-    triangle(*f, *g, *h)
-    quad(*a, *c, *g, *i)
+    py5.size(450, 450)
+    py5.triangle(*a, *b, *c)
+    py5.triangle(*b, *d, *c)
+    py5.quad(*c, *d, *e, *f)
+    py5.triangle(*c, *f, *g)
+    py5.triangle(*f, *g, *h)
+    py5.quad(*a, *c, *g, *i)
     
-    
-    
-    
+py5.run_sketch()    
+
 # def draw():
 #    
 #     no_fill()
