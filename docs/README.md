@@ -1,6 +1,6 @@
 # [sketch-a-day](https://abav.lugaralgum.com/sketch-a-day)
 
-#### coding a visual idea a day
+### coding a visual idea a day
 
 Welcome! My name is [Alexandre Villares](https://abav.lugaralgum.com) and since January, 2018 I have been coding *sketches* everyday, publishing the source code in the same repository that stores this page, [github.com/villares/sketch-a-day](https://github.com/villares/sketch-a-day). 
 
