@@ -22,8 +22,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
-<div class="sketches">
-
 ### sketch_2025_05_11
 
 ![sketch_2025_05_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_11/sketch_2025_05_11.gif)
