@@ -7,7 +7,7 @@
     <title>Alexandre Villares</title>
     <link rel="stylesheet" href="https://abav.lugaralgum.com/assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700"       media="all">
-    <style>
+ <style>
       /* Layout controls panel */
       .layout-controls {
         display: flex;
@@ -39,34 +39,21 @@
       }
       
       /* Single column layout (default) */
-      .content .sketches {
+      .content {
         display: block;
         width: 100%;
       }
       
-      .content .sketches h3 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-        clear: both;
-      }
-      
-      .content .sketches img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin-bottom: 10px;
-      }
-      
-      /* Multi-column grid layout */
-      .content .sketches.multi-column {
+      /* Grid layout containers */
+      .multi-column-grid-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        grid-gap: 20px;
+        grid-gap: 20px; 
         margin: 20px 0;
       }
       
       /* Styling for grid items */
-      .content .sketches.multi-column .sketch-item {
+      .sketch-item {
         break-inside: avoid;
         width: 100%;
         margin-bottom: 20px;
@@ -74,14 +61,14 @@
         flex-direction: column;
       }
       
-      .content .sketches.multi-column .sketch-item h3 {
+      .sketch-item h3 {
         font-size: 16px;
-        margin-top: 0;
-        margin-bottom: 10px;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
         order: 1;
       }
       
-      .content .sketches.multi-column .sketch-item img {
+      .sketch-item img {
         width: 100%;
         height: auto;
         object-fit: cover;
@@ -89,27 +76,27 @@
         order: 2;
       }
       
-      .content .sketches.multi-column .sketch-item p {
+      .sketch-item p {
         font-size: 14px;
         margin-top: 5px;
         word-break: break-word;
         order: 3;
       }
       
-      /* Make sure horizontal rules don't disrupt the grid layout */
-      .content .sketches.multi-column hr {
+      /* Hide HR elements in grid mode */
+      .multi-column-grid-container .sketch-item hr {
         display: none;
       }
       
       /* Responsive adjustments */
       @media (max-width: 768px) {
-        .content .sketches.multi-column {
+        .multi-column-grid-container {
           grid-template-columns: repeat(2, 1fr);
         }
       }
       
       @media (max-width: 480px) {
-        .content .sketches.multi-column {
+        .multi-column-grid-container {
           grid-template-columns: 1fr;
         }
       }
@@ -136,141 +123,179 @@
       </div>
     </footer>
 
-    <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const yearsHr = document.querySelector('hr.years');
-    const controlsDiv = document.querySelector('.layout-controls');
-    const toggleButton = document.getElementById('toggleLayout');
-    const gridControls = document.getElementById('gridControls');
-    const columnWidthInput = document.getElementById('columnWidth');
-    const sketchesContainer = document.querySelector('.content .sketches');
-    
-    // Show the controls and insert after years HR
-    if (yearsHr && controlsDiv) {
-      controlsDiv.style.display = 'flex';
-      // Insert controls after the years HR
-      yearsHr.parentNode.insertBefore(controlsDiv, yearsHr.nextSibling);
-    }
-    
-    // Initialize
-    let isGridLayout = false;
-    let sketchItems = [];
-    
-    // Create virtual sketch items by finding all H3 sections
-    function createVirtualSketchItems() {
-      sketchItems = [];
-      const h3Elements = sketchesContainer.querySelectorAll('h3');
-      
-      h3Elements.forEach((h3, index) => {
-        // Create a sketch item object
-        const sketchItem = {
-          h3: h3,
-          elements: [h3],
-          startIndex: Array.from(sketchesContainer.children).indexOf(h3),
-          endIndex: null
-        };
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get DOM elements
+        const yearsHr = document.querySelector('hr.years');
+        const contentDiv = document.querySelector('.content');
+        const controlsDiv = document.querySelector('.layout-controls');
+        const toggleButton = document.getElementById('toggleLayout');
+        const gridControls = document.getElementById('gridControls');
+        const columnWidthInput = document.getElementById('columnWidth');
         
-        // Find all elements between this h3 and the next h3 or HR
-        let currentElement = h3.nextElementSibling;
-        while (currentElement && currentElement.tagName !== 'H3' && 
-              (currentElement.tagName !== 'HR' || 
-               (currentElement.tagName === 'HR' && !currentElement.nextElementSibling?.tagName === 'H3'))) {
-          sketchItem.elements.push(currentElement);
-          currentElement = currentElement.nextElementSibling;
+        // Show the controls and insert after years HR
+        if (yearsHr && controlsDiv) {
+          controlsDiv.style.display = 'flex';
+          // Insert controls after the years HR
+          yearsHr.parentNode.insertBefore(controlsDiv, yearsHr.nextSibling);
         }
         
-        // Set the end index
-        sketchItem.endIndex = sketchItem.startIndex + sketchItem.elements.length - 1;
-        sketchItems.push(sketchItem);
-      });
-      
-      return sketchItems;
-    }
-    
-    // Apply grid layout
-    function applyGridLayout() {
-      // Get current settings
-      const columnWidth = columnWidthInput.value + 'px';
-      
-      // Apply grid styles to sketches container
-      sketchesContainer.classList.add('multi-column');
-      sketchesContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidth}, 1fr))`;
-      sketchesContainer.style.gridGap = '20px';
-      
-      // Create virtual sketch items if needed
-      if (sketchItems.length === 0) {
-        createVirtualSketchItems();
-      }
-      
-      // Wrap each sketch item's elements with a div
-      sketchItems.forEach((item, index) => {
-        // Check if this item is already wrapped
-        if (!item.wrapper) {
-          // Create a wrapper div
-          const wrapper = document.createElement('div');
-          wrapper.classList.add('sketch-item');
-          wrapper.id = `sketch-item-${index}`;
-          
-          // Insert the wrapper before the first element
-          item.h3.parentNode.insertBefore(wrapper, item.h3);
-          
-          // Move all elements to the wrapper
-          item.elements.forEach(el => {
-            wrapper.appendChild(el);
-          });
-          
-          // Store the wrapper reference
-          item.wrapper = wrapper;
+        // Initialize
+        let isGridLayout = false;
+        let sketchItems = [];
+        let gridContainer = null;
+        
+        // Find the second HR (which marks the start of sketches)
+        function findStartOfSketches() {
+          const allHrs = contentDiv.querySelectorAll('hr');
+          // Return the element after the second HR
+          return allHrs.length >= 2 ? allHrs[1].nextElementSibling : null;
         }
-      });
-    }
-    
-    // Remove grid layout and restore original structure
-    function removeGridLayout() {
-      sketchesContainer.classList.remove('multi-column');
-      sketchesContainer.style.gridTemplateColumns = '';
-      sketchesContainer.style.gridGap = '';
-      
-      // Unwrap all sketch items
-      sketchItems.forEach(item => {
-        if (item.wrapper) {
-          const parent = item.wrapper.parentNode;
+        
+        // Find all sketch sections in the content
+        function findSketchSections() {
+          // Start from the element after the second HR
+          let startElement = findStartOfSketches();
+          if (!startElement) return [];
           
-          // Move all elements back to the original container
-          while (item.wrapper.firstChild) {
-            parent.insertBefore(item.wrapper.firstChild, item.wrapper);
+          // Initialize an array to store all sketch item groups
+          const sketchSections = [];
+          let currentSection = null;
+          
+          // Process all elements starting from the beginning of sketches
+          let currentElement = startElement;
+          
+          while (currentElement) {
+            // If it's an H3, start a new section
+            if (currentElement.tagName === 'H3') {
+              // If there's an existing section, finalize it
+              if (currentSection) {
+                sketchSections.push(currentSection);
+              }
+              
+              // Start a new section
+              currentSection = {
+                title: currentElement,
+                elements: [currentElement]
+              };
+            } 
+            // Otherwise, add to current section if there is one
+            else if (currentSection) {
+              currentSection.elements.push(currentElement);
+              
+              // Stop collecting at the final HR followed by year navigation
+              if (currentElement.tagName === 'HR' && 
+                  currentElement.nextElementSibling && 
+                  currentElement.nextElementSibling.tagName === 'P' &&
+                  currentElement.nextElementSibling.textContent.includes('2025 |')) {
+                sketchSections.push(currentSection);
+                break;
+              }
+            }
+            
+            currentElement = currentElement.nextElementSibling;
           }
           
-          // Remove the empty wrapper
-          parent.removeChild(item.wrapper);
-          item.wrapper = null;
+          // Add the last section if it exists and wasn't added yet
+          if (currentSection && !sketchSections.includes(currentSection)) {
+            sketchSections.push(currentSection);
+          }
+          
+          return sketchSections;
         }
+        
+        // Apply grid layout
+        function applyGridLayout() {
+          // Create grid container if it doesn't exist
+          if (!gridContainer) {
+            gridContainer = document.createElement('div');
+            gridContainer.className = 'multi-column-grid-container';
+            const startElement = findStartOfSketches();
+            if (startElement) {
+              startElement.parentNode.insertBefore(gridContainer, startElement);
+            }
+          }
+          
+          // Set column width based on input
+          gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidthInput.value}px, 1fr))`;
+          
+          // Find all sketch sections
+          const sketchSections = findSketchSections();
+          
+          // Create sketch items and move elements
+          sketchSections.forEach((section, index) => {
+            // Create sketch item container
+            const sketchItem = document.createElement('div');
+            sketchItem.className = 'sketch-item';
+            sketchItem.id = `sketch-item-${index}`;
+            
+            // Move all elements to the sketch item
+            section.elements.forEach(element => {
+              // Store original position
+              if (!element.dataset.originalPosition) {
+                const parent = element.parentNode;
+                const nextSibling = element.nextSibling;
+                element.dataset.originalParent = Array.from(document.querySelectorAll('*')).indexOf(parent);
+                element.dataset.originalNextSibling = nextSibling ? Array.from(document.querySelectorAll('*')).indexOf(nextSibling) : 'none';
+              }
+              
+              // Move to grid item
+              sketchItem.appendChild(element);
+            });
+            
+            // Add sketch item to grid container
+            gridContainer.appendChild(sketchItem);
+          });
+          
+          // Show the grid container
+          gridContainer.style.display = 'grid';
+        }
+        
+        // Remove grid layout and restore original structure
+        function removeGridLayout() {
+          if (!gridContainer) return;
+          
+          // Get all elements in grid container
+          const elements = Array.from(gridContainer.querySelectorAll('*[data-original-position]'));
+          
+          // Restore each element to its original position
+          elements.forEach(element => {
+            const parent = document.querySelectorAll('*')[parseInt(element.dataset.originalParent)];
+            const nextSiblingIndex = element.dataset.originalNextSibling;
+            const nextSibling = nextSiblingIndex !== 'none' ? document.querySelectorAll('*')[parseInt(nextSiblingIndex)] : null;
+            
+            if (parent) {
+              parent.insertBefore(element, nextSibling || null);
+            }
+          });
+          
+          // Remove the grid container
+          gridContainer.parentNode.removeChild(gridContainer);
+          gridContainer = null;
+        }
+        
+        // Toggle between layouts
+        toggleButton.addEventListener('click', function() {
+          isGridLayout = !isGridLayout;
+          
+          if (isGridLayout) {
+            applyGridLayout();
+            gridControls.style.display = 'inline-flex';
+            toggleButton.textContent = 'Single Column';
+          } else {
+            removeGridLayout();
+            gridControls.style.display = 'none';
+            toggleButton.textContent = 'Grid Layout';
+          }
+        });
+        
+        // Update grid layout when column width changes
+        columnWidthInput.addEventListener('input', function() {
+          if (isGridLayout && gridContainer) {
+            gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
+          }
+        });
       });
-    }
-    
-    // Toggle between layouts
-    toggleButton.addEventListener('click', function() {
-      isGridLayout = !isGridLayout;
-      
-      if (isGridLayout) {
-        applyGridLayout();
-        gridControls.style.display = 'inline-flex';
-        toggleButton.textContent = 'Single Column';
-      } else {
-        removeGridLayout();
-        gridControls.style.display = 'none';
-        toggleButton.textContent = 'Grid Layout';
-      }
-    });
-    
-    // Update grid layout when column width changes
-    columnWidthInput.addEventListener('input', function() {
-      if (isGridLayout) {
-        sketchesContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
-      }
-    });
-  });
     </script>
 
   <!-- outros scripts gerais abav.lugaralgum.com -->
