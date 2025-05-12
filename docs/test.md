@@ -1314,8 +1314,6 @@ The next day I think I improved it:
 
 [sketch_2025_01_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_01) [[py5](https://py5coding.org/)]
 
-<div class="sketches">
-
 ---
 
 2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
