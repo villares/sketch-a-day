@@ -7,6 +7,7 @@ down = V(0, 1)
 
 def setup():
     py5.size(450, 450)
+    py5.no_stroke()
     animated_gif('out.gif', duration=0.2, frame_numbers=range(1, 361, 5))
 
 def draw():
