@@ -8,11 +8,13 @@ down = V(0, 1)
 def setup():
     py5.size(450, 450)
     py5.no_stroke()
-    animated_gif('out.gif', duration=0.2, frame_numbers=range(1, 361, 5))
+    animated_gif('out2.gif', duration=0.2, frame_numbers=range(1, 181, 5))
+    #animated_gif('out.gif', duration=0.2, frame_numbers=range(1, 361, 5))
 
 def draw():
     global up60d, down30d
-    a = 30 - py5.frame_count
+    a = 91 - py5.frame_count
+    #a = 30 - py5.frame_count
     up60d = V(1, 0).rotate(py5.radians(-90 + a))
     down30d = V(1, 0).rotate(py5.radians(a))
     u_offset = right + down30d
