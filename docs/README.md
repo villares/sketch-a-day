@@ -16,10 +16,9 @@ If you appreciate what I have been doing, you may also support my artistic work,
   href="http://pynews.com.br/@villares.rss"
   title="RSS Feed">
 
----
+<hr class="years">
 
 2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
-
 
 ---
 
