@@ -123,198 +123,183 @@
       </div>
     </footer>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get DOM elements
-      const yearsHr = document.querySelector('hr.years');
-      const contentDiv = document.querySelector('.content');
-      const controlsDiv = document.querySelector('.layout-controls');
-      const toggleButton = document.getElementById('toggleLayout');
-      const gridControls = document.getElementById('gridControls');
-      const columnWidthInput = document.getElementById('columnWidth');
-      
-      // Show the controls and insert after years HR
-      if (yearsHr && controlsDiv) {
-        controlsDiv.style.display = 'flex';
-        // Insert controls after the years HR
-        yearsHr.parentNode.insertBefore(controlsDiv, yearsHr.nextSibling);
-      }
-      
-      // Initialize
-      let isGridLayout = false;
-      let gridContainer = null;
-      let originalStructure = null;
-      
-      // Find the second HR (which marks the start of sketches)
-      function findStartOfSketches() {
-        const allHrs = contentDiv.querySelectorAll('hr');
-        // Return the element after the second HR
-        return allHrs.length >= 2 ? allHrs[1].nextElementSibling : null;
-      }
-      
-      // Find all sketch sections in the content
-      function findSketchSections() {
-        // Start from the element after the second HR
-        let startElement = findStartOfSketches();
-        if (!startElement) return [];
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get DOM elements
+        const yearsHr = document.querySelector('hr.years');
+        const contentDiv = document.querySelector('.content');
+        const controlsDiv = document.querySelector('.layout-controls');
+        const toggleButton = document.getElementById('toggleLayout');
+        const gridControls = document.getElementById('gridControls');
+        const columnWidthInput = document.getElementById('columnWidth');
         
-        // Initialize an array to store all sketch item groups
-        const sketchSections = [];
-        let currentSection = null;
+        // Show the controls and insert after years HR
+        if (yearsHr && controlsDiv) {
+          controlsDiv.style.display = 'flex';
+          // Insert controls after the years HR
+          yearsHr.parentNode.insertBefore(controlsDiv, yearsHr.nextSibling);
+        }
         
-        // Process all elements starting from the beginning of sketches
-        let currentElement = startElement;
+        // Initialize
+        let isGridLayout = false;
+        let sketchItems = [];
+        let gridContainer = null;
         
-        while (currentElement) {
-          // If it's an H3, start a new section
-          if (currentElement.tagName === 'H3') {
-            // If there's an existing section, finalize it
-            if (currentSection) {
-              sketchSections.push(currentSection);
+        // Find the second HR (which marks the start of sketches)
+        function findStartOfSketches() {
+          const allHrs = contentDiv.querySelectorAll('hr');
+          // Return the element after the second HR
+          return allHrs.length >= 2 ? allHrs[1].nextElementSibling : null;
+        }
+        
+        // Find all sketch sections in the content
+        function findSketchSections() {
+          // Start from the element after the second HR
+          let startElement = findStartOfSketches();
+          if (!startElement) return [];
+          
+          // Initialize an array to store all sketch item groups
+          const sketchSections = [];
+          let currentSection = null;
+          
+          // Process all elements starting from the beginning of sketches
+          let currentElement = startElement;
+          
+          while (currentElement) {
+            // If it's an H3, start a new section
+            if (currentElement.tagName === 'H3') {
+              // If there's an existing section, finalize it
+              if (currentSection) {
+                sketchSections.push(currentSection);
+              }
+              
+              // Start a new section
+              currentSection = {
+                title: currentElement,
+                elements: [currentElement]
+              };
+            } 
+            // Otherwise, add to current section if there is one
+            else if (currentSection) {
+              currentSection.elements.push(currentElement);
+              
+              // Stop collecting at the final HR followed by year navigation
+              if (currentElement.tagName === 'HR' && 
+                  currentElement.nextElementSibling && 
+                  currentElement.nextElementSibling.tagName === 'P' &&
+                  currentElement.nextElementSibling.textContent.includes('2025 |')) {
+                sketchSections.push(currentSection);
+                break;
+              }
             }
             
-            // Start a new section
-            currentSection = {
-              title: currentElement,
-              elements: [currentElement]
-            };
-          } 
-          // Otherwise, add to current section if there is one
-          else if (currentSection) {
-            currentSection.elements.push(currentElement);
-            
-            // Stop collecting at the final HR followed by year navigation
-            if (currentElement.tagName === 'HR' && 
-                currentElement.nextElementSibling && 
-                currentElement.nextElementSibling.tagName === 'P' &&
-                currentElement.nextElementSibling.textContent.includes('2025 |')) {
-              sketchSections.push(currentSection);
-              break;
+            currentElement = currentElement.nextElementSibling;
+          }
+          
+          // Add the last section if it exists and wasn't added yet
+          if (currentSection && !sketchSections.includes(currentSection)) {
+            sketchSections.push(currentSection);
+          }
+          
+          return sketchSections;
+        }
+        
+        // Apply grid layout
+        function applyGridLayout() {
+          // Create grid container if it doesn't exist
+          if (!gridContainer) {
+            gridContainer = document.createElement('div');
+            gridContainer.className = 'multi-column-grid-container';
+            const startElement = findStartOfSketches();
+            if (startElement) {
+              startElement.parentNode.insertBefore(gridContainer, startElement);
             }
           }
           
-          currentElement = currentElement.nextElementSibling;
-        }
-        
-        // Add the last section if it exists and wasn't added yet
-        if (currentSection && !sketchSections.includes(currentSection)) {
-          sketchSections.push(currentSection);
-        }
-        
-        return sketchSections;
-      }
-      
-      // Store original structure before applying grid
-      function storeOriginalStructure() {
-        // Find and store all sketch sections
-        const sketchSections = findSketchSections();
-        originalStructure = sketchSections.map(section => {
-          return {
-            elements: section.elements.map(el => el.cloneNode(true))
-          };
-        });
-        
-        // Store the insertion point as well
-        originalStructure.insertPoint = findStartOfSketches();
-      }
-      
-      // Apply grid layout
-      function applyGridLayout() {
-        // Store the original structure first
-        if (!originalStructure) {
-          storeOriginalStructure();
-        }
-        
-        // Create grid container
-        gridContainer = document.createElement('div');
-        gridContainer.className = 'multi-column-grid-container';
-        
-        // Find where to insert it (after the second HR)
-        const insertPoint = findStartOfSketches();
-        if (!insertPoint) return;
-        
-        // Find all sketch sections
-        const sketchSections = findSketchSections();
-        
-        // Create sketch items and move elements
-        sketchSections.forEach((section, index) => {
-          // Create sketch item container
-          const sketchItem = document.createElement('div');
-          sketchItem.className = 'sketch-item';
-          sketchItem.id = `sketch-item-${index}`;
+          // Set column width based on input
+          gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidthInput.value}px, 1fr))`;
           
-          // Move all elements to the sketch item
-          section.elements.forEach(element => {
-            sketchItem.appendChild(element);
+          // Find all sketch sections
+          const sketchSections = findSketchSections();
+          
+          // Create sketch items and move elements
+          sketchSections.forEach((section, index) => {
+            // Create sketch item container
+            const sketchItem = document.createElement('div');
+            sketchItem.className = 'sketch-item';
+            sketchItem.id = `sketch-item-${index}`;
+            
+            // Move all elements to the sketch item
+            section.elements.forEach(element => {
+              // Store original position
+              if (!element.dataset.originalPosition) {
+                const parent = element.parentNode;
+                const nextSibling = element.nextSibling;
+                element.dataset.originalParent = Array.from(document.querySelectorAll('*')).indexOf(parent);
+                element.dataset.originalNextSibling = nextSibling ? Array.from(document.querySelectorAll('*')).indexOf(nextSibling) : 'none';
+              }
+              
+              // Move to grid item
+              sketchItem.appendChild(element);
+            });
+            
+            // Add sketch item to grid container
+            gridContainer.appendChild(sketchItem);
           });
           
-          // Add sketch item to grid container
-          gridContainer.appendChild(sketchItem);
-        });
+          // Show the grid container
+          gridContainer.style.display = 'grid';
+        }
         
-        // Insert the grid container
-        insertPoint.parentNode.insertBefore(gridContainer, insertPoint);
-        
-        // Set column width and show the container
-        gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidthInput.value}px, 1fr))`;
-        gridContainer.style.display = 'grid';
-      }
-      
-      // Remove grid layout and restore original structure
-      function removeGridLayout() {
-        if (!gridContainer || !originalStructure) return;
-        
-        // Remove the grid container
-        gridContainer.remove();
-        gridContainer = null;
-        
-        // Find the insertion point
-        const insertPoint = findStartOfSketches();
-        if (!insertPoint || !insertPoint.parentNode) return;
-        
-        // Re-insert all elements in their original order
-        const parent = insertPoint.parentNode;
-        let currentInsertPoint = insertPoint;
-        
-        originalStructure.forEach(section => {
-          section.elements.forEach(element => {
-            // Clone the stored element to avoid reference issues
-            const newElement = element.cloneNode(true);
-            parent.insertBefore(newElement, currentInsertPoint);
-          });
-        });
-      }
-      
-      // Toggle between layouts
-      toggleButton.addEventListener('click', function() {
-        isGridLayout = !isGridLayout;
-        
-        if (isGridLayout) {
-          applyGridLayout();
-          gridControls.style.display = 'inline-flex';
-          toggleButton.textContent = 'Single Column';
-        } else {
-          removeGridLayout();
-          gridControls.style.display = 'none';
-          toggleButton.textContent = 'Grid Layout';
+        // Remove grid layout and restore original structure
+        function removeGridLayout() {
+          if (!gridContainer) return;
           
-          // Force page reload to restore the original structure
-          // This is a simpler way to guarantee the layout is properly restored
-          location.reload();
+          // Get all elements in grid container
+          const elements = Array.from(gridContainer.querySelectorAll('*[data-original-position]'));
+          
+          // Restore each element to its original position
+          elements.forEach(element => {
+            const parent = document.querySelectorAll('*')[parseInt(element.dataset.originalParent)];
+            const nextSiblingIndex = element.dataset.originalNextSibling;
+            const nextSibling = nextSiblingIndex !== 'none' ? document.querySelectorAll('*')[parseInt(nextSiblingIndex)] : null;
+            
+            if (parent) {
+              parent.insertBefore(element, nextSibling || null);
+            }
+          });
+          
+          // Remove the grid container
+          gridContainer.parentNode.removeChild(gridContainer);
+          gridContainer = null;
         }
+        
+        // Toggle between layouts
+        toggleButton.addEventListener('click', function() {
+          isGridLayout = !isGridLayout;
+          
+          if (isGridLayout) {
+            applyGridLayout();
+            gridControls.style.display = 'inline-flex';
+            toggleButton.textContent = 'Single Column';
+          } else {
+            removeGridLayout();
+            gridControls.style.display = 'none';
+            toggleButton.textContent = 'Grid Layout';
+          }
+        });
+        
+        // Update grid layout when column width changes
+        columnWidthInput.addEventListener('input', function() {
+          if (isGridLayout && gridContainer) {
+            gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
+          }
+        });
       });
-      
-      // Update grid layout when column width changes
-      columnWidthInput.addEventListener('input', function() {
-        if (isGridLayout && gridContainer) {
-          gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
-        }
-      });
-    });
     </script>
 
   <!-- outros scripts gerais abav.lugaralgum.com -->
-    <script src="../assets/scripts.js"></script>
+    <!-- script src="../assets/scripts.js"></script -->
 
   </body>
 </html>
