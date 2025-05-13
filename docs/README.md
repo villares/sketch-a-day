@@ -159,8 +159,6 @@ Broken! Maybe something in pymunk changed, I have to investigate!
 
 [sketch_2025_04_29](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_29) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_28
