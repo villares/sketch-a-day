@@ -22,6 +22,8 @@
 # 2025
 # Updated image_helpers to use pathlib...
 # TODO save the caption and comments if posting fails...
+# TODO permitir postar SVG no mastodon (talvez converter).
+
 
 import sys
 from pathlib import Path
@@ -32,7 +34,7 @@ from time import sleep
 
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM  #*!todo
-# garantir que tem rlPyCairo e pyCairo instaladas
+# TODO garantir que tem rlPyCairo e pyCairo instaladas
 
 import FreeSimpleGUI as sg
 sg.set_options(element_padding=(10, 10))
