@@ -9,8 +9,8 @@ print(py5_tools.processing.download_library("PeasyCam"))
 from itertools import product    
 
 import py5
-# 
-from peasy import PeasyCam 
+ 
+from peasy import PeasyCam   # the only tricky part is to find the module name!
 
 def setup():
     global cam 
@@ -30,14 +30,13 @@ def draw():
         bs = py5.random_choice((4, 8, 16, 32))
         py5.fill(bs * 4, 255, 150)
         with py5.push_matrix():
-            py5.translate(x,  y, z)
+            py5.translate(x, y, z)
             py5.box(bs)
-            
+    # Use the HUD feature to add screen anchored elements 
     cam.beginHUD()
     py5.fill(255)
     py5.text_size(20)
     py5.text('PeasyCam demo', 15, 15)
     cam.endHUD()
-   
    
 py5.run_sketch(block=False)
