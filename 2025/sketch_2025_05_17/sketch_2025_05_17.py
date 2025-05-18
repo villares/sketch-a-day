@@ -16,8 +16,10 @@ def setup():
     global cam 
     py5.size(512, 512, py5.P3D)
     this_sketch = py5.get_current_sketch()
-    cam = PeasyCam(this_sketch, 500)
-    
+    cam = PeasyCam(this_sketch, 400)
+    cam.setMinimumDistance(300);
+    cam.setMaximumDistance(500);
+
 def draw():
     py5.background(0)
     py5.color_mode(py5.HSB)
@@ -30,8 +32,12 @@ def draw():
         with py5.push_matrix():
             py5.translate(x,  y, z)
             py5.box(bs)
-
-def key_pressed():
-    redraw()
+            
+    cam.beginHUD()
+    py5.fill(255)
+    py5.text_size(20)
+    py5.text('PeasyCam demo', 15, 15)
+    cam.endHUD()
+   
    
 py5.run_sketch(block=False)

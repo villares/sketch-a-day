@@ -22,6 +22,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_05_17
+
+![sketch_2025_05_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_17/sketch_2025_05_17.gif)
+
+[sketch_2025_05_17](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_17) [[py5](https://py5coding.org/)]
+
+Zoom, pan and *slick* 3D orbit mouse interaction with insane ease, basically for free, with the PeasyCam library.
+
+---
+
 ### sketch_2025_05_16
 
 ![sketch_2025_05_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_16/sketch_2025_05_16.gif)
