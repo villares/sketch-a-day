@@ -34,7 +34,6 @@ def setup():
     previous_pixels = py5.get_np_pixels()
     current_pixels = np.empty_like(previous_pixels)
 
-
 def predraw_update():
     global mouse_over
     try:
@@ -50,8 +49,8 @@ def draw():
         cube.draw_box()
         py5.get_np_pixels(dst=current_pixels)
         mask = np.any(previous_pixels != current_pixels, axis=-1)
-        cube.draw(mouse_over == cube_index)
         picker_map[mask] = cube_index
+        cube.draw(mouse_over == cube_index)
         py5.get_np_pixels(dst=previous_pixels)
 
     
