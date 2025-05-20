@@ -36,10 +36,12 @@ def setup():
 
 def predraw_update():
     global mouse_over
-    try:
-        mouse_over = picker_map[py5.mouse_y, py5.mouse_x]
-    except IndexError:
-        mouse_over = -1
+    mouse_over = -1
+    if not py5.is_mouse_pressed:    
+        try:
+            mouse_over = picker_map[py5.mouse_y, py5.mouse_x]
+        except IndexError:
+            pass
     picker_map.fill(-1)
 
 def draw():
