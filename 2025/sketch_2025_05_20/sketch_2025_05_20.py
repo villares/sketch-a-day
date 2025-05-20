@@ -13,6 +13,7 @@ from peasy import PeasyCam  # must be imported after import py5
 import numpy as np
 
 cubes = []
+update_picker = True
 
 def setup():
     global cam, picker_map, current_pixels, previous_pixels
@@ -45,27 +46,39 @@ def predraw_update():
     py5.window_title(str(round(py5.get_frame_rate())))
 
 def draw():
-    py5.background(0)
-    for cube_index, cube in enumerate(cubes):
-        #if (py5.mouse_x, py5.mouse_y) == (py5.pmouse_x, py5.pmouse_y):
-        if py5.is_mouse_pressed:
+    global update_picker
+    if update_picker:
+    #if (py5.mouse_x, py5.mouse_y) == (py5.pmouse_x, py5.pmouse_y):
+        for cube_index, cube in enumerate(cubes):
             py5.fill(10)
             cube.draw_box()
             py5.get_np_pixels(dst=current_pixels)
             mask = np.any(previous_pixels != current_pixels, axis=-1)
             picker_map[mask] = cube_index
-            py5.set_np_pixels(previous_pixels)
-            cube.draw(mouse_over == cube_index)
-            py5.get_np_pixels(dst=previous_pixels)
-        else:
-            cube.draw(mouse_over == cube_index)
-
-    
+            py5.get_np_pixels(dst=previous_pixels) 
+    py5.background(0)
+    for cube_index, cube in enumerate(cubes):
+        cube.draw(mouse_over == cube_index)
+    py5.get_np_pixels(dst=current_pixels)
+#     if (current_pixels != previous_pixels).any():
+#         update_picker = False        
+#         py5.get_np_pixels(dst=previous_pixels)
+#     else:
+#         update_picker = True
+        
 def mouse_clicked():
     if py5.mouse_button == py5.LEFT:
         if mouse_over >= 0:
            cubes[mouse_over].clicked()
-      
+
+def mouse_dragged():
+    global update_picker
+    update_picker = False
+
+def mouse_released():
+    global update_picker
+    update_picker = True
+
 class Cube:
     
     def __init__(self, x, y, z):
