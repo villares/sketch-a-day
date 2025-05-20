@@ -34,12 +34,17 @@ def setup():
     previous_pixels = py5.get_np_pixels()
     current_pixels = np.empty_like(previous_pixels)
 
-def draw():
+
+def predraw_update():
     global mouse_over
-    mouse_over = picker_map[py5.mouse_y % py5.height,
-                            py5.mouse_x % py5.width]
-    py5.background(0)
+    try:
+        mouse_over = picker_map[py5.mouse_y, py5.mouse_x]
+    except IndexError:
+        mouse_over = -1
     picker_map.fill(-1)
+
+def draw():
+    py5.background(0)
     for cube_index, cube in enumerate(cubes):
         py5.fill(10)
         cube.draw_box()
@@ -63,8 +68,9 @@ class Cube:
         self.color = py5.random_int(126) * 2
                 
     def draw(self, selection=False):
+        py5.stroke(selection * 255)
         if self.on:
-            py5.fill(self.color, 255, 255 - selection * 150)
+            py5.fill(self.color, 255, 255, 255 - selection * 150)
         else:
             py5.fill(200, 255 - selection * 150)
         self.draw_box()
