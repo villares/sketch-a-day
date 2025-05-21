@@ -43,19 +43,20 @@ def setup_cubes():
         cubes.append(Cube(i * cs, j * cs, k * cs, cube_index))
     
 def draw():
+    global update_picker
     try:
         mouse_over = picker_map[py5.mouse_y, py5.mouse_x]
     except IndexError:
         mouse_over = -1
-    picker_map.fill(-1)
-    py5.window_title(str(round(py5.get_frame_rate())))
-
     if update_picker:
+        picker_map.fill(-1)
         for cube in cubes:
             cube.update_picker_map()
+        update_picker = False  # I'm not sure about this "auto-off update"
     py5.background(0)
     for cube in cubes:
         cube.draw(mouse_over)
+    py5.window_title(str(round(py5.get_frame_rate())))
         
 def mouse_clicked():
     if py5.mouse_button == py5.LEFT:
@@ -71,6 +72,10 @@ def mouse_released():
     global update_picker
     update_picker = True
 
+# def mouse_wheel():
+#     global update_picker
+#     update_picker = True
+
 def key_pressed():
     if py5.key == ' ':
         setup_cubes()
@@ -83,13 +88,17 @@ class Cube:
         self.color = py5.random_int(127) * 2
         self.cube_index = cube_index
                 
-    def draw(self, mouse_over):
-        selection = (self.cube_index == mouse_over)
-        py5.stroke(selection * 255)
-        py5.fill(self.color, 255, 255, 255 - selection * 150)
+    def draw(self, mouse_over=-1):
+        # show pre-selection hover only when there is no drag / mouse pressed
+        if not py5.is_mouse_pressed:
+            hover = (self.cube_index == mouse_over)
+        else:
+            hover = False 
+        py5.stroke(hover * 255)
+        py5.fill(self.color, 255, 255, 255 - hover * 150)
         self.draw_box(50)
         if not self.core:
-            py5.fill(200, 255 - selection * 150)
+            py5.fill(200, 255 - hover * 150)
             self.draw_box(100)
         
     def draw_box(self, s=None):
@@ -108,7 +117,9 @@ class Cube:
         picker_map[mask] = self.cube_index
 
     def clicked(self):
+        global update_picker
         self.core = not self.core
+        update_picker = True  # if I use the auto-off update, this helps
 
 py5.run_sketch(block=False)
 
