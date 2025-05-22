@@ -14,7 +14,7 @@ def draw():
     py5.background(240)
     py5.no_fill()
     ang = py5.radians(py5.frame_count)
-    hatch_poly(pts, ang, spacing=10)
+    hatch_poly(list(reversed(pts)), ang, spacing=10)
     draw_poly(pts)
     
 py5.run_sketch(block=False)
