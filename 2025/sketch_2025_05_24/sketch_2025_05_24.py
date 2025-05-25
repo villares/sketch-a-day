@@ -1,6 +1,6 @@
 """
-Similar to yesterday's sketch, but I removed all dependecy of my old awkward
-helper functions, I'm now using just shapely and Py5Vector rotation and lerp.
+Similar to yesterday's sketch, but I removed all dependency of my old awkward
+helper functions. I'm now using just shapely and Py5Vector rotation and lerp.
 """
 
 import py5
