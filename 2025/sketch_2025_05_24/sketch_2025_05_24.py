@@ -1,3 +1,8 @@
+"""
+Similar to yesterday's sketch, but I removed all dependecy of my old awkward
+helper functions, I'm now using just shapely and Py5Vector rotation and lerp.
+"""
+
 import py5
 from py5_tools import animated_gif
 
@@ -19,7 +24,6 @@ def setup():
     hole = external.buffer(-40)
     shape_b =  external - hole
 
-
 def draw():
     py5.background(240)
     py5.no_fill()
@@ -36,13 +40,12 @@ def draw():
         spacing=5
     )
 
-
 def hatched_poly(poly, angle=0, holes=[], spacing=5):
     if not isinstance(poly, Polygon):
         poly = Polygon(poly, holes)
-    py5.shape(py5.convert_cached_shape(poly))
+    py5.shape(py5.convert_shape(poly))
     hatch = generate_hatch(poly, angle=angle,spacing=spacing)
-    py5.shape(py5.convert_cached_shape(hatch))
+    py5.shape(py5.convert_shape(hatch))
 
 def draw_poly(pts, holes=[]):
     py5.shape(py5.convert_cached_shape(Polygon(pts, [hole])))
