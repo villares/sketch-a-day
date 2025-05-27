@@ -32,7 +32,6 @@ def draw():
     py5.stroke_weight(5)
     for *_, polys in shapes:
         py5.fill(0, 32)
-        py5.no_stroke()
         py5.stroke(0, 0, 64)
         draw_poly(polys)
         
