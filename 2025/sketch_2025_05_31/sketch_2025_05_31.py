@@ -22,6 +22,8 @@ def draw():
             h = 125 + n * 125
             py5.fill(h, 200, 200)
             with py5.push_matrix():
+                # I should have added py5.rect_mode(py5.CENTER) but I didn't
+                # and I enjoyed the slightly displaced rotation result
                 py5.translate(x + 10, y + 10)
                 py5.rotate(n * py5.PI)
                 py5.square(0, 0, 15)
