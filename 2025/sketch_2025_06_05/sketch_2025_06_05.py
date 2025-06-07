@@ -4,7 +4,7 @@ import io
 
 from PIL import Image
 
-caminho_imagem = 'Apiscina.jpg'
+caminho_imagem = 'piscina.jpg'
 lista_bytes = []
 py5image = None
 
