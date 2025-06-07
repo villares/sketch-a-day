@@ -1,9 +1,11 @@
 
 def setup():
-    size(600, 300)
+    size(600, 600)
+    scale(1.5)
     text_align(CENTER)
     text_font(create_font('Inconsolata Bold', 18))
-    stroke_weight(10.0)    
+    stroke_weight(10.0)
+    translate(0, 50)
     stroke_join(MITER)
     corner(50, 20)
     label('MITER', 100, 130, extra='(default)')
@@ -11,21 +13,20 @@ def setup():
     corner(250, 20)
     label('BEVEL', 300, 130)
     stroke_join(ROUND)
-    corner(450, 20)
-    label('ROUND', 500, 130)
-    translate(50, 160)
-    text_align(LEFT)
+    corner(250, 190)
+    label('ROUND', 300, 300)
+    translate(50, 120)
     fill(255)
-    stroke_cap(ROUND)
-    line(20, 30, 80, 30)
-    text("stroke_cap('ROUND') (default)", 100, 35)
     stroke_cap(SQUARE)
-    line(20, 70, 80, 70)
-    text("stroke_cap('SQUARE')", 100, 75)
+    line(20, 67, 80, 67)
+    text("stroke_cap(SQUARE)", 50, 90)
     stroke_cap(PROJECT)
-    line(20, 110, 80, 110)
-    text("stroke_cap('PROJECT')", 100, 115)
-    save('out.png')
+    line(20, 107, 80, 107)
+    text("stroke_cap(PROJECT)", 50, 130)
+    stroke_cap(ROUND)
+    line(20, 147, 80, 147)
+    text("stroke_cap(ROUND)\n(default)", 50, 170)
+    #save('/home/villares/GitHub/material-aulas/Processing-Python-py5/assets/mais_atributos.png')
     
 def label(mode, x, y, extra=''):
     fill(255)
@@ -36,3 +37,4 @@ def corner(x, y):
     triangle(x, y, x + 100, y, x + 50, y + 80)
 
     
+
