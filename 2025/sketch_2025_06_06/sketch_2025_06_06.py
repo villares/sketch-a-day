@@ -1,3 +1,5 @@
+# Couldn't resist and updated this in  2025_06_08
+# to see previous ugly 2025_06_06 version check folder
 
 def setup():
     size(600, 600)
@@ -6,35 +8,29 @@ def setup():
     text_font(create_font('Inconsolata Bold', 18))
     stroke_weight(10.0)
     translate(0, 50)
-    stroke_join(MITER)
-    corner(50, 20)
-    label('MITER', 100, 130, extra='(default)')
-    stroke_join(BEVEL)
-    corner(250, 20)
-    label('BEVEL', 300, 130)
-    stroke_join(ROUND)
-    corner(250, 190)
-    label('ROUND', 300, 300)
-    translate(50, 120)
-    fill(255)
-    stroke_cap(SQUARE)
-    line(20, 67, 80, 67)
-    text("stroke_cap(SQUARE)", 50, 90)
-    stroke_cap(PROJECT)
-    line(20, 107, 80, 107)
-    text("stroke_cap(PROJECT)", 50, 130)
-    stroke_cap(ROUND)
-    line(20, 147, 80, 147)
-    text("stroke_cap(ROUND)\n(default)", 50, 170)
-    #save('/home/villares/GitHub/material-aulas/Processing-Python-py5/assets/mais_atributos.png')
+    join_demo(50, 20, 'MITER', extra='(default)')
+    join_demo(250, 20, 'BEVEL')
+    join_demo(250, 190,'ROUND')
+    cap_demo(100, 190, 'ROUND', extra='(default)')
+    cap_demo(100, 250, 'PROJECT')
+    cap_demo(100, 310, 'SQUARE')
     
-def label(mode, x, y, extra=''):
-    fill(255)
-    text(f'stroke_join({mode})\n{extra}', x, y)
-    
-def corner(x, y):
+    save('/home/villares/GitHub/material-aulas/Processing-Python-py5/assets/mais_atributos.png')
+
+
+def cap_demo(x, y, mode, extra=''):
+    stroke_cap(eval(mode))
+    stroke(0)
+    fill(0, 0, 100)
+    line(x - 50, y, x + 30, y)
+    point(x + 50, y)
+    text(f'{extra}\nstroke_cap({mode})', x, y - 40)
+        
+def join_demo(x, y, mode, extra=''):
+    stroke_join(eval(mode))
     no_fill()
     triangle(x, y, x + 100, y, x + 50, y + 80)
+    fill(0, 0, 100)
+    text(f'{extra}\nstroke_join({mode})', x +  50, y - 40)
 
     
-
