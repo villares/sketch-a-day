@@ -12,7 +12,6 @@ def setup():
     d = s_translate(c, 50, 0)
     crescent = c - d
     m = trimesh.creation.extrude_polygon(crescent, 100)
-    #shape(malha)
     b = trimesh_box(0, 0, 0, 200)
     subtracted_box = b.difference(m)
 
@@ -32,16 +31,19 @@ def trimesh_box(x, y, z, w, h=None, d=None):
     return c
 
 def draw_mesh(m):
-    push_style()
-    no_stroke()
-    with begin_closed_shape(TRIANGLES):
-        vertices(m.vertices[v]
-                 for face in m.faces
-                 for v in face)   
-    pop_style()
     vs = m.vertices
     bs = m.facets_boundary
-
+    # draw the triangulated faces without stroke
+    push_style()  # so I can revert to previous stroke settings
+    no_stroke()
+#     with begin_closed_shape(TRIANGLES):
+#         vertices(m.vertices[v]
+#                  for face in m.faces
+#                  for v in face)
+    with begin_closed_shape(TRIANGLES):
+        vertices(vs[np.concatenate(m.faces)])
+    pop_style()
+    # now draw the facet boundary edges
 #     for facet in bs:
 #         for a, b in facet:
 #             line(*vs[a], *vs[b])
