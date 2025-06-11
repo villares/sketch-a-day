@@ -36,13 +36,18 @@ def draw_mesh(m):
     no_stroke()
     with begin_closed_shape(TRIANGLES):
         vertices(m.vertices[v]
-                     for face in m.faces
-                     for v in face)   
+                 for face in m.faces
+                 for v in face)   
     pop_style()
     vs = m.vertices
     bs = m.facets_boundary
+
 #     for facet in bs:
 #         for a, b in facet:
 #             line(*vs[a], *vs[b])
     a, b = np.vstack(bs).T
     lines(np.column_stack((vs[a], vs[b])))
+  
+def apply_rotation(obj, angle, direction=[1, 0, 0], center=[0, 0, 0]):
+    rot_matrix = trimesh.transformations.rotation_matrix(angle, direction, center)
+    obj.apply_transform(rot_matrix)
