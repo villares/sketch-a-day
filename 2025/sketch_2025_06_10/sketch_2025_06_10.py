@@ -14,6 +14,7 @@ def setup():
     m = trimesh.creation.extrude_polygon(crescent, 100)
     b = trimesh_box(0, 0, 0, 200)
     subtracted_box = b.difference(m)
+    print(np) # `import numpy as np` is implicit on imported mode
 
 def draw():
     background(0, 0, 100)
