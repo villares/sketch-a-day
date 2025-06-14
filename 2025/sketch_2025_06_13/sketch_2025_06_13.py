@@ -21,10 +21,7 @@ def setup():
     
 def draw():
     #background(240)
-
-
     t = (frame_count % 100) / 99
-        # find our location in 2D path based on 0-1
     x, y = lerp_along_list(t, pts)
     stroke(0)
     stroke_weight(2)
