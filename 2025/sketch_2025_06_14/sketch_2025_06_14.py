@@ -14,8 +14,6 @@ def setup():
     
 def make_polys():
     global poly_a, poly_b
-    py5.background(200)
-    simple = False
     poly_a = make_simple_poly(grid)
     poly_b = make_simple_poly(grid)
     
