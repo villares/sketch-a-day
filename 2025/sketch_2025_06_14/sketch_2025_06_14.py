@@ -3,8 +3,6 @@ from itertools import product
 from shapely.geometry import LineString, LinearRing
 import py5
 
-poly = LineString([(0, 0), (1, 1), (2, 0), (3, 1)])
-
 MARGIN = 64
 SPACING = 128 + 64
 
