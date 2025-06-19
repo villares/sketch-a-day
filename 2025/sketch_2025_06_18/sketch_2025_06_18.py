@@ -1,4 +1,4 @@
-bolinhas = []  # lista que começa vazia
+Particles = []  # lista que começa vazia
 #gravidade = Py5Vector(0, 0.1)
 
 def setup():
@@ -8,46 +8,45 @@ def setup():
 def draw():
     fill(0, 10)
     rect(0, 0, width, height)
-    # atualizando as bolinhas
-    for bola in bolinhas.copy():
-        bola.atualizar()
-        if bola.diametro < 1:
-            bolinhas.remove(bola)
+    # best to iterate over a copy here!
+    for p in Particles.copy(): 
+        p.update()
         
-    print(len(bolinhas))
+    print(len(Particles))
     
 def mouse_dragged():
-    b = Bolinha(mouse_x, mouse_y)
-    bolinhas.append(b)
+    p = Particle(mouse_x, mouse_y)
+    Particles.append(p)
     
 def key_pressed():
     if key == ' ':
         background(0)
-        bolinhas.clear()
+        Particles.clear()
     elif key == 's':
         save_frame('###.png')
         
-class Bolinha:
+class Particle:
     
     def __init__(self, x, y):
         self.pos = Py5Vector(x, y)
-        self.diametro = 50 #random(3, 51)
+        self.dia = 50 #random(3, 51)
         self.vel = Py5Vector.random(2) * 0.5
         #self.cor = color(random(255), random(255), random(255))
         
-    def atualizar(self):
-        self.desenhar()
-        self.mover()
-        self.diametro = self.diametro * 0.99
-        #self.vel = self.vel + gravidade
-        
-    def desenhar(self):
+    def update(self):
+        self.draw()
+        self.move()
+        self.dia = self.dia * 0.99
+        if self.dia < 1:
+            Particles.remove(self)
+            
+    def draw(self):
         no_stroke()
         color_mode(HSB)  # Hue/Matiz, Sat, Bri
-        fill(self.diametro * 5, 255, 255, 100 - 2 * self.diametro)
-        circle(self.pos.x, self.pos.y, self.diametro)
+        fill(self.dia * 5, 255, 255, 100 - 2 * self.dia)
+        circle(self.pos.x, self.pos.y, self.dia)
         
-    def mover(self):
+    def move(self):
         self.vel *= 0.95
         self.vel += Py5Vector.random(2) * 0.5
         self.pos += self.vel
@@ -56,6 +55,4 @@ class Bolinha:
         self.pos.y %= height
         
 
-# affinity.scale(polygon1, yfact=-1, origin=(0, 0))
-# try adding affinity.translate((0, height))
 
