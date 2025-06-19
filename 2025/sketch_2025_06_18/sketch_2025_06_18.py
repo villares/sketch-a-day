@@ -1,4 +1,4 @@
-Particles = []  # lista que começa vazia
+particles = []  # lista que começa vazia
 #gravidade = Py5Vector(0, 0.1)
 
 def setup():
@@ -9,19 +9,19 @@ def draw():
     fill(0, 10)
     rect(0, 0, width, height)
     # best to iterate over a copy here!
-    for p in Particles.copy(): 
+    for p in particles.copy(): 
         p.update()
         
-    print(len(Particles))
+    print(len(particles))
     
 def mouse_dragged():
     p = Particle(mouse_x, mouse_y)
-    Particles.append(p)
+    particles.append(p)
     
 def key_pressed():
     if key == ' ':
         background(0)
-        Particles.clear()
+        particles.clear()
     elif key == 's':
         save_frame('###.png')
         
@@ -38,7 +38,7 @@ class Particle:
         self.move()
         self.dia = self.dia * 0.99
         if self.dia < 1:
-            Particles.remove(self)
+            particles.remove(self)
             
     def draw(self):
         no_stroke()
