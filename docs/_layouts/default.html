@@ -123,180 +123,195 @@
       </div>
     </footer>
 
+
 <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get DOM elements
-        const yearsHr = document.querySelector('hr.years');
-        const contentDiv = document.querySelector('.content');
-        const controlsDiv = document.querySelector('.layout-controls');
-        const toggleButton = document.getElementById('toggleLayout');
-        const gridControls = document.getElementById('gridControls');
-        const columnWidthInput = document.getElementById('columnWidth');
+document.addEventListener('DOMContentLoaded', function() {
+// Get DOM elements
+const yearsHr = document.querySelector('hr.years');
+const contentDiv = document.querySelector('.content');
+const controlsDiv = document.querySelector('.layout-controls');
+const toggleButton = document.getElementById('toggleLayout');
+const gridControls = document.getElementById('gridControls');
+const columnWidthInput = document.getElementById('columnWidth');
+
+// Show the controls and insert after years HR
+if (yearsHr && controlsDiv) {
+  controlsDiv.style.display = 'flex';
+  // Insert controls after the years HR
+  yearsHr.parentNode.insertBefore(controlsDiv, yearsHr); //yearsHr.nextSibling
+}
+
+// Initialize
+let isGridLayout = false;
+let sketchItems = [];
+let gridContainer = null;
+
+// Find the second HR (which marks the start of sketches)
+function findStartOfSketches() {
+  const allHrs = contentDiv.querySelectorAll('hr');
+  // Return the element after the second HR
+  return allHrs.length >= 2 ? allHrs[1].nextElementSibling : null;
+}
+
+// Find all sketch sections in the content
+function findSketchSections() {
+  // Start from the element after the second HR
+  let startElement = findStartOfSketches();
+  if (!startElement) return [];
+  
+  // Initialize an array to store all sketch item groups
+  const sketchSections = [];
+  let currentSection = null;
+  
+  // Process all elements starting from the beginning of sketches
+  let currentElement = startElement;
+  
+  while (currentElement) {
+    // If it's an H3, start a new section
+    if (currentElement.tagName === 'H3') {
+      // If there's an existing section, finalize it
+      if (currentSection) {
+        sketchSections.push(currentSection);
+      }
+      
+      // Start a new section
+      currentSection = {
+        title: currentElement,
+        elements: [currentElement]
+      };
+    } 
+    // Otherwise, add to current section if there is one
+    else if (currentSection) {
+      currentSection.elements.push(currentElement);
+      
+      // Stop collecting at the final HR followed by year navigation
+      if (currentElement.tagName === 'HR' && 
+          currentElement.nextElementSibling && 
+          currentElement.nextElementSibling.tagName === 'P' &&
+          currentElement.nextElementSibling.textContent.includes('2025 |')) {
+        sketchSections.push(currentSection);
+        break;
+      }
+    }
+    
+    currentElement = currentElement.nextElementSibling;
+  }
+  
+  // Add the last section if it exists and wasn't added yet
+  if (currentSection && !sketchSections.includes(currentSection)) {
+    sketchSections.push(currentSection);
+  }
+  
+  return sketchSections;
+}
         
-        // Show the controls and insert after years HR
-        if (yearsHr && controlsDiv) {
-          controlsDiv.style.display = 'flex';
-          // Insert controls after the years HR
-          yearsHr.parentNode.insertBefore(controlsDiv, yearsHr); //yearsHr.nextSibling
-        }
+// Apply grid layout
+function applyGridLayout() {
+  // Create grid container if it doesn't exist
+  if (!gridContainer) {
+    gridContainer = document.createElement('div');
+    gridContainer.className = 'multi-column-grid-container';
+    const startElement = findStartOfSketches();
+    if (startElement) {
+      startElement.parentNode.insertBefore(gridContainer, startElement);
+    }
+  }
+
+  // Set column width based on input
+  gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidthInput.value}px, 1fr))`;
+
+  // Find all sketch sections
+  const sketchSections = findSketchSections();
+
+  // Create sketch items and move elements
+  sketchSections.forEach((section, index) => {
+    // Create sketch item container
+    const sketchItem = document.createElement('div');
+    sketchItem.className = 'sketch-item';
+    sketchItem.id = `sketch-item-${index}`;
+
+    // Move all elements to the sketch item
+    section.elements.forEach(element => {
+      // Store original position
+      if (!element.dataset.originalParent) {
+        const parent = element.parentNode;
+        const nextSibling = element.nextSibling;
+        element.dataset.originalParent = Array.from(document.querySelectorAll('*')).indexOf(parent);
+        element.dataset.originalNextSibling = nextSibling ? Array.from(document.querySelectorAll('*')).indexOf(nextSibling) : 'none';
+      }
+
+      // Move to grid item
+      sketchItem.appendChild(element);
+    });
+
+    // Add sketch item to grid container
+    gridContainer.appendChild(sketchItem);
+  });
+
+  // Show the grid container
+  gridContainer.style.display = 'grid';
+}
         
-        // Initialize
-        let isGridLayout = false;
-        let sketchItems = [];
-        let gridContainer = null;
+// Remove grid layout and restore original structure
+function removeGridLayout() {
+  if (!gridContainer) return;
+
+  // Get all sketch items in grid container
+  const sketchItems = gridContainer.children;
+
+  // Restore each sketch item to its original position
+  while (gridContainer.firstChild) {
+    const sketchItem = gridContainer.firstChild;
+    gridContainer.removeChild(sketchItem);
+
+    // Move all elements back to their original positions
+    while (sketchItem.firstChild) {
+      const element = sketchItem.firstChild;
+      sketchItem.removeChild(element);
+
+      // Get the original parent and next sibling
+      const originalParent = document.querySelectorAll('*')[parseInt(element.dataset.originalParent)];
+      const originalNextSiblingIndex = element.dataset.originalNextSibling;
+      let originalNextSibling = null;
+      if (originalNextSiblingIndex !== 'none') {
+        originalNextSibling = document.querySelectorAll('*')[parseInt(originalNextSiblingIndex)];
+      }
+
+      // Insert the element back into its original position
+      originalParent.insertBefore(element, originalNextSibling);
+    }
+  }
+
+// Remove the grid container
+gridContainer.parentNode.removeChild(gridContainer);
+  gridContainer = null;
+}
         
-        // Find the second HR (which marks the start of sketches)
-        function findStartOfSketches() {
-          const allHrs = contentDiv.querySelectorAll('hr');
-          // Return the element after the second HR
-          return allHrs.length >= 2 ? allHrs[1].nextElementSibling : null;
-        }
+// Toggle between layouts
+toggleButton.addEventListener('click', function() {
+  isGridLayout = !isGridLayout;
+
+  if (isGridLayout) {
+    applyGridLayout();
+    gridControls.style.display = 'inline-flex';
+    toggleButton.textContent = 'single column';
+  } else {
+    removeGridLayout();
+    gridControls.style.display = 'none';
+    toggleButton.textContent = 'grid layout';
+  }
+});
+     
         
-        // Find all sketch sections in the content
-        function findSketchSections() {
-          // Start from the element after the second HR
-          let startElement = findStartOfSketches();
-          if (!startElement) return [];
-          
-          // Initialize an array to store all sketch item groups
-          const sketchSections = [];
-          let currentSection = null;
-          
-          // Process all elements starting from the beginning of sketches
-          let currentElement = startElement;
-          
-          while (currentElement) {
-            // If it's an H3, start a new section
-            if (currentElement.tagName === 'H3') {
-              // If there's an existing section, finalize it
-              if (currentSection) {
-                sketchSections.push(currentSection);
-              }
-              
-              // Start a new section
-              currentSection = {
-                title: currentElement,
-                elements: [currentElement]
-              };
-            } 
-            // Otherwise, add to current section if there is one
-            else if (currentSection) {
-              currentSection.elements.push(currentElement);
-              
-              // Stop collecting at the final HR followed by year navigation
-              if (currentElement.tagName === 'HR' && 
-                  currentElement.nextElementSibling && 
-                  currentElement.nextElementSibling.tagName === 'P' &&
-                  currentElement.nextElementSibling.textContent.includes('2025 |')) {
-                sketchSections.push(currentSection);
-                break;
-              }
-            }
-            
-            currentElement = currentElement.nextElementSibling;
-          }
-          
-          // Add the last section if it exists and wasn't added yet
-          if (currentSection && !sketchSections.includes(currentSection)) {
-            sketchSections.push(currentSection);
-          }
-          
-          return sketchSections;
-        }
-        
-        // Apply grid layout
-        function applyGridLayout() {
-          // Create grid container if it doesn't exist
-          if (!gridContainer) {
-            gridContainer = document.createElement('div');
-            gridContainer.className = 'multi-column-grid-container';
-            const startElement = findStartOfSketches();
-            if (startElement) {
-              startElement.parentNode.insertBefore(gridContainer, startElement);
-            }
-          }
-          
-          // Set column width based on input
-          gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidthInput.value}px, 1fr))`;
-          
-          // Find all sketch sections
-          const sketchSections = findSketchSections();
-          
-          // Create sketch items and move elements
-          sketchSections.forEach((section, index) => {
-            // Create sketch item container
-            const sketchItem = document.createElement('div');
-            sketchItem.className = 'sketch-item';
-            sketchItem.id = `sketch-item-${index}`;
-            
-            // Move all elements to the sketch item
-            section.elements.forEach(element => {
-              // Store original position
-              if (!element.dataset.originalPosition) {
-                const parent = element.parentNode;
-                const nextSibling = element.nextSibling;
-                element.dataset.originalParent = Array.from(document.querySelectorAll('*')).indexOf(parent);
-                element.dataset.originalNextSibling = nextSibling ? Array.from(document.querySelectorAll('*')).indexOf(nextSibling) : 'none';
-              }
-              
-              // Move to grid item
-              sketchItem.appendChild(element);
-            });
-            
-            // Add sketch item to grid container
-            gridContainer.appendChild(sketchItem);
-          });
-          
-          // Show the grid container
-          gridContainer.style.display = 'grid';
-        }
-        
-        // Remove grid layout and restore original structure
-        function removeGridLayout() {
-          if (!gridContainer) return;
-          
-          // Get all elements in grid container
-          const elements = Array.from(gridContainer.querySelectorAll('*[data-original-position]'));
-          
-          // Restore each element to its original position
-          elements.forEach(element => {
-            const parent = document.querySelectorAll('*')[parseInt(element.dataset.originalParent)];
-            const nextSiblingIndex = element.dataset.originalNextSibling;
-            const nextSibling = nextSiblingIndex !== 'none' ? document.querySelectorAll('*')[parseInt(nextSiblingIndex)] : null;
-            
-            if (parent) {
-              parent.insertBefore(element, nextSibling || null);
-            }
-          });
-          
-          // Remove the grid container
-          gridContainer.parentNode.removeChild(gridContainer);
-          gridContainer = null;
-        }
-        
-        // Toggle between layouts
-        toggleButton.addEventListener('click', function() {
-          isGridLayout = !isGridLayout;
-          
-          if (isGridLayout) {
-            applyGridLayout();
-            gridControls.style.display = 'inline-flex';
-            toggleButton.textContent = 'single column';
-          } else {
-            //removeGridLayout();
-            gridControls.style.display = 'none';
-            toggleButton.textContent = 'grid layout';
-          }
-        });
-        
-        // Update grid layout when column width changes
-        columnWidthInput.addEventListener('input', function() {
-          if (isGridLayout && gridContainer) {
-            gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
-          }
-        });
-      });
-    </script>
+// Update grid layout when column width changes
+columnWidthInput.addEventListener('input', function() {
+  if (isGridLayout && gridContainer) {
+    gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
+  }
+});
+});
+</script>
+
 
   <!-- outros scripts gerais abav.lugaralgum.com -->
     <script src="../assets/scripts.js"></script>
