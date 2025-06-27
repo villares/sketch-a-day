@@ -129,18 +129,18 @@ def setup():
     flock = Flock(N, py5.width, py5.height)
 
 def predraw_update():
-    global red_mask, magenta_mask, blue_mask
+    global red_mask, orange_mask, yellow_mask
     flock.run()
     red_mask = flock.count > 30
-    magenta_mask = (20 < flock.count) * (flock.count <= 30)
-    blue_mask = flock.count <= 20
+    orange_mask = (20 < flock.count) * (flock.count <= 30)
+    yellow_mask = flock.count <= 20
 
 def draw():
     global triangles, triple_count
     py5.background(0)
     draw_boids(flock, red_mask,'red')
-    draw_boids(flock, magenta_mask,'orange')
-    draw_boids(flock, blue_mask, 'yellow')
+    draw_boids(flock, orange_mask,'orange')
+    draw_boids(flock, yellow_mask, 'yellow')
 
 def draw_boids(flock, mask, fill_color):
     position = flock.position[mask]
@@ -158,8 +158,8 @@ def draw_boids(flock, mask, fill_color):
     head_points = position + heading
     triangles = np.hstack(
         (left_points, right_points, head_points)).reshape(-1, 2)
-    triple_count = np.hstack(
-        (flock.count, flock.count, flock.count)).reshape(-1, 1)
+#     triple_count = np.hstack(
+#         (flock.count, flock.count, flock.count)).reshape(-1, 1)
     py5.fill(fill_color)
     with py5.begin_shape(py5.TRIANGLES):
         py5.vertices(triangles)
