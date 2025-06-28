@@ -17,12 +17,12 @@ If you appreciate what I have been doing, you may also support my artistic work,
   title="RSS Feed">
 
 <!-- TOGGLE_CONTROLS_HERE -->
+
+<!-- SKETCHES_START -->
    
 ---
 
 2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
-
----
 
 ---
 
@@ -34,7 +34,7 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 Back to the #numpy based #flocking experiment based on Nicolas Rougier example in "From Pytnon to Numpy"
 
-<!-- SKETCHES_START -->
+---
 
 ### sketch_2025_06_25
 
