@@ -122,145 +122,191 @@
 
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Create the controls HTML
-        const controlsHTML = `
-          <div class="layout-controls">
-            <button id="toggleLayout">turn on grid layout</button>
-            <div id="gridControls" style="display: none;">
-               <label for="columnWidth">width (px):</label>
-               <input type="text" id="columnWidth" value="200">
-            </div>
-          </div>
-        `;
+    document.addEventListener('DOMContentLoaded', function() {
+  // Create the controls HTML
+  const controlsHTML = `
+    <div class="layout-controls">
+      <button id="toggleLayout">turn on grid layout</button>
+      <div id="gridControls" style="display: none;">
+         <label for="columnWidth">width (px):</label>
+         <input type="text" id="columnWidth" value="200">
+      </div>
+    </div>
+  `;
 
-        // Find the toggle controls comment and replace it
-        const walker = document.createTreeWalker(
-          document.body,
-          NodeFilter.SHOW_COMMENT,
-          null,
-          false
-        );
+  // Find the toggle controls comment and replace it
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_COMMENT,
+    null,
+    false
+  );
 
-        let comment;
-        while (comment = walker.nextNode()) {
-          if (comment.nodeValue.trim() === 'TOGGLE_CONTROLS_HERE') {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = controlsHTML;
-            comment.parentNode.replaceChild(tempDiv.firstElementChild, comment);
-            break;
-          }
-        }
+  let comment;
+  while (comment = walker.nextNode()) {
+    if (comment.nodeValue.trim() === 'TOGGLE_CONTROLS_HERE') {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = controlsHTML;
+      comment.parentNode.replaceChild(tempDiv.firstElementChild, comment);
+      break;
+     }
+  }
 
-        // Get UI elements
-        const toggleButton = document.getElementById('toggleLayout');
-        const gridControls = document.getElementById('gridControls');
-        const columnWidthInput = document.getElementById('columnWidth');
-        const sketchesContainer = document.querySelector('.sketches-container');
-        
-        // Initialize
-        let isGridLayout = false;
-        let originalContent = null;
-        
-        // Store original content structure
-        function storeOriginalContent() {
-          if (!originalContent) {
-            originalContent = sketchesContainer.innerHTML;
-          }
-        }
+  // Find SKETCHES_START and SKETCHES_END comments
+  let startComment = null;
+  let endComment = null;
+  
+  const walker2 = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_COMMENT,
+    null,
+    false
+  );
 
-        // Group content into sketch items for grid layout
-        function createSketchItems() {
-          // Create a temporary div to parse the original content
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = originalContent;
-          
-          const h3Elements = tempDiv.querySelectorAll('h3');
-          const items = [];
-          
-          console.log('Found H3 elements:', h3Elements.length); // Debug
-          
-          h3Elements.forEach((h3, index) => {
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('sketch-item');
-            
-            // Add the h3 title
-            itemDiv.appendChild(h3.cloneNode(true));
-            
-            // Find all elements between this h3 and the next h3 or end
-            let currentElement = h3.nextElementSibling;
-            while (currentElement && currentElement.tagName !== 'H3') {
-              if (currentElement.tagName !== 'HR') { // Skip HR elements in grid layout
-                itemDiv.appendChild(currentElement.cloneNode(true));
-              }
-              currentElement = currentElement.nextElementSibling;
-            }
-            
-            items.push(itemDiv);
-          });
-          
-          console.log('Created items:', items.length); // Debug
-          return items;
+  while (comment = walker2.nextNode()) {
+    if (comment.nodeValue.trim() === 'SKETCHES_START' && !startComment) {
+      startComment = comment;
+    } else if (comment.nodeValue.trim() === 'SKETCHES_END') {
+      endComment = comment;
+      break;
+    }
+  }
+
+  if (!startComment || !endComment) {
+    console.error('Could not find SKETCHES_START and SKETCHES_END comments');
+    return;
+  }
+
+  // Get UI elements
+  const toggleButton = document.getElementById('toggleLayout');
+  const gridControls = document.getElementById('gridControls');
+  const columnWidthInput = document.getElementById('columnWidth');
+  
+  if (!toggleButton) {
+    console.error('Toggle button not found');
+    return;
+  }
+  
+  // Initialize
+  let isGridLayout = false;
+  let originalHTML = '';
+  let gridContainer = null;
+  
+  // Store original HTML content between comments
+  function storeOriginalHTML() {
+    if (!originalHTML) {
+      let html = '';
+      let currentNode = startComment.nextSibling;
+      
+      while (currentNode && currentNode !== endComment) {
+        if (currentNode.nodeType === Node.ELEMENT_NODE) {
+          html += currentNode.outerHTML;
+        } else if (currentNode.nodeType === Node.TEXT_NODE) {
+          html += currentNode.textContent;
         }
-        
-        // Apply grid layout
-        function applyGridLayout() {
-          storeOriginalContent();
-          
-          // console.log('Original content stored:', originalContent ? 'yes' : 'no'); // Debug
-          
-          // Get current column width setting
-          const columnWidth = columnWidthInput.value + 'px';
-          
-          // Add grid class and styles
-          sketchesContainer.classList.add('multi-column');
-          sketchesContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidth}, 1fr))`;
-          
-          // Create and add sketch items
-          const items = createSketchItems();
-          
-          // Clear container after getting items
-          sketchesContainer.innerHTML = '';
-          
-          // Add items to container
-          items.forEach(item => {
-            sketchesContainer.appendChild(item);
-          });
-          
-          // console.log('Grid layout applied, items added:', items.length); // Debug
+        currentNode = currentNode.nextSibling;
+      }
+      originalHTML = html;
+    }
+  }
+
+  // Create grid layout
+  function applyGridLayout() {
+    storeOriginalHTML();
+    
+    // Remove existing content between comments
+    let currentNode = startComment.nextSibling;
+    while (currentNode && currentNode !== endComment) {
+      const nextNode = currentNode.nextSibling;
+      currentNode.remove();
+      currentNode = nextNode;
+    }
+    
+    // Create grid container
+    gridContainer = document.createElement('div');
+    gridContainer.classList.add('sketches-container', 'multi-column');
+    
+    const columnWidth = columnWidthInput.value + 'px';
+    gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidth}, 1fr))`;
+    
+    // Insert grid container after start comment
+    startComment.parentNode.insertBefore(gridContainer, endComment);
+    
+    // Parse original HTML and create grid items
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = originalHTML;
+    
+    // Find all H3 elements that start with sketch_
+    const h3Elements = tempDiv.querySelectorAll('h3[id^="sketch_"]');
+    
+    h3Elements.forEach((h3, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.classList.add('sketch-item');
+      
+      // Add the H3
+      itemDiv.appendChild(h3.cloneNode(true));
+      
+      // Find and add related content until next H3 or end
+      let currentElement = h3.nextSibling;
+      const nextH3 = h3Elements[index + 1];
+      
+      while (currentElement && currentElement !== nextH3) {
+        if (currentElement.nodeType === Node.ELEMENT_NODE) {
+          // Skip HR elements in grid layout
+          if (currentElement.tagName !== 'HR') {
+            itemDiv.appendChild(currentElement.cloneNode(true));
+          }
+        } else if (currentElement.nodeType === Node.TEXT_NODE && currentElement.textContent.trim()) {
+          itemDiv.appendChild(currentElement.cloneNode(true));
         }
-        
-        // Remove grid layout and restore original structure
-        function removeGridLayout() {
-          if (originalContent) {
-            sketchesContainer.classList.remove('multi-column');
-            sketchesContainer.style.gridTemplateColumns = '';
-            sketchesContainer.innerHTML = originalContent;
-          }
-        }
-        
-        // Toggle between layouts
-        toggleButton.addEventListener('click', function() {
-          isGridLayout = !isGridLayout;
-          
-          if (isGridLayout) {
-            applyGridLayout();
-            gridControls.style.display = 'inline-flex';
-            toggleButton.textContent = 'turn off grid layout';
-          } else {
-            removeGridLayout();
-            gridControls.style.display = 'none';
-            toggleButton.textContent = 'turn on grid layout';
-          }
-        });
-        
-        // Update grid layout when column width changes
-        columnWidthInput.addEventListener('input', function() {
-          if (isGridLayout) {
-            sketchesContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
-          }
-        });
-      });
+        currentElement = currentElement.nextSibling;
+      }
+      
+      gridContainer.appendChild(itemDiv);
+    });
+  }
+  
+  // Remove grid layout and restore original structure
+  function removeGridLayout() {
+    if (gridContainer) {
+      gridContainer.remove();
+      gridContainer = null;
+    }
+    
+    // Restore original HTML
+    if (originalHTML) {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHTML;
+      
+      // Insert all nodes from temp div
+      while (tempDiv.firstChild) {
+        startComment.parentNode.insertBefore(tempDiv.firstChild, endComment);
+      }
+    }
+  }
+  
+  // Toggle between layouts
+  toggleButton.addEventListener('click', function() {
+    isGridLayout = !isGridLayout;
+    
+    if (isGridLayout) {
+      applyGridLayout();
+      gridControls.style.display = 'inline-flex';
+      toggleButton.textContent = 'turn off grid layout';
+    } else {
+      removeGridLayout();
+      gridControls.style.display = 'none';
+      toggleButton.textContent = 'turn on grid layout';
+    }
+  });
+  
+  // Update grid layout when column width changes
+  columnWidthInput.addEventListener('input', function() {
+    if (isGridLayout && gridContainer) {
+      gridContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${this.value}px, 1fr))`;
+    }
+  });
+});
     </script>
 
   <!-- outros scripts gerais abav.lugaralgum.com -->
