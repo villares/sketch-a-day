@@ -1795,7 +1795,7 @@ The next day I think I improved it:
 
 [sketch_2025_01_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_01_01) [[py5](https://py5coding.org/)]
 
-<!-- SKETCHES_START -->
+<!-- SKETCHES_END -->
 
 ---
 
