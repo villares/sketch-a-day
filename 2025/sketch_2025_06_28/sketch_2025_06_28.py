@@ -22,7 +22,7 @@ def draw():
         x = x + spacing
 
 def mouse_clicked():
-    i = (mouse_x - 60) // spacing + 1
+    i = (mouse_x - margin) // spacing + 1
     print(i)
     numbers.insert(i, 0)
 
