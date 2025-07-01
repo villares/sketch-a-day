@@ -23,6 +23,7 @@
 # Updated image_helpers to use pathlib...
 # TODO save the caption and comments if posting fails...
 # TODO permitir postar SVG no mastodon (talvez converter).
+# 
 
 
 import sys
@@ -143,7 +144,7 @@ def main(args):
                     except Exception as e:
                         status = e
                     change_log.append(f'Mastodon: {status}')
-                readme_as_lines.insert(insert_point - 3, entry_text)
+                readme_as_lines.insert(insert_point - 1, entry_text)
                 adding_message = 'Adding: ' + folder
                 print(adding_message)
                 change_log.append(adding_message)
@@ -227,13 +228,13 @@ def build_entry(folder, image_filename, tool=None, comment=None, image_caption=N
     link = f'{REPO_MAIN_URL}/{YEAR}/{folder}'
     
     return f"""
----
-
 ### {folder}
 
 ![{folder}]({RAW_CONTENT}/{YEAR}/{folder}/{image_filename})
 
 [{folder}]({link}) {tools.get(tool,'['+tool+']')}{comment}
+
+---
 """
 
 def search_docstring(folder):
