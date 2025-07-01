@@ -17,8 +17,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
   title="RSS Feed">
 
 <!-- TOGGLE_CONTROLS_HERE -->
-
-<!-- SKETCHES_START -->
    
 ---
 
@@ -26,13 +24,25 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+<!-- SKETCHES_START -->
+
+
+### sketch_2025_06_30
+
+![sketch_2025_06_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_30/sketch_2025_06_30.gif)
+
+[sketch_2025_06_30](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_30) [[py5](https://py5coding.org/)]
+
+#AlanTuring #TuringPride #Pride
+
+---
+
+
 ### sketch_2025_06_29
 
 ![sketch_2025_06_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_29/sketch_2025_06_29.png)
 
 [sketch_2025_06_29](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_29) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
