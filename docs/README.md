@@ -26,7 +26,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 <!-- SKETCHES_START -->
 
-
 ### sketch_2025_06_30
 
 ![sketch_2025_06_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_30/sketch_2025_06_30.gif)
@@ -36,7 +35,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
 #AlanTuring #TuringPride #Pride
 
 ---
-
 
 ### sketch_2025_06_29
 
@@ -60,7 +58,6 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 [sketch_2025_06_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_27) [Blender Geometry Nodes]
 
-
 ---
 
 ### sketch_2025_06_26
@@ -78,8 +75,6 @@ Back to the #numpy based #flocking experiment based on Nicolas Rougier example i
 ![sketch_2025_06_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_25/sketch_2025_06_25.png)
 
 [sketch_2025_06_25](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_25) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -99,8 +94,6 @@ Back to the #numpy based #flocking experiment based on Nicolas Rougier example i
 
 [sketch_2025_06_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_23) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_22
@@ -119,8 +112,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 
 [sketch_2025_06_21](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_21) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_20
@@ -128,8 +119,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 ![sketch_2025_06_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_20/sketch_2025_06_20.gif)
 
 [sketch_2025_06_20](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_20) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -139,8 +128,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 
 [sketch_2025_06_19](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_19) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_18
@@ -148,8 +135,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 ![sketch_2025_06_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_18/sketch_2025_06_18.gif)
 
 [sketch_2025_06_18](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_18) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -159,8 +144,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 
 [sketch_2025_06_17](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_17) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_16
@@ -168,8 +151,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 ![sketch_2025_06_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_16/sketch_2025_06_16.gif)
 
 [sketch_2025_06_16](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_16) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -179,8 +160,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 
 [sketch_2025_06_15](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_15) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_14
@@ -188,8 +167,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 ![sketch_2025_06_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_14/sketch_2025_06_14.gif)
 
 [sketch_2025_06_14](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_14) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -199,8 +176,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 
 [sketch_2025_06_13](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_13) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_12
@@ -208,8 +183,6 @@ Not very good WIP... I always struggle to make #trimesh 3D meshes from scratch w
 ![sketch_2025_06_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_12/sketch_2025_06_12.gif)
 
 [sketch_2025_06_12](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_12) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -239,8 +212,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_06_09](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_09) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_08
@@ -248,8 +219,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_06_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_08/sketch_2025_06_08.gif)
 
 [sketch_2025_06_08](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_08) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -259,8 +228,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_06_07](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_07) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_06
@@ -268,8 +235,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_06_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_06/sketch_2025_06_06.png)
 
 [sketch_2025_06_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_06) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -279,8 +244,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_06_05](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_05) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_04
@@ -288,8 +251,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_06_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_04/sketch_2025_06_04.png)
 
 [sketch_2025_06_04](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_04) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -299,8 +260,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_06_03](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_03) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_06_02
@@ -308,8 +267,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_06_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_06_02/sketch_2025_06_02.png)
 
 [sketch_2025_06_02](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_02) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -319,8 +276,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_06_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_06_01) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_31
@@ -328,8 +283,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_05_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_31/sketch_2025_05_31.gif)
 
 [sketch_2025_05_31](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_31) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -339,8 +292,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_05_30](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_30) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_29
@@ -348,8 +299,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_05_29](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_29/sketch_2025_05_29.gif)
 
 [sketch_2025_05_29](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_29) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -359,8 +308,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_05_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_28) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_27
@@ -368,8 +315,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_05_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_27/sketch_2025_05_27.gif)
 
 [sketch_2025_05_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_27) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -379,8 +324,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_05_26](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_26) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_25
@@ -388,8 +331,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_05_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_25/sketch_2025_05_25.gif)
 
 [sketch_2025_05_25](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_25) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -399,8 +340,6 @@ A #trimesh example used in class yesterday!
 
 [sketch_2025_05_24](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_24) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_23
@@ -408,8 +347,6 @@ A #trimesh example used in class yesterday!
 ![sketch_2025_05_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_23/sketch_2025_05_23.gif)
 
 [sketch_2025_05_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_23) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -439,8 +376,6 @@ WIP: reviewing my geometry helpers. Hatch polygon seems... broken.
 
 [sketch_2025_05_20](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_20) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_19
@@ -458,8 +393,6 @@ Ome more PeasyCam + mouse selection
 ![sketch_2025_05_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_18/sketch_2025_05_18.gif)
 
 [sketch_2025_05_18](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_18) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -479,8 +412,6 @@ Zoom, pan and *slick* 3D orbit mouse interaction with insane ease, basically for
 
 [sketch_2025_05_16](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_16) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_15
@@ -488,8 +419,6 @@ Zoom, pan and *slick* 3D orbit mouse interaction with insane ease, basically for
 ![sketch_2025_05_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_15/sketch_2025_05_15.png)
 
 [sketch_2025_05_15](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_15) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -499,8 +428,6 @@ Zoom, pan and *slick* 3D orbit mouse interaction with insane ease, basically for
 
 [sketch_2025_05_14](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_14) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_13
@@ -508,8 +435,6 @@ Zoom, pan and *slick* 3D orbit mouse interaction with insane ease, basically for
 ![sketch_2025_05_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_13/sketch_2025_05_13.png)
 
 [sketch_2025_05_13](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_13) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -528,8 +453,6 @@ One more "snub square tiling" #loop #animation :)
 ![sketch_2025_05_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_11/sketch_2025_05_11.gif)
 
 [sketch_2025_05_11](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_11) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -569,8 +492,6 @@ Another take at animating "Cairo tiles" which I tried not long ago (actually in 
 
 [sketch_2025_05_07](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_07) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_06
@@ -578,8 +499,6 @@ Another take at animating "Cairo tiles" which I tried not long ago (actually in 
 ![sketch_2025_05_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_05_06/sketch_2025_05_06.png)
 
 [sketch_2025_05_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_06) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -619,8 +538,6 @@ heavily inspired by Marius Watz's work I posted recently, from the Processing ex
 
 [sketch_2025_05_02](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_05_02) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_05_01
@@ -650,8 +567,6 @@ Broken! Maybe something in pymunk changed, I have to investigate!
 
 [sketch_2025_04_29](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_29) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_28
@@ -672,8 +587,6 @@ No interactive segment-wall drawing for this one. And I can't use pickle for thi
 
 [sketch_2025_04_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_27) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_26
@@ -681,8 +594,6 @@ No interactive segment-wall drawing for this one. And I can't use pickle for thi
 ![sketch_2025_04_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_26/sketch_2025_04_26.gif)
 
 [sketch_2025_04_26](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_26) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -702,8 +613,6 @@ WIP
 
 [sketch_2025_04_24](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_24) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_23
@@ -711,8 +620,6 @@ WIP
 ![sketch_2025_04_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_23/sketch_2025_04_23.gif)
 
 [sketch_2025_04_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_23) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -722,8 +629,6 @@ WIP
 
 [sketch_2025_04_22](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_22) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_21
@@ -731,8 +636,6 @@ WIP
 ![sketch_2025_04_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_21/sketch_2025_04_21.gif)
 
 [sketch_2025_04_21](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_21) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -742,8 +645,6 @@ WIP
 
 [sketch_2025_04_20](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_20) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_19
@@ -752,8 +653,6 @@ WIP
 
 [sketch_2025_04_19](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_19) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_18
@@ -761,8 +660,6 @@ WIP
 ![sketch_2025_04_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_18/sketch_2025_04_18.png)
 
 [sketch_2025_04_18](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_18) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -782,8 +679,6 @@ Yet another GOL...
 
 [sketch_2025_04_16](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_16) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_15
@@ -791,8 +686,6 @@ Yet another GOL...
 ![sketch_2025_04_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_15/sketch_2025_04_15.png)
 
 [sketch_2025_04_15](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_15) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -802,8 +695,6 @@ Yet another GOL...
 
 [sketch_2025_04_14](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_14) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_13
@@ -811,8 +702,6 @@ Yet another GOL...
 ![sketch_2025_04_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_13/sketch_2025_04_13.png)
 
 [sketch_2025_04_13](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_13) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -822,8 +711,6 @@ Yet another GOL...
 
 [sketch_2025_04_12](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_12) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_11
@@ -831,8 +718,6 @@ Yet another GOL...
 ![sketch_2025_04_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_11/sketch_2025_04_11.png)
 
 [sketch_2025_04_11](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_11) [[leafmap](https://leafmap.org/)]
-
-
 
 ---
 
@@ -842,8 +727,6 @@ Yet another GOL...
 
 [sketch_2025_04_10](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_10) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_09
@@ -851,8 +734,6 @@ Yet another GOL...
 ![sketch_2025_04_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_09/sketch_2025_04_09.png)
 
 [sketch_2025_04_09](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_09) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -862,8 +743,6 @@ Yet another GOL...
 
 [sketch_2025_04_08](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_08) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_07
@@ -871,8 +750,6 @@ Yet another GOL...
 ![sketch_2025_04_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_07/sketch_2025_04_07.png)
 
 [sketch_2025_04_07](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_07) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -882,8 +759,6 @@ Yet another GOL...
 
 [sketch_2025_04_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_06) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_05
@@ -891,8 +766,6 @@ Yet another GOL...
 ![sketch_2025_04_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_05/sketch_2025_04_05.gif)
 
 [sketch_2025_04_05](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_05) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -902,8 +775,6 @@ Yet another GOL...
 
 [sketch_2025_04_04](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_04) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_04_03
@@ -911,8 +782,6 @@ Yet another GOL...
 ![sketch_2025_04_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_04_03/sketch_2025_04_03.png)
 
 [sketch_2025_04_03](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_03) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -932,8 +801,6 @@ Yet another GOL...
 
 [sketch_2025_04_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_04_01) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_31
@@ -951,8 +818,6 @@ Done during class.
 ![sketch_2025_03_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_30/sketch_2025_03_30.png)
 
 [sketch_2025_03_30](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_30) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -972,8 +837,6 @@ Trying to adapt an awesome zoom strategy from my dear friend @Introscopia@coleti
 
 [sketch_2025_03_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_28) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_27
@@ -982,8 +845,6 @@ Trying to adapt an awesome zoom strategy from my dear friend @Introscopia@coleti
 
 [sketch_2025_03_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_27) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_26
@@ -991,8 +852,6 @@ Trying to adapt an awesome zoom strategy from my dear friend @Introscopia@coleti
 ![sketch_2025_03_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_26/sketch_2025_03_26.png)
 
 [sketch_2025_03_26](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_26) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1012,8 +871,6 @@ Astronaut Eileen Collins
 
 [sketch_2025_03_24](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_24) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_23
@@ -1021,8 +878,6 @@ Astronaut Eileen Collins
 ![sketch_2025_03_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_23/sketch_2025_03_23.gif)
 
 [sketch_2025_03_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_23) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1032,8 +887,6 @@ Astronaut Eileen Collins
 
 [sketch_2025_03_22](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_22) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_21
@@ -1041,8 +894,6 @@ Astronaut Eileen Collins
 ![sketch_2025_03_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_21/sketch_2025_03_21.png)
 
 [sketch_2025_03_21](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_21) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1052,8 +903,6 @@ Astronaut Eileen Collins
 
 [sketch_2025_03_20](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_20) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_19
@@ -1061,8 +910,6 @@ Astronaut Eileen Collins
 ![sketch_2025_03_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_19/sketch_2025_03_19.gif)
 
 [sketch_2025_03_19](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_19) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1072,8 +919,6 @@ Astronaut Eileen Collins
 
 [sketch_2025_03_18](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_18) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_17
@@ -1081,8 +926,6 @@ Astronaut Eileen Collins
 ![sketch_2025_03_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_17/sketch_2025_03_17.png)
 
 [sketch_2025_03_17](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_17) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1092,8 +935,6 @@ Astronaut Eileen Collins
 
 [sketch_2025_03_16](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_16) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_15
@@ -1101,8 +942,6 @@ Astronaut Eileen Collins
 ![sketch_2025_03_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_15/sketch_2025_03_15.gif)
 
 [sketch_2025_03_15](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_15) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1112,8 +951,6 @@ Astronaut Eileen Collins
 
 [sketch_2025_03_14](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_14) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_13
@@ -1121,8 +958,6 @@ Astronaut Eileen Collins
 ![sketch_2025_03_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_13/sketch_2025_03_13.png)
 
 [sketch_2025_03_13](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_13) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1142,8 +977,6 @@ Work in progress... #OpenStreetMap data as usual #osmnx
 
 [sketch_2025_03_11](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_11) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_10
@@ -1151,8 +984,6 @@ Work in progress... #OpenStreetMap data as usual #osmnx
 ![sketch_2025_03_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_10/sketch_2025_03_10.png)
 
 [sketch_2025_03_10](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_10) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1162,8 +993,6 @@ Work in progress... #OpenStreetMap data as usual #osmnx
 
 [sketch_2025_03_09](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_09) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_08
@@ -1172,8 +1001,6 @@ Work in progress... #OpenStreetMap data as usual #osmnx
 
 [sketch_2025_03_08](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_08) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_07
@@ -1181,8 +1008,6 @@ Work in progress... #OpenStreetMap data as usual #osmnx
 ![sketch_2025_03_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_07/sketch_2025_03_07.png)
 
 [sketch_2025_03_07](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_07) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1214,8 +1039,6 @@ Demo of raster clipping/masking with #py5 and #numpy.
 
 [sketch_2025_03_04](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_04) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_03
@@ -1223,8 +1046,6 @@ Demo of raster clipping/masking with #py5 and #numpy.
 ![sketch_2025_03_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_03/sketch_2025_03_03.gif)
 
 [sketch_2025_03_03](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_03) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1234,8 +1055,6 @@ Demo of raster clipping/masking with #py5 and #numpy.
 
 [sketch_2025_03_02](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_02) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_03_01
@@ -1243,8 +1062,6 @@ Demo of raster clipping/masking with #py5 and #numpy.
 ![sketch_2025_03_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_03_01/sketch_2025_03_01.gif)
 
 [sketch_2025_03_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_03_01) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1264,8 +1081,6 @@ Domingo vai ter oficina de GIFs animados no Garoa... [versão maior da animaçã
 
 [sketch_2025_02_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_27) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_26
@@ -1273,8 +1088,6 @@ Domingo vai ter oficina de GIFs animados no Garoa... [versão maior da animaçã
 ![sketch_2025_02_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_26/sketch_2025_02_26.png)
 
 [sketch_2025_02_26](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_26) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1305,8 +1118,6 @@ https://www.openstreetmap.org/copyright
 
 [sketch_2025_02_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_23) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_22
@@ -1315,8 +1126,6 @@ https://www.openstreetmap.org/copyright
 
 [sketch_2025_02_22](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_22) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_21
@@ -1324,8 +1133,6 @@ https://www.openstreetmap.org/copyright
 ![sketch_2025_02_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_21/sketch_2025_02_21.png)
 
 [sketch_2025_02_21](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_21) [matplotlib]
-
-
 
 ---
 
@@ -1345,8 +1152,6 @@ https://www.openstreetmap.org/copyright
 
 [sketch_2025_02_19](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_19) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_18
@@ -1355,8 +1160,6 @@ https://www.openstreetmap.org/copyright
 
 [sketch_2025_02_18](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_18) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_17
@@ -1364,8 +1167,6 @@ https://www.openstreetmap.org/copyright
 ![sketch_2025_02_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_17/sketch_2025_02_17.gif)
 
 [sketch_2025_02_17](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_17) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
@@ -1385,8 +1186,6 @@ https://www.openstreetmap.org/copyright
 
 [sketch_2025_02_15](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_15) [[py5](https://py5coding.org/)]
 
-
-
 ---
 
 ### sketch_2025_02_14
@@ -1394,8 +1193,6 @@ https://www.openstreetmap.org/copyright
 ![sketch_2025_02_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_02_14/sketch_2025_02_14.gif)
 
 [sketch_2025_02_14](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_02_14) [[py5](https://py5coding.org/)]
-
-
 
 ---
 
