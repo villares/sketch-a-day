@@ -21,10 +21,7 @@ def draw():
                 b = brightness(cor)
                 h = int(remap(y, 0, height, 0, 255))
                 fill(128, 255 - h, b)
-                if is_mouse_pressed:
-                    square(x, y, esp * b / 255)
-                else:
-                    square(x, y, esp * b // 255)
+                square(x, y, esp * b // 255)
 
 def key_pressed():
     save_frame('out##.png')
