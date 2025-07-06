@@ -32,7 +32,7 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 [sketch_2025_07_06](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_07_06) [[py5](https://py5coding.org/)]
 
-Finally I made an arbritary #trimesh "slab" I've been unsuccessfully thinking about doing for a while...
+Finally I made an arbitrary #trimesh "slab" I've been unsuccessfully thinking about doing for a while...
 
 ---
 
