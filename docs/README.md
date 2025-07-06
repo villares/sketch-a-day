@@ -26,6 +26,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 <!-- SKETCHES_START -->
 
+### sketch_2025_07_05
+
+![sketch_2025_07_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_07_05/sketch_2025_07_05.gif)
+
+[sketch_2025_07_05](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_07_05) [[py5](https://py5coding.org/)]
+
+I hate to calculate the index of vertices on an array for constructiong faces. So I ended up trying a dictionary  with the indices... let's see if this helps with my trimesh studies.
+
+---
+
 ### sketch_2025_07_04
 
 ![sketch_2025_07_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_07_04/sketch_2025_07_04.png)
