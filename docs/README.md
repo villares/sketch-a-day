@@ -26,6 +26,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 <!-- SKETCHES_START -->
 
+### sketch_2025_07_11
+
+![sketch_2025_07_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_07_11/sketch_2025_07_11.png)
+
+[sketch_2025_07_11](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_07_11) [[ursina](https://www.ursinaengine.org/)]
+
+Eperimenting with #UrsinaEngine
+
+---
+
 ### sketch_2025_07_10
 
 ![sketch_2025_07_10](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_07_10/sketch_2025_07_10.gif)
