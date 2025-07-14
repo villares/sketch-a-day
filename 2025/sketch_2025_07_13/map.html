@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ba2b42c671c45a817f700a96c3da7ee1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ba2b42c671c45a817f700a96c3da7ee1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ba2b42c671c45a817f700a96c3da7ee1 = L.map(
+                "map_ba2b42c671c45a817f700a96c3da7ee1",
+                {
+                    center: [-23.5351287, -46.6537821],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_58e0dca6d33636a9985e3473547ce36d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_58e0dca6d33636a9985e3473547ce36d.addTo(map_ba2b42c671c45a817f700a96c3da7ee1);
+        
+    
+            var marker_8d9a41f2ee5462e693f8f11df8198de6 = L.marker(
+                [-23.5351287, -46.6537821],
+                {
+}
+            ).addTo(map_ba2b42c671c45a817f700a96c3da7ee1);
+        
+    
+        var popup_d784df9933dc5466e20443a4ed9f681e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d49696909056659c7768031c7160e9c8 = $(`<div id="html_d49696909056659c7768031c7160e9c8" style="width: 100.0%; height: 100.0%;">Av. Angélica, São Paulo, Brazil</div>`)[0];
+                popup_d784df9933dc5466e20443a4ed9f681e.setContent(html_d49696909056659c7768031c7160e9c8);
+            
+        
+
+        marker_8d9a41f2ee5462e693f8f11df8198de6.bindPopup(popup_d784df9933dc5466e20443a4ed9f681e)
+        ;
+
+        
+    
+    
+            var marker_012409a2af47205f06cbf61d07546d7c = L.marker(
+                [-23.5706535, -46.6456933],
+                {
+}
+            ).addTo(map_ba2b42c671c45a817f700a96c3da7ee1);
+        
+    
+        var popup_c3a6a6f9b650534003536ba6cc02058f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7aac70b6dc0b742fe4526b84e8fe242b = $(`<div id="html_7aac70b6dc0b742fe4526b84e8fe242b" style="width: 100.0%; height: 100.0%;">Sesc Av. Paulista, São Paulo, Brazil</div>`)[0];
+                popup_c3a6a6f9b650534003536ba6cc02058f.setContent(html_7aac70b6dc0b742fe4526b84e8fe242b);
+            
+        
+
+        marker_012409a2af47205f06cbf61d07546d7c.bindPopup(popup_c3a6a6f9b650534003536ba6cc02058f)
+        ;
+
+        
+    
+    
+            var marker_96afb343713db391ba6addad185faa31 = L.marker(
+                [-23.5465145, -46.6441343],
+                {
+}
+            ).addTo(map_ba2b42c671c45a817f700a96c3da7ee1);
+        
+    
+        var popup_67a5b662087fcfea5f92576b38dd23c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c857e1bf2bf109eba3e51433c0fc179 = $(`<div id="html_4c857e1bf2bf109eba3e51433c0fc179" style="width: 100.0%; height: 100.0%;">Av. Ipiranga 200, São Paulo, Brazil</div>`)[0];
+                popup_67a5b662087fcfea5f92576b38dd23c6.setContent(html_4c857e1bf2bf109eba3e51433c0fc179);
+            
+        
+
+        marker_96afb343713db391ba6addad185faa31.bindPopup(popup_67a5b662087fcfea5f92576b38dd23c6)
+        ;
+
+        
+    
+</script>
+</html>
