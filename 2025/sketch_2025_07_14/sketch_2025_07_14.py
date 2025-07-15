@@ -1,6 +1,5 @@
-# size(2020, 950, PDF, 'out.pdf')
-
-# An L-System made with Python and py5 <py5coding.org>
+# An L-System made with Python and py5 in static/imported mode style
+# Learn more at https://py5coding.org/content/py5_modes.html
 
 size(950, 950)
 background(255)
@@ -40,4 +39,3 @@ for symbol in sequence:
             circle(0, 0, step / 5)
 
 save('out.png')
-#exit_sketch()
