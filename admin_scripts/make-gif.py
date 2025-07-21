@@ -13,12 +13,13 @@ I_FONT = ('Courier', 16)
 # Define the GUI layout
 layout = [
     [sg.Text('Input folder:', font=L_FONT)],
+    [sg.Text('Select a folder with PNG images, all with the same dimensions.', font=I_FONT)],
     [sg.InputText(default_text=default_input, font=I_FONT), sg.FolderBrowse(font=I_FONT)],
-    [sg.Text('Output file:', font=L_FONT)],
-    [sg.InputText(default_text=default_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
+    [sg.Text('Output file name:', font=L_FONT)],
+    [sg.InputText(default_text=default_output, font=I_FONT)],
     [sg.Text('Frame duration (milliseconds):', font=I_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
     [sg.Text('Number of loops (0=forever):', font=I_FONT), sg.InputText(default_text='0', font=I_FONT, size=(3, 1))],
-    [sg.Checkbox('Optimize GIF, to N colors:', font=I_FONT), sg.InputText(default_text='32', font=I_FONT, size=(3, 1))],
+    [sg.Checkbox('Optimize GIF, to N colors:', True, font=I_FONT), sg.InputText(default_text='32', font=I_FONT, size=(3, 1))],
     [sg.Button('Create GIF', font=L_FONT), sg.Button('Cancel', font=L_FONT)]
 ]
 # Create the GUI window
