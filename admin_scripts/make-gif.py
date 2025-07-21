@@ -3,8 +3,9 @@
 from pathlib import Path
 
 # ATENÇÃO:                    Precisa instalar as bibliotecas!
-import FreeSimpleGUI as sg    # precisa installar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
-import imageio              # precisa installar o imageio também!
+import FreeSimpleGUI as sg    # `!pip install FreeSimpleGUI` no console ou Thonny "Manage packages..."
+import imageio                # `!pip install imageio`
+from pygifsicle import gifsicle    # `!pip install pygifsicle`
 
 default_output = 'out.gif'
 default_input = Path.cwd()
@@ -17,23 +18,20 @@ layout = [
     [sg.InputText(default_text=default_input, font=I_FONT), sg.FolderBrowse(font=I_FONT)],
     [sg.Text('Output file:', font=L_FONT)],
     [sg.InputText(default_text=default_output, font=I_FONT), sg.FileSaveAs(font=I_FONT)],
-    [sg.Text('Frame duration (milliseconds):', font=L_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
-    [sg.Text('Number of loops (0=forever):', font=L_FONT), sg.InputText(default_text='0', font=I_FONT, size=(3, 1))],
+    [sg.Text('Frame duration (milliseconds):', font=I_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
+    [sg.Text('Number of loops (0=forever):', font=I_FONT), sg.InputText(default_text='0', font=I_FONT, size=(3, 1))],
+    [sg.Checkbox('Optimize GIF, to N colors:', font=I_FONT), sg.InputText(default_text='32', font=I_FONT, size=(3, 1))],
     [sg.Button('Create GIF', font=L_FONT), sg.Button('Cancel', font=L_FONT)]
 ]
-
 # Create the GUI window
 window = sg.Window('Create GIF', layout)
-
 # Run the GUI event loop
 while True:
     # Get the next GUI event
     event, values = window.read()
-
     # Exit the event loop if the window was closed or the Cancel button was clicked
     if event in (None, 'Cancel'):
         break
-
     # Create the GIF if the Create GIF button was clicked
     if event == 'Create GIF' and values:
         # Get the input and output values from the GUI
@@ -41,13 +39,15 @@ while True:
         output_file = input_dir / values[1]
         duration = int(values[2]) if values[2] else 200
         loops = int(values[3]) if values[3] else 0
-        dir_path = Path(input_dir)
+        optimize_checkbox = values[4]
+        colors = int(values[5]) if values[5] else 256 
         # Create the GIF if there are any images
         try:
             # Load the PNG images from the input folder
             images = [imageio.v3.imread(file_path) for file_path
-                  in sorted(dir_path.iterdir())
+                  in sorted(input_dir.iterdir())
                   if file_path.suffix.lower() == '.png']
+            print(f'{input_dir.name} has {len(images)} PNG image{"s" if len(images)!=1 else ""}.')
             if images:
                 imageio.v3.imwrite(
                 output_file,
@@ -55,9 +55,19 @@ while True:
                 duration=duration,
                 loop=loops,
                 )
+                # If optimize is checked
+                if optimize_checkbox:
+                    optimized_file = input_dir / ('optimized_' + values[1])
+                    gifsicle(
+                        sources=output_file,
+                        destination=optimized_file,
+                        optimize=True, # Whether to add the optimize flag or not
+                        colors=colors, # Number of colors to use
+                        options=["--verbose"]
+                    ) 
                 sg.popup(f'Animation saved as:\n{output_file}')
             else:
-                sg.popup(f'No PNG images found at\n{dir_path}')
+                sg.popup(f'No PNG images found at\n{input_dir}')
         except Exception as e:
             if str(e).startswith('all input arrays'):
                 sg.popup('Select only images of same size.')
