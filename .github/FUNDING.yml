@@ -9,4 +9,5 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: villares
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom: ['https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724'] # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
+# up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
+custom: ['https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724', 'https://wise.com/pay/me/alexandrev562'] 
