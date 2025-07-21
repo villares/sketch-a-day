@@ -1,17 +1,15 @@
 #!/home/villares/thonny-env/bin/python
 
 from pathlib import Path
+                                 # You'll need to install these
+import FreeSimpleGUI as sg       # `pip install FreeSimpleGUI`
+import imageio                   # `pip install imageio`
+from pygifsicle import gifsicle  # `pip install pygifsicle`
 
-# ATENÇÃO:                    Precisa instalar as bibliotecas!
-import FreeSimpleGUI as sg    # `!pip install FreeSimpleGUI` no console ou Thonny "Manage packages..."
-import imageio                # `!pip install imageio`
-from pygifsicle import gifsicle    # `!pip install pygifsicle`
-
-default_output = 'out.gif'
+default_output = 'output.gif'
 default_input = Path.cwd()
 L_FONT = ('Courier', 20)
 I_FONT = ('Courier', 16)
-
 # Define the GUI layout
 layout = [
     [sg.Text('Input folder:', font=L_FONT)],
@@ -55,6 +53,7 @@ while True:
                 duration=duration,
                 loop=loops,
                 )
+                sg.popup(f'Animation saved as:\n{output_file}')
                 # If optimize is checked
                 if optimize_checkbox:
                     optimized_file = input_dir / ('optimized_' + values[1])
@@ -65,7 +64,6 @@ while True:
                         colors=colors, # Number of colors to use
                         options=["--verbose"]
                     ) 
-                sg.popup(f'Animation saved as:\n{output_file}')
             else:
                 sg.popup(f'No PNG images found at\n{input_dir}')
         except Exception as e:
