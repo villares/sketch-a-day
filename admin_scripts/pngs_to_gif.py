@@ -5,7 +5,9 @@ Create GIF from PNG files in a directory!
 from pathlib import Path
 import argparse
 
-import imageio
+import imageio                   # `pip install imageio`
+from pygifsicle import gifsicle  # `pip install pygifsicle`
+
 
 parser = argparse.ArgumentParser(
     prog='PNG frames to GIF animation'
@@ -26,6 +28,10 @@ parser.add_argument(
     '-l', '--loop', default=0, type=int,
     help='Number of loops (default=0, keep looping)',
     )
+parser.add_argument(
+    '-c', '--colors', default=0, type=int,
+    help='Optimize with gifsicle (default=0, will not run gifsicle)',
+    )
 
 args = parser.parse_args()
 
@@ -45,6 +51,15 @@ if input_dir.is_dir():
                 loop=args.loop,
                 )
             print(f'Animation saved at:\n{output_path}\n')
+            if args.colors:
+                gifsicle(
+                    sources=output_path,
+                    # destination=optimized_file,  # replacing in place!
+                    optimize=True, # Whether to add the optimize flag or not
+                    colors=args.colors, # Number of colors to use
+                    # options=["--verbose"]
+                )
+                print(f'Optimized with gifscile for {args.colors} colors.')
         else:
             print(f'No PNG images found at:\n{input_dir}')
     except Exception as e:
