@@ -1,4 +1,14 @@
 #!/home/villares/thonny-env/bin/python
+"""
+A small GUI tool to select a folder and convert all the PNG images inside it into a GIF animation.
+It only works if all the images have the same dimensions.
+To run this you'll need Python and a few libraries installed.
+
+This script can be copied, modified and distributed without any restrictions.
+I offer it with a "public domain dedication" / CC0.
+
+Support my work! Alexandre B A Villares <abav.lugaralgum.com/sketch-a-day>
+"""
 
 from pathlib import Path
                                  # You'll need to install these

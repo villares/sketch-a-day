@@ -1,5 +1,7 @@
 #!/home/villares/thonny-env/bin/python
 
+# A very specific hacky script I use everyday for my project. Useless to anyone else.
+
 # reads folder
 # finds missing folders from last_done
 # gets images, checks image types
@@ -23,7 +25,6 @@
 # Updated image_helpers to use pathlib...
 # TODO save the caption and comments if posting fails...
 # TODO permitir postar SVG no mastodon (talvez converter).
-# 
 
 
 import sys

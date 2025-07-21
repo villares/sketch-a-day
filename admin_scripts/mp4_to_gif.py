@@ -1,6 +1,11 @@
 #!/home/villares/thonny-env/bin/python
 """
 MP4 to GIF animation. Depends on moviepy and ffmpeg.
+
+This script can be copied, modified and distributed without any restrictions.
+I offer it with a "public domain dedication" / CC0.
+
+Support my work! Alexandre B A Villares <abav.lugaralgum.com/sketch-a-day>
 """
 import argparse
 

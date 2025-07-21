@@ -1,17 +1,23 @@
 #!/home/villares/thonny-env/bin/python
+"""
+A small GUI tool to select a folder and convert all the PNG images inside it into a MP4 animation.
+To run this you'll need Python and a few libraries installed.
 
+This script can be copied, modified and distributed without any restrictions.
+I offer it with a "public domain dedication" / CC0.
+
+Support my work! Alexandre B A Villares <abav.lugaralgum.com/sketch-a-day>
+"""
 from pathlib import Path
 
 # ATENÇÃO:                    Precisa instalar as bibliotecas!
 import imageio                # precisa instalar `pip install imageio[ffmpeg]`
 import FreeSimpleGUI as sg    # precisa instalar o PySimpleGUI (pode ser no pip install ou no Thonny "packages")
 
-
 default_input = Path.cwd()
 default_output = 'out.mp4'
 L_FONT = ('Courier', 20)
 I_FONT = ('Courier', 16)
-
 # Define the GUI layout
 layout = [
     [sg.Text('Input folder:', font=L_FONT)],
@@ -21,26 +27,22 @@ layout = [
     [sg.Text('Frame duration (milliseconds):', font=L_FONT), sg.InputText(default_text='200', font=I_FONT, size=(6, 1))],
     [sg.Button('Create MP4', font=L_FONT), sg.Button('Cancel', font=L_FONT)]
 ]
-
 # Create the GUI window
 window = sg.Window('Create GIF', layout)
-
 # Run the GUI event loop
 while True:
     # Get the next GUI event
     event, values = window.read()
-
     # Exit the event loop if the window was closed or the Cancel button was clicked
     if event in (None, 'Cancel'):
         break
-
     # Create the GIF if the Create GIF button was clicked
     if event == 'Create MP4' and values:
         # Get the input and output values from the GUI
         input_dir = Path(values[0])
         output_file = input_dir / values[1]
         duration = int(values[2]) if values[2] else 200
-        # Create the GIF if there are any images
+        # Create the MP4 if there are any images
         try:
             fps = 1000 / duration
             # Load the PNG images from the input folder

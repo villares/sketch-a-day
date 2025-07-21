@@ -1,6 +1,11 @@
 #!/home/villares/thonny-env/bin/python
 """
-Create GIF from PNG files in a directory!
+Create a GIF animation from PNG files in a directory!
+
+This script can be copied, modified and distributed without any restrictions.
+I offer it with a "public domain dedication" / CC0.
+
+Support my work! Alexandre B A Villares <abav.lugaralgum.com/sketch-a-day>
 """
 from pathlib import Path
 import argparse
