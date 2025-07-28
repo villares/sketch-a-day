@@ -26,6 +26,17 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 <!-- SKETCHES_START -->
 
+### sketch_2025_07_28
+
+![sketch_2025_07_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_07_28/sketch_2025_07_28.gif)
+
+[sketch_2025_07_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_07_28) [[py5](https://py5coding.org/)]
+
+WIP, I think I found some trouble with colinear vertices!
+Also, I'm updating my https://abav.lugaralgum.com/arc_tangents_and_bezier_studies/ repo...
+
+---
+
 ### sketch_2025_07_27
 
 ![sketch_2025_07_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_07_27/sketch_2025_07_27.png)
