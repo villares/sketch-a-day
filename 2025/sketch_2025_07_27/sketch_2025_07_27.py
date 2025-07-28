@@ -3,7 +3,6 @@ import shapely
 
 from villares.arc_helpers import var_bar_pts
 
-
 PAGES = 10
 
 def setup():
