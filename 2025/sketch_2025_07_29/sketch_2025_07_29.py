@@ -3,8 +3,10 @@ from itertools import product
 import py5
 import shapely
 
-from villares.arc_helpers import is_poly_self_intersecting
-from villares.arc_helpers import arc_pts, arc_corner, arc_filleted_poly
+from villares.arc_helpers import arc_pts, arc_corner, arc_filleted_poly, p_arc
+
+import villares.arc_helpers
+villares.arc_helpers.DEBUG = True
 
 grid = list(product(range(150, 800, 250), repeat=2))
 
@@ -33,24 +35,23 @@ def draw():
     pts[2] = py5.mouse_x, py5.mouse_y
     shp = shapely.Polygon(pts)
     py5.shape(shp)
-    py5.stroke_weight(5)
+    py5.stroke_weight(3)
     py5.stroke(0, 0, 200)
     arc_filleted_poly(pts, radius=50)
-#     with py5.begin_closed_shape():
-#         for i, p in enumerate(pts[:-1]):
-#             pp = pts[i -1]
-#             np = pts[i + 1]
-#             arc_corner(p, pp, np, 50)
+    py5.stroke_weight(3)
+    py5.stroke(0, 255, 0)
+    vs = arc_filleted_poly(pts, radius=50, arc_func=arc_pts)
+    py5.points(vs)
     py5.fill(0)
     py5.text_size(20)
     py5.text('Testig arc_filleted_poly()', 20, 50)
     py5.text(f"""{pts}
-shapey is_simple: {shp.is_simple}
-shapely is_valid: {shp.is_valid}
-my naïve is_poly_self_intersecting: {is_poly_self_intersecting(pts)}
+shapely based is_poly_self_intersecting: {is_poly_self_intersecting(pts)}
 """, 20, py5.height - 90)
     
-    
+def is_poly_self_intersecting(pts):
+    return not shapely.Polygon(pts).is_simple
+
 def key_pressed():
     py5.save_frame('###.png')
     make_pts()
