@@ -26,6 +26,17 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 <!-- SKETCHES_START -->
 
+### sketch_2025_08_02
+
+![sketch_2025_08_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_08_02/sketch_2025_08_02.gif)
+
+[sketch_2025_08_02](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_08_02) [[py5](https://py5coding.org/)]
+
+I found a problem with my nice #trimesh mesh drawing helper :(((
+Single triangle "faces" dont have the edges listed on `mesh.facets_boundary`. So I miss drawing their edges.
+
+---
+
 ### sketch_2025_08_01
 
 ![sketch_2025_08_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_08_01/sketch_2025_08_01.gif)
