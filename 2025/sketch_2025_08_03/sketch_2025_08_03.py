@@ -4,16 +4,15 @@ import trimesh
 import numpy as np
 
 def setup():
-    global demo_mesh, hole_volume
+    global demo_mesh, cube_a, cube_b
     py5.size(500, 500, py5.P3D)
-    main_volume = box_mesh(0, 0, 0, 200)
-    hole_volume = box_mesh(0, 0, 0, 200)
-    apply_rotation(hole_volume, py5.radians(45), direction=(0, 0, 1))
-    apply_rotation(hole_volume, py5.radians(45), direction=(0, 1, 0))
-    demo_mesh = main_volume.difference(hole_volume)
-    # Export animation, skip empty frame 0 created on setup
-#     py5_tools.animated_gif('demo_mesh.gif', duration=0.08,
-#                            frame_numbers=range(1, 361, 5)) 
+    cube_a = box_mesh(0, 0, 0, 200)
+    cube_b = box_mesh(0, 0, 0, 200)
+    apply_rotation(cube_b, py5.radians(45), direction=(0, 0, 1))
+    apply_rotation(cube_b, py5.radians(45), direction=(0, 1, 0))
+    demo_mesh = cube_a.difference(cube_b)
+    # Export gif
+    py5_tools.animated_gif('demo_mesh.gif', duration=0.05, frame_numbers=range(1, 361, 3))
 
 def draw():
     py5.background(200, 0, 200)
@@ -26,10 +25,9 @@ def draw():
     py5.stroke(0)
     draw_mesh(demo_mesh)
     if py5.is_key_pressed:
-        py5.scale(1.01)
         py5.no_fill()
         py5.stroke(255)
-        draw_mesh(hole_volume)
+        draw_mesh(cube_b)
     
 def box_mesh(x, y, z, w, h=None, d=None):
     h = h or w
@@ -52,10 +50,9 @@ def draw_mesh(mesh, tol=py5.EPSILON):
     py5.pop_style() # Get previous stroke settings
     # Draw only edges
     coplanar_edges = mesh.face_adjacency_edges[mesh.face_adjacency_angles < tol]
-    mask = ~np.any(np.all(coplanar_edges[:, None] == mesh.edges_unique, axis=2), axis=0)
-    a, b = np.vstack(mesh.edges_unique[mask]).T
+    coplanar_edges = np.sort(coplanar_edges, axis=1)
+    mask = ~np.any(np.all(coplanar_edges[:, None] == mesh.edges_sorted, axis=2), axis=0)
+    a, b = np.vstack(mesh.edges_sorted[mask]).T
     py5.lines(np.column_stack((vs[a], vs[b])))
-#    a, b = np.vstack(mesh.facets_boundary).T
-#    py5.lines(np.column_stack((vs[a], vs[b])))
 
 py5.run_sketch(block=False)
