@@ -19,7 +19,6 @@ def setup():
                            frame_numbers=range(1, 361, 3))
     py5.stroke(255)
 
-
 def draw():
     py5.background(0)
 
