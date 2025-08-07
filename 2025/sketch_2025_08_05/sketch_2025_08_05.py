@@ -17,11 +17,12 @@ def setup():
     # Export gif
     py5_tools.animated_gif('noise_walk.gif', duration=0.1,
                            frame_numbers=range(1, 361, 3))
-    py5.background(5)
+    py5.stroke(255)
 
 
 def draw():
     py5.background(0)
+
     py5.translate(py5.width / 2, py5.height / 2)
     pos_xxs, pos_xys, pos_yxs, pos_yys = [], [], [], []
     pos_zs, pos_ws = [], []
@@ -32,7 +33,6 @@ def draw():
         wy = py5.sin(t) * R
         wz = py5.cos(f) * R 
         ww = py5.sin(f) * R 
-        py5.stroke(255)
         for i in range(N):
             pos_xxs.append(wx * step - OFFY)
             pos_xys.append(wy * step - OFFY)
