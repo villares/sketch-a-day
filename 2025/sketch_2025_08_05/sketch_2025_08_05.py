@@ -22,9 +22,6 @@ def setup():
 
 def draw():
     py5.background(0)
-    py5.no_stroke()
-    py5.fill(0, py5.random_int(3, 7))
-    py5.rect(0,0, py5.width, py5.height)
     py5.translate(py5.width / 2, py5.height / 2)
     pos_xxs, pos_xys, pos_yxs, pos_yys = [], [], [], []
     pos_zs, pos_ws = [], []
