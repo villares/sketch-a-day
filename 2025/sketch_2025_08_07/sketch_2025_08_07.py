@@ -6,17 +6,17 @@ import py5
 import cv2  # opencv-python
 import numpy as np
 
+glyphs = (
+    " .`-_':,;^=+/\"|)\\<>)iv%xclrs{*}I?!][1taeo7zjLu"
+    "nT#JCwfy325Fp6mqSghVd4EgXPGZbYkOA&8U$@KHDBWNMR0Q"
+    )#[::-1]   
+print(glyphs)    
+# esse [::-1]  é um "reverse" do string em Python, para o primiro glifo ser o mais escuro e o último o mais claro
 cap = None
 img = None
 color_on = False
 grid_size = 8  # tamanho da grade
-font_size = 12  # tamanho dsa letras
-gliphs = (
-    " .`-_':,;^=+/\"|)\\<>)iv%xclrs{*}I?!][1taeo7zjLu" +
-    "nT#JCwfy325Fp6mqSghVd4EgXPGZbYkOA&8U$@KHDBWNMR0Q"
-    )#[::-1]   
-# esse [::-1]  é um "reverse" do string em Python, para o primiro glifo ser o mais escuro e o último o mais claro
-print(gliphs)    
+font_size = 12  # tamanho das letras
 
 def setup():
     py5.size(640, 480)
@@ -53,13 +53,13 @@ def draw():
         for argb, (y, x) in zip(sample, sample_pos):
             px = py5.color(*argb[1:])
             bri = py5.brightness(px)
-            g = int(py5.remap(bri, 0, 255, 0, len(gliphs)-1))
+            g = int(py5.remap(bri, 0, 255, 0, len(glyphs)-1))
             if color_on:
                 py5.fill(px)
             else:
                 py5.fill(255)
             py5.text_size(font_size)
-            py5.text(gliphs[g], x + grid_size / 2, y + grid_size / 2)
+            py5.text(glyphs[g], x + grid_size / 2, y + grid_size / 2)
 
 def open_capture():
     global cap
