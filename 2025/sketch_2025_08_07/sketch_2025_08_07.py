@@ -21,7 +21,7 @@ font_size = 12  # tamanho das letras
 def setup():
     py5.size(640, 480)
     py5.no_smooth()
-    f = py5.create_font("Source Code Pro Bold",60)
+    f = py5.create_font("Source Code Pro Bold", 32)
     py5.text_font(f)
     py5.text_align(py5.CENTER, py5.CENTER)
     py5.launch_thread(open_capture)
@@ -38,20 +38,23 @@ def set_grid():
     ])
  
 def draw():
-    global img
+    global img, ret, frame
 
     if cap:
         py5.background(0) 
         ret, frame = cap.read()
-        img = py5.create_image_from_numpy(frame, 'RGB', dst=img)
-#         for c in range(n_cols):
-#             x = c * grid_size
-#             for r in range(n_rows):
-#                 y = r * grid_size
-#                 px = img.get_pixels(x, y)
-        sample = img.np_pixels[sample_pos[:, 0], sample_pos[:, 1]]
-        for argb, (y, x) in zip(sample, sample_pos):
-            px = py5.color(*argb[1:])
+#         img = py5.create_image_from_numpy(frame, 'RGB', dst=img)
+# #         for c in range(n_cols):
+# #             x = c * grid_size
+# #             for r in range(n_rows):
+# #                 y = r * grid_size
+# #                 px = img.get_pixels(x, y)
+#         sample = img.np_pixels[sample_pos[:, 0], sample_pos[:, 1]]
+        sample = frame[sample_pos[:, 0], sample_pos[:, 1]]
+#         for argb, (y, x) in zip(sample, sample_pos):
+        for rgb, (y, x) in zip(sample, sample_pos):
+#             px = py5.color(*argb[1:])
+            px = py5.color(*rgb)
             bri = py5.brightness(px)
             g = int(py5.remap(bri, 0, 255, 0, len(glyphs)-1))
             if color_on:
@@ -68,7 +71,6 @@ def open_capture():
     #cap.set(cv2.CAP_PROP_BRIGHTNESS, 0.5)
     print('Capture started')
     
-
 def key_pressed():
     global font_size, grid_size, color_on
     if py5.key == 'g':
@@ -89,4 +91,4 @@ def exiting():   # py5 will call this for clean up on exit
     cap.release()
     print('Capture released')
      
-py5.run_sketch()
+py5.run_sketch(block=False)
