@@ -43,7 +43,7 @@ def draw():
     if cap:
         py5.background(0) 
         ret, frame = cap.read()
-#         img = py5.create_image_from_numpy(frame, 'RGB', dst=img)
+#         img = py5.create_image_from_numpy(frame, 'BGR', dst=img)
 # #         for c in range(n_cols):
 # #             x = c * grid_size
 # #             for r in range(n_rows):
@@ -52,9 +52,9 @@ def draw():
 #         sample = img.np_pixels[sample_pos[:, 0], sample_pos[:, 1]]
         sample = frame[sample_pos[:, 0], sample_pos[:, 1]]
 #         for argb, (y, x) in zip(sample, sample_pos):
-        for rgb, (y, x) in zip(sample, sample_pos):
+        for (b, g, r), (y, x) in zip(sample, sample_pos):
 #             px = py5.color(*argb[1:])
-            px = py5.color(*rgb)
+            px = py5.color(r, g, b)
             bri = py5.brightness(px)
             g = int(py5.remap(bri, 0, 255, 0, len(glyphs)-1))
             if color_on:
