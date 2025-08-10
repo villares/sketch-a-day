@@ -7,8 +7,6 @@ import numpy as np
 
 glyphs = []
 
-
-# esse [::-1]  é um "reverse" do string em Python, para o primiro glifo ser o mais escuro e o último o mais claro
 cap = None
 img = None
 color_on = False
