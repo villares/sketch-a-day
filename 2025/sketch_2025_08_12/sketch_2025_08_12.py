@@ -22,12 +22,9 @@ def draw():
     #py5.shape(all_polys)
     #py5.no_stroke()
     py5.fill(50, 150, 100, 150)
-    for t in polys:
-        py5.begin_shape()
-        for x, y in t:
-            py5.vertex(x, y)
-        py5.end_shape(py5.CLOSE)
-
+    for p in polys:
+        with py5.begin_closed_shape():
+            py5.vertices(p)
 
 def key_pressed():
     global all_polys
