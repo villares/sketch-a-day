@@ -34,11 +34,9 @@ def draw():
     #py5.no_stroke()
     py5.fill(50, 150, 150, 100)
     for t in tris:
-        py5.begin_shape()
-        for x, y in t:
-            py5.vertex(x, y)
-        py5.end_shape(py5.CLOSE)
-
+        with py5.begin_closed_shape():
+            py5.vertices(t)
+    
 
 def mouse_dragged():
     ox, oy = py5.width / 2, py5.height / 2
