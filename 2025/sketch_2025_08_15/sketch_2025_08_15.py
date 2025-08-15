@@ -1,8 +1,9 @@
 # based on sketch_2022_05_12hex_cells
 
 import py5
-from cell import Cell
+from cell import Cell, mock_cell
 
+mock_cell.state = 1 # makes the left border grow
 play = former_play_state = False
 sample_rate = 1
 
