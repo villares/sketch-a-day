@@ -6,7 +6,7 @@ from functools import cache
 SIN_60 = sqrt(3) * 0.5  # sin(radians(60))
 
 class mock_cell:
-    state = 1
+    state = 0
     gen = 0
 
 class Cell():
@@ -101,17 +101,17 @@ class Cell():
             self.__class__.last_clicked = self
 
 
-    @staticmethod
-    def hexagon(w):
-        h = SIN_60 * w
-        with begin_shape():
-            vertex(-w, 0)
-            vertex(-w / 2, -h)
-            vertex(w / 2, -h)
-            vertex(w, 0)
-            vertex(w - w / 2, h)
-            vertex(-w / 2, h)
-            vertex(-w, 0)
+#     @staticmethod
+#     def hexagon(w):
+#         h = SIN_60 * w
+#         with begin_shape():
+#             vertex(-w, 0)
+#             vertex(-w / 2, -h)
+#             vertex(w / 2, -h)
+#             vertex(w, 0)
+#             vertex(w - w / 2, h)
+#             vertex(-w / 2, h)
+#             vertex(-w, 0)
 
     @classmethod
     def next_board(cls):
