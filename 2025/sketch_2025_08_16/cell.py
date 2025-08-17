@@ -31,6 +31,7 @@ class Cell():
 
     def display(self):
         if self.state:
+            self.calc_live_nbs()
             with push_matrix():
                 translate(self.x, self.y)
                 #stroke(d * 16, 200, 200) #42 * self.nbs)
