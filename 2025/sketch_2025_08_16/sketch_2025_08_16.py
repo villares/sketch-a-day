@@ -16,18 +16,11 @@ def draw():
     py5.background(0)
     
     for cell in Cell.board.values():
-        cell.calc_live_nbs()
-        #print(cell.nbs)
-    for cell in Cell.board.values():
         cell.display()
 
-
 def key_pressed():
-    global play
     if py5.key == 'e':
         Cell.init_board(cols, rows)
-    elif py5.key == ' ':
-        play = not play
     elif py5.key == 's':
         py5.save_frame('####.png')
 
