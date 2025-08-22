@@ -43,12 +43,12 @@ def draw():
 def calc_shapes():
     global poly, mesh
     shapes.clear()
-    largura = distance / py5.sqrt(3) * 1.5
-    num = int(py5.width / largura)
+    w = distance / py5.sqrt(3) * 1.5
+    num = int(py5.width / w)
     poly = shapely.Polygon(pts)
     for fila in range(num):
         for coluna in range(num):  # 0, 1, ... 9
-            x = int(coluna * largura)
+            x = int(coluna * w)
             if coluna % 2 == 1:  # colunas impares
                 y = fila * distance
             else:                # colunas pares
