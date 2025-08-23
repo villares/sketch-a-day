@@ -1,5 +1,4 @@
 import folium
-import osmnx as ox
 import webbrowser
 from geopy.geocoders import Nominatim
 
@@ -20,7 +19,7 @@ if not geocoded_addresses:
     print('No valid addresses')
     exit()
     
-center_point = list(geocoded_addresses.values())[0]
+center_point = geocoded_addresses[addresses[0]]
 m = folium.Map(location=center_point, zoom_start=15)
 # Add markers
 for address, coords in geocoded_addresses.items():
