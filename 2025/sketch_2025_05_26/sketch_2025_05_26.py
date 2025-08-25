@@ -60,7 +60,7 @@ def generate_hatch(poly, angle=0, spacing=5, holes=[]):
     diagonal = py5.dist(*poly.bounds)  # diagonal length
     num = int(diagonal / spacing)
     V = py5.Py5Vector
-    centroid = V(poly.centroid.x, poly.centroid.y)
+    centroid = V(poly.envelope.centroid.x, poly.envelope.centroid.y)
     a = V(-diagonal / 2, -diagonal / 2).rotate(angle) + centroid
     b = V(-diagonal / 2, +diagonal / 2).rotate(angle) + centroid
     c = V(+diagonal / 2, -diagonal / 2).rotate(angle) + centroid
