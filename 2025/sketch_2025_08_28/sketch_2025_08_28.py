@@ -33,8 +33,9 @@ def draw_comp(p, x, y, w):
     with py5.push_matrix():
         py5.translate(x, y)
         py5.scale(w)
-        tri = combos[p]
-        for poly, angle in zip(tri, (py5.HALF_PI / 2, py5.HALF_PI, 0)):
+        combo = combos[p]
+        #for poly, angle in zip(tri, (py5.HALF_PI / 2, py5.HALF_PI, 0)):
+        for poly in combo:
             py5.fill(0, 100)
             #py5.no_stroke()
             py5.stroke_weight(1 / w)
