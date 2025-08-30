@@ -8,11 +8,11 @@ from shapely import unary_union
 
 def setup():
     global combos
-    py5.size(12 * 80, 12 * 80)
-    animated_gif('out.gif', duration=1.2, frame_numbers=range(1, 8+1))
+    py5.size(24 * 40, 24 * 40)
+    animated_gif('out.gif', duration=1.2, frame_numbers=range(1, 7+1))
     py5.stroke_join(py5.ROUND)
     grid = list(product((-1, 0, 1), repeat=2))
-    tris = {t for t in combinations(grid, 3) if Polygon(t).area}
+    tris = [t for t in combinations(grid, 3) if Polygon(t).area]
     combos = [(Polygon(a), Polygon(b), Polygon(c))
               for a, b, c in combinations(tris, 3)]
     # filter out overlapping polys
