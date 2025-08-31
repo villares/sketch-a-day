@@ -1,12 +1,17 @@
 from itertools import product, permutations, combinations
 from itertools import combinations_with_replacement
 from pathlib import Path
+from functools import cache
 import pickle
 
 import py5
 from py5_tools import animated_gif
 from shapely import Polygon, MultiPolygon, LineString, MultiLineString
 from shapely import unary_union
+
+@cache
+def CachedPolygon(*args):
+    return Polygon(*args)
 
 def setup():
     global combos
@@ -19,9 +24,9 @@ def setup():
         with open('out.data', 'rb') as f:
             combos = pickle.load(f)
     else:
-        tris = [t for t in combinations(grid, 3) if Polygon(t).area]
-        combos = [(Polygon(a), Polygon(b), Polygon(c), Polygon(d))
-                  for a, b, c, d in combinations(tris, 4)]
+        tris = [t for t in combinations(grid, 3) if CachedPolygon(t).area]
+        combos = [tuple(map(CachedPolygon, combo))
+                  for combo in combinations(tris, 4)]
         # filter out overlapping polys
         combos = [(pa, pb, pc, pd) for pa, pb, pc, pd in combos
                   if unary_union((pa, pb, pc, pd)).area
