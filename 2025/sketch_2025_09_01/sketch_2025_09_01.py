@@ -1,31 +1,18 @@
-from itertools import product, permutations, combinations
+from itertools import product, combinations
 from pathlib import Path
-from functools import cache
 
 import py5
-from py5_tools import animated_gif
-from shapely import Polygon, MultiPolygon, LineString, MultiLineString
-from shapely import unary_union
+from shapely import Polygon
 
-@cache
-def CachedPolygon(*args):
-    return Polygon(*args)
 
 def setup():
     global combos, tris
     py5.size(19 * 50, 4 * 50)
     py5.color_mode(py5.HSB)
-    #animated_gif('out.gif', duration=1.2, frame_numbers=range(1, 13+1))
     py5.stroke_join(py5.ROUND)
     grid = list(product((-1, 0, 1), repeat=2))
     tris = [Polygon(t) for t in combinations(grid, 3) if Polygon(t).area]
     combos = [(tri,) for tri in tris]
-#     m = py5.millis()
-#     square_combos = [
-#         combo for combo in a4allcombos
-#         if unary_union(combo).area == 4
-#     ]
-#     print(f'time to pick only square combos {py5.millis()-m}')
     print(len(combos))
     
     
