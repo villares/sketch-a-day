@@ -1,4 +1,6 @@
-# revisiting sketch_2025_08_27 to remove rotations
+# Revisiting sketch_2025_08_27 to remove rotations
+# Iteration over all permutations of 9 grid points, that is,
+# 9 factorial (362880), seems very inefficient...
 
 from itertools import product, permutations
 from pathlib import Path
@@ -6,7 +8,7 @@ from pathlib import Path
 import py5
 from shapely import Polygon
 
-data_file = 'polys.data'
+data_file = 'tris.data'
 
 def setup():
     global combos, tris, good_pairs, nonoverlapping
@@ -19,11 +21,13 @@ def setup():
     else:
         combos = set() 
         for a, b, c, d, e, f, g, h, i in permutations(grid, 9):
-           t0 = Polygon((a, b, c))
-           t1 = Polygon((d, e, f))
-           t2 = Polygon((g, h, i))
-           if t0.area and t1.area and t2.area:
-               combos.add(Combo((t0, t1, t2)))
+           if not (t0 := Polygon((a, b, c))).area:
+               continue
+           if not (t1 := Polygon((d, e, f))).area:
+               continue
+           if not (t2 := Polygon((g, h, i))).area:
+               continue
+           combos.add(Combo((t0, t1, t2)))
         combos = sorted(combos)
         py5.save_pickle(combos, data_file)
     print(len(combos)) 
