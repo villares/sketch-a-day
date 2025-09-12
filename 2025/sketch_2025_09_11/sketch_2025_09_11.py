@@ -129,49 +129,58 @@ if __name__ == '__main__':
             print(font_name)
     
     alternate_spacing = False
-    space_width = 10 # this was good for Allerta
+    space_width = 10 
     save = False
     FONT, TEXT_SIZE = 'Saira Stencil One Regular', 50
+    MARGIN = 30
     #FONT, TEXT_SIZE = 'Allerta Stencil Regular', 55
     #FONT, TEXT_SIZE = 'Big Shoulders Stencil Bold', 50
     #FONT, TEXT_SIZE = 'Stencil', 55
     
     def setup():
-        global margin, f, t
+        global f, t
         py5.size(1500, 500, py5.P3D)                
         f = py5.create_font(FONT, TEXT_SIZE)
         t = 'abcdefghijklmnopqrstuvwxyz":;!?\n' \
             'ABCDEFGHIJKLMNOPQRSTUVWXYZ\n' \
-            '{[(<\\0123456789+^|@#$%&*/>)]}' 
-        calculate_slab()
+            '{[(<\\0123456789+^|@#$%&*/>)]}'
         
-    def calculate_slab():
-        global slab
+        calculate_slab(t, f, TEXT_SIZE, MARGIN,
+                       depth=5,
+                       extra_leading=10,
+                       space_width=space_width)
+        
+    def calculate_slab(t, f, font_size, margin,
+                       depth=5,
+                       extra_leading=10,
+                       space_width=None):
+        global slab # for debugging
         holes = polys_from_text(
-            t, f, leading=TEXT_SIZE + 10,
+            t, f, leading=font_size + extra_leading,
             alternate_spacing=alternate_spacing,
             space_width=space_width,
             )
         min_x, min_y, max_x, max_y = holes.bounds
-        margin = 30
         slab_rect = shapely.Polygon(
             ((min_x - margin, min_y - margin),
              (max_x + margin, min_y - margin),
-             (max_x + margin, max_y + margin - 10),
-             (min_x - margin, max_y + margin - 10)))
+             (max_x + margin, max_y + margin - extra_leading),
+             (min_x - margin, max_y + margin - extra_leading)))
         clipped_rect = slab_rect - holes
-        slab = extrude_polys(clipped_rect, 5)
+        slab = extrude_polys(clipped_rect, depth)
         
     def draw():
         global save
         S = 1  # high-res export scaling factor
-        py5.no_loop()
         if save:
             out = py5.create_graphics(py5.width * S, py5.height * S, py5.P3D)
             py5.begin_record(out)
             out.scale(S)
         py5.background(255)
-        py5.translate(150, 175, 150)
+        slab_w = (slab.bounds[1] - slab.bounds[0])[0]
+        slab_h = (slab.bounds[1] - slab.bounds[0])[1]
+        py5.translate(py5.width / 2 - slab_w / 2 + 30,
+                      py5.height / 2 - slab_h / 4, 150)
         py5.stroke(0)
         py5.fill(175, 125, 250)
         draw_mesh(slab)
@@ -186,18 +195,19 @@ if __name__ == '__main__':
         global alternate_spacing, save
         if py5.key == 's':
             slab.export(
-                f'slab-{FONT.replace(" ","-")}-AltSpc{alternate_spacing}.png'
+                f'slab-{FONT.replace(" ","-")}-AltSpc{alternate_spacing}.stl'
             )
         elif py5.key == 'p':
             save = True
-            py5.redraw()
         elif py5.key == 'k':
             alternate_spacing = not bool(alternate_spacing)
-            calculate_slab()
+            calculate_slab(t, f, TEXT_SIZE, MARGIN,
+               depth=5,
+               extra_leading=10,
+               space_width=space_width)
         elif py5.key == 'f':
             flip_y_matrix = np.eye(4)  
             flip_y_matrix[1, 1] = -1   
             slab.apply_transform(flip_y_matrix)
-        py5.redraw()
        
     py5.run_sketch(block=False)
