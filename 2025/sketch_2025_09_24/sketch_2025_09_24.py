@@ -14,8 +14,4 @@ def setup():
         s = shapely.affinity.rotate(s, 5).buffer(-5)
         py5.shape(s)
         
-
-    
-
-
 py5.run_sketch(block=False)
