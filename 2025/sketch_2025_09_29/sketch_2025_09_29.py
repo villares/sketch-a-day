@@ -20,8 +20,7 @@ def setup():
         s = shapely.affinity.scale(s, 0.9, 0.9)
         s = shapely.affinity.rotate(s, 2)
         c = shapely.affinity.translate(
-            s, #.buffer(10), #- s.buffer(5),
-            py5.random_int(-250, 250), py5.random_int(-250, 250)
+            s, py5.random_int(-250, 250), py5.random_int(-250, 250)
         )
         py5.fill(1 - c.area / base, 100)
         py5.shape(c)
