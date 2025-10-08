@@ -34,8 +34,10 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 [sketch_2025_10_07](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_10_07) [[py5](https://py5coding.org/)]
 
-This is fun! I "mutated" an #LSystem rule by randomly permutating symbols from "X" -> "F+[[X]-X]-F[-FX]+X". Sometimes invalid rules break things (when you have ] before [) and I should skip those. More about L-Systems: https://github.com/villares/python-in-a-visual-context/blob/main/Processing-Python-py5/LSystem.md
-See the rules in the the PNG names at the repo.
+This was fun! Mutating L-System rules by randomly permutating symbols from "X" -> "F+[[X]-X]-F[-FX]+X". Note that invalid rules break things, like when you have ] before [... 
+More about L-Systems: https://github.com/villares/python-in-a-visual-context/blob/main/Processing-Python-py5/LSystem.md
+
+See the rules in the the PNG names at the repo folder.
 
 ---
 
