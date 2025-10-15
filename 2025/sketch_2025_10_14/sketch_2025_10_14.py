@@ -6,7 +6,9 @@ from shapely.geometry import MultiPolygon, Point
 import py5
 
 
+#circles = [Point(py5.random_int(-15, 15), py5.random_int(-15, 15)).buffer(r) for r in range(10, 221, 12)]
 circles = [Point(py5.random_int(-5, 5), py5.random_int(-5, 5)).buffer(r) for r in range(10, 221, 12)]
+
 # shuffle the circles so they are not in order
 np.random.shuffle(circles)
 # combine the circles into a single MultiPolygon
