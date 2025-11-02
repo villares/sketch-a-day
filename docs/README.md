@@ -28,6 +28,16 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_11_01
+
+![sketch_2025_11_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_01/sketch_2025_11_01.gif)
+
+[sketch_2025_11_01](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_11_01) [[py5](https://py5coding.org/)]
+
+Feito a maior parte duarante a apresentação no Compoética 2025
+
+---
+
 ### sketch_2025_10_31
 
 ![sketch_2025_10_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_10_31/sketch_2025_10_31.png)
