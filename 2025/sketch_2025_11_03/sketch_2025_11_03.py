@@ -21,26 +21,11 @@ def setup():
     ox.settings.log_console = True
     ox.settings.requests_timeout = 1000
     se = ox.geocode("Praça da Sé, São Paulo, SP, Brasil")  
-    if False: # data_path.is_file():
+    if data_path.is_file():
         print(f'loading GDFs from {data_path}')
         with open(data_path, 'rb') as f:
             geodata = pickle.load(f)
-                 
-        graph = ox.graph_from_point(
-             se, dist=DIST,
-           )
-        geodata['graph'] = graph
-
-        gdf_nodes, gdf_edges = ox.graph_to_gdfs(
-            geodata['graph'],
-            nodes=True, edges=True,
-            node_geometry=True,
-            fill_edge_geometry=False
-        )
-        geodata['edges'] = gdf_edges
-         
-        with open(data_path, 'wb') as f:
-            pickle.dump(geodata, f)            
+                            
     else:
         print(f'downloading GDFs with OSMnx.=')
         city_boundary = ox.geocode_to_gdf("São Paulo, Brazil")
