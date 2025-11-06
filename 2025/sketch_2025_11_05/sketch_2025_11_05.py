@@ -83,7 +83,7 @@ def setup():
             py5.fill(255, 0, 0)
             py5.stroke(128)    
         elif c := am_color.get(a):
-            print(a)
+            #print(a)
             #py5.fill(c)
             py5.fill(255)
             py5.stroke(128)
