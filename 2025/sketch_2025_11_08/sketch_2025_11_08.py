@@ -12,32 +12,31 @@ import shapely
 
 zpt = {'x': 0, 'y': 1000, 'scale': 1, 'amount': 0}  # zoom & pan transformation values
 black = py5.color(0)
-DIST = 1500
+DIST = 2000
 
 
 def setup():
-    global main_shp, geodata, graph, parks
+    global republica, main_shp, geodata, graph, parks
     py5.size(1000, 1000)
     py5.stroke_join(py5.ROUND)
     py5.color_mode(py5.HSB)
     data_path = Path('osmnx.data')
     ox.settings.log_console = True
     ox.settings.requests_timeout = 10000
-    se = ox.geocode("Praça da República, São Paulo, SP, Brasil")  
+    republica = ox.geocode("Praça da República, São Paulo, SP, Brasil")  
     if data_path.is_file():
         print(f'loading GDFs from {data_path}')
                 
         with open(data_path, 'rb') as f:
-            geodata = pickle.load(f)
-            
-        building = ox.features_from_place(
-            "São Paulo, Brazil", tags={
-                'amenity': True,
-                'building': True,
-                })
-        geodata['buildings'] = buildings
-        with open(data_path, 'wb') as f:
-            pickle.dump(geodata, f)
+            geodata = pickle.load(f)  
+#         buildings = ox.features_from_point(
+#            republica, dist=DIST, tags={
+#                 'amenity': True,
+#                 'building': True,
+#                 })
+#         geodata['buildings'] = buildings
+#         with open(data_path, 'wb') as f:
+#             pickle.dump(geodata, f)
     else:
         print(f'downloading GDFs with OSMnx.=')
         city_boundary = ox.geocode_to_gdf("São Paulo, Brazil")
@@ -62,8 +61,8 @@ def setup():
             "São Paulo, Brazil", tags={
                 'water': True,
                 })
-        building = ox.features_from_place(
-            "São Paulo, Brazil", tags={
+        building = ox.features_from_point(
+            republica, dist=DIST, tags={
                 'amenity': True,
                 'building': True,
                 })
@@ -78,19 +77,21 @@ def setup():
             }  
         with open(data_path, 'wb') as f:
             pickle.dump(geodata, f)
-
+    # preparing shape
+    print('starting shape')
     x_min, y_min, x_max, y_max = geodata['boundary'].total_bounds
     map_w, map_h = (x_max - x_min), (y_max - y_min)
     x_scale = y_scale = py5.height / map_h
     main_shp = py5.create_shape(py5.GROUP)
-    boundary = geodata['boundary']
-    translate_and_scale_gdf(boundary, -x_min, -y_min, x_scale, -y_scale)
-    shps = shapely.GeometryCollection(tuple(boundary.geometry))
-    main_shp.add_child(py5.convert_shape(shps))
-    
     py5.color_mode(py5.RGB)
     py5.stroke_weight(0.01)
 
+    boundary = geodata['boundary']
+    translate_and_scale_gdf(boundary, -x_min, -y_min, x_scale, -y_scale)
+    shps = shapely.GeometryCollection(tuple(boundary.geometry))
+    py5.fill(32)
+    main_shp.add_child(py5.convert_shape(shps))
+        
     # parks
     parks = geodata['parks']
     translate_and_scale_gdf(parks, -x_min, -y_min, x_scale, -y_scale)    
@@ -98,30 +99,31 @@ def setup():
         if lu in ('recreation_ground' , 'grass'):
             py5.fill(0, 100, 0)
         else:
-            py5.fill(100)
+            py5.fill(100, 100, 0)
             py5.stroke(0)
         main_shp.add_child(py5.convert_shape(g))   
     # water
     rivers = geodata['rivers']
-    translate_and_scale_gdf(rivers, -x_min, -y_min, x_scale, -y_scale)    
+    translate_and_scale_gdf(rivers, -x_min, -y_min, x_scale, -y_scale)
+    py5.fill(0, 0, 100)
+    py5.no_stroke()
     for g in rivers.geometry:
-        py5.fill(0, 0, 100)
-        py5.no_stroke()
         main_shp.add_child(py5.convert_shape(g))
-        
-    # b
+    # buildings
     buildings = geodata['buildings']
-    translate_and_scale_gdf(buildings, -x_min, -y_min, x_scale, -y_scale)    
-    for g in rivers.geometry:
-        py5.fill(200)
-        py5.no_stroke()
+    translate_and_scale_gdf(buildings, -x_min, -y_min, x_scale, -y_scale)
+    py5.fill(200)
+    py5.no_stroke()
+    for g in buildings.geometry:
         main_shp.add_child(py5.convert_shape(g))
     # Walk
     edges = geodata['edges']
     translate_and_scale_gdf(edges, -x_min, -y_min, x_scale, -y_scale)
     shps = shapely.GeometryCollection(tuple(edges.geometry))
-    py5.stroke(0)
+    py5.no_fill()
+    py5.stroke(255)
     main_shp.add_child(py5.convert_shape(shps))
+    
 
 def draw():
     py5.background(150)
