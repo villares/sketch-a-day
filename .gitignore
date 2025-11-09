@@ -77,7 +77,4 @@ docs/index.html
 2025/sketch_2025_08_30/out.data
 *.pkl
 2025/sketch_2025_11_03/osmnx.data
-2025/sketch_2025_11_04/osmnx.data
-2025/sketch_2025_11_05/osmnx.data
-2025/sketch_2025_11_06/osmnx.data
-2025/sketch_2025_11_07/osmnx.data
+*osmnx.data
