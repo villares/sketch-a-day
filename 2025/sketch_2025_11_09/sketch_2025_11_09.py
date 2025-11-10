@@ -62,7 +62,7 @@ def setup():
             "São Paulo, Brazil", tags={
                 'water': True,
                 })
-        building = ox.features_from_point(
+        buildings = ox.features_from_point(
             republica, dist=DIST, tags={
                 #'amenity': True,
                 'building': True,
