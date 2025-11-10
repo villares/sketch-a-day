@@ -1,3 +1,5 @@
+# Based on code by John @introscopia
+
 def setup():
     size(400, 400)
     
