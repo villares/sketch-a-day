@@ -26,6 +26,7 @@ def setup():
     py5.fill(32, 32)
 
 def draw():
+    global tree
     py5.no_stroke()
     py5.rect(0, 0, py5.width, py5.height)
     positions = np.array([ball.pos for ball in balls])
@@ -34,26 +35,7 @@ def draw():
     for i, ball in enumerate(balls):
         ball.tick()
         ball.display()
-        for nearby_idx in tree.query_ball_point(ball.pos, r=interaction_dist):
-            if nearby_idx != i:
-                nearby_ball = balls[nearby_idx]
-                force = ball.pos - nearby_ball.pos
-                dsq = np.sum(force ** 2)
-                if dsq < interaction_dist ** 2:
-                    if dsq < psq:
-                        m = py5.remap(dsq, psq, 0, 0, 1)
-                        if m < 0:
-                            force *= -1
-                            m = -m
-                        force_mag = m
-                    else:
-                        m = py5.remap(dsq, 10000, 0, 0, 0.001)
-                        lm = force_rules[ball.especie][nearby_ball.especie] * m
-                        if lm < 0:
-                            force *= -1
-                            lm = -lm
-                        force_mag = lm
-                    ball.vel += force * force_mag
+        ball.interact()
         
     py5.window_title(f'{py5.get_frame_rate():.1f}')
 
@@ -70,6 +52,28 @@ class Ball:
     def display(self):
         py5.stroke(self.especie * COLOR_STEP, 255, 255)
         py5.point(self.pos[0], self.pos[1])
+
+    def interact(self):
+        for nearby_idx in tree.query_ball_point(self.pos, r=interaction_dist):
+            nearby_ball = balls[nearby_idx]
+            if nearby_idx is not self:
+                force = self.pos - nearby_ball.pos
+                dsq = np.sum(force ** 2)
+                if dsq < interaction_dist ** 2:
+                    if dsq < psq:
+                        m = py5.remap(dsq, psq, 0, 0, 1)
+                        if m < 0:
+                            force *= -1
+                            m = -m
+                        force_mag = m
+                    else:
+                        m = py5.remap(dsq, 10000, 0, 0, 0.001)
+                        lm = force_rules[self.especie][nearby_ball.especie] * m
+                        if lm < 0:
+                            force *= -1
+                            lm = -lm
+                        force_mag = lm
+                    self.vel += force * force_mag
 
 
 py5.run_sketch()
