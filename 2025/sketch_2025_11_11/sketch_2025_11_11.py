@@ -3,14 +3,12 @@ import numpy as np
 from scipy.spatial import cKDTree
 
 N = 200  # number of balls
-ESPECIES_N = 5  # number of species
-COLOR_STEP = 256 / ESPECIES_N
+especies_n = 5  # number of species
+color_step = 256 / especies_n
 interaction_dist = 100
-
-
-balls = []
-force_rules = np.random.uniform(-3, 3, (ESPECIES_N, ESPECIES_N))
 psq = 10
+balls = []
+force_rules = np.random.uniform(-3, 3, (especies_n, especies_n))
 
 def setup():
     py5.size(800, 800)
@@ -43,37 +41,36 @@ class Ball:
     def __init__(self):
         self.pos = np.array([py5.random(py5.width), py5.random(py5.height)])
         self.vel = np.array([py5.random(-1, 1), py5.random(-1, 1)])
-        self.especie = int(py5.random(ESPECIES_N))
+        self.especie = int(py5.random(especies_n))
 
     def tick(self):
         self.pos = (self.pos + self.vel) % np.array((py5.width, py5.height))
         self.vel *= 0.95
 
     def display(self):
-        py5.stroke(self.especie * COLOR_STEP, 255, 255)
+        py5.stroke(self.especie * color_step, 255, 255)
         py5.point(self.pos[0], self.pos[1])
 
     def interact(self):
-        for nearby_idx in tree.query_ball_point(self.pos, r=interaction_dist):
-            nearby_ball = balls[nearby_idx]
-            if nearby_idx is not self:
-                force = self.pos - nearby_ball.pos
-                dsq = np.sum(force ** 2)
-                if dsq < interaction_dist ** 2:
-                    if dsq < psq:
-                        m = py5.remap(dsq, psq, 0, 0, 1)
-                        if m < 0:
-                            force *= -1
-                            m = -m
-                        force_mag = m
-                    else:
-                        m = py5.remap(dsq, 10000, 0, 0, 0.001)
-                        lm = force_rules[self.especie][nearby_ball.especie] * m
-                        if lm < 0:
-                            force *= -1
-                            lm = -lm
-                        force_mag = lm
-                    self.vel += force * force_mag
+        for i in tree.query_ball_point(self.pos, r=interaction_dist):
+            other = balls[i]
+            force = self.pos - other.pos
+            dsq = np.sum(force ** 2)
+            if dsq < interaction_dist ** 2:
+                if dsq < psq:
+                    m = py5.remap(dsq, psq, 0, 0, 1)
+                    if m < 0:
+                        force *= -1
+                        m = -m
+                    force_mag = m
+                else:
+                    m = py5.remap(dsq, interaction_dist ** 2, 0, 0, 0.001)
+                    lm = force_rules[self.especie][other.especie] * m
+                    if lm < 0:
+                        force *= -1
+                        lm = -lm
+                    force_mag = lm
+                self.vel += force * force_mag
 
 
 py5.run_sketch()
