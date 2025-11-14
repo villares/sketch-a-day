@@ -5,7 +5,7 @@ import shapely # biblioteca de geometria usada pelo geopandas
 DIST = 7000
 
 ox.settings.log_console = True
-# Obter tupla (lat, long) de um endereço (geocofing)
+# Obter tupla (lat, long) de um endereço (geocoding)
 ponto = ox.geocode('Brasília, DF, Brasil')
 # Obter GeoDataFrame de um local (place)
 predios = ox.features.features_from_point(
@@ -42,6 +42,11 @@ def setup():
     translate_and_scale_gdf(predios, -x_min, -y_min, x_scale, -y_scale)
     translate_and_scale_gdf(caminhos, -x_min, -y_min, x_scale, -y_scale)
     translate_and_scale_gdf(aguas, -x_min, -y_min, x_scale, -y_scale)
+    # Desenhar aguas
+    py5.no_stroke()
+    py5.fill(0, 0, 200) # cinza 200
+    geometria_aguas = shapely.GeometryCollection(list(aguas.geometry))
+    py5.shape(geometria_aguas, 0, py5.height)  # desenhar começando na parte de baixo da tela
     # Desenhar na tela predios
     py5.stroke_weight(0.1)
     py5.stroke(0)  # cor do traço
@@ -57,11 +62,6 @@ def setup():
     py5.fill(240) # cinza claro
     geometria_caminhos = shapely.GeometryCollection(list(caminhos.geometry))
     py5.shape(geometria_caminhos, 0, py5.height)  # desenhar começando na parte de baixo da tela
-    # Desenhar aguas
-    py5.no_stroke()
-    py5.fill(0, 0, 200) # cinza 200
-    geometria_aguas = shapely.GeometryCollection(list(aguas.geometry))
-    py5.shape(geometria_aguas, 0, py5.height)  # desenhar começando na parte de baixo da tela
     # termina de gravar o PDF
     py5.end_record()
    
