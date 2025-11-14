@@ -28,6 +28,26 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_11_13
+
+![sketch_2025_11_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_13/sketch_2025_11_13.png)
+
+[sketch_2025_11_13](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_11_13) [[py5](https://py5coding.org/)]
+
+Made today during class at Sesc with data from #OpenStreetMap using #osmnx
+
+---
+
+### sketch_2025_11_12
+
+![sketch_2025_11_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_12/sketch_2025_11_12.gif)
+
+[sketch_2025_11_12](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_11_12) [[py5](https://py5coding.org/)]
+
+We made this today in class, an example with elements inspired by #VeraMolnar
+
+---
+
 ### sketch_2025_11_11
 
 ![sketch_2025_11_11](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_11/sketch_2025_11_11.png)
