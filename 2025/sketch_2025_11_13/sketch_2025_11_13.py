@@ -32,7 +32,6 @@ def setup():
     py5.size(800, 800)
     # começa a gravar um pdf
     py5.begin_record(py5.PDF, 'mapa-bsb.pdf')
-    py5.color_mode(py5.HSB)  # Hue (Matiz), Saturation, Brightness
     py5.background(0)  # preto
     #  Calculo para caber na tela usando .total_bounds do GDF
     x_min, y_min, x_max, y_max = predios.total_bounds
@@ -44,16 +43,16 @@ def setup():
     translate_and_scale_gdf(aguas, -x_min, -y_min, x_scale, -y_scale)
     # Desenhar aguas
     py5.no_stroke()
-    py5.fill(0, 0, 200) # cinza 200
+    py5.fill(200) # cinza 200
     geometria_aguas = shapely.GeometryCollection(list(aguas.geometry))
     py5.shape(geometria_aguas, 0, py5.height)  # desenhar começando na parte de baixo da tela
     # Desenhar na tela predios
     py5.stroke_weight(0.1)
     py5.stroke(0)  # cor do traço
-    py5.fill(100) # cinza escuro
+    py5.color_mode(py5.HSB)  # Hue (Matiz), Saturation, Brightness
     grupo_predios = py5.create_shape(py5.GROUP)
     for geometria_predio in predios.geometry:
-        py5.fill(py5.random(255), 255, 255)  # R, G, B
+        py5.fill(py5.random(255), 255, 255)  # Matiz, Sat, Bri
         grupo_predios.add_child(py5.convert_shape(geometria_predio))
     py5.shape(grupo_predios, 0, py5.height)  # desenhar começando na parte de baixo da tela
     # Desenhar ruas
