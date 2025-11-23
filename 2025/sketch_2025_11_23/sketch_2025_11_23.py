@@ -13,49 +13,48 @@ from peasy import PeasyCam  # the cool & easy Processing orbit camera cam
 
 import facets  # the beautiful edge filtering feature, soon on a py5 release!
 
-R = 40
-V = 16
-section = Polygon([
-    ((R if i % 2 else R * 0.75) * py5.cos(i * py5.TWO_PI / V), 
-     (R if i % 2 else R * 0.75) * py5.sin(i * py5.TWO_PI / V))
-     for i in range(V)
-]) 
-N = 180
-angles = np.linspace(0, py5.PI, N)
-section = section - section.buffer(-R/4)
-path = np.array(
-    [
-        [0.0, 0.0, 0.0],
-        [100.0, 0.0, 0.0],
-        [100.0, 100.0, 0.0],
-       # [50.0, 250.0, 0.0],
-        [0.0, 100.0, 0.0],
-    ]
-) - np.array([[50.0, 50.0, 0.0]])
-trimesh_path = trimesh.path.simplify.resample_spline(
-    path,
-    smooth=0.2,
-    count=N
-)
-
 def setup():
-    global shape
+    global shape, trimesh_path
     py5.size(800, 800, py5.P3D)
-
     py5.fill(200, 255, 0)
     py5.stroke(0)
     py5.stroke_weight(3)
+    # Adding orbit with mouse drag!
     cam = PeasyCam(py5.get_current_sketch(), 500)
+    # Defining the geometry
+    R = 40  # Outer star section radius
+    V = 16  # for an 8-pointed star
+    section = Polygon([
+        ((R if i % 2 else R * 0.75) * py5.cos(i * py5.TWO_PI / V), 
+         (R if i % 2 else R * 0.75) * py5.sin(i * py5.TWO_PI / V))
+         for i in range(V)
+    ]) 
+    section = section - section.buffer(-R/4)  # hole on the star
+    N = 180
+    angles = np.linspace(0, py5.PI, N)  # twist section 180° degrees
+    # Interpolate points smoothing along a b-spline
+    pts = np.array([
+        [0.0, 0.0, 0.0],
+        [100.0, 0.0, 0.0],
+        [100.0, 100.0, 0.0],
+        [0.0, 100.0, 0.0],
+    ]) - np.array([[50.0, 50.0, 0.0]])
+    spline_path = trimesh.path.simplify.resample_spline(
+        pts,
+        smooth=0.2,
+        count=N
+    )
+    # Creating the mesh and converting it to a nice Py5Shape object
     shape = py5.convert_shape(
         trimesh.creation.sweep_polygon(
-            section, trimesh_path,
+            section, spline_path,
             cap=True,
             angles=angles,
         ),
-        min_angle=1,
+        min_angle=1,  # change this to see more or less edges
     )
 
-def draw():
+def draw():  # the main py5 "animation/graphics" loop
     py5.background(100, 100, 205)
     py5.lights()
     # py5.translate(py5.width / 2, py5.height / 2, -200) # not needed with PeasyCam
