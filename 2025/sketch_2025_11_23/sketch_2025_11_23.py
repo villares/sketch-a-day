@@ -1,5 +1,5 @@
 # This code is an example of py5 <py5coding.org> in module mode
-# from https://github.com/py5coding/python-brasil-2025/blob/main/prototypes/sweep.py
+# based on https://github.com/py5coding/python-brasil-2025/blob/main/prototypes/sweep.py
 
 import py5
 import numpy as np
