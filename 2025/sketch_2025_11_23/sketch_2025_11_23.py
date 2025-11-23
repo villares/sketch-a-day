@@ -30,7 +30,7 @@ def setup():
          for i in range(V)
     ]) 
     section = section - section.buffer(-R/4)  # hole on the star
-    N = 180
+    N = 200 # Number of intermediate stages
     angles = np.linspace(0, py5.PI, N)  # twist section 180° degrees
     # Interpolate points smoothing along a b-spline
     pts = np.array([
