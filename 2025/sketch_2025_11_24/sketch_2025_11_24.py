@@ -14,7 +14,7 @@ from peasy import PeasyCam  # the cool & easy Processing orbit camera cam
 import facets  # the beautiful edge filtering feature, soon on a py5 release!
 
 def setup():
-    global shape, trimesh_path
+    global shape, trimesh_path, section
     py5.size(800, 800, py5.P3D)
     py5.fill(200, 255, 0)
     py5.stroke(0)
@@ -29,7 +29,8 @@ def setup():
          (R if i % 2 else R * 0.5) * py5.sin(i * py5.TWO_PI / V))
          for i in range(V)
     ]) 
-    section = section.buffer(R/6) - section.buffer(-R/6)  # hole 
+    section = section.buffer(-R * 0.2).buffer(R * 0.4) - section
+    # I know section will be a MultiPolygon
     N = 300 # Number of intermediate stages
     angles = np.linspace(0, py5.PI * 5, N)  # twist section 180° degrees
     R2 = 200
@@ -48,16 +49,19 @@ def setup():
 #         smooth=0.2,
 #         count=N
 #     )
-    # Creating the mesh and converting it to a nice Py5Shape object
-    shape = py5.convert_shape(
-        trimesh.creation.sweep_polygon(
-            section, pts,
-            cap=True,
-            angles=angles,
-        ),
-        min_angle=0.5,  # change this to see more or less edges
-    )
 
+    shape = py5.create_shape(py5.GROUP)
+    for poly in section.geoms: # this only works with MultiPolygons...
+        shp = py5.convert_shape(
+            trimesh.creation.sweep_polygon(
+                poly, pts,
+                cap=True,
+                angles=angles,
+            ),
+            min_angle=0.5,  # change this to see more or less edges
+        )
+        shape.add_child(shp)
+        
 def draw():  # the main py5 "animation/graphics" loop
     py5.background(100, 100, 205)
     py5.lights()
