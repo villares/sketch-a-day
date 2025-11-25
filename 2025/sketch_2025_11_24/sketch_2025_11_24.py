@@ -49,11 +49,11 @@ def setup():
 #         smooth=0.2,
 #         count=N
 #     )
-
+    # I'll make a Py5Shape group because this is a composite shape
     shape = py5.create_shape(py5.GROUP)
-    for poly in section.geoms: # this only works with MultiPolygons...
+    for poly in section.geoms: # .geom because MultiPolygon...
         shp = py5.convert_shape(
-            trimesh.creation.sweep_polygon(
+            trimesh.creation.sweep_polygon( # this only works with Polygons
                 poly, pts,
                 cap=True,
                 angles=angles,
