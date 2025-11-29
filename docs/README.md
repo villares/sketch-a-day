@@ -28,6 +28,26 @@ If you appreciate what I have been doing, you may also support my artistic work,
 
 ---
 
+### sketch_2025_11_28
+
+![sketch_2025_11_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_28/sketch_2025_11_28.png)
+
+[sketch_2025_11_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_11_28) [[py5](https://py5coding.org/)]
+
+exploring and idea with #particles that started in class today...
+
+---
+
+### sketch_2025_11_27
+
+![sketch_2025_11_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_27/sketch_2025_11_27.png)
+
+[sketch_2025_11_27](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_11_27) [[py5](https://py5coding.org/)]
+
+#OpenSimplexNoise experiments.
+
+---
+
 ### sketch_2025_11_26
 
 ![sketch_2025_11_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_11_26/sketch_2025_11_26.png)
