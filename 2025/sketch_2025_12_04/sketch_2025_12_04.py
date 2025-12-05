@@ -48,11 +48,14 @@ class Particle:
         self.move()
         self.d = self.d * 0.99
         if py5.random(100) < 1:
-             particles.append(
-                 Particle(self.pos.x, self.pos.y, self.d,
-                          -self.vel,#.rotate(py5.HALF_PI),
-                          h=self.handedness)
-                 )
+            particles.append(
+                Particle(
+                    self.pos.x, self.pos.y,
+                    d=self.d,
+                    v=-self.vel.copy,
+                    h=self.handedness
+                )
+            )
         if self.d < 1:
             particles.remove(self)
         
