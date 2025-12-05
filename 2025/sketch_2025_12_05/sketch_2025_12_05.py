@@ -34,8 +34,8 @@ def key_pressed():
     elif py5.key == 'p':
         py5.save_frame('###.png')
     elif py5.key == 'r':
-        for x, y in product(range(200, py5.width - 199, 200), repeat=2):
-            for _ in range(1):
+        for x, y in product(range(250, py5.width - 249, 150), repeat=2):
+            for _ in range(4):
                 particles.append(Particle(x, y, d=60))
  
 
@@ -45,19 +45,21 @@ class Particle:
         self.pos = py5.Py5Vector(x, y)
         self.vel = v or py5.Py5Vector2D.random() * 2        
         self.d = d or py5.random(20, 50)
-        self.handedness = h or py5.random_choice((-1, 1))
+        self.h = h or py5.random_choice((-1, 1))
          
     def update(self):
-        if py5.random(100) < 1:
-             particles.append(
-                 Particle(self.pos.x, self.pos.y,
-                          d=self.d,
-                          v=-self.vel,#.rotate(py5.HALF_PI),
-                          h=self.handedness
-                          )
-                 )
+        if py5.random(1000) < 5:
+            particles.append(
+                Particle(
+                    self.pos.x, self.pos.y,
+                    d=self.d,
+                    v=self.vel.copy,
+                    h=-self.h
+                )
+            )
         if self.d < 1:
             particles.remove(self)
+            
         self.display()
         self.move()
         self.d = self.d * 0.99
@@ -74,7 +76,7 @@ class Particle:
         self.pos += self.vel
         self.pos.x %= py5.width
         self.pos.y %= py5.height
-        self.vel.rotate(py5.radians(2 * self.handedness))
+        self.vel.rotate(py5.radians(2 * self.h))
         self.vel *= 0.995
         
 py5.run_sketch(block=False)
