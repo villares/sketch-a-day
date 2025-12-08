@@ -3,7 +3,6 @@ from itertools import product
 import py5
 from py5_tools import animated_gif
 
-
 particles = []  
 
 def setup():
@@ -26,7 +25,6 @@ def mouse_dragged():
 def mouse_clicked():
     mouse_dragged()
 
-
 def key_pressed():
     if py5.key == ' ':
         particles.clear()
@@ -48,8 +46,12 @@ class Particle:
         self.h = h or py5.random_choice((-1, 1))
          
     def update(self):
+        self.display()
+        self.move()
+        self.d = self.d * 0.99
+        # random division
         if py5.random(1000) < 2:
-            p = py5.random_choice((1, 0))
+            p = py5.random_choice((1, 0)) # simetrical branch or backwards 
             particles.append(
                 Particle(
                     self.pos.x, self.pos.y,
@@ -58,19 +60,13 @@ class Particle:
                     h=-self.h if p else self.h,
                 )
             )
+        # self removal
         if self.d < 1:
             particles.remove(self)
             
-        self.display()
-        self.move()
-        self.d = self.d * 0.99
-
-
-
     def display(self):
         py5.no_stroke()
         py5.fill(py5.remap(self.d, 0, 60, 0, 255), 64)
-       # py5.fill(self.cor, py5.random(200, 255))
         py5.circle(*self.pos, self.d)
     
     def move(self):
