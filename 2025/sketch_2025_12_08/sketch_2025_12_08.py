@@ -7,7 +7,7 @@ def setup():
     py5.color_mode(py5.CMAP, 'viridis_r', 100)
     
 def draw():
-    py5.background('k')  # fundo branco
+    py5.background('k')  # fundo preto
     py5.no_fill()  # sem preenchimento 
     py5.random_seed(seed)
     recursive_hex(py5.width / 2, py5.height / 2, py5.width / 4, 6)
@@ -21,7 +21,6 @@ def recursive_hex(xo, yo, r, n=6):
         for x, y in poly_points(xo, yo, r, n):
             py5.stroke(r) 
             py5.stroke_weight(0.5 + r / 50)
-            #py5.line((x + xo) / 2 , (y + yo) / 2, xo, yo)
             if py5.is_mouse_pressed:
                 py5.line((x + xo) / 2, (y + yo) / 2, xo, yo)
             else:
