@@ -8,7 +8,7 @@ try:
 except ModuleNotFoundError:
     import tomli as tomllib # tomllib will be in Python 3.11's standard library only
 
-from mastodon import Mastodon  # Mastodon.py
+from mastodon import Mastodon  # Mastodon.py (pip install mastodon-py)
 
 SLEEP = 2 # seconds to wait after submiting image
 
