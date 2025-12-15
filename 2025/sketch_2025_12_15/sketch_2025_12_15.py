@@ -14,6 +14,23 @@ LIMIT = 20 # limit size of graph, pos smaller than width / 2 / step
 
 def setup():
     py5.size(800, 800)
+    generate()
+    
+def generate():
+    grid.clear()
+    to_check.append((0, 0))
+    while to_check:
+        shuffle(to_check)
+        new_to_check = []
+        while to_check:
+            i, j = to_check.pop()
+            for ni, nj in NBS:
+                ti, tj = i + ni, j - nj  # target neighbor
+                if (abs(ti) < LIMIT and abs(tj) < LIMIT
+                    and (ti, tj) not in grid):
+                    grid[ti, tj] = (i, j)
+                    new_to_check.append((ti, tj))
+        to_check[:] = new_to_check
 
 def draw():
     py5.background(200)
@@ -30,21 +47,7 @@ def key_pressed():
     if py5.key == 'p':
         py5.save_frame('###.png')
     elif py5.key == ' ':
-        py5.background(200)
-        grid.clear()
-        to_check.append((0, 0))
-        while to_check:
-            shuffle(to_check)
-            new_to_check = []
-            while to_check:
-                i, j = to_check.pop()
-                for ni, nj in NBS:
-                    ti, tj = i + ni, j - nj  # target neighbor
-                    if (abs(ti) < LIMIT and abs(tj) < LIMIT
-                        and (ti, tj) not in grid):
-                        grid[ti, tj] = (i, j)
-                        new_to_check.append((ti, tj))
-            to_check[:] = new_to_check
+        generate()
     
 py5.run_sketch(block=False)
 
