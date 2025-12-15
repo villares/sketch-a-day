@@ -3,14 +3,15 @@ from random import shuffle
 import py5
 import numpy as np
 
-grid = {}  # the nodes dict key_pos_tuple: value_origin_tuple  
-to_check = []
 NBS = [  # the possible jumps (neighbors)
     (-2, 0), (2, 0), (0, -2), (0, 2),
     (1, 1), (1, -1), (-1, 1), (-1, -1)
     ]
-step = 20 # scale factor, distance between nodes
-LIMIT = 20 # limit size of graph, pos smaller than width / 2 / step 
+STEP = 20 # scale factor, distance between nodes
+LIMIT = 20 # limit size of graph, allows pos smaller than width / 2 / STEP 
+
+grid = {}  # the nodes dict key_pos_tuple: value_origin_tuple  
+to_check = []  # the growing nodes
 
 def setup():
     py5.size(800, 800)
@@ -38,10 +39,10 @@ def draw():
     py5.stroke_weight(2)
     edges = np.array([(ki, kj, vi, vj) for (ki, kj), (vi, vj)
                       in grid.items()])
-    py5.lines(edges * step)
+    py5.lines(edges * STEP)
     py5.stroke_weight(5)
     nodes = np.array(tuple(grid.keys()))
-    py5.points(nodes * step)
+    py5.points(nodes * STEP)
 
 def key_pressed():
     if py5.key == 'p':
