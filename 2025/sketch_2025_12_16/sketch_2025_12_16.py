@@ -5,7 +5,6 @@ import numpy as np
 
 NBS = [  # the possible jumps (neighbors)
     (-2, 0), (2, 0), (0, -2), (0, 2),
-    #(-1, 0), (1, 0), (0, -1), (0, 1), 
     (1, 1), (1, -1), (-1, 1), (-1, -1)
     ]
 STEP = 16 # scale factor, distance between nodes
@@ -20,8 +19,7 @@ def setup():
     
 def generate():
     grid.clear()
-
-    to_check.append((0, 0))
+    to_check.append((0, 0)) # starting node ate the center
     while to_check:
         shuffle(to_check)
         new_to_check = []
@@ -42,11 +40,11 @@ def generate():
 
 def draw():
     py5.background(200)
-    py5.translate(py5.width / 2, py5.height / 2)
+    py5.translate(py5.width / 2, py5.height / 2) # center origin
     py5.stroke_weight(2)
     edges = np.array([(ki, kj, vi, vj) for (ki, kj), (vi, vj)
                       in grid.items()])
-    py5.lines(edges * STEP)
+    py5.lines(edges * STEP) 
     py5.stroke_weight(5)
     nodes = np.array(tuple(grid.keys()))
     py5.points(nodes * STEP)
@@ -58,5 +56,3 @@ def key_pressed():
         generate()
     
 py5.run_sketch(block=False)
-
-
