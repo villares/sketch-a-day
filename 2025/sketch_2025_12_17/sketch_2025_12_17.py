@@ -40,6 +40,7 @@ def generate():
 
 
 def calc_paths():
+    # WIP: I think this is not working right yet
     paths.clear()
     visited = set()
     for node in sorted(grid.keys()):
@@ -51,6 +52,7 @@ def calc_paths():
                 visited.add(node)
                 paths[-1].append(node)
     paths.sort(key=len)
+    print(f'paths: {len(paths)}')
 
 def draw():
     py5.background(250)
