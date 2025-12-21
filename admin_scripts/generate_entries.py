@@ -53,17 +53,13 @@ gui_mode = True  # default
 YEAR = '2025'   
 USER, REPO = 'villares', 'sketch-a-day'
 MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
-SPONSOR_LINKS = 'https://www.paypal.com/donate/?hosted_button_id=5B4MZ78C9J724\n'\
-                'https://liberapay.com/Villares\n'\
-                'https://wise.com/pay/me/alexandrev562'
-  
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 TOOT_DEFAULT = (
-    'Code at: {}\n'
-    f'More sketch-a-day: {MAIN_SITE}\n'
-    f'If you like this, support my work: \n{SPONSOR_LINKS}\n'
-    )
+     'Find the sketch-a-day archives and tip jar at: https://abav.lugaralgum.com/sketch-a-day \n'
+     'Code for this sketch at: {}\n'
+     )
+
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
 base_path = Path(f'/home/{USER}/GitHub/{REPO}/')
 year_path = base_path / YEAR
