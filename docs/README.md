@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2025_12_22
+
+![sketch_2025_12_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_22/sketch_2025_12_22.gif)
+
+[sketch_2025_12_22](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_12_22) [[py5](https://py5coding.org/)]
+
+I still have to work out what I want to do with the overlapping path edges... While I don't, moving a bit on Z gives a cool result and avoids the flickering superposition of edges.
+
+---
+
 ### sketch_2025_12_21
 
 ![sketch_2025_12_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_21/sketch_2025_12_21.png)
