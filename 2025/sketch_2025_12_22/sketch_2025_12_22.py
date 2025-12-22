@@ -18,6 +18,7 @@ grid = {}  # the nodes dict key_pos_tuple: value_origin_tuple
 to_check = []  # the growing nodes
 paths = []
 seed = 2
+rotation = 0
 
 def setup():
     py5.size(800, 800, py5.P3D)
@@ -73,32 +74,20 @@ def calc_paths():
     print(f'paths: {len(paths)}')
 
 def draw():
+    global rotation
     py5.background(0)
-# # you'll need these if not using PeasyCam
-#     py5.translate(py5.width / 2, # - STEP,
-#                   py5.height / 2,
-#                   ) # center origin
-#     py5.rotate_x(py5.radians(30))
-#     py5.rotate_y(py5.radians(30))
-    py5.translate(0, 0, 0)
-    py5.rotate_y(py5.radians(py5.frame_count))
     py5.stroke_weight(3)
     py5.no_fill()
+    py5.translate(0, 0, 0)
+    py5.rotate_y(py5.radians(rotation))
+    rotation += 1
     for path in paths:
         py5.translate(0, 0, 0.05)
         edges = np.array(path)
         py5.stroke(len(path)* 10, 200, 255, 255)
-        #py5.translate(0.02, 0)
-        #py5.translate(0, 0, 1)
         with py5.push_matrix(), py5.begin_shape():
             py5.translate(0, 0, -len(path) * STEP)
             py5.vertices(edges * STEP) 
-
-#     py5.stroke_weight(4)
-#     py5.stroke(0)
-#     nodes = np.array(tuple(grid.keys()))
-#     py5.points(nodes * STEP)
-
 
 def key_pressed():
     global seed
