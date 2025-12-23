@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2025_12_23
+
+![sketch_2025_12_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_23/sketch_2025_12_23.gif)
+
+[sketch_2025_12_23](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_12_23) [[py5](https://py5coding.org/)]
+
+This is an easy evolution, with many starting points. The orbiting interaction is quite fun, but hard to capture on a video/gif.
+
+---
+
 ### sketch_2025_12_22
 
 ![sketch_2025_12_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_22/sketch_2025_12_22.gif)
