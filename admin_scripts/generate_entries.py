@@ -56,7 +56,7 @@ MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 TOOT_DEFAULT = (
-     'Find the sketch-a-day archives and tip jar at: https://abav.lugaralgum.com/sketch-a-day \n'
+     '\nFind the sketch-a-day archives and tip jar at: https://abav.lugaralgum.com/sketch-a-day \n'
      'Code for this sketch at: {}\n'
      )
 
@@ -176,7 +176,9 @@ def ask_tool_comment(folder, img, default_tool):
                                    size=(40,22), key='-TOOL-')],
         [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
         [sg.T('Coment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.T('For Mastodon'), sg.Multiline(key='-MASTODON-',default_text=TOOT_DEFAULT.format(link), size=(40,4))],
+        [sg.T('For Mastodon'), sg.Multiline(key='-MASTODON-',
+                                            default_text=TOOT_DEFAULT.format(link),
+                                            size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon',
                                                  key='--TOOT--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
