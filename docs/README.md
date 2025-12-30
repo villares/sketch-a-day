@@ -46,15 +46,13 @@ Playing with the #numpy @ operator and a rotation matrix :)
 [sketch_2025_12_29](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_12_29) [[py5](https://py5coding.org/)]
 
 
-
 ---
 
 ### sketch_2025_12_28
 
-![sketch_2025_12_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_28/sketch_2025_12_28_.png)
+![sketch_2025_12_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_28/sketch_2025_12_28.gif)
 
 [sketch_2025_12_28](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_12_28) [[py5](https://py5coding.org/)]
-
 
 
 ---
