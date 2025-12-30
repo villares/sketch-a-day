@@ -22,7 +22,7 @@ def draw():
     py5.stroke_weight(2)
     py5.stroke(255)
     py5.translate(py5.width / 2, py5.height / 2)
-    for i, j in product((-1, 1), repeat=2):
+    for i, j in product((-2, -1, 1, 2), repeat=2):
         with py5.push_matrix(), py5.begin_closed_shape():
              py5.vertices(PTS * np.array((i, j)))
     py5.stroke_weight(10)
@@ -57,3 +57,4 @@ def mouse_released():
     drag = None
      
 py5.run_sketch(block=False)
+
