@@ -23,7 +23,8 @@ def draw():
     py5.stroke_weight(2)
     py5.stroke(255)
     py5.translate(py5.width / 2, py5.height / 2)
-    for angle in range(0, 360, 18):
+    for angle in range(0, 360, 18):  # I forgot to convert to radians!
+        # will do it tomorrow :)
         R = np.array(((np.cos(angle), -np.sin(angle)),
                       (np.sin(angle),  np.cos(angle))))
         with py5.begin_closed_shape():
