@@ -26,7 +26,7 @@ def draw():
     for angle in range(0, 360, 18):
         R = np.array(((np.cos(angle), -np.sin(angle)),
                       (np.sin(angle),  np.cos(angle))))
-        with py5.push_matrix(), py5.begin_closed_shape():
+        with py5.begin_closed_shape():
              py5.vertices(pts @ R)
     py5.stroke_weight(10)
     for x, y in pts:
