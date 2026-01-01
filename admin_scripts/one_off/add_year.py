@@ -4,7 +4,8 @@ base_path = Path('/home/villares/GitHub/sketch-a-day/docs/')
 
 # Basic form of the new index of year links
 template = (  
-r"[<b>2025</b>](README.md) "
+r"[<b>2026</b>](README.md) "
+r"\| [<b>2025</b>](2025.md) "
 r"\| [<b>2024</b>](2024.md) "
 r"\| [<b>2023</b>](2023.md) "
 r"\| [<b>2022</b>](2022.md) "
