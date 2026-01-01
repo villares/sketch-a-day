@@ -34,7 +34,7 @@ from os import listdir
 from itertools import takewhile
 from time import sleep
 
-from svglib.svglib import svg2rlg
+from svglib.svglib import svg2rlg        # pip install svglib
 from reportlab.graphics import renderPM  #*!todo
 # TODO garantir que tem rlPyCairo e pyCairo instaladas
 
