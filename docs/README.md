@@ -21,7 +21,7 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
    
 ---
 
-2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
+2026 \| [<b>2025</b>](2025.md) \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
 
 
 <!-- SKETCHES_START -->
@@ -29,7 +29,7 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
-### sketch_2025_12_31
+### [placeholder sketch from 2025, to be removed later]
 
 ![sketch_2025_12_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_31/sketch_2025_12_31.gif)
 
@@ -37,7 +37,6 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 Happy new year!
 
----
 
 <!-- SKETCHES_END -->
 
