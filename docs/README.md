@@ -29,13 +29,13 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
-### [placeholder sketch from 2025, to be removed later]
+### sketch_2026_01_01
 
-![sketch_2025_12_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2025/sketch_2025_12_31/sketch_2025_12_31.gif)
+![sketch_2026_01_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_01/sketch_2026_01_01.png)
 
-[sketch_2025_12_31](https://github.com/villares/sketch-a-day/tree/main/2025/sketch_2025_12_31) [[py5](https://py5coding.org/)]
+[sketch_2026_01_01](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_01) [[py5](https://py5coding.org/)]
 
-Happy new year!
+#genuary #genuary1 #genuary2026
 
 
 <!-- SKETCHES_END -->

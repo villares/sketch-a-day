@@ -50,7 +50,7 @@ print(f'Running on: {sys.executable}') # for debug
 gui_mode = True  # default
 
 # YEAR and base_paths to sketch-a-day folder are set manually, hard-coded
-YEAR = '2025'   
+YEAR = '2026'   
 USER, REPO = 'villares', 'sketch-a-day'
 MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
