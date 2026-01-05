@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_01_04
+
+![sketch_2026_01_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_04/sketch_2026_01_04.png)
+
+[sketch_2026_01_04](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_04) [[py5](https://py5coding.org/)]
+
+#genuary4 #genuary #genuary2026
+
+---
+
 ### sketch_2026_01_03
 
 ![sketch_2026_01_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_03/sketch_2026_01_03.png)
@@ -63,7 +73,7 @@ Once I made a nice Fibonacci based animation, but this time I couldn't figure so
 
 ---
 
-2025 \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
+2026 \| [<b>2025</b>](2025.md) \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
 
 ---
 
