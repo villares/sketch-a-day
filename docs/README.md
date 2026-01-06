@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_01_05
+
+![sketch_2026_01_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_05/sketch_2026_01_05.gif)
+
+[sketch_2026_01_05](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_05) [[py5](https://py5coding.org/)]
+
+In 2021 I was working on some older code for a silly glyph editor, I couldn't resurrect the editor (yet) but I could still read some pickled glyphs data! I hope I get back to these studies again. Note: be careful about loading pickled data from untrusted sources, there is a nasty risk of "arbitrary code execution".
+
+---
+
 ### sketch_2026_01_04
 
 ![sketch_2026_01_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_04/sketch_2026_01_04.png)
