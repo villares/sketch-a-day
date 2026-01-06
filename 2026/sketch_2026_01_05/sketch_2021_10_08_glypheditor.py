@@ -1,5 +1,5 @@
 """
-A reboot of a simple poly / linerar glyphs editor
+A reboot of a simple poly / linear glyphs editor
 """
 
 from glyphs import Glyph
