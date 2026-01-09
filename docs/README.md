@@ -29,6 +29,17 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_01_07
+
+![sketch_2026_01_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_07/sketch_2026_01_07.png)
+
+[sketch_2026_01_07](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_07) [[py5](https://py5coding.org/)]
+
+The cool binary XOR based pattern I learned fron Ntsutae... now with #numpy
+#genuary #genuary7 #genuary2026
+
+---
+
 ### sketch_2026_01_06
 
 ![sketch_2026_01_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_06/sketch_2026_01_06.gif)
