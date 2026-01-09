@@ -24,20 +24,22 @@ def setup():
     xys = np.array(tuple(product(range(800), range(800))))
 
 def draw():
+#    # slow nested loops
 #     py5.background(255)  
-#     t = 0 # py5.frame_count
+#     t = py5.frame_count
 #     for y in range(py5.height):
 #         for x in range(py5.width):
 #             v = abs((x + y - t) ^ (x - y + t))
 #             test = (m * 100 + pow(v, a)) % b;
 #             if test < c:
 #                 py5.point(x, y)
+    # fast numpy vetorized version...
     t = py5.frame_count
     pxs = np.ones((py5.height, py5.width, 3),
-                  dtype=np.uint8) * 255 
+                  dtype=np.uint8) * 255 # white filled
     v = np.abs((x + y - t) ^ (x - y + t))
     mask = ((m * 100 + np.power(v, a)) % b) < c       
-    pxs[mask, :3] = (0, 0, 0)     
+    pxs[mask, :3] = (0, 0, 0) # set black pixels    
     py5.set_np_pixels(pxs, bands='RGB')
     
 def key_pressed():
