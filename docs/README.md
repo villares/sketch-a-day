@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_01_09
+
+![sketch_2026_01_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_09/sketch_2026_01_09.gif)
+
+[sketch_2026_01_09](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_09) [[py5](https://py5coding.org/)]
+
+Tweaking an old idea of coloring Wolfram's Automata #genuary #genuary9 #genuary2026
+
+---
+
 ### sketch_2026_01_08
 
 ![sketch_2026_01_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_08/sketch_2026_01_08.gif)
