@@ -61,6 +61,6 @@ def key_pressed():
     if py5.key == ' ':
         start()
     else:
-        py5.save_frame(f'{str(ruleset)}-###.png')
+        py5.save_frame(f'###.png')
 
 py5.run_sketch(block=False)
