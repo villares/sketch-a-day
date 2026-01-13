@@ -2,6 +2,7 @@ import py5
 import py5_tools
 
 black = py5.color(0)
+white = py5.color(255)
 
 def setup():
     global osb
@@ -12,14 +13,14 @@ def setup():
     osb.no_smooth() # can only be used before begin_draw()
     osb.begin_draw()
     osb.background(black)
-    osb.fill(255)
+    osb.fill(white)
     osb.text_font(f)
     osb.text_align(py5.CENTER, py5.CENTER)
     osb.text('genuary', 300, 300)
     osb.end_draw()
 
 def draw():
-    py5.background(0)
+    py5.background(black)
     py5.translate(py5.width / 2, py5.height / 2, 0)
     py5.rotate_x(py5.radians(15))
     py5.translate(-py5.width / 2, -py5.height / 2 - 40, 0)
@@ -34,7 +35,7 @@ def draw():
             x = int(coluna * s)
             y = int(fila * s)
             z = 0
-            if osb.get_pixels(x, y) != py5.color(255):
+            if osb.get_pixels(x, y) != white:
                 caixa(x, y, z, s)
 
 def key_pressed():
