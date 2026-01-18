@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_01_18
+
+![sketch_2026_01_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_18/sketch_2026_01_18.png)
+
+[sketch_2026_01_18](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_18) [[py5](https://py5coding.org/)]
+
+10000 steps of walker that turns 30° one way if the step is prime and 30° the other way. #genuary #genuary18 #genuary2026
+
+---
+
 ### sketch_2026_01_17
 
 ![sketch_2026_01_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_01_17/sketch_2026_01_17.png)
