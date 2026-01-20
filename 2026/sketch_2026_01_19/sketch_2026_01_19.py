@@ -21,14 +21,13 @@ def setup():
     pts[:] = py5.random_permutation(pts)
     p = shapely.Polygon(pts)
   
-
 def draw():
     py5.background(0)
     py5.stroke(255)
     py5.stroke_weight(2)
     with py5.begin_closed_shape():
-        py5.curve_vertices(pts)
-        #py5.vertices(pts)
+        #py5.curve_vertices(pts)
+        py5.vertices(pts)
     py5.stroke(255, 0, 0)
     py5.stroke_weight(4)
     py5.points(pts)
