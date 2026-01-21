@@ -7,12 +7,10 @@ from scipy.sparse.csgraph import minimum_spanning_tree
 import py5
 import shapely
 
-pts = []
 MARGIN = 50
 N = 16
 R = 2
 dragged = None
-mst_edges = []
 
 def setup():
     py5.size(600, 600)
@@ -26,19 +24,8 @@ def start():
            for i in range(N)]
     ys = [w / 2 + MARGIN + i * w + py5.random(-1, 1) * R
        for i in range(N)]
-    pts[:] = product(xs, ys)
-    nodes = np.array(pts)
+    nodes = np.array(tuple(product(xs, ys)))
     update_viz()
-
-# def calculate_mst(nodes):
-#     distances = pdist(nodes)
-#     dist_matrix = squareform(distances)
-#     mst = minimum_spanning_tree(dist_matrix)
-#     mst_dense = mst.toarray()
-#     rows, cols = np.nonzero(mst_dense)    
-#     mask = rows < cols
-#     edges = np.column_stack((rows[mask], cols[mask]))
-#     return edges
 
 def path_distance(route, nodes):
     coords = nodes[route]
