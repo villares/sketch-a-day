@@ -35,7 +35,7 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 [sketch_2026_01_22](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_01_22) [[py5](https://py5coding.org/)]
 
-I enjoyed this one, randomizing the widths of rows and collumns of a grid then applying a #TSP strategy. #genuary #genuary22 #genuary2026
+I enjoyed this one, randomizing the widths of rows and columns of a grid then applying a #TSP strategy. #genuary #genuary22 #genuary2026
 
 ---
 
