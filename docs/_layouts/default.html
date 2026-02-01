@@ -76,7 +76,7 @@
         width: 100%;
         height: auto;
         object-fit: cover;
-        aspect-ratio: 1/1;
+        aspect-ratio: auto;  /* changed from 1/1 that cropped images */
         order: 2;
       }
       
@@ -91,6 +91,27 @@
       .sketches-container.multi-column hr {
         display: none;
       }
+
+      /* Image preview overlay  */
+      .image-preview-overlay {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.6);
+        z-index: 9999;
+        padding: 20px;
+        }
+      .image-preview-overlay img {
+        max-width: 95vw;
+        max-height: 95vh;
+        width: auto;
+        height: auto;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+        }
+        /* visible state */
+      .image-preview-overlay.visible { display: flex; }
       
       /* Responsive adjustments */
       @media (max-width: 768px) {
@@ -105,9 +126,8 @@
         }
       }
     </style>
-    </style>
-  </head>
-  <body>
+</head>
+<body>
 <h1><a href="https://abav.lugaralgum.com/">Alexandre B A Villares</a></h1>
     <hr />
     <div class="content">
@@ -128,8 +148,8 @@
     <div class="layout-controls">
       <button id="toggleLayout">turn on grid layout</button>
       <div id="gridControls" style="display: none;">
-         <label for="columnWidth">width (px):</label>
-         <input type="text" id="columnWidth" value="200">
+        <label for="columnWidth">width (px):</label>
+        <input type="text" id="columnWidth" value="200">
       </div>
     </div>
   `;
@@ -149,7 +169,7 @@
       tempDiv.innerHTML = controlsHTML;
       comment.parentNode.replaceChild(tempDiv.firstElementChild, comment);
       break;
-     }
+    }
   }
 
   // Find SKETCHES_START and SKETCHES_END comments
@@ -307,6 +327,24 @@
     }
   });
 });
+
+  // Adding full size image preview
+  document.addEventListener('click', function(e) {
+    const img = e.target.closest('.sketches-container .sketch-item img');
+    if (!img) return;
+    let overlay = document.querySelector('.image-preview-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'image-preview-overlay';
+      overlay.addEventListener('click', () => overlay.classList.remove('visible'));
+      document.body.appendChild(overlay);
+    }
+    overlay.innerHTML = '';
+    const clone = img.cloneNode();
+    overlay.appendChild(clone);
+    overlay.classList.add('visible');
+  });
+
     </script>
 
   <!-- outros scripts gerais abav.lugaralgum.com -->
