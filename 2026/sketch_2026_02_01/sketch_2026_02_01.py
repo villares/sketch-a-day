@@ -34,7 +34,8 @@ def draw():
         #py5.fill('white')
         #py5.text(int(area), *shape_centroid(shp))
     py5.window_title(str(round(py5.get_frame_rate(), 1)))
-
+    # TODO: try a Py5Shape.GROUP or maybe
+    # py5.convert_cached_shape(shapely.MultiPolygon...) ?
 
 def split_shapes():
     new_shapes = []
