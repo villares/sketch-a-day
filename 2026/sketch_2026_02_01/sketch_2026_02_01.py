@@ -6,6 +6,7 @@ from shapely import Polygon
 
 vs = []
 shapes = []
+areas = []
 
 def setup():
     py5.size(800, 800)
@@ -26,16 +27,12 @@ def draw():
     py5.background(0)
     py5.no_fill()
     py5.stroke(0)
-    for shp in shapes:
-        pts = np.array(vs)[np.array(shp)]
-        a = pts_area(pts)
-        #b = Polygon(pts).area
-        py5.fill(a / max_area)
+    for shp, area in zip(shapes, areas):
+        py5.fill(area / max_area)
         with py5.begin_closed_shape():
-            py5.vertices(pts)
+            py5.vertices(np.array(vs)[np.array(shp)])
         #py5.fill('white')
-        #py5.text(f'{int(a)}\n{int(b)}', *shape_centroid(shp))
-        #py5.text(int(a), *shape_centroid(shp))
+        #py5.text(int(area), *shape_centroid(shp))
     py5.window_title(str(round(py5.get_frame_rate(), 1)))
 
 
@@ -66,8 +63,9 @@ def split_shapes():
                 new_shapes.append((i, c, b))
         else:
             new_shapes.append(shp)
-    shapes[:] = new_shapes        
-    return shape_area(max(shapes, key=shape_area))
+    shapes[:] = new_shapes
+    areas[:] = (shape_area(shp) for shp in shapes)
+    return max(areas)
 
 @cache
 def shape_centroid(shp):
