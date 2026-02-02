@@ -256,8 +256,8 @@
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = originalHTML;
     
-    // Find all H3 elements that start with sketch_
-    const h3Elements = tempDiv.querySelectorAll('h3[id^="sketch_"]');
+    // Find all H3 elements
+    const h3Elements = tempDiv.querySelectorAll('h3');    // 'h3[id^="s"]');
     
     h3Elements.forEach((h3, index) => {
       const itemDiv = document.createElement('div');
