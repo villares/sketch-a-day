@@ -2,7 +2,6 @@ from functools import cache
 
 import py5
 import numpy as np
-from shapely import Polygon
 
 vs = []
 shapes = []
