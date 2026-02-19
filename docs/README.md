@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_18
+
+![sketch_2026_02_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_18/sketch_2026_02_18.png)
+
+[sketch_2026_02_18](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_18) [[py5](https://py5coding.org/)]
+
+471 of 1703 triangulations of the 3 x 3 grid
+
+---
+
 ### sketch_2026_02_17
 
 ![sketch_2026_02_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_17/sketch_2026_02_17.png)
