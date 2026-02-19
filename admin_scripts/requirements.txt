@@ -181,7 +181,7 @@ pwquality==1.4.5
 py7zr==1.1.2
 pyaes==1.6.1
 pyaml==24.12.0
-pyasn1==0.6.1
+pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pybcj==1.0.7
 pybind11==3.0.1
