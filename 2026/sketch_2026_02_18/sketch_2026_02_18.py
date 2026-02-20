@@ -1,7 +1,6 @@
 # Drawing 471 of 1703 triangulations of the 3 x 3 grid
 
 from itertools import product, combinations
-from functools import cache
 
 import py5
 from shapely import Polygon, unary_union
