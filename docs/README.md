@@ -29,6 +29,26 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_21
+
+![sketch_2026_02_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_21/sketch_2026_02_21.png)
+
+[sketch_2026_02_21](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_21) [[py5](https://py5coding.org/)]
+
+WIP: Rendering of a dictionary that shows on each row, at the start on the left, one of the 76 triangles that can be drawn on a 3x3 grid, then all the other triangles that do not overlapp with it.
+
+---
+
+### sketch_2026_02_20
+
+![sketch_2026_02_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_20/sketch_2026_02_20.png)
+
+[sketch_2026_02_20](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_20) [[py5](https://py5coding.org/)]
+
+The 23 ways of dividing a 3x3 grid into 2, 3 and 4 triangles, excluding rotations.
+
+---
+
 ### sketch_2026_02_19
 
 ![sketch_2026_02_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_19/sketch_2026_02_19.png)
