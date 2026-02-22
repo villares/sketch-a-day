@@ -30,7 +30,9 @@ def start(ns=[3]):
     for tri in all_tris:
         good = []
         for other in all_tris:
-            if other != tri and not other.overlaps(tri):
+            # if other != tri and not other.overlaps(tri): # 02_21 doesn't work
+            # fixed 02_22
+            if other != tri and (tri.union(other)).area == tri.area + other.area:
                 good.append(other)
         nod[tri] = good    
     
