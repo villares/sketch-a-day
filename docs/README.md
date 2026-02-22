@@ -35,7 +35,7 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 [sketch_2026_02_21](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_21) [[py5](https://py5coding.org/)]
 
-WIP: Rendering of a dictionary that shows on each row, at the start on the left, one of the 76 triangles that can be drawn on a 3x3 grid, then all the other triangles that do not overlapp with it.
+WIP: Failed first attempt at rendering a dictionary that shows on each row, at the start on the left, one of the 76 triangles that can be drawn on a 3x3 grid, then all the other triangles that do not overlapp with it. 
 
 ---
 
