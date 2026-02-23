@@ -29,6 +29,18 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_23
+
+![sketch_2026_02_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_23/sketch_2026_02_23.png)
+
+[sketch_2026_02_23](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_23) [[py5](https://py5coding.org/)]
+
+197 ways of dividing a grid of 3x3 points into triangles. Removing rotations.
+
+I have done this before, but it has been fun doing it again from scratch I like the strategy this time much better.
+
+---
+
 ### sketch_2026_02_22
 
 ![sketch_2026_02_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_22/sketch_2026_02_22.png)
