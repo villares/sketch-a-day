@@ -35,7 +35,7 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 [sketch_2026_02_22](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_22) [[py5](https://py5coding.org/)]
 
-270 pairs of non-overaping triangles from a 3x3 grid of points
+270 pairs of non-overlapping triangles from a 3x3 grid of points. Removing rotations.
 
 ---
 
