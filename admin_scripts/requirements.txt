@@ -293,7 +293,7 @@ xonsh==0.22.1
 xxhash==3.6.0
 yarl==1.23.0
 yq==3.4.3
-yt-dlp==2026.1.29
+yt-dlp==2026.2.21
 yt-dlp-ejs==0.4.0
 ytmusicapi==1.11.4
 zeroconf==0.148.0
