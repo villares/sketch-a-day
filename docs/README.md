@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_24
+
+![sketch_2026_02_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_24/sketch_2026_02_24.png)
+
+[sketch_2026_02_24](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_24) [[py5](https://py5coding.org/)]
+
+WIP / debug view: #shapely union is generating some bad polygons maybe subdivided edges or badly behaving vertices?) I have to figure out how to fix them.
+
+---
+
 ### sketch_2026_02_23
 
 ![sketch_2026_02_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_23/sketch_2026_02_23.png)
