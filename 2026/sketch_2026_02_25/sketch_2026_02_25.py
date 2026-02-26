@@ -5,7 +5,7 @@ import py5
 from shapely import Polygon, unary_union, simplify, make_valid
 import numpy as np
 
-W = 15
+W = 16
 M = 2
 nod = {} # non-overlapping dict
 grid = tuple(product((-0.5, 0, 0.5), repeat=2))
@@ -15,7 +15,6 @@ def setup():
     global all_tris
     py5.size((W + M) * 89 + M, (W + M) * 11 + M)
     py5.color_mode(py5.CMAP, py5.mpl_cmaps.JET, 255)
-    py5.stroke_weight(0.5)
     py5.stroke_join(py5.ROUND)
     py5.stroke('black')
     all_tris = [Polygon(t) for t in combinations(grid, 3)
@@ -45,7 +44,7 @@ def setup():
             for other in others:
                  new_seeds.add(Combo(combo.shapes + (other,))) 
         seeds = new_seeds
-    print(f'{len(s_combos)} triangle only configurations')
+    print(f'{len(s_combos)} triangle configurations')
     # now start the merging of triangles
     seeds.clear()
     seeds.update(s_combos) 

@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_25
+
+![sketch_2026_02_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_25/sketch_2026_02_25.png)
+
+[sketch_2026_02_25](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_25) [[py5](https://py5coding.org/)]
+
+979 ways of dividing a 3x3 grid of points into polygons. Did I miss any? I hope not. The polys are colored according to the number of vertices.
+
+---
+
 ### sketch_2026_02_24
 
 ![sketch_2026_02_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_24/sketch_2026_02_24.png)
