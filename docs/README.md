@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_26
+
+![sketch_2026_02_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_26/sketch_2026_02_26.png)
+
+[sketch_2026_02_26](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_26) [[py5](https://py5coding.org/)]
+
+979 ways of dividing a square with a 3x3 grid of points (980 if you count not dividing the square at all as one!)
+
+---
+
 ### sketch_2026_02_25
 
 ![sketch_2026_02_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_25/sketch_2026_02_25.png)
