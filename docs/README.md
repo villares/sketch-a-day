@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_02_28
+
+![sketch_2026_02_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_28/sketch_2026_02_28.png)
+
+[sketch_2026_02_28](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_02_28) [[py5](https://py5coding.org/)]
+
+Preparing a bit for teaching my #CellularAutomata class a few times this semester.#WIP #ConwaysGameOfLife with #numpy
+
+---
+
 ### sketch_2026_02_27
 
 ![sketch_2026_02_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_02_27/sketch_2026_02_27.png)
