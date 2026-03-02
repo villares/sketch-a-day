@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_02
+
+![sketch_2026_03_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_02/sketch_2026_03_02.png)
+
+[sketch_2026_03_02](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_02) [[py5](https://py5coding.org/)]
+
+Calculation of #Conway's #GameOfLife was already very fast with #Numpy, but drawing was slow (squares and text...) now this is *so* fast... with vectorized `py5.points()` getting arrays of points to draw as squares with `py5.stroke_cap(py5.PROJECT)`. Check it out!
+
+---
+
 ### sketch_2026_03_01
 
 ![sketch_2026_03_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_01/sketch_2026_03_01.png)
