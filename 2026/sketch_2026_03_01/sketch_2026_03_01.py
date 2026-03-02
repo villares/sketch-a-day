@@ -1,7 +1,7 @@
 import py5
 import numpy as np
  
-CELL_SIZE = 15
+CELL_SIZE = 16
 NBS_OFFSETS = (  # the 8 neighbors 
     (-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)   
 )
