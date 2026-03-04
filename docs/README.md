@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_04
+
+![sketch_2026_03_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_04/sketch_2026_03_04.png)
+
+[sketch_2026_03_04](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_04) [[py5](https://py5coding.org/)]
+
+#CellularAutomata with a 16 cell neighborhood: (-1, -1), ( 0, -1), (1, -1), (-1, 0), ( 1,  0), (-1,  1), (0,  1), ( 1, 1), (-2, -2), ( 0, -4), (2, -2), (-4, 0), ( 4,  0), (-2,  2), (0,  4), ( 2, 2)
+
+---
+
 ### sketch_2026_03_03
 
 ![sketch_2026_03_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_03/sketch_2026_03_03.png)
