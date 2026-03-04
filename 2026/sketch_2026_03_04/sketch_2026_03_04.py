@@ -2,7 +2,7 @@ import py5
 import numpy as np
  
 CELL_SIZE = 4
-NBS_OFFSETS = (  # the 8 neighbors 
+NBS_OFFSETS = (  # the 16 neighbors 
     (-1, -1), ( 0, -1), (1, -1), (-1, 0),
     ( 1,  0), (-1,  1), (0,  1), ( 1, 1),
     (-2, -2), ( 0, -4), (2, -2), (-4, 0),
@@ -21,7 +21,6 @@ def setup():
     ROWS = int(py5.height // CELL_SIZE)
     board = np.random.uniform(0, 1, size=(ROWS, COLS)) < 0.5
     next_board = np.zeros_like(board)
-    
     positions = np.array([
         [(col * CELL_SIZE + CELL_SIZE / 2, row * CELL_SIZE + CELL_SIZE / 2)
         for col in range(COLS)]
@@ -31,7 +30,6 @@ def setup():
 def draw():
     py5.background('black')
     calc_live_nbs_count_board() # vectorized count strategy
-    
     py5.stroke_weight(CELL_SIZE)
     py5.stroke_cap(py5.PROJECT)
     for nn in range(17):
