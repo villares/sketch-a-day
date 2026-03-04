@@ -49,12 +49,12 @@ def calc_live_nbs_count_board():  # harder to explain I think
         nbs_count_board += rolled # and are added
 
 def advance_board_a_step():
-    next_board[:] = board  # this will carry on some 2-nbs & 3-nbs cells!
+    next_board[:] = board   # copy current board to new board
     lonely = nbs_count_board < LOWER
     crowded = nbs_count_board > HIGHER
     born = nbs_count_board == BORN
-    next_board[lonely + crowded] = False  # kills cels
-    next_board[born] = True               # adds new cells
+    next_board[lonely + crowded] = False  # kills cells outside rule limits
+    next_board[born] = True               # adds newly born cells
     board[:] = next_board  # substitutes
     
 
