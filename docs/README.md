@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_06
+
+![sketch_2026_03_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_06/sketch_2026_03_06.gif)
+
+[sketch_2026_03_06](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_06) [[py5](https://py5coding.org/)]
+
+Based on the code written yesterday at the "drawing with code open atelier" at Sesc. Using images from Wikimedia Commons! :)
+
+---
+
 ### sketch_2026_03_05
 
 ![sketch_2026_03_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_05/sketch_2026_03_05.gif)
