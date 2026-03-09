@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_08
+
+![sketch_2026_03_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_08/sketch_2026_03_08.png)
+
+[sketch_2026_03_08](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_08) [[py5](https://py5coding.org/)]
+
+516 triangles on a 4x4 grid of points, avoiding duplicates with whole grid rotation, but not duplicates whit translations (& possible rotations) of the triangles inside the grid.
+
+---
+
 ### sketch_2026_03_07
 
 ![sketch_2026_03_07](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_07/sketch_2026_03_07.gif)
