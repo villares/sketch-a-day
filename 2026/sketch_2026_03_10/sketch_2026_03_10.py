@@ -5,6 +5,7 @@ from py5_tools import animated_gif
 
 frames = []
 mode = 0
+mcolor = py5.color(200, 300, 200, 100)
 
 def setup():
      py5.size(600, 600)
@@ -59,7 +60,7 @@ def marker(x, y, fs):
         ry = py5.random(-2, 2)
         rd = py5.random(18, 22)
         with frame.begin_draw():
-            frame.fill(200, 300, 200, 100)
+            frame.fill(mcolor)
             frame.no_stroke()
             frame.circle(x + rx, y + ry, rd)
 
