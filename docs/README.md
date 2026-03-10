@@ -29,6 +29,17 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_09
+
+![sketch_2026_03_09](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_09/sketch_2026_03_09.gif)
+
+[sketch_2026_03_09](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_09) [[py5](https://py5coding.org/)]
+
+Inpired by Wiggly Paint (https://internet-janitor.itch.io/wigglypaint)
+- See also https://beyondloom.com/blog/onwigglypaint.html
+
+---
+
 ### sketch_2026_03_08
 
 ![sketch_2026_03_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_08/sketch_2026_03_08.png)
