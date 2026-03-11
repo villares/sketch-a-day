@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(
     )
 parser.add_argument(
     '-i', '--input',
-    help='Input folder containing the PNG images (Will look at the CWD by default)'
+    help='Input folder containing the PNG images (default=None, will look at the current working dir)'
     )
 parser.add_argument(
     '-o', '--output', default='output.gif',
