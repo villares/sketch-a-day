@@ -19,15 +19,15 @@ parser = argparse.ArgumentParser(
     )
 parser.add_argument(
     '-i', '--input',
-    help='Input folder containing the PNG images'
+    help='Input folder containing the PNG images (Will look at the CWD by default)'
     )
 parser.add_argument(
     '-o', '--output', default='output.gif',
-    help='Output GIF file name'
+    help="Output GIF file name (default='output.gif')"
     )
 parser.add_argument(
     '-d', '--duration', default=200, type=int,
-    help='Frame duration in milliseconds',
+    help='Frame duration in milliseconds (default=200)',
     )
 parser.add_argument(
     '-l', '--loop', default=0, type=int,
