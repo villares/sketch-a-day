@@ -33,6 +33,8 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ![sketch_2026_03_12](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_12/sketch_2026_03_12.png)
 
+![sketch_2026_03_12b](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_12/sketch_2026_03_12b.png)
+
 [sketch_2026_03_12](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_12) [[py5](https://py5coding.org/)]
 
 945 combinations of 4 lines on a 3x3 grid: the lines have no shared vertices
