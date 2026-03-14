@@ -43,6 +43,7 @@ sg.set_options(element_padding=(10, 10))
 
 from image_helpers import get_image_names, image_as_png_bytes
 from toot_publisher import toot
+from bs_publisher import post
 from generate_index_for_logseq import generate_sketch_a_day_index
 
 print(f'Running on: {sys.executable}') # for debug
@@ -55,7 +56,7 @@ USER, REPO = 'villares', 'sketch-a-day'
 MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
-TOOT_DEFAULT = (
+POST_DEFAULT = (
      '\nFind the sketch-a-day archives and tip jar at: https://abav.lugaralgum.com/sketch-a-day \n'
      'Code for this sketch at: {}\n'
      )
@@ -128,19 +129,28 @@ def main(args):
         for img in imgs:
             comment = description = None
             default_tool = 'py5'
+            tool = default_tool
             if img.name.startswith(folder):
                 if gui_mode:
                     dialog_result = ask_tool_comment(folder, img, default_tool)
-                    tool, comment, do_toot, image_caption, toot_text = dialog_result
+                    tool, comment, do_toot, do_bs, image_caption, post_text = dialog_result
                 entry_text = build_entry(folder, img.name, tool, comment, image_caption)
                 if do_toot:
                     tags = tag_dict.get(tool, ' #CreativeCoding')
                     try:
-                        status = toot(comment + ' ' + toot_text + ' ' + tags, img, image_caption)
+                        status = toot(comment + ' ' + post_text + ' ' + tags, img, image_caption)
                         status = status[:10]
                     except Exception as e:
                         status = e
                     change_log.append(f'Mastodon: {status}')
+                if do_bs:
+                    tags = tag_dict.get(tool, ' #CreativeCoding')
+                    try:
+                        status = post(comment + ' ' + post_text + ' ' + tags, img, image_caption)
+                        status = status[:10]
+                    except Exception as e:
+                        status = e
+                    change_log.append(f'BlueSky: {status}')
                 readme_as_lines.insert(insert_point - 1, entry_text)
                 adding_message = 'Adding: ' + folder
                 print(adding_message)
@@ -174,13 +184,14 @@ def ask_tool_comment(folder, img, default_tool):
         [sg.Image(key='-IMAGE-', data=png_bytes)],
         [sg.T('Tool   '), sg.Combo(list(tools), default_value=default_tool,
                                    size=(40,22), key='-TOOL-')],
-        [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,4))],
-        [sg.T('Coment'), sg.Multiline(key='-COMMENT-', size=(40,4))],
-        [sg.T('For Mastodon'), sg.Multiline(key='-MASTODON-',
-                                            default_text=TOOT_DEFAULT.format(link),
+        [sg.T('Caption'), sg.Multiline(key='-DESCRIPTION-', size=(40,3))],
+        [sg.T('Comment'), sg.Multiline(key='-COMMENT-', size=(40,3))],
+        [sg.T('For post'), sg.Multiline(key='-POST-',
+                                            default_text=POST_DEFAULT.format(link),
                                             size=(40,4))],
-        [sg.B('OK'), sg.B('Cancel'), sg.Checkbox('Post to Mastodon',
-                                                 key='--TOOT--')],
+        [sg.B('OK'), sg.B('Cancel'),
+         sg.Checkbox('Post to Mastodon',key='--TOOT--'),
+         sg.Checkbox('Post to Mastodon',key='--BLUESKY--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
@@ -193,8 +204,9 @@ def ask_tool_comment(folder, img, default_tool):
         values['-TOOL-'],
         values['-COMMENT-'],
         values['--TOOT--'],
+        values['--BLUESKY--'],
         values['-DESCRIPTION-'],
-        values['-MASTODON-'],
+        values['-POST-'],
         )
 
 def build_entry(folder, image_filename, tool=None, comment=None, image_caption=None):
@@ -241,7 +253,6 @@ def search_docstring(folder):
     Not implemented yet.
     """
     return None
-
 
 if __name__ == '__main__':
     args = sys.argv[1:]
