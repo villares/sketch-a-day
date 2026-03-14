@@ -39,7 +39,7 @@ def generate_sketch_a_day_index(min_year=2018, max_year=2030):
             readme_as_lines = readme.readlines()
         # Gera uma página em markdown para usar com o logseq
         with open(output_path, 'wt') as readme:
-            print(input_path, output_path)
+            # print(input_path, output_path) # debug
             writing = False # até a linha com os links dos anos, as linhas ignoradas
             for line in readme_as_lines:
                 if r'.md) \| [<b>2' in line : # se for a linha com links dos anos
