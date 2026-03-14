@@ -3,19 +3,18 @@ Toot from sketch-a-day
 """
 
 from time import sleep
-try:
-    import tomllib
-except ModuleNotFoundError:
-    import tomli as tomllib # tomllib will be in Python 3.11's standard library only
+from pathlib import Path
 
 from mastodon import Mastodon  # Mastodon.py (pip install mastodon-py)
+
+from villares.token_helpers import get_token
 
 SLEEP = 2 # seconds to wait after submiting image
 
 def mime_type(file):
     if file is None:
         return None
-    ff = str(file).split('.')[-1].lower()
+    ff = Path(file).suffix.lstrip('.').lower()
     if ff == 'jpg':
         return 'image/jpeg'
     return f'image/{ff}'
@@ -27,10 +26,8 @@ def toot(
     visibility="public",
     language='pt'
 ):
-    with open("/home/villares/api_tokens", "rb") as f:
-        api_tokens = tomllib.load(f)
-        
-    access_token = api_tokens['pynews']['access_token']
+
+    access_token = get_token('pynews', 'access_token')
     masto_instance = 'pynews.com.br'
     mastodon = Mastodon(access_token=access_token, api_base_url=masto_instance)
     
