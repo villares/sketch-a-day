@@ -19,6 +19,8 @@
 # [ ] use CL arguments to commit and push README.md
 # [ ] Protect against missing svglib & cairo lab? #*!todo
 # [x] Added clumsy mastodon posting
+# [x] Added clumsy bluesky posting
+
 # 2024
 # Added a call to generate_index_for_logseq.py
 # 2025
@@ -57,8 +59,8 @@ MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 POST_DEFAULT = (
-     '\nFind the sketch-a-day archives and tip jar at: https://abav.lugaralgum.com/sketch-a-day \n'
-     'Code for this sketch at: {}\n'
+     '\nThe sketch-a-day archives and tip jar are at: https://abav.lugaralgum.com/sketch-a-day \n'
+     'Code for this one: {}\n'
      )
 
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
@@ -135,19 +137,18 @@ def main(args):
                     dialog_result = ask_tool_comment(folder, img, default_tool)
                     tool, comment, do_toot, do_bs, image_caption, post_text = dialog_result
                 entry_text = build_entry(folder, img.name, tool, comment, image_caption)
+                tags = tag_dict.get(tool, ' #CreativeCoding')
                 if do_toot:
-                    tags = tag_dict.get(tool, ' #CreativeCoding')
                     try:
                         status = toot(comment + ' ' + post_text + ' ' + tags, img, image_caption)
-                        status = status[:10]
+                        status = status[:300]
                     except Exception as e:
                         status = e
                     change_log.append(f'Mastodon: {status}')
                 if do_bs:
-                    tags = tag_dict.get(tool, ' #CreativeCoding')
                     try:
                         status = post(comment + ' ' + post_text + ' ' + tags, img, image_caption)
-                        status = status[:10]
+                        status = status[:300]
                     except Exception as e:
                         status = e
                     change_log.append(f'BlueSky: {status}')
@@ -191,7 +192,7 @@ def ask_tool_comment(folder, img, default_tool):
                                             size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'),
          sg.Checkbox('Post to Mastodon',key='--TOOT--'),
-         sg.Checkbox('Post to Mastodon',key='--BLUESKY--')],
+         sg.Checkbox('Post to BlueSky',key='--BLUESKY--')],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
