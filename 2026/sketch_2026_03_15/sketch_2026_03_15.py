@@ -14,9 +14,9 @@ pairs = list(combinations(grid, 2))     # all possible segments
 combos = list(combinations(pairs, 2))   # all 2 segment combinations
 unconnected_combos = [ 
     combo for combo in combos
-    if len(set(chain(*combo))) == 4    # 6 distinct vertices
+    if len(set(chain(*combo))) == 4    # 4 distinct vertices
 ]
-print(len(combos), len(unconnected_combos)) # 7140 1260
+print(len(combos), len(unconnected_combos)) # 630 378
 
 def setup():
     py5.size((W + M) * COLS + M, (W + M) * ROWS + M)
