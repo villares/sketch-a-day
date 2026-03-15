@@ -1,32 +1,33 @@
 #!/home/villares/thonny-env/bin/python
 
-# A very specific hacky script I use everyday for my project. Useless to anyone else.
-
-# reads folder
+# A very specific hacky script I use everyday for my project.
+# Useless to anyone else:
+# reads sketch-a-day folder
 # finds missing folders from last_done
 # gets images, checks image types
 # build markdown for entries
+# GUI dialog for capioning image, post to Mastodon and experimentaly BlueSky
+
 ## TO DO:
 # [ ] BUG FIX: GUI preview does not show the right image!
 # [ ] BUG FIX: RSS feed is still broken
-# [X] find last entry for me
-# [X] insert new entries in propper place
 # [/] use GUI or CL arguments to set tool
 #     [X] improve GUI (add image to the dialog!)
 #     [ ] add the CL arguments, why haven't you!!! (argparse!)
 # [/] use GUI or CL arguments to set Markdown comments
 # [ ] insert docstrings as text on .md file
 # [ ] use CL arguments to commit and push README.md
-# [ ] Protect against missing svglib & cairo lab? #*!todo
-# [x] Added clumsy mastodon posting
-# [x] Added clumsy bluesky posting
+# [ ] save the caption and comments if posting fails...
+# [?] post SVG no mastodon (possibly converting to png).
+# [ ] protection against missing svglib & cairo lab? #*!todo
 
-# 2024
-# Added a call to generate_index_for_logseq.py
+# 2026
+# Added clumsy bluesky posting
 # 2025
 # Updated image_helpers to use pathlib...
-# TODO save the caption and comments if posting fails...
-# TODO permitir postar SVG no mastodon (talvez converter).
+# Added clumsy Mastodon posting
+# 2024
+# Added a call to generate_index_for_logseq.py
 
 
 import sys
@@ -59,8 +60,8 @@ MAIN_SITE = 'https://abav.lugaralgum.com/sketch-a-day'
 REPO_MAIN_URL = f'https://github.com/{USER}/{REPO}/tree/main'
 RAW_CONTENT = f'https://raw.githubusercontent.com/{USER}/{REPO}/main'
 POST_DEFAULT = (
-     '\nThe sketch-a-day archives and tip jar are at: https://abav.lugaralgum.com/sketch-a-day \n'
-     'Code for this one: {}\n'
+     "\nThe sketch-a-day archives and tip jar are at: https://abav.lugaralgum.com/sketch-a-day"
+     " Code for this: {}\n"
      )
 
 # base_path = "/Users/villares/sketch-a-day" # 01046-10 previously
@@ -191,8 +192,8 @@ def ask_tool_comment(folder, img, default_tool):
                                             default_text=POST_DEFAULT.format(link),
                                             size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'),
-         sg.Checkbox('Post to Mastodon',key='--TOOT--'),
-         sg.Checkbox('Post to BlueSky',key='--BLUESKY--')],
+         sg.Checkbox('Post to Mastodon',key='--TOOT--', default=True),
+         sg.Checkbox('Post to BlueSky',key='--BLUESKY--', default=True)],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
