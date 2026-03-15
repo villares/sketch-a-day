@@ -1,15 +1,16 @@
+# This is a py5 "imported mode" sketch, you'll need a "sketch runner"
+# learn about py5 modes at https://py5coding.org
+
 from itertools import combinations, product, chain
-from py5_tools import animated_gif
 
-
-W = 30
-M = 5
-grid = list(product((-W/2, 0, W/2), repeat=2))
-pairs = list(combinations(grid, 2))
-combos = list(combinations(pairs, 4))
+W = 30   # combo width
+M = 5    # spacing
+grid = list(product((-W/2, 0, W/2), repeat=2))  # the 3x3 grid
+pairs = list(combinations(grid, 2))     # all possible segments
+combos = list(combinations(pairs, 4))   # all 4 segment combinations
 unconnected_combos = [ 
     combo for combo in combos
-    if len(set(chain(*combo))) == 8
+    if len(set(chain(*combo))) == 8  # 8 distinct vertices
 ]
 print(len(combos), len(unconnected_combos))
 
@@ -17,9 +18,6 @@ def setup():
     size((W + M) * 45 + M * 2, (W + M) * 21 + M * 2)
     color_mode(HSB)
     stroke_weight(3)
-    #animated_gif('out.gif', duration=0.5, frame_numbers=range(1, 100))
-    
-#def draw():
     background(0)
     x = 0
     y = 0
@@ -33,5 +31,5 @@ def setup():
         if x > width - W:
             x = 0
             y += W + M
-       
+    # save output        
     save('out.png')
