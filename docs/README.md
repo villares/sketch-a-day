@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_15
+
+![sketch_2026_03_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_15/sketch_2026_03_15.png)
+
+[sketch_2026_03_15](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_15) [[py5](https://py5coding.org/)]
+
+378 two-segment combinations from a 3x3 grid. Ordered and colored by segment length.
+
+---
+
 ### sketch_2026_03_14
 
 ![sketch_2026_03_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_14/sketch_2026_03_14.png)
