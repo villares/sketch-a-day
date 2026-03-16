@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_16
+
+![sketch_2026_03_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_16/sketch_2026_03_16.png)
+
+[sketch_2026_03_16](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_16) [[py5](https://py5coding.org/)]
+
+228 pairs of segments from a 3x3 grid that share a point *and* don't align or overlap.
+
+---
+
 ### sketch_2026_03_15
 
 ![sketch_2026_03_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_15/sketch_2026_03_15.png)
