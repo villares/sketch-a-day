@@ -192,8 +192,8 @@ def ask_tool_comment(folder, img, default_tool):
                                             default_text=POST_DEFAULT.format(link),
                                             size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'),
-         sg.Checkbox('Post to Mastodon',key='--TOOT--', default_value=True),
-         sg.Checkbox('Post to BlueSky',key='--BLUESKY--', default_value=True)],
+         sg.Checkbox('Post to Mastodon',key='--TOOT--', default=True),
+         sg.Checkbox('Post to BlueSky',key='--BLUESKY--', default=True)],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
