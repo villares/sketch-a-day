@@ -23,9 +23,7 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 2026 \| [<b>2025</b>](2025.md) \| [<b>2024</b>](2024.md) \| [<b>2023</b>](2023.md) \| [<b>2022</b>](2022.md) \| [<b>2021</b>](2021.md) \| [<b>2020</b>](2020.md) \| [<b>2019</b>](2019.md) \| [<b>2018</b>](2018.md) 
 
-
 <!-- SKETCHES_START -->
-
 
 ---
 
