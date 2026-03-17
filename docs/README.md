@@ -29,6 +29,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_17
+
+![sketch_2026_03_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_17/sketch_2026_03_17.png)
+
+[sketch_2026_03_17](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_17) [[py5](https://py5coding.org/)]
+
+1300 combinations of 3 connected line segments from a 3x3 grid of points.
+
+---
+
 ### sketch_2026_03_16
 
 ![sketch_2026_03_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_16/sketch_2026_03_16.png)
