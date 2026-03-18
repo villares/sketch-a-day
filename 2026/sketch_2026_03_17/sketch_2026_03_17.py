@@ -1,12 +1,11 @@
 # This is a py5 "module mode" sketch
 # learn about py5 modes at https://py5coding.org
 
-from itertools import combinations, product, chain
-from collections import Counter  
+from itertools import combinations, product
+from collections import Counter
 
 import py5
 from shapely import Polygon
-import numpy as np
 
 W = 20   # combo width
 M = 10    # spacing
@@ -79,7 +78,7 @@ def sum_seg_len(combo):
         for (xa, ya), (xb, yb) in combo
     )
 
-
+    
 py5.run_sketch(block=False)
 
     
