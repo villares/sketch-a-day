@@ -7,23 +7,25 @@ from collections import Counter
 import py5
 from shapely import Polygon
 
-W = 20   # combo width
-M = 10    # spacing
+W = 20  # combo width
+M = 10  # spacing
 COLS = 50
 ROWS = 26
 vs = Counter()
+
 
 def setup():
     py5.size((W + M) * COLS + M, (W + M) * ROWS + M)
     py5.color_mode(py5.CMAP, 'tab20b', py5.dist(W, W, 0, 0))
     py5.stroke_weight(3)
     generate_combos()
-    
+
+
 def draw():
-    py5.background('black')    
+    py5.background('black')
     x = 0
     y = 0
-    for combo in sorted(combos, key=sum_seg_len):   
+    for combo in sorted(combos, key=sum_seg_len):
         with py5.push_matrix():
             py5.translate(M + x + W / 2, M + y + W / 2)
             for i, ((xa, ya), (xb, yb)) in enumerate(combo):
@@ -33,38 +35,42 @@ def draw():
         if x > py5.width - W - M:
             x = 0
             y += W + M
-       
+
+
 def key_pressed():
     py5.save_frame('###.png')
 
+
 def generate_combos():
     global combos
-    grid = list(product((-W/2, 0, W/2), repeat=2))  # the 3x3 grid
-    pairs = list(combinations(grid, 2))        # all possible segments
+    grid = list(product((-W / 2, 0, W / 2), repeat=2))  # the 3x3 grid
+    pairs = list(combinations(grid, 2))  # all possible segments
     N = 3
     all_combos = list(combinations(pairs, N))  # all N-segment combos
-    combos = [ 
+    combos = [
         combo for combo in all_combos
         if good_combo(combo)  # connected but not aligned
     ]
-    print(len(all_combos), len(combos)) # 630 228
+    print(len(all_combos), len(combos))  # 630 228
 
-def good_combo(combo):    
+
+def good_combo(combo):
     vs.clear()
     for seg in combo:
         vs.update(seg)
     v_count = vs.most_common()
     if v_count[0][1] > 2:
-        return False     # more than 2 segments on a single vertex
+        return False  # more than 2 segments on a single vertex
     if v_count[-3][1] == 1:
-        return False     # not all connected 
+        return False  # not all connected
     for va, vb in combo:
-        if vs[va] + vs[vb] == 2:  
-            return False # isolated segment
+        if vs[va] + vs[vb] == 2:
+            return False  # isolated segment
     for sa, sb in combinations(combo, 2):
-        if not valid_segments(sa, sb):  
-            return False # neither disjoint nor validly connected
+        if not valid_segments(sa, sb):
+            return False  # neither disjoint nor validly connected
     return True
+
 
 def valid_segments(a, b):
     unique_vs = set(a) | set(b)
@@ -72,17 +78,9 @@ def valid_segments(a, b):
         return True
     return Polygon(unique_vs).area != 0
 
+
 def sum_seg_len(combo):
-    return sum(
-        py5.dist(xa, ya, xb, yb) 
-        for (xa, ya), (xb, yb) in combo
-    )
+    return sum(py5.dist(xa, ya, xb, yb) for (xa, ya), (xb, yb) in combo)
 
-    
+
 py5.run_sketch(block=False)
-
-    
-
-
-
-
