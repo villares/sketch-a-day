@@ -277,7 +277,7 @@ typing_extensions==4.15.0
 uc-micro-py==1.0.3
 udiskie==2.6.1
 ufw==0.36.2
-ujson==5.11.0
+ujson==5.12.0
 unrardll==0.1.7
 uritemplate==4.2.0
 urllib3==2.6.3
