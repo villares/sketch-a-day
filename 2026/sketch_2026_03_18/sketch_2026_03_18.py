@@ -62,22 +62,7 @@ def good_combo(combo):
     v_count = vs.most_common()
     if v_count[0][1] > 1:
         return False  # connected
-#     if v_count[-3][1] == 1:
-#         return False  # not all connected
-#     for va, vb in combo:
-#         if vs[va] + vs[vb] == 2:
-#             return False  # isolated segment
-#     for sa, sb in combinations(combo, 2):
-#         if not valid_segments(sa, sb):
-#             return False  # neither disjoint nor validly connected
     return True
-
-
-def valid_segments(a, b):
-    unique_vs = set(a) | set(b)
-    if len(unique_vs) == 4:
-        return True
-    return Polygon(unique_vs).area != 0
 
 
 def sum_seg_len(combo):
