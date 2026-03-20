@@ -37,7 +37,7 @@ faces = []
 for li in ds.splitlines():
     match li.split():        
         case 'v', *tail:
-            vs.append(tuple(map(float, tail)))
+            vs.append([float(n) for n in tail]) # or tuple(map(float, tail))
         case 'f', *tail:
             faces.append(np.array([int(i) - 1 for i in tail]))
 vs = np.array(vs) 
