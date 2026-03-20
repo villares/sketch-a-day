@@ -57,5 +57,5 @@ def draw():
     for f in faces:
         with py5.begin_closed_shape():
             py5.vertices(vs[f])
-            
+
 py5.run_sketch(block=False)
