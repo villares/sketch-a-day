@@ -34,17 +34,16 @@ f 12 3 2
 
 vs = []
 faces = []
+for li in ds.splitlines():
+    match li.split():        
+        case 'v', *tail:
+            vs.append(tuple(map(float, tail)))
+        case 'f', *tail:
+            faces.append(np.array([int(i) - 1 for i in tail]))
+vs = np.array(vs) 
 
 def setup():
-    global vs
     py5.size(600, 600, py5.P3D)
-    for li in ds.splitlines():
-        match li.split():        
-            case 'v', *tail:
-                vs.append(tuple(map(float, tail)))
-            case 'f', *tail:
-                faces.append(np.array([int(i) - 1 for i in tail]))
-    vs = np.array(vs) 
     animated_gif('out.gif', duration=0.06, frame_numbers=range(1, 361, 4))
 
 def draw():
