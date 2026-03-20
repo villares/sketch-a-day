@@ -32,11 +32,12 @@ f 8 7 10
 f 12 3 2
 """
 
+vs = []
+faces = []
+
 def setup():
-    global vs, faces
+    global vs
     py5.size(600, 600, py5.P3D)
-    vs = []
-    faces = []
     for li in ds.splitlines():
         match li.split():        
             case 'v', *tail:
