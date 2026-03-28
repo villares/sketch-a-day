@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_27
+
+![sketch_2026_03_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_27/sketch_2026_03_27.gif)
+
+[sketch_2026_03_27](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_27) [[py5](https://py5coding.org/)]
+
+Today my father would have been 91 years old.
+
+---
+
 ### sketch_2026_03_26
 
 ![sketch_2026_03_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_26/sketch_2026_03_26.gif)
