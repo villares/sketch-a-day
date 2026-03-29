@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_03_28
+
+![sketch_2026_03_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_28/sketch_2026_03_28.gif)
+
+[sketch_2026_03_28](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_03_28) [[py5](https://py5coding.org/)]
+
+Obrigado aos amigos do LHC (Laboratório Hacker de Campinas) pelo dia sensacional!
+
+---
+
 ### sketch_2026_03_27
 
 ![sketch_2026_03_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_03_27/sketch_2026_03_27.gif)
