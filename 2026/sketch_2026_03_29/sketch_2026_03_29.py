@@ -66,8 +66,6 @@ def star_points(x, y, radius_a, radius_b, n_points, rot=0):
         anchor_x, anchor_y = x + cx, y + cy
     return pts
     
-py5.run_sketch()
-
 def key_pressed():
     py5.save_frame('out.png')
 
