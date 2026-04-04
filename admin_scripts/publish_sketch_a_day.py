@@ -4,7 +4,7 @@ from dreamhost_deploy import deploy, OVERWRITE_HTML, SKIP_IMAGES, OVERWRITE_ASSE
 
 deploy(
     repo_keys=["sketch-a-day"],
-    newer_than=1,
+    newer_than=2,
     overwrite_html=OVERWRITE_HTML,
     overwrite_assets=True,
 )
