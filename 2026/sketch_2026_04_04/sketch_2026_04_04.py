@@ -162,7 +162,7 @@ class Ball(SObj):
         py5.circle(self.body.position.x,
                    self.body.position.y,
                    self.shape.radius * 2)
-        if y > py5.height + 20:
+        if self.body.position.y > py5.height + 20:
              self.remove_object()
 
 
@@ -189,13 +189,7 @@ class Box(SObj):
             py5.rotate(self.body.angle)
             with py5.begin_closed_shape():
                 py5.vertices(self.shape.get_vertices())
-        if y > py5.height + 20:
+        if self.body.position.y > py5.height + 20:
              self.remove_object()
              
-
-
 py5.run_sketch(block=False)
-
-
-
-
