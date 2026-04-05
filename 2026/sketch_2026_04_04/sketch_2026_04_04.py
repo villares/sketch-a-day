@@ -16,8 +16,7 @@ def setup():
     Segment(50, 500, 550, 500)
     Box(100, 100, 100, 50)
     Box(200, 200, 100, 50, kinematic=False)
-    #py5.frame_rate(30)
-    
+
 def draw():
     py5.background(200)
     SObj.draw_and_update_objects()  # draw and clean up
@@ -28,7 +27,6 @@ def draw():
         Ball(py5.mouse_x + py5.random(-1, 1), py5.mouse_y, d, c)
     # advance simulation
     space.step(1 / 60)
-
     
 def mouse_pressed():
     global ongoing_creation
@@ -57,7 +55,7 @@ def mouse_released():
                 Segment(inicial_x, inicial_y, final_x, final_y)
         case pts, 'p':
             # TODO: add polygon
-            print(f'{pts!r} \nPoly not implemented yet')
+            print(f'{pts} \nPoly not implemented yet')
     ongoing_creation = None
     
 def mouse_dragged():
@@ -161,10 +159,9 @@ class Ball(SObj):
     def draw(self):
         py5.no_stroke()
         py5.fill(self.fill_color)
-        x = self.body.position.x
-        y = self.body.position.y
-        d = self.shape.radius * 2
-        py5.circle(x, y, d)
+        py5.circle(self.body.position.x,
+                   self.body.position.y,
+                   self.shape.radius * 2)
         if y > py5.height + 20:
              self.remove_object()
 
@@ -188,8 +185,7 @@ class Box(SObj):
         py5.fill(self.fill_color)
         py5.no_stroke()
         with py5.push_matrix():
-            x, y = self.body.position.x, self.body.position.y
-            py5.translate(x, y)
+            py5.translate(self.body.position.x, self.body.position.y)
             py5.rotate(self.body.angle)
             with py5.begin_closed_shape():
                 py5.vertices(self.shape.get_vertices())
