@@ -9,7 +9,7 @@ space.gravity = 0, 900
 
 mass_scale = 0.1
 
-object_creation = None
+ongoing_creation = None
 
 def setup():
     py5.size(600, 600)
@@ -31,20 +31,19 @@ def draw():
 
     
 def mouse_pressed():
-    global object_creation
+    global ongoing_creation
     if py5.key == 'k' and py5.is_key_pressed:
-        object_creation = (py5.mouse_x, py5.mouse_y, 'k')
+        ongoing_creation = (py5.mouse_x, py5.mouse_y, 'k')
     elif py5.key == 'c' and py5.is_key_pressed:
-        object_creation = (py5.mouse_x, py5.mouse_y, 'c')
+        ongoing_creation = (py5.mouse_x, py5.mouse_y, 'c')
     elif py5.key == 'w' and py5.is_key_pressed:
-        object_creation = (py5.mouse_x, py5.mouse_y, 'w')
+        ongoing_creation = (py5.mouse_x, py5.mouse_y, 'w')
     elif py5.key == 'p' and py5.is_key_pressed:
-        print('pp')
-        object_creation = ([], 'p')
+        ongoing_creation = ([], 'p')
       
 def mouse_released():
-    global object_creation
-    match  object_creation:
+    global ongoing_creation
+    match  ongoing_creation:
         case inicial_x, inicial_y, kind:
             final_x = py5.mouse_x
             final_y = py5.mouse_y
@@ -59,7 +58,7 @@ def mouse_released():
         case pts, 'p':
             # TODO: add polygon
             print(f'{pts!r} \nPoly not implemented yet')
-    object_creation = None
+    ongoing_creation = None
     
 def mouse_dragged():
     if not py5.is_key_pressed:
@@ -67,12 +66,28 @@ def mouse_dragged():
             if obj.under_mouse():
                 obj.translate(py5.mouse_x - py5.pmouse_x,
                               py5.mouse_y - py5.pmouse_y)
-    elif object_creation:
-        #print(object_creation)
+    elif ongoing_creation:
         if py5.key == 'p':
-            print('p')
-            object_creation[0].append((py5.mouse_x, py5.mouse_y))
-        
+            pts = ongoing_creation[0]
+            x, y = py5.mouse_x, py5.mouse_y
+            with py5.push_style(), py5.begin_shape():
+                py5.no_fill()
+                py5.stroke_weight(2)
+                py5.stroke(255)
+                py5.vertices(pts)
+                py5.vertex(x, y)            
+            if len(pts) and py5.dist(x, y, *pts[-1]) < 10:
+                return # print('too close')
+            ongoing_creation[0].append((x, y))
+        if py5.key == 'w':            
+            sx, sy = ongoing_creation[:2]
+            x, y = py5.mouse_x, py5.mouse_y
+            with py5.push_style(), py5.begin_shape():
+                py5.no_fill()
+                py5.stroke_weight(2)
+                py5.stroke(255)
+                py5.line(sx, sy, x, y)
+ 
 def mouse_wheel(e):
     for obj in SObj.living_set:
         if obj.under_mouse():
