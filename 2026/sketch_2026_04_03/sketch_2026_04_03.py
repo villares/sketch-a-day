@@ -102,7 +102,7 @@ def mouse_pressed():
     elif py5.key == 'w' and py5.is_key_pressed:
         object_creation = (py5.mouse_x, py5.mouse_y, 'w')
     elif py5.key == 'p' and py5.is_key_pressed:
-        object_creation == ([], 'p')
+        object_creation = ([], 'p')
       
 def mouse_released():
     global object_creation
