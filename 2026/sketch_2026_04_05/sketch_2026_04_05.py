@@ -4,29 +4,52 @@
 import py5
 import pymunk
 
-space = pymunk.Space()
-space.gravity = 0, 900
-
-mass_scale = 0.1
-
 ongoing_creation = None
 
 def setup():
     py5.size(600, 600)
+    global sim
+    sim = Simulation()
     Segment(50, 500, 550, 500)
-    Box(100, 100, 100, 50)
-    Box(200, 200, 100, 50, kinematic=False)
+    #Box(100, 100, 100, 50)
+    #Box(200, 200, 100, 50, kinematic=False)
 
 def draw():
     py5.background(200)
-    SObj.draw_and_update_objects()  # draw and clean up
-    # create more balls
+    sim.draw_and_update()  # draw and clean up
+    # create many balls
     if py5.is_key_pressed and py5.key_code == py5.SHIFT:
         d = py5.random(10, 50)
         c = py5.color(d * 5, 0, 255 - d * 5)
         Ball(py5.mouse_x + py5.random(-1, 1), py5.mouse_y, d, c)
+    # preview object creation
+    if ongoing_creation:
+        with py5.push_style():
+            py5.no_fill()
+            py5.stroke_weight(2)
+            py5.stroke(255)
+            if ongoing_creation[-1] == 'p':
+                pts = ongoing_creation[0]
+                x, y = py5.mouse_x, py5.mouse_y
+                with py5.push_style(), py5.begin_shape():
+                    py5.vertices(pts)
+                    py5.vertex(x, y)            
+                if len(pts) and py5.dist(x, y, *pts[-1]) < 20:
+                    return
+                ongoing_creation[0].append((x, y))
+            elif ongoing_creation[-1] == 'w':            
+                sx, sy = ongoing_creation[:2]
+                x, y = py5.mouse_x, py5.mouse_y
+                with py5.push_style(), py5.begin_shape():
+                    py5.line(sx, sy, x, y)
+            elif ongoing_creation[-1] in ('c', 'k'):
+                sx, sy = ongoing_creation[:2]
+                x, y = py5.mouse_x, py5.mouse_y
+                py5.rect_mode(py5.CORNERS)
+                py5.rect(sx, sy, x, y)
     # advance simulation
-    space.step(1 / 60)
+    sim.step(1 / 60)
+
     
 def mouse_pressed():
     global ongoing_creation
@@ -38,10 +61,11 @@ def mouse_pressed():
         ongoing_creation = (py5.mouse_x, py5.mouse_y, 'w')
     elif py5.key == 'p' and py5.is_key_pressed:
         ongoing_creation = ([], 'p')
+
       
 def mouse_released():
     global ongoing_creation
-    match  ongoing_creation:
+    match ongoing_creation:
         case inicial_x, inicial_y, kind:
             final_x = py5.mouse_x
             final_y = py5.mouse_y
@@ -50,72 +74,104 @@ def mouse_released():
                 h = abs(inicial_y - final_y)
                 x = (inicial_x + final_x) / 2
                 y = (inicial_y + final_y) / 2
-                Box(x, y, w, h, kind == 'k')
+                Box(x, y, w, h, kinematic=(kind == 'k'))
             elif kind == 'w':
                 Segment(inicial_x, inicial_y, final_x, final_y)
         case pts, 'p':
             # TODO: add polygon
             print(f'{pts} \nPoly not implemented yet')
     ongoing_creation = None
-    
+
 def mouse_dragged():
     if not py5.is_key_pressed:
-        for obj in SObj.living_set:
+        for obj in sim:
             if obj.under_mouse():
                 obj.translate(py5.mouse_x - py5.pmouse_x,
-                              py5.mouse_y - py5.pmouse_y)
-    elif ongoing_creation:
-        if py5.key == 'p':
-            pts = ongoing_creation[0]
-            x, y = py5.mouse_x, py5.mouse_y
-            with py5.push_style(), py5.begin_shape():
-                py5.no_fill()
-                py5.stroke_weight(2)
-                py5.stroke(255)
-                py5.vertices(pts)
-                py5.vertex(x, y)            
-            if len(pts) and py5.dist(x, y, *pts[-1]) < 10:
-                return # print('too close')
-            ongoing_creation[0].append((x, y))
-        if py5.key == 'w':            
-            sx, sy = ongoing_creation[:2]
-            x, y = py5.mouse_x, py5.mouse_y
-            with py5.push_style(), py5.begin_shape():
-                py5.no_fill()
-                py5.stroke_weight(2)
-                py5.stroke(255)
-                py5.line(sx, sy, x, y)
- 
+                              py5.mouse_y - py5.pmouse_y) 
+
 def mouse_wheel(e):
-    for obj in SObj.living_set:
+    for obj in sim:
         if obj.under_mouse():
             obj.rotate(py5.radians(e.get_count()))
+
+
+class Simulation:
+    _default = None
+
+    def __init__(self, name=None, gravity=(0, 900), mass_scale=0.1):
+        self.name = name
+        self.space = pymunk.Space()
+        self.space.gravity = gravity
+        self.mass_scale = mass_scale
+        # object registry management
+        self.living_set = set()
+        self.for_removal = set()
+        # if no name provided, make this the default simulation
+        if name is None:
+            Simulation._default = self
     
+    def __iter__(self):
+        """To traverse living objects."""
+        return iter(self.living_set)
+
+    @classmethod
+    def get_default(cls):
+        """Get or create the default simulation."""
+        if cls._default is None:
+            cls._default = Simulation()  # Creates unnamed default
+        return cls._default
+    
+    def step(self, s):
+        """Advance the simulation step."""
+        self.space.step(s)
+    
+    def draw_and_update(self):
+        """Draw all objects and remove marked ones."""
+        for obj in self.living_set:
+            obj.draw()
+        self.living_set.difference_update(self.for_removal)
+        self.for_removal.clear()
+    
+    def register(self, obj):
+        """Register an object for drawing."""
+        self.living_set.add(obj)
+    
+    def mark_for_removal(self, obj):
+        """Mark an object for removal."""
+        self.for_removal.add(obj)
+        
+    def segment(self, xa, ya, xb, yb, radius=2):
+        return Segment(xa, ya, xb, yb, radius=radius, space=self.space, simulation=self)
+    
+    def ball(self, x, y, diameter, fill_color):
+        return Ball(x, y, diameter, fill_color, space=self.space, simulation=self)
+    
+    def box(self, x, y, w, h, kinematic=True):
+        return Box(x, y, w, h, kinematic=kinematic, space=self.space, simulation=self)
+
 
 class SObj:
     
-    living_set = set()
-    for_removal = set()
+    def __init__(self, space=None, simulation=None):
+        self.space = space or Simulation.get_default().space
+        self.simulation = simulation or Simulation.get_default()
+        self.body = None
+        self.shape = None
     
     def register_object(self):
-        if self.body is not space.static_body:
-            space.add(self.body, self.shape)
+        """Add body and shape to space, and register for drawing."""
+        if self.body is not self.space.static_body:
+            self.space.add(self.body, self.shape)
         else:
-            space.add(self.shape)
-        self.living_set.add(self)
+            self.space.add(self.shape)
+        self.simulation.register(self)
     
-    @classmethod
-    def draw_and_update_objects(cls):
-        for obj in cls.living_set:
-            obj.draw()
-        cls.living_set.difference_update(cls.for_removal)
-        cls.for_removal.clear()
-
     def remove_object(self):
-        space.remove(self.shape)
-        if self.body is not space.static_body:
-            space.remove(self.body)
-        self.for_removal.add(self)
+        """Remove from space and mark for removal from drawing registry."""
+        self.space.remove(self.shape)
+        if self.body is not self.space.static_body:
+            self.space.remove(self.body)
+        self.simulation.mark_for_removal(self)
 
     def rotate(self, rot):
         self.body.angle += rot
@@ -127,11 +183,19 @@ class SObj:
         info = self.shape.point_query((py5.mouse_x, py5.mouse_y))
         return info.distance < 2
 
+    def draw(self):
+        """Defined in subclasses."""
+        raise NotImplementedError
+
 
 class Segment(SObj):
 
-    def __init__(self, xa, ya, xb, yb, radius=2):
-        self.body = space.static_body  # corpo estático compartilhado pelo spaço
+    def __init__(self, xa, ya, xb, yb,
+                 radius=2,
+                 space=None,
+                 simulation=None):
+        super().__init__(space, simulation)
+        self.body = self.space.static_body
         self.shape = pymunk.Segment(
             self.body, (xa, ya), (xb, yb), radius=radius)
         self.shape.friction = 0.99
@@ -146,10 +210,11 @@ class Segment(SObj):
 
 class Ball(SObj):
 
-    def __init__(self, x, y, diametro, fill_color):
-        radius = diametro / 2
-        self.fill_color = fill_color
-        mass = py5.PI * radius ** 2 * mass_scale
+    def __init__(self, x, y, diameter, fill_color=None, space=None, simulation=None):
+        super().__init__(space, simulation)
+        radius = diameter / 2
+        self.fill_color = fill_color or py5.color(255)
+        mass = py5.PI * radius ** 2 * self.simulation.mass_scale
         moment = pymunk.moment_for_circle(mass, 0, radius)
         self.body = pymunk.Body(mass, moment)
         self.body.position = x, y
@@ -162,17 +227,18 @@ class Ball(SObj):
         py5.circle(self.body.position.x,
                    self.body.position.y,
                    self.shape.radius * 2)
-        if y > py5.height + 20:
+        if self.body.position.y > py5.height + 20:
              self.remove_object()
 
 
 class Box(SObj):
 
-    def __init__(self, x, y, w, h, kinematic=True):
+    def __init__(self, x, y, w, h, kinematic=True, space=None, simulation=None):
+        super().__init__(space, simulation)
         if kinematic:
             self.body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
         else:
-            mass = w * h * mass_scale
+            mass = w * h * self.simulation.mass_scale
             moment = pymunk.moment_for_box(mass, (w, h))
             self.body = pymunk.Body(mass, moment)
         self.body.position = x, y
@@ -189,13 +255,8 @@ class Box(SObj):
             py5.rotate(self.body.angle)
             with py5.begin_closed_shape():
                 py5.vertices(self.shape.get_vertices())
-        if y > py5.height + 20:
+        if self.body.position.y > py5.height + 20:
              self.remove_object()
-             
 
 
 py5.run_sketch(block=False)
-
-
-
-
