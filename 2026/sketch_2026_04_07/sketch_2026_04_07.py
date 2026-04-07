@@ -45,9 +45,8 @@ def draw():
             with py5.begin_shape():
                 py5.vertices(pts)
                 py5.vertex(x, y)
-            if len(pts) and py5.dist(x, y, *pts[-1]) < 20:
-                 return
-            pts.append((x, y))
+            if (len(pts) == 0) or py5.dist(x, y, *pts[-1]) > 20:
+                pts.append((x, y))
         case sx, sy, "w":
             with py5.push_style(), py5.begin_shape():
                 py5.line(sx, sy, x, y)
