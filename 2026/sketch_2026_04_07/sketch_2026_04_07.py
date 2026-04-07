@@ -1,7 +1,17 @@
 # This is a py5 "module mode" sketch
 # learn about py5 modes at https://py5coding.org
 
-# " " to create many balls
+"""
+Press " " (space bar) to create many balls
+Press "w" to drag the mouse and create a static segment (wall)
+Press "b" to drag the mouse and create a box
+Press "k" to drag the mouse and create a kinematic box
+Press "p" to drag the mouse and create a polygon
+Press <delete> or <backspace> to remove objects under the mouse
+Press "c" to remove dynamic and kinematic objects
+You can drag kinematic objects (and nudge a bit the dynamic ones)
+You can use the mouse wheel to rotate some objects
+"""
 
 import py5
 import pymunk
@@ -10,12 +20,11 @@ from trimesh.creation import triangulate_polygon # pip install trimesh[easy]
 
 ongoing_creation = None
 
-
 def setup():
     py5.size(600, 600)
     global sim
     sim = Simulation()
-    sim.add_segment(50, 500, 550, 500) # or just Segment(...)
+    sim.add_segment(50, 500, 550, 500) # could be just Segment(...)
 
 def draw():
     py5.background(200)
@@ -42,31 +51,32 @@ def draw():
         case sx, sy, "w":
             with py5.push_style(), py5.begin_shape():
                 py5.line(sx, sy, x, y)
-        case sx, sy, "c" | "k":
+        case sx, sy, "b" | "k":
             py5.rect_mode(py5.CORNERS)
             py5.rect(sx, sy, x, y)
     # advance simulation
     sim.step(1 / 60)
-
 
 def key_pressed():
     if py5.key in (py5.BACKSPACE, py5.DELETE):
         for obj in sim:
             if obj.under_mouse():
                 obj.remove_from_sim()
-
+    elif py5.key == "c":
+        for obj in sim:
+            if obj.body is not obj.space.static_body:
+                obj.remove_from_sim() 
 
 def mouse_pressed():
     global ongoing_creation
     if py5.key == "k" and py5.is_key_pressed:
         ongoing_creation = (py5.mouse_x, py5.mouse_y, "k")
-    elif py5.key == "c" and py5.is_key_pressed:
+    elif py5.key == "b" and py5.is_key_pressed:
         ongoing_creation = (py5.mouse_x, py5.mouse_y, "c")
     elif py5.key == "w" and py5.is_key_pressed:
         ongoing_creation = (py5.mouse_x, py5.mouse_y, "w")
     elif py5.key == "p" and py5.is_key_pressed:
         ongoing_creation = ([], "p")
-
 
 def mouse_released():
     global ongoing_creation
@@ -84,13 +94,11 @@ def mouse_released():
                 Poly(shapely_poly, fill_color=py5.color(255))
     ongoing_creation = None
 
-
 def mouse_dragged():
     if not py5.is_key_pressed:
         for obj in sim:
             if obj.under_mouse():
                 obj.translate(py5.mouse_x - py5.pmouse_x, py5.mouse_y - py5.pmouse_y)
-
 
 def mouse_wheel(e):
     for obj in sim:
@@ -150,9 +158,10 @@ class Simulation:
         sig = inspect.signature(sobj_cls.__init__)
         factory.__signature__ = inspect.Signature([
             p for name, p in sig.parameters.items() 
-            if name not in ('self', 'simulation')
+            if name != 'simulation'
         ])
-        
+        factory.__name__ = method_name
+        factory.__doc__ = sobj_cls.__doc__
         setattr(cls, method_name, factory)
         return sobj_cls
 
@@ -198,13 +207,12 @@ class SObj:
             return info.distance < 2
 
     def draw(self):
-        """Defined in subclasses."""
-        raise NotImplementedError
+        raise NotImplementedError # must be defined in subclasses.
 
 
 @Simulation.add_factory
 class Segment(SObj):
-
+    """Static wall-like line segment."""
     def __init__(self, xa, ya, xb, yb, radius=2, simulation=None):
         super().__init__(simulation)
         self.thickness = radius * 2
@@ -220,7 +228,7 @@ class Segment(SObj):
 
 @Simulation.add_factory
 class Ball(SObj):
-
+    """A color-filled ball."""
     def __init__(self, x, y, diameter, fill_color=None, simulation=None):
         super().__init__(simulation)
         self.diameter = diameter
@@ -242,8 +250,8 @@ class Ball(SObj):
 
 @Simulation.add_factory
 class Poly(SObj):
-
-    def __init__(self, poly, fill_color=None, kinematic=False, simulation=None):
+    """A simulated polygon-shaped object, from a shapely.Polygon. Kinematic or Dynamic."""
+    def __init__(self, poly: shapely.Polygon, fill_color=None, kinematic=False, simulation=None):
         super().__init__(simulation)
         cx, cy = poly.centroid.x, poly.centroid.y
         self.poly = shapely.affinity.translate(poly, -cx, -cy)
@@ -278,7 +286,7 @@ class Poly(SObj):
 
 @Simulation.add_factory
 class Box(SObj):
-
+    """A rectangular polygon. Kinematic or Dynamic."""
     def __init__(self, x, y, w, h, fill_color=None, kinematic=True, simulation=None):
         super().__init__(simulation)
         if kinematic:
@@ -312,4 +320,3 @@ class Box(SObj):
 
 
 py5.run_sketch(block=False)
-
