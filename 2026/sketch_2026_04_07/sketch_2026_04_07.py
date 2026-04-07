@@ -1,10 +1,12 @@
 # This is a py5 "module mode" sketch
 # learn about py5 modes at https://py5coding.org
 
+# " " to create many balls
+
 import py5
 import pymunk
 import shapely
-from trimesh.creation import triangulate_polygon # pip install trimex[easy]
+from trimesh.creation import triangulate_polygon # pip install trimesh[easy]
 
 ongoing_creation = None
 
@@ -19,33 +21,30 @@ def draw():
     py5.background(200)
     sim.draw_and_update()  # draw and clean up
     # create many balls
-    if py5.is_key_pressed and py5.key_code == py5.SHIFT:
+    if py5.is_key_pressed and py5.key == " ":
         d = py5.random(10, 50)
         c = py5.color(d * 5, 0, 255 - d * 5)
         Ball(py5.mouse_x + py5.random(-1, 1), py5.mouse_y, d, c)
     # preview & object creation
-    with py5.push_style():
-        py5.no_fill()
-        py5.stroke_weight(2)
-        py5.stroke(255)
-        x, y = py5.mouse_x, py5.mouse_y
-        match ongoing_creation:
-            case pts, "p":
-                # poly creation ongoing!
-                with py5.begin_shape():
-                    py5.vertices(pts)
-                    py5.vertex(x, y)
-                if len(pts) and py5.dist(x, y, *pts[-1]) < 20:
-                    py5.pop_style()
-                    return
-                pts.append((x, y))
-            case sx, sy, "w":
-                with py5.push_style(), py5.begin_shape():
-                    py5.line(sx, sy, x, y)
-            case sx, sy, "c" | "k":
-                py5.rect_mode(py5.CORNERS)
-                py5.rect(sx, sy, x, y)
-
+    py5.no_fill()
+    py5.stroke_weight(2)
+    py5.stroke(255)
+    x, y = py5.mouse_x, py5.mouse_y
+    match ongoing_creation:
+        case pts, "p":
+            # poly creation ongoing!
+            with py5.begin_shape():
+                py5.vertices(pts)
+                py5.vertex(x, y)
+            if len(pts) and py5.dist(x, y, *pts[-1]) < 20:
+                 return
+            pts.append((x, y))
+        case sx, sy, "w":
+            with py5.push_style(), py5.begin_shape():
+                py5.line(sx, sy, x, y)
+        case sx, sy, "c" | "k":
+            py5.rect_mode(py5.CORNERS)
+            py5.rect(sx, sy, x, y)
     # advance simulation
     sim.step(1 / 60)
 
@@ -71,20 +70,18 @@ def mouse_pressed():
 
 def mouse_released():
     global ongoing_creation
+    mx, my = py5.mouse_x, py5.mouse_y
     match ongoing_creation:
-        case inicial_x, inicial_y, "k" | "c":
-            w = abs(inicial_x - py5.mouse_x)
-            h = abs(inicial_y - py5.mouse_y)
-            x = (inicial_x + py5.mouse_x) / 2
-            y = (inicial_y + py5.mouse_y) / 2
-            Box(x, y, w, h, kinematic=(kind == "k"))
-        case inicial_x, inicial_y, "w":
-            Segment(inicial_x, inicial_y, py5.mouse_x, py5.mouse_y)
+        case sx, sy, "w":
+            Segment(sx, sy, mx, my)
+        case sx, sy, box_type:
+            w, h = abs(sx - mx), abs(sy - my)
+            x, y = (sx + mx) / 2, (sy + my) / 2
+            Box(x, y, w, h, kinematic=(box_type == "k"))
         case pts, "p":
-            if len(pts) >= 3:
-                shapely_poly = shapely.Polygon(pts)
-                if shapely_poly.area > 100 and shapely_poly.is_simple:
-                    Poly(shapely_poly, fill_color=py5.color(255))
+            shapely_poly = shapely.Polygon(pts) if len(pts) >= 3 else shapely.Polygon()
+            if shapely_poly.area > 100 and shapely_poly.is_simple:
+                Poly(shapely_poly, fill_color=py5.color(255))
     ongoing_creation = None
 
 
