@@ -23,31 +23,29 @@ def draw():
         d = py5.random(10, 50)
         c = py5.color(d * 5, 0, 255 - d * 5)
         Ball(py5.mouse_x + py5.random(-1, 1), py5.mouse_y, d, c)
-    # preview object creation
-    if ongoing_creation:
-        with py5.push_style():
-            py5.no_fill()
-            py5.stroke_weight(2)
-            py5.stroke(255)
-            if ongoing_creation[-1] == "p":
-                pts = ongoing_creation[0]
-                x, y = py5.mouse_x, py5.mouse_y
-                with py5.push_style(), py5.begin_shape():
+    # preview & object creation
+    with py5.push_style():
+        py5.no_fill()
+        py5.stroke_weight(2)
+        py5.stroke(255)
+        x, y = py5.mouse_x, py5.mouse_y
+        match ongoing_creation:
+            case pts, "p":
+                # poly creation ongoing!
+                with py5.begin_shape():
                     py5.vertices(pts)
                     py5.vertex(x, y)
                 if len(pts) and py5.dist(x, y, *pts[-1]) < 20:
+                    py5.pop_style()
                     return
-                ongoing_creation[0].append((x, y))
-            elif ongoing_creation[-1] == "w":
-                sx, sy = ongoing_creation[:2]
-                x, y = py5.mouse_x, py5.mouse_y
+                pts.append((x, y))
+            case sx, sy, "w":
                 with py5.push_style(), py5.begin_shape():
                     py5.line(sx, sy, x, y)
-            elif ongoing_creation[-1] in ("c", "k"):
-                sx, sy = ongoing_creation[:2]
-                x, y = py5.mouse_x, py5.mouse_y
+            case sx, sy, "c" | "k":
                 py5.rect_mode(py5.CORNERS)
                 py5.rect(sx, sy, x, y)
+
     # advance simulation
     sim.step(1 / 60)
 
