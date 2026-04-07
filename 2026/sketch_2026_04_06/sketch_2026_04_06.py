@@ -150,6 +150,9 @@ class Simulation:
     def box(self, x, y, w, h, kinematic=True):
         return Box(x, y, w, h, kinematic=kinematic, space=self.space, simulation=self)
 
+    def poly(self, shapely_poly, kinematic=True):
+        return Poly(shapely_poly, kinematic=kinematic, space=self.space, simulation=self)
+
 
 class SObj:
     
