@@ -4,7 +4,7 @@
 import py5
 import pymunk
 import shapely
-from trimesh.creation import triangulate_polygon
+from trimesh.creation import triangulate_polygon # pip install trimex[easy]
 
 ongoing_creation = None
 
@@ -13,10 +13,7 @@ def setup():
     py5.size(600, 600)
     global sim
     sim = Simulation()
-    Segment(50, 500, 550, 500)
-    # Box(100, 100, 100, 50)
-    # Box(200, 200, 100, 50, kinematic=False)
-
+    sim.add_segment(50, 500, 550, 500) # or just Segment(...)
 
 def draw():
     py5.background(200)
@@ -146,18 +143,18 @@ class Simulation:
         self.living_set.difference_update(self.for_removal)
         self.for_removal.clear()
 
-    def segment(self, xa, ya, xb, yb, radius=2):
-        return Segment(xa, ya, xb, yb, radius=radius, space=self.space, simulation=self)
+    def add_segment(self, xa, ya, xb, yb, radius=2):
+        return Segment(xa, ya, xb, yb, radius=radius, simulation=self)
 
-    def ball(self, x, y, diameter, fill_color):
-        return Ball(x, y, diameter, fill_color, space=self.space, simulation=self)
+    def add_ball(self, x, y, diameter, fill_color=None):
+        return Ball(x, y, diameter, fill_color, simulation=self)
 
-    def box(self, x, y, w, h, kinematic=True):
-        return Box(x, y, w, h, kinematic=kinematic, space=self.space, simulation=self)
+    def add_box(self, x, y, w, h, kinematic=True):
+        return Box(x, y, w, h, kinematic=kinematic, simulation=self)
 
-    def poly(self, shapely_poly, kinematic=True):
+    def add_poly(self, shapely_poly, kinematic=True):
         return Poly(
-            shapely_poly, kinematic=kinematic, space=self.space, simulation=self
+            shapely_poly, kinematic=kinematic, simulation=self
         )
 
 
