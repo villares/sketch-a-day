@@ -79,7 +79,7 @@ def mouse_released():
             h = abs(inicial_y - py5.mouse_y)
             x = (inicial_x + py5.mouse_x) / 2
             y = (inicial_y + py5.mouse_y) / 2
-            Box(x, y, w, h, kinematic=(kind == "k"))
+            Box(x, y, w, h, kinematic=(ongoing_creation[-1] == "k"))
         case inicial_x, inicial_y, "w":
             Segment(inicial_x, inicial_y, py5.mouse_x, py5.mouse_y)
         case pts, "p":
