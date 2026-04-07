@@ -88,7 +88,6 @@ def mouse_released():
         case pts, "p":
             if len(pts) >= 3:
                 shapely_poly = shapely.Polygon(pts)
-                # shapely_poly = shapely.make_valid(shapely_poly)
                 if shapely_poly.area > 100 and shapely_poly.is_simple:
                     Poly(shapely_poly, fill_color=py5.color(255))
     ongoing_creation = None
@@ -121,7 +120,7 @@ class Simulation:
         # object registry management
         self.living_set = set()
         self.for_removal = set()
-        # if no name provided, make this the default simulation
+        # if no name is provided, make this the default simulation
         if name is None:
             Simulation._default = self
 
@@ -215,7 +214,6 @@ class Segment(SObj):
         self.body = self.space.static_body
         self.shape = pymunk.Segment(self.body, (xa, ya), (xb, yb), radius=radius)
         self.shape.friction = self.simulation.segment_friction
-
         self.register_object()
 
     def draw(self):
@@ -242,7 +240,7 @@ class Ball(SObj):
         py5.no_stroke()
         py5.fill(self.fill_color)
         py5.circle(self.body.position.x, self.body.position.y, self.shape.radius * 2)
-        if self.body.position.y > py5.height + 20:
+        if self.body.position.y > py5.height + self.diameter:
             self.remove_from_sim()
 
 
@@ -278,7 +276,7 @@ class Poly(SObj):
             py5.rotate(self.body.angle)
             with py5.begin_closed_shape():
                 py5.vertices(self.poly.exterior.coords)
-        if self.body.position.y > py5.height + 20:
+        if self.body.position.y > py5.height + 200:
             self.remove_from_sim()
 
 
@@ -312,7 +310,7 @@ class Box(SObj):
             py5.rotate(self.body.angle)
             with py5.begin_closed_shape():
                 py5.vertices(self.vertices)
-        if self.body.position.y > py5.height + 20:
+        if self.body.position.y > py5.height + 200:
             self.remove_from_sim()
 
 
