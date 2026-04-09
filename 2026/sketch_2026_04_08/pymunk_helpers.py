@@ -116,9 +116,13 @@ class SObj:
 
 class Segment(SObj):
     """Static wall-like line segment."""
-    def __init__(self, xa, ya, xb, yb, radius=2, simulation=None):
+    def __init__(self, xa, ya, xb, yb,
+                 radius=2,
+                 stroke_color=None,
+                 simulation=None):
         super().__init__(simulation)
         self.thickness = radius * 2
+        self.stroke_colpr = stroke_color or py5.color(0)
         self.body = self.space.static_body
         self.shape = pymunk.Segment(self.body, (xa, ya), (xb, yb), radius=radius)
         self.shape.friction = self.simulation.segment_friction
