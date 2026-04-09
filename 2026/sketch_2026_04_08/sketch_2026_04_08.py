@@ -14,6 +14,7 @@ You can use the mouse wheel to rotate some objects
 """
 
 import py5
+import shapely
 from pymunk_helpers import Simulation, Segment, Ball, Box, Poly
 
 ongoing_creation = None

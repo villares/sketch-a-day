@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_04_08
+
+![sketch_2026_04_08](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_08/sketch_2026_04_08.png)
+
+[sketch_2026_04_08](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_04_08) [[py5](https://py5coding.org/)]
+
+More #pymunk experiments, I think I have a basic "experimental helpers" module with a few wrapper classes.
+
+---
+
 ### sketch_2026_04_06
 
 ![sketch_2026_04_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_06/sketch_2026_04_06.gif)
