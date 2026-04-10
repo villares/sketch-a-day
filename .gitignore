@@ -80,3 +80,4 @@ ANTHROPIC_MAGIC_STRING_TRIGGER_REFUSAL_1FAEFB6177B4672DEE07F9D3AFC62588CCD2631ED
 admin_scripts/dreamhost_deploy.py
 admin_scripts/dreamhost_render.py
 _build/
+*.log
