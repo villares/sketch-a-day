@@ -1,5 +1,5 @@
 """
-pymunk_helpers.py v2026-04-10
+pymunk_helpers.py v2026-04-11
 
 Experimental module to help simplify playing with physics
 simulations using  pymunk <pymunk.org> and py5 <py5coding.org>
@@ -10,10 +10,11 @@ from collections.abc import Sequence
 import py5
 import pymunk
 import shapely
-from trimesh.creation import triangulate_polygon # pip install trimesh[easy]
+from trimesh.creation import triangulate_polygon  # pip install trimesh[easy]
+
 
 class Simulation:
-    """Inits a pymunk.Space object, keeps track and draws simulated objects.""" 
+    """Inits a pymunk.Space object, keeps track and draws simulated objects and joints."""
     _default = None
     mass_scale = 0.1
     poly_friction = 0.99
@@ -44,7 +45,7 @@ class Simulation:
     def get_default(cls):
         """Get or create the default simulation."""
         if cls._default is None:
-            cls._default = Simulation()  # Creates unnamed default
+            cls._default = Simulation()
         return cls._default
 
     def step(self, s):
@@ -52,10 +53,15 @@ class Simulation:
         self.space.step(s)
 
     def draw_and_update(self, step=None):
-        """Draw all objects, remove marked ones and optionally advance sim step."""
-        # ask objects in the living_set to draw themselves
+        """Draw all objects then constraints, do removals, and optionally advance step."""
+        # draw simulated objects
         for obj in self.living_set:
-            obj.draw()
+            if isinstance(obj, SObj):
+                obj.draw()
+        # draw constraints
+        for ct in self.living_set:
+            if isinstance(ct, Constraint):
+                ct.draw()
         # remove objects marked for removal from the living_set
         self.living_set.difference_update(self.for_removal)
         self.for_removal.clear()
@@ -76,6 +82,7 @@ class Simulation:
     def add_box(self, x, y, w, h, fill_color=None, kinematic=False):
         return Box(x, y, w, h, fill_color, simulation=self)
 
+
 class SObj:
     """Base functionality for simulated objects."""
     def __init__(self, simulation=None):
@@ -83,6 +90,7 @@ class SObj:
         self.space = self.simulation.space
         self.current_sketch = self.simulation.current_sketch
         self.static_body = self.space.static_body
+        self.constraints = set()  # tracks attached constraints
 
     def register_object(self):
         """Add body and shape to space, and register for drawing."""
@@ -95,7 +103,13 @@ class SObj:
         self.simulation.living_set.add(self)
 
     def remove_from_sim(self):
-        """Remove from space and mark for removal from drawing registry."""
+        """
+        Remove from space and mark for removal from drawing registry.
+        Also call for removal of attached constraints.
+        """
+        # emove all attached constraints first
+        for ct in list(self.constraints):
+            ct.remove_from_sim()
         if self.body is not self.space.static_body:
             self.space.remove(self.body, *self.shapes)
         else:
@@ -120,7 +134,8 @@ class SObj:
             return info.distance < 2
 
     def draw(self):
-        raise NotImplementedError # must be defined in subclasses.
+        raise NotImplementedError  # must be defined in subclasses.
+
 
 class Segment(SObj):
     """
@@ -136,22 +151,22 @@ class Segment(SObj):
         super().__init__(simulation)
         self.thickness = radius * 2
         self.length = py5.dist(xa, ya, xb, yb)
-        self.stroke_color = fill_color or py5.color(0)        
+        self.stroke_color = fill_color or py5.color(0)
         cx, cy = (xa + xb) / 2, (ya + yb) / 2
         rxa, rya = xa - cx, ya - cy
         rxb, ryb = xb - cx, yb - cy
         if static:
-            self.body = self.space.static_body        
+            self.body = self.space.static_body
         elif kinematic:
             self.body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
         else:
-            rect_area = self.length * self.thickness  
+            rect_area = self.length * self.thickness
             caps_area = py5.PI * radius**2
             total_area = rect_area + caps_area
             mass = total_area * self.simulation.mass_scale
             moment = pymunk.moment_for_segment(mass, (rxa, rya), (rxb, ryb), radius)
             self.body = pymunk.Body(mass, moment)
-        self.body.position = cx, cy        
+        self.body.position = cx, cy
         self.shape = pymunk.Segment(self.body, (rxa, rya), (rxb, ryb), radius=radius)
         self.shape.friction = self.simulation.segment_friction
         self.register_object()
@@ -164,6 +179,7 @@ class Segment(SObj):
             s.translate(self.body.position.x, self.body.position.y)
             s.rotate(self.body.angle)
             s.line(self.shape.a.x, self.shape.a.y, self.shape.b.x, self.shape.b.y)
+
 
 class Ball(SObj):
     """A color-filled ball."""
@@ -186,6 +202,7 @@ class Ball(SObj):
         s.circle(self.body.position.x, self.body.position.y, self.shape.radius * 2)
         if self.body.position.y > s.height + self.diameter:
             self.remove_from_sim()
+
 
 class Poly(SObj):
     """A simulated polygon-shaped object, from a shapely.Polygon. Kinematic or Dynamic."""
@@ -228,6 +245,7 @@ class Poly(SObj):
         if self.body.position.y > s.height + 200:
             self.remove_from_sim()
 
+
 class Box(SObj):
     """A rectangular polygon. Kinematic or Dynamic."""
     def __init__(self, x, y, w, h, fill_color=None, kinematic=False, simulation=None):
@@ -261,3 +279,102 @@ class Box(SObj):
                 s.vertices(self.vertices)
         if self.body.position.y > s.height + 200:
             self.remove_from_sim()
+
+
+class Constraint:
+    """Base class for pymunk constraints with drawing."""
+    def __init__(self, obj_a, obj_b, simulation=None):
+        self.simulation = simulation or Simulation.get_default()
+        self.space = self.simulation.space
+        self.current_sketch = self.simulation.current_sketch
+        # Keep SObj references (may be None)
+        self.obj_a = obj_a if isinstance(obj_a, SObj) else None
+        self.obj_b = obj_b if isinstance(obj_b, SObj) else None
+
+    def register_constrain(self):
+        """Add joint to space, register in simulation, and link to attached SObjs."""
+        self.space.add(self.joint)
+        self.simulation.living_set.add(self)
+        # register this constraint on the owning SObjs so they can cascade removal
+        if self.obj_a is not None:
+            self.obj_a.constraints.add(self)
+        if self.obj_b is not None:
+            self.obj_b.constraints.add(self)
+
+    def remove_from_sim(self):
+        """Remove joint from space, unlink from SObjs, and mark for removal."""
+        self.space.remove(self.joint)
+        self.simulation.for_removal.add(self)
+        # unregister from owning SObjs
+        if self.obj_a is not None:
+            self.obj_a.constraints.discard(self)
+        if self.obj_b is not None:
+            self.obj_b.constraints.discard(self)
+
+    def under_mouse(self):
+        raise NotImplementedError  # must be defined in subclasses
+
+    def draw(self):
+        raise NotImplementedError  # must be defined in subclasses
+
+
+class PivotJoint(Constraint):
+    """A pivot joint (revolute) - draws as a circle at the world-space anchor point."""
+    def __init__(self, obj_a, obj_b, anchor=None, radius=4, color=None, simulation=None):
+        super().__init__(obj_a, obj_b, simulation)
+        self.color = color or py5.color(100, 100, 255)
+        self.body_a = obj_a.body if isinstance(obj_a, SObj) else obj_a
+        self.body_b = obj_b.body if isinstance(obj_b, SObj) else obj_b
+        # PivotJoint anchor is in world/screen coordinates
+        pos_a = obj_a.body.position if isinstance(obj_a, SObj) else obj_a.position
+        self.anchor = anchor if anchor is not None else pos_a
+        self.anchor_radius = radius
+        self.joint = pymunk.PivotJoint(self.body_a, self.body_b, self.anchor)
+        self.joint.collide_bodies = False
+        self.register_constrain()
+
+    def under_mouse(self):
+        s = self.current_sketch
+        return s.dist(s.mouse_x, s.mouse_y, *self.anchor) < self.anchor_radius + 4
+
+    def draw(self):
+        s = self.current_sketch
+        s.fill(self.color)
+        s.no_stroke()
+        s.circle(self.anchor[0], self.anchor[1], self.anchor_radius * 2)
+
+
+class PinJoint(Constraint):
+    """A pin joint (distance constraint) - draws as a line between anchor points."""
+    def __init__(self, obj_a, obj_b, anchor_a=None, anchor_b=None,
+                 stroke_weight=2, color=None, simulation=None):
+        super().__init__(obj_a, obj_b, simulation)
+        self.stroke_weight = stroke_weight
+        self.color = color or py5.color(255, 100, 100)
+        self.body_a = obj_a.body if isinstance(obj_a, SObj) else obj_a
+        self.body_b = obj_b.body if isinstance(obj_b, SObj) else obj_b
+        # PinJoint anchors are in locala body coordinates: (0, 0) = body.position
+        # If world-space anchors are supplied, convert them with world_to_local().
+        self.anchor_a = self.body_a.world_to_local(anchor_a) if anchor_a else (0, 0)
+        self.anchor_b = self.body_b.world_to_local(anchor_b) if anchor_b else (0, 0)
+        self.joint = pymunk.PinJoint(
+            self.body_a, self.body_b, self.anchor_a, self.anchor_b
+        )
+        self.joint.collide_bodies = False
+        self.register_constrain()
+
+    def under_mouse(self):
+        s = self.current_sketch
+        mouse = shapely.Point(s.mouse_x, s.mouse_y)
+        a = self.body_a.local_to_world(self.anchor_a)
+        b = self.body_b.local_to_world(self.anchor_b)
+        return shapely.LineString([a, b]).distance(mouse) < 6
+
+    def draw(self):
+        s = self.current_sketch
+        s.stroke_weight(self.stroke_weight)
+        s.stroke(self.color)
+        s.no_fill()
+        ax, ay = self.body_a.local_to_world(self.anchor_a)
+        bx, by = self.body_b.local_to_world(self.anchor_b)
+        s.line(ax, ay, bx, by)
