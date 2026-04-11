@@ -23,8 +23,14 @@ ongoing_creation = None
 def setup():
     py5.size(600, 600)
     global sim
-    sim = Simulation()
-    Segment(50, 500, 550, 500, static=True)
+    sim = Simulation(gravity=(0,0))
+#
+    Segment(50, 550, 550, 550, static=True)
+    Segment(50, 50, 550, 50, static=True)
+    Segment(50, 50, 50, 550, fill_color=128, kinematic=True)
+    Segment(550, 50, 550, 550, fill_color=128, kinematic=True)
+
+    
     ba = Ball(100, 100, 50)
     bb = Ball(200, 50, 100)
     PinJoint(ba, bb, anchor_a=(100, 120))
@@ -105,14 +111,19 @@ def mouse_released():
     ongoing_creation = None
 
 def mouse_dragged():
+    dx, dy = py5.mouse_x - py5.pmouse_x, py5.mouse_y - py5.pmouse_y
     if not py5.is_key_pressed:
         for obj in sim:
             if obj.under_mouse():
-                obj.translate(py5.mouse_x - py5.pmouse_x, py5.mouse_y - py5.pmouse_y)
+                if obj.type == sim.KINEMATIC:
+                    obj.translate(dx, dy)
+                if obj.type == sim.DYNAMIC:
+                    obj.vel_update(dx, dy)
+                    
 
 def mouse_wheel(e):
     for obj in sim:
-        if obj.under_mouse():
+        if obj.under_mouse() and isinstance(obj, SObj):
             obj.rotate(py5.radians(e.get_count()))
 
 py5.run_sketch(block=False)
