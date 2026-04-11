@@ -125,7 +125,7 @@ class SObj:
         self.body.position += pymunk.Vec2d(dx, dy)
 
     def vel_update(self, dx, dy):
-        self.body.velocity += pymunk.Vec2d(dx, dy) * 10
+        self.body.velocity = pymunk.Vec2d(dx, dy) * 10
 
 
     def under_mouse(self):
@@ -310,6 +310,7 @@ class Constraint:
         # Keep SObj references (may be None)
         self.obj_a = obj_a if isinstance(obj_a, SObj) else None
         self.obj_b = obj_b if isinstance(obj_b, SObj) else None
+        self.type = 'CONSTRAINT' # not Body.KINEMATIC etc.
 
     def register_constrain(self):
         """Add joint to space, register in simulation, and link to attached SObjs."""
