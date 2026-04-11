@@ -1,5 +1,5 @@
 """
-pymunk_helpers.py
+pymunk_helpers.py v2026-04-10
 
 Experimental module to help simplify playing with physics
 simulations using  pymunk <pymunk.org> and py5 <py5coding.org>
@@ -19,6 +19,9 @@ class Simulation:
     poly_friction = 0.99
     box_friction = 0.99
     segment_friction = 0.99
+    KINEMATIC = pymunk.Body.KINEMATIC
+    STATIC = pymunk.Body.STATIC
+    DYNAMIC = pymunk.Body.DYNAMIC
 
     def __init__(self, name=None, gravity=(0, 900), py5_sketch=None):
         self.name = name
@@ -59,9 +62,13 @@ class Simulation:
         # advance the pymunk space simulation step
         if step is not None:
             self.step(step)
-        
-    def add_segment(self, xa, ya, xb, yb, radius=2):
-        return Segment(xa, ya, xb, yb, radius, simulation=self)
+
+    def add_kinematic_segment(self, xa, ya, xb, yb, radius=2, fill_color=128):
+        return Segment(xa, ya, xb, yb, radius, fill_color, kinematic=True, simulation=self)
+    def add_static_segment(self, xa, ya, xb, yb, radius=2, fill_color=0):
+        return Segment(xa, ya, xb, yb, radius, fill_color, static=True, simulation=self)
+    def add_segment(self, xa, ya, xb, yb, radius=2, fill_color=255):
+        return Segment(xa, ya, xb, yb, radius, fill_color, simulation=self)
     def add_ball(self, x, y, diameter, fill_color=None):
         return Ball(x, y, diameter, fill_color, simulation=self)
     def add_poly(self, poly: Sequence[Sequence] | shapely.Polygon, fill_color=None, kinematic=False):
@@ -75,6 +82,7 @@ class SObj:
         self.simulation = simulation or Simulation.get_default()
         self.space = self.simulation.space
         self.current_sketch = self.simulation.current_sketch
+        self.static_body = self.space.static_body
 
     def register_object(self):
         """Add body and shape to space, and register for drawing."""
@@ -115,24 +123,47 @@ class SObj:
         raise NotImplementedError # must be defined in subclasses.
 
 class Segment(SObj):
-    """Static wall-like line segment."""
+    """
+    Line segment of variable length - thickness double the radius.
+    It can also be kinematic or static.
+    """
     def __init__(self, xa, ya, xb, yb,
                  radius=2,
-                 stroke_color=None,
+                 fill_color=None,
+                 kinematic=False,
+                 static=False,
                  simulation=None):
         super().__init__(simulation)
         self.thickness = radius * 2
-        self.stroke_colpr = stroke_color or py5.color(0)
-        self.body = self.space.static_body
-        self.shape = pymunk.Segment(self.body, (xa, ya), (xb, yb), radius=radius)
+        self.length = py5.dist(xa, ya, xb, yb)
+        self.stroke_color = fill_color or py5.color(0)        
+        cx, cy = (xa + xb) / 2, (ya + yb) / 2
+        rxa, rya = xa - cx, ya - cy
+        rxb, ryb = xb - cx, yb - cy
+        if static:
+            self.body = self.space.static_body        
+        elif kinematic:
+            self.body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+        else:
+            rect_area = self.length * self.thickness  
+            caps_area = py5.PI * radius**2
+            total_area = rect_area + caps_area
+            mass = total_area * self.simulation.mass_scale
+            moment = pymunk.moment_for_segment(mass, (rxa, rya), (rxb, ryb), radius)
+            self.body = pymunk.Body(mass, moment)
+        self.body.position = cx, cy        
+        self.shape = pymunk.Segment(self.body, (rxa, rya), (rxb, ryb), radius=radius)
         self.shape.friction = self.simulation.segment_friction
         self.register_object()
 
     def draw(self):
         s = self.current_sketch
         s.stroke_weight(self.thickness)
-        s.stroke(0)
-        s.line(self.shape.a.x, self.shape.a.y, self.shape.b.x, self.shape.b.y)
+        s.stroke(self.stroke_color)
+        with s.push_matrix():
+            s.translate(self.body.position.x, self.body.position.y)
+            s.rotate(self.body.angle)
+            s.line(self.shape.a.x, self.shape.a.y, self.shape.b.x, self.shape.b.y)
 
 class Ball(SObj):
     """A color-filled ball."""
