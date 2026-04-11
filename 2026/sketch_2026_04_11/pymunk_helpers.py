@@ -17,9 +17,6 @@ class Simulation:
     """Inits a pymunk.Space object, keeps track and draws simulated objects and joints."""
     _default = None
     mass_scale = 0.1
-    poly_friction = 0.99
-    box_friction = 0.99
-    segment_friction = 0.99
     KINEMATIC = pymunk.Body.KINEMATIC
     STATIC = pymunk.Body.STATIC
     DYNAMIC = pymunk.Body.DYNAMIC
@@ -85,6 +82,9 @@ class Simulation:
 
 class SObj:
     """Base functionality for simulated objects."""
+    friction = 0.5
+    elasticity = 0.5
+    
     def __init__(self, simulation=None):
         self.simulation = simulation or Simulation.get_default()
         self.space = self.simulation.space
@@ -101,11 +101,13 @@ class SObj:
         else:
             self.space.add(*self.shapes)
         self.simulation.living_set.add(self)
+        self.type = self.body.body_type
+
 
     def remove_from_sim(self):
         """
         Remove from space and mark for removal from drawing registry.
-        Also call for removal of attached constraints.
+        Also, somewhat cumbersome removal of attached constraints.
         """
         # emove all attached constraints first
         for ct in list(self.constraints):
@@ -121,6 +123,10 @@ class SObj:
 
     def translate(self, dx, dy):
         self.body.position += pymunk.Vec2d(dx, dy)
+
+    def vel_update(self, dx, dy):
+        self.body.velocity += pymunk.Vec2d(dx, dy) * 10
+
 
     def under_mouse(self):
         s = self.current_sketch
@@ -142,6 +148,9 @@ class Segment(SObj):
     Line segment of variable length - thickness double the radius.
     It can also be kinematic or static.
     """
+    friction = 0.5
+    elasticity = 0.5
+    
     def __init__(self, xa, ya, xb, yb,
                  radius=2,
                  fill_color=None,
@@ -157,8 +166,10 @@ class Segment(SObj):
         rxb, ryb = xb - cx, yb - cy
         if static:
             self.body = self.space.static_body
+            self.shape = pymunk.Segment(self.body, (xa, ya), (xb, yb), radius=radius)
         elif kinematic:
             self.body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+            self.shape = pymunk.Segment(self.body, (xa, ya), (xb, yb), radius=radius)
         else:
             rect_area = self.length * self.thickness
             caps_area = py5.PI * radius**2
@@ -166,9 +177,10 @@ class Segment(SObj):
             mass = total_area * self.simulation.mass_scale
             moment = pymunk.moment_for_segment(mass, (rxa, rya), (rxb, ryb), radius)
             self.body = pymunk.Body(mass, moment)
-        self.body.position = cx, cy
-        self.shape = pymunk.Segment(self.body, (rxa, rya), (rxb, ryb), radius=radius)
-        self.shape.friction = self.simulation.segment_friction
+            self.body.position = cx, cy
+            self.shape = pymunk.Segment(self.body, (rxa, rya), (rxb, ryb), radius=radius)
+        self.shape.friction = self.friction
+        self.shape.elasticity = self.elasticity
         self.register_object()
 
     def draw(self):
@@ -182,7 +194,7 @@ class Segment(SObj):
 
 
 class Ball(SObj):
-    """A color-filled ball."""
+    """A color-filled ball."""    
     def __init__(self, x, y, diameter, fill_color=None, simulation=None):
         super().__init__(simulation)
         self.diameter = diameter
@@ -193,6 +205,8 @@ class Ball(SObj):
         self.body = pymunk.Body(mass, moment)
         self.body.position = x, y
         self.shape = pymunk.Circle(self.body, radius, (0, 0))
+        self.shape.friction = self.friction
+        self.shape.elasticity = self.elasticity
         self.register_object()
 
     def draw(self):
@@ -200,7 +214,8 @@ class Ball(SObj):
         s.no_stroke()
         s.fill(self.fill_color)
         s.circle(self.body.position.x, self.body.position.y, self.shape.radius * 2)
-        if self.body.position.y > s.height + self.diameter:
+        # trigger removal of falling objects... might be improved
+        if self.body.position.y > s.height + self.diameter * 2:
             self.remove_from_sim()
 
 
@@ -228,7 +243,8 @@ class Poly(SObj):
         for tri in triangles:
             translated_tri = [(x - cx, y - cy) for x, y in tri]
             shape = pymunk.Poly(self.body, translated_tri)
-            shape.friction = self.simulation.poly_friction
+            shape.friction = self.friction
+            shape.elasticity = self.elasticity
             self.shapes.append(shape)
         self.fill_color = fill_color or py5.color(255)
         self.register_object()
@@ -242,6 +258,7 @@ class Poly(SObj):
             s.rotate(self.body.angle)
             with s.begin_closed_shape():
                 s.vertices(self.poly.exterior.coords)
+        # trigger removal of falling objects... might be improved
         if self.body.position.y > s.height + 200:
             self.remove_from_sim()
 
@@ -258,7 +275,8 @@ class Box(SObj):
             self.body = pymunk.Body(mass, moment)
         self.body.position = x, y
         self.shape = pymunk.Poly.create_box(self.body, (w, h))
-        self.shape.friction = 0.80
+        self.shape.friction = self.friction
+        self.shape.elasticity = self.elasticity
         self.vertices = self.shape.get_vertices()
         if fill_color is None:
             self.fill_color = (
@@ -277,12 +295,14 @@ class Box(SObj):
             s.rotate(self.body.angle)
             with s.begin_closed_shape():
                 s.vertices(self.vertices)
+        # trigger removal of falling objects... might be improved
         if self.body.position.y > s.height + 200:
             self.remove_from_sim()
 
 
 class Constraint:
-    """Base class for pymunk constraints with drawing."""
+    """Base class for pymunk constraints wrappers."""
+    visible = True
     def __init__(self, obj_a, obj_b, simulation=None):
         self.simulation = simulation or Simulation.get_default()
         self.space = self.simulation.space
@@ -303,9 +323,12 @@ class Constraint:
 
     def remove_from_sim(self):
         """Remove joint from space, unlink from SObjs, and mark for removal."""
-        self.space.remove(self.joint)
-        self.simulation.for_removal.add(self)
-        # unregister from owning SObjs
+        living_set = self.simulation.living_set
+        for_removal = self.simulation.for_removal
+        if self in living_set and self not in for_removal:
+            for_removal.add(self)
+            self.space.remove(self.joint)
+        # unregister from SObjs
         if self.obj_a is not None:
             self.obj_a.constraints.discard(self)
         if self.obj_b is not None:
@@ -322,35 +345,39 @@ class PivotJoint(Constraint):
     """A pivot joint (revolute) - draws as a circle at the world-space anchor point."""
     def __init__(self, obj_a, obj_b, anchor=None, radius=4, color=None, simulation=None):
         super().__init__(obj_a, obj_b, simulation)
-        self.color = color or py5.color(100, 100, 255)
+        self.radius = radius
+        self.color = color or py5.color(0, 128, 0)
         self.body_a = obj_a.body if isinstance(obj_a, SObj) else obj_a
         self.body_b = obj_b.body if isinstance(obj_b, SObj) else obj_b
         # PivotJoint anchor is in world/screen coordinates
-        pos_a = obj_a.body.position if isinstance(obj_a, SObj) else obj_a.position
-        self.anchor = anchor if anchor is not None else pos_a
-        self.anchor_radius = radius
-        self.joint = pymunk.PivotJoint(self.body_a, self.body_b, self.anchor)
+        anchor = anchor or obj_a.body.position  # obj_a position if none
+        self.joint = pymunk.PivotJoint(self.body_a, self.body_b, anchor)
         self.joint.collide_bodies = False
         self.register_constrain()
 
+    @property
+    def position(self):
+        return self.body_a.local_to_world(self.joint.anchor_a)
+
     def under_mouse(self):
         s = self.current_sketch
-        return s.dist(s.mouse_x, s.mouse_y, *self.anchor) < self.anchor_radius + 4
+        return s.dist(s.mouse_x, s.mouse_y, *self.position) < self.radius + 4
 
     def draw(self):
-        s = self.current_sketch
-        s.fill(self.color)
-        s.no_stroke()
-        s.circle(self.anchor[0], self.anchor[1], self.anchor_radius * 2)
+        if self.visible:
+            s = self.current_sketch
+            s.fill(self.color)
+            s.no_stroke()
+            s.circle(*self.position, self.radius * 2)
 
 
 class PinJoint(Constraint):
     """A pin joint (distance constraint) - draws as a line between anchor points."""
     def __init__(self, obj_a, obj_b, anchor_a=None, anchor_b=None,
-                 stroke_weight=2, color=None, simulation=None):
+                 radius=4, color=None, simulation=None):
         super().__init__(obj_a, obj_b, simulation)
-        self.stroke_weight = stroke_weight
-        self.color = color or py5.color(255, 100, 100)
+        self.radius = radius
+        self.color = color or py5.color(0, 128, 0)
         self.body_a = obj_a.body if isinstance(obj_a, SObj) else obj_a
         self.body_b = obj_b.body if isinstance(obj_b, SObj) else obj_b
         # PinJoint anchors are in locala body coordinates: (0, 0) = body.position
@@ -368,13 +395,14 @@ class PinJoint(Constraint):
         mouse = shapely.Point(s.mouse_x, s.mouse_y)
         a = self.body_a.local_to_world(self.anchor_a)
         b = self.body_b.local_to_world(self.anchor_b)
-        return shapely.LineString([a, b]).distance(mouse) < 6
+        return shapely.LineString([a, b]).distance(mouse) < self.radius + 2
 
     def draw(self):
-        s = self.current_sketch
-        s.stroke_weight(self.stroke_weight)
-        s.stroke(self.color)
-        s.no_fill()
-        ax, ay = self.body_a.local_to_world(self.anchor_a)
-        bx, by = self.body_b.local_to_world(self.anchor_b)
-        s.line(ax, ay, bx, by)
+        if self.visible:
+            s = self.current_sketch
+            s.stroke_weight(self.radius * 2)
+            s.stroke(self.color)
+            s.no_fill()
+            ax, ay = self.body_a.local_to_world(self.anchor_a)
+            bx, by = self.body_b.local_to_world(self.anchor_b)
+            s.line(ax, ay, bx, by)
