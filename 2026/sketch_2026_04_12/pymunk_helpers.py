@@ -220,8 +220,8 @@ class Ball(SObj):
 
 class Poly(SObj):
     """
-    A simulated polygon-shaped, Kinematic or Dynamic, object.
-    It can be created from a sequence of vertices, or shapely polygons.
+    A simulated polygonal, Kinematic or Dynamic, custom object.
+    It can be created from a sequence of vertices, or shapely [Multi]Polygons.
     """
     def __init__(self, geometry:
                      Sequence[Sequence] | shapely.Polygon | shapely.MultiPolygon,
@@ -268,7 +268,6 @@ class Poly(SObj):
             self.shapes.append(shape)
         self.body.position = (cx, cy)
         self.register_object()
-        self.py5shape = None
 
     def draw(self):
         s = self.simulation.current_sketch
