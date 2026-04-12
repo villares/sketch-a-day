@@ -29,8 +29,6 @@ def setup():
     Segment(50, 50, 550, 50, static=True)
     Segment(50, 50, 50, 550, fill_color=128, kinematic=True)
     Segment(550, 50, 550, 550, fill_color=128, kinematic=True)
-
-    
     ba = Ball(100, 100, 50)
     bb = Ball(200, 50, 100)
     PinJoint(ba, bb, anchor_a=(100, 120))
@@ -120,7 +118,6 @@ def mouse_dragged():
                 if obj.type == sim.DYNAMIC:
                     obj.vel_update(dx, dy)
                     
-
 def mouse_wheel(e):
     for obj in sim:
         if obj.under_mouse() and isinstance(obj, SObj):
