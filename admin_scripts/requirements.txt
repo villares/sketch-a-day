@@ -164,7 +164,7 @@ pdfminer.six==20250506
 pdftotext==2.2.2
 pexpect==4.9.0
 pikepdf==10.3.0
-pillow==12.1.0
+pillow==12.2.0
 pipx==1.8.0
 pkginfo==1.12.1.2
 platformdirs==4.5.1
