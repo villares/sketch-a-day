@@ -27,6 +27,26 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_04_15
+
+![sketch_2026_04_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_15/sketch_2026_04_15.png)
+
+[sketch_2026_04_15](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_04_15) [[py5](https://py5coding.org/)]
+
+WIP #QuadraticCurve
+
+---
+
+### sketch_2026_04_14
+
+![sketch_2026_04_14](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_14/sketch_2026_04_14.png)
+
+[sketch_2026_04_14](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_04_14) [[py5](https://py5coding.org/)]
+
+Sketch feito na última aula do curso para o MAM-SP... uma turma muito legal, foi um prazer.
+
+---
+
 ### sketch_2026_04_13
 
 ![sketch_2026_04_13](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_13/sketch_2026_04_13.gif)
