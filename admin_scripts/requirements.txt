@@ -195,7 +195,7 @@ pydantic==2.12.5
 pydantic_core==2.41.5
 PyDrive2==1.21.3
 pyenchant==3.3.0
-Pygments==2.19.2
+Pygments==2.20.0
 PyGObject==3.54.5
 pygtkspellcheck==5.0.3
 pykakasi==2.3.1.dev0
