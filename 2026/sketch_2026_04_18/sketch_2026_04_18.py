@@ -14,6 +14,9 @@ interaction_dist = 100  # interaction distance limit
 psq = 3  # "squared" particle size 
 
 particles = []
+
+#np.random.seed(1)
+#py5.random_seed(1)
 force_rules = np.random.uniform(-3, 3, (species_n, species_n))
 
 def setup():
@@ -43,7 +46,7 @@ def draw():
     py5.window_title(f'{py5.get_frame_rate():.1f}')
 
 class Particle:
-    
+    #__slots__ = ('pos', 'vel', 'species')
     
     def __init__(self):
         self.pos = np.array([py5.random(py5.width), py5.random(py5.height)])
