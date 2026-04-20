@@ -285,7 +285,7 @@ userpath==1.9.2
 validate-pyproject==0.24.1.post1.dev0+g78f5e0f10.d20251227
 virtualenv==20.36.1
 webencodings==0.5.1
-wheel==0.45.1
+wheel==0.46.2
 wrapt==1.17.3
 wxPython==4.2.4
 xmltodict==1.0.2
