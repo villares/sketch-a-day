@@ -174,7 +174,7 @@ poetry==2.2.1
 poetry-core==2.2.1
 poetry-plugin-export==1.9.0
 propcache==0.4.1
-protobuf==6.33.1
+protobuf==6.33.5
 psutil==7.2.1
 ptyprocess==0.7.0
 pwquality==1.4.5
