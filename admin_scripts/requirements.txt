@@ -203,7 +203,7 @@ pylint==4.0.4
 PyMuPDF==1.26.7
 PyNaCl==1.6.2
 PyOpenGL==3.1.10
-pyOpenSSL==25.3.0
+pyOpenSSL==26.0.0
 pyparsing==3.3.2
 pyperclip==1.11.0
 pyppmd==1.2.0
