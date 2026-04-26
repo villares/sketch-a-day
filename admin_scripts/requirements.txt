@@ -69,7 +69,7 @@ fluidity-sm==0.2.1
 fonttools==4.61.1
 frozenlist==1.8.0
 gitdb==4.0.12
-GitPython==3.1.46
+GitPython==3.1.47
 google-api-core==2.19.1
 google-api-python-client==2.140.0
 google-auth==2.43.0
