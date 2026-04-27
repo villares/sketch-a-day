@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_04_26
+
+![sketch_2026_04_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_26/sketch_2026_04_26.png)
+
+[sketch_2026_04_26](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_04_26) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2026_04_25
 
 ![sketch_2026_04_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_04_25/sketch_2026_04_25.png)
