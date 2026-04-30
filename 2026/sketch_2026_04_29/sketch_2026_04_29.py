@@ -53,6 +53,8 @@ def key_pressed():
         s += 1
     elif py5.key == 'x':
         s -= 1
+    elif py5.key == 'p':
+        py5.save_frame('out.png')
     
 
 def mouse_wheel(evento):
