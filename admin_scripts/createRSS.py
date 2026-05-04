@@ -1,103 +1,197 @@
 #!/home/villares/thonny-env/bin/python
 
-# Generate rss.xml for sketch-a-day - WIP
+"""
+createRSS.py
+Reads index.html page and writes feed.xml (RSS 2.0) to the same directory.
 
-# https://abav.lugaralgum.com/sketch-a-day/2022/sketch_2022_12_31/sketch_2022_12_31.png
-
-import re
-from datetime import datetime
-from pathlib import Path
-
-import html
-import markdown as md
-
-BASE_PATH = Path('/home/villares/GitHub/sketch-a-day/docs')
-BASE_URL = 'http://abav.lugaralgum.com/sketch-a-day' 
-BASE_FOR_IMAGES = 'https://raw.githubusercontent.com/villares/sketch-a-day/main/'
- 
-rss_header = f"""<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
-<channel>
-<title>Alexandre Villares - sketch-a-day</title>
-<link>{BASE_URL}</link>
-<description>One visual idea a day, made with code</description>
+Usage:
+    createRSS.py   # by defaut reads …sketch-a-day/index.html, writes feed.xml.
+    createRSS.py path/to/index.html path/to/feed.xml
 """
 
-rss_footer = """</channel>\n</rss>"""
+import re
+import sys
+from datetime import datetime, timezone
+from email.utils import format_datetime
+from pathlib import Path
+from html.parser import HTMLParser
 
-rss_item_format = """<item>
-<title>{0}</title>
-<link>{1}</link>
-<guid>{1}</guid>
-<pubDate>{2}</pubDate>
-<description>{3}</description>
-<content><![CDATA[{4}]]></content>
-</item>
-""".format  # use rss_item_format(title, link, date, description, full_content)
-  
-def extract_date(line):
-    date_match = re.search(r"(\d{4}_\d{2}_\d{2})", line)
-    if date_match:
-        date = datetime.strptime(date_match.group(1), "%Y_%m_%d")
-        return date.replace(hour=12).strftime("%a, %d %b %Y %H:%M:%S %z")
+DEFAULT_INDEX = Path('/home/villares/GitHub/sketch-a-day_build/index.html')
+BASE_URL   = "https://abav.lugaralgum.com/sketch-a-day"
+FEED_TITLE = "sketch-a-day – Alexandre B A Villares"
+FEED_DESC  = "Coding a visual idea a day"
+FEED_LANG  = "en"
+MAX_ITEMS  = 1000          # how many recent sketches to include in the feed
+
+# ── helpers ────────────────────────────────────────────────────────────────────
+
+SKETCH_ID_RE = re.compile(r"^sketch_(\d{4})_(\d{2})_(\d{2})$")
+
+
+def sketch_id_to_date(sketch_id: str) -> datetime:
+    """Convert 'sketch_2026_04_26' → datetime(2026, 4, 26, tzinfo=UTC)."""
+    m = SKETCH_ID_RE.match(sketch_id)
+    y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    return datetime(y, mo, d, 12, 0, 0, tzinfo=timezone.utc)
+
+
+def xml_escape(text: str) -> str:
+    return (text
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;"))
+
+
+# ── HTML parsing ───────────────────────────────────────────────────────────────
+
+class SketchParser(HTMLParser):
+    """
+    Walks the HTML and collects sketch entries.
+
+    Each entry:
+        {
+            "id":    "sketch_2026_04_26",
+            "date":  datetime(...),
+            "img":   "2026/sketch_2026_04_26/sketch_2026_04_26.png",
+            "link":  "https://github.com/...",
+            "desc":  "optional description text",
+        }
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.sketches: list[dict] = []
+        self._current: dict | None = None   # entry being built
+        self._in_h3 = False                 # inside <h3 id="sketch_…">
+        self._p_index = 0                   # which <p> after the h3 we're in
+        self._in_p = False
+        self._p_text_buf: list[str] = []
+        self._in_a = False
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "h3":
+            sid = attrs.get("id", "")
+            if SKETCH_ID_RE.match(sid):
+                # commit previous entry if any
+                self._commit()
+                self._current = {"id": sid, "date": sketch_id_to_date(sid),
+                                 "img": "", "link": "", "desc": ""}
+                self._p_index = 0
+                self._in_h3 = True
+            return
+        if tag == "p" and self._current:
+            self._in_p = True
+            self._p_index += 1
+            self._p_text_buf = []
+            return
+        if tag == "img" and self._current and self._in_p and self._p_index == 1:
+            self._current["img"] = attrs.get("src", "")
+            return
+        if tag == "a" and self._current and self._in_p:
+            self._in_a = True
+            if self._p_index == 2 and not self._current["link"]:
+                href = attrs.get("href", "")
+                # the first <a> in the second <p> is the source link
+                if "github.com" in href or "codeberg.org" in href:
+                    self._current["link"] = href
+            return
+        # a new h3 that isn't a sketch (e.g. a section header) resets state
+        if tag == "h3" and self._current:
+            self._commit()
+
+    def handle_endtag(self, tag):
+        if tag == "h3":
+            self._in_h3 = False
+
+        if tag == "a":
+            self._in_a = False
+
+        if tag == "p" and self._current and self._in_p:
+            # third (and later) <p> tags are optional description text
+            if self._p_index >= 3:
+                txt = "".join(self._p_text_buf).strip()
+                if txt:
+                    self._current["desc"] = (self._current["desc"] + " " + txt).strip()
+            self._in_p = False
+
+        # <hr/> between entries: commit whatever is pending
+        if tag == "hr" and self._current:
+            self._commit()
+
+    def handle_data(self, data):
+        if self._in_p and self._current:
+            self._p_text_buf.append(data)
+
+    def _commit(self):
+        if self._current and self._current["img"]:
+            self.sketches.append(self._current)
+        self._current = None
+        self._in_h3 = False
+        self._in_p = False
+        self._p_index = 0
+
+def build_rss(sketches: list[dict]) -> str:
+    now_rfc = format_datetime(datetime.now(timezone.utc))
+    items_xml = []
+    for s in sketches[:MAX_ITEMS]:
+        sid        = s["id"]
+        page_url   = f"{BASE_URL}/#{xml_escape(sid)}"
+        img_src    = s["img"]
+        # make image URL absolute if it isn't already
+        if not img_src.startswith("http"):
+            img_src = f"{BASE_URL}/{img_src}"
+        repo_url = xml_escape(s["link"]) if s["link"] else ""
+        desc_text  = xml_escape(s["desc"]) if s["desc"] else ""
+        pub_date   = format_datetime(s["date"])
+        # build HTML description
+        desc_html_parts = [f'<img src="{xml_escape(img_src)}" alt="{xml_escape(sid)}" style="max-width:100%"/>']
+        if desc_text:
+            desc_html_parts.append(f"<p>{desc_text}</p>")
+        if repo_url:
+            desc_html_parts.append(f'<p><a href="{repo_url}">linkt to source</a></p>')
+        desc_html = "".join(desc_html_parts)
+
+        items_xml.append(f"""
+  <item>
+    <title>{xml_escape(sid)}</title>
+    <link>{xml_escape(page_url)}</link>
+    <guid isPermaLink="true">{xml_escape(page_url)}</guid>
+    <pubDate>{pub_date}</pubDate>
+    <description><![CDATA[{desc_html}]]></description>
+  </item>""")
+    #  <enclosure url="{xml_escape(img_src)}" type="image/{'gif' if img_src.endswith('.gif') else 'png'}" length="0"/>
+    feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{xml_escape(FEED_TITLE)}</title>
+  <link>{xml_escape(BASE_URL)}</link>
+  <description>{xml_escape(FEED_DESC)}</description>
+  <language>{FEED_LANG}</language>
+  <lastBuildDate>{now_rfc}</lastBuildDate>
+  <atom:link href="{xml_escape(BASE_URL)}/feed.xml" rel="self" type="application/rss+xml"/>
+{"".join(items_xml)}
+</channel>
+</rss>
+"""
+    return feed
+
+if __name__ == "__main__":
+    input_path  = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INDEX
+    output_path = Path(sys.argv[2]) if len(sys.argv) > 2 else input_path.parent / "feed.xml"
+    html = input_path.read_text(encoding="utf-8")
+    parser = SketchParser()
+    parser.feed(html)
+    parser.handle_endtag("hr")   # flush last pending entry
+    sketches = parser.sketches
+    print(f"Found {len(sketches)} sketches... ", end='')
+    if sketches:
+        sketches.sort(key=lambda s: s["date"], reverse=True) # in case the HTML is reversed
+        rss = build_rss(sketches)
+        output_path.write_text(rss, encoding="utf-8")
+        print(f"Wrote feed to {output_path}.")
+        s = sketches[0]
+        print(f"Latest:  {s['id']}  img={s['img']}  desc={s['desc']!r}")
     else:
-        return ''
-
-def sanitize_anchor(text):
-    text = text.replace(' ', '-')       # Replace spaces with dashes
-    text = re.sub(r'[^\w-]', '', text)  # Remove all special characters
-    return text
-
-def replace_img_urls(html):
-    return html.replace('src="', f'src="{BASE_FOR_IMAGES}')
-
-# def extract_url(line):
-#     url_match = re.search(r"\((https://.*)\)", line)
-#     return url_match.group(1) if url_match else ''
-
-def main(file_list):
-    output_path = BASE_PATH / 'rss.xml'
-    with open(output_path, 'wt') as output:
-        # RSS header
-        output.write(rss_header)
-         
-        for file_name in file_list:
-            readme_path = BASE_PATH / file_name
-            with open(readme_path, 'rt') as readme:
-                readme_as_lines = readme.readlines()
-                
-            content_lines = None  # no lines get added before the first H3
-            for i, line in enumerate(readme_as_lines):
-                end_of_file = (i == len(readme_as_lines) - 1)
-                if line.startswith('### ') or end_of_file:
-                    if content_lines:
-                        contents = replace_img_urls(md.markdown(''.join(content_lines)
-                                               + (line if end_of_file else '')))
-                        item = rss_item_format(title, link, date, description, contents)
-                        output.write(item)
-                    # prepare next item 
-                    name = line[4:].strip()
-                    title = html.escape(name)
-                    date = extract_date(line)
-                    link = f'{BASE_URL}#{sanitize_anchor(name)}'
-                    description = replace_img_urls(
-                                  md.markdown(''.join(readme_as_lines[i+2:i+5])
-                                                .replace('\n\n', '')
-                                                .replace(f'![{title}]', '[image]')
-                                                .replace(f'[{title}]', ' [source]')
-                                              ))
-                    content_lines = [] # empty list for next item's content
-                elif line.strip() and content_lines is not None:
-                    content_lines.append(line)
-        # RSS Footer
-        output.write(rss_footer)
-        print(' '.join(file_list) + ' -> rss.xml (generated again)')
-   
-if __name__ == '__main__':
-    main(['README.md',  # atual 2023
-          '2022.md',
-          ])
-
-    # for year in (2018, 2019, 2020, 2021):
-    #    main(str(year) + '.md')
-    
+        print(f'{output_path} was not touched.')
