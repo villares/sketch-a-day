@@ -10,7 +10,7 @@
 
 ## TO DO:
 # [ ] BUG FIX: GUI preview does not show the right image!
-# [ ] BUG FIX: RSS feed is still broken
+# [X] RSS feed 
 # [/] use GUI or CL arguments to set tool
 #     [X] improve GUI (add image to the dialog!)
 #     [ ] add the CL arguments, why haven't you!!! (argparse!)
@@ -23,6 +23,7 @@
 
 # 2026
 # Added clumsy bluesky posting
+# Added createRSS.py
 # 2025
 # Updated image_helpers to use pathlib...
 # Added clumsy Mastodon posting
@@ -48,6 +49,7 @@ from image_helpers import get_image_names, image_as_png_bytes
 from toot_publisher import toot
 from bs_publisher import post
 from generate_index_for_logseq import generate_sketch_a_day_index
+from generate_rss_feed import generate_sketch_a_day_rss_feed
 
 print(f'Running on: {sys.executable}') # for debug
 
@@ -164,6 +166,8 @@ def main(args):
         readme.write(content)
     # TODO show all changes on GUI
     generate_sketch_a_day_index()
+    generate_sketch_a_day_rss_feed()
+    
     adding_message = 'Regenerated logseq index.'
     print(adding_message)
     change_log.append(adding_message) 
