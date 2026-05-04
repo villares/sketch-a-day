@@ -11,11 +11,10 @@ The results here are mostly tentative, exploratory, and I don’t feel like they
 You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/@villares) or at <a rel="me" href="https://pynews.com.br/@villares">@villares@pynews.com.br</a>, where I post most of my daily sketches. Please do not hesitate to [contact me](http://contato.lugaralgum.com) regarding licenses to use my work, teaching opportunities, consulting or other projects.
 
 
-<link
-  rel="alternate"
-  type="application/rss+xml"
-  href="http://pynews.com.br/@villares.rss"
-  title="RSS Feed">
+<link rel="alternate"
+      type="application/rss+xml"
+      title="sketch-a-day RSS feed"
+      href="https://abav.lugaralgum.com/sketch-a-day/feed.xml"/>
 
 <!-- TOGGLE_CONTROLS_HERE -->
    
