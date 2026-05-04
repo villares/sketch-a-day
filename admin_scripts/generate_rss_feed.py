@@ -1,12 +1,12 @@
 #!/home/villares/thonny-env/bin/python
 
 """
-createRSS.py
+generate_rss_feed.py
 Reads index.html page and writes feed.xml (RSS 2.0) to the same directory.
 
 Usage:
-    createRSS.py   # by defaut reads …sketch-a-day/index.html, writes feed.xml.
-    createRSS.py path/to/index.html path/to/feed.xml
+    generate_rss_feed.py   # by defaut reads …sketch-a-day/index.html, writes feed.xml.
+    generate_rss_feed.py path/to/index.html path/to/feed.xml
 """
 
 import re
@@ -177,7 +177,7 @@ def build_rss(sketches: list[dict]) -> str:
 """
     return feed
 
-if __name__ == "__main__":
+def generate_sketch_a_day_rss_feed():
     input_path  = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INDEX
     output_path = Path(sys.argv[2]) if len(sys.argv) > 2 else input_path.parent / "feed.xml"
     html = input_path.read_text(encoding="utf-8")
@@ -195,3 +195,6 @@ if __name__ == "__main__":
         print(f"Latest:  {s['id']}  img={s['img']}  desc={s['desc']!r}")
     else:
         print(f'{output_path} was not touched.')
+
+if __name__ == "__main__":
+    generate_sketch_a_day_rss_feed()
