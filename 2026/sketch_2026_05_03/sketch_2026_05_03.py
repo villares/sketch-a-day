@@ -3,7 +3,6 @@ gs = 30
 
 def setup():
     size(600, 600)
-    rect_mode(CENTER)  # retângulos desenhados pelo centro
     text_align(CENTER, CENTER)
     no_fill()  # sem contorno
     stroke_weight(3)
