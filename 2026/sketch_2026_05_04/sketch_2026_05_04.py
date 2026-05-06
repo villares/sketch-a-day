@@ -1,5 +1,4 @@
 GRID_N = 15
-rnd_seed = 1
 
 def setup():
     size(600, 600)
@@ -9,11 +8,8 @@ def setup():
 
 def draw():
     background(127, 100, 127)  # fundo cinza claro
-    random_seed(rnd_seed)
     f = remap(mouse_x, 0, width, 0, 1)
-
     base_spacing = int(width / (GRID_N + 0.01))
-
     v = remap(f, 1, 0, base_spacing * 1.5, base_spacing * sqrt(3))
     h = base_spacing * sqrt(3) #remap(f, 1, 0, base_spacing * sqrt(3), base_spacing * 2)
     for i in range(GRID_N):  # um i p/ cada coluna
@@ -37,8 +33,5 @@ def poly(x, y, r, n=6, rot=0):
                 vertex(sx, sy)
 
 def key_pressed():
-    global rs
-    if key == ' ':
-        rs += 1
     elif key == 's':
         save_frame('####.png')
