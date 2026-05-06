@@ -16,18 +16,15 @@ def draw():
 
     v = remap(f, 1, 0, base_spacing * 1.5, base_spacing * sqrt(3))
     h = base_spacing * sqrt(3) #remap(f, 1, 0, base_spacing * sqrt(3), base_spacing * 2)
-    for _ in range(1):
-        for ix in range(GRID_N):  # um x p/ cada coluna
-            # um y p/ cada linha
-            for iy in range(GRID_N):
-                if iy % 2:
-                    x = ix * h + (f * h / 4) 
-                else:
-                    x = ix * h - (f * h / 4)
-                y = iy * v
-                n = 6 #8 - int(3 * f)
-                r = remap(f, 0, 1, 0, radians(30))
-                poly(x, y, base_spacing, n, r)
+    for i in range(GRID_N):  # um i p/ cada coluna
+        for j in range(GRID_N): # um j p/ cada linha
+            if j % 2:
+                x = i * h + (f * h / 4) 
+            else:
+                x = i * h - (f * h / 4)
+            y = j * v
+            n = 6 #8 - int(3 * f)
+            poly(x, y, base_spacing, n, rot=f * radians(30))
 
 def poly(x, y, r, n=6, rot=0):
     with push_matrix():
