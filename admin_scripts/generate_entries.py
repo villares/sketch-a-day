@@ -226,10 +226,11 @@ def main(args):
         if last_done in line:
             break
     # iterate on new folders
+    cm = ''
     for folder in reversed(new_folders):
         imgs = get_image_names(year_path, folder)
         # insert entry if matching image found
-        for img in []: #imgs:
+        for img in imgs:
             comment = description = None
             default_tool = 'py5'
             tool = default_tool
@@ -256,6 +257,7 @@ def main(args):
                 readme_as_lines.insert(insert_point - 1, entry_text)
                 adding_message = 'Adding: ' + folder
                 print(adding_message)
+                cm = folder
                 change_log.append(adding_message)
                 break
     # overwrite the readme markdown index
@@ -267,7 +269,9 @@ def main(args):
     adding_message = 'Regenerated logseq index.'
     generate_sketch_a_day_rss_feed()
     adding_message = 'Regenerated RSS xml.feed.'
-    git_commit(folder)
+    if cm:
+        git_commit(folder)
+        adding_message = 'Commited and pushed to repo.'
     print(adding_message)
     change_log.append(adding_message) 
     if gui_mode:
