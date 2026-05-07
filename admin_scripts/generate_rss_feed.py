@@ -177,9 +177,8 @@ def build_rss(sketches: list[dict]) -> str:
 """
     return feed
 
-def generate_sketch_a_day_rss_feed():
-    input_path  = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INDEX
-    output_path = Path(sys.argv[2]) if len(sys.argv) > 2 else input_path.parent / "feed.xml"
+def generate_sketch_a_day_rss_feed(input_path=DEFAULT_INDEX, output_path=None):
+    output_path = output_path or input_path.parent / "feed.xml"
     html = input_path.read_text(encoding="utf-8")
     parser = SketchParser()
     parser.feed(html)
@@ -197,4 +196,6 @@ def generate_sketch_a_day_rss_feed():
         print(f'{output_path} was not touched.')
 
 if __name__ == "__main__":
-    generate_sketch_a_day_rss_feed()
+    input_path  = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INDEX
+    output_path = Path(sys.argv[2]) if len(sys.argv) > 2 else None
+    generate_sketch_a_day_rss_feed(input_path, output_path)
