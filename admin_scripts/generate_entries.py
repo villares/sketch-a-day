@@ -35,6 +35,7 @@ import sys
 from pathlib import Path
 from io import BytesIO
 from os import listdir
+import subprocess
 from itertools import takewhile
 from time import sleep
 
@@ -107,75 +108,18 @@ def most_recent_entry(readme_as_lines):
     except StopIteration:
         return 'Something wrong. No dated images found!'
     
-def main(args):
-    global last_done_message
-    change_log = []
-    # open the readme markdown index
-    with open(readme_path, 'rt') as readme:
-        readme_as_lines = readme.readlines()
-    # find date of the first image seen in the readme
-    last_done = most_recent_entry(readme_as_lines)
-    last_done_message = 'Last entry: ' + last_done
-    print(last_done_message)
-    change_log.append(last_done_message)
-    # find folders after the last_done one (folders start with ISO date)
-    rev_sorted_folders = sorted(sketch_folders, reverse=True)
-    not_done = lambda f: last_done not in f
-    new_folders = [folder for folder in takewhile(not_done, rev_sorted_folders)]
-    # find insertion point
-    insert_point = 3 # in case lines is empty
-    for insert_point, line in enumerate(readme_as_lines):
-        if last_done in line:
-            break
-    # iterate on new folders
-    for folder in reversed(new_folders):
-        imgs = get_image_names(year_path, folder)
-        # insert entry if matching image found
-        for img in imgs:
-            comment = description = None
-            default_tool = 'py5'
-            tool = default_tool
-            if img.name.startswith(folder):
-                if gui_mode:
-                    dialog_result = ask_tool_comment(folder, img, default_tool)
-                    tool, comment, do_toot, do_bs, image_caption, post_text = dialog_result
-                entry_text = build_entry(folder, img.name, tool, comment, image_caption)
-                tags = tag_dict.get(tool, ' #CreativeCoding')
-                if do_toot:
-                    try:
-                        status = toot(comment + ' ' + post_text + ' ' + tags, img, image_caption)
-                        status = status[:300]
-                    except Exception as e:
-                        status = e
-                    change_log.append(f'Mastodon: {status}')
-                if do_bs:
-                    try:
-                        status = post(comment + ' ' + post_text + ' ' + tags, img, image_caption)
-                        status = status[:300]
-                    except Exception as e:
-                        status = e
-                    change_log.append(f'BlueSky: {status}')
-                readme_as_lines.insert(insert_point - 1, entry_text)
-                adding_message = 'Adding: ' + folder
-                print(adding_message)
-                change_log.append(adding_message)
-                break
-    # overwrite the readme markdown index
-    with open(readme_path, 'wt') as readme:
-        content = ''.join(readme_as_lines)
-        readme.write(content)
-    # TODO show all changes on GUI
-    generate_sketch_a_day_index()
-    generate_sketch_a_day_rss_feed()
-    
-    adding_message = 'Regenerated logseq index.'
-    print(adding_message)
-    change_log.append(adding_message) 
-    if gui_mode:
-        clipped_log = (entry[32:] for entry in change_log)
-        sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(clipped_log))
-    
-def ask_tool_comment(folder, img, default_tool):
+def git_commit(commit_message):
+    def run(cmd):
+        result = subprocess.run(cmd, cwd=base_path, capture_output=True, text=True)
+        if result.returncode != 0:
+            raise Exception(f"Command failed: {' '.join(cmd)}\n{result.stderr}")
+        return result.stdout.strip()
+
+    run(["git", "add", "-A"])
+    run(["git", "commit", "-m", commit_message])
+    run(["git", "push", "origin", "main"])
+        
+def manage_dialog(folder, img, default_tool):
     if img.suffix.lower().endswith('svg'):  #*!todo
         drawing = svg2rlg(img)
         cur_width, cur_height = drawing.width, drawing.height
@@ -197,7 +141,8 @@ def ask_tool_comment(folder, img, default_tool):
                                             size=(40,4))],
         [sg.B('OK'), sg.B('Cancel'),
          sg.Checkbox('Post to Mastodon',key='--TOOT--', default=True),
-         sg.Checkbox('Post to BlueSky',key='--BLUESKY--', default=True)],
+         sg.Checkbox('Post to BlueSky',key='--BLUESKY--', default=True),
+         ],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
     #window['-IMAGE-'].update(data=png_bytes)
@@ -259,6 +204,76 @@ def search_docstring(folder):
     Not implemented yet.
     """
     return None
+
+def main(args):
+    global last_done_message
+    change_log = []
+    # open the readme markdown index
+    with open(readme_path, 'rt') as readme:
+        readme_as_lines = readme.readlines()
+    # find date of the first image seen in the readme
+    last_done = most_recent_entry(readme_as_lines)
+    last_done_message = 'Last entry: ' + last_done
+    print(last_done_message)
+    change_log.append(last_done_message)
+    # find folders after the last_done one (folders start with ISO date)
+    rev_sorted_folders = sorted(sketch_folders, reverse=True)
+    not_done = lambda f: last_done not in f
+    new_folders = [folder for folder in takewhile(not_done, rev_sorted_folders)]
+    # find insertion point
+    insert_point = 3 # in case lines is empty
+    for insert_point, line in enumerate(readme_as_lines):
+        if last_done in line:
+            break
+    # iterate on new folders
+    for folder in reversed(new_folders):
+        imgs = get_image_names(year_path, folder)
+        # insert entry if matching image found
+        for img in []: #imgs:
+            comment = description = None
+            default_tool = 'py5'
+            tool = default_tool
+            if img.name.startswith(folder):
+                if gui_mode:
+                    dialog_result = manage_dialog(folder, img, default_tool)
+                    tool, comment, do_toot, do_bs, image_caption, post_text = dialog_result
+                entry_text = build_entry(folder, img.name, tool, comment, image_caption)
+                tags = tag_dict.get(tool, ' #CreativeCoding')
+                if do_toot:
+                    try:
+                        status = toot(comment + ' ' + post_text + ' ' + tags, img, image_caption)
+                        status = status[:300]
+                    except Exception as e:
+                        status = e
+                    change_log.append(f'Mastodon: {status}')
+                if do_bs:
+                    try:
+                        status = post(comment + ' ' + post_text + ' ' + tags, img, image_caption)
+                        status = status[:300]
+                    except Exception as e:
+                        status = e
+                    change_log.append(f'BlueSky: {status}')
+                readme_as_lines.insert(insert_point - 1, entry_text)
+                adding_message = 'Adding: ' + folder
+                print(adding_message)
+                change_log.append(adding_message)
+                break
+    # overwrite the readme markdown index
+    with open(readme_path, 'wt') as readme:
+        content = ''.join(readme_as_lines)
+        readme.write(content)
+    # TODO show all changes on GUI
+    generate_sketch_a_day_index()
+    adding_message = 'Regenerated logseq index.'
+    generate_sketch_a_day_rss_feed()
+    adding_message = 'Regenerated RSS xml.feed.'
+    git_commit(folder)
+    print(adding_message)
+    change_log.append(adding_message) 
+    if gui_mode:
+        clipped_log = (entry[32:] for entry in change_log)
+        sg.popup('Changes:' if len(change_log) > 1 else 'No changes:', '\n'.join(clipped_log))
+
 
 if __name__ == '__main__':
     args = sys.argv[1:]
