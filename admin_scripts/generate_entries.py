@@ -268,7 +268,7 @@ def main(args):
     generate_sketch_a_day_rss_feed()
     adding_message = 'Regenerated RSS xml.feed.'
     if new_folders:
-        git_commit(new_folder[-1])
+        git_commit(new_folders[-1])
         adding_message = 'Commited and pushed to repo.'
     print(adding_message)
     change_log.append(adding_message) 
