@@ -16,13 +16,13 @@ vs = Counter()
 
 def setup():
     py5.size((W + M) * COLS + M, (W + M) * ROWS + M)
-    py5.color_mode(py5.CMAP, 'tab10', py5.dist(W, W, 0, 0))
+    py5.color_mode(py5.CMAP, 'tab20b', py5.dist(W, W, 0, 0))
     py5.stroke_weight(3)
     generate_combos()
 
 
 def draw():
-    py5.background('lightgray')
+    py5.background('gray')
     x = 0
     y = 0
     for combo in combos:
