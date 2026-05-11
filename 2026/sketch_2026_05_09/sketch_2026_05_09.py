@@ -17,8 +17,8 @@ def setup():
         x += 200
         p = Polygon(pts)
         print(p.area)
-
     save('out.png')
+
 def poly(x, y, r, n=6, rot=0, rnd=0):
     vs = []
     for i in range(n):
