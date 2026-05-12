@@ -79,7 +79,6 @@ def valid_segments(a, b):
         return True
     return Polygon(unique_vs).area != 0
 
-
 def sort_rule(combo):
     vs = set()
     for seg in combo.segs:
