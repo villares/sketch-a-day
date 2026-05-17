@@ -26,6 +26,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_05_16
+
+![sketch_2026_05_16](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_05_16/sketch_2026_05_16.gif)
+
+[sketch_2026_05_16](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_05_16) [[py5](https://py5coding.org/)]
+
+Everything looks a bit fishy and broken on these latest sketches, because changing the rendering sizes is changing the number of combos found, which it shouldn't :(
+
+---
+
 ### sketch_2026_05_15
 
 ![sketch_2026_05_15](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_05_15/sketch_2026_05_15.gif)
