@@ -90,13 +90,10 @@ class Cell():
                 py5.line(
                     self.pos.x + ni * third,
                     self.pos.y + nj * third,
-                    self.pos.x, self.pos.y)
-                 
-                 
-#                     py5.stroke(0)
-#                     py5.point(*self.pos)
-#             
-            
+                    self.pos.x, self.pos.y)                             
+#                 py5.stroke(0)
+#                 py5.point(*self.pos)
+             
         if self.mouse_on:
             with py5.push_style():
                 py5.fill(128, 128)
