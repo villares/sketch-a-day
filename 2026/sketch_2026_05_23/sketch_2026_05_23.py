@@ -19,7 +19,7 @@ def init_grid(w, h):
             Cell((i,j), CELL_SIZE, choice((True, False)))
             
 def draw():
-    background(128)
+    background(150)
     for c in Cell.grid.values():
         c.play()
 
@@ -65,9 +65,15 @@ class Cell():
         self.plot()
 
     def plot(self):
+        no_stroke()
+        if self.state:
+            fill(255, 32)
+        else:
+            fill(0, 32)
+        square(*self.pos, self.cell_size)
         stroke_weight(self.cell_size / 6)
         i, j = self.index
-        half_s = self.cell_size / 2
+        third = self.cell_size / 3
         nbs = (self.ALLN, self.ON, self.DN)[self.mode]
         for (ni, nj) in nbs:
             nb = self.grid.get((i + ni, j + nj), None)
@@ -78,8 +84,8 @@ class Cell():
                 else:
                     stroke(0)
                 line(
-                    self.pos.x + ni * half_s,
-                    self.pos.y + nj * half_s,
+                    self.pos.x + ni * third,
+                    self.pos.y + nj * third,
                     self.pos.x, self.pos.y)
             elif not self.state and nb and not nb.state:
                 if (ni, nj) in self.DN:
@@ -87,8 +93,8 @@ class Cell():
                 else:
                     stroke(100)
                 line(
-                    self.pos.x + ni * half_s,
-                    self.pos.y + nj * half_s,
+                    self.pos.x + ni * third,
+                    self.pos.y + nj * third,
                     self.pos.x, self.pos.y)                             
         stroke(200, 0, 0)
         point(*self.pos)
@@ -99,11 +105,4 @@ class Cell():
                 stroke_weight(2)
                 stroke(255)
                 square(self.pos.x, self.pos.y,
-                     self.cell_size
-                )
-       
-
-    
-
-
-
+                     self.cell_size)
