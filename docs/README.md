@@ -26,6 +26,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_05_31
+
+![sketch_2026_05_31](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_05_31/sketch_2026_05_31.png)
+
+[sketch_2026_05_31](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_05_31) [[py5](https://py5coding.org/)]
+
+I think I'm going to revisit my silly Slider class... I can use ControlP5 with py5 but for some reason I always want to fiddle with this myself. At some point I had a Frankenstein Sliders+Arduino+Pots hybrid...
+
+---
+
 ### sketch_2026_05_30
 
 ![sketch_2026_05_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_05_30/sketch_2026_05_30.png)
