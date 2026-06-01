@@ -2,7 +2,6 @@
 # learn about py5 modes at https://py5coding.org
 
 import py5
-#from slider import Slider
 
 
 def setup():
@@ -83,10 +82,12 @@ class Slider:
 
     def display(self):
         """Desenha o slider na tela, usando coordenadas sem transformar"""
-        py5.push()         # Combina pushMatrix() e pushStyle()
-        py5.reset_matrix()  # push(), seguido de resetMatrix() e camera() permitem...
+        py5.push()  # combina push_matrix() e push_style()
+        # seguido de reset_matrix() e camera() se em 3D permite
+        # desenhar o slider no sistema de coordenadas original
+        py5.reset_matrix()  
         if self.IS_3D:
-            py5.camera()       # .maldino@fediscience.org.. desenhar o slider no sistema de coordenadas original
+            py5.camera()       
         py5.rect_mode(py5.CENTER)
         # Linha cinza sob o slider
         py5.stroke_weight(4)
@@ -110,7 +111,7 @@ class Slider:
             py5.text(self.label, self.x, self.y - self.h)
         else:
             py5.text(self.label, self.x + self.w / 2, self.y - self.h)
-        py5.pop()  # equivale a popStyle() and popMatrix()
+        py5.pop()  # equivale a pop_style() and pop_matrix()
         
     def process_wheel(self, wd):
         if py5.dist(
