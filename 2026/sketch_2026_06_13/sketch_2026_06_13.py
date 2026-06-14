@@ -15,7 +15,7 @@ first_weekday = calendar.SUNDAY  # calendar.MONDAY
 
 def setup():    
     py5.size(600, 600)
-    locale.setlocale(locale.LC_TIME, 'pt_PT.UTF-8')
+    locale.setlocale(locale.LC_TIME, 'pt_PT.UTF-8') # nomes em Português
     py5.text_font(
         py5.create_font('Source Code Pro Bold', 24))
 
@@ -24,8 +24,8 @@ def draw():
     calendar.setfirstweekday(first_weekday)
     weeks = calendar.monthcalendar(year, month)
     num_weeks = len(weeks)
-    cal_width = (7 * cell_width) + (2 * margin)
-    cal_height = header_height + (num_weeks * cell_height) + (2 * margin)
+    cal_width = 7 * cell_width + 2 * margin
+    cal_height = header_height + num_weeks * cell_height + 2 * margin
     py5.window_resize(cal_width, cal_height)
     
     title = f'{calendar.month_name[month]} {year}'
@@ -37,7 +37,7 @@ def draw():
     day_names = [calendar.day_name[(first_weekday + i) % 7] for i in range(7)]
     
     for i, day_name in enumerate(day_names):
-        x = margin + (i * cell_width)
+        x = margin + i * cell_width
         y = margin + header_height - 10 - cell_height
         if is_weekend_day(i):
             py5.fill(200, 100, 100)
@@ -48,17 +48,17 @@ def draw():
         py5.text(day_name, x + cell_width / 2, y + cell_height / 2)
     
     y_offset = header_height    
-    for week_num, week in enumerate(weeks):
-        for day_num, day in enumerate(week):
-            x = margin + (day_num * cell_width)
-            y = y_offset + (week_num * cell_height)
+    for week_i, week in enumerate(weeks):
+        for day_i, day in enumerate(week):
+            x = margin + day_i * cell_width
+            y = y_offset + week_i * cell_height
             py5.no_fill()
             py5.stroke(0)
             py5.stroke_weight(1)
             py5.rect(x, y, cell_width, cell_height)
             
             if day != 0:
-                if is_weekend_day(day_num):
+                if is_weekend_day(day_i):
                     py5.fill(200, 0, 0)
                 else:
                     py5.fill(0) 
