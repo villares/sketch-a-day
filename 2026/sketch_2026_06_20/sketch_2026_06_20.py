@@ -78,7 +78,13 @@ def draw():
         py5.translate(50, 700)
         py5.scale(1/5, 1/5)
         py5.fill(0)
-        for p in solution:
+        with py5.push_matrix():
+            for p in solution:
+                py5.shape(p)
+                py5.translate(150, 0)
+        py5.translate(0, 100)
+        py5.fill(255)
+        for p in attempt:
             py5.shape(p)
             py5.translate(150, 0)
 
