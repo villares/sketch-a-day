@@ -26,6 +26,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_06_21
+
+![sketch_2026_06_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_06_21/sketch_2026_06_21.png)
+
+[sketch_2026_06_21](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_06_21) [[py5](https://py5coding.org/)]
+
+WIP, it was easy and fun to add sound using the Processing Sound library... let's see if I can post a capture with sound...
+
+---
+
 ### sketch_2026_06_20
 
 ![sketch_2026_06_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_06_20/sketch_2026_06_20.png)
