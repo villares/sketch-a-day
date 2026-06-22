@@ -1,9 +1,12 @@
+# py5 module mode, learn more at <py5coding.org>
+# check https://py5coding.org/how_tos/use_processing_libraries.html
+
 from random import choices
 
 import py5
-from py5_tools import animated_gif
-from shapely import Polygon, Point
 from py5 import sqrt, radians, sin, cos, TWO_PI, random
+#from py5_tools import animated_gif
+from shapely import Polygon, Point
 
 from processing.sound import SoundFile
 
@@ -106,7 +109,7 @@ def mouse_clicked():
     for i, (x, y) in enumerate(pos):
         if polys[i].contains(Point(
             py5.mouse_x - x, py5.mouse_y - y)):
-            sounds[i].play()
+            #sounds[i].play()
             attempt.append(polys[i])
             
 def key_pressed():
