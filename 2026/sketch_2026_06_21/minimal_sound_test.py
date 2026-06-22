@@ -13,7 +13,8 @@ def setup():
     global sounds
     py5.size(400, 400)
     this = py5.get_current_sketch()
-    # loading 1.aif to 5.aif from data folder
+    # loading 1.aif, 2.aif, etc. up to 5.aif 
+    # from /data/ folder next  to the .py sketch 
     sounds = [
         SoundFile(this, f'{i}.aif') for i in range(1, 6)
     ]
