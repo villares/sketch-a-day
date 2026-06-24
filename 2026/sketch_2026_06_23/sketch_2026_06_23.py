@@ -1,15 +1,14 @@
-# py5 module mode, learn more at <py5coding.org>
-# check https:#py5coding.org/how_tos/use_processing_libraries.html
+"""
+py5 module mode, learn more at <py5coding.org>
+check https://py5coding.org/how_tos/use_processing_libraries.html
 
-"""ported from a Processing Sound library example
-/**
- * Grab audio from the microphone snd_input and draw a circle whose size
- * is determined by how loud the audio snd_input is.
- */
+This is an example ported from the Processing Sound library examples.
+
+Grab audio from the microphone input and draw a circle whose size
+is determined by how loud the audio input is.
 """
 
 import py5
-
 from processing.sound import AudioIn, Amplitude
 
 def setup():
@@ -33,7 +32,6 @@ def setup():
     # Patch the snd_input to the volume analyzer
     loudness.input(snd_input)
 
-
 def draw():
     # Adjust the volume of the audio snd_input based on mouse position
     snd_input_level = py5.remap(py5.mouse_y, 0, py5.height, 1.0, 0.0)
@@ -50,4 +48,4 @@ def draw():
     # We draw a circle whose size is coupled to the audio analysis
     py5.circle(py5.width / 2, py5.height / 2, d)
 
-py5.run_sketch(block=False)
+py5.run_sketch()
