@@ -16,7 +16,6 @@ def f(x, y):
 def setup():
     py5.size(800, 800, py5.P3D)
     py5.no_smooth()
-    #py5.no_cursor()
     #py5.no_stroke()
     
 def draw():
@@ -28,7 +27,7 @@ def draw():
         py5.scale(zpt['scale'])
         py5.stroke_weight(1 / zpt['scale'])
         py5.stroke('gray')
-        py5.translate(py5.width * 0.45, py5.height * 0.3, -350)
+        py5.translate(py5.width * 0.45, py5.height * 0.3, -3s50)
         py5.rotate_x(py5.radians(tilt)) #py5.mouse_y))
         py5.rotate_z(py5.radians(tilt))
         py5.translate(-py5.width / 2, -py5.height / 2)    
