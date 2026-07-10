@@ -22,7 +22,8 @@ def setup():
     
 def draw():
     py5.translate(py5.width / 2, py5.height / 2)
-    py5.background(0)
+    #py5.background(0)
+    py5.background(255)
     py5.no_stroke()
     for ri in star_infos:
         draw_star(ri)
@@ -58,3 +59,4 @@ def key_pressed():
         py5.save('out-c.png')
     
 py5.run_sketch(block=False)
+
