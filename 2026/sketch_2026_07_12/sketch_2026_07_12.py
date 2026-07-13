@@ -9,7 +9,7 @@ from functools import cache
 
 tilt = 60
 w = 8
-a = 2
+a = 13
 b = 23
 c = 9
 
@@ -52,13 +52,13 @@ def box(x, y, z, w, h=None, d=None):
         py5.box(w, h, d)
 
 def key_pressed():
-    global tilt
+    global tilt, a
     if py5.key == 's':
         py5.save_frame(f'out###-{py5.millis()}.png')
     elif py5.key == 'a':
-        tilt += 5
+        a += 1
     elif py5.key == 'z':
-        tilt -= 5
+        a -= 1
 
 def mouse_wheel(e):
     xrd = (py5.mouse_x - zpt['x']) / zpt['scale']
