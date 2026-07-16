@@ -32,7 +32,7 @@ def draw():
     py5.background('black')
     py5.translate(py5.width / 2 , py5.height / 2)
     py5.rotate_x(py5.radians(30))
-    py5.translate(-py5.width / 2 , -py5.height / 2 - 70)
+    py5.translate(-py5.width / 2 , -py5.height / 2 - 7p0)
     py5.shape(group)
     py5.window_title(str(round(py5.get_frame_rate(), 1)))
     # TODO: try a Py5Shape.GROUP or maybe
@@ -106,11 +106,6 @@ def split_shapes():
             s.set_fill(py5.color(a))
         group.add_child(s)
     
-#         poly = py5.create_shape()
-#         with poly.begin_closed_shape():
-#             poly.vertices(np.array(vs)[np.array(shp)])
-
-#         group.add_child(poly)
 
 @cache
 def shape_centroid(shp):
