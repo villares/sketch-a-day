@@ -106,23 +106,18 @@ def split_shapes():
             s.set_fill(py5.color(ar))
         group.add_child(s)
     
-
-@cache
-def shape_centroid(shp):
-    pts = np.array(vs)[np.array(shp)]
-    return sum(pts) / len(pts)
   
-@cache
+#@cache
 def shape_area(shp):
-    return shapely.Polygon(np.array(vs)[np.array(shp)]).area
+    return pts_area(np.array(vs)[np.array(shp)])
     
-# def pts_area(pts):
-#     area = 0.0
-#     rolled = np.roll(pts, -1, axis=0)
-#     for (ax, ay), (bx, by) in zip(pts, rolled):
-#         area += ax * by
-#         area -= bx * ay
-#     return abs(area) / 2.0
+def pts_area(pts):
+    area = 0.0
+    rolled = np.roll(pts, -1, axis=0)
+    for (ax, ay), (bx, by) in zip(pts, rolled):
+        area += ax * by
+        area -= bx * ay
+    return abs(area) / 2.0
 
 def key_pressed():
     if py5.key == ' ':
