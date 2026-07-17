@@ -91,11 +91,11 @@ def split_shapes():
     
     for shp, area in zip(shapes, areas):
         p = shapely.Polygon(np.array(vs)[np.array(shp)])
-        a = area / max_area
+        a = area / max_area  # thi variable name introduces bugs
         t = trimesh.creation.extrude_polygon(p, a * 100)
         s = py5.convert_shape(t)
         if len(shp) == 4:
-            a, b, c, d = shp            
+            a, b, c, d = shp # next day I renamed the area variable...        
             ac = py5.dist(*vs[a], *vs[c])
             bd = py5.dist(*vs[b], *vs[d])
             if ac == bd:
@@ -105,14 +105,8 @@ def split_shapes():
         else:
             s.set_fill(py5.color(a))
         group.add_child(s)
-    
-
-@cache
-def shape_centroid(shp):
-    pts = np.array(vs)[np.array(shp)]
-    return sum(pts) / len(pts)
-  
-@cache
+      
+@cache  # this caching introduces bugs (removed on the next day)
 def shape_area(shp):
     return pts_area(np.array(vs)[np.array(shp)])
     
