@@ -1,6 +1,5 @@
 # This is a py5 "module mode" sketch
 # learn about py5 modes at https://py5coding.org
-from functools import cache
 
 import py5
 import numpy as np
