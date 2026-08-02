@@ -22,12 +22,6 @@ def setup():
     img2 = py5.create_image_from_numpy(threshold_array, 'L') 
     py5.image(img1, 0, 0)
     py5.image(img2, 600, 0)
-
-def draw():
-    pass
-
-def key_pressed():
-    if py5.key == 's':
-        py5.save_frame('#####.png')
+    py5.save_frame('out.png')
 
 py5.run_sketch(block=False)
