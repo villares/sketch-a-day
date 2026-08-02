@@ -5,8 +5,8 @@ import numpy as np
 import trimesh
 
 import io
-
-ds = """o Durers_Solid, courtesy of João Antonio <introscopia.github.io>
+# Dürer's solid coords, courtesy of João Antonio <introscopia.github.io>
+ds = """o Durers_Solid
 v 0.000000 -0.719944 0.347016
 v 0.000000 -0.411397 0.644458
 v -0.356280 0.205698 0.644458
@@ -33,8 +33,8 @@ f 12 3 2
 mesh = trimesh.load(io.StringIO(ds), file_type='obj')
 
 faces_in_facets = np.zeros(len(mesh.faces), dtype=bool)
-for facet in mesh.facets:
-    faces_in_facets[facet] = True
+if mesh.facets:
+    faces_in_facets[np.concatenate(mesh.facets)] = True
 single_triangle_faces = np.nonzero(~faces_in_facets)[0]
 
 face_groups = [*mesh.facets, *single_triangle_faces[:, None]]
