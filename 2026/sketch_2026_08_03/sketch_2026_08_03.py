@@ -15,9 +15,9 @@ def setup():
     y = np.linspace(-10, 20, 600)
     X, Y = np.meshgrid(x, y)
     results = np.sin(np.sin(Y) * X) + np.sin(np.sin(X) * Y)
-    normalized = abs(results) % 2   
-    colored_array = colormaps['jet_r'](normalized) * 255
-    threshold_array = (normalized > 0.25) * 255
+    constrained = abs(results) % 2   
+    colored_array = colormaps['jet_r'](constrained) * 255
+    threshold_array = (constrained > 0.25) * 255
     img1 = py5.create_image_from_numpy(colored_array, 'RGB')
     img2 = py5.create_image_from_numpy(threshold_array, 'L') 
     py5.image(img1, 0, 0)
