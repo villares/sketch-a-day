@@ -27,6 +27,22 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_08_03
+
+![sketch_2026_08_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_08_03/sketch_2026_08_03.png)
+
+[sketch_2026_08_03](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_08_03) [[py5](https://py5coding.org/)]
+
+More with the sin(sin(y)*x) + sin(sin(x)*y) idea from conchoid!
+```
+results = np.sin(np.sin(Y) * X) + np.sin(np.sin(X) * Y)
+normalized = abs(results) % 2   
+colored_array = colormaps['jet_r'](normalized) * 255
+threshold_array = (normalized > 0.25) * 255
+```
+
+---
+
 ### sketch_2026_08_02
 
 ![sketch_2026_08_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_08_02/sketch_2026_08_02.png)
