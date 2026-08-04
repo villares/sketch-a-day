@@ -36,9 +36,9 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 More with the sin(sin(y)*x) + sin(sin(x)*y) idea from conchoid!
 ```
 results = np.sin(np.sin(Y) * X) + np.sin(np.sin(X) * Y)
-normalized = abs(results) % 2   
-colored_array = colormaps['jet_r'](normalized) * 255
-threshold_array = (normalized > 0.25) * 255
+constrained = abs(results) % 2   
+colored_array = colormaps['jet_r'](constrained) * 255
+threshold_array = (constrained > 0.25) * 255
 ```
 
 ---
