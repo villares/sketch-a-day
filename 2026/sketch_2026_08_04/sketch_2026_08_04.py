@@ -1,5 +1,6 @@
 # This is a py5 "module mode" sketch
 # learn about py5 modes at https://py5coding.org
+# pymunk_helpers.py should be for now at github.com/villares/villares...
 
 """
 Press "l" to load pickled sim data from "sim.data"
@@ -21,7 +22,6 @@ import numpy as np
 from villares.pymunk_helpers import Simulation, SimObj, Constraint
 from villares.pymunk_helpers import Segment, Ball, Box, Poly
 from villares.pymunk_helpers import  PivotJoint, PinJoint, Spring
-from villares.shapely_helpers import polys_from_text
 
 ongoing_creation = None
 
