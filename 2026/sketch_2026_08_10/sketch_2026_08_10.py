@@ -246,7 +246,7 @@ class Cell():
             for i in range(Cell.step_start,
                            Cell.step_end,
                            Cell.step):  # (-28, 29, 7):
-                #py5.translate(0, 0, (a / 2 + i))
+                py5.translate(0, 0, (a / 2 + i))
                 #py5.stroke(200 + i * Cell.step) #16 + i * 8, 255, 255)
                 py5.random_seed(100)
                 if py5.random(100) < 2:

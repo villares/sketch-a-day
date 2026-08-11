@@ -25,16 +25,20 @@ def setup():
     print(force_rules)
     
     py5.background(32)
-    py5.fill(32, 32)
+    py5.fill(32, 16)
 
 def draw():
     global tree
     py5.no_stroke()
-    py5.rect(0, 0, py5.width, py5.height)
+    
+    py5.background(0)
+    #py5.rect(0, 0, py5.width, py5.height)
     # positions = np.array(tuple(p.pos for p in particles))
     tree = cKDTree(tuple(p.pos for p in particles))
     for p in particles:
         p.update()
+        #if py5.frame_count % 10 == 0:
+        p.display()
         
     py5.window_title(f'{py5.get_frame_rate():.1f}')
 
@@ -48,7 +52,7 @@ class Particle:
         self.pos = (self.pos + self.vel) % np.array((py5.width, py5.height))
         self.vel *= 0.95
         self.interact()
-        self.display()
+        #self.display()
 
     def interact(self):
         for i in tree.query_ball_point(self.pos, r=interaction_dist):
