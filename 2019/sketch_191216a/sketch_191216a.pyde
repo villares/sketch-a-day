@@ -18,7 +18,19 @@ def draw():
             y = r * cos(radians(i * 10))
             tamanho = random(5, 25)
             fill(corSorteada())
-            caixa(x, y, z, tamanho)
+            caixa(x, y, z, tamanho, rotZ=-radians(i * 10))
+
+def caixa(x, y, z,
+          w, h=None, d=None, rotX=0, rotY=0, rotZ=0):
+    h = w if h is None else h
+    d = w if d is None else d
+    pushMatrix()
+    translate(x, y, z)
+    rotateX(rotX)
+    rotateY(rotY)
+    rotateZ(rotZ)
+    box(w, h, d)
+    popMatrix()
 
 def keyPressed():
     global seed
@@ -32,12 +44,3 @@ def novaSemente():
 
 def corSorteada():
     return color(random(256), random(256), random(256))
-
-def caixa(x, y, z,
-          w, h=None, d=None):
-    h = w if h is None else h
-    d = w if d is None else d
-    pushMatrix()
-    translate(x, y, z)
-    box(w, h, d)
-    popMatrix()
