@@ -108,7 +108,7 @@ def most_recent_entry(readme_as_lines):
     except StopIteration:
         return 'Something wrong. No dated images found!'
     
-def git_commit(commit_message):
+def git_commit_and_push(commit_message):
     def run(cmd):
         result = subprocess.run(cmd, cwd=base_path, capture_output=True, text=True)
         if result.returncode != 0:
@@ -142,6 +142,7 @@ def manage_dialog(folder, img, default_tool):
         [sg.B('OK'), sg.B('Cancel'),
          sg.Checkbox('Post to Mastodon',key='--TOOT--', default=True),
          sg.Checkbox('Post to BlueSky',key='--BLUESKY--', default=True),
+         sg.Checkbox('Try git push',key='--GITPUSH--', default=False),
          ],
         [sg.T(f'Running on: {sys.executable}')] # for debug
         ],font='Fixedsys')
@@ -156,6 +157,7 @@ def manage_dialog(folder, img, default_tool):
         values['-COMMENT-'],
         values['--TOOT--'],
         values['--BLUESKY--'],
+        values['--GITPUSH--'],
         values['-DESCRIPTION-'],
         values['-POST-'],
         )
@@ -236,7 +238,7 @@ def main(args):
             if img.name.startswith(folder):
                 if gui_mode:
                     dialog_result = manage_dialog(folder, img, default_tool)
-                    tool, comment, do_toot, do_bs, image_caption, post_text = dialog_result
+                    tool, comment, do_toot, do_bs, do_push, image_caption, post_text = dialog_result
                 entry_text = build_entry(folder, img.name, tool, comment, image_caption)
                 tags = tag_dict.get(tool, ' #CreativeCoding')
                 if do_toot:
@@ -267,8 +269,8 @@ def main(args):
     adding_message = 'Regenerated logseq index.'
     generate_sketch_a_day_rss_feed()
     adding_message = 'Regenerated RSS xml.feed.'
-    if new_folders:
-        git_commit(new_folders[-1])
+    if do_push and new_folders:
+        git_commit_and_push(new_folders[-1])
         adding_message = 'Commited and pushed to repo.'
     print(adding_message)
     change_log.append(adding_message) 
