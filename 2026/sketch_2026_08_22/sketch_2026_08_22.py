@@ -10,7 +10,7 @@ def setup():
     reds = [py5.color(255, 50, a ** 2) for a in range(32)]
     blacks = [py5.color(0) for a in range(8)]
     yellows = [py5.color(255, 255, a * 8) for a in range(32)]
-    colors = (reds + blacks + yellows) * 12
+    colors = (reds + blacks + yellows) * 10
     np_colors = np.dstack((
         [c >> 24 & 0xFF for c in colors],
         [c >> 16 & 0xFF for c in colors],
@@ -28,7 +28,7 @@ def draw():
     py5.os_noise_seed(n_seed)
     z = py5.mouse_x
     noise_values = py5.os_noise(mesh_x, mesh_y, z * noise_scale)
-    idxs = py5.remap(noise_values, -1, 1, 0, len(np_colors)).astype(np.uint8)
+    idxs = py5.remap(noise_values, -1, 1, 0, len(np_colors)).astype(np.uint32)
     py5.set_np_pixels(np_colors[idxs], bands="ARGB")
 
 def key_pressed():
