@@ -32,10 +32,10 @@ def draw():
     py5.random_seed(rnd_seed)
 
     t = (py5.frame_count % 101) / 100
-    v = p.exterior.interpolate(t, normalized=True)
+    ip = p.exterior.interpolate(t, normalized=True)
     
-    f = py5.constrain(py5.remap(v.x, 50, py5.width - 50, 0, 1), 0, 1)
-    g = py5.constrain(py5.remap(v.y, 40, py5.height - 50, 0, 1), 0, 1)
+    f = py5.constrain(py5.remap(ip.x, 50, py5.width - 50, 0, 1), 0, 1)
+    g = py5.constrain(py5.remap(ip.y, 40, py5.height - 50, 0, 1), 0, 1)
     base_spacing = int(py5.width / (GRID_N + 0.01))
 
     v = py5.remap(f, 1, 0, base_spacing * 1.5, base_spacing * py5.sqrt(3))
