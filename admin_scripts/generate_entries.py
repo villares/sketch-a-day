@@ -209,6 +209,7 @@ def search_docstring(folder):
 
 def main(args):
     global last_done_message
+    do_push = False
     change_log = []
     # open the readme markdown index
     with open(readme_path, 'rt') as readme:
