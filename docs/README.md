@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_09_03
+
+![sketch_2026_09_03](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_03/sketch_2026_09_03.gif)
+
+[sketch_2026_09_03](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_03) [[py5](https://py5coding.org/)]
+
+This sketch was made during an activity at Sesc Av. Paulista, based on code by Nick McIntyre https://mcintyre.io/ discussed at https://discourse.processing.org/t/fluid-fun-with-py5-and-numpy/47943
+
+---
+
 ### sketch_2026_09_02
 
 ![sketch_2026_09_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_02/sketch_2026_09_02.png)
