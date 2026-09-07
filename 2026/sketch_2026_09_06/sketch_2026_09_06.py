@@ -9,7 +9,7 @@ p = Point(256, 256).buffer(400) | Point(384, 384).buffer(400)
 
 keys = set()
 X_ROT = 0
-GRID_N = 15
+GRID_N = 25
 offset_x = offset_y = 100
 rnd_seed = 1
 mode = 0
@@ -28,8 +28,8 @@ cores_t = cores_a + cores_b
 
 
 def setup():
-    py5.size(720, 720, py5.P3D)
-    py5.no_smooth()
+    py5.size(1280, 720, py5.P3D)
+    #py5.no_smooth()
     py5.no_fill()  # sem preenchimento
     py5.stroke_weight(3)
     #animated_gif('out.gif',  duration=0.2, frame_numbers=range(1, 101, 2))
@@ -40,14 +40,9 @@ def draw():
     cell_size = base_spacing
     py5.background(0)
     py5.random_seed(rnd_seed)
-    py5.rotate_x(py5.radians(X_ROT)) 
+    py5.rotate_x(py5.radians(py5.mouse_y)) 
 
-    si = int(offset_x / cell_size) - 2
-    ei = int((offset_x + py5.width) / cell_size) 
-    sj = int(offset_y / cell_size) - 2
-    ej = int((offset_y + py5.height) / cell_size) 
-
-    t = 0 #(py5.frame_count % 101) / 100
+    t = (py5.frame_count % 101) / 100
     ip = p.exterior.interpolate(t, normalized=True)
     
     f = py5.constrain(py5.remap(ip.x, 50, py5.width - 50, 0, 1), 0, 1)
@@ -62,10 +57,8 @@ def draw():
         py5.shape(p)
         py5.circle(ip.x, ip.y, 10)
     elif mode == 0:
-        for i in range(si, ei):
-            for j in range(sj, ej):
-#         for i in range(GRID_N):  # um i p/ cada coluna
-#             for j in range(GRID_N): # um j p/ cada linha
+        for i in range(GRID_N):  # um i p/ cada coluna
+            for j in range(GRID_N): # um j p/ cada linha
                 if j % 2:
                     x = i * h + (f * h / 4) 
                 else:
@@ -83,7 +76,8 @@ def draw():
                 for s in range(1, 6):
                     with py5.push_matrix():
                         py5.translate(x + py5.random(-20, 20) * (1-f),
-                                      y + py5.random(-20, 20) * (1-f),)
+                                      y + py5.random(-20, 20) * (1-f),
+                                      50 * s)
                         sf = py5.remap(g, 0, 1, 1/s, 1)
                         py5.scale(sf)
                         #py5.no_stroke()
