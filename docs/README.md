@@ -27,6 +27,46 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_09_23
+
+![sketch_2026_09_23](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_23/sketch_2026_09_23.gif)
+
+[sketch_2026_09_23](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_23) [[py5](https://py5coding.org/)]
+
+#sashiko
+
+---
+
+### sketch_2026_09_22
+
+![sketch_2026_09_22](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_22/sketch_2026_09_22.png)
+
+[sketch_2026_09_22](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_22) [[py5](https://py5coding.org/)]
+
+inspired by #hitomezashi #sashiko
+
+---
+
+### sketch_2026_09_21
+
+![sketch_2026_09_21](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_21/sketch_2026_09_21.png)
+
+[sketch_2026_09_21](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_21) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2026_09_20
+
+![sketch_2026_09_20](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_20/sketch_2026_09_20.png)
+
+[sketch_2026_09_20](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_20) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2026_09_19
 
 ![sketch_2026_09_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_19/sketch_2026_09_19.gif)
