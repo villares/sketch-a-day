@@ -27,6 +27,48 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_09_26
+
+![sketch_2026_09_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_26/sketch_2026_09_26.png)
+
+[sketch_2026_09_26](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_26) [[py5](https://py5coding.org/)]
+
+```
+regras = {
+    'X': '@X[-FFFL][+FFFL]FFX',
+    'Y': 'YFFX[+YFFB][-YFFB]',
+}
+axioma = 'Y'
+passo = 3
+angulo = 52
+iteracoes = 5
+```
+
+---
+
+### sketch_2026_09_25
+
+![sketch_2026_09_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_25/sketch_2026_09_25.png)
+
+[sketch_2026_09_25](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_25) [[py5](https://py5coding.org/)]
+
+#LSystem
+
+```python
+regras = {
+    'X': '[-FY][+FY]FY',
+    'Y': 'YF[+XFB][-XFB]X',
+    'F': '[-F+FL]FF'
+}
+axioma = 'Y'
+passo = 7
+angulo = 45
+iteracoes = 5
+
+```
+
+---
+
 ### sketch_2026_09_24
 
 ![sketch_2026_09_24](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_24/sketch_2026_09_24.gif)
@@ -34,6 +76,17 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 [sketch_2026_09_24](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_24) [[py5](https://py5coding.org/)]
 
 #LSystem
+
+```python
+regras = {
+    'X': 'X[-FFFL][+FFFL]FFX',
+    'Y': 'YFFX[+YFFFB][-YFFFB]',
+}
+axioma = 'Y'
+passo = 5
+angulo = 30
+iteracoes = 5
+```
 
 ---
 
