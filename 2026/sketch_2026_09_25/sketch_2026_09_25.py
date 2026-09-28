@@ -2,13 +2,16 @@ import py5
 from py5_tools import animated_gif
 
 regras = {
-    'X': '@X[-FFFL][+FFFL]FFX',
-    'Y': 'YFFX[+YFFFB][-YFFFB]',
+    'X': '[-FY][+FY]FY',
+    'Y': 'YF[+XFB][-XFB]X',
+    'F': '[-F+FL]FF'
 }
 axioma = 'Y'
-passo = 5
-angulo = 30
+passo = 7
+angulo = 45
 iteracoes = 5
+
+flag = True
 
 def setup():
     global frase
@@ -30,10 +33,10 @@ def draw():
     py5.translate(300, 590)
     #circle(0, 0, 20)
     for i, simbolo in enumerate(frase):
-        if i < py5.frame_count * 30:
-            flag = True
-        else:
-            flag = False
+#         if i < py5.frame_count * 30:
+#             flag = True
+#         else:
+#             flag = False
         if simbolo == 'F':
             if flag:
                 py5.line(0, 0, 0, -passo)
@@ -50,16 +53,15 @@ def draw():
             if flag:
                 py5.no_stroke()
                 py5.fill(0, 100, 0)
-                py5.circle(0, 0, passo)
+                py5.circle(0, 0, passo * 0.6)
                 py5.stroke(0)
         elif simbolo == 'B':  # flor/blossom
             if flag:
                 py5.no_stroke()
                 py5.fill(255, 0, 0)
-                py5.circle(0, 0, passo * 1.5)
+                py5.circle(0, 0, passo)
                 py5.stroke(0)
-        elif simbolo == '@':
-            py5.scale(0.6)
+
                 
     py5.reset_matrix()
     
