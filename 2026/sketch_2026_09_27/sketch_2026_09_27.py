@@ -63,8 +63,6 @@ def draw():
                 py5.stroke(0)
 
                 
-    py5.reset_matrix()
-    
 def key_pressed():
     py5.save_frame('out.png')
 
