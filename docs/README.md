@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_09_27
+
+![sketch_2026_09_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_27/sketch_2026_09_27.png)
+
+[sketch_2026_09_27](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_09_27) [[py5](https://py5coding.org/)]
+
+An L-System plant with rule F -> F[+F-F+FB]F[-F+F-FL], the B and L symbols make red ("Bloom") and green ("Leaf") circles.
+
+---
+
 ### sketch_2026_09_26
 
 ![sketch_2026_09_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_26/sketch_2026_09_26.png)
