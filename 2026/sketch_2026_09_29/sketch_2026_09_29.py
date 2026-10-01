@@ -16,7 +16,7 @@ def setup():
 
 def make_nodes():
     global nodes
-    nodes = np.random.randint(0, W, size=(N, 2))
+    #nodes = np.random.randint(0, W, size=(N, 2))
     grid = list(product(range(5, W-5, 10), repeat=2))
     sample = py5.random_sample(range(len(grid)), N, replace=False)
     nodes = np.array(grid)[sample]
