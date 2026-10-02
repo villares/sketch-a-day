@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_10_01
+
+![sketch_2026_10_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_10_01/sketch_2026_10_01.png)
+
+[sketch_2026_10_01](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_10_01) [[py5](https://py5coding.org/)]
+
+A TSP+GA toy experiment we built at Sesc!
+
+---
+
 ### sketch_2026_09_30
 
 ![sketch_2026_09_30](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_09_30/sketch_2026_09_30.png)
