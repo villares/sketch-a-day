@@ -14,6 +14,7 @@ def setup():
         np.arange(0, py5.height, 1) * noise_scale,
     )
 
+
 def draw():
     py5.background(0)
     pixels_array = py5.get_np_pixels()
@@ -23,15 +24,14 @@ def draw():
     noise_for_R = py5.os_noise(mesh_x, mesh_y, delta * 1, t)
     pixels_array[:, :, 1] = py5.remap(noise_for_R, -1, 1, 0, 255)
 
-    noise_for_G = py5.os_noise(mesh_x, mesh_y,
-                               delta * 2, t)
+    noise_for_G = py5.os_noise(mesh_x, mesh_y, delta * 2, t)
     pixels_array[:, :, 2] = py5.remap(noise_for_G, -1, 1, 0, 255)
 
-    noise_for_B = py5.os_noise(mesh_x, mesh_y,
-                               delta * 3, t)
+    noise_for_B = py5.os_noise(mesh_x, mesh_y, delta * 3, t)
     pixels_array[:, :, 3] = py5.remap(noise_for_B, -1, 1, 0, 255)
 
     py5.set_np_pixels(pixels_array)
+
 
 def key_pressed():
     py5.save_frame("####.png")
