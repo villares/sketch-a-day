@@ -27,6 +27,36 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_10_28
+
+![sketch_2026_10_28](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_10_28/sketch_2026_10_28.png)
+
+[sketch_2026_10_28](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_10_28) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2026_10_27
+
+![sketch_2026_10_27](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_10_27/sketch_2026_10_27.gif)
+
+[sketch_2026_10_27](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_10_27) [[py5](https://py5coding.org/)]
+
+
+
+---
+
+### sketch_2026_10_26
+
+![sketch_2026_10_26](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_10_26/sketch_2026_10_26.png)
+
+[sketch_2026_10_26](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_10_26) [[py5](https://py5coding.org/)]
+
+a broken sketch, an interrupted idea that didn't work
+
+---
+
 ### sketch_2026_10_25
 
 ![sketch_2026_10_25](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_10_25/sketch_2026_10_25.gif)

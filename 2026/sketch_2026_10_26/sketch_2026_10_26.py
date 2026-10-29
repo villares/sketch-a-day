@@ -1,3 +1,5 @@
+# broken
+
 from itertools import product
 
 import py5
@@ -41,7 +43,7 @@ def seg_len(seg):
     return py5.dist(*a, *b)
 
 def move():
-    pairs.sort(key=seg_len, reverse=True)
+    #pairs.sort(key=seg_len, reverse=True)
     pairs_idx = range(len(pairs))
     next_pairs = pairs.copy()
     if py5.frame_count % 2 == 0:
@@ -67,7 +69,7 @@ def draw():
     py5.background('k')
     #py5.image(buffer, 0, 0)
     py5.stroke_weight(5)
-    t = py5.mouse_x
+    t = py5.mouse_x / py5.width
     l_pairs = py5.lerp(pairs, next_pairs, t)
     for a, b in l_pairs:
         d = py5.dist(*a, *b)
@@ -76,9 +78,9 @@ def draw():
     py5.stroke_weight(5)    
     py5.stroke('w')
     py5.points(grid)
-    if t == 1:
-        move()
-        t = 0
+    #if t == 1:
+    move()
+    #sss    t = 0
 
 
 def key_pressed():
