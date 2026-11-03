@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_11_02
+
+![sketch_2026_11_02](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_02/sketch_2026_11_02.png)
+
+[sketch_2026_11_02](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_02) [[py5](https://py5coding.org/)]
+
+Experimenting with some "kaleidoscope" code shown by João Antonio (introscopia)!
+
+---
+
 ### sketch_2026_11_01
 
 ![sketch_2026_11_01](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_01/sketch_2026_11_01.png)
