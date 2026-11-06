@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_11_05
+
+![sketch_2026_11_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_05/sketch_2026_11_05.gif)
+
+[sketch_2026_11_05](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_05) [[py5](https://py5coding.org/)]
+
+Still the @introscopia@coletivos.org kaleidoscopic transform! Now with #numpy for speed :)
+
+---
+
 ### sketch_2026_11_04
 
 ![sketch_2026_11_04](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_04/sketch_2026_11_04.png)
