@@ -27,6 +27,16 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_11_06
+
+![sketch_2026_11_06](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_06/sketch_2026_11_06.png)
+
+[sketch_2026_11_06](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_06) [[py5](https://py5coding.org/)]
+
+A 3D #LSystem example made during class.
+
+---
+
 ### sketch_2026_11_05
 
 ![sketch_2026_11_05](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_05/sketch_2026_11_05.gif)
