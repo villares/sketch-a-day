@@ -1,5 +1,5 @@
 """
-by Alexandre B A Villares <hhtp://abav.lugaralgum.com>
+by Alexandre B A Villares <http://abav.lugaralgum.com>
 
 This code is CC0 (Public Domain dedication)
 
