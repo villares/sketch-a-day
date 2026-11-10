@@ -29,7 +29,7 @@ def draw():
     py5.background(0)
     #py5.image(img, 0, 0)
     py5.translate(400, 375)
-    py5.rotate_y(py5.radians(20)) 
+    py5.rotate_y(py5.radians(py5.mouse_x)) 
     py5.shape(shp, -300, -300) 
 
 def key_pressed():
