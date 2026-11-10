@@ -1,7 +1,13 @@
 """
-This is an "module mode" py5 sketch
+by Alexandre B A Villares <https://abav.lugaralgum.com>
+
+This code is CC0 (Public Domain dedication)
+
+This is a "module mode" py5 sketch, it also
+depends on  shapely and trimesh libraries.
 Learn more at <https://py5coding.org>
 
+The Ada Lovelace image I used was this one:
 https://upload.wikimedia.org/wikipedia/commons/d/dd/Adalovelace.jpg
 """
 
