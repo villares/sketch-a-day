@@ -2,6 +2,7 @@
 This is an "module mode" py5 sketch
 Learn more at <https://py5coding.org>
 
+Ada's portrait:
 https://upload.wikimedia.org/wikipedia/commons/d/dd/Adalovelace.jpg
 """
 
