@@ -19,12 +19,12 @@ def setup():
     section = shapely.Point(0, 0).buffer(4, quad_segs=2)
     struts = []
     for a, b in edges:
-        edge_len = np.linalg.norm(b - a)
+        edge_len = py5.dist(*a, *b) #n p.linalg.norm(b - a)
         prism = trimesh.creation.extrude_polygon(section, edge_len)
         align_mesh_to_seg(prism, a, b)
         struts.append(prism)
-    #mesh = trimesh.util.concatenate(struts)
-    mesh = trimesh.boolean.union(struts, engine="manifold")
+    mesh = trimesh.util.concatenate(struts)
+    #mesh = trimesh.boolean.union(struts, engine="manifold")
     shp = py5.convert_cached_shape(mesh)
     animated_gif('out.gif', frame_numbers=range(1, 181, 4), duration=0.1)
         
