@@ -63,6 +63,7 @@ I really enjoied doing this short script today at Sesc :)  #OpenSimplexNoise #lo
 
 [sketch_2026_11_16](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_16) [[py5](https://py5coding.org/)]
 
+[animated gif](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_16/sketch_2026_11_16.gif) 
 
 
 ---
@@ -73,7 +74,8 @@ I really enjoied doing this short script today at Sesc :)  #OpenSimplexNoise #lo
 
 [sketch_2026_11_15](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_15) [[py5](https://py5coding.org/)]
 
-#trimesh icoshpere
+[animated gif](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_16/sketch_2026_11_15.gif) 
+ #trimesh icoshpere
 
 ---
 
