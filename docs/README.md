@@ -27,6 +27,26 @@ You can follow me on Mastodon [@villares@ciberlandia.pt](https://ciberlandia.pt/
 
 ---
 
+### sketch_2026_11_19
+
+![sketch_2026_11_19](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_19/sketch_2026_11_19.gif)
+
+[sketch_2026_11_19](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_19) [[py5](https://py5coding.org/)]
+
+I really enjoied doing this short script today at Sesc :)  #OpenSimplexNoise #loop #gif
+
+---
+
+### sketch_2026_11_18
+
+![sketch_2026_11_18](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_18/sketch_2026_11_18.png)
+
+[sketch_2026_11_18](https://github.com/villares/sketch-a-day/tree/main/2026/sketch_2026_11_18) [[py5](https://py5coding.org/)]
+
+
+
+---
+
 ### sketch_2026_11_17
 
 ![sketch_2026_11_17](https://raw.githubusercontent.com/villares/sketch-a-day/main/2026/sketch_2026_11_17/sketch_2026_11_17.png)
