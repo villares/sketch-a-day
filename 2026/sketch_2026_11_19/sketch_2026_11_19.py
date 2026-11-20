@@ -18,7 +18,7 @@ def setup():
 def draw():
     #py5.background(0) # replaced by the translucent fade that enables trails
     py5.fill(0, 32)
-    #py5.rect(0, 0, py5.width, py5.height)
+    py5.rect(0, 0, py5.width, py5.height)
     # making a closed path to walk on noise space
     ang = py5.radians(py5.frame_count)
     x = R + py5.cos(ang) * R
