@@ -16,7 +16,7 @@ def setup():
     hues = np.tile(np.arange(8) * 32, 360)
     cs = [py5.color(h, 255, 255) for h in hues]
     animated_gif('out.gif',
-                 frame_numbers=range(1 + 90, 361 + 90, 2), duration=1/20)
+                 frame_numbers=range(1 + 90, 361 + 90, 3), duration=0.13)
     angles = np.radians(np.arange(360)) 
     indices = np.arange(8)
 #     global angle_grid, index_grid 
@@ -49,8 +49,7 @@ def draw():
             py5.stroke(i * 32, 255, 255)
             py5.point(x, y)
 
-#     # this ended up slow...
-#
+#     # this ended up slow… I have to look again at the Python Brasil 2026 examples!
 #     nsx = R + np.cos(angle_grid) * R     
 #     nsy = R + np.sin(angle_grid) * R
 #     x = W + W * py5.os_noise(
